@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49578B6E1355177900F8EC0B /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B651355177900F8EC0B /* NSObject+SBJSON.m */; };
+		49578B6F1355177900F8EC0B /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B671355177900F8EC0B /* NSString+SBJSON.m */; };
+		49578B701355177900F8EC0B /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B691355177900F8EC0B /* SBJsonBase.m */; };
+		49578B711355177900F8EC0B /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B6B1355177900F8EC0B /* SBJsonParser.m */; };
+		49578B721355177900F8EC0B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B6D1355177900F8EC0B /* SBJsonWriter.m */; };
 		49BA68231354DBA40040DDB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68221354DBA40040DDB5 /* UIKit.framework */; };
 		49BA68251354DBA40040DDB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68241354DBA40040DDB5 /* Foundation.framework */; };
 		49BA68271354DBA40040DDB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68261354DBA40040DDB5 /* CoreGraphics.framework */; };
@@ -35,6 +40,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		49578B631355177900F8EC0B /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		49578B641355177900F8EC0B /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		49578B651355177900F8EC0B /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		49578B661355177900F8EC0B /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		49578B671355177900F8EC0B /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		49578B681355177900F8EC0B /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		49578B691355177900F8EC0B /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		49578B6A1355177900F8EC0B /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		49578B6B1355177900F8EC0B /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		49578B6C1355177900F8EC0B /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		49578B6D1355177900F8EC0B /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		49BA681E1354DBA30040DDB5 /* iRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA68221354DBA40040DDB5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BA68241354DBA40040DDB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -81,6 +97,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49578B5F135516AB00F8EC0B /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				49578B61135516C600F8EC0B /* JSON */,
+			);
+			name = ThirdParty;
+			sourceTree = "<group>";
+		};
+		49578B61135516C600F8EC0B /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				49578B621355172400F8EC0B /* 2.3.2 */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		49578B621355172400F8EC0B /* 2.3.2 */ = {
+			isa = PBXGroup;
+			children = (
+				49578B631355177900F8EC0B /* JSON.h */,
+				49578B641355177900F8EC0B /* NSObject+SBJSON.h */,
+				49578B651355177900F8EC0B /* NSObject+SBJSON.m */,
+				49578B661355177900F8EC0B /* NSString+SBJSON.h */,
+				49578B671355177900F8EC0B /* NSString+SBJSON.m */,
+				49578B681355177900F8EC0B /* SBJsonBase.h */,
+				49578B691355177900F8EC0B /* SBJsonBase.m */,
+				49578B6A1355177900F8EC0B /* SBJsonParser.h */,
+				49578B6B1355177900F8EC0B /* SBJsonParser.m */,
+				49578B6C1355177900F8EC0B /* SBJsonWriter.h */,
+				49578B6D1355177900F8EC0B /* SBJsonWriter.m */,
+			);
+			name = 2.3.2;
+			sourceTree = "<group>";
+		};
 		49BA68131354DBA20040DDB5 = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +163,7 @@
 		49BA68281354DBA40040DDB5 /* iRestaurant */ = {
 			isa = PBXGroup;
 			children = (
+				49578B5F135516AB00F8EC0B /* ThirdParty */,
 				49BA68311354DBA40040DDB5 /* iRestaurantAppDelegate.h */,
 				49BA68321354DBA40040DDB5 /* iRestaurantAppDelegate.m */,
 				49BA68341354DBA40040DDB5 /* MainWindow.xib */,
@@ -266,6 +317,11 @@
 				49BA68301354DBA40040DDB5 /* main.m in Sources */,
 				49BA68331354DBA40040DDB5 /* iRestaurantAppDelegate.m in Sources */,
 				49BA68391354DBA40040DDB5 /* iRestaurantViewController.m in Sources */,
+				49578B6E1355177900F8EC0B /* NSObject+SBJSON.m in Sources */,
+				49578B6F1355177900F8EC0B /* NSString+SBJSON.m in Sources */,
+				49578B701355177900F8EC0B /* SBJsonBase.m in Sources */,
+				49578B711355177900F8EC0B /* SBJsonParser.m in Sources */,
+				49578B721355177900F8EC0B /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +502,7 @@
 				49BA68571354DBA50040DDB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		49BA68581354DBA50040DDB5 /* Build configuration list for PBXNativeTarget "iRestaurantTests" */ = {
 			isa = XCConfigurationList;
@@ -454,6 +511,7 @@
 				49BA685A1354DBA50040DDB5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
