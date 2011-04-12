@@ -39,20 +39,20 @@
 		49BA68221354DBA40040DDB5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BA68241354DBA40040DDB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		49BA68261354DBA40040DDB5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		49BA682A1354DBA40040DDB5 /* iRestaurant-Info.plist */ = {isa = PBXFileReference; path = "iRestaurant-Info.plist"; sourceTree = "<group>"; };
+		49BA682A1354DBA40040DDB5 /* iRestaurant-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRestaurant-Info.plist"; sourceTree = "<group>"; };
 		49BA682C1354DBA40040DDB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		49BA682E1354DBA40040DDB5 /* iRestaurant-Prefix.pch */ = {isa = PBXFileReference; path = "iRestaurant-Prefix.pch"; sourceTree = "<group>"; };
+		49BA682E1354DBA40040DDB5 /* iRestaurant-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRestaurant-Prefix.pch"; sourceTree = "<group>"; };
 		49BA682F1354DBA40040DDB5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		49BA68311354DBA40040DDB5 /* iRestaurantAppDelegate.h */ = {isa = PBXFileReference; path = iRestaurantAppDelegate.h; sourceTree = "<group>"; };
+		49BA68311354DBA40040DDB5 /* iRestaurantAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRestaurantAppDelegate.h; sourceTree = "<group>"; };
 		49BA68321354DBA40040DDB5 /* iRestaurantAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRestaurantAppDelegate.m; sourceTree = "<group>"; };
 		49BA68351354DBA40040DDB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		49BA68371354DBA40040DDB5 /* iRestaurantViewController.h */ = {isa = PBXFileReference; path = iRestaurantViewController.h; sourceTree = "<group>"; };
+		49BA68371354DBA40040DDB5 /* iRestaurantViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRestaurantViewController.h; sourceTree = "<group>"; };
 		49BA68381354DBA40040DDB5 /* iRestaurantViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRestaurantViewController.m; sourceTree = "<group>"; };
 		49BA683B1354DBA40040DDB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/iRestaurantViewController.xib; sourceTree = "<group>"; };
 		49BA68421354DBA50040DDB5 /* iRestaurantTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRestaurantTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		49BA684A1354DBA50040DDB5 /* iRestaurantTests-Info.plist */ = {isa = PBXFileReference; path = "iRestaurantTests-Info.plist"; sourceTree = "<group>"; };
+		49BA684A1354DBA50040DDB5 /* iRestaurantTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRestaurantTests-Info.plist"; sourceTree = "<group>"; };
 		49BA684C1354DBA50040DDB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		49BA684E1354DBA50040DDB5 /* iRestaurantTests-Prefix.pch */ = {isa = PBXFileReference; path = "iRestaurantTests-Prefix.pch"; sourceTree = "<group>"; };
+		49BA684E1354DBA50040DDB5 /* iRestaurantTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRestaurantTests-Prefix.pch"; sourceTree = "<group>"; };
 		49BA684F1354DBA50040DDB5 /* iRestaurantTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRestaurantTests.h; sourceTree = "<group>"; };
 		49BA68511354DBA50040DDB5 /* iRestaurantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRestaurantTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
