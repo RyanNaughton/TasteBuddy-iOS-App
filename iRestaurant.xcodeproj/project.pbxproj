@@ -131,6 +131,20 @@
 			name = 2.3.2;
 			sourceTree = "<group>";
 		};
+		49578B731355183500F8EC0B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		49578B741355184500F8EC0B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
 		49BA68131354DBA20040DDB5 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +177,8 @@
 		49BA68281354DBA40040DDB5 /* iRestaurant */ = {
 			isa = PBXGroup;
 			children = (
+				49578B741355184500F8EC0B /* Controllers */,
+				49578B731355183500F8EC0B /* Views */,
 				49578B5F135516AB00F8EC0B /* ThirdParty */,
 				49BA68311354DBA40040DDB5 /* iRestaurantAppDelegate.h */,
 				49BA68321354DBA40040DDB5 /* iRestaurantAppDelegate.m */,
