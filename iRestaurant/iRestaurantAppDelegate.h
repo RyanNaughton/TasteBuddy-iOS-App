@@ -11,11 +11,12 @@
 @class iRestaurantViewController;
 
 @interface iRestaurantAppDelegate : NSObject <UIApplicationDelegate> {
-
+    IBOutlet UITabBarController *tabBarController;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
-@property (nonatomic, retain) IBOutlet iRestaurantViewController *viewController;
+@property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+
 
 @end
