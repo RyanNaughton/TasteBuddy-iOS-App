@@ -54,4 +54,20 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(IBAction) switchSearchView:(id *) sender
+{
+    switch (((UISegmentedControl *)sender).selectedSegmentIndex) {
+        case 0:
+            NSLog(@"Restaurant.");
+            break;
+        case 1:
+            NSLog(@"Dishes");
+            break;
+        case 2:
+            NSLog(@"Map");
+            break;
+        default:
+            break;
+    }   
+}
 @end
