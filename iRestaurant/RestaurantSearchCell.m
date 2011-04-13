@@ -28,11 +28,12 @@
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         UIImageView *imageView = [[UIImageView alloc]init];
-        NSURL *aURL = [NSURL URLWithString:@"http://28.media.tumblr.com/avatar_e5c00ebe5a54_64.png"];
+        NSURL *aURL = [NSURL URLWithString:@"http://www.bokachicago.com/images/tour/1.jpg"];
         NSData *data = [[NSData alloc] initWithContentsOfURL:aURL];
         imageView.image = [UIImage imageWithData:data];
         [data release];
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        imageView.contentMode = UIViewContentModeScaleAspectFill;
+        imageView.clipsToBounds = YES;
         imageView.frame = CGRectMake(7, 7, 80, 80);
         [self.contentView addSubview:imageView];
         [imageView release];
