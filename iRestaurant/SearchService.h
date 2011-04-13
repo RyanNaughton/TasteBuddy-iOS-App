@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class Restaurant;
+@class ASIFormDataRequest;
 
 @protocol SearchServiceDelegate <NSObject>
 -(void)searchFinished:(NSMutableArray *)restaurantsArray;
@@ -17,11 +18,13 @@
 @interface SearchService : NSObject {
     CGPoint location;
     id <SearchServiceDelegate> delegate;
+    ASIFormDataRequest *request;
     
 }
 
 @property (nonatomic,assign) CGPoint location;
 @property (nonatomic, retain) id <SearchServiceDelegate> delegate;
+@property (nonatomic, retain) ASIFormDataRequest *request;
 
 //CLLocationCoordinate2D
 

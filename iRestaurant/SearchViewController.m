@@ -10,12 +10,13 @@
 #import "SearchService.h"
 #import "RestaurantSearchResultTableViewController.h"
 #import "DishSearchResultTableViewController.h"
+#import "ASIFormDataRequest.h"
 
 @implementation SearchViewController
 
 @synthesize searchService;
 @synthesize restaurantSearchResultTableViewController, dishSearchResultTableViewController;
-@synthesize tableView;
+@synthesize tableView, searchBar;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,11 +48,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view from its nib.    
     CGPoint point = CGPointMake(1.2345, 1.2345);
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
-    [searchService searchByTerm:@"an"];
-    
 }
 
 - (void)viewDidUnload
@@ -65,6 +64,15 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText 
+{
+    NSLog(@"text entered: %@", searchText);
+    if ([searchText length] > 1) {
+        //[searchService.request clearDelegatesAndCancel];
+        [searchService searchByTerm:searchText];
+    }
 }
 
 -(IBAction) switchSearchView:(id *) sender

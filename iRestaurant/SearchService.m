@@ -12,7 +12,7 @@
 #import "JSON.h"
 
 @implementation SearchService
-@synthesize location, delegate;
+@synthesize location, delegate, request;
 
 -(id) init
 
@@ -28,20 +28,22 @@
 {
     self = [super init];
     if (self) {
+        NSLog(@"init with location");
         location = current_location;
         delegate = searchServiceDelegate;
-    }
+        
+           }
     return self;
 }
 
 -(void)dealloc {
     [delegate release];
+    [request release];
     [super dealloc];
 }
 
 -(void)searchByTerm:(NSString *)term andNear:(NSString *)nearString
 {
-    NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/search.json"];
     
     double latitude = 41.884432;
     double longitude = -87.643464;
@@ -50,8 +52,8 @@
                       term, nearString, latitude, longitude];
     
     NSLog(@"json: %@", json);
-    
-    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/search.json"];
+    request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];

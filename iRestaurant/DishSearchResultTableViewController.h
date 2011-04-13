@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class SearchViewController;
 
 @interface DishSearchResultTableViewController : UITableViewController {
     NSMutableArray *restaurantsArray;
+    IBOutlet SearchViewController *searchViewController;
 }
 
 @property (nonatomic, retain) NSMutableArray *restaurantsArray;

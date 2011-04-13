@@ -12,17 +12,19 @@
 @class RestaurantSearchResultTableViewController;
 @class DishSearchResultTableViewController;
 
-@interface SearchViewController : UIViewController <SearchServiceDelegate> {
+@interface SearchViewController : UIViewController <SearchServiceDelegate, UISearchBarDelegate, UIScrollViewDelegate> {
     SearchService *searchService;
     IBOutlet RestaurantSearchResultTableViewController *restaurantSearchResultTableViewController;
     IBOutlet DishSearchResultTableViewController *dishSearchResultTableViewController;
     IBOutlet UITableView *tableView;
+    IBOutlet UISearchBar *searchBar;
 }
 
 @property (nonatomic, retain) SearchService *searchService;
 @property (nonatomic, retain) IBOutlet RestaurantSearchResultTableViewController *restaurantSearchResultTableViewController;
 @property (nonatomic, retain) IBOutlet DishSearchResultTableViewController *dishSearchResultTableViewController;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
 
 -(IBAction) switchSearchView:(id *) sender;
 

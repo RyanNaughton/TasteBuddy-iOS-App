@@ -9,6 +9,7 @@
 #import "RestaurantSearchResultTableViewController.h"
 #import "Restaurant.h"
 #import "RestaurantSearchCell.h"
+#import "SearchViewController.h"
 
 @implementation RestaurantSearchResultTableViewController
 
@@ -27,6 +28,12 @@
 {
     [restaurantsArray release];
     [super dealloc];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([searchViewController.searchBar isFirstResponder]) {
+        [searchViewController.searchBar resignFirstResponder];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,6 +63,8 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
 }
+
+
 
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -94,36 +103,54 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [restaurantsArray count];
+    int rows;
+    if ([restaurantsArray count] > 0) {
+        rows = [restaurantsArray count];
+    } else {
+        rows = 1;
+    }
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
-    RestaurantSearchCell *restaurantSearchCell = (RestaurantSearchCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantSearchCell"];
-    if (restaurantSearchCell == nil) {
-        restaurantSearchCell = [[[RestaurantSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantSearchCell" andRestaurant:[restaurantsArray objectAtIndex:indexPath.row]] autorelease];
-    }               
-
-return restaurantSearchCell;
     
-    
-//    static NSString *CellIdentifier = @"Cell";
-//    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-//    if (cell == nil) {
-//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-//    }
-//    
-//    // Configure the cell...
-//    cell.textLabel.text = ((Restaurant *)[restaurantsArray objectAtIndex:indexPath.row]).name;
-//    
-//    return cell;
+	if ([restaurantsArray count] > 0) {
+        
+		RestaurantSearchCell *restaurantSearchCell = (RestaurantSearchCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantSearchCell"];
+		if (restaurantSearchCell == nil) {
+		    restaurantSearchCell = [[[RestaurantSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantSearchCell" andRestaurant:[restaurantsArray objectAtIndex:indexPath.row]] autorelease];
+		}               
+		
+		return restaurantSearchCell;
+		
+	} else {
+		
+		static NSString *CellIdentifier = @"Placeholder Cell";
+		
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+		    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		}
+		
+		// Configure the cell...
+		cell.textLabel.text = @"No Results";
+        cell.textLabel.textColor = [UIColor darkGrayColor];
+		
+		return cell;
+        
+	}
 
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
-	return 94;
+    int height;
+    if ([restaurantsArray count] > 0) {
+        height = 94;
+    } else {
+        height = 44;
+    }
+    return height;
 }
 
 /*

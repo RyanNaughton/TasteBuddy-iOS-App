@@ -9,6 +9,7 @@
 #import "DishSearchResultTableViewController.h"
 #import "Restaurant.h"
 #import "MenuItem.h"
+#import "SearchViewController.h"
 
 @implementation DishSearchResultTableViewController
 
@@ -42,6 +43,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    restaurantsArray = [[NSMutableArray alloc] init];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -55,6 +57,12 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    if ([searchViewController.searchBar isFirstResponder]) {
+        [searchViewController.searchBar resignFirstResponder];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated

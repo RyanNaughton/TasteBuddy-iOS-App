@@ -28,10 +28,7 @@
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         UIImageView *imageView = [[UIImageView alloc]init];
-        NSURL *aURL = [NSURL URLWithString:@"http://www.bokachicago.com/images/tour/1.jpg"];
-        NSData *data = [[NSData alloc] initWithContentsOfURL:aURL];
-        imageView.image = [UIImage imageWithData:data];
-        [data release];
+        imageView.image = [UIImage imageNamed:@"restaurant-icon.gif"];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         imageView.frame = CGRectMake(7, 7, 80, 80);
