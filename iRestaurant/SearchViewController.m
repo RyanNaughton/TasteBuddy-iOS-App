@@ -9,11 +9,13 @@
 #import "SearchViewController.h"
 #import "SearchService.h"
 #import "RestaurantSearchResultTableViewController.h"
+#import "DishSearchResultTableViewController.h"
 
 @implementation SearchViewController
 
 @synthesize searchService;
-@synthesize restaurantSearchResultTableViewController;
+@synthesize restaurantSearchResultTableViewController, dishSearchResultTableViewController;
+@synthesize tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,6 +30,7 @@
 {
     [searchService release];
     [restaurantSearchResultTableViewController release];
+    [tableView release];
     [super dealloc];
 }
 
@@ -69,12 +72,21 @@
     switch (((UISegmentedControl *)sender).selectedSegmentIndex) {
         case 0:
             NSLog(@"Restaurant.");
+            tableView.delegate = restaurantSearchResultTableViewController;
+            tableView.dataSource = restaurantSearchResultTableViewController;
+            [tableView reloadData];
+            tableView.hidden = false;
             break;
         case 1:
             NSLog(@"Dishes");
+            tableView.delegate = dishSearchResultTableViewController;
+            tableView.dataSource = dishSearchResultTableViewController;
+            [tableView reloadData];
+            tableView.hidden = false;
             break;
         case 2:
             NSLog(@"Map");
+            tableView.hidden = true;
             break;
         default:
             break;
@@ -84,7 +96,8 @@
 -(void)searchFinished:(NSMutableArray *)restaurantsArray 
 {
     restaurantSearchResultTableViewController.restaurantsArray = restaurantsArray;
-    [restaurantSearchResultTableViewController.tableView reloadData];
+    dishSearchResultTableViewController.restaurantsArray = restaurantsArray;
+    [tableView reloadData];
 }
 
 
