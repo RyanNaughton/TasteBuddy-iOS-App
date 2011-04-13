@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchService.h"
 
-
-@interface SearchViewController : UIViewController {
-    
+@interface SearchViewController : UIViewController <SearchServiceDelegate> {
+    SearchService *searchService;
 }
+
+@property (nonatomic, retain) SearchService *searchService;
 
 -(IBAction) switchSearchView:(id *) sender;
 
