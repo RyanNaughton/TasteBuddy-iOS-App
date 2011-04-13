@@ -57,35 +57,35 @@
     if (self) {
        // custom init
         
-        _id               = [restaurantDictionary objectForKey:@"id"];
-        name              = [restaurantDictionary objectForKey:@"name"];
-        average_rating    = [restaurantDictionary objectForKey:@"average_rating"];
-        address_1         = [restaurantDictionary objectForKey:@"address_1"];
-        address_2         = [restaurantDictionary objectForKey:@"address_2"];
-        city_town         = [restaurantDictionary objectForKey:@"city_town"];
-        state_province    = [restaurantDictionary objectForKey:@"state_province"];
-        country           = [restaurantDictionary objectForKey:@"country"];
-        postal_code       = [restaurantDictionary objectForKey:@"postal_code"];
-        neighborhood      = [restaurantDictionary objectForKey:@"neighborhood"];
-        location          = [restaurantDictionary objectForKey:@"location"];
-        website_url       = [restaurantDictionary objectForKey:@"website_url"];
-        menu              = [restaurantDictionary objectForKey:@"menu"];
-        alcohol_type      = [restaurantDictionary objectForKey:@"alcohol_type"];
-        credit_cards      = [restaurantDictionary objectForKey:@"credit_cards"];
-        cuisine_types     = [restaurantDictionary objectForKey:@"cuisine_types"];
-        delivery          = [restaurantDictionary objectForKey:@"delivery"];
-        dress_code        = [restaurantDictionary objectForKey:@"dress_code"];
-        group_friendly    = [restaurantDictionary objectForKey:@"group_friendly"];
-        kid_friendly      = [restaurantDictionary objectForKey:@"kid_friendly"];
-        nearest_transit   = [restaurantDictionary objectForKey:@"nearest_transit"];
-        outdoor_seating   = [restaurantDictionary objectForKey:@"outdoor_seating"];
-        parking           = [restaurantDictionary objectForKey:@"parking"];
-        phone             = [restaurantDictionary objectForKey:@"phone"];
-        reservations      = [restaurantDictionary objectForKey:@"reservations"];
-        takeout           = [restaurantDictionary objectForKey:@"takeout"];
-        wheelchair_access = [restaurantDictionary objectForKey:@"wheelchair_access"];
-        photo_urls        = [restaurantDictionary objectForKey:@"photo_urls"];
-        comments          = [restaurantDictionary objectForKey:@"comments"];
+        _id               = [[restaurantDictionary objectForKey:@"id"] retain];
+        name              = [[restaurantDictionary objectForKey:@"name"] retain];
+        average_rating    = [[restaurantDictionary objectForKey:@"average_rating"] retain];
+        address_1         = [[restaurantDictionary objectForKey:@"address_1"] retain];
+        address_2         = [[restaurantDictionary objectForKey:@"address_2"] retain];
+        city_town         = [[restaurantDictionary objectForKey:@"city_town"] retain];
+        state_province    = [[restaurantDictionary objectForKey:@"state_province"] retain];
+        country           = [[restaurantDictionary objectForKey:@"country"] retain];
+        postal_code       = [[restaurantDictionary objectForKey:@"postal_code"] retain];
+        neighborhood      = [[restaurantDictionary objectForKey:@"neighborhood"] retain];
+        location          = [[restaurantDictionary objectForKey:@"location"] retain];
+        website_url       = [[restaurantDictionary objectForKey:@"website_url"] retain];
+        menu              = [[restaurantDictionary objectForKey:@"menu"] retain];
+        alcohol_type      = [[restaurantDictionary objectForKey:@"alcohol_type"] retain];
+        credit_cards      = [[restaurantDictionary objectForKey:@"credit_cards"] retain];
+        cuisine_types     = [[restaurantDictionary objectForKey:@"cuisine_types"] retain];
+        delivery          = [[restaurantDictionary objectForKey:@"delivery"] retain];
+        dress_code        = [[restaurantDictionary objectForKey:@"dress_code"] retain];
+        group_friendly    = [[restaurantDictionary objectForKey:@"group_friendly"] retain];
+        kid_friendly      = [[restaurantDictionary objectForKey:@"kid_friendly"] retain];
+        nearest_transit   = [[restaurantDictionary objectForKey:@"nearest_transit"] retain];
+        outdoor_seating   = [[restaurantDictionary objectForKey:@"outdoor_seating"] retain];
+        parking           = [[restaurantDictionary objectForKey:@"parking"] retain];
+        phone             = [[restaurantDictionary objectForKey:@"phone"] retain];
+        reservations      = [[restaurantDictionary objectForKey:@"reservations"] retain];
+        takeout           = [[restaurantDictionary objectForKey:@"takeout"] retain];
+        wheelchair_access = [[restaurantDictionary objectForKey:@"wheelchair_access"] retain];
+        photo_urls        = [[restaurantDictionary objectForKey:@"photo_urls"] retain];
+        comments          = [[restaurantDictionary objectForKey:@"comments"] retain];
         
         menu_items        = [[NSMutableArray alloc] init];
         for(NSDictionary *dict in [restaurantDictionary objectForKey:@"menu_items"])

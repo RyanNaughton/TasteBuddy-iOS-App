@@ -14,6 +14,7 @@
 		49578B721355177900F8EC0B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B6D1355177900F8EC0B /* SBJsonWriter.m */; };
 		49578B7F13551D7200F8EC0B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B7D13551D7200F8EC0B /* SearchViewController.m */; };
 		49578B8013551D7200F8EC0B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49578B7E13551D7200F8EC0B /* SearchViewController.xib */; };
+		49578BCD1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BCB1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m */; };
 		49BA68231354DBA40040DDB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68221354DBA40040DDB5 /* UIKit.framework */; };
 		49BA68251354DBA40040DDB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68241354DBA40040DDB5 /* Foundation.framework */; };
 		49BA68271354DBA40040DDB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68261354DBA40040DDB5 /* CoreGraphics.framework */; };
@@ -76,6 +77,8 @@
 		49578B7C13551D7200F8EC0B /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		49578B7D13551D7200F8EC0B /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		49578B7E13551D7200F8EC0B /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		49578BCA1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantSearchResultTableViewController.h; sourceTree = "<group>"; };
+		49578BCB1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantSearchResultTableViewController.m; sourceTree = "<group>"; };
 		49BA681E1354DBA30040DDB5 /* iRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA68221354DBA40040DDB5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BA68241354DBA40040DDB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -231,6 +234,8 @@
 			children = (
 				49578B7C13551D7200F8EC0B /* SearchViewController.h */,
 				49578B7D13551D7200F8EC0B /* SearchViewController.m */,
+				49578BCA1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.h */,
+				49578BCB1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -520,6 +525,7 @@
 				E8A6E8161355465A0095E157 /* ASINetworkQueue.m in Sources */,
 				E8A6E8171355465A0095E157 /* ASIWebPageRequest.m in Sources */,
 				E8A6E81A1355466D0095E157 /* Reachability.m in Sources */,
+				49578BCD1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

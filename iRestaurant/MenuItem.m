@@ -31,13 +31,13 @@
     self = [super init];
     if (self) {
         // custom init
-        _id             = [menuItemDictionary objectForKey:@"_id"];
-        name            = [menuItemDictionary objectForKey:@"name"];
-        average_rating  = [menuItemDictionary objectForKey:@"average_rating"];
-        tags            = [menuItemDictionary objectForKey:@"tags"];
-        photo_urls      = [menuItemDictionary objectForKey:@"photo_urls"];
-        comments        = [menuItemDictionary objectForKey:@"comments"];
-        restaurant_id   = [menuItemDictionary objectForKey:@"restaurant_id"];
+        _id             = [[menuItemDictionary objectForKey:@"_id"] retain];
+        name            = [[menuItemDictionary objectForKey:@"name"] retain];
+        average_rating  = [[menuItemDictionary objectForKey:@"average_rating"] retain];
+        tags            = [[menuItemDictionary objectForKey:@"tags"] retain];
+        photo_urls      = [[menuItemDictionary objectForKey:@"photo_urls"] retain];
+        comments        = [[menuItemDictionary objectForKey:@"comments"] retain];
+        restaurant_id   = [[menuItemDictionary objectForKey:@"restaurant_id"] retain];
     }
     return self;
 }

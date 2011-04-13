@@ -58,8 +58,8 @@
         [resultsForDelegate addObject:restaurant];
         [restaurant release];
     }
+    [resultsForDelegate autorelease];
     [delegate searchFinished:resultsForDelegate];
-
 }
 
 @end

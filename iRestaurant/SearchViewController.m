@@ -8,10 +8,12 @@
 
 #import "SearchViewController.h"
 #import "SearchService.h"
+#import "RestaurantSearchResultTableViewController.h"
 
 @implementation SearchViewController
 
 @synthesize searchService;
+@synthesize restaurantSearchResultTableViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,6 +26,8 @@
 
 - (void)dealloc
 {
+    [searchService release];
+    [restaurantSearchResultTableViewController release];
     [super dealloc];
 }
 
@@ -79,7 +83,8 @@
 
 -(void)searchFinished:(NSMutableArray *)restaurantsArray 
 {
-    NSLog(@"restaurants array: %@", restaurantsArray);
+    restaurantSearchResultTableViewController.restaurantsArray = restaurantsArray;
+    [restaurantSearchResultTableViewController.tableView reloadData];
 }
 
 
