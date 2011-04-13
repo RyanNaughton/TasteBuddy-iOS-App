@@ -8,6 +8,7 @@
 
 #import "RestaurantSearchResultTableViewController.h"
 #import "Restaurant.h"
+#import "RestaurantSearchCell.h"
 
 @implementation RestaurantSearchResultTableViewController
 
@@ -98,17 +99,31 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+
+    RestaurantSearchCell *restaurantSearchCell = (RestaurantSearchCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantSearchCell"];
+    if (restaurantSearchCell == nil) {
+        restaurantSearchCell = [[[RestaurantSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantSearchCell" andRestaurant:[restaurantsArray objectAtIndex:indexPath.row]] autorelease];
+    }               
+
+return restaurantSearchCell;
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
     
-    // Configure the cell...
-    cell.textLabel.text = ((Restaurant *)[restaurantsArray objectAtIndex:indexPath.row]).name;
-    
-    return cell;
+//    static NSString *CellIdentifier = @"Cell";
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    if (cell == nil) {
+//        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+//    }
+//    
+//    // Configure the cell...
+//    cell.textLabel.text = ((Restaurant *)[restaurantsArray objectAtIndex:indexPath.row]).name;
+//    
+//    return cell;
+
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
+	return 94;
 }
 
 /*

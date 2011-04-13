@@ -33,6 +33,7 @@
 		49BA68501354DBA50040DDB5 /* iRestaurantTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 49BA684F1354DBA50040DDB5 /* iRestaurantTests.h */; };
 		49BA68521354DBA50040DDB5 /* iRestaurantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA68511354DBA50040DDB5 /* iRestaurantTests.m */; };
 		E85EE40A13554967004B2A10 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E85EE40913554967004B2A10 /* SystemConfiguration.framework */; };
+		E85EE412135617CB004B2A10 /* RestaurantSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E85EE411135617CB004B2A10 /* RestaurantSearchCell.m */; };
 		E8A03E14135535500031D798 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E13135535500031D798 /* MenuItem.m */; };
 		E8A03E1D135539130031D798 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E1C135539130031D798 /* SearchService.m */; };
 		E8A03E49135543B90031D798 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A03E48135543B90031D798 /* MobileCoreServices.framework */; };
@@ -106,6 +107,8 @@
 		49BA684F1354DBA50040DDB5 /* iRestaurantTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRestaurantTests.h; sourceTree = "<group>"; };
 		49BA68511354DBA50040DDB5 /* iRestaurantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRestaurantTests.m; sourceTree = "<group>"; };
 		E85EE40913554967004B2A10 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E85EE410135617CB004B2A10 /* RestaurantSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantSearchCell.h; sourceTree = "<group>"; };
+		E85EE411135617CB004B2A10 /* RestaurantSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantSearchCell.m; sourceTree = "<group>"; };
 		E8A03E12135535500031D798 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		E8A03E13135535500031D798 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 		E8A03E1B135539130031D798 /* SearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchService.h; sourceTree = "<group>"; };
@@ -244,6 +247,8 @@
 				49578BCB1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m */,
 				49578BD81355F8CE00F8EC0B /* DishSearchResultTableViewController.h */,
 				49578BD91355F8CF00F8EC0B /* DishSearchResultTableViewController.m */,
+				E85EE410135617CB004B2A10 /* RestaurantSearchCell.h */,
+				E85EE411135617CB004B2A10 /* RestaurantSearchCell.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -538,6 +543,7 @@
 				49578BCD1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m in Sources */,
 				49578BDA1355F8CF00F8EC0B /* DishSearchResultTableViewController.m in Sources */,
 				49578BE51356350900F8EC0B /* RestaurantService.m in Sources */,
+				E85EE412135617CB004B2A10 /* RestaurantSearchCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
