@@ -1,2 +1,16 @@
 .DS_Store
-**/*.xcuserstate
+*.swp
+*~.nib
+
+build/
+
+*.pbxuser
+*.perspective
+*.perspectivev3
+
+xcuserdata
+
+*.mode1v3
+*.mode2v3
+
+UserInterfaceState.xcuserstate
