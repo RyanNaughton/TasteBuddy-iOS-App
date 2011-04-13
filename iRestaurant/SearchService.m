@@ -41,7 +41,21 @@
 
 -(void)searchByTerm:(NSString *)term andNear:(NSString *)nearString
 {
-    [self requestFinished:nil];
+    NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/search.json"];
+    
+    double latitude = 41.884432;
+    double longitude = -87.643464;
+    
+    NSString *json = [NSString stringWithFormat:@"{\"find\": \"%@\", \"near\": \"%@\", \"coordinates\": [%g, %g]}", 
+                      term, nearString, latitude, longitude];
+    
+    NSLog(@"json: %@", json);
+    
+    ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+    [request addRequestHeader:@"Content-Type" value:@"application/json"];
+    [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setDelegate:self];
+    [request startAsynchronous];
 }
 
 
@@ -52,9 +66,12 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request_passed 
 {
-    NSString *json = @"[{\"type\": \"restaurant\", \"name\": \"Boka\", \"phone\": \"(312) 337-6070\", \"address_1\": \"1729 N Halsted St\", \"address_2\": null, \"city_town\": \"Chicago\", \"state_province\": \"IL\", \"rating_average\": 4.1, \"tags\": [\"tag_1\", \"another_tag\"], \"description\": \"apple & chestnut risotto, pickled turnip, wild mushroom sauce\", \"price_average\": \"25\", \"thumbnail_url\": \"http://s3.amazonaws.com/menu-pictures-production/attachments/4d77c4329a16857fbe000001/thumb.jpg?1299694640\", \"photo_urls\": [\"http://s3.amazonaws.com/menu-pictures-production/attachments/4d77c4329a16857fbe000002/large.jpg?7382698134\"], \"id\": \"497ce971395f2f052a494fd5\", \"menu_items\": [{\"type\": \"menu_item\", \"name\": \"Crispy Chicken Thigh\", \"rating_average\": 4.4, \"tags\": [\"salty\", \"crispy\"], \"description\": \"apple & chestnut risotto, pickled turnip, wild mushroom sauce\", \"price\": \"14.00\", \"photo_urls\": [\"http://s3.amazonaws.com/menu-pictures-production/attachments/4d77c4329a16857fbe000014/large.jpg?1299694640\"], \"id\": \"497ce971395f2f052a494fd5\"}]}]";
+        
+    NSString *responseString = [request_passed responseString];
+    NSArray *arrayOfDictionaries = [responseString JSONValue];
     
-    NSArray *arrayOfDictionaries = [json JSONValue];
+    NSLog(@"array: %@", arrayOfDictionaries);
+    
     NSMutableArray *resultsForDelegate = [[NSMutableArray alloc]init];
     
     for (NSDictionary *dict in arrayOfDictionaries) {

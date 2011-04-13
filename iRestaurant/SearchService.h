@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+
 @class Restaurant;
-@class ASIHTTPRequest;
 
 @protocol SearchServiceDelegate <NSObject>
 -(void)searchFinished:(NSMutableArray *)restaurantsArray;
@@ -29,7 +29,5 @@
 -(void)searchByTerm:(NSString *)term andNear:(NSString *)nearString;
 -(void)searchByTerm:(NSString *)term;
 
-// may have to remove this
-- (void)requestFinished:(ASIHTTPRequest *)request_passed;
 
 @end

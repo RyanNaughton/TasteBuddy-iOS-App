@@ -50,7 +50,7 @@
     // Do any additional setup after loading the view from its nib.
     CGPoint point = CGPointMake(1.2345, 1.2345);
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
-    [searchService searchByTerm:@"bla"];
+    [searchService searchByTerm:@"an"];
     
 }
 
