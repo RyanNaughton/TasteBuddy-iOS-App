@@ -8,6 +8,7 @@
 
 #import "Restaurant.h"
 #import "JSON.h"
+#import "MenuItem.h"
 
 @implementation Restaurant
 
@@ -41,6 +42,8 @@
 @synthesize photo_urls;
 @synthesize comments;
 
+@synthesize menu_items;
+
 -(id) init {
     self = [super init];
     if (self) {
@@ -53,12 +56,6 @@
     self = [super init];
     if (self) {
        // custom init
-        
-        NSString *restaurantDictionaryString = @"{\"id\":\"4d83c94588a847d8a9000002\",\"address_1\":\"1550 E 55th St\",\"address_2\":\"(between Harper Ave & Lake Park Ave)\",\"alcohol_type\":null,\"city_town\":\"Chicago\",\"country\":\"US\",\"credit_cards\":true,\"cuisine_types\":[\"Bakeries\"],\"delivery\":null,\"dress_code\":\"none\",\"group_friendly\":null,\"kid_friendly\":null,\"latitude\":41.7949981689,\"location\":[41.7949981689,-87.5871963501],\"longitude\":-87.5871963501,\"menu\":[],\"name\":\"Bonjour Cafe Bakery\",\"nearest_transit\":null,\"neighborhood\":\"Hyde Park\",\"outdoor_seating\":null,\"parking\":\"Private Lot\",\"phone\":\"(773) 241-5300\",\"postal_code\":\"60615\",\"average_rating\":3.5,\"reservations\":null,\"state_province\":\"IL\",\"takeout\":null,\"website_url\":null,\"wheelchair_access\":true,\"photo_urls\":[\"http://s3.amazonaws.com/menu-pictures-production/attachments/4d77c4329a16857fbe000010/large.jpg?1299694640\"],\"comments\":[]}";
-        
-        restaurantDictionary = [restaurantDictionaryString JSONValue];
-        
-        NSLog(@"rest dict: %@", restaurantDictionary);
         
         _id               = [restaurantDictionary objectForKey:@"id"];
         name              = [restaurantDictionary objectForKey:@"name"];
@@ -89,6 +86,14 @@
         wheelchair_access = [restaurantDictionary objectForKey:@"wheelchair_access"];
         photo_urls        = [restaurantDictionary objectForKey:@"photo_urls"];
         comments          = [restaurantDictionary objectForKey:@"comments"];
+        
+        menu_items        = [[NSMutableArray alloc] init];
+        for(NSDictionary *dict in [restaurantDictionary objectForKey:@"menu_items"])
+        {
+            MenuItem *menuItem = [[MenuItem alloc] initWithDictionary:dict];
+            [menu_items addObject:menuItem];
+            [menuItem release];
+        }
     }
     return self;
 }
@@ -156,6 +161,7 @@
     [phone             release];
     [photo_urls        release];
     [comments          release];
+    [menu_items        release];
 }
 
 

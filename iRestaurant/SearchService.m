@@ -37,7 +37,6 @@
 
 -(void)searchByTerm:(NSString *)term andNear:(NSString *)nearString
 {
-    //
     [self requestFinished:nil];
 }
 
