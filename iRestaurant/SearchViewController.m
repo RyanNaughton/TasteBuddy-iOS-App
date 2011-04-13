@@ -7,7 +7,7 @@
 //
 
 #import "SearchViewController.h"
-
+#import "JSON.h"
 
 @implementation SearchViewController
 
@@ -39,6 +39,51 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+//    [
+//    {
+//    "type": "restaurant",
+//    "name": "Boka",
+//    "phone": "(312) 337-6070",
+//    "address_1": "1729 N Halsted St",
+//    "address_2": null,
+//    "city_town": "Chicago",
+//    "state_province": "IL",
+//    "rating_average": 4.1,
+//    "tags": [
+//    "tag_1",
+//    "another_tag"
+//    ],
+//    "description": "apple & chestnut risotto, pickled turnip, wild mushroom sauce",
+//    "price_average": "25",
+//    "thumbnail_url": "http://s3.amazonaws.com/menu-pictures-production/attachments/4d77c4329a16857fbe000001/thumb.jpg?1299694640",
+//    "photo_urls": [
+//    "http://s3.amazonaws.com/menu-pictures-production/attachments/4d77c4329a16857fbe000002/large.jpg?7382698134"
+//    ],
+//    "id": "497ce971395f2f052a494fd5",
+//    "menu_items": [
+//    {
+//    "type": "menu_item",
+//    "name": "Crispy Chicken Thigh",
+//    "rating_average": 4.4,
+//    "tags": [
+//    "salty",
+//    "crispy"
+//    ],
+//    "description": "apple & chestnut risotto, pickled turnip, wild mushroom sauce",
+//    "price": "14.00",
+//    "photo_urls": [
+//    "http://s3.amazonaws.com/menu-pictures-production/attachments/4d77c4329a16857fbe000014/large.jpg?1299694640"
+//    ],
+//    "id": "497ce971395f2f052a494fd5"
+//    }
+//    ]
+//    }
+//    ]
+    NSString *json = @"[{\"type\": \"restaurant\", \"name\": \"Boka\", \"phone\": \"(312) 337-6070\", \"address_1\": \"1729 N Halsted St\", \"address_2\": null, \"city_town\": \"Chicago\", \"state_province\": \"IL\", \"rating_average\": 4.1, \"tags\": [\"tag_1\", \"another_tag\"], \"description\": \"apple & chestnut risotto, pickled turnip, wild mushroom sauce\", \"price_average\": \"25\", \"thumbnail_url\": \"http://s3.amazonaws.com/menu-pictures-production/attachments/4d77c4329a16857fbe000001/thumb.jpg?1299694640\", \"photo_urls\": [\"http://s3.amazonaws.com/menu-pictures-production/attachments/4d77c4329a16857fbe000002/large.jpg?7382698134\"], \"id\": \"497ce971395f2f052a494fd5\", \"menu_items\": [{\"type\": \"menu_item\", \"name\": \"Crispy Chicken Thigh\", \"rating_average\": 4.4, \"tags\": [\"salty\", \"crispy\"], \"description\": \"apple & chestnut risotto, pickled turnip, wild mushroom sauce\", \"price\": \"14.00\", \"photo_urls\": [\"http://s3.amazonaws.com/menu-pictures-production/attachments/4d77c4329a16857fbe000014/large.jpg?1299694640\"], \"id\": \"497ce971395f2f052a494fd5\"}]}]";
+
+    NSDictionary *dictionary = [json JSONValue];
+    NSLog(@"%@", dictionary);
 }
 
 - (void)viewDidUnload
