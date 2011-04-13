@@ -34,6 +34,10 @@
     return self;
 }
 
+-(void)dealloc {
+    [delegate release];
+    [super dealloc];
+}
 
 -(void)searchByTerm:(NSString *)term andNear:(NSString *)nearString
 {
