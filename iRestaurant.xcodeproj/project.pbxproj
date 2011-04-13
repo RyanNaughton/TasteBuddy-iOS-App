@@ -14,6 +14,8 @@
 		49578B721355177900F8EC0B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B6D1355177900F8EC0B /* SBJsonWriter.m */; };
 		49578B7F13551D7200F8EC0B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B7D13551D7200F8EC0B /* SearchViewController.m */; };
 		49578B8013551D7200F8EC0B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49578B7E13551D7200F8EC0B /* SearchViewController.xib */; };
+		49578B861355226000F8EC0B /* DishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B841355226000F8EC0B /* DishViewController.m */; };
+		49578B871355226000F8EC0B /* DishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49578B851355226000F8EC0B /* DishViewController.xib */; };
 		49BA68231354DBA40040DDB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68221354DBA40040DDB5 /* UIKit.framework */; };
 		49BA68251354DBA40040DDB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68241354DBA40040DDB5 /* Foundation.framework */; };
 		49BA68271354DBA40040DDB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68261354DBA40040DDB5 /* CoreGraphics.framework */; };
@@ -59,6 +61,9 @@
 		49578B7C13551D7200F8EC0B /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		49578B7D13551D7200F8EC0B /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		49578B7E13551D7200F8EC0B /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		49578B831355226000F8EC0B /* DishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishViewController.h; sourceTree = "<group>"; };
+		49578B841355226000F8EC0B /* DishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishViewController.m; sourceTree = "<group>"; };
+		49578B851355226000F8EC0B /* DishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishViewController.xib; sourceTree = "<group>"; };
 		49BA681E1354DBA30040DDB5 /* iRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA68221354DBA40040DDB5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BA68241354DBA40040DDB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -177,6 +182,23 @@
 				49578B7D13551D7200F8EC0B /* SearchViewController.m */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		49578B811355221500F8EC0B /* Dish */ = {
+			isa = PBXGroup;
+			children = (
+				49578B831355226000F8EC0B /* DishViewController.h */,
+				49578B841355226000F8EC0B /* DishViewController.m */,
+			);
+			name = Dish;
+			sourceTree = "<group>";
+		};
+		49578B821355222F00F8EC0B /* Dish */ = {
+			isa = PBXGroup;
+			children = (
+				49578B851355226000F8EC0B /* DishViewController.xib */,
+			);
+			name = Dish;
 			sourceTree = "<group>";
 		};
 		49BA68131354DBA20040DDB5 = {
