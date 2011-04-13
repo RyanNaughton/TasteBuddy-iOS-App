@@ -70,22 +70,19 @@
 -(IBAction) switchSearchView:(id *) sender
 {
     switch (((UISegmentedControl *)sender).selectedSegmentIndex) {
-        case 0:
-            NSLog(@"Restaurant.");
+        case 0: //Restaurant
             tableView.delegate = restaurantSearchResultTableViewController;
             tableView.dataSource = restaurantSearchResultTableViewController;
             [tableView reloadData];
             tableView.hidden = false;
             break;
-        case 1:
-            NSLog(@"Dishes");
+        case 1: //Dishes
             tableView.delegate = dishSearchResultTableViewController;
             tableView.dataSource = dishSearchResultTableViewController;
             [tableView reloadData];
             tableView.hidden = false;
             break;
-        case 2:
-            NSLog(@"Map");
+        case 2: //Map
             tableView.hidden = true;
             break;
         default:
