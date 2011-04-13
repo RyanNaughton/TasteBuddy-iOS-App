@@ -14,8 +14,6 @@
 		49578B721355177900F8EC0B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B6D1355177900F8EC0B /* SBJsonWriter.m */; };
 		49578B7F13551D7200F8EC0B /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B7D13551D7200F8EC0B /* SearchViewController.m */; };
 		49578B8013551D7200F8EC0B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49578B7E13551D7200F8EC0B /* SearchViewController.xib */; };
-		49578B861355226000F8EC0B /* DishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B841355226000F8EC0B /* DishViewController.m */; };
-		49578B871355226000F8EC0B /* DishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49578B851355226000F8EC0B /* DishViewController.xib */; };
 		49BA68231354DBA40040DDB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68221354DBA40040DDB5 /* UIKit.framework */; };
 		49BA68251354DBA40040DDB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68241354DBA40040DDB5 /* Foundation.framework */; };
 		49BA68271354DBA40040DDB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68261354DBA40040DDB5 /* CoreGraphics.framework */; };
@@ -31,6 +29,7 @@
 		49BA684D1354DBA50040DDB5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49BA684B1354DBA50040DDB5 /* InfoPlist.strings */; };
 		49BA68501354DBA50040DDB5 /* iRestaurantTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 49BA684F1354DBA50040DDB5 /* iRestaurantTests.h */; };
 		49BA68521354DBA50040DDB5 /* iRestaurantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA68511354DBA50040DDB5 /* iRestaurantTests.m */; };
+		E8A03E14135535500031D798 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E13135535500031D798 /* MenuItem.m */; };
 		E8E6D3EE135523FF003F0ECB /* RestaurantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D3EC135523FF003F0ECB /* RestaurantViewController.m */; };
 		E8E6D3EF135523FF003F0ECB /* RestaurantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8E6D3ED135523FF003F0ECB /* RestaurantViewController.xib */; };
 		E8E6D3F413552448003F0ECB /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D3F313552448003F0ECB /* Restaurant.m */; };
@@ -61,9 +60,6 @@
 		49578B7C13551D7200F8EC0B /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		49578B7D13551D7200F8EC0B /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		49578B7E13551D7200F8EC0B /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
-		49578B831355226000F8EC0B /* DishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishViewController.h; sourceTree = "<group>"; };
-		49578B841355226000F8EC0B /* DishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishViewController.m; sourceTree = "<group>"; };
-		49578B851355226000F8EC0B /* DishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DishViewController.xib; sourceTree = "<group>"; };
 		49BA681E1354DBA30040DDB5 /* iRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA68221354DBA40040DDB5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BA68241354DBA40040DDB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -84,6 +80,8 @@
 		49BA684E1354DBA50040DDB5 /* iRestaurantTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRestaurantTests-Prefix.pch"; sourceTree = "<group>"; };
 		49BA684F1354DBA50040DDB5 /* iRestaurantTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRestaurantTests.h; sourceTree = "<group>"; };
 		49BA68511354DBA50040DDB5 /* iRestaurantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRestaurantTests.m; sourceTree = "<group>"; };
+		E8A03E12135535500031D798 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		E8A03E13135535500031D798 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 		E8E6D3EB135523FF003F0ECB /* RestaurantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantViewController.h; sourceTree = "<group>"; };
 		E8E6D3EC135523FF003F0ECB /* RestaurantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantViewController.m; sourceTree = "<group>"; };
 		E8E6D3ED135523FF003F0ECB /* RestaurantViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantViewController.xib; sourceTree = "<group>"; };
@@ -182,23 +180,6 @@
 				49578B7D13551D7200F8EC0B /* SearchViewController.m */,
 			);
 			name = Search;
-			sourceTree = "<group>";
-		};
-		49578B811355221500F8EC0B /* Dish */ = {
-			isa = PBXGroup;
-			children = (
-				49578B831355226000F8EC0B /* DishViewController.h */,
-				49578B841355226000F8EC0B /* DishViewController.m */,
-			);
-			name = Dish;
-			sourceTree = "<group>";
-		};
-		49578B821355222F00F8EC0B /* Dish */ = {
-			isa = PBXGroup;
-			children = (
-				49578B851355226000F8EC0B /* DishViewController.xib */,
-			);
-			name = Dish;
 			sourceTree = "<group>";
 		};
 		49BA68131354DBA20040DDB5 = {
@@ -301,6 +282,8 @@
 			children = (
 				E8E6D3F213552448003F0ECB /* Restaurant.h */,
 				E8E6D3F313552448003F0ECB /* Restaurant.m */,
+				E8A03E12135535500031D798 /* MenuItem.h */,
+				E8A03E13135535500031D798 /* MenuItem.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -426,6 +409,7 @@
 				49578B7F13551D7200F8EC0B /* SearchViewController.m in Sources */,
 				E8E6D3EE135523FF003F0ECB /* RestaurantViewController.m in Sources */,
 				E8E6D3F413552448003F0ECB /* Restaurant.m in Sources */,
+				E8A03E14135535500031D798 /* MenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

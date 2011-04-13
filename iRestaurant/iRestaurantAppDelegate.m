@@ -9,6 +9,7 @@
 #import "iRestaurantAppDelegate.h"
 
 #import "iRestaurantViewController.h"
+#import "Restaurant.h"
 
 @implementation iRestaurantAppDelegate
 
@@ -21,6 +22,9 @@
 {
     // Override point for customization after application launch.
      
+    //Restaurant *restaurantTest = [[Restaurant alloc]initWithDictionary:NULL];
+    
+    
     [self.window makeKeyAndVisible];
     [self.window addSubview:tabBarController.view];
     return YES;

@@ -8,7 +8,6 @@
 
 #import "SearchViewController.h"
 
-
 @implementation SearchViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
