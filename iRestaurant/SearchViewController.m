@@ -139,15 +139,15 @@
     if((UITextField *) sender == termField) {
         tableView.delegate = findAutocompleteTableViewController;
         tableView.dataSource = findAutocompleteTableViewController;
-        findAutocompleteTableViewController.tableView = tableView;
         autocompleteService.delegate = findAutocompleteTableViewController;
+        findAutocompleteTableViewController.tableView = self.tableView;
         [autocompleteService getTerms:termField.text];
         
     } else {
         tableView.delegate = nearAutocompleteTableViewController;
         tableView.dataSource = nearAutocompleteTableViewController;
-        nearAutocompleteTableViewController.tableView = tableView;
         autocompleteService.delegate = nearAutocompleteTableViewController;
+        nearAutocompleteTableViewController.tableView = self.tableView;
         [autocompleteService getPlaces:nearField.text];
     }
 }

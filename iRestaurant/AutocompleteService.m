@@ -38,6 +38,7 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
     [delegate autocompleteFinished:values];
+    delegate = nil;
 }
 
 @end

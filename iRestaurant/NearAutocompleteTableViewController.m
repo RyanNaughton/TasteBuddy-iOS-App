@@ -40,7 +40,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    values = [[NSMutableArray alloc] init];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -156,7 +156,7 @@
 }
 
 -(void) autocompleteFinished:(NSArray *)termsArray {
-    values = [termsArray retain];
+    values = termsArray;
     [self.tableView reloadData];
 }
 
