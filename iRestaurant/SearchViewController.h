@@ -21,7 +21,6 @@
     IBOutlet RestaurantSearchResultTableViewController *restaurantSearchResultTableViewController;
     IBOutlet DishSearchResultTableViewController *dishSearchResultTableViewController;
     IBOutlet UITableView *tableView;
-    IBOutlet UISearchBar *searchBar;
     IBOutlet UIView *searchView;
     IBOutlet UITextField *termField;
     IBOutlet UITextField *nearField;
@@ -29,6 +28,7 @@
     IBOutlet FindAutocompleteTableViewController *findAutocompleteTableViewController;
     IBOutlet NearAutocompleteTableViewController *nearAutocompleteTableViewController;
 
+    UIBarButtonItem *showSearchButton;
 }
 
 @property (nonatomic, retain) SearchService *searchService;
@@ -38,7 +38,6 @@
 @property (nonatomic, retain) IBOutlet RestaurantSearchResultTableViewController *restaurantSearchResultTableViewController;
 @property (nonatomic, retain) IBOutlet DishSearchResultTableViewController *dishSearchResultTableViewController;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
-@property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
 
 @property (nonatomic, retain) IBOutlet UIView *searchView;
 @property (nonatomic, retain) IBOutlet UITextField *termField;
@@ -47,6 +46,7 @@
 @property (nonatomic, retain) IBOutlet FindAutocompleteTableViewController *findAutocompleteTableViewController;
 @property (nonatomic, retain) IBOutlet NearAutocompleteTableViewController *nearAutocompleteTableViewController;
 
+@property (nonatomic, retain) UIBarButtonItem *showSearchButton;
 
 -(IBAction) switchSearchView:(id *) sender;
 -(IBAction) autocomplete:(id *) sender;

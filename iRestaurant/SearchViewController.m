@@ -19,11 +19,12 @@
 
 @synthesize searchService, autocompleteService;
 @synthesize restaurantSearchResultTableViewController, dishSearchResultTableViewController;
-@synthesize tableView, searchBar;
+@synthesize tableView;
 
 @synthesize searchView;
 @synthesize nearField;
 @synthesize termField;
+@synthesize showSearchButton;
 
 
 @synthesize findAutocompleteTableViewController, nearAutocompleteTableViewController;
@@ -48,6 +49,7 @@
     [termField release];
     [findAutocompleteTableViewController release];
     [nearAutocompleteTableViewController release];
+    [showSearchButton release];
     [super dealloc];
 }
 
@@ -69,7 +71,9 @@
     CGPoint point = CGPointMake(1.2345, 1.2345);
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
     autocompleteService = [[AutocompleteService alloc] initWithDelegate: findAutocompleteTableViewController];
-
+    
+    showSearchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(searchViewAnimateIn)];
+   // self.navigationItem.rightBarButtonItem = showSearchButton;
 }
 
 - (void)viewDidUnload
@@ -151,6 +155,7 @@
 
 -(void) searchViewAnimateIn 
 {
+    self.navigationItem.rightBarButtonItem = nil;
     [termField becomeFirstResponder];
     searchView.center = CGPointMake(searchView.center.x, searchView.frame.size.height / 2 * -1);
     tableView.frame = CGRectMake(0, 0, self.view.frame.size.width,  self.view.frame.size.height - 44);
@@ -163,7 +168,8 @@
 }
 
 -(void) searchViewAnimateOut
-{
+{    
+    self.navigationItem.rightBarButtonItem = showSearchButton;
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
     

@@ -60,12 +60,6 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    if ([searchViewController.searchBar isFirstResponder]) {
-        [searchViewController.searchBar resignFirstResponder];
-    }
-}
-
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
