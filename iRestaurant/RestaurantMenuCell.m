@@ -25,7 +25,8 @@
         [lunchMenuButton setBackgroundImage:[UIImage imageNamed:@"grey-button-bg.png"] forState:UIControlStateNormal];
         [lunchMenuButton setTitle:@"Lunch Menu" forState:UIControlStateNormal];
         lunchMenuButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
-        //lunchMenuButton.titleLabel.textColor = [UIColor blackColor];
+        lunchMenuButton.titleLabel.shadowColor = [UIColor blackColor];
+        lunchMenuButton.titleLabel.shadowOffset = CGSizeMake(0,1);
         [lunchMenuButton addTarget:self action:@selector(lunchMenuButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:lunchMenuButton];
         
@@ -36,7 +37,8 @@
         //[dinnerMenuButton setBackgroundImage:[UIImage imageNamed:@"blue-btn-70.png"] forState:UIControlStateNormal];
         [dinnerMenuButton setTitle:@"Dinner Menu" forState:UIControlStateNormal];
         dinnerMenuButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
-        //dinnerMenuButton.titleLabel.textColor = [UIColor blackColor];
+        dinnerMenuButton.titleLabel.shadowColor = [UIColor blackColor];
+        dinnerMenuButton.titleLabel.shadowOffset = CGSizeMake(0,1);
         [dinnerMenuButton addTarget:self action:@selector(dinnerMenuButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:dinnerMenuButton];
         
@@ -45,7 +47,8 @@
         [bookmarkItButton setBackgroundImage:[UIImage imageNamed:@"grey-button-bg.png"] forState:UIControlStateNormal];
         [bookmarkItButton setTitle:@"Bookmark It!" forState:UIControlStateNormal];
         bookmarkItButton.titleLabel.font = [UIFont boldSystemFontOfSize:12];
-        //bookmarkItButton.titleLabel.textColor = [UIColor blackColor];
+        bookmarkItButton.titleLabel.shadowColor = [UIColor blackColor];
+        bookmarkItButton.titleLabel.shadowOffset = CGSizeMake(0,1);
         [bookmarkItButton addTarget:self action:@selector(bookmarkItButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:bookmarkItButton];
 

@@ -67,6 +67,7 @@
 		E8A6E8171355465A0095E157 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6E80E1355465A0095E157 /* ASIWebPageRequest.m */; };
 		E8A6E81A1355466D0095E157 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6E8191355466D0095E157 /* Reachability.m */; };
 		E8A6E824135547050095E157 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A6E823135547050095E157 /* libxml2.dylib */; };
+		E8CD38C71357BB2500FBC6FF /* RestaurantPhoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */; };
 		E8E6D3EE135523FF003F0ECB /* RestaurantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D3EC135523FF003F0ECB /* RestaurantViewController.m */; };
 		E8E6D3EF135523FF003F0ECB /* RestaurantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8E6D3ED135523FF003F0ECB /* RestaurantViewController.xib */; };
 		E8E6D3F413552448003F0ECB /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D3F313552448003F0ECB /* Restaurant.m */; };
@@ -182,6 +183,8 @@
 		E8A6E8181355466D0095E157 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		E8A6E8191355466D0095E157 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		E8A6E823135547050095E157 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		E8CD38C51357BB2500FBC6FF /* RestaurantPhoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantPhoneCell.h; sourceTree = "<group>"; };
+		E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantPhoneCell.m; sourceTree = "<group>"; };
 		E8E6D3EB135523FF003F0ECB /* RestaurantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantViewController.h; sourceTree = "<group>"; };
 		E8E6D3EC135523FF003F0ECB /* RestaurantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantViewController.m; sourceTree = "<group>"; };
 		E8E6D3ED135523FF003F0ECB /* RestaurantViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantViewController.xib; sourceTree = "<group>"; };
@@ -420,6 +423,8 @@
 				E85EE43F1357A0A0004B2A10 /* RestaurantMenuCell.m */,
 				E85EE44D1357AAE4004B2A10 /* RestaurantAddressCell.h */,
 				E85EE44E1357AAE5004B2A10 /* RestaurantAddressCell.m */,
+				E8CD38C51357BB2500FBC6FF /* RestaurantPhoneCell.h */,
+				E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -650,6 +655,7 @@
 				E85EE43513578D63004B2A10 /* RestaurantHeaderCell.m in Sources */,
 				E85EE4401357A0A0004B2A10 /* RestaurantMenuCell.m in Sources */,
 				E85EE44F1357AAE5004B2A10 /* RestaurantAddressCell.m in Sources */,
+				E8CD38C71357BB2500FBC6FF /* RestaurantPhoneCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -711,7 +717,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -728,7 +734,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;

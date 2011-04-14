@@ -37,6 +37,8 @@
         name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		name.backgroundColor = [UIColor clearColor];
 		name.font = [UIFont boldSystemFontOfSize:13];
+        name.shadowColor = [UIColor whiteColor];
+        name.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:name];
         
         cuisine_types = [[UILabel alloc]init];
@@ -44,6 +46,8 @@
         cuisine_types.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		cuisine_types.backgroundColor = [UIColor clearColor];
 		cuisine_types.font = [UIFont systemFontOfSize:13];
+        cuisine_types.shadowColor = [UIColor whiteColor];
+        cuisine_types.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:cuisine_types];
         
         hours = [[UILabel alloc]init];
@@ -51,6 +55,8 @@
         hours.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		hours.backgroundColor = [UIColor clearColor];
 		hours.font = [UIFont systemFontOfSize:13];
+        hours.shadowColor = [UIColor whiteColor];
+        hours.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:hours];
         
         average_meal = [[UILabel alloc]init];
@@ -58,6 +64,8 @@
         average_meal.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		average_meal.backgroundColor = [UIColor clearColor];
 		average_meal.font = [UIFont systemFontOfSize:11];
+        average_meal.shadowColor = [UIColor whiteColor];
+        average_meal.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:average_meal];
 
         

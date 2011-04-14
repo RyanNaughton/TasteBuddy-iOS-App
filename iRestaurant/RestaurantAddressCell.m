@@ -20,30 +20,35 @@
         self.backgroundColor = [UIColor clearColor];
         
         address_1 = [[UILabel alloc]init];
-        address_1.frame = CGRectMake(35, 5, 250, 12);
+        address_1.frame = CGRectMake(25, 5, 250, 12);
         address_1.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
         address_1.textAlignment = UITextAlignmentCenter;
 		address_1.backgroundColor = [UIColor clearColor];
 		address_1.font = [UIFont systemFontOfSize:12];
+        address_1.shadowColor = [UIColor whiteColor];
+        address_1.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:address_1];
 
         address_2 = [[UILabel alloc]init];
-        address_2.frame = CGRectMake(35, 17, 250, 12);
+        address_2.frame = CGRectMake(25, 17, 250, 12);
         address_2.textAlignment = UITextAlignmentCenter;
         address_2.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		address_2.backgroundColor = [UIColor clearColor];
 		address_2.font = [UIFont systemFontOfSize:12];
+        address_2.shadowColor = [UIColor whiteColor];
+        address_2.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:address_2];
         
         neighborhood = [[UILabel alloc]init];
-        neighborhood.frame = CGRectMake(35, 29, 250, 12);
+        neighborhood.frame = CGRectMake(25, 29, 250, 12);
         neighborhood.textAlignment = UITextAlignmentCenter;
         neighborhood.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		neighborhood.backgroundColor = [UIColor clearColor];
 		neighborhood.font = [UIFont boldSystemFontOfSize:12];
+        neighborhood.shadowColor = [UIColor whiteColor];
+        neighborhood.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:neighborhood];
 
-        
     }
     return self;
 }

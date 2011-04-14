@@ -205,9 +205,6 @@
     [searchViewController.navigationController pushViewController:restaurantViewController animated:YES];
     [restaurantViewController release];
     
-    searchViewController.navigationController.navigationBar.tintColor = [UIColor blackColor];
-   // searchViewController.navigationController.navigationBar.translucent = YES;
-
 }
 
 @end

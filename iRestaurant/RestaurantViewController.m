@@ -13,6 +13,7 @@
 #import "RestaurantHeaderCell.h"
 #import "RestaurantMenuCell.h"
 #import "RestaurantAddressCell.h"
+#import "RestaurantPhoneCell.h"
 
 @implementation RestaurantViewController
 @synthesize tableArray, restaurant;
@@ -154,6 +155,14 @@
 		}          
         [restaurantAddressCell loadRestaurant:restaurant];
 		return restaurantAddressCell;
+        
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
+        RestaurantPhoneCell *restaurantPhoneCell = (RestaurantPhoneCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantPhoneCell"];
+		if (restaurantPhoneCell == nil) {
+		    restaurantPhoneCell = [[[RestaurantPhoneCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantPhoneCell"] autorelease];
+		}          
+        [restaurantPhoneCell loadRestaurant:restaurant];
+		return restaurantPhoneCell;
 
     } else {
         static NSString *CellIdentifier = @"Cell";
@@ -174,6 +183,8 @@
         height = 60;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
         height = 46;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
+        height = 40;
     } else {
         height = 44;
     }
@@ -223,6 +234,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     // Navigation logic may go here. Create and push another view controller.
     
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
@@ -237,14 +251,11 @@
         UIApplication *app = [UIApplication sharedApplication];
         [app openURL:[NSURL URLWithString:requestString]];			
 
-    }
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
+        NSString *phoneNumberString = [NSString stringWithFormat:@"tel://%@", restaurant.phone];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberString]];
+    } 
+    
 }
 
 @end
