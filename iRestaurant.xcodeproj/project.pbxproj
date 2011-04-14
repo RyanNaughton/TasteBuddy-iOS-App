@@ -39,6 +39,15 @@
 		E85EE42D13567388004B2A10 /* 06-magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE42B13567388004B2A10 /* 06-magnify.png */; };
 		E85EE42E13567388004B2A10 /* 06-magnify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE42C13567388004B2A10 /* 06-magnify@2x.png */; };
 		E85EE431135688DB004B2A10 /* DishesSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E85EE430135688DA004B2A10 /* DishesSearchCell.m */; };
+		E85EE43513578D63004B2A10 /* RestaurantHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E85EE43413578D63004B2A10 /* RestaurantHeaderCell.m */; };
+		E85EE43C13579BDB004B2A10 /* grain-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE43A13579BDB004B2A10 /* grain-bg@2x.png */; };
+		E85EE43D13579BDB004B2A10 /* grain-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE43B13579BDB004B2A10 /* grain-bg.png */; };
+		E85EE4401357A0A0004B2A10 /* RestaurantMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E85EE43F1357A0A0004B2A10 /* RestaurantMenuCell.m */; };
+		E85EE4431357A204004B2A10 /* blue-btn-70.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE4411357A203004B2A10 /* blue-btn-70.png */; };
+		E85EE4441357A204004B2A10 /* blue-btn-70@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE4421357A204004B2A10 /* blue-btn-70@2x.png */; };
+		E85EE44A1357A811004B2A10 /* grey-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE4491357A810004B2A10 /* grey-button-bg.png */; };
+		E85EE44C1357AA0D004B2A10 /* grey-button-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE44B1357AA0D004B2A10 /* grey-button-bg@2x.png */; };
+		E85EE44F1357AAE5004B2A10 /* RestaurantAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E85EE44E1357AAE5004B2A10 /* RestaurantAddressCell.m */; };
 		E8A03E14135535500031D798 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E13135535500031D798 /* MenuItem.m */; };
 		E8A03E1D135539130031D798 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E1C135539130031D798 /* SearchService.m */; };
 		E8A03E49135543B90031D798 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A03E48135543B90031D798 /* MobileCoreServices.framework */; };
@@ -120,6 +129,18 @@
 		E85EE42C13567388004B2A10 /* 06-magnify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-magnify@2x.png"; sourceTree = "<group>"; };
 		E85EE42F135688D9004B2A10 /* DishesSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishesSearchCell.h; sourceTree = "<group>"; };
 		E85EE430135688DA004B2A10 /* DishesSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishesSearchCell.m; sourceTree = "<group>"; };
+		E85EE43313578D63004B2A10 /* RestaurantHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantHeaderCell.h; sourceTree = "<group>"; };
+		E85EE43413578D63004B2A10 /* RestaurantHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantHeaderCell.m; sourceTree = "<group>"; };
+		E85EE43A13579BDB004B2A10 /* grain-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grain-bg@2x.png"; sourceTree = "<group>"; };
+		E85EE43B13579BDB004B2A10 /* grain-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grain-bg.png"; sourceTree = "<group>"; };
+		E85EE43E1357A0A0004B2A10 /* RestaurantMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantMenuCell.h; sourceTree = "<group>"; };
+		E85EE43F1357A0A0004B2A10 /* RestaurantMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantMenuCell.m; sourceTree = "<group>"; };
+		E85EE4411357A203004B2A10 /* blue-btn-70.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-btn-70.png"; sourceTree = "<group>"; };
+		E85EE4421357A204004B2A10 /* blue-btn-70@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "blue-btn-70@2x.png"; sourceTree = "<group>"; };
+		E85EE4491357A810004B2A10 /* grey-button-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button-bg.png"; sourceTree = "<group>"; };
+		E85EE44B1357AA0D004B2A10 /* grey-button-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button-bg@2x.png"; sourceTree = "<group>"; };
+		E85EE44D1357AAE4004B2A10 /* RestaurantAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantAddressCell.h; sourceTree = "<group>"; };
+		E85EE44E1357AAE5004B2A10 /* RestaurantAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantAddressCell.m; sourceTree = "<group>"; };
 		E8A03E12135535500031D798 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		E8A03E13135535500031D798 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 		E8A03E1B135539130031D798 /* SearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchService.h; sourceTree = "<group>"; };
@@ -356,11 +377,30 @@
 		E85EE42813565D8F004B2A10 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E85EE44B1357AA0D004B2A10 /* grey-button-bg@2x.png */,
+				E85EE4491357A810004B2A10 /* grey-button-bg.png */,
+				E85EE4411357A203004B2A10 /* blue-btn-70.png */,
+				E85EE4421357A204004B2A10 /* blue-btn-70@2x.png */,
+				E85EE43A13579BDB004B2A10 /* grain-bg@2x.png */,
+				E85EE43B13579BDB004B2A10 /* grain-bg.png */,
 				E85EE42B13567388004B2A10 /* 06-magnify.png */,
 				E85EE42C13567388004B2A10 /* 06-magnify@2x.png */,
 				E85EE42913565D9F004B2A10 /* restaurant-icon.gif */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		E85EE4321357850C004B2A10 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E85EE43313578D63004B2A10 /* RestaurantHeaderCell.h */,
+				E85EE43413578D63004B2A10 /* RestaurantHeaderCell.m */,
+				E85EE43E1357A0A0004B2A10 /* RestaurantMenuCell.h */,
+				E85EE43F1357A0A0004B2A10 /* RestaurantMenuCell.m */,
+				E85EE44D1357AAE4004B2A10 /* RestaurantAddressCell.h */,
+				E85EE44E1357AAE5004B2A10 /* RestaurantAddressCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		E8A03E1A135538EB0031D798 /* Services */ = {
@@ -408,6 +448,7 @@
 		E8E6D3E913552231003F0ECB /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
+				E85EE4321357850C004B2A10 /* Cells */,
 				E8E6D3EB135523FF003F0ECB /* RestaurantViewController.h */,
 				E8E6D3EC135523FF003F0ECB /* RestaurantViewController.m */,
 			);
@@ -511,6 +552,12 @@
 				E85EE42A13565D9F004B2A10 /* restaurant-icon.gif in Resources */,
 				E85EE42D13567388004B2A10 /* 06-magnify.png in Resources */,
 				E85EE42E13567388004B2A10 /* 06-magnify@2x.png in Resources */,
+				E85EE43C13579BDB004B2A10 /* grain-bg@2x.png in Resources */,
+				E85EE43D13579BDB004B2A10 /* grain-bg.png in Resources */,
+				E85EE4431357A204004B2A10 /* blue-btn-70.png in Resources */,
+				E85EE4441357A204004B2A10 /* blue-btn-70@2x.png in Resources */,
+				E85EE44A1357A811004B2A10 /* grey-button-bg.png in Resources */,
+				E85EE44C1357AA0D004B2A10 /* grey-button-bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -574,6 +621,9 @@
 				49578BE51356350900F8EC0B /* RestaurantService.m in Sources */,
 				E85EE412135617CB004B2A10 /* RestaurantSearchCell.m in Sources */,
 				E85EE431135688DB004B2A10 /* DishesSearchCell.m in Sources */,
+				E85EE43513578D63004B2A10 /* RestaurantHeaderCell.m in Sources */,
+				E85EE4401357A0A0004B2A10 /* RestaurantMenuCell.m in Sources */,
+				E85EE44F1357AAE5004B2A10 /* RestaurantAddressCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

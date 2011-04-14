@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Restaurant;
 
 @interface RestaurantViewController : UITableViewController {
-    
+    NSMutableArray *tableArray;
+    Restaurant *restaurant;
 }
+
+@property (nonatomic, retain) NSMutableArray *tableArray;
+@property (nonatomic, retain) Restaurant *restaurant;
+
+-(id)initWithRestaurant:(Restaurant *)restaurant_passed;
 
 @end

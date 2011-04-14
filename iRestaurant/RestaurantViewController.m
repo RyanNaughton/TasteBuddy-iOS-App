@@ -7,9 +7,14 @@
 //
 
 #import "RestaurantViewController.h"
+#import "Restaurant.h"
 
+// CELLS =========
+#import "RestaurantHeaderCell.h"
+#import "RestaurantMenuCell.h"
 
 @implementation RestaurantViewController
+@synthesize tableArray, restaurant;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -20,10 +25,37 @@
     return self;
 }
 
+-(id)initWithRestaurant:(Restaurant *)restaurant_passed {
+    self = [super initWithStyle:UITableViewStyleGrouped];
+    if (self) {
+        self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
+        self.navigationController.navigationBar.tintColor = [UIColor blackColor];
+        self.navigationController.navigationBar.translucent = YES;
+        restaurant = restaurant_passed;
+        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Menu", @"Address", @"Phone", @"Tags", @"Highlights", @"Comments", nil];
+    }
+    return self;
+}
+
 - (void)dealloc
 {
+    [tableArray release];
     [super dealloc];
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -38,7 +70,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    [self setTitle:restaurant.name];
+    self.tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"grain-bg.png"]];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -83,30 +117,56 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return [tableArray count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    // Configure the cells...
+    if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
+        RestaurantHeaderCell *restaurantHeaderCell = (RestaurantHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantHeaderCell"];
+		if (restaurantHeaderCell == nil) {
+		    restaurantHeaderCell = [[[RestaurantHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantHeaderCell"] autorelease];
+		}          
+        [restaurantHeaderCell loadRestaurant:restaurant];
+		return restaurantHeaderCell;
+        
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Menu"]) {
+        RestaurantMenuCell *restaurantMenuCell = (RestaurantMenuCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantMenuCell"];
+		if (restaurantMenuCell == nil) {
+		    restaurantMenuCell = [[[RestaurantMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantMenuCell"] autorelease];
+		}          
+        [restaurantMenuCell loadRestaurant:restaurant];
+		return restaurantMenuCell;
+        
+    } else {
+        static NSString *CellIdentifier = @"Cell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+        cell.textLabel.text = [tableArray objectAtIndex:indexPath.section];
+        return cell;
     }
-    
-    // Configure the cell...
-    
-    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
+    int height;
+    if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
+        height = 130;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Menu"]) {
+        height = 60;
+    } else {
+        height = 44;
+    }
+    return height;
 }
 
 /*

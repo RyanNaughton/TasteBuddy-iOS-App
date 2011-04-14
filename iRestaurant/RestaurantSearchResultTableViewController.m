@@ -10,6 +10,7 @@
 #import "Restaurant.h"
 #import "RestaurantSearchCell.h"
 #import "SearchViewController.h"
+#import "RestaurantViewController.h"
 
 @implementation RestaurantSearchResultTableViewController
 
@@ -198,14 +199,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSLog(@"did select row");
     // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:[restaurantsArray objectAtIndex:indexPath.row]];
+    [searchViewController.navigationController pushViewController:restaurantViewController animated:YES];
+    [restaurantViewController release];
+
+    searchViewController.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
 }
 
 @end
