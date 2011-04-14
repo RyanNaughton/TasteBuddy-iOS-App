@@ -17,6 +17,9 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        
+        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
         imageView = [[UIImageView alloc]init];
         imageView.image = [UIImage imageNamed:@"restaurant-icon.gif"];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -40,7 +43,7 @@
         [self.contentView addSubview:tags];
         
         price = [[UILabel alloc]init];
-        price.frame = CGRectMake(260, 30, 180, 15);
+        price.frame = CGRectMake(245, 30, 180, 15);
         price.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		price.backgroundColor = [UIColor clearColor];
         price.font = [UIFont boldSystemFontOfSize:17];

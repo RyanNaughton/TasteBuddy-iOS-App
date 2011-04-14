@@ -115,13 +115,13 @@
     bgView.alpha = 0.66;
     [headerView addSubview:bgView];
     
-    UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 200, 22)];
+    UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 240, 22)];
     restaurantName.backgroundColor = [UIColor clearColor];
     restaurantName.textColor = [UIColor whiteColor];
     restaurantName.text = ((Restaurant *)[restaurantsArray objectAtIndex:section]).name;
     [headerView addSubview:restaurantName];
     
-    UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(250, 0, 50, 22)];
+    UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(260, 0, 50, 22)];
     distance.backgroundColor = [UIColor clearColor];
     distance.textColor = [UIColor whiteColor];
     distance.text = @"0.2 mi";
