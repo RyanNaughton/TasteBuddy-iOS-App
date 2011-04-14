@@ -11,16 +11,22 @@
 #import "RestaurantSearchResultTableViewController.h"
 #import "DishSearchResultTableViewController.h"
 #import "ASIFormDataRequest.h"
+#import "FindAutocompleteTableViewController.h"
+#import "NearAutocompleteTableViewController.h"
+#import "AutocompleteService.h"
 
 @implementation SearchViewController
 
-@synthesize searchService;
+@synthesize searchService, autocompleteService;
 @synthesize restaurantSearchResultTableViewController, dishSearchResultTableViewController;
 @synthesize tableView, searchBar;
 
 @synthesize searchView;
 @synthesize nearField;
 @synthesize termField;
+
+
+@synthesize findAutocompleteTableViewController, nearAutocompleteTableViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -35,10 +41,13 @@
 {
     [searchService release];
     [restaurantSearchResultTableViewController release];
+    [dishSearchResultTableViewController release];
     [tableView release];
     [searchView release];
     [nearField release];
     [termField release];
+    [findAutocompleteTableViewController release];
+    [nearAutocompleteTableViewController release];
     [super dealloc];
 }
 
@@ -58,6 +67,7 @@
     // Do any additional setup after loading the view from its nib.    
     CGPoint point = CGPointMake(1.2345, 1.2345);
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
+    autocompleteService = [[AutocompleteService alloc] initWithDelegate: findAutocompleteTableViewController];
 }
 
 - (void)viewDidUnload
@@ -113,6 +123,10 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    [searchService searchByTerm:termField.text andNear:nearField.text];
+    tableView.delegate = restaurantSearchResultTableViewController;
+    tableView.dataSource = restaurantSearchResultTableViewController;
+    [tableView reloadData];
     return NO;
 }
 
@@ -120,9 +134,22 @@
     [textField resignFirstResponder];
 }
 
--(IBAction) autocomplete
+-(IBAction) autocomplete:(id *) sender
 {
-    [searchService searchByTerm:termField.text];
+    if((UITextField *) sender == termField) {
+        tableView.delegate = findAutocompleteTableViewController;
+        tableView.dataSource = findAutocompleteTableViewController;
+        autocompleteService.delegate = findAutocompleteTableViewController;
+        findAutocompleteTableViewController.tableView = self.tableView;
+        [autocompleteService getTerms:termField.text];
+        
+    } else {
+        tableView.delegate = nearAutocompleteTableViewController;
+        tableView.dataSource = nearAutocompleteTableViewController;
+        autocompleteService.delegate = nearAutocompleteTableViewController;
+        nearAutocompleteTableViewController.tableView = self.tableView;
+        [autocompleteService getPlaces:nearField.text];
+    }
 }
 
 @end
