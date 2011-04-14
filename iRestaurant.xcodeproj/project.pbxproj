@@ -17,6 +17,9 @@
 		49578BCD1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BCB1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m */; };
 		49578BDA1355F8CF00F8EC0B /* DishSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BD91355F8CF00F8EC0B /* DishSearchResultTableViewController.m */; };
 		49578BE51356350900F8EC0B /* RestaurantService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BE41356350900F8EC0B /* RestaurantService.m */; };
+		498727DF13578626004CB2F6 /* AutocompleteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727DE13578626004CB2F6 /* AutocompleteService.m */; };
+		498727E313578CDE004CB2F6 /* FindAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */; };
+		498727E71357A1F4004CB2F6 /* NearAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */; };
 		49BA68231354DBA40040DDB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68221354DBA40040DDB5 /* UIKit.framework */; };
 		49BA68251354DBA40040DDB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68241354DBA40040DDB5 /* Foundation.framework */; };
 		49BA68271354DBA40040DDB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68261354DBA40040DDB5 /* CoreGraphics.framework */; };
@@ -91,6 +94,12 @@
 		49578BD91355F8CF00F8EC0B /* DishSearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishSearchResultTableViewController.m; sourceTree = "<group>"; };
 		49578BE31356350900F8EC0B /* RestaurantService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantService.h; sourceTree = "<group>"; };
 		49578BE41356350900F8EC0B /* RestaurantService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantService.m; sourceTree = "<group>"; };
+		498727DD13578626004CB2F6 /* AutocompleteService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteService.h; sourceTree = "<group>"; };
+		498727DE13578626004CB2F6 /* AutocompleteService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteService.m; sourceTree = "<group>"; };
+		498727E113578CDD004CB2F6 /* FindAutocompleteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindAutocompleteTableViewController.h; sourceTree = "<group>"; };
+		498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindAutocompleteTableViewController.m; sourceTree = "<group>"; };
+		498727E51357A1F4004CB2F6 /* NearAutocompleteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearAutocompleteTableViewController.h; sourceTree = "<group>"; };
+		498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearAutocompleteTableViewController.m; sourceTree = "<group>"; };
 		49BA681E1354DBA30040DDB5 /* iRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA68221354DBA40040DDB5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BA68241354DBA40040DDB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -253,6 +262,7 @@
 		49578B7B13551D4C00F8EC0B /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				498727E41357A1C7004CB2F6 /* Autocomplete */,
 				49578B7C13551D7200F8EC0B /* SearchViewController.h */,
 				49578B7D13551D7200F8EC0B /* SearchViewController.m */,
 				49578BCA1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.h */,
@@ -265,6 +275,17 @@
 				E85EE430135688DA004B2A10 /* DishesSearchCell.m */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		498727E41357A1C7004CB2F6 /* Autocomplete */ = {
+			isa = PBXGroup;
+			children = (
+				498727E113578CDD004CB2F6 /* FindAutocompleteTableViewController.h */,
+				498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */,
+				498727E51357A1F4004CB2F6 /* NearAutocompleteTableViewController.h */,
+				498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */,
+			);
+			name = Autocomplete;
 			sourceTree = "<group>";
 		};
 		49BA68131354DBA20040DDB5 = {
@@ -370,6 +391,8 @@
 				E8A03E1C135539130031D798 /* SearchService.m */,
 				49578BE31356350900F8EC0B /* RestaurantService.h */,
 				49578BE41356350900F8EC0B /* RestaurantService.m */,
+				498727DD13578626004CB2F6 /* AutocompleteService.h */,
+				498727DE13578626004CB2F6 /* AutocompleteService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -574,6 +597,9 @@
 				49578BE51356350900F8EC0B /* RestaurantService.m in Sources */,
 				E85EE412135617CB004B2A10 /* RestaurantSearchCell.m in Sources */,
 				E85EE431135688DB004B2A10 /* DishesSearchCell.m in Sources */,
+				498727DF13578626004CB2F6 /* AutocompleteService.m in Sources */,
+				498727E313578CDE004CB2F6 /* FindAutocompleteTableViewController.m in Sources */,
+				498727E71357A1F4004CB2F6 /* NearAutocompleteTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,10 +11,13 @@
 #import "RestaurantSearchResultTableViewController.h"
 #import "DishSearchResultTableViewController.h"
 #import "ASIFormDataRequest.h"
+#import "FindAutocompleteTableViewController.h"
+#import "NearAutocompleteTableViewController.h"
+#import "AutocompleteService.h"
 
 @implementation SearchViewController
 
-@synthesize searchService;
+@synthesize searchService, autocompleteService;
 @synthesize restaurantSearchResultTableViewController, dishSearchResultTableViewController;
 @synthesize tableView, searchBar;
 
@@ -22,7 +25,8 @@
 @synthesize nearField;
 @synthesize termField;
 
-@synthesize commonTerms;
+
+@synthesize findAutocompleteTableViewController, nearAutocompleteTableViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,11 +41,13 @@
 {
     [searchService release];
     [restaurantSearchResultTableViewController release];
+    [dishSearchResultTableViewController release];
     [tableView release];
     [searchView release];
     [nearField release];
     [termField release];
-    [commonTerms release];
+    [findAutocompleteTableViewController release];
+    [nearAutocompleteTableViewController release];
     [super dealloc];
 }
 
@@ -61,8 +67,7 @@
     // Do any additional setup after loading the view from its nib.    
     CGPoint point = CGPointMake(1.2345, 1.2345);
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
-    
-    commonTerms = [@"Sushi,Eggs,Salmon,Egg Plants,Cheese" componentsSeparatedByString:@","];
+    autocompleteService = [[AutocompleteService alloc] initWithDelegate: findAutocompleteTableViewController];
 }
 
 - (void)viewDidUnload
@@ -118,6 +123,10 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
+    [searchService searchByTerm:termField.text andNear:nearField.text];
+    tableView.delegate = restaurantSearchResultTableViewController;
+    tableView.dataSource = restaurantSearchResultTableViewController;
+    [tableView reloadData];
     return NO;
 }
 
@@ -125,9 +134,22 @@
     [textField resignFirstResponder];
 }
 
--(IBAction) autocomplete
+-(IBAction) autocomplete:(id *) sender
 {
-    [searchService searchByTerm:termField.text];
+    if((UITextField *) sender == termField) {
+        tableView.delegate = findAutocompleteTableViewController;
+        tableView.dataSource = findAutocompleteTableViewController;
+        findAutocompleteTableViewController.tableView = tableView;
+        autocompleteService.delegate = findAutocompleteTableViewController;
+        [autocompleteService getTerms:termField.text];
+        
+    } else {
+        tableView.delegate = nearAutocompleteTableViewController;
+        tableView.dataSource = nearAutocompleteTableViewController;
+        nearAutocompleteTableViewController.tableView = tableView;
+        autocompleteService.delegate = nearAutocompleteTableViewController;
+        [autocompleteService getPlaces:nearField.text];
+    }
 }
 
 @end
