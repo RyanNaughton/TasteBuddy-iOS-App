@@ -12,6 +12,7 @@
 // CELLS =========
 #import "RestaurantHeaderCell.h"
 #import "RestaurantMenuCell.h"
+#import "RestaurantAddressCell.h"
 
 @implementation RestaurantViewController
 @synthesize tableArray, restaurant;
@@ -145,7 +146,15 @@
 		}          
         [restaurantMenuCell loadRestaurant:restaurant];
 		return restaurantMenuCell;
-        
+
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
+        RestaurantAddressCell *restaurantAddressCell = (RestaurantAddressCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantAddressCell"];
+		if (restaurantAddressCell == nil) {
+		    restaurantAddressCell = [[[RestaurantAddressCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantAddressCell"] autorelease];
+		}          
+        [restaurantAddressCell loadRestaurant:restaurant];
+		return restaurantAddressCell;
+
     } else {
         static NSString *CellIdentifier = @"Cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -163,6 +172,8 @@
         height = 130;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Menu"]) {
         height = 60;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
+        height = 46;
     } else {
         height = 44;
     }
@@ -213,6 +224,20 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
+    
+    if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
+    
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Menu"]) {
+    
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
+        NSLog(@"load map");
+        NSString *addressString = [NSString stringWithFormat:@"%@ %@", restaurant.address_1, restaurant.address_2];
+        addressString = [addressString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+        NSString *requestString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@&z=15", addressString];
+        UIApplication *app = [UIApplication sharedApplication];
+        [app openURL:[NSURL URLWithString:requestString]];			
+
+    }
     /*
      <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...

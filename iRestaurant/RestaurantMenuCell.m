@@ -79,9 +79,9 @@
 
 - (void)dealloc
 {
-    [lunchMenuButton release];
-    [dinnerMenuButton release];
-    [bookmarkItButton release];
+//    [lunchMenuButton release];
+//    [dinnerMenuButton release];
+//    [bookmarkItButton release];
     [super dealloc];
 }
 
