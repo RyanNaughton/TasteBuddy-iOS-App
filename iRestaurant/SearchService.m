@@ -44,15 +44,9 @@
 
 -(void)searchByTerm:(NSString *)term andNear:(NSString *)nearString
 {
-    if (request ==nil) {
-        NSLog(@"nil");
-        
-
-    } else {
-        NSLog(@"not nil");
-        [request setDelegate:nil];
-        //[request setDelegate:nil];
-        //[request cancel];
+    if (request !=nil) {
+        [request cancel];
+        request = nil;
     }
     
     double latitude = 41.884432;
@@ -90,6 +84,7 @@
     }
     [resultsForDelegate autorelease];
     [delegate searchFinished:resultsForDelegate];
+    request = nil;
 }
 
 @end
