@@ -22,6 +22,8 @@
     IBOutlet UITextField *termField;
     IBOutlet UITextField *nearField;
 
+    NSArray *commonTerms;
+
 }
 
 @property (nonatomic, retain) SearchService *searchService;
@@ -33,6 +35,8 @@
 @property (nonatomic, retain) IBOutlet UIView *searchView;
 @property (nonatomic, retain) IBOutlet UITextField *termField;
 @property (nonatomic, retain) IBOutlet UITextField *nearField;
+
+@property (nonatomic, retain) NSArray *commonTerms;
 
 -(IBAction) switchSearchView:(id *) sender;
 -(IBAction) autocomplete;

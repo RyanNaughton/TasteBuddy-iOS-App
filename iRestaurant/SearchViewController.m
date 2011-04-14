@@ -22,6 +22,8 @@
 @synthesize nearField;
 @synthesize termField;
 
+@synthesize commonTerms;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -39,6 +41,7 @@
     [searchView release];
     [nearField release];
     [termField release];
+    [commonTerms release];
     [super dealloc];
 }
 
@@ -58,6 +61,8 @@
     // Do any additional setup after loading the view from its nib.    
     CGPoint point = CGPointMake(1.2345, 1.2345);
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
+    
+    commonTerms = [@"Sushi,Eggs,Salmon,Egg Plants,Cheese" componentsSeparatedByString:@","];
 }
 
 - (void)viewDidUnload
