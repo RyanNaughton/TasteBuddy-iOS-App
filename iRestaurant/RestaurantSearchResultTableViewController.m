@@ -119,8 +119,10 @@
         
 		RestaurantSearchCell *restaurantSearchCell = (RestaurantSearchCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantSearchCell"];
 		if (restaurantSearchCell == nil) {
-		    restaurantSearchCell = [[[RestaurantSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantSearchCell" andRestaurant:[restaurantsArray objectAtIndex:indexPath.row]] autorelease];
-		}               
+		    restaurantSearchCell = [[[RestaurantSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantSearchCell"] autorelease];
+		}          
+        
+        [restaurantSearchCell loadRestaurant:[restaurantsArray objectAtIndex:indexPath.row]];
 		
 		return restaurantSearchCell;
 		

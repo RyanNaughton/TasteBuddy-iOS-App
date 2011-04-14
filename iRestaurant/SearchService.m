@@ -44,6 +44,16 @@
 
 -(void)searchByTerm:(NSString *)term andNear:(NSString *)nearString
 {
+    if (request ==nil) {
+        NSLog(@"nil");
+        
+
+    } else {
+        NSLog(@"not nil");
+        [request setDelegate:nil];
+        //[request setDelegate:nil];
+        //[request cancel];
+    }
     
     double latitude = 41.884432;
     double longitude = -87.643464;
@@ -51,8 +61,8 @@
     NSString *json = [NSString stringWithFormat:@"{\"find\": \"%@\", \"near\": \"%@\", \"coordinates\": [%g, %g]}", 
                       term, nearString, latitude, longitude];
     
-    NSLog(@"json: %@", json);
     NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/search.json"];
+    
     request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
@@ -71,9 +81,6 @@
         
     NSString *responseString = [request_passed responseString];
     NSArray *arrayOfDictionaries = [responseString JSONValue];
-    
-    NSLog(@"array: %@", arrayOfDictionaries);
-    
     NSMutableArray *resultsForDelegate = [[NSMutableArray alloc]init];
     
     for (NSDictionary *dict in arrayOfDictionaries) {

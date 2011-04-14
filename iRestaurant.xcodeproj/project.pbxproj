@@ -36,6 +36,8 @@
 		E85EE412135617CB004B2A10 /* RestaurantSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E85EE411135617CB004B2A10 /* RestaurantSearchCell.m */; };
 		E85EE41E13564224004B2A10 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E85EE41D13564224004B2A10 /* CoreLocation.framework */; };
 		E85EE42A13565D9F004B2A10 /* restaurant-icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = E85EE42913565D9F004B2A10 /* restaurant-icon.gif */; };
+		E85EE42D13567388004B2A10 /* 06-magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE42B13567388004B2A10 /* 06-magnify.png */; };
+		E85EE42E13567388004B2A10 /* 06-magnify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE42C13567388004B2A10 /* 06-magnify@2x.png */; };
 		E8A03E14135535500031D798 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E13135535500031D798 /* MenuItem.m */; };
 		E8A03E1D135539130031D798 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E1C135539130031D798 /* SearchService.m */; };
 		E8A03E49135543B90031D798 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A03E48135543B90031D798 /* MobileCoreServices.framework */; };
@@ -113,6 +115,8 @@
 		E85EE411135617CB004B2A10 /* RestaurantSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantSearchCell.m; sourceTree = "<group>"; };
 		E85EE41D13564224004B2A10 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E85EE42913565D9F004B2A10 /* restaurant-icon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "restaurant-icon.gif"; sourceTree = "<group>"; };
+		E85EE42B13567388004B2A10 /* 06-magnify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-magnify.png"; sourceTree = "<group>"; };
+		E85EE42C13567388004B2A10 /* 06-magnify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-magnify@2x.png"; sourceTree = "<group>"; };
 		E8A03E12135535500031D798 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		E8A03E13135535500031D798 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 		E8A03E1B135539130031D798 /* SearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchService.h; sourceTree = "<group>"; };
@@ -347,6 +351,8 @@
 		E85EE42813565D8F004B2A10 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E85EE42B13567388004B2A10 /* 06-magnify.png */,
+				E85EE42C13567388004B2A10 /* 06-magnify@2x.png */,
 				E85EE42913565D9F004B2A10 /* restaurant-icon.gif */,
 			);
 			name = Images;
@@ -498,6 +504,8 @@
 				49578B8013551D7200F8EC0B /* SearchViewController.xib in Resources */,
 				E8E6D3EF135523FF003F0ECB /* RestaurantViewController.xib in Resources */,
 				E85EE42A13565D9F004B2A10 /* restaurant-icon.gif in Resources */,
+				E85EE42D13567388004B2A10 /* 06-magnify.png in Resources */,
+				E85EE42E13567388004B2A10 /* 06-magnify@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

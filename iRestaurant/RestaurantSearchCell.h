@@ -10,9 +10,22 @@
 @class Restaurant;
 
 @interface RestaurantSearchCell : UITableViewCell {
+    UIImageView *imageView;
+    UILabel *name        ;
+    UILabel *tags        ;
+    UILabel *addressLine1;
+    UILabel *addressLine2;
+    UILabel *distance    ;
     
 }
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andRestaurant:(Restaurant *)restaurant;
+@property (nonatomic, retain) UIImageView *imageView;
+@property (nonatomic, retain) UILabel *name        ;
+@property (nonatomic, retain) UILabel *tags        ;
+@property (nonatomic, retain) UILabel *addressLine1;
+@property (nonatomic, retain) UILabel *addressLine2;
+@property (nonatomic, retain) UILabel *distance    ;
 
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+-(void)loadRestaurant:(Restaurant *)restaurant;
 @end

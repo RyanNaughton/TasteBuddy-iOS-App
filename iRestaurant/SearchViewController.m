@@ -68,11 +68,9 @@
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText 
 {
-    NSLog(@"text entered: %@", searchText);
-    if ([searchText length] > 1) {
-        //[searchService.request clearDelegatesAndCancel];
+    //if ([searchText length] > 1) {
         [searchService searchByTerm:searchText];
-    }
+    //}
 }
 
 -(IBAction) switchSearchView:(id *) sender
@@ -99,9 +97,9 @@
 }
 
 -(void)searchFinished:(NSMutableArray *)restaurantsArray 
-{
-    restaurantSearchResultTableViewController.restaurantsArray = restaurantsArray;
-    dishSearchResultTableViewController.restaurantsArray = restaurantsArray;
+{ 
+    restaurantSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
+    dishSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
     [tableView reloadData];
 }
 
