@@ -51,4 +51,7 @@
 -(IBAction) switchSearchView:(id *) sender;
 -(IBAction) autocomplete:(id *) sender;
 
+-(void) searchViewAnimateIn;
+-(void) searchViewAnimateOut;
+
 @end

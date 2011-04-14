@@ -64,10 +64,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self searchViewAnimateIn];
     // Do any additional setup after loading the view from its nib.    
     CGPoint point = CGPointMake(1.2345, 1.2345);
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
     autocompleteService = [[AutocompleteService alloc] initWithDelegate: findAutocompleteTableViewController];
+
 }
 
 - (void)viewDidUnload
@@ -82,14 +84,6 @@
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
-
-
-//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText 
-//{
-    //if ([searchText length] > 1) {
-
-    //}
-//}
 
 -(IBAction) switchSearchView:(id *) sender
 {
@@ -127,29 +121,54 @@
     tableView.delegate = restaurantSearchResultTableViewController;
     tableView.dataSource = restaurantSearchResultTableViewController;
     [tableView reloadData];
+    [self searchViewAnimateOut];
     return NO;
 }
-
-- (void) textFieldDidEndEditing:(UITextField *)textField {
-    [textField resignFirstResponder];
-}
+//
+//- (void) textFieldDidEndEditing:(UITextField *)textField {
+//    [textField resignFirstResponder];
+//}
 
 -(IBAction) autocomplete:(id *) sender
 {
-    if((UITextField *) sender == termField) {
-        tableView.delegate = findAutocompleteTableViewController;
-        tableView.dataSource = findAutocompleteTableViewController;
-        autocompleteService.delegate = findAutocompleteTableViewController;
-        findAutocompleteTableViewController.tableView = self.tableView;
-        [autocompleteService getTerms:termField.text];
+    if ([((UITextField *) sender).text length] > 2) {
+        if((UITextField *) sender == termField) {
+            tableView.delegate = findAutocompleteTableViewController;
+            tableView.dataSource = findAutocompleteTableViewController;
+            autocompleteService.delegate = findAutocompleteTableViewController;
+            findAutocompleteTableViewController.tableView = self.tableView;
+            [autocompleteService getTerms:termField.text];
         
-    } else {
-        tableView.delegate = nearAutocompleteTableViewController;
-        tableView.dataSource = nearAutocompleteTableViewController;
-        autocompleteService.delegate = nearAutocompleteTableViewController;
-        nearAutocompleteTableViewController.tableView = self.tableView;
-        [autocompleteService getPlaces:nearField.text];
+        } else {
+            tableView.delegate = nearAutocompleteTableViewController;
+            tableView.dataSource = nearAutocompleteTableViewController;
+            autocompleteService.delegate = nearAutocompleteTableViewController;
+            nearAutocompleteTableViewController.tableView = self.tableView;
+            [autocompleteService getPlaces:nearField.text];
+        }
     }
 }
 
+-(void) searchViewAnimateIn 
+{
+    [termField becomeFirstResponder];
+    searchView.center = CGPointMake(searchView.center.x, searchView.frame.size.height / 2 * -1);
+    tableView.frame = CGRectMake(0, 0, self.view.frame.size.width,  self.view.frame.size.height - 44);
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3];
+
+    searchView.center = CGPointMake(searchView.center.x, searchView.frame.size.height / 2 );
+    tableView.frame = CGRectMake(0, searchView.frame.size.height, self.view.frame.size.width,  self.view.frame.size.height -  (220 + 22));
+    [UIView commitAnimations];
+}
+
+-(void) searchViewAnimateOut
+{
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:0.3];
+    
+    searchView.center = CGPointMake(searchView.center.x, searchView.frame.size.height / 2 * -1);
+    tableView.frame = CGRectMake(0, 0, self.view.frame.size.width,  self.view.frame.size.height - 44);
+    [UIView commitAnimations];
+}
 @end
