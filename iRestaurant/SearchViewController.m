@@ -18,6 +18,10 @@
 @synthesize restaurantSearchResultTableViewController, dishSearchResultTableViewController;
 @synthesize tableView, searchBar;
 
+@synthesize searchView;
+@synthesize nearField;
+@synthesize termField;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -32,6 +36,9 @@
     [searchService release];
     [restaurantSearchResultTableViewController release];
     [tableView release];
+    [searchView release];
+    [nearField release];
+    [termField release];
     [super dealloc];
 }
 
@@ -66,12 +73,13 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText 
-{
+
+//- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText 
+//{
     //if ([searchText length] > 1) {
-        [searchService searchByTerm:searchText];
+
     //}
-}
+//}
 
 -(IBAction) switchSearchView:(id *) sender
 {
@@ -103,5 +111,18 @@
     [tableView reloadData];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return NO;
+}
+
+- (void) textFieldDidEndEditing:(UITextField *)textField {
+    [textField resignFirstResponder];
+}
+
+-(IBAction) autocomplete
+{
+    [searchService searchByTerm:termField.text];
+}
 
 @end

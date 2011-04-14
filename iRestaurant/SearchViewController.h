@@ -12,12 +12,16 @@
 @class RestaurantSearchResultTableViewController;
 @class DishSearchResultTableViewController;
 
-@interface SearchViewController : UIViewController <SearchServiceDelegate, UISearchBarDelegate, UIScrollViewDelegate> {
+@interface SearchViewController : UIViewController <SearchServiceDelegate, UITextFieldDelegate, UIScrollViewDelegate> {
     SearchService *searchService;
     IBOutlet RestaurantSearchResultTableViewController *restaurantSearchResultTableViewController;
     IBOutlet DishSearchResultTableViewController *dishSearchResultTableViewController;
     IBOutlet UITableView *tableView;
     IBOutlet UISearchBar *searchBar;
+    IBOutlet UIView *searchView;
+    IBOutlet UITextField *termField;
+    IBOutlet UITextField *nearField;
+
 }
 
 @property (nonatomic, retain) SearchService *searchService;
@@ -26,6 +30,11 @@
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
 
+@property (nonatomic, retain) IBOutlet UIView *searchView;
+@property (nonatomic, retain) IBOutlet UITextField *termField;
+@property (nonatomic, retain) IBOutlet UITextField *nearField;
+
 -(IBAction) switchSearchView:(id *) sender;
+-(IBAction) autocomplete;
 
 @end
