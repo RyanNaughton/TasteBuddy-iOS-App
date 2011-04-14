@@ -10,6 +10,7 @@
 #import "Restaurant.h"
 #import "MenuItem.h"
 #import "SearchViewController.h"
+#import "DishesSearchCell.h"
 
 @implementation DishSearchResultTableViewController
 
@@ -105,19 +106,70 @@
     return [((Restaurant *)[restaurantsArray objectAtIndex:section]).menu_items count];
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
+    headerView.backgroundColor = [UIColor clearColor];
+    
+    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
+    bgView.backgroundColor = [UIColor blackColor];
+    bgView.alpha = 0.66;
+    [headerView addSubview:bgView];
+    
+    UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 200, 22)];
+    restaurantName.backgroundColor = [UIColor clearColor];
+    restaurantName.textColor = [UIColor whiteColor];
+    restaurantName.text = ((Restaurant *)[restaurantsArray objectAtIndex:section]).name;
+    [headerView addSubview:restaurantName];
+    
+    UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(250, 0, 50, 22)];
+    distance.backgroundColor = [UIColor clearColor];
+    distance.textColor = [UIColor whiteColor];
+    distance.text = @"0.2 mi";
+    [headerView addSubview:distance];
+    
+    return headerView;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    if ([restaurantsArray count] > 0) {
+        
+		DishesSearchCell *dishesSearchCell = (DishesSearchCell *)[tableView dequeueReusableCellWithIdentifier:@"DishesSearchCell"];
+		if (dishesSearchCell == nil) {
+		    dishesSearchCell = [[[DishesSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishesSearchCell"] autorelease];
+		}          
+        
+        MenuItem *menuItem = (MenuItem *)[((Restaurant *)[restaurantsArray objectAtIndex:indexPath.section]).menu_items objectAtIndex:indexPath.row];
+        [dishesSearchCell loadMenuItem:menuItem];
+		
+		return dishesSearchCell;
+		
+	} else {
+		
+		static NSString *CellIdentifier = @"Placeholder Menu Cell";
+		
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+		    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		}
+		
+		// Configure the cell...
+		cell.textLabel.text = @"No Items";
+        cell.textLabel.textColor = [UIColor darkGrayColor];
+		
+		return cell;
+        
+	}
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
+    int height;
+    if ([restaurantsArray count] > 0) {
+            height = 60;
+    } else {
+        height = 44;
     }
-    
-    // Configure the cell...
-    cell.textLabel.text = ((MenuItem *)[((Restaurant *)[restaurantsArray objectAtIndex:indexPath.section]).menu_items objectAtIndex:indexPath.row]).name;
-    
-    return cell;
+    return height;
 }
 
 /*

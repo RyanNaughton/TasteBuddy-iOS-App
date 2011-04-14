@@ -44,7 +44,7 @@
 
 -(void)searchByTerm:(NSString *)term andNear:(NSString *)nearString
 {
-    if (request !=nil) {
+    if (request != nil) {
         [request cancel];
         request = nil;
     }
