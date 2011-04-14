@@ -204,8 +204,10 @@
     RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:[restaurantsArray objectAtIndex:indexPath.row]];
     [searchViewController.navigationController pushViewController:restaurantViewController animated:YES];
     [restaurantViewController release];
+    
+    searchViewController.navigationController.navigationBar.tintColor = [UIColor blackColor];
+   // searchViewController.navigationController.navigationBar.translucent = YES;
 
-    searchViewController.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
 }
 
 @end
