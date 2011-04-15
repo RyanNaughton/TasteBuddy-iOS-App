@@ -7,11 +7,11 @@
 //
 
 #import "Menu.h"
-
+#import "MenuSubcategory.h"
 
 @implementation Menu
 
-@synthesize categories;
+@synthesize subcategories;
 
 -(id) init {
     self = [super init];
@@ -25,14 +25,17 @@
 {
     self = [super init];
     if (self) {
-        menuDictionary;
+        subcategories = [[NSMutableArray alloc] init];
+        for (NSDictionary *dict in [menuDictionary objectForKey:@"subcategories"]) {
+            [subcategories addObject:[[MenuSubcategory alloc] initWithDictionary:dict]];
+        }
     }
     return self;
 } 
 
 -(void) dealloc
 {
-    [categories release];
+    [subcategories release];
     [super dealloc];
 }
 
