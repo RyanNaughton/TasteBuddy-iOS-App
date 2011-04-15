@@ -534,6 +534,7 @@
 		49578B75135519DB00F8EC0B /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				498857A91358E88D00D17554 /* Cells */,
 				49578B7E13551D7200F8EC0B /* SearchViewController.xib */,
 			);
 			name = Search;
@@ -549,10 +550,6 @@
 				49578BCB1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m */,
 				49578BD81355F8CE00F8EC0B /* DishSearchResultTableViewController.h */,
 				49578BD91355F8CF00F8EC0B /* DishSearchResultTableViewController.m */,
-				E85EE410135617CB004B2A10 /* RestaurantSearchCell.h */,
-				E85EE411135617CB004B2A10 /* RestaurantSearchCell.m */,
-				E85EE42F135688D9004B2A10 /* DishCell.h */,
-				E85EE430135688DA004B2A10 /* DishCell.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -566,6 +563,17 @@
 				498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */,
 			);
 			name = Autocomplete;
+			sourceTree = "<group>";
+		};
+		498857A91358E88D00D17554 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E85EE410135617CB004B2A10 /* RestaurantSearchCell.h */,
+				E85EE411135617CB004B2A10 /* RestaurantSearchCell.m */,
+				E85EE42F135688D9004B2A10 /* DishCell.h */,
+				E85EE430135688DA004B2A10 /* DishCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		49BA68131354DBA20040DDB5 = {

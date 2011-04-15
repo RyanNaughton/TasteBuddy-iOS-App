@@ -8,6 +8,7 @@
 
 #import "RestaurantSearchCell.h"
 #import "Restaurant.h"
+#import "TTImageView.h"
 
 @implementation RestaurantSearchCell
 @synthesize imageView, name, tags, addressLine1, addressLine2, distance;
@@ -19,8 +20,10 @@
         // Initialization code  
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
-        imageView = [[UIImageView alloc]init];
-        imageView.image = [UIImage imageNamed:@"restaurant-icon.gif"];
+        
+        
+        imageView = [[TTImageView alloc]init];
+        imageView.defaultImage = [UIImage imageNamed:@"restaurant-icon.gif"];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         imageView.frame = CGRectMake(7, 7, 80, 80);
