@@ -71,6 +71,7 @@
 		E8DFF5981358B7CE007BF40E /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DFF5971358B7CE007BF40E /* MenuViewController.m */; };
 		E8DFF5A71358C820007BF40E /* DishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DFF5A61358C820007BF40E /* DishViewController.m */; };
 		E8DFF5AB1358C96E007BF40E /* DishHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DFF5AA1358C96E007BF40E /* DishHeaderCell.m */; };
+		E8DFF5B41358E10D007BF40E /* RatingView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DFF5B31358E10D007BF40E /* RatingView.m */; };
 		E8E6D3EE135523FF003F0ECB /* RestaurantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D3EC135523FF003F0ECB /* RestaurantViewController.m */; };
 		E8E6D3EF135523FF003F0ECB /* RestaurantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8E6D3ED135523FF003F0ECB /* RestaurantViewController.xib */; };
 		E8E6D3F413552448003F0ECB /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D3F313552448003F0ECB /* Restaurant.m */; };
@@ -199,6 +200,8 @@
 		E8DFF5A61358C820007BF40E /* DishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishViewController.m; sourceTree = "<group>"; };
 		E8DFF5A91358C96E007BF40E /* DishHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishHeaderCell.h; sourceTree = "<group>"; };
 		E8DFF5AA1358C96E007BF40E /* DishHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishHeaderCell.m; sourceTree = "<group>"; };
+		E8DFF5B21358E10D007BF40E /* RatingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingView.h; sourceTree = "<group>"; };
+		E8DFF5B31358E10D007BF40E /* RatingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingView.m; sourceTree = "<group>"; };
 		E8E6D3EB135523FF003F0ECB /* RestaurantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantViewController.h; sourceTree = "<group>"; };
 		E8E6D3EC135523FF003F0ECB /* RestaurantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantViewController.m; sourceTree = "<group>"; };
 		E8E6D3ED135523FF003F0ECB /* RestaurantViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantViewController.xib; sourceTree = "<group>"; };
@@ -274,6 +277,7 @@
 		49578B731355183500F8EC0B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E8DFF5B11358E0E7007BF40E /* Rating */,
 				E8E6D3F01355240A003F0ECB /* Restaurant */,
 				49578B75135519DB00F8EC0B /* Search */,
 			);
@@ -518,6 +522,15 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		E8DFF5B11358E0E7007BF40E /* Rating */ = {
+			isa = PBXGroup;
+			children = (
+				E8DFF5B21358E10D007BF40E /* RatingView.h */,
+				E8DFF5B31358E10D007BF40E /* RatingView.m */,
+			);
+			name = Rating;
+			sourceTree = "<group>";
+		};
 		E8E6D3E913552231003F0ECB /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
@@ -708,6 +721,7 @@
 				E8DFF5981358B7CE007BF40E /* MenuViewController.m in Sources */,
 				E8DFF5A71358C820007BF40E /* DishViewController.m in Sources */,
 				E8DFF5AB1358C96E007BF40E /* DishHeaderCell.m in Sources */,
+				E8DFF5B41358E10D007BF40E /* RatingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
