@@ -18,19 +18,21 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        self.backgroundColor = [UIColor clearColor];
         
         imageView = [[UIImageView alloc]init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
-        imageView.frame = CGRectMake(5, 5, 150, 150);
-        imageView.center = CGPointMake(self.contentView.center.x, 80);
+        imageView.frame = CGRectMake(75, 25, 150, 150);
+        //imageView.center = CGPointMake(self.contentView.center.x, 80);
         [self.contentView addSubview:imageView];
         
         price = [[UILabel alloc]init];
-        price.frame = CGRectMake(130, 7, 160, 20);
+        price.frame = CGRectMake(75, 5, 150, 20);
+        price.textAlignment = UITextAlignmentCenter;
         price.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		price.backgroundColor = [UIColor clearColor];
-		price.font = [UIFont boldSystemFontOfSize:13];
+		price.font = [UIFont boldSystemFontOfSize:14];
         price.shadowColor = [UIColor whiteColor];
         price.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:price];

@@ -81,7 +81,13 @@
 
 -(void)loadRestaurant:(Restaurant *)restaurant 
 {
-    imageView.image = [UIImage imageNamed:@"restaurant-icon.gif"];
+    if ([restaurant.pictures count] > 0) {
+        NSURL *url = [NSURL URLWithString:[[restaurant.pictures objectAtIndex:0]objectForKey:@"160px"]];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        imageView.image = [UIImage imageWithData:data];
+    } else {
+        imageView.image = [UIImage imageNamed:@"restaurant-icon.gif"];
+    }
     name.text = restaurant.name;
     hours.text = @"Hours unavailable"; //restaurant.hours;
     average_meal.text = [NSString stringWithFormat:@"Average meal: $%@", restaurant.average_meal_price];
