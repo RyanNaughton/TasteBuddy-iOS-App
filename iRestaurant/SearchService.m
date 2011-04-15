@@ -28,7 +28,6 @@
 {
     self = [super init];
     if (self) {
-        NSLog(@"init with location");
         location = current_location;
         delegate = searchServiceDelegate;
         
@@ -75,7 +74,6 @@
         
     NSString *responseString = [request_passed responseString];
     NSArray *arrayOfDictionaries = [responseString JSONValue];
-    NSLog(@"arrayOfDictionaries: %@", arrayOfDictionaries);
 
     NSMutableArray *resultsForDelegate = [[NSMutableArray alloc]init];
     

@@ -17,6 +17,7 @@
 @synthesize  tags;
 @synthesize  photo_urls;
 @synthesize  comments;
+@synthesize  pictures;
 @synthesize  restaurant_id;
 
 -(id) init {
@@ -30,6 +31,7 @@
 -(id) initWithDictionary:(NSDictionary *)menuItemDictionary {
     self = [super init];
     if (self) {
+        NSLog(@"%@",menuItemDictionary);
         // custom init
         _id             = [[menuItemDictionary objectForKey:@"_id"] retain];
         name            = [[menuItemDictionary objectForKey:@"name"] retain];
@@ -37,6 +39,7 @@
         tags            = [[menuItemDictionary objectForKey:@"tags"] retain];
         photo_urls      = [[menuItemDictionary objectForKey:@"photo_urls"] retain];
         comments        = [[menuItemDictionary objectForKey:@"comments"] retain];
+        pictures        = [[menuItemDictionary objectForKey:@"pictures"] retain];
         restaurant_id   = [[menuItemDictionary objectForKey:@"restaurant_id"] retain];
     }
     return self;
@@ -64,6 +67,7 @@
     [tags           release];
     [photo_urls     release];
     [comments       release];
+    [pictures       release];
     [restaurant_id  release];
     [super dealloc];
 }

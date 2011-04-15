@@ -8,7 +8,7 @@
 
 #import "RestaurantSearchCell.h"
 #import "Restaurant.h"
-#import "TTImageView.h"
+#import "UIImageView+WebCache.h"
 
 @implementation RestaurantSearchCell
 @synthesize imageView, name, tags, addressLine1, addressLine2, distance;
@@ -22,8 +22,8 @@
         
         
         
-        imageView = [[TTImageView alloc]init];
-        imageView.defaultImage = [UIImage imageNamed:@"restaurant-icon.gif"];
+        imageView = [[UIImageView alloc]init];
+        
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         imageView.frame = CGRectMake(7, 7, 80, 80);
@@ -76,6 +76,8 @@
     addressLine1.text = restaurant.address_1;
     addressLine2.text = @"Portland, OR 97209"; //[NSString stringWithFormat:@"%@",restaurant.address_2];
     distance.text = @"0.2 mi";
+    [imageView setImageWithURL:[NSURL URLWithString:[[restaurant.pictures objectAtIndex:0] objectForKey:@"80px"]]
+              placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
 
 }
 

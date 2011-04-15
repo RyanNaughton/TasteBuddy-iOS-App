@@ -8,6 +8,7 @@
 
 #import "RestaurantHeaderCell.h"
 #import "Restaurant.h"
+#import "UIImageView+WebCache.h"
 
 @implementation RestaurantHeaderCell
 @synthesize imageView, name, hours, average_meal, cuisine_types;
@@ -82,9 +83,8 @@
 -(void)loadRestaurant:(Restaurant *)restaurant 
 {
     if ([restaurant.pictures count] > 0) {
-        NSURL *url = [NSURL URLWithString:[[restaurant.pictures objectAtIndex:0]objectForKey:@"160px"]];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        imageView.image = [UIImage imageWithData:data];
+        [imageView setImageWithURL:[NSURL URLWithString:[[restaurant.pictures objectAtIndex:0] objectForKey:@"160px"]]
+                  placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
     } else {
         imageView.image = [UIImage imageNamed:@"restaurant-icon.gif"];
     }
