@@ -68,6 +68,7 @@
 		E8CD38C71357BB2500FBC6FF /* RestaurantPhoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */; };
 		E8CD38CF1357C82600FBC6FF /* search-text-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E8CD38CD1357C82600FBC6FF /* search-text-bg.png */; };
 		E8CD38D01357C82600FBC6FF /* search-text-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8CD38CE1357C82600FBC6FF /* search-text-bg@2x.png */; };
+		E8DFF5981358B7CE007BF40E /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DFF5971358B7CE007BF40E /* MenuViewController.m */; };
 		E8E6D3EE135523FF003F0ECB /* RestaurantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D3EC135523FF003F0ECB /* RestaurantViewController.m */; };
 		E8E6D3EF135523FF003F0ECB /* RestaurantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8E6D3ED135523FF003F0ECB /* RestaurantViewController.xib */; };
 		E8E6D3F413552448003F0ECB /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D3F313552448003F0ECB /* Restaurant.m */; };
@@ -184,6 +185,8 @@
 		E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantPhoneCell.m; sourceTree = "<group>"; };
 		E8CD38CD1357C82600FBC6FF /* search-text-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-text-bg.png"; sourceTree = "<group>"; };
 		E8CD38CE1357C82600FBC6FF /* search-text-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-text-bg@2x.png"; sourceTree = "<group>"; };
+		E8DFF5961358B7CE007BF40E /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		E8DFF5971358B7CE007BF40E /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		E8E6D3EB135523FF003F0ECB /* RestaurantViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantViewController.h; sourceTree = "<group>"; };
 		E8E6D3EC135523FF003F0ECB /* RestaurantViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantViewController.m; sourceTree = "<group>"; };
 		E8E6D3ED135523FF003F0ECB /* RestaurantViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantViewController.xib; sourceTree = "<group>"; };
@@ -268,6 +271,7 @@
 		49578B741355184500F8EC0B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E8DFF5911358B76A007BF40E /* Menu */,
 				E8E6D3E913552231003F0ECB /* Restaurant */,
 				49578B7B13551D4C00F8EC0B /* Search */,
 			);
@@ -471,6 +475,15 @@
 			name = ASIHttpRequest;
 			sourceTree = "<group>";
 		};
+		E8DFF5911358B76A007BF40E /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				E8DFF5961358B7CE007BF40E /* MenuViewController.h */,
+				E8DFF5971358B7CE007BF40E /* MenuViewController.m */,
+			);
+			name = Menu;
+			sourceTree = "<group>";
+		};
 		E8E6D3E913552231003F0ECB /* Restaurant */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,6 +667,7 @@
 				E85EE4401357A0A0004B2A10 /* RestaurantMenuCell.m in Sources */,
 				E85EE44F1357AAE5004B2A10 /* RestaurantAddressCell.m in Sources */,
 				E8CD38C71357BB2500FBC6FF /* RestaurantPhoneCell.m in Sources */,
+				E8DFF5981358B7CE007BF40E /* MenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

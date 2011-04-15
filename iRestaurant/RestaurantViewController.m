@@ -72,7 +72,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setTitle:restaurant.name];
+    
+    UILabel *restaurantNameTitle = [[UILabel alloc]init];
+    restaurantNameTitle.frame = CGRectMake(-40,0,200,44);
+    restaurantNameTitle.textColor = [UIColor whiteColor];
+    restaurantNameTitle.backgroundColor = [UIColor clearColor];
+    restaurantNameTitle.font = [UIFont boldSystemFontOfSize:15];
+    restaurantNameTitle.text = restaurant.name;
+    restaurantNameTitle.textAlignment = UITextAlignmentCenter;
+    restaurantNameTitle.contentMode = UIViewContentModeCenter;
+
+    UIView *titleView = [[UIView alloc]init];
+    titleView.frame = CGRectMake(0,0,100,44);
+    titleView.backgroundColor = [UIColor clearColor];
+    [titleView addSubview:restaurantNameTitle];
+    
+    titleView.contentMode = UIViewContentModeCenter;
+    self.navigationItem.titleView = titleView;
+    
+    
+//    [self setTitle:restaurant.name];
     self.tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"grain-bg.png"]];
     
     // Uncomment the following line to preserve selection between presentations.
