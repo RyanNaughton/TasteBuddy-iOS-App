@@ -8,6 +8,9 @@
 
 #import "MenuViewController.h"
 #import "Restaurant.h"
+#import "MenuItem.h"
+#import "DishCell.h"
+#import "Restaurant.h"
 
 @implementation MenuViewController
 @synthesize restaurant;
@@ -17,6 +20,16 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+    }
+    return self;
+}
+
+- (id)initWithRestaurant:(Restaurant *)restaurant_passed 
+{
+    self = [super initWithStyle:UITableViewStylePlain];
+    if (self) {
+        // Custom initialization
+        restaurant = restaurant_passed;
     }
     return self;
 }
@@ -106,18 +119,21 @@
 
 #pragma mark - Table view data source
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
+    return 60;
+}
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [restaurant.menu_items count];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -149,34 +165,16 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([restaurantsArray count] > 0) {
-        
-		DishesSearchCell *dishesSearchCell = (DishesSearchCell *)[tableView dequeueReusableCellWithIdentifier:@"DishesSearchCell"];
-		if (dishesSearchCell == nil) {
-		    dishesSearchCell = [[[DishesSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishesSearchCell"] autorelease];
+   		DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"DishCell"];
+		if (dishCell == nil) {
+		    dishCell = [[[DishCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishCell"] autorelease];
 		}          
         
-        MenuItem *menuItem = (MenuItem *)[((Restaurant *)[restaurantsArray objectAtIndex:indexPath.section]).menu_items objectAtIndex:indexPath.row];
-        [dishesSearchCell loadMenuItem:menuItem];
+        MenuItem *menuItem = (MenuItem *)[restaurant.menu_items objectAtIndex:indexPath.row];
+        [dishCell loadMenuItem:menuItem];
 		
-		return dishesSearchCell;
+		return dishCell;
 		
-	} else {
-		
-		static NSString *CellIdentifier = @"Placeholder Menu Cell";
-		
-		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-		if (cell == nil) {
-		    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-		}
-		
-		// Configure the cell...
-		cell.textLabel.text = @"No Items";
-        cell.textLabel.textColor = [UIColor darkGrayColor];
-		
-		return cell;
-        
-	}
 }
 
 /*

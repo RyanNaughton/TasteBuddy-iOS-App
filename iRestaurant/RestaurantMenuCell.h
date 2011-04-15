@@ -8,16 +8,19 @@
 
 #import <UIKit/UIKit.h>
 @class Restaurant;
+@class RestaurantViewController;
 
 @interface RestaurantMenuCell : UITableViewCell {
     UIButton *lunchMenuButton;
     UIButton *dinnerMenuButton;
     UIButton *bookmarkItButton;
+    RestaurantViewController *parentView;
 }
 
 @property (nonatomic, retain) UIButton *lunchMenuButton;
 @property (nonatomic, retain) UIButton *dinnerMenuButton;
 @property (nonatomic, retain) UIButton *bookmarkItButton;
+@property (nonatomic, retain) RestaurantViewController *parentView;
 
 -(void)loadRestaurant:(Restaurant *)restaurant;
 -(void)lunchMenuButtonPressed:(id)sender;

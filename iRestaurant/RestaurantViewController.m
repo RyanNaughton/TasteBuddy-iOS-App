@@ -8,6 +8,7 @@
 
 #import "RestaurantViewController.h"
 #import "Restaurant.h"
+#import "MenuViewController.h"
 
 // CELLS =========
 #import "RestaurantHeaderCell.h"
@@ -101,6 +102,14 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+-(void)loadLunchMenu 
+{
+    NSLog(@"load lunch menu in parent view");
+    MenuViewController *menuViewController = [[MenuViewController alloc]initWithRestaurant:restaurant];
+    [self.navigationController pushViewController:menuViewController animated:YES];
+    [menuViewController release];
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -165,6 +174,7 @@
 		    restaurantMenuCell = [[[RestaurantMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantMenuCell"] autorelease];
 		}          
         [restaurantMenuCell loadRestaurant:restaurant];
+        restaurantMenuCell.parentView = self;
 		return restaurantMenuCell;
 
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {

@@ -8,9 +8,10 @@
 
 #import "RestaurantMenuCell.h"
 #import "Restaurant.h"
+#import "RestaurantViewController.h"
 
 @implementation RestaurantMenuCell
-@synthesize lunchMenuButton, dinnerMenuButton, bookmarkItButton;
+@synthesize lunchMenuButton, dinnerMenuButton, bookmarkItButton, parentView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -64,6 +65,7 @@
 
 -(void)lunchMenuButtonPressed:(id)sender {
     NSLog(@"lunch menu button pressed");
+    [parentView loadLunchMenu];
 }
 
 -(void)dinnerMenuButtonPressed:(id)sender {

@@ -10,7 +10,7 @@
 #import "Restaurant.h"
 #import "MenuItem.h"
 #import "SearchViewController.h"
-#import "DishesSearchCell.h"
+#import "DishCell.h"
 
 @implementation DishSearchResultTableViewController
 
@@ -160,15 +160,15 @@
         return  cell;        
     } else if ([restaurantsArray count] > 0) {
         
-		DishesSearchCell *dishesSearchCell = (DishesSearchCell *)[tableView dequeueReusableCellWithIdentifier:@"DishesSearchCell"];
-		if (dishesSearchCell == nil) {
-		    dishesSearchCell = [[[DishesSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishesSearchCell"] autorelease];
+		DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"DishCell"];
+		if (dishCell == nil) {
+		    dishCell = [[[DishCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishCell"] autorelease];
 		}          
         
         MenuItem *menuItem = (MenuItem *)[((Restaurant *)[restaurantsArray objectAtIndex:indexPath.section]).menu_items objectAtIndex:indexPath.row];
-        [dishesSearchCell loadMenuItem:menuItem];
+        [dishCell loadMenuItem:menuItem];
 		
-		return dishesSearchCell;
+		return dishCell;
 		
 	} else {
 		

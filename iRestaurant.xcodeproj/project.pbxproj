@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		490F2C9D1358BB3200DA5C1F /* MenuService.m in Sources */ = {isa = PBXBuildFile; fileRef = 490F2C9C1358BB3200DA5C1F /* MenuService.m */; };
-		490F2CA11358BB7F00DA5C1F /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 490F2CA01358BB7F00DA5C1F /* Menu.m */; };
 		49578B6E1355177900F8EC0B /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B651355177900F8EC0B /* NSObject+SBJSON.m */; };
 		49578B6F1355177900F8EC0B /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B671355177900F8EC0B /* NSString+SBJSON.m */; };
 		49578B701355177900F8EC0B /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B691355177900F8EC0B /* SBJsonBase.m */; };
@@ -41,7 +39,7 @@
 		E85EE42A13565D9F004B2A10 /* restaurant-icon.gif in Resources */ = {isa = PBXBuildFile; fileRef = E85EE42913565D9F004B2A10 /* restaurant-icon.gif */; };
 		E85EE42D13567388004B2A10 /* 06-magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE42B13567388004B2A10 /* 06-magnify.png */; };
 		E85EE42E13567388004B2A10 /* 06-magnify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE42C13567388004B2A10 /* 06-magnify@2x.png */; };
-		E85EE431135688DB004B2A10 /* DishesSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E85EE430135688DA004B2A10 /* DishesSearchCell.m */; };
+		E85EE431135688DB004B2A10 /* DishCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E85EE430135688DA004B2A10 /* DishCell.m */; };
 		E85EE43513578D63004B2A10 /* RestaurantHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E85EE43413578D63004B2A10 /* RestaurantHeaderCell.m */; };
 		E85EE43C13579BDB004B2A10 /* grain-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE43A13579BDB004B2A10 /* grain-bg@2x.png */; };
 		E85EE43D13579BDB004B2A10 /* grain-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE43B13579BDB004B2A10 /* grain-bg.png */; };
@@ -141,8 +139,8 @@
 		E85EE42913565D9F004B2A10 /* restaurant-icon.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "restaurant-icon.gif"; sourceTree = "<group>"; };
 		E85EE42B13567388004B2A10 /* 06-magnify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-magnify.png"; sourceTree = "<group>"; };
 		E85EE42C13567388004B2A10 /* 06-magnify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-magnify@2x.png"; sourceTree = "<group>"; };
-		E85EE42F135688D9004B2A10 /* DishesSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishesSearchCell.h; sourceTree = "<group>"; };
-		E85EE430135688DA004B2A10 /* DishesSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishesSearchCell.m; sourceTree = "<group>"; };
+		E85EE42F135688D9004B2A10 /* DishCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = DishCell.h; sourceTree = "<group>"; };
+		E85EE430135688DA004B2A10 /* DishCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishCell.m; sourceTree = "<group>"; };
 		E85EE43313578D63004B2A10 /* RestaurantHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantHeaderCell.h; sourceTree = "<group>"; };
 		E85EE43413578D63004B2A10 /* RestaurantHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantHeaderCell.m; sourceTree = "<group>"; };
 		E85EE43A13579BDB004B2A10 /* grain-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grain-bg@2x.png"; sourceTree = "<group>"; };
@@ -304,8 +302,8 @@
 				49578BD91355F8CF00F8EC0B /* DishSearchResultTableViewController.m */,
 				E85EE410135617CB004B2A10 /* RestaurantSearchCell.h */,
 				E85EE411135617CB004B2A10 /* RestaurantSearchCell.m */,
-				E85EE42F135688D9004B2A10 /* DishesSearchCell.h */,
-				E85EE430135688DA004B2A10 /* DishesSearchCell.m */,
+				E85EE42F135688D9004B2A10 /* DishCell.h */,
+				E85EE430135688DA004B2A10 /* DishCell.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -672,7 +670,7 @@
 				49578BDA1355F8CF00F8EC0B /* DishSearchResultTableViewController.m in Sources */,
 				49578BE51356350900F8EC0B /* RestaurantService.m in Sources */,
 				E85EE412135617CB004B2A10 /* RestaurantSearchCell.m in Sources */,
-				E85EE431135688DB004B2A10 /* DishesSearchCell.m in Sources */,
+				E85EE431135688DB004B2A10 /* DishCell.m in Sources */,
 				E85EE43513578D63004B2A10 /* RestaurantHeaderCell.m in Sources */,
 				E85EE4401357A0A0004B2A10 /* RestaurantMenuCell.m in Sources */,
 				E85EE44F1357AAE5004B2A10 /* RestaurantAddressCell.m in Sources */,

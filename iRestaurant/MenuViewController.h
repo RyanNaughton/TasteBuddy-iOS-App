@@ -15,4 +15,7 @@
 
 @property (nonatomic, retain) Restaurant *restaurant;
 
+- (id)initWithRestaurant:(Restaurant *)restaurant_passed;
+
+
 @end
