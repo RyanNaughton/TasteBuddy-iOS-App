@@ -139,7 +139,6 @@
 
 
 -(void) dealloc {
-    [super dealloc];
     [_id      release];
     [name              release];
     [average_rating    release];
@@ -166,6 +165,7 @@
     [comments          release];
     [menu_items        release];
     [average_meal_price release];
+    [super dealloc];
 }
 
 

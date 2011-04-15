@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490F2C9D1358BB3200DA5C1F /* MenuService.m in Sources */ = {isa = PBXBuildFile; fileRef = 490F2C9C1358BB3200DA5C1F /* MenuService.m */; };
+		490F2CA11358BB7F00DA5C1F /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = 490F2CA01358BB7F00DA5C1F /* Menu.m */; };
 		49578B6E1355177900F8EC0B /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B651355177900F8EC0B /* NSObject+SBJSON.m */; };
 		49578B6F1355177900F8EC0B /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B671355177900F8EC0B /* NSString+SBJSON.m */; };
 		49578B701355177900F8EC0B /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B691355177900F8EC0B /* SBJsonBase.m */; };
@@ -84,6 +86,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		490F2C9B1358BB3200DA5C1F /* MenuService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuService.h; sourceTree = "<group>"; };
+		490F2C9C1358BB3200DA5C1F /* MenuService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuService.m; sourceTree = "<group>"; };
+		490F2C9F1358BB7F00DA5C1F /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
+		490F2CA01358BB7F00DA5C1F /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		49578B631355177900F8EC0B /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
 		49578B641355177900F8EC0B /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
 		49578B651355177900F8EC0B /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
@@ -436,6 +442,8 @@
 				49578BE41356350900F8EC0B /* RestaurantService.m */,
 				498727DD13578626004CB2F6 /* AutocompleteService.h */,
 				498727DE13578626004CB2F6 /* AutocompleteService.m */,
+				490F2C9B1358BB3200DA5C1F /* MenuService.h */,
+				490F2C9C1358BB3200DA5C1F /* MenuService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -496,6 +504,8 @@
 				E8E6D3F313552448003F0ECB /* Restaurant.m */,
 				E8A03E12135535500031D798 /* MenuItem.h */,
 				E8A03E13135535500031D798 /* MenuItem.m */,
+				490F2C9F1358BB7F00DA5C1F /* Menu.h */,
+				490F2CA01358BB7F00DA5C1F /* Menu.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -654,6 +664,8 @@
 				E85EE4401357A0A0004B2A10 /* RestaurantMenuCell.m in Sources */,
 				E85EE44F1357AAE5004B2A10 /* RestaurantAddressCell.m in Sources */,
 				E8CD38C71357BB2500FBC6FF /* RestaurantPhoneCell.m in Sources */,
+				490F2C9D1358BB3200DA5C1F /* MenuService.m in Sources */,
+				490F2CA11358BB7F00DA5C1F /* Menu.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
