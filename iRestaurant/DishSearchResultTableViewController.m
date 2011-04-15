@@ -15,6 +15,7 @@
 @implementation DishSearchResultTableViewController
 
 @synthesize restaurantsArray;
+@synthesize isLoading;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -45,7 +46,7 @@
 {
     [super viewDidLoad];
     restaurantsArray = [[NSMutableArray alloc] init];
-
+    isLoading = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -91,25 +92,37 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [restaurantsArray count];
+    if(isLoading)
+    {
+        return 1;    
+    } else {
+        return [restaurantsArray count];        
+    }
+
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [((Restaurant *)[restaurantsArray objectAtIndex:section]).menu_items count];
+    if(isLoading)
+    {
+        return 1;  
+    } else {
+        return [((Restaurant *)[restaurantsArray objectAtIndex:section]).menu_items count];
+    }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
     headerView.backgroundColor = [UIColor clearColor];
-    
+
     UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
     bgView.backgroundColor = [UIColor blackColor];
     bgView.alpha = 0.66;
     [headerView addSubview:bgView];
     [bgView release];
-    
+
+    if (!isLoading) {
     UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 240, 22)];
     restaurantName.backgroundColor = [UIColor clearColor];
     restaurantName.textColor = [UIColor whiteColor];
@@ -124,12 +137,28 @@
     [headerView addSubview:distance];
     [distance release];
     
+    }
     return [headerView autorelease];
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([restaurantsArray count] > 0) {
+    if (isLoading) {
+		static NSString *CellIdentifier = @"LoadingCell";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+		    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		}
+		
+        cell.textLabel.text = @"Loading...";
+        UIActivityIndicatorView *documentActivityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [documentActivityIndicator startAnimating];
+        [cell setAccessoryView:documentActivityIndicator];
+        [documentActivityIndicator release];
+        return  cell;        
+    } else if ([restaurantsArray count] > 0) {
         
 		DishesSearchCell *dishesSearchCell = (DishesSearchCell *)[tableView dequeueReusableCellWithIdentifier:@"DishesSearchCell"];
 		if (dishesSearchCell == nil) {

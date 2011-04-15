@@ -8,7 +8,6 @@
 
 #import "iRestaurantAppDelegate.h"
 
-#import "iRestaurantViewController.h"
 #import "Restaurant.h"
 
 @implementation iRestaurantAppDelegate

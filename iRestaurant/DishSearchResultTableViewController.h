@@ -12,8 +12,10 @@
 @interface DishSearchResultTableViewController : UITableViewController {
     NSMutableArray *restaurantsArray;
     IBOutlet SearchViewController *searchViewController;
+    bool isLoading;
 }
 
 @property (nonatomic, retain) NSMutableArray *restaurantsArray;
+@property (nonatomic, assign) bool isLoading;
 
 @end
