@@ -10,7 +10,11 @@
 
 
 @interface RatingView : UIView {
-    
+    UIView *allOutlineStarsView;
 }
+
+@property (nonatomic, retain) UIView *allOutlineStarsView;
+
+-(void) setupAllOutlineStarsView;
 
 @end
