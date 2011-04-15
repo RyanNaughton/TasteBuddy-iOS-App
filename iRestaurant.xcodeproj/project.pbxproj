@@ -27,8 +27,6 @@
 		49BA68301354DBA40040DDB5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA682F1354DBA40040DDB5 /* main.m */; };
 		49BA68331354DBA40040DDB5 /* iRestaurantAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA68321354DBA40040DDB5 /* iRestaurantAppDelegate.m */; };
 		49BA68361354DBA40040DDB5 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49BA68341354DBA40040DDB5 /* MainWindow.xib */; };
-		49BA68391354DBA40040DDB5 /* iRestaurantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA68381354DBA40040DDB5 /* iRestaurantViewController.m */; };
-		49BA683C1354DBA40040DDB5 /* iRestaurantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49BA683A1354DBA40040DDB5 /* iRestaurantViewController.xib */; };
 		49BA68431354DBA50040DDB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68221354DBA40040DDB5 /* UIKit.framework */; };
 		49BA68441354DBA50040DDB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68241354DBA40040DDB5 /* Foundation.framework */; };
 		49BA68451354DBA50040DDB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68261354DBA40040DDB5 /* CoreGraphics.framework */; };
@@ -121,9 +119,6 @@
 		49BA68311354DBA40040DDB5 /* iRestaurantAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRestaurantAppDelegate.h; sourceTree = "<group>"; };
 		49BA68321354DBA40040DDB5 /* iRestaurantAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRestaurantAppDelegate.m; sourceTree = "<group>"; };
 		49BA68351354DBA40040DDB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		49BA68371354DBA40040DDB5 /* iRestaurantViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRestaurantViewController.h; sourceTree = "<group>"; };
-		49BA68381354DBA40040DDB5 /* iRestaurantViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRestaurantViewController.m; sourceTree = "<group>"; };
-		49BA683B1354DBA40040DDB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/iRestaurantViewController.xib; sourceTree = "<group>"; };
 		49BA68421354DBA50040DDB5 /* iRestaurantTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRestaurantTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA684A1354DBA50040DDB5 /* iRestaurantTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRestaurantTests-Info.plist"; sourceTree = "<group>"; };
 		49BA684C1354DBA50040DDB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -358,9 +353,6 @@
 				49BA68311354DBA40040DDB5 /* iRestaurantAppDelegate.h */,
 				49BA68321354DBA40040DDB5 /* iRestaurantAppDelegate.m */,
 				49BA68341354DBA40040DDB5 /* MainWindow.xib */,
-				49BA68371354DBA40040DDB5 /* iRestaurantViewController.h */,
-				49BA68381354DBA40040DDB5 /* iRestaurantViewController.m */,
-				49BA683A1354DBA40040DDB5 /* iRestaurantViewController.xib */,
 				49BA68291354DBA40040DDB5 /* Supporting Files */,
 			);
 			path = iRestaurant;
@@ -574,7 +566,6 @@
 			files = (
 				49BA682D1354DBA40040DDB5 /* InfoPlist.strings in Resources */,
 				49BA68361354DBA40040DDB5 /* MainWindow.xib in Resources */,
-				49BA683C1354DBA40040DDB5 /* iRestaurantViewController.xib in Resources */,
 				49578B8013551D7200F8EC0B /* SearchViewController.xib in Resources */,
 				E8E6D3EF135523FF003F0ECB /* RestaurantViewController.xib in Resources */,
 				E85EE42A13565D9F004B2A10 /* restaurant-icon.gif in Resources */,
@@ -626,7 +617,6 @@
 				499B564A1357AE9000F2B407 /* AutocompleteService.m in Sources */,
 				49BA68301354DBA40040DDB5 /* main.m in Sources */,
 				49BA68331354DBA40040DDB5 /* iRestaurantAppDelegate.m in Sources */,
-				49BA68391354DBA40040DDB5 /* iRestaurantViewController.m in Sources */,
 				49578B6E1355177900F8EC0B /* NSObject+SBJSON.m in Sources */,
 				49578B6F1355177900F8EC0B /* NSString+SBJSON.m in Sources */,
 				49578B701355177900F8EC0B /* SBJsonBase.m in Sources */,
@@ -692,14 +682,6 @@
 				49BA68351354DBA40040DDB5 /* en */,
 			);
 			name = MainWindow.xib;
-			sourceTree = "<group>";
-		};
-		49BA683A1354DBA40040DDB5 /* iRestaurantViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				49BA683B1354DBA40040DDB5 /* en */,
-			);
-			name = iRestaurantViewController.xib;
 			sourceTree = "<group>";
 		};
 		49BA684B1354DBA50040DDB5 /* InfoPlist.strings */ = {

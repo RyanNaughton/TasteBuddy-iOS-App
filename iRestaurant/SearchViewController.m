@@ -26,6 +26,8 @@
 @synthesize termField;
 @synthesize showSearchButton;
 
+@synthesize searchViewControl;
+
 
 @synthesize findAutocompleteTableViewController, nearAutocompleteTableViewController;
 
@@ -50,6 +52,7 @@
     [findAutocompleteTableViewController release];
     [nearAutocompleteTableViewController release];
     [showSearchButton release];
+    [searchViewControl release];
     [super dealloc];
 }
 
@@ -89,9 +92,9 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(IBAction) switchSearchView:(id *) sender
+-(IBAction) switchSearchView:(id) sender
 {
-    switch (((UISegmentedControl *)sender).selectedSegmentIndex) {
+    switch (searchViewControl.selectedSegmentIndex) {
         case 0: //Restaurant
             tableView.delegate = restaurantSearchResultTableViewController;
             tableView.dataSource = restaurantSearchResultTableViewController;
@@ -110,6 +113,8 @@
         default:
             break;
     }   
+
+    //Need to scroll to top here
 }
 
 -(void)searchFinished:(NSMutableArray *)restaurantsArray 
@@ -122,18 +127,12 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     [searchService searchByTerm:termField.text andNear:nearField.text];
-    tableView.delegate = restaurantSearchResultTableViewController;
-    tableView.dataSource = restaurantSearchResultTableViewController;
-    [tableView reloadData];
+    [self switchSearchView:(id) searchViewControl];
     [self searchViewAnimateOut];
     return NO;
 }
-//
-//- (void) textFieldDidEndEditing:(UITextField *)textField {
-//    [textField resignFirstResponder];
-//}
 
--(IBAction) autocomplete:(id *) sender
+-(IBAction) autocomplete:(id) sender
 {
     if ([((UITextField *) sender).text length] > 2) {
         if((UITextField *) sender == termField) {
@@ -155,6 +154,7 @@
 
 -(void) searchViewAnimateIn 
 {
+    tableView.hidden = NO;
     self.navigationItem.rightBarButtonItem = nil;
     [termField becomeFirstResponder];
     searchView.center = CGPointMake(searchView.center.x, searchView.frame.size.height / 2 * -1);
@@ -177,4 +177,5 @@
     tableView.frame = CGRectMake(0, 0, self.view.frame.size.width,  self.view.frame.size.height - 44);
     [UIView commitAnimations];
 }
+
 @end
