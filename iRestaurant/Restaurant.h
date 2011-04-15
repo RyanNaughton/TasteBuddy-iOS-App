@@ -39,6 +39,7 @@
     NSNumber *wheelchair_access;
     NSArray *photo_urls;
     NSArray *comments;
+    NSString *average_meal_price;
     
     NSMutableArray *menu_items;
 }
@@ -72,6 +73,7 @@
 @property (nonatomic, retain) NSNumber *wheelchair_access;
 @property (nonatomic, retain) NSArray *photo_urls;
 @property (nonatomic, retain) NSArray *comments;
+@property (nonatomic, retain) NSString *average_meal_price;
 
 @property (nonatomic, retain) NSMutableArray *menu_items;
 

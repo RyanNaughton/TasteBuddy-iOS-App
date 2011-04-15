@@ -18,6 +18,10 @@
     if (self) {
         // Initialization code
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.selectionStyle = UITableViewCellSelectionStyleGray;
+        //UIView *selectedBGView = [[UIView alloc]initWithFrame:self.contentView.frame];
+        //selectedBGView.backgroundColor = [UIColor redColor];
+        //self.selectedBackgroundView = selectedBGView;
         self.backgroundColor = [UIColor clearColor];
         
 //        UIView *background = [[UIView alloc]init];
@@ -80,7 +84,7 @@
     imageView.image = [UIImage imageNamed:@"restaurant-icon.gif"];
     name.text = restaurant.name;
     hours.text = @"Hours unavailable"; //restaurant.hours;
-    average_meal.text = @"Average meal price unavailable";
+    average_meal.text = [NSString stringWithFormat:@"Average meal: $%@", restaurant.average_meal_price];
     
     if ([restaurant.cuisine_types count] > 1) {
         for (int i=0; i < [restaurant.cuisine_types count]; i++) {

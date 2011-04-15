@@ -18,7 +18,8 @@
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
-        
+        self.selectionStyle = UITableViewCellSelectionStyleGray;
+
         phone = [[UILabel alloc]init];
         phone.frame = CGRectMake(25, 0, 250, 40);
         phone.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];

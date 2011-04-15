@@ -18,7 +18,8 @@
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
-        
+        self.selectionStyle = UITableViewCellSelectionStyleGray;
+
         address_1 = [[UILabel alloc]init];
         address_1.frame = CGRectMake(25, 5, 250, 12);
         address_1.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];

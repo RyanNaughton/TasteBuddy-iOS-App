@@ -171,6 +171,8 @@
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         }
         cell.textLabel.text = [tableArray objectAtIndex:indexPath.section];
+        cell.backgroundColor = [UIColor clearColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleGray;
         return cell;
     }
 }

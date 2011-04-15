@@ -41,6 +41,7 @@
 @synthesize wheelchair_access;
 @synthesize photo_urls;
 @synthesize comments;
+@synthesize average_meal_price;
 
 @synthesize menu_items;
 
@@ -86,6 +87,7 @@
         wheelchair_access = [[restaurantDictionary objectForKey:@"wheelchair_access"] retain];
         photo_urls        = [[restaurantDictionary objectForKey:@"photo_urls"] retain];
         comments          = [[restaurantDictionary objectForKey:@"comments"] retain];
+        average_meal_price= [[restaurantDictionary objectForKey:@"average_meal_price"] retain];
         
         menu_items        = [[NSMutableArray alloc] init];
         for(NSDictionary *dict in [restaurantDictionary objectForKey:@"menu_items"])
@@ -130,6 +132,7 @@
     newRestaurant.wheelchair_access = [wheelchair_access copy];
     newRestaurant.photo_urls        = [photo_urls        copy];
     newRestaurant.comments          = [comments          copy];
+    newRestaurant.average_meal_price= [average_meal_price copy];
     
     return newRestaurant;
 }
@@ -162,6 +165,7 @@
     [photo_urls        release];
     [comments          release];
     [menu_items        release];
+    [average_meal_price release];
 }
 
 
