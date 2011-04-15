@@ -8,6 +8,8 @@
 
 #import "DishCell.h"
 #import "MenuItem.h"
+#import "UIImageView+WebCache.h"
+
 
 @implementation DishCell
 @synthesize imageView, name, tags, price;
@@ -21,7 +23,6 @@
         self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         imageView = [[UIImageView alloc]init];
-        imageView.image = [UIImage imageNamed:@"restaurant-icon.gif"];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         imageView.frame = CGRectMake(5, 5, 50, 50);
@@ -56,6 +57,9 @@
     name.text = menuItem.name;
     tags.text = @"fun, awesome, totally cool";
     price.text = @"$7.95";
+    [imageView setImageWithURL:[NSURL URLWithString:[[menuItem.pictures objectAtIndex:0] objectForKey:@"80px"]]
+              placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

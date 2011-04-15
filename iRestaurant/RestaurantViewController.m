@@ -105,7 +105,6 @@
 
 -(void)loadLunchMenu 
 {
-    NSLog(@"load lunch menu in parent view");
     MenuViewController *menuViewController = [[MenuViewController alloc]initWithRestaurant:restaurant];
     [self.navigationController pushViewController:menuViewController animated:YES];
     [menuViewController release];
@@ -113,7 +112,6 @@
 
 -(void)loadDinnerMenu 
 {
-    NSLog(@"load lunch menu in parent view");
     MenuViewController *menuViewController = [[MenuViewController alloc]initWithRestaurant:restaurant];
     [self.navigationController pushViewController:menuViewController animated:YES];
     [menuViewController release];
