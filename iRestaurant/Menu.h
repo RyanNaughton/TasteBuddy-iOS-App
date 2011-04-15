@@ -10,11 +10,11 @@
 
 
 @interface Menu : NSObject {
-    NSMutableArray *categories;
+    NSMutableArray *subcategories;
 }
 
 -(id)initWithDictionary:(NSDictionary *)menuDictionary;
 
-@property (nonatomic, retain) NSMutableArray *categories;
+@property (nonatomic, retain) NSMutableArray *subcategories;
 
 @end
