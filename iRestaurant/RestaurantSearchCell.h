@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 @class Restaurant;
+@class TTImageView;
 
 @interface RestaurantSearchCell : UITableViewCell {
-    UIImageView *imageView;
+    TTImageView *imageView;
     UILabel *name        ;
     UILabel *tags        ;
     UILabel *addressLine1;
@@ -19,7 +20,7 @@
     
 }
 
-@property (nonatomic, retain) UIImageView *imageView;
+@property (nonatomic, retain) TTImageView *imageView;
 @property (nonatomic, retain) UILabel *name        ;
 @property (nonatomic, retain) UILabel *tags        ;
 @property (nonatomic, retain) UILabel *addressLine1;
