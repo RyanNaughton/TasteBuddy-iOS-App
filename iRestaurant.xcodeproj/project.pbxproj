@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		490F2CB11358C78600DA5C1F /* MenuSubcategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 490F2CB01358C78600DA5C1F /* MenuSubcategory.m */; };
 		49578B6E1355177900F8EC0B /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B651355177900F8EC0B /* NSObject+SBJSON.m */; };
 		49578B6F1355177900F8EC0B /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B671355177900F8EC0B /* NSString+SBJSON.m */; };
 		49578B701355177900F8EC0B /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578B691355177900F8EC0B /* SBJsonBase.m */; };
@@ -771,7 +770,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
 		};
@@ -786,7 +785,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Release;
 		};

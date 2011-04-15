@@ -37,7 +37,7 @@
     NSNumber *reservations;
     NSNumber *takeout;
     NSNumber *wheelchair_access;
-    NSArray *photo_urls;
+    NSArray *pictures;
     NSArray *comments;
     NSString *average_meal_price;
     
@@ -71,7 +71,7 @@
 @property (nonatomic, retain) NSNumber *reservations;
 @property (nonatomic, retain) NSNumber *takeout;
 @property (nonatomic, retain) NSNumber *wheelchair_access;
-@property (nonatomic, retain) NSArray *photo_urls;
+@property (nonatomic, retain) NSArray *pictures;
 @property (nonatomic, retain) NSArray *comments;
 @property (nonatomic, retain) NSString *average_meal_price;
 

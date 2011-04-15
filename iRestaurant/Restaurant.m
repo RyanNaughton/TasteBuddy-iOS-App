@@ -39,7 +39,7 @@
 @synthesize reservations;
 @synthesize takeout;
 @synthesize wheelchair_access;
-@synthesize photo_urls;
+@synthesize pictures;
 @synthesize comments;
 @synthesize average_meal_price;
 
@@ -85,7 +85,7 @@
         reservations      = [[restaurantDictionary objectForKey:@"reservations"] retain];
         takeout           = [[restaurantDictionary objectForKey:@"takeout"] retain];
         wheelchair_access = [[restaurantDictionary objectForKey:@"wheelchair_access"] retain];
-        photo_urls        = [[restaurantDictionary objectForKey:@"photo_urls"] retain];
+        pictures        = [[restaurantDictionary objectForKey:@"pictures"] retain];
         comments          = [[restaurantDictionary objectForKey:@"comments"] retain];
         average_meal_price= [[restaurantDictionary objectForKey:@"average_meal_price"] retain];
         
@@ -130,7 +130,7 @@
     newRestaurant.reservations      = [reservations      copy];
     newRestaurant.takeout           = [takeout           copy];
     newRestaurant.wheelchair_access = [wheelchair_access copy];
-    newRestaurant.photo_urls        = [photo_urls        copy];
+    newRestaurant.pictures          = [pictures        copy];
     newRestaurant.comments          = [comments          copy];
     newRestaurant.average_meal_price= [average_meal_price copy];
     
@@ -161,7 +161,7 @@
     [nearest_transit   release];
     [parking           release];
     [phone             release];
-    [photo_urls        release];
+    [pictures        release];
     [comments          release];
     [menu_items        release];
     [average_meal_price release];
