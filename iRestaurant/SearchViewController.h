@@ -59,4 +59,6 @@
 -(void) searchViewAnimateIn;
 -(void) searchViewAnimateOut;
 
+-(void) resultsLoading;
+-(void) resultsLoaded;
 @end

@@ -15,6 +15,8 @@
 @implementation RestaurantSearchResultTableViewController
 
 @synthesize restaurantsArray;
+@synthesize isLoading;
+@synthesize searchViewController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,6 +30,7 @@
 - (void)dealloc
 {
     [restaurantsArray release];
+    [searchViewController release];
     [super dealloc];
 }
 
@@ -45,6 +48,7 @@
 {
     [super viewDidLoad];
     restaurantsArray = [[NSMutableArray alloc] init];
+    isLoading = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -99,7 +103,7 @@
 {
     // Return the number of rows in the section.
     int rows;
-    if ([restaurantsArray count] > 0) {
+    if ([restaurantsArray count] > 0 && !isLoading) {
         rows = [restaurantsArray count];
     } else {
         rows = 1;
@@ -110,7 +114,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-	if ([restaurantsArray count] > 0) {
+	if (isLoading) {
+		static NSString *CellIdentifier = @"LoadingCell";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+		    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		}
+		
+        cell.textLabel.text = @"Loading...";
+        UIActivityIndicatorView *documentActivityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [documentActivityIndicator startAnimating];
+        [cell setAccessoryView:documentActivityIndicator];
+        [documentActivityIndicator release];
+        return  cell;
+    } else if ([restaurantsArray count] > 0) {
         
 		RestaurantSearchCell *restaurantSearchCell = (RestaurantSearchCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantSearchCell"];
 		if (restaurantSearchCell == nil) {
@@ -120,8 +138,7 @@
         [restaurantSearchCell loadRestaurant:[restaurantsArray objectAtIndex:indexPath.row]];
 		
 		return restaurantSearchCell;
-		
-	} else {
+    } else {
 		
 		static NSString *CellIdentifier = @"Placeholder Cell";
 		

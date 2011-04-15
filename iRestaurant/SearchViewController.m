@@ -118,6 +118,7 @@
         default:
             break;
     }   
+    [tableView setContentOffset:CGPointMake(0, 0) animated:NO];
 
     //Need to scroll to top here
 }
@@ -126,32 +127,40 @@
 { 
     restaurantSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
     dishSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
-    [tableView reloadData];
+    [self resultsLoaded];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     [searchService searchByTerm:termField.text andNear:nearField.text];
     [self switchSearchView:(id) searchViewControl];
+    [self resultsLoading];
     [self searchViewAnimateOut];
     return NO;
 }
 
 -(IBAction) autocomplete:(id) sender
 {
+    //Need this for setting the autocomplete to show on searchViewAnimateIn
+    if((UITextField *) sender == termField) {
+        tableView.delegate = findAutocompleteTableViewController;
+        tableView.dataSource = findAutocompleteTableViewController;
+        autocompleteService.delegate = findAutocompleteTableViewController;
+        findAutocompleteTableViewController.tableView = self.tableView;
+    } else {
+        tableView.delegate = nearAutocompleteTableViewController;
+        tableView.dataSource = nearAutocompleteTableViewController;
+        autocompleteService.delegate = nearAutocompleteTableViewController;
+        nearAutocompleteTableViewController.tableView = self.tableView;
+    }
+
+    [tableView setContentOffset:CGPointMake(0, 0) animated:NO];
+
+    //Only trigger service call when term length is long enough
     if ([((UITextField *) sender).text length] > 2) {
         if((UITextField *) sender == termField) {
-            tableView.delegate = findAutocompleteTableViewController;
-            tableView.dataSource = findAutocompleteTableViewController;
-            autocompleteService.delegate = findAutocompleteTableViewController;
-            findAutocompleteTableViewController.tableView = self.tableView;
             [autocompleteService getTerms:termField.text];
-        
         } else {
-            tableView.delegate = nearAutocompleteTableViewController;
-            tableView.dataSource = nearAutocompleteTableViewController;
-            autocompleteService.delegate = nearAutocompleteTableViewController;
-            nearAutocompleteTableViewController.tableView = self.tableView;
             [autocompleteService getPlaces:nearField.text];
         }
     }
@@ -159,9 +168,10 @@
 
 -(void) searchViewAnimateIn 
 {
-    tableView.hidden = NO;
+    tableView.hidden = NO; //Show if in Map view
     self.navigationItem.rightBarButtonItem = nil;
     [termField becomeFirstResponder];
+    [self autocomplete:termField]; //Force the appropriate TableView to kick in
     searchView.center = CGPointMake(searchView.center.x, searchView.frame.size.height / 2 * -1);
     tableView.frame = CGRectMake(0, 0, self.view.frame.size.width,  self.view.frame.size.height - 44);
     [UIView beginAnimations:nil context:NULL];
@@ -173,7 +183,7 @@
 }
 
 -(void) searchViewAnimateOut
-{    
+{   
     self.navigationItem.rightBarButtonItem = showSearchButton;
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:0.3];
@@ -181,6 +191,20 @@
     searchView.center = CGPointMake(searchView.center.x, searchView.frame.size.height / 2 * -1);
     tableView.frame = CGRectMake(0, 0, self.view.frame.size.width,  self.view.frame.size.height - 44);
     [UIView commitAnimations];
+}
+
+-(void) resultsLoading
+{
+    restaurantSearchResultTableViewController.isLoading = YES;
+    dishSearchResultTableViewController.isLoading = YES;
+    [tableView reloadData];
+}
+
+-(void) resultsLoaded
+{
+    restaurantSearchResultTableViewController.isLoading = NO;
+    dishSearchResultTableViewController.isLoading = NO;
+    [tableView reloadData];
 }
 
 @end
