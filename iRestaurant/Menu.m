@@ -25,7 +25,7 @@
 {
     self = [super init];
     if (self) {
-        
+        menuDictionary;
     }
     return self;
 } 
