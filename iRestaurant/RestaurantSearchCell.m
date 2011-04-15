@@ -8,7 +8,6 @@
 
 #import "RestaurantSearchCell.h"
 #import "Restaurant.h"
-#import "TTImageView.h"
 
 @implementation RestaurantSearchCell
 @synthesize imageView, name, tags, addressLine1, addressLine2, distance;
