@@ -193,12 +193,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"did select row");
     // Navigation logic may go here. Create and push another view controller.
     RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:[restaurantsArray objectAtIndex:indexPath.row]];
     [searchViewController.navigationController pushViewController:restaurantViewController animated:YES];
     [restaurantViewController release];
-    
 }
 
 @end
