@@ -73,9 +73,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setTitle:@"Restaurant"];
     
     UILabel *restaurantNameTitle = [[UILabel alloc]init];
-    restaurantNameTitle.frame = CGRectMake(-40,0,200,44);
+    restaurantNameTitle.frame = CGRectMake(-40,0,220,44);
     restaurantNameTitle.textColor = [UIColor whiteColor];
     restaurantNameTitle.backgroundColor = [UIColor clearColor];
     restaurantNameTitle.font = [UIFont boldSystemFontOfSize:15];
@@ -103,6 +104,14 @@
 }
 
 -(void)loadLunchMenu 
+{
+    NSLog(@"load lunch menu in parent view");
+    MenuViewController *menuViewController = [[MenuViewController alloc]initWithRestaurant:restaurant];
+    [self.navigationController pushViewController:menuViewController animated:YES];
+    [menuViewController release];
+}
+
+-(void)loadDinnerMenu 
 {
     NSLog(@"load lunch menu in parent view");
     MenuViewController *menuViewController = [[MenuViewController alloc]initWithRestaurant:restaurant];

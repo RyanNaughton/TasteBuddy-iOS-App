@@ -19,5 +19,6 @@
 
 -(id)initWithRestaurant:(Restaurant *)restaurant_passed;
 -(void)loadLunchMenu;
+-(void)loadDinnerMenu;
 
 @end

@@ -70,6 +70,7 @@
 
 -(void)dinnerMenuButtonPressed:(id)sender {
     NSLog(@"dinner menu button pressed");
+    [parentView loadDinnerMenu];
 }
 
 -(void)bookmarkItButtonPressed:(id)sender {

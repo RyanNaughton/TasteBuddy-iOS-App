@@ -11,6 +11,7 @@
 #import "MenuItem.h"
 #import "DishCell.h"
 #import "Restaurant.h"
+#import "DishViewController.h"
 
 @implementation MenuViewController
 @synthesize restaurant;
@@ -52,8 +53,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setTitle:@"menu"];
+    
     UILabel *restaurantNameTitle = [[UILabel alloc]init];
-    restaurantNameTitle.frame = CGRectMake(0,0,100,25);
+    restaurantNameTitle.frame = CGRectMake(-10,0,210,25);
     restaurantNameTitle.textColor = [UIColor whiteColor];
     restaurantNameTitle.backgroundColor = [UIColor clearColor];
     restaurantNameTitle.font = [UIFont boldSystemFontOfSize:15];
@@ -61,7 +64,7 @@
     restaurantNameTitle.textAlignment = UITextAlignmentCenter;
     
     UILabel *menuTitle = [[UILabel alloc]init];
-    menuTitle.frame = CGRectMake(0,22,100,18);
+    menuTitle.frame = CGRectMake(-10,22,210,18);
     menuTitle.font = [UIFont boldSystemFontOfSize:13];
     menuTitle.textColor = [UIColor whiteColor];
     menuTitle.backgroundColor = [UIColor clearColor];
@@ -220,14 +223,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    // Navigation logic may go here. Create and push another view controller
+    DishViewController *dishViewController = [[DishViewController alloc] initWithMenuItem:[restaurant.menu_items objectAtIndex:indexPath.row] andRestaurant:restaurant];
+    [self.navigationController pushViewController:dishViewController animated:YES];
+    [dishViewController release];    
 }
 
 @end
