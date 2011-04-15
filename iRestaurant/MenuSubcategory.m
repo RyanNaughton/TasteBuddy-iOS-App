@@ -38,4 +38,11 @@
     return self;
 }
 
+-(void) dealloc
+{
+    [menuItems release];
+    [name release];
+    [super dealloc];
+}
+
 @end
