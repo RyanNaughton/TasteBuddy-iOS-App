@@ -118,6 +118,7 @@
         default:
             break;
     }   
+    [tableView setContentOffset:CGPointMake(0, 0) animated:NO];
 
     //Need to scroll to top here
 }
@@ -144,8 +145,6 @@
     if((UITextField *) sender == termField) {
         tableView.delegate = findAutocompleteTableViewController;
         tableView.dataSource = findAutocompleteTableViewController;
-        tableView.delegate = findAutocompleteTableViewController;
-        tableView.dataSource = findAutocompleteTableViewController;
         autocompleteService.delegate = findAutocompleteTableViewController;
         findAutocompleteTableViewController.tableView = self.tableView;
     } else {
@@ -154,7 +153,9 @@
         autocompleteService.delegate = nearAutocompleteTableViewController;
         nearAutocompleteTableViewController.tableView = self.tableView;
     }
-    
+
+    [tableView setContentOffset:CGPointMake(0, 0) animated:NO];
+
     //Only trigger service call when term length is long enough
     if ([((UITextField *) sender).text length] > 2) {
         if((UITextField *) sender == termField) {
