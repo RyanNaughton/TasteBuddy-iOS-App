@@ -27,6 +27,8 @@
     
     IBOutlet FindAutocompleteTableViewController *findAutocompleteTableViewController;
     IBOutlet NearAutocompleteTableViewController *nearAutocompleteTableViewController;
+    
+    IBOutlet UISegmentedControl *searchViewControl;
 
     UIBarButtonItem *showSearchButton;
 }
@@ -48,8 +50,11 @@
 
 @property (nonatomic, retain) UIBarButtonItem *showSearchButton;
 
--(IBAction) switchSearchView:(id *) sender;
--(IBAction) autocomplete:(id *) sender;
+@property (nonatomic, retain) IBOutlet UISegmentedControl *searchViewControl;
+
+
+-(IBAction) switchSearchView:(id) sender;
+-(IBAction) autocomplete:(id) sender;
 
 -(void) searchViewAnimateIn;
 -(void) searchViewAnimateOut;
