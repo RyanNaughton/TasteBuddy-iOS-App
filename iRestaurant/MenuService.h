@@ -11,12 +11,23 @@
 @class ASIFormDataRequest;
 @class ASIHTTPRequest;
 
+@class Menu;
+@class Restaurant;
+
 @protocol MenuServiceDelegate <NSObject>
-    -(void)menuReturned:(NSArray *)termsArray;
+    -(void)menuReturned:(Menu *)menu;
 @end
 
 @interface MenuService : NSObject {
-    
+    id<MenuServiceDelegate> delegate;
 }
+
+@property (nonatomic, retain) id<MenuServiceDelegate> delegate;
+
+-(id) initWithDelegate:(id <MenuServiceDelegate>) menuDelegate;
+
+-(void) getMenuForRestaurant:(Restaurant *)restaurant;
+
+- (void)requestFinished:(ASIHTTPRequest *)request_passed;
 
 @end
