@@ -10,11 +10,18 @@
 
 
 @interface RatingView : UIView {
-    UIView *allOutlineStarsView;
+    UIView *outlineStarsView;
+    UIView *redStarsView;
+    UIView *yellowStarsView;
 }
 
-@property (nonatomic, retain) UIView *allOutlineStarsView;
+@property (nonatomic, retain) UIView *outlineStarsView;
+@property (nonatomic, retain) UIView *redStarsView;
+@property (nonatomic, retain) UIView *yellowStarsView;
 
--(void) setupAllOutlineStarsView;
+-(id)initWithRating:(float)rating andIsUsersRating:(BOOL)isUserRating;
+-(void) setupOutlineStarsView;
+-(void) setupRedStarsView;
+-(void) setupYellowStarsView;
 
 @end

@@ -11,7 +11,7 @@
 
 
 @implementation RatingView
-@synthesize allOutlineStarsView;
+@synthesize outlineStarsView, redStarsView, yellowStarsView;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -22,25 +22,70 @@
     return self;
 }
 
--(id)initWithRating:(float)rating {
+-(id)initWithRating:(float)rating andIsUserRating:(BOOL)isUserRating {
     self = [super initWithFrame:CGRectMake(0, 0, 100, 20)];
     if (self) {
         // init code
-        [self setupAllOutlineStarsView];
+        [self setupOutlineStarsView];
+        if (rating > 0) {
+            if (isUserRating) {
+                [self setupYellowStarsView];
+                yellowStarsView.frame = CGRectMake(0, 0, rating, 20);
+                yellowStarsView.clipsToBounds = TRUE;
+            } else {
+                [self setupRedStarsView];
+                redStarsView.frame = CGRectMake(0, 0, rating, 20);
+                redStarsView.clipsToBounds = TRUE;
+            }
+        }
     }
     return self;
 }
 
--(void) setupAllOutlineStarsView {
+-(void) setUserRating:(float)rating {
+    
+    for (UIView *view in self) {
+        if (view == redStarsView) {
+            [redStarsView removeFromSuperview];
+        }
+    }
+    
+    [self setupYellowStarsView];
+    yellowStarsView.frame = CGRectMake(0, 0, rating, 20);
+    yellowStarsView.clipsToBounds = TRUE;
+}
+
+-(void) setupOutlineStarsView {
     for (int i=0; i < 5; i++) {
         UIImageView *outlineStar = [[UIImageView alloc]initWithFrame:CGRectMake((i * 20), 0, ((i + 1) * 20), 20)];
         outlineStar.image = [UIImage imageNamed:@"outline_star.png"];
+        outlineStar.contentMode = UIViewContentModeScaleAspectFit;
+        [outlineStarsView addSubview:outlineStar];
+        [outlineStar release];
+    }
+}
+
+-(void) setupRedStarsView {
+    redStarsView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 20)];
+    for (int i=0; i < 5; i++) {
+        UIImageView *outlineStar = [[UIImageView alloc]initWithFrame:CGRectMake((i * 20), 0, ((i + 1) * 20), 20)];
+        outlineStar.image = [UIImage imageNamed:@"red_star.png"];
+        outlineStar.contentMode = UIViewContentModeScaleAspectFit;
+        [redStarsView addSubview:outlineStar];
+        [outlineStar release];
+    }
+}
+
+-(void) setupYellowStarsView {
+    yellowStarsView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 20)];
+    for (int i=0; i < 5; i++) {
+        UIImageView *outlineStar = [[UIImageView alloc]initWithFrame:CGRectMake((i * 20), 0, ((i + 1) * 20), 20)];
+        outlineStar.image = [UIImage imageNamed:@"red_star.png"];
         outlineStar.contentMode = UIViewContentModeScaleAspectFit;
         [self addSubview:outlineStar];
         [outlineStar release];
     }
 }
-
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -53,6 +98,9 @@
 
 - (void)dealloc
 {
+    [outlineStarsView release];
+    [redStarsView release];
+    [yellowStarsView release];
     [super dealloc];
 }
 
