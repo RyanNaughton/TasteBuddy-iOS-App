@@ -89,7 +89,7 @@
         UIImageView *outlineStar = [[UIImageView alloc]initWithFrame:CGRectMake((i * 20), 0, 20, 20)];
         outlineStar.image = [UIImage imageNamed:@"yellow_star.png"];
         outlineStar.contentMode = UIViewContentModeScaleToFill;
-        [self addSubview:outlineStar];
+        [yellowStarsView addSubview:outlineStar];
         [outlineStar release];
     }
     [self addSubview:yellowStarsView];

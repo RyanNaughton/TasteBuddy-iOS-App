@@ -50,7 +50,7 @@
         price.font = [UIFont boldSystemFontOfSize:17];
         [self.contentView addSubview:price];
         
-        ratingView = [[RatingView alloc]initWithRating:80 andIsUserRating:FALSE];
+        ratingView = [[RatingView alloc]initWithRating:50 andIsUserRating:FALSE];
         ratingView.frame = CGRectMake(65, 40, 100, 20);
         [self.contentView addSubview:ratingView];
         
