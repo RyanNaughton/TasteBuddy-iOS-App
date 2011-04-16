@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class MenuItem;
+@class RatingView;
 
 @interface DishCell : UITableViewCell {
     
@@ -15,12 +16,14 @@
     UILabel *name        ;
     UILabel *tags        ;
     UILabel *price;
+    RatingView *ratingView;
 }
 
 @property (nonatomic, retain) UIImageView *imageView;
 @property (nonatomic, retain) UILabel *name        ;
 @property (nonatomic, retain) UILabel *tags        ;
 @property (nonatomic, retain) UILabel *price;
+@property (nonatomic, retain) RatingView *ratingView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 -(void)loadMenuItem:(MenuItem *)menuItem;

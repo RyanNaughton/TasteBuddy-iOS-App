@@ -61,6 +61,12 @@
 		E8A03E49135543B90031D798 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A03E48135543B90031D798 /* MobileCoreServices.framework */; };
 		E8A03E4C135543DC0031D798 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A03E4B135543DC0031D798 /* CFNetwork.framework */; };
 		E8A03E4E1355443C0031D798 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A03E4D1355443C0031D798 /* libz.1.2.3.dylib */; };
+		E8A449C113591203006AA06A /* outline_star.png in Resources */ = {isa = PBXBuildFile; fileRef = E8A449BB13591203006AA06A /* outline_star.png */; };
+		E8A449C213591203006AA06A /* outline_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8A449BC13591203006AA06A /* outline_star@2x.png */; };
+		E8A449C313591203006AA06A /* yellow_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8A449BD13591203006AA06A /* yellow_star@2x.png */; };
+		E8A449C413591203006AA06A /* red_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8A449BE13591203006AA06A /* red_star@2x.png */; };
+		E8A449C513591203006AA06A /* yellow_star.png in Resources */ = {isa = PBXBuildFile; fileRef = E8A449BF13591203006AA06A /* yellow_star.png */; };
+		E8A449C613591203006AA06A /* red_star.png in Resources */ = {isa = PBXBuildFile; fileRef = E8A449C013591203006AA06A /* red_star.png */; };
 		E8A6E80F1355465A0095E157 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6E7FA1355465A0095E157 /* ASIAuthenticationDialog.m */; };
 		E8A6E8101355465A0095E157 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6E7FD1355465A0095E157 /* ASIDataCompressor.m */; };
 		E8A6E8111355465A0095E157 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6E7FF1355465A0095E157 /* ASIDataDecompressor.m */; };
@@ -188,6 +194,12 @@
 		E8A03E48135543B90031D798 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		E8A03E4B135543DC0031D798 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		E8A03E4D1355443C0031D798 /* libz.1.2.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.3.dylib; path = usr/lib/libz.1.2.3.dylib; sourceTree = SDKROOT; };
+		E8A449BB13591203006AA06A /* outline_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outline_star.png; sourceTree = "<group>"; };
+		E8A449BC13591203006AA06A /* outline_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "outline_star@2x.png"; sourceTree = "<group>"; };
+		E8A449BD13591203006AA06A /* yellow_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "yellow_star@2x.png"; sourceTree = "<group>"; };
+		E8A449BE13591203006AA06A /* red_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red_star@2x.png"; sourceTree = "<group>"; };
+		E8A449BF13591203006AA06A /* yellow_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yellow_star.png; sourceTree = "<group>"; };
+		E8A449C013591203006AA06A /* red_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red_star.png; sourceTree = "<group>"; };
 		E8A6E7F91355465A0095E157 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		E8A6E7FA1355465A0095E157 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		E8A6E7FB1355465A0095E157 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -474,6 +486,12 @@
 		E85EE42813565D8F004B2A10 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E8A449BB13591203006AA06A /* outline_star.png */,
+				E8A449BC13591203006AA06A /* outline_star@2x.png */,
+				E8A449BD13591203006AA06A /* yellow_star@2x.png */,
+				E8A449BE13591203006AA06A /* red_star@2x.png */,
+				E8A449BF13591203006AA06A /* yellow_star.png */,
+				E8A449C013591203006AA06A /* red_star.png */,
 				E8CD38CD1357C82600FBC6FF /* search-text-bg.png */,
 				E8CD38CE1357C82600FBC6FF /* search-text-bg@2x.png */,
 				E85EE44B1357AA0D004B2A10 /* grey-button-bg@2x.png */,
@@ -707,6 +725,12 @@
 				E8CD38D01357C82600FBC6FF /* search-text-bg@2x.png in Resources */,
 				4956EB1B1358F85800D68EE9 /* LICENSE in Resources */,
 				4956EB1C1358F85800D68EE9 /* README.md in Resources */,
+				E8A449C113591203006AA06A /* outline_star.png in Resources */,
+				E8A449C213591203006AA06A /* outline_star@2x.png in Resources */,
+				E8A449C313591203006AA06A /* yellow_star@2x.png in Resources */,
+				E8A449C413591203006AA06A /* red_star@2x.png in Resources */,
+				E8A449C513591203006AA06A /* yellow_star.png in Resources */,
+				E8A449C613591203006AA06A /* red_star.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -848,7 +872,7 @@
 				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -865,7 +889,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

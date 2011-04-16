@@ -9,10 +9,10 @@
 #import "DishCell.h"
 #import "MenuItem.h"
 #import "UIImageView+WebCache.h"
-
+#import "RatingView.h"
 
 @implementation DishCell
-@synthesize imageView, name, tags, price;
+@synthesize imageView, name, tags, price, ratingView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -49,6 +49,11 @@
 		price.backgroundColor = [UIColor clearColor];
         price.font = [UIFont boldSystemFontOfSize:17];
         [self.contentView addSubview:price];
+        
+        ratingView = [[RatingView alloc]initWithRating:80 andIsUserRating:FALSE];
+        ratingView.frame = CGRectMake(65, 40, 100, 20);
+        [self.contentView addSubview:ratingView];
+        
     }
     return self;
 }
@@ -71,6 +76,7 @@
 
 - (void)dealloc
 {
+    [ratingView release];
     [imageView release];
     [name release];
     [tags release];
