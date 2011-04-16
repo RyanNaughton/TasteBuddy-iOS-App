@@ -50,11 +50,15 @@
         if (view == redStarsView) {
             [redStarsView removeFromSuperview];
         }
+        if (view == yellowStarsView) {
+            [yellowStarsView removeFromSuperview];
+        }
     }
     NSLog(@"rating is: %g", rating);
     [self setupYellowStarsView];
     yellowStarsView.frame = CGRectMake(0, 0, rating, 20);
     yellowStarsView.clipsToBounds = TRUE;
+    [self bringSubviewToFront:ratingButton];
 }
 
 -(void) setupOutlineStarsView {
