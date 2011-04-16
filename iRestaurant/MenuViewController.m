@@ -56,19 +56,19 @@
     [self setTitle:@"menu"];
     
     UILabel *restaurantNameTitle = [[UILabel alloc]init];
-    restaurantNameTitle.frame = CGRectMake(-10,0,210,25);
+    restaurantNameTitle.frame = CGRectMake(-10,22,210,18);
+    restaurantNameTitle.font = [UIFont boldSystemFontOfSize:13];
     restaurantNameTitle.textColor = [UIColor whiteColor];
     restaurantNameTitle.backgroundColor = [UIColor clearColor];
-    restaurantNameTitle.font = [UIFont boldSystemFontOfSize:15];
-    restaurantNameTitle.text = restaurant.name;
+    restaurantNameTitle.text = [NSString stringWithFormat:@"@ %@", restaurant.name];
     restaurantNameTitle.textAlignment = UITextAlignmentCenter;
     
     UILabel *menuTitle = [[UILabel alloc]init];
-    menuTitle.frame = CGRectMake(-10,22,210,18);
-    menuTitle.font = [UIFont boldSystemFontOfSize:13];
+    menuTitle.frame = CGRectMake(-10,0,210,25);
+    menuTitle.font = [UIFont boldSystemFontOfSize:15];
     menuTitle.textColor = [UIColor whiteColor];
     menuTitle.backgroundColor = [UIColor clearColor];
-    menuTitle.text = @"menu";
+    menuTitle.text = @"Menu";
     menuTitle.textAlignment = UITextAlignmentCenter;
     
     UIView *titleView = [[UIView alloc]init];
