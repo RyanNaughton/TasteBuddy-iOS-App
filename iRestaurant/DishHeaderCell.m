@@ -8,6 +8,7 @@
 
 #import "DishHeaderCell.h"
 #import "MenuItem.h"
+#import "UIImageView+WebCache.h"
 
 @implementation DishHeaderCell
 
@@ -44,7 +45,8 @@
 -(void)loadMenuItem:(MenuItem *)menu_item 
 {
     price.text = @"$9.99";
-    imageView.image = [UIImage imageNamed:@"restaurant-icon.gif"];
+    [imageView setImageWithURL:[NSURL URLWithString:[[menu_item.pictures objectAtIndex:0] objectForKey:@"300px"]]
+              placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
