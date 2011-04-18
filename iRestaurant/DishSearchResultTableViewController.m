@@ -11,6 +11,7 @@
 #import "MenuItem.h"
 #import "SearchViewController.h"
 #import "DishCell.h"
+#import "DishViewController.h"
 
 @implementation DishSearchResultTableViewController
 
@@ -241,14 +242,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    Restaurant *restaurant = (Restaurant *)[restaurantsArray objectAtIndex:indexPath.section];
+    DishViewController *dishViewController = [[DishViewController alloc] initWithMenuItem:[restaurant.menu_items objectAtIndex:indexPath.row] andRestaurant:restaurant];
+    [searchViewController.navigationController pushViewController:dishViewController animated:YES];
+    [dishViewController release];  
 }
 
 @end
