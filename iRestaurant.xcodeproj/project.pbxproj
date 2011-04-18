@@ -78,6 +78,7 @@
 		E8A6E8171355465A0095E157 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6E80E1355465A0095E157 /* ASIWebPageRequest.m */; };
 		E8A6E81A1355466D0095E157 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6E8191355466D0095E157 /* Reachability.m */; };
 		E8A6E824135547050095E157 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A6E823135547050095E157 /* libxml2.dylib */; };
+		E8C794BB135CB6490033C3FB /* DishButtonsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C794BA135CB6490033C3FB /* DishButtonsCell.m */; };
 		E8CD38C71357BB2500FBC6FF /* RestaurantPhoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */; };
 		E8CD38CF1357C82600FBC6FF /* search-text-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E8CD38CD1357C82600FBC6FF /* search-text-bg.png */; };
 		E8CD38D01357C82600FBC6FF /* search-text-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8CD38CE1357C82600FBC6FF /* search-text-bg@2x.png */; };
@@ -225,6 +226,8 @@
 		E8A6E8181355466D0095E157 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		E8A6E8191355466D0095E157 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		E8A6E823135547050095E157 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		E8C794B9135CB6490033C3FB /* DishButtonsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishButtonsCell.h; sourceTree = "<group>"; };
+		E8C794BA135CB6490033C3FB /* DishButtonsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishButtonsCell.m; sourceTree = "<group>"; };
 		E8CD38C51357BB2500FBC6FF /* RestaurantPhoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantPhoneCell.h; sourceTree = "<group>"; };
 		E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantPhoneCell.m; sourceTree = "<group>"; };
 		E8CD38CD1357C82600FBC6FF /* search-text-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-text-bg.png"; sourceTree = "<group>"; };
@@ -592,6 +595,8 @@
 			children = (
 				E8DFF5A91358C96E007BF40E /* DishHeaderCell.h */,
 				E8DFF5AA1358C96E007BF40E /* DishHeaderCell.m */,
+				E8C794B9135CB6490033C3FB /* DishButtonsCell.h */,
+				E8C794BA135CB6490033C3FB /* DishButtonsCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -808,6 +813,7 @@
 				4956EB1E1358F85800D68EE9 /* SDWebImageDownloader.m in Sources */,
 				4956EB1F1358F85800D68EE9 /* SDWebImageManager.m in Sources */,
 				4956EB201358F85800D68EE9 /* UIImageView+WebCache.m in Sources */,
+				E8C794BB135CB6490033C3FB /* DishButtonsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
