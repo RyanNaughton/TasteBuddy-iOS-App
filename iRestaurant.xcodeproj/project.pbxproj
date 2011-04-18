@@ -24,6 +24,8 @@
 		49578BCD1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BCB1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m */; };
 		49578BDA1355F8CF00F8EC0B /* DishSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BD91355F8CF00F8EC0B /* DishSearchResultTableViewController.m */; };
 		49578BE51356350900F8EC0B /* RestaurantService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BE41356350900F8EC0B /* RestaurantService.m */; };
+		49890398135CB6AF00643D8D /* 29-heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 49890396135CB6AF00643D8D /* 29-heart.png */; };
+		49890399135CB6AF00643D8D /* 29-heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49890397135CB6AF00643D8D /* 29-heart@2x.png */; };
 		499B564A1357AE9000F2B407 /* AutocompleteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727DE13578626004CB2F6 /* AutocompleteService.m */; };
 		499B564C1357AEC300F2B407 /* FindAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */; };
 		499B564D1357AED200F2B407 /* NearAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */; };
@@ -102,7 +104,6 @@
 
 /* Begin PBXFileReference section */
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		320B6C86F11D9990244A9730 /* Three20.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Three20.bundle; path = three20/src/Three20.bundle; sourceTree = SOURCE_ROOT; };
 		490F2C9B1358BB3200DA5C1F /* MenuService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuService.h; sourceTree = "<group>"; };
 		490F2C9C1358BB3200DA5C1F /* MenuService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuService.m; sourceTree = "<group>"; };
 		490F2C9F1358BB7F00DA5C1F /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
@@ -149,6 +150,8 @@
 		498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindAutocompleteTableViewController.m; sourceTree = "<group>"; };
 		498727E51357A1F4004CB2F6 /* NearAutocompleteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearAutocompleteTableViewController.h; sourceTree = "<group>"; };
 		498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearAutocompleteTableViewController.m; sourceTree = "<group>"; };
+		49890396135CB6AF00643D8D /* 29-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart.png"; sourceTree = "<group>"; };
+		49890397135CB6AF00643D8D /* 29-heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart@2x.png"; sourceTree = "<group>"; };
 		49BA681E1354DBA30040DDB5 /* iRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA68221354DBA40040DDB5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BA68241354DBA40040DDB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -453,7 +456,6 @@
 		49BA68291354DBA40040DDB5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				320B6C86F11D9990244A9730 /* Three20.bundle */,
 				E85EE42813565D8F004B2A10 /* Images */,
 				49BA682A1354DBA40040DDB5 /* iRestaurant-Info.plist */,
 				49BA682B1354DBA40040DDB5 /* InfoPlist.strings */,
@@ -486,6 +488,8 @@
 		E85EE42813565D8F004B2A10 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				49890396135CB6AF00643D8D /* 29-heart.png */,
+				49890397135CB6AF00643D8D /* 29-heart@2x.png */,
 				E8A449BB13591203006AA06A /* outline_star.png */,
 				E8A449BC13591203006AA06A /* outline_star@2x.png */,
 				E8A449BD13591203006AA06A /* yellow_star@2x.png */,
@@ -731,6 +735,8 @@
 				E8A449C413591203006AA06A /* red_star@2x.png in Resources */,
 				E8A449C513591203006AA06A /* yellow_star.png in Resources */,
 				E8A449C613591203006AA06A /* red_star.png in Resources */,
+				49890398135CB6AF00643D8D /* 29-heart.png in Resources */,
+				49890399135CB6AF00643D8D /* 29-heart@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

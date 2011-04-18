@@ -91,7 +91,8 @@
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"29-heart.png"] style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 - (void)viewDidUnload

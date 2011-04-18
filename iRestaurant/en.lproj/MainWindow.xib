@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1024</int>
 		<string key="IBDocument.SystemVersion">10J869</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1306</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1305</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">301</string>
+			<string key="NS.object.0">300</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -64,7 +64,6 @@
 							<string key="NSResourceName">06-magnify.png</string>
 						</object>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-						<reference key="IBUITabBar" ref="851841908"/>
 					</object>
 					<reference key="IBUIParentViewController" ref="80453472"/>
 					<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
@@ -92,7 +91,6 @@
 						<object class="IBUIViewController" id="748984907">
 							<string key="IBUITitle">Search</string>
 							<object class="IBUINavigationItem" key="IBUINavigationItem" id="116428058">
-								<reference key="IBUINavigationBar"/>
 								<string key="IBUITitle">Search</string>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
@@ -114,7 +112,6 @@
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="671458878">
 							<string key="IBUITitle">Item</string>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							<reference key="IBUITabBar" ref="851841908"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="80453472"/>
 						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
@@ -154,7 +151,6 @@
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="258601052">
 							<string key="IBUITitle">Item</string>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							<reference key="IBUITabBar" ref="851841908"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="80453472"/>
 						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
@@ -194,7 +190,6 @@
 						<object class="IBUITabBarItem" key="IBUITabBarItem" id="986138107">
 							<string key="IBUITitle">Item</string>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							<reference key="IBUITabBar" ref="851841908"/>
 						</object>
 						<reference key="IBUIParentViewController" ref="80453472"/>
 						<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
@@ -236,27 +231,18 @@
 					<int key="NSvFlags">266</int>
 					<string key="NSFrame">{{0, 431}, {320, 49}}</string>
 					<reference key="NSSuperview"/>
-					<reference key="NSWindow"/>
-					<reference key="NSNextKeyView"/>
 					<object class="NSColor" key="IBUIBackgroundColor">
 						<int key="NSColorSpace">3</int>
 						<bytes key="NSWhite">MCAwAA</bytes>
 					</object>
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-					<object class="NSMutableArray" key="IBUIItems">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<reference ref="191349001"/>
-						<reference ref="671458878"/>
-						<reference ref="258601052"/>
-						<reference ref="986138107"/>
-					</object>
-					<reference key="IBUISelectedItem" ref="191349001"/>
 				</object>
 			</object>
 			<object class="IBUIWindow" id="117978783">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<string key="NSFrameSize">{320, 480}</string>
+				<reference key="NSSuperview"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -808,6 +794,6 @@
 			<string key="NS.key.0">06-magnify.png</string>
 			<string key="NS.object.0">{24, 24}</string>
 		</object>
-		<string key="IBCocoaTouchPluginVersion">301</string>
+		<string key="IBCocoaTouchPluginVersion">300</string>
 	</data>
 </archive>
