@@ -7,12 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Restaurant;
 
 @interface DishButtonsCell : UITableViewCell {
     UIButton *generalInfoButton;
+    UIButton *bookmarkItButton;
 }
 
 @property (nonatomic, retain) UIButton *generalInfoButton;
+@property (nonatomic, retain) UIButton *bookmarkItButton;
+
+-(void)loadRestaurant:(Restaurant *)restaurant_passed;
+-(void)generalInfoButtonPressed:(id)sender;
+-(void)bookmarkItButtonPressed:(id)sender;
 
 @end

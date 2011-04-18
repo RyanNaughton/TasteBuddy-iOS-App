@@ -9,7 +9,12 @@
 #import "DishViewController.h"
 #import "Restaurant.h"
 #import "MenuItem.h"
+
+// CELLS
 #import "DishHeaderCell.h"
+#import "DishButtonsCell.h"
+#import "RestaurantAddressCell.h"
+#import "RestaurantPhoneCell.h"
 
 @implementation DishViewController
 
@@ -95,6 +100,20 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"29-heart.png"] style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
+    return headerView;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+    return 0;
+}
+
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -152,8 +171,33 @@
 		}          
         [dishHeaderCell loadMenuItem:menu_item];
 		return dishHeaderCell;
+        
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
+        DishButtonsCell *dishButtonsCell = (DishButtonsCell *)[tableView dequeueReusableCellWithIdentifier:@"DishButtonsCell"];
+		if (dishButtonsCell == nil) {
+		    dishButtonsCell = [[[DishButtonsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishButtonsCell"] autorelease];
+		}          
+        [dishButtonsCell loadRestaurant:restaurant];
+		return dishButtonsCell;
+
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
+        RestaurantAddressCell *restaurantAddressCell = (RestaurantAddressCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantAddressCell"];
+		if (restaurantAddressCell == nil) {
+		    restaurantAddressCell = [[[RestaurantAddressCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantAddressCell"] autorelease];
+		}          
+        [restaurantAddressCell loadRestaurant:restaurant];
+		return restaurantAddressCell;
+        
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
+        RestaurantPhoneCell *restaurantPhoneCell = (RestaurantPhoneCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantPhoneCell"];
+		if (restaurantPhoneCell == nil) {
+		    restaurantPhoneCell = [[[RestaurantPhoneCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantPhoneCell"] autorelease];
+		}          
+        [restaurantPhoneCell loadRestaurant:restaurant];
+		return restaurantPhoneCell;
+
+        
     } else {
-    
         static NSString *CellIdentifier = @"Cell";
     
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -162,6 +206,7 @@
         }
     
         // Configure the cell...
+        cell.backgroundColor = [UIColor clearColor];
         cell.textLabel.text = (NSString *)[tableArray objectAtIndex:indexPath.section];
     
         return cell;
@@ -171,12 +216,16 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     int height;
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
-        height = 200;
+        height = 210;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
         height = 60;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         height = 46;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
+        height = 40;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
+        height = 46;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
         height = 40;
     } else {
         height = 44;
@@ -227,14 +276,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
+        NSString *addressString = [NSString stringWithFormat:@"%@ %@", restaurant.address_1, restaurant.address_2];
+        addressString = [addressString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+        NSString *requestString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@&z=15", addressString];
+        NSLog(@"address req string: %@", requestString);
+        UIApplication *app = [UIApplication sharedApplication];
+        [app openURL:[NSURL URLWithString:requestString]];			
+    
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
+        NSString *phoneNumberString = [NSString stringWithFormat:@"tel://%@", restaurant.phone];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberString]];
+    } 
 }
 
 @end
