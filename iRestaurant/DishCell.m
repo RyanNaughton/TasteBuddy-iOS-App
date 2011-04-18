@@ -25,7 +25,7 @@
         imageView = [[UIImageView alloc]init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
-        imageView.frame = CGRectMake(5, 5, 50, 50);
+        imageView.frame = CGRectMake(5, 5, 55, 55);
         [self.contentView addSubview:imageView];
         
         name = [[UILabel alloc]init];

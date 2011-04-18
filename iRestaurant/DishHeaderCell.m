@@ -9,10 +9,11 @@
 #import "DishHeaderCell.h"
 #import "MenuItem.h"
 #import "UIImageView+WebCache.h"
+#import "RatingView.h"
 
 @implementation DishHeaderCell
 
-@synthesize imageView, price;
+@synthesize imageView, price, ratingView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -24,7 +25,7 @@
         imageView = [[UIImageView alloc]init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
-        imageView.frame = CGRectMake(75, 25, 150, 150);
+        imageView.frame = CGRectMake(75, 50, 150, 150);
         //imageView.center = CGPointMake(self.contentView.center.x, 80);
         [self.contentView addSubview:imageView];
         
@@ -37,6 +38,10 @@
         price.shadowColor = [UIColor whiteColor];
         price.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:price];
+        
+        ratingView = [[RatingView alloc]initWithRating:50.0 andIsUserRating:FALSE];
+        ratingView.frame = CGRectMake(100, 25, 100, 20);
+        [self.contentView addSubview:ratingView];
         
     }
     return self;
