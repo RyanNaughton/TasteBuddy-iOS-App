@@ -19,8 +19,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.selectionStyle = UITableViewCellSelectionStyleGray;
         
         imageView = [[UIImageView alloc]init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;

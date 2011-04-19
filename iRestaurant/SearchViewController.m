@@ -69,14 +69,19 @@
 {
     [super viewDidLoad];
     
-    UIImage *mapButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
-
-    [mapButton setBackgroundImage:mapButtonImage forState:UIControlStateNormal];
-    
+    UIImage *greyButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
+    [mapButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
+    [filterButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     
     UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iRestaurant-logo"]];
     appNameImageView.frame = CGRectMake(0, 0, 305, 35);
     appNameImageView.contentMode = UIViewContentModeRight;
+    
+    //====================
+    
+    
+    
+    //====================
     
     restaurantsTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [restaurantsTabButton setTitle:@"Restaurants" forState:UIControlStateNormal];
@@ -168,6 +173,7 @@
 
 -(IBAction) presentSearchModal {
     [fakeTermField resignFirstResponder];
+    searchModalViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [self presentModalViewController:searchModalViewController animated:YES];
 }
 

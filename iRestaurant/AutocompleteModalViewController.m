@@ -13,7 +13,7 @@
 
 @implementation AutocompleteModalViewController
 
-@synthesize tableView, searchView, termField, nearField, findAutocompleteTableViewController, nearAutocompleteTableViewController, autocompleteService, searchViewController;
+@synthesize tableView, searchView, termField, nearField, findAutocompleteTableViewController, nearAutocompleteTableViewController, autocompleteService, searchViewController, cancelButton, whatBGBox, whereBGBox;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,6 +30,7 @@
     [searchView release];
     [termField release];
     [nearField release];
+    [cancelButton release];
     [findAutocompleteTableViewController release];
     [nearAutocompleteTableViewController release];
     [autocompleteService release];
@@ -51,6 +52,13 @@
 {
     [super viewDidLoad];
     autocompleteService = [[AutocompleteService alloc] initWithDelegate: findAutocompleteTableViewController];
+    
+    UIImage *cancelButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
+    [cancelButton setBackgroundImage:cancelButtonImage forState:UIControlStateNormal];
+    
+    UIImage *textBox = [[UIImage imageNamed:@"text-area-image.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
+    whatBGBox.image = textBox;
+    whereBGBox.image = textBox;
 }
 
 - (void)viewDidUnload

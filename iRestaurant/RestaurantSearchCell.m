@@ -19,7 +19,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code  
-        //self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        self.selectionStyle = UITableViewCellSelectionStyleGray;
         
         name = [[UILabel alloc]init];
         name.frame = CGRectMake(10, 7, 195, 20);

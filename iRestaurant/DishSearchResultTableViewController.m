@@ -246,10 +246,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     Restaurant *restaurant = (Restaurant *)[restaurantsArray objectAtIndex:indexPath.section];
     DishViewController *dishViewController = [[DishViewController alloc] initWithMenuItem:[restaurant.menu_items objectAtIndex:indexPath.row] andRestaurant:restaurant];
     [searchViewController.navigationController pushViewController:dishViewController animated:YES];
     [dishViewController release];  
+    
+    
 }
 
 @end

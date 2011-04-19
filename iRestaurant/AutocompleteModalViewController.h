@@ -17,6 +17,9 @@
     IBOutlet UIView *searchView;
     IBOutlet UITextField *termField;
     IBOutlet UITextField *nearField;
+    IBOutlet UIButton *cancelButton;
+    IBOutlet UIImageView *whatBGBox;
+    IBOutlet UIImageView *whereBGBox;
     
     IBOutlet FindAutocompleteTableViewController *findAutocompleteTableViewController;
     IBOutlet NearAutocompleteTableViewController *nearAutocompleteTableViewController;
@@ -30,6 +33,9 @@
 @property (nonatomic, retain) IBOutlet UIView *searchView;
 @property (nonatomic, retain) IBOutlet UITextField *termField;
 @property (nonatomic, retain) IBOutlet UITextField *nearField;
+@property (nonatomic, retain) IBOutlet UIButton *cancelButton;
+@property (nonatomic, retain) IBOutlet UIImageView *whatBGBox;
+@property (nonatomic, retain) IBOutlet UIImageView *whereBGBox;
 
 @property (nonatomic, retain) IBOutlet FindAutocompleteTableViewController *findAutocompleteTableViewController;
 @property (nonatomic, retain) IBOutlet NearAutocompleteTableViewController *nearAutocompleteTableViewController;
