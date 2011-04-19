@@ -29,13 +29,12 @@
 }
 
 -(id)initWithRestaurant:(Restaurant *)restaurant_passed {
-    self = [super initWithStyle:UITableViewStyleGrouped];
+    self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
-        self.navigationController.navigationBar.barStyle = UIBarStyleBlackTranslucent;
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
         self.navigationController.navigationBar.translucent = YES;
         restaurant = restaurant_passed;
-        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Menu", @"Address", @"Phone", @"Tags", @"Highlights", @"Comments", nil];
+        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Phone", @"Address", @"Menu", @"Tags", @"Highlights", @"Comments", nil];
     }
     return self;
 }
@@ -73,34 +72,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self setTitle:@"Restaurant"];
-    
-    UILabel *restaurantNameTitle = [[UILabel alloc]init];
-    restaurantNameTitle.frame = CGRectMake(-40,0,220,44);
-    restaurantNameTitle.textColor = [UIColor whiteColor];
-    restaurantNameTitle.backgroundColor = [UIColor clearColor];
-    restaurantNameTitle.font = [UIFont boldSystemFontOfSize:15];
-    restaurantNameTitle.text = restaurant.name;
-    restaurantNameTitle.textAlignment = UITextAlignmentCenter;
-    restaurantNameTitle.contentMode = UIViewContentModeCenter;
-
-    UIView *titleView = [[UIView alloc]init];
-    titleView.frame = CGRectMake(0,0,100,44);
-    titleView.backgroundColor = [UIColor clearColor];
-    [titleView addSubview:restaurantNameTitle];
-    
-    titleView.contentMode = UIViewContentModeCenter;
-    self.navigationItem.titleView = titleView;
-    
-    
-//    [self setTitle:restaurant.name];
-    self.tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"grain-bg.png"]];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
  
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iRestaurant-logo"]];
+    appNameImageView.frame = CGRectMake(0, 0, 320, 35);
+    appNameImageView.contentMode = UIViewContentModeRight;
+    self.navigationItem.titleView = appNameImageView;
+
+    
+//    UILabel *restaurantNameTitle = [[UILabel alloc]init];
+//    restaurantNameTitle.frame = CGRectMake(-40,0,220,44);
+//    restaurantNameTitle.textColor = [UIColor whiteColor];
+//    restaurantNameTitle.backgroundColor = [UIColor clearColor];
+//    restaurantNameTitle.font = [UIFont boldSystemFontOfSize:15];
+//    restaurantNameTitle.text = restaurant.name;
+//    restaurantNameTitle.textAlignment = UITextAlignmentCenter;
+//    restaurantNameTitle.contentMode = UIViewContentModeCenter;
+//
+//    UIView *titleView = [[UIView alloc]init];
+//    titleView.frame = CGRectMake(0,0,100,44);
+//    titleView.backgroundColor = [UIColor clearColor];
+//    [titleView addSubview:restaurantNameTitle];
+//    
+//    titleView.contentMode = UIViewContentModeCenter;
+//    self.navigationItem.titleView = titleView;
+    
+    self.tableView.separatorColor = [UIColor clearColor];
 }
 
 -(void)loadLunchMenu 
@@ -216,7 +212,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     int height;
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
-        height = 130;
+        height = 180;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Menu"]) {
         height = 60;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
