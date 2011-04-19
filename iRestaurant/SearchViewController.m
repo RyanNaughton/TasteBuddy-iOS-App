@@ -69,7 +69,6 @@
 {
     [super viewDidLoad];
     
-    mapButton = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage *mapButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
 
     [mapButton setBackgroundImage:mapButtonImage forState:UIControlStateNormal];
