@@ -72,26 +72,24 @@
     restaurantsTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [restaurantsTabButton setTitle:@"Restaurants" forState:UIControlStateNormal];
     restaurantsTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
-    [restaurantsTabButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     restaurantsTabButton.frame =  CGRectMake(0, 4, 80, 35);
-    [restaurantsTabButton setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
     [restaurantsTabButton addTarget:self action:@selector(switchSearchView:) forControlEvents:UIControlEventTouchUpInside];
-
-    lastSender = restaurantsTabButton; //Set initial value for lastSender so we knew which result view we need to be in.
-
     
     dishesTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [dishesTabButton setTitle:@"Dishes" forState:UIControlStateNormal];
     dishesTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
     dishesTabButton.frame =  CGRectMake(80, 4, 80, 35);
-    [dishesTabButton setBackgroundImage:[[UIImage imageNamed:NULL] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
     [dishesTabButton addTarget:self action:@selector(switchSearchView:) forControlEvents:UIControlEventTouchUpInside];
+
+    [self switchTabs:restaurantsTabButton];
+
+    lastSender = restaurantsTabButton; //Set initial value for lastSender so we knew which result view we need to be in.
 
     UIView *tabView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 35)];
     [tabView addSubview:restaurantsTabButton];
     [tabView addSubview:dishesTabButton];
     self.navigationItem.titleView = tabView;
-    
+    [tabView release];
     
     // Do any additional setup after loading the view from its nib.    
     CGPoint point = CGPointMake(1.2345, 1.2345);
@@ -117,19 +115,13 @@
 {
     lastSender = sender;
     if(sender == restaurantsTabButton) {
-        [dishesTabButton setBackgroundImage:nil forState:UIControlStateNormal];
-        [dishesTabButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [restaurantsTabButton setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
-        [restaurantsTabButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self switchTabs:restaurantsTabButton];
         tableView.delegate = restaurantSearchResultTableViewController;
         tableView.dataSource = restaurantSearchResultTableViewController;
         [tableView reloadData];
         tableView.hidden = false;
     } else if (sender == dishesTabButton){
-        [restaurantsTabButton setBackgroundImage:nil forState:UIControlStateNormal];
-        [restaurantsTabButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [dishesTabButton setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
-        [dishesTabButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [self switchTabs:dishesTabButton];
         tableView.delegate = dishSearchResultTableViewController;
         tableView.dataSource = dishSearchResultTableViewController;
         [tableView reloadData];
@@ -167,5 +159,17 @@
 -(IBAction) presentSearchModal {
     [fakeTermField resignFirstResponder];
     [self presentModalViewController:searchModalViewController animated:YES];
+}
+
+-(void) switchTabs:(UIButton *) onTab 
+{
+
+    UIButton *offTab = (onTab == restaurantsTabButton) ? dishesTabButton : restaurantsTabButton;
+        
+    [offTab setBackgroundImage:nil forState:UIControlStateNormal];
+    [offTab setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [onTab setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
+    [onTab setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+
 }
 @end

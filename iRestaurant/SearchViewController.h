@@ -58,4 +58,5 @@
 -(void) resultsLoaded;
 
 -(IBAction) presentSearchModal;
+-(void) switchTabs:(UIButton *) onTab;
 @end
