@@ -21,8 +21,7 @@
 @property (nonatomic, retain) UIView *yellowStarsView;
 @property (nonatomic, retain) UIButton *ratingButton;
 
--(id)initWithRating:(float)rating andIsUserRating:(BOOL)isUserRating;
--(id)initWithRating:(float)rating andIsUserRating:(BOOL)isUserRating;
+-(id)initWithRating:(float)rating andIsUserRating:(BOOL)isUserRating andIsEditable:(BOOL)isEditable;
 -(void) setupOutlineStarsView;
 -(void) setupRedStarsView;
 -(void) setupYellowStarsView;

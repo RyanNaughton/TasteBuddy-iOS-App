@@ -22,7 +22,7 @@
     return self;
 }
 
--(id)initWithRating:(float)rating andIsUserRating:(BOOL)isUserRating {
+-(id)initWithRating:(float)rating andIsUserRating:(BOOL)isUserRating andIsEditable:(BOOL)isEditable {
     self = [super initWithFrame:CGRectMake(0, 0, 100, 20)];
     if (self) {
         // init code
@@ -38,7 +38,7 @@
                 redStarsView.clipsToBounds = TRUE;
             }
         }
-        [self setupRatingButton];
+        if (isEditable) { [self setupRatingButton]; }
     }
     return self;
 }

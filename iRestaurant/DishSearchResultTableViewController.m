@@ -124,17 +124,18 @@
     [bgView release];
 
     if (!isLoading) {
-    UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 240, 22)];
+    UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 220, 22)];
     restaurantName.backgroundColor = [UIColor clearColor];
     restaurantName.textColor = [UIColor whiteColor];
     restaurantName.text = ((Restaurant *)[restaurantsArray objectAtIndex:section]).name;
     [headerView addSubview:restaurantName];
     [restaurantName release];
     
-    UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(260, 0, 50, 22)];
+    UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(240, 0, 70, 22)];
     distance.backgroundColor = [UIColor clearColor];
     distance.textColor = [UIColor whiteColor];
-    distance.text = @"0.2 mi";
+    Restaurant *restaurant = [restaurantsArray objectAtIndex:section];
+        distance.text = [NSString stringWithFormat:@"%@ mi", restaurant.distance];
     [headerView addSubview:distance];
     [distance release];
     

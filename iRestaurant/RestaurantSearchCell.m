@@ -75,7 +75,7 @@
     tags.text = @"fun, awesome, totally cool";
     addressLine1.text = restaurant.address_1;
     addressLine2.text = @"Portland, OR 97209"; //[NSString stringWithFormat:@"%@",restaurant.address_2];
-    distance.text = @"0.2 mi";
+    distance.text = [NSString stringWithFormat:@"%@ mi", restaurant.distance];
     [imageView setImageWithURL:[NSURL URLWithString:[[restaurant.pictures objectAtIndex:0] objectForKey:@"80px"]]
               placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
 

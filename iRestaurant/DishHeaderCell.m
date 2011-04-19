@@ -39,7 +39,7 @@
         price.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:price];
         
-        ratingView = [[RatingView alloc]initWithRating:50.0 andIsUserRating:FALSE];
+        ratingView = [[RatingView alloc]initWithRating:50.0 andIsUserRating:FALSE andIsEditable:TRUE];
         ratingView.frame = CGRectMake(100, 25, 100, 20);
         [self.contentView addSubview:ratingView];
         

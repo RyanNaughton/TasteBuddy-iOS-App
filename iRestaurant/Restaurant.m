@@ -42,6 +42,7 @@
 @synthesize pictures;
 @synthesize comments;
 @synthesize average_meal_price;
+@synthesize distance;
 
 @synthesize menu_items;
 
@@ -88,6 +89,7 @@
         pictures        = [[restaurantDictionary objectForKey:@"pictures"] retain];
         comments          = [[restaurantDictionary objectForKey:@"comments"] retain];
         average_meal_price= [[restaurantDictionary objectForKey:@"average_meal_price"] retain];
+        distance          = [[restaurantDictionary objectForKey:@"distance"] retain];
         
         menu_items        = [[NSMutableArray alloc] init];
         for(NSDictionary *dict in [restaurantDictionary objectForKey:@"menu_items"])
@@ -133,6 +135,7 @@
     newRestaurant.pictures          = [pictures        copy];
     newRestaurant.comments          = [comments          copy];
     newRestaurant.average_meal_price= [average_meal_price copy];
+    newRestaurant.distance = [distance copy];
     
     return newRestaurant;
 }
@@ -165,6 +168,7 @@
     [comments          release];
     [menu_items        release];
     [average_meal_price release];
+    [distance release];
     [super dealloc];
 }
 
