@@ -68,6 +68,9 @@
 {
     [super viewDidLoad];
     
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iRestaurant-logo"]];
+    appNameImageView.frame = CGRectMake(0, 0, 305, 35);
+    appNameImageView.contentMode = UIViewContentModeRight;
     
     restaurantsTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [restaurantsTabButton setTitle:@"Restaurants" forState:UIControlStateNormal];
@@ -86,6 +89,7 @@
     lastSender = restaurantsTabButton; //Set initial value for lastSender so we knew which result view we need to be in.
 
     UIView *tabView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 35)];
+    [tabView addSubview:appNameImageView];
     [tabView addSubview:restaurantsTabButton];
     [tabView addSubview:dishesTabButton];
     self.navigationItem.titleView = tabView;
