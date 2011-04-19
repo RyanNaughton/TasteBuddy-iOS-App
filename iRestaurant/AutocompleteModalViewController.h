@@ -10,6 +10,7 @@
 @class FindAutocompleteTableViewController;
 @class NearAutocompleteTableViewController;
 @class AutocompleteService;
+@class SearchViewController;
 
 @interface AutocompleteModalViewController : UIViewController {
     IBOutlet UITableView *tableView;
@@ -21,6 +22,7 @@
     IBOutlet NearAutocompleteTableViewController *nearAutocompleteTableViewController;
     
     AutocompleteService *autocompleteService;
+    SearchViewController *searchViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
@@ -32,5 +34,10 @@
 @property (nonatomic, retain) IBOutlet FindAutocompleteTableViewController *findAutocompleteTableViewController;
 @property (nonatomic, retain) IBOutlet NearAutocompleteTableViewController *nearAutocompleteTableViewController;
 @property (nonatomic, retain) IBOutlet AutocompleteService *autocompleteService;
+@property (nonatomic, retain) IBOutlet SearchViewController *searchViewController;
+
+-(IBAction) autocomplete:(id) sender;
+
+-(void) searchViewAnimateIn;
 
 @end

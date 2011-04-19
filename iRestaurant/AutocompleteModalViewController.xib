@@ -218,7 +218,6 @@
 						<string key="NSFrame">{{0, 74}, {320, 386}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<reference key="IBUIBackgroundColor" ref="897790605"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -320,6 +319,64 @@
 						<reference key="destination" ref="239515016"/>
 					</object>
 					<int key="connectionID">30</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">autocomplete:</string>
+						<reference key="source" ref="822934715"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">18</int>
+					</object>
+					<int key="connectionID">31</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">autocomplete:</string>
+						<reference key="source" ref="988399099"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">18</int>
+					</object>
+					<int key="connectionID">32</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">findField</string>
+						<reference key="source" ref="396699827"/>
+						<reference key="destination" ref="822934715"/>
+					</object>
+					<int key="connectionID">33</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">nearField</string>
+						<reference key="source" ref="396699827"/>
+						<reference key="destination" ref="988399099"/>
+					</object>
+					<int key="connectionID">34</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">nearField</string>
+						<reference key="source" ref="239515016"/>
+						<reference key="destination" ref="988399099"/>
+					</object>
+					<int key="connectionID">35</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="822934715"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">37</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">delegate</string>
+						<reference key="source" ref="988399099"/>
+						<reference key="destination" ref="372490531"/>
+					</object>
+					<int key="connectionID">38</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -477,7 +534,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">30</int>
+			<int key="maxID">38</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -485,6 +542,17 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">AutocompleteModalViewController</string>
 					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">autocomplete:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">autocomplete:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">autocomplete:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
 					<object class="NSMutableDictionary" key="outlets">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
@@ -494,6 +562,7 @@
 							<string>nearAutocompleteTableViewController</string>
 							<string>nearField</string>
 							<string>searchView</string>
+							<string>searchViewController</string>
 							<string>tableView</string>
 							<string>termField</string>
 						</object>
@@ -504,6 +573,7 @@
 							<string>NearAutocompleteTableViewController</string>
 							<string>UITextField</string>
 							<string>UIView</string>
+							<string>SearchViewController</string>
 							<string>UITableView</string>
 							<string>UITextField</string>
 						</object>
@@ -517,6 +587,7 @@
 							<string>nearAutocompleteTableViewController</string>
 							<string>nearField</string>
 							<string>searchView</string>
+							<string>searchViewController</string>
 							<string>tableView</string>
 							<string>termField</string>
 						</object>
@@ -543,6 +614,10 @@
 								<string key="candidateClassName">UIView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">searchViewController</string>
+								<string key="candidateClassName">SearchViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">tableView</string>
 								<string key="candidateClassName">UITableView</string>
 							</object>
@@ -563,6 +638,25 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/AutocompleteService.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">DishSearchResultTableViewController</string>
+					<string key="superclassName">UITableViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">searchViewController</string>
+						<string key="NS.object.0">SearchViewController</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">searchViewController</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">searchViewController</string>
+							<string key="candidateClassName">SearchViewController</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/DishSearchResultTableViewController.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -622,6 +716,90 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/NearAutocompleteTableViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">RestaurantSearchResultTableViewController</string>
+					<string key="superclassName">UITableViewController</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">searchViewController</string>
+						<string key="NS.object.0">SearchViewController</string>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<string key="NS.key.0">searchViewController</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">searchViewController</string>
+							<string key="candidateClassName">SearchViewController</string>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/RestaurantSearchResultTableViewController.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">SearchViewController</string>
+					<string key="superclassName">UIViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">switchSearchView:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">switchSearchView:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">switchSearchView:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>dishSearchResultTableViewController</string>
+							<string>restaurantSearchResultTableViewController</string>
+							<string>searchViewControl</string>
+							<string>tableView</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>DishSearchResultTableViewController</string>
+							<string>RestaurantSearchResultTableViewController</string>
+							<string>UISegmentedControl</string>
+							<string>UITableView</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>dishSearchResultTableViewController</string>
+							<string>restaurantSearchResultTableViewController</string>
+							<string>searchViewControl</string>
+							<string>tableView</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">dishSearchResultTableViewController</string>
+								<string key="candidateClassName">DishSearchResultTableViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">restaurantSearchResultTableViewController</string>
+								<string key="candidateClassName">RestaurantSearchResultTableViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">searchViewControl</string>
+								<string key="candidateClassName">UISegmentedControl</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">tableView</string>
+								<string key="candidateClassName">UITableView</string>
+							</object>
+						</object>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/SearchViewController.h</string>
 					</object>
 				</object>
 			</object>

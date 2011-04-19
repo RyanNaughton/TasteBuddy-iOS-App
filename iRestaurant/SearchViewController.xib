@@ -3,18 +3,17 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1056</int>
 		<string key="IBDocument.SystemVersion">10J869</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1306</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1305</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">301</string>
+			<string key="NS.object.0">300</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<string>IBProxyObject</string>
 			<string>IBUIBarButtonItem</string>
-			<string>IBUILabel</string>
 			<string>IBUIToolbar</string>
 			<string>IBUITextField</string>
 			<string>IBUISegmentedControl</string>
@@ -87,11 +86,11 @@
 					<object class="IBUITableView" id="255669294">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">274</int>
-						<string key="NSFrame">{{0, 75}, {320, 248}}</string>
+						<string key="NSFrame">{{0, 42}, {320, 281}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="833456613"/>
-						<object class="NSColor" key="IBUIBackgroundColor" id="969872400">
+						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
 						</object>
@@ -187,10 +186,10 @@
 							<object class="IBUITextField" id="686765744">
 								<reference key="NSNextResponder" ref="242412485"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{73, 4}, {227, 31}}</string>
+								<string key="NSFrame">{{9, 7}, {227, 31}}</string>
 								<reference key="NSSuperview" ref="242412485"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="119106451"/>
+								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -204,7 +203,7 @@
 										<int key="NSID">2</int>
 									</object>
 								</object>
-								<object class="NSFont" key="IBUIFont" id="217246615">
+								<object class="NSFont" key="IBUIFont">
 									<string key="NSName">Helvetica</string>
 									<double key="NSSize">18</double>
 									<int key="NSfFlags">16</int>
@@ -216,88 +215,11 @@
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 							</object>
-							<object class="IBUITextField" id="888059211">
-								<reference key="NSNextResponder" ref="242412485"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{73, 39}, {227, 31}}</string>
-								<reference key="NSSuperview" ref="242412485"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="255669294"/>
-								<bool key="IBUIOpaque">NO</bool>
-								<bool key="IBUIClipsSubviews">YES</bool>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<int key="IBUIContentVerticalAlignment">0</int>
-								<string key="IBUIText">Current Location</string>
-								<int key="IBUIBorderStyle">3</int>
-								<object class="NSColor" key="IBUITextColor">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MAA</bytes>
-									<reference key="NSCustomColorSpace" ref="725584035"/>
-								</object>
-								<reference key="IBUIFont" ref="217246615"/>
-								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
-								<float key="IBUIMinimumFontSize">17</float>
-								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
-									<int key="IBUIReturnKeyType">6</int>
-									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								</object>
-							</object>
-							<object class="IBUILabel" id="133630456">
-								<reference key="NSNextResponder" ref="242412485"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{23, 9}, {42, 21}}</string>
-								<reference key="NSSuperview" ref="242412485"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="686765744"/>
-								<bool key="IBUIOpaque">NO</bool>
-								<bool key="IBUIClipsSubviews">YES</bool>
-								<int key="IBUIContentMode">7</int>
-								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">Find</string>
-								<object class="NSFont" key="IBUIFont" id="495994431">
-									<string key="NSName">Helvetica-Bold</string>
-									<double key="NSSize">17</double>
-									<int key="NSfFlags">16</int>
-								</object>
-								<reference key="IBUITextColor" ref="969872400"/>
-								<nil key="IBUIHighlightedColor"/>
-								<object class="NSColor" key="IBUIShadowColor" id="1045642705">
-									<int key="NSColorSpace">3</int>
-									<bytes key="NSWhite">MAA</bytes>
-								</object>
-								<string key="IBUIShadowOffset">{0, 1}</string>
-								<int key="IBUIBaselineAdjustment">1</int>
-								<float key="IBUIMinimumFontSize">10</float>
-								<int key="IBUITextAlignment">2</int>
-							</object>
-							<object class="IBUILabel" id="119106451">
-								<reference key="NSNextResponder" ref="242412485"/>
-								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{23, 44}, {42, 22}}</string>
-								<reference key="NSSuperview" ref="242412485"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="888059211"/>
-								<bool key="IBUIOpaque">NO</bool>
-								<bool key="IBUIClipsSubviews">YES</bool>
-								<int key="IBUIContentMode">7</int>
-								<bool key="IBUIUserInteractionEnabled">NO</bool>
-								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">Near</string>
-								<reference key="IBUIFont" ref="495994431"/>
-								<reference key="IBUITextColor" ref="969872400"/>
-								<nil key="IBUIHighlightedColor"/>
-								<reference key="IBUIShadowColor" ref="1045642705"/>
-								<string key="IBUIShadowOffset">{0, 1}</string>
-								<int key="IBUIBaselineAdjustment">1</int>
-								<float key="IBUIMinimumFontSize">10</float>
-								<int key="IBUITextAlignment">2</int>
-							</object>
 						</object>
-						<string key="NSFrameSize">{320, 75}</string>
+						<string key="NSFrameSize">{320, 43}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="133630456"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">10</int>
 							<object class="NSImage" key="NSImage">
@@ -396,30 +318,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">searchView</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="242412485"/>
-					</object>
-					<int key="connectionID">51</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">termField</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="686765744"/>
-					</object>
-					<int key="connectionID">52</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">nearField</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="888059211"/>
-					</object>
-					<int key="connectionID">53</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">delegate</string>
 						<reference key="source" ref="686765744"/>
 						<reference key="destination" ref="372490531"/>
@@ -428,69 +326,11 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="888059211"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">55</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">findAutocompleteTableViewController</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="509325285"/>
-					</object>
-					<int key="connectionID">67</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">autocomplete:</string>
-						<reference key="source" ref="686765744"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">18</int>
-					</object>
-					<int key="connectionID">70</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchEventConnection" key="connection">
-						<string key="label">autocomplete:</string>
-						<reference key="source" ref="888059211"/>
-						<reference key="destination" ref="372490531"/>
-						<int key="IBEventType">18</int>
-					</object>
-					<int key="connectionID">71</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">findField</string>
 						<reference key="source" ref="509325285"/>
 						<reference key="destination" ref="686765744"/>
 					</object>
 					<int key="connectionID">72</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">nearField</string>
-						<reference key="source" ref="509325285"/>
-						<reference key="destination" ref="888059211"/>
-					</object>
-					<int key="connectionID">73</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">nearAutocompleteTableViewController</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="926001579"/>
-					</object>
-					<int key="connectionID">78</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">nearField</string>
-						<reference key="source" ref="926001579"/>
-						<reference key="destination" ref="888059211"/>
-					</object>
-					<int key="connectionID">79</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -532,8 +372,8 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="833456613"/>
-							<reference ref="242412485"/>
 							<reference ref="255669294"/>
+							<reference ref="242412485"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -612,9 +452,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="686765744"/>
-							<reference ref="888059211"/>
-							<reference ref="119106451"/>
-							<reference ref="133630456"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">Search VIew</string>
@@ -624,22 +461,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<reference key="object" ref="686765744"/>
 						<reference key="parent" ref="242412485"/>
 						<string key="objectName">Term Field</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">48</int>
-						<reference key="object" ref="888059211"/>
-						<reference key="parent" ref="242412485"/>
-						<string key="objectName">Near Field</string>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">49</int>
-						<reference key="object" ref="133630456"/>
-						<reference key="parent" ref="242412485"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">50</int>
-						<reference key="object" ref="119106451"/>
-						<reference key="parent" ref="242412485"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">63</int>
@@ -676,9 +497,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					<string>27.IBPluginDependency</string>
 					<string>46.IBPluginDependency</string>
 					<string>47.IBPluginDependency</string>
-					<string>48.IBPluginDependency</string>
-					<string>49.IBPluginDependency</string>
-					<string>50.IBPluginDependency</string>
 					<string>63.CustomClassName</string>
 					<string>63.IBPluginDependency</string>
 					<string>7.IBPluginDependency</string>
@@ -698,9 +516,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					<string>RestaurantSearchResultTableViewController</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>DishSearchResultTableViewController</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -830,35 +645,14 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					<string key="className">SearchViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>autocomplete:</string>
-							<string>switchSearchView:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>id</string>
-							<string>id</string>
-						</object>
+						<string key="NS.key.0">switchSearchView:</string>
+						<string key="NS.object.0">id</string>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>autocomplete:</string>
-							<string>switchSearchView:</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBActionInfo">
-								<string key="name">autocomplete:</string>
-								<string key="candidateClassName">id</string>
-							</object>
-							<object class="IBActionInfo">
-								<string key="name">switchSearchView:</string>
-								<string key="candidateClassName">id</string>
-							</object>
+						<string key="NS.key.0">switchSearchView:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">switchSearchView:</string>
+							<string key="candidateClassName">id</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -866,26 +660,16 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>dishSearchResultTableViewController</string>
-							<string>findAutocompleteTableViewController</string>
-							<string>nearAutocompleteTableViewController</string>
-							<string>nearField</string>
 							<string>restaurantSearchResultTableViewController</string>
-							<string>searchView</string>
 							<string>searchViewControl</string>
 							<string>tableView</string>
-							<string>termField</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>DishSearchResultTableViewController</string>
-							<string>FindAutocompleteTableViewController</string>
-							<string>NearAutocompleteTableViewController</string>
-							<string>UITextField</string>
 							<string>RestaurantSearchResultTableViewController</string>
-							<string>UIView</string>
 							<string>UISegmentedControl</string>
 							<string>UITableView</string>
-							<string>UITextField</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
@@ -893,14 +677,9 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>dishSearchResultTableViewController</string>
-							<string>findAutocompleteTableViewController</string>
-							<string>nearAutocompleteTableViewController</string>
-							<string>nearField</string>
 							<string>restaurantSearchResultTableViewController</string>
-							<string>searchView</string>
 							<string>searchViewControl</string>
 							<string>tableView</string>
-							<string>termField</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -909,24 +688,8 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 								<string key="candidateClassName">DishSearchResultTableViewController</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">findAutocompleteTableViewController</string>
-								<string key="candidateClassName">FindAutocompleteTableViewController</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">nearAutocompleteTableViewController</string>
-								<string key="candidateClassName">NearAutocompleteTableViewController</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">nearField</string>
-								<string key="candidateClassName">UITextField</string>
-							</object>
-							<object class="IBToOneOutletInfo">
 								<string key="name">restaurantSearchResultTableViewController</string>
 								<string key="candidateClassName">RestaurantSearchResultTableViewController</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">searchView</string>
-								<string key="candidateClassName">UIView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">searchViewControl</string>
@@ -935,10 +698,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 							<object class="IBToOneOutletInfo">
 								<string key="name">tableView</string>
 								<string key="candidateClassName">UITableView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">termField</string>
-								<string key="candidateClassName">UITextField</string>
 							</object>
 						</object>
 					</object>
@@ -957,6 +716,6 @@ AAMAAAABAAEAAAFTAAMAAAAEAAACAgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">301</string>
+		<string key="IBCocoaTouchPluginVersion">300</string>
 	</data>
 </archive>
