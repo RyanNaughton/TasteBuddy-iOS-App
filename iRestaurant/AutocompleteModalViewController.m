@@ -51,9 +51,6 @@
 {
     [super viewDidLoad];
     autocompleteService = [[AutocompleteService alloc] initWithDelegate: findAutocompleteTableViewController];
-    [self searchViewAnimateIn];
-    [termField becomeFirstResponder];
-    // Do any additional setup after loading the view from its nib.
 }
 
 - (void)viewDidUnload
@@ -96,21 +93,6 @@
     }
 }
 
--(void) searchViewAnimateIn 
-{
-    tableView.hidden = NO; //Show if in Map view
-    [termField becomeFirstResponder];
-    [self autocomplete:termField]; //Force the appropriate TableView to kick in
-    searchView.center = CGPointMake(searchView.center.x, searchView.frame.size.height / 2 * -1);
-    tableView.frame = CGRectMake(0, 0, self.view.frame.size.width,  self.view.frame.size.height);
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration:0.3];
-    
-    searchView.center = CGPointMake(searchView.center.x, searchView.frame.size.height / 2 );
-    tableView.frame = CGRectMake(0, searchView.frame.size.height, self.view.frame.size.width,  self.view.frame.size.height -  (220 + 22));
-    [UIView commitAnimations];
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     [searchViewController.searchService searchByTerm:termField.text andNear:nearField.text];
@@ -119,6 +101,13 @@
     searchViewController.fakeTermField.text = termField.text;
     [self dismissModalViewControllerAnimated:YES];
     return NO;
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [termField becomeFirstResponder];
+    [self autocomplete:termField]; //Force the appropriate TableView to kick in
+    searchView.center = CGPointMake(searchView.center.x, searchView.frame.size.height / 2 );
+    tableView.frame = CGRectMake(0, searchView.frame.size.height, self.view.frame.size.width,  self.view.frame.size.height - (216 + searchView.frame.size.height));
 }
 
 -(IBAction) cancel
