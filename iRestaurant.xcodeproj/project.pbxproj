@@ -88,6 +88,7 @@
 		E8C794D5135D15B80033C3FB /* dishes-tab-off.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C794D1135D15B80033C3FB /* dishes-tab-off.png */; };
 		E8C794D6135D15B80033C3FB /* restaurants-tab-off.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C794D2135D15B80033C3FB /* restaurants-tab-off.png */; };
 		E8C794D7135D15B80033C3FB /* restaurants-tab-on.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C794D3135D15B80033C3FB /* restaurants-tab-on.png */; };
+		E8C794DE135D2D9A0033C3FB /* iRestaurant-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C794DD135D2D9A0033C3FB /* iRestaurant-logo.png */; };
 		E8CD38C71357BB2500FBC6FF /* RestaurantPhoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */; };
 		E8CD38CF1357C82600FBC6FF /* search-text-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E8CD38CD1357C82600FBC6FF /* search-text-bg.png */; };
 		E8CD38D01357C82600FBC6FF /* search-text-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8CD38CE1357C82600FBC6FF /* search-text-bg@2x.png */; };
@@ -246,6 +247,7 @@
 		E8C794D1135D15B80033C3FB /* dishes-tab-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dishes-tab-off.png"; sourceTree = "<group>"; };
 		E8C794D2135D15B80033C3FB /* restaurants-tab-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "restaurants-tab-off.png"; sourceTree = "<group>"; };
 		E8C794D3135D15B80033C3FB /* restaurants-tab-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "restaurants-tab-on.png"; sourceTree = "<group>"; };
+		E8C794DD135D2D9A0033C3FB /* iRestaurant-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iRestaurant-logo.png"; sourceTree = "<group>"; };
 		E8CD38C51357BB2500FBC6FF /* RestaurantPhoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantPhoneCell.h; sourceTree = "<group>"; };
 		E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantPhoneCell.m; sourceTree = "<group>"; };
 		E8CD38CD1357C82600FBC6FF /* search-text-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-text-bg.png"; sourceTree = "<group>"; };
@@ -517,6 +519,7 @@
 		E85EE42813565D8F004B2A10 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E8C794DD135D2D9A0033C3FB /* iRestaurant-logo.png */,
 				E8C794D0135D15B80033C3FB /* dishes-tab-on.png */,
 				E8C794D1135D15B80033C3FB /* dishes-tab-off.png */,
 				E8C794D2135D15B80033C3FB /* restaurants-tab-off.png */,
@@ -779,7 +782,7 @@
 				E8C794D5135D15B80033C3FB /* dishes-tab-off.png in Resources */,
 				E8C794D6135D15B80033C3FB /* restaurants-tab-off.png in Resources */,
 				E8C794D7135D15B80033C3FB /* restaurants-tab-on.png in Resources */,
-
+				E8C794DE135D2D9A0033C3FB /* iRestaurant-logo.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -924,7 +927,7 @@
 				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -942,7 +945,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

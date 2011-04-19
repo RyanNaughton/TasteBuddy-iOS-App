@@ -9,9 +9,10 @@
 #import "RestaurantHeaderCell.h"
 #import "Restaurant.h"
 #import "UIImageView+WebCache.h"
+#import "RatingView.h"
 
 @implementation RestaurantHeaderCell
-@synthesize imageView, name, hours, average_meal, cuisine_types;
+@synthesize imageView, name, hours, average_meal, cuisine_types, ratingView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -23,7 +24,7 @@
         //UIView *selectedBGView = [[UIView alloc]initWithFrame:self.contentView.frame];
         //selectedBGView.backgroundColor = [UIColor redColor];
         //self.selectedBackgroundView = selectedBGView;
-        self.backgroundColor = [UIColor clearColor];
+        self.backgroundColor = [UIColor whiteColor];
         
 //        UIView *background = [[UIView alloc]init];
 //        background.backgroundColor = [UIColor blackColor];
@@ -34,20 +35,24 @@
         imageView = [[UIImageView alloc]init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
-        imageView.frame = CGRectMake(5, 5, 120, 120);
+        imageView.frame = CGRectMake(10, 55, 120, 120);
         [self.contentView addSubview:imageView];
         
         name = [[UILabel alloc]init];
-        name.frame = CGRectMake(130, 7, 160, 20);
+        name.frame = CGRectMake(10, 7, 280, 20);
         name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		name.backgroundColor = [UIColor clearColor];
-		name.font = [UIFont boldSystemFontOfSize:13];
+		name.font = [UIFont boldSystemFontOfSize:18];
         name.shadowColor = [UIColor whiteColor];
         name.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:name];
         
+        ratingView = [[RatingView alloc]initWithRating:50 andIsUserRating:FALSE];
+        ratingView.frame = CGRectMake(10, 30, 100, 20);
+        [self.contentView addSubview:ratingView];
+        
         cuisine_types = [[UILabel alloc]init];
-        cuisine_types.frame = CGRectMake(130, 60, 160, 20);
+        cuisine_types.frame = CGRectMake(140, 60, 160, 20);
         cuisine_types.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		cuisine_types.backgroundColor = [UIColor clearColor];
 		cuisine_types.font = [UIFont systemFontOfSize:13];
@@ -56,7 +61,7 @@
         [self.contentView addSubview:cuisine_types];
         
         hours = [[UILabel alloc]init];
-        hours.frame = CGRectMake(130, 80, 160, 20);
+        hours.frame = CGRectMake(140, 80, 160, 20);
         hours.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		hours.backgroundColor = [UIColor clearColor];
 		hours.font = [UIFont systemFontOfSize:13];
@@ -65,16 +70,13 @@
         [self.contentView addSubview:hours];
         
         average_meal = [[UILabel alloc]init];
-        average_meal.frame = CGRectMake(130, 100, 160, 20);
+        average_meal.frame = CGRectMake(140, 100, 160, 20);
         average_meal.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		average_meal.backgroundColor = [UIColor clearColor];
 		average_meal.font = [UIFont systemFontOfSize:11];
         average_meal.shadowColor = [UIColor whiteColor];
         average_meal.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:average_meal];
-
-        
-
     
     }
     return self;
@@ -114,6 +116,7 @@
 {
     [imageView release];
     [name release];
+    [ratingView release];
     [hours release];
     [average_meal release];
     [cuisine_types release];

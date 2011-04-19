@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class Restaurant;
+@class RatingView;
 
 @interface RestaurantHeaderCell : UITableViewCell {
     UIImageView *imageView;
@@ -15,7 +16,7 @@
     UILabel *hours;
     UILabel *average_meal;
     UILabel *cuisine_types;
-
+    RatingView *ratingView;
 }
 
 @property (nonatomic, retain) UIImageView *imageView;
@@ -23,6 +24,7 @@
 @property (nonatomic, retain) UILabel *hours        ;
 @property (nonatomic, retain) UILabel *average_meal;
 @property (nonatomic, retain) UILabel *cuisine_types;
+@property (nonatomic, retain) RatingView *ratingView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 -(void)loadRestaurant:(Restaurant *)restaurant;
