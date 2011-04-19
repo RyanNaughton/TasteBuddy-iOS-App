@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
+		49520096135D11D200F0876E /* AutocompleteModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49520094135D11D200F0876E /* AutocompleteModalViewController.m */; };
+		49520097135D11D200F0876E /* AutocompleteModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49520095135D11D200F0876E /* AutocompleteModalViewController.xib */; };
 		4956EB1B1358F85800D68EE9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4956EB0D1358F85800D68EE9 /* LICENSE */; };
 		4956EB1C1358F85800D68EE9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4956EB0E1358F85800D68EE9 /* README.md */; };
 		4956EB1D1358F85800D68EE9 /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 4956EB101358F85800D68EE9 /* SDImageCache.m */; };
@@ -111,6 +113,9 @@
 		490F2CA01358BB7F00DA5C1F /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		490F2CAF1358C78600DA5C1F /* MenuSubcategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuSubcategory.h; sourceTree = "<group>"; };
 		490F2CB01358C78600DA5C1F /* MenuSubcategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuSubcategory.m; sourceTree = "<group>"; };
+		49520093135D11D200F0876E /* AutocompleteModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteModalViewController.h; sourceTree = "<group>"; };
+		49520094135D11D200F0876E /* AutocompleteModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteModalViewController.m; sourceTree = "<group>"; };
+		49520095135D11D200F0876E /* AutocompleteModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompleteModalViewController.xib; sourceTree = "<group>"; };
 		4956EB0D1358F85800D68EE9 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4956EB0E1358F85800D68EE9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		4956EB0F1358F85800D68EE9 /* SDImageCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDImageCache.h; sourceTree = "<group>"; };
@@ -281,6 +286,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4952008C135D113C00F0876E /* Autocomplete */ = {
+			isa = PBXGroup;
+			children = (
+				49520095135D11D200F0876E /* AutocompleteModalViewController.xib */,
+			);
+			name = Autocomplete;
+			sourceTree = "<group>";
+		};
 		4956EB0C1358F84400D68EE9 /* SDWebImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,6 +375,7 @@
 		49578B75135519DB00F8EC0B /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				4952008C135D113C00F0876E /* Autocomplete */,
 				498857A91358E88D00D17554 /* Cells */,
 				49578B7E13551D7200F8EC0B /* SearchViewController.xib */,
 			);
@@ -389,6 +403,8 @@
 				498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */,
 				498727E51357A1F4004CB2F6 /* NearAutocompleteTableViewController.h */,
 				498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */,
+				49520093135D11D200F0876E /* AutocompleteModalViewController.h */,
+				49520094135D11D200F0876E /* AutocompleteModalViewController.m */,
 			);
 			name = Autocomplete;
 			sourceTree = "<group>";
@@ -742,6 +758,7 @@
 				E8A449C613591203006AA06A /* red_star.png in Resources */,
 				49890398135CB6AF00643D8D /* 29-heart.png in Resources */,
 				49890399135CB6AF00643D8D /* 29-heart@2x.png in Resources */,
+				49520097135D11D200F0876E /* AutocompleteModalViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -820,6 +837,7 @@
 				4956EB1F1358F85800D68EE9 /* SDWebImageManager.m in Sources */,
 				4956EB201358F85800D68EE9 /* UIImageView+WebCache.m in Sources */,
 				E8C794BB135CB6490033C3FB /* DishButtonsCell.m in Sources */,
+				49520096135D11D200F0876E /* AutocompleteModalViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -873,6 +891,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -892,6 +911,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
