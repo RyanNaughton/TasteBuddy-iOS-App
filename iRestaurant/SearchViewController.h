@@ -31,6 +31,9 @@
     IBOutlet UISegmentedControl *searchViewControl;
 
     UIBarButtonItem *showSearchButton;
+    
+    UIButton *restaurantsTabButton;
+    UIButton *dishesTabButton;
 }
 
 @property (nonatomic, retain) SearchService *searchService;
@@ -51,6 +54,11 @@
 @property (nonatomic, retain) UIBarButtonItem *showSearchButton;
 
 @property (nonatomic, retain) IBOutlet UISegmentedControl *searchViewControl;
+
+@property (nonatomic, retain) UIButton *restaurantsTabButton;
+@property (nonatomic, retain) UIButton *dishesTabButton;
+
+
 
 
 -(IBAction) switchSearchView:(id) sender;

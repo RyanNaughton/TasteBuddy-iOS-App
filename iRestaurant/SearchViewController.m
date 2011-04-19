@@ -20,16 +20,14 @@
 @synthesize searchService, autocompleteService;
 @synthesize restaurantSearchResultTableViewController, dishSearchResultTableViewController;
 @synthesize tableView;
-
 @synthesize searchView;
 @synthesize nearField;
 @synthesize termField;
 @synthesize showSearchButton;
-
 @synthesize searchViewControl;
-
-
 @synthesize findAutocompleteTableViewController, nearAutocompleteTableViewController;
+@synthesize restaurantsTabButton, dishesTabButton;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -69,6 +67,26 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    restaurantsTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [restaurantsTabButton setTitle:@"Restaurants" forState:UIControlStateNormal];
+    restaurantsTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    [restaurantsTabButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    restaurantsTabButton.frame =  CGRectMake(0, 4, 80, 35);
+    [restaurantsTabButton setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
+    
+    dishesTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [dishesTabButton setTitle:@"Dishes" forState:UIControlStateNormal];
+    dishesTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    dishesTabButton.frame =  CGRectMake(80, 4, 80, 35);
+    [dishesTabButton setBackgroundImage:[[UIImage imageNamed:NULL] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
+    
+    UIView *tabView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 35)];
+    [tabView addSubview:restaurantsTabButton];
+    [tabView addSubview:dishesTabButton];
+    self.navigationItem.titleView = tabView;
+    
+    
     
     UIImageView *searchViewBGImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"search-text-bg.png"]];
     [searchView addSubview:searchViewBGImage];
