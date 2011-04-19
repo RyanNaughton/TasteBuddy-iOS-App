@@ -8,23 +8,24 @@
 
 #import <UIKit/UIKit.h>
 @class Restaurant;
+@class RatingView;
 
 @interface RestaurantSearchCell : UITableViewCell {
-    UIImageView *imageView;
     UILabel *name        ;
     UILabel *tags        ;
     UILabel *addressLine1;
-    UILabel *addressLine2;
     UILabel *distance    ;
+    UILabel *averageDishPrice;
+    RatingView *ratingView;
     
 }
 
-@property (nonatomic, retain) UIImageView *imageView;
 @property (nonatomic, retain) UILabel *name        ;
 @property (nonatomic, retain) UILabel *tags        ;
 @property (nonatomic, retain) UILabel *addressLine1;
-@property (nonatomic, retain) UILabel *addressLine2;
 @property (nonatomic, retain) UILabel *distance    ;
+@property (nonatomic, retain) UILabel *averageDishPrice;
+@property (nonatomic, retain) RatingView *ratingView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 -(void)loadRestaurant:(Restaurant *)restaurant;

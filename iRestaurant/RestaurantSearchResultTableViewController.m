@@ -160,7 +160,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     int height;
     if ([restaurantsArray count] > 0) {
-        height = 94;
+        height = 70;
     } else {
         height = 44;
     }

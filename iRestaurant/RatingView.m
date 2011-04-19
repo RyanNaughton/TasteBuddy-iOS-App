@@ -11,7 +11,7 @@
 #import "iRestaurantAppDelegate.h"
 
 @implementation RatingView
-@synthesize outlineStarsView, redStarsView, yellowStarsView, ratingButton;
+@synthesize outlineStarsView, redStarsView, yellowStarsView, ratingButton, starSize;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -22,19 +22,20 @@
     return self;
 }
 
--(id)initWithRating:(float)rating andIsUserRating:(BOOL)isUserRating andIsEditable:(BOOL)isEditable {
-    self = [super initWithFrame:CGRectMake(0, 0, 100, 20)];
+-(id)initWithRating:(float)rating andStarSize:(int)starSize_passed andIsUserRating:(BOOL)isUserRating andIsEditable:(BOOL)isEditable {
+    self = [super initWithFrame:CGRectMake(0, 0, 100, starSize)];
     if (self) {
         // init code
+        starSize = starSize_passed;
         [self setupOutlineStarsView];
         if (rating > 0) {
             if (isUserRating) {
                 [self setupYellowStarsView];
-                yellowStarsView.frame = CGRectMake(0, 0, rating, 20);
+                yellowStarsView.frame = CGRectMake(0, 0, ((rating * (starSize *5)) / 100), starSize);
                 yellowStarsView.clipsToBounds = TRUE;
             } else {
                 [self setupRedStarsView];
-                redStarsView.frame = CGRectMake(0, 0, rating, 20);
+                redStarsView.frame = CGRectMake(0, 0, ((rating * (starSize *5)) / 100), starSize);
                 redStarsView.clipsToBounds = TRUE;
             }
         }
@@ -43,6 +44,7 @@
     return self;
 }
 
+// sets user rating to a float passed in. rating is a % (rating/100)
 -(void) setUserRating:(float)rating {
     
     for (UIView *view in self.subviews) {
@@ -54,15 +56,15 @@
         }
     }
     [self setupYellowStarsView];
-    yellowStarsView.frame = CGRectMake(0, 0, rating, 20);
+    yellowStarsView.frame = CGRectMake(0, 0, ((rating * (starSize *5)) / 100), starSize);
     yellowStarsView.clipsToBounds = TRUE;
     [self bringSubviewToFront:ratingButton];
 }
 
 -(void) setupOutlineStarsView {
-    outlineStarsView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 20)];
+    outlineStarsView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, (starSize * 5), starSize)];
     for (int i=0; i < 5; i++) {
-        UIImageView *outlineStar = [[UIImageView alloc]initWithFrame:CGRectMake((i * 20), 0, 20, 20)];
+        UIImageView *outlineStar = [[UIImageView alloc]initWithFrame:CGRectMake((i * starSize), 0, starSize, starSize)];
         outlineStar.image = [UIImage imageNamed:@"outline_star.png"];
         outlineStar.contentMode = UIViewContentModeScaleToFill;
         [outlineStarsView addSubview:outlineStar];
@@ -72,9 +74,9 @@
 }
 
 -(void) setupRedStarsView {
-    redStarsView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 20)];
+    redStarsView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, (starSize * 5), starSize)];
     for (int i=0; i < 5; i++) {
-        UIImageView *outlineStar = [[UIImageView alloc]initWithFrame:CGRectMake((i * 20), 0, 20, 20)];
+        UIImageView *outlineStar = [[UIImageView alloc]initWithFrame:CGRectMake((i * starSize), 0, starSize, starSize)];
         outlineStar.image = [UIImage imageNamed:@"red_star.png"];
         outlineStar.contentMode = UIViewContentModeScaleToFill;
         [redStarsView addSubview:outlineStar];
@@ -85,9 +87,9 @@
 }
 
 -(void) setupYellowStarsView {
-    yellowStarsView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 20)];
+    yellowStarsView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, (starSize * 5), starSize)];
     for (int i=0; i < 5; i++) {
-        UIImageView *outlineStar = [[UIImageView alloc]initWithFrame:CGRectMake((i * 20), 0, 20, 20)];
+        UIImageView *outlineStar = [[UIImageView alloc]initWithFrame:CGRectMake((i * starSize), 0, starSize, starSize)];
         outlineStar.image = [UIImage imageNamed:@"yellow_star.png"];
         outlineStar.contentMode = UIViewContentModeScaleToFill;
         [yellowStarsView addSubview:outlineStar];
@@ -98,7 +100,7 @@
 
 -(void)setupRatingButton {
     ratingButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    ratingButton.frame = CGRectMake(0, 0, 100, 20);
+    ratingButton.frame = CGRectMake(0, 0, (starSize * 5), starSize);
     ratingButton.backgroundColor = [UIColor clearColor];
     [ratingButton addTarget:self action:@selector(rate:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:ratingButton];
