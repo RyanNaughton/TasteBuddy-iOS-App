@@ -24,6 +24,7 @@
     
     UIButton *restaurantsTabButton;
     UIButton *dishesTabButton;
+    
 }
 
 @property (nonatomic, retain) SearchService *searchService;

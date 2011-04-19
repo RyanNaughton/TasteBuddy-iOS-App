@@ -82,8 +82,10 @@
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
     
     AutocompleteModalViewController *searchModal = [[AutocompleteModalViewController alloc] initWithNibName:@"AutocompleteModalViewController" bundle:nil];
+    searchModal.searchViewController = self;
     [self presentModalViewController:searchModal animated:YES];
-   // self.navigationItem.rightBarButtonItem = showSearchButton;
+    [searchModal release];
+
 }
 
 - (void)viewDidUnload
