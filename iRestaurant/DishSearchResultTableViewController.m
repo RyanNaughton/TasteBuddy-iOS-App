@@ -127,13 +127,16 @@
     UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 220, 22)];
     restaurantName.backgroundColor = [UIColor clearColor];
     restaurantName.textColor = [UIColor whiteColor];
+    restaurantName.font = [UIFont systemFontOfSize:14];
     restaurantName.text = ((Restaurant *)[restaurantsArray objectAtIndex:section]).name;
     [headerView addSubview:restaurantName];
     [restaurantName release];
     
     UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(240, 0, 70, 22)];
     distance.backgroundColor = [UIColor clearColor];
+    distance.textAlignment = UITextAlignmentRight;
     distance.textColor = [UIColor whiteColor];
+    distance.font = [UIFont systemFontOfSize:14];
     Restaurant *restaurant = [restaurantsArray objectAtIndex:section];
         distance.text = [NSString stringWithFormat:@"%@ mi", restaurant.distance];
     [headerView addSubview:distance];
@@ -193,7 +196,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     int height;
     if ([restaurantsArray count] > 0) {
-            height = 65;
+            height = 70;
     } else {
         height = 44;
     }

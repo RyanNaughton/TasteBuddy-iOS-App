@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1056</int>
 		<string key="IBDocument.SystemVersion">10J869</string>
-		<string key="IBDocument.InterfaceBuilderVersion">1305</string>
+		<string key="IBDocument.InterfaceBuilderVersion">1306</string>
 		<string key="IBDocument.AppKitVersion">1038.35</string>
 		<string key="IBDocument.HIToolboxVersion">461.00</string>
 		<object class="NSMutableDictionary" key="IBDocument.PluginVersions">
 			<string key="NS.key.0">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-			<string key="NS.object.0">300</string>
+			<string key="NS.object.0">301</string>
 		</object>
 		<object class="NSArray" key="IBDocument.IntegratedClassDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -88,7 +88,6 @@
 						<string key="NSFrame">{{0, 42}, {320, 325}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="346297262">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -345,6 +344,14 @@
 					</object>
 					<int key="connectionID">91</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">filterButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="257392649"/>
+					</object>
+					<int key="connectionID">92</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -506,7 +513,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">91</int>
+			<int key="maxID">92</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -771,6 +778,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>dishSearchResultTableViewController</string>
 							<string>fakeTermField</string>
+							<string>filterButton</string>
 							<string>mapButton</string>
 							<string>restaurantSearchResultTableViewController</string>
 							<string>searchModalViewController</string>
@@ -781,6 +789,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>DishSearchResultTableViewController</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UIButton</string>
 							<string>RestaurantSearchResultTableViewController</string>
 							<string>AutocompleteModalViewController</string>
@@ -794,6 +803,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>dishSearchResultTableViewController</string>
 							<string>fakeTermField</string>
+							<string>filterButton</string>
 							<string>mapButton</string>
 							<string>restaurantSearchResultTableViewController</string>
 							<string>searchModalViewController</string>
@@ -809,6 +819,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">fakeTermField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">filterButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">mapButton</string>
@@ -847,6 +861,6 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<string key="IBCocoaTouchPluginVersion">300</string>
+		<string key="IBCocoaTouchPluginVersion">301</string>
 	</data>
 </archive>

@@ -25,18 +25,18 @@
         imageView = [[UIImageView alloc]init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
-        imageView.frame = CGRectMake(5, 5, 55, 55);
+        imageView.frame = CGRectMake(0, 0, 70, 70);
         [self.contentView addSubview:imageView];
         
         name = [[UILabel alloc]init];
-        name.frame = CGRectMake(65, 7, 180, 20);
+        name.frame = CGRectMake(80, 5, 160, 20);
         name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		name.backgroundColor = [UIColor clearColor];
-		name.font = [UIFont boldSystemFontOfSize:18];
+		name.font = [UIFont boldSystemFontOfSize:14];
         [self.contentView addSubview:name];
         
         tags = [[UILabel alloc]init];
-        tags.frame = CGRectMake(65, 25, 180, 15);
+        tags.frame = CGRectMake(80, 25, 180, 15);
         tags.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		tags.backgroundColor = [UIColor clearColor];
 		UIFont *italicFont = [UIFont fontWithName:@"Helvetica-Oblique" size:12];
@@ -47,11 +47,12 @@
         price.frame = CGRectMake(245, 30, 180, 15);
         price.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		price.backgroundColor = [UIColor clearColor];
-        price.font = [UIFont boldSystemFontOfSize:17];
+        price.font = [UIFont systemFontOfSize:13];
         [self.contentView addSubview:price];
         
-        ratingView = [[RatingView alloc]initWithRating:50 andStarSize:20 andIsUserRating:FALSE andIsEditable:FALSE];
-        ratingView.frame = CGRectMake(65, 40, 100, 20);
+        int starSize = 12;
+        ratingView = [[RatingView alloc]initWithRating:50 andStarSize:starSize andIsUserRating:FALSE andIsEditable:FALSE];
+        ratingView.frame = CGRectMake((310 - (starSize * 5)), 5, (starSize * 5), starSize);
         [self.contentView addSubview:ratingView];
         
     }

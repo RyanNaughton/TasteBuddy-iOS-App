@@ -20,7 +20,7 @@
 @synthesize showSearchButton;
 @synthesize tableView;
 
-@synthesize restaurantsTabButton, dishesTabButton, mapButton;
+@synthesize restaurantsTabButton, dishesTabButton, mapButton, filterButton;
 
 @synthesize searchModalViewController;
 
@@ -48,6 +48,7 @@
     [searchModalViewController release];
     [fakeTermField release];
     [mapButton release];
+    [filterButton release];
     [lastSender release];
     [dishesTabButton release];
     [restaurantsTabButton release];
@@ -67,6 +68,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    mapButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage *mapButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
+
+    [mapButton setBackgroundImage:mapButtonImage forState:UIControlStateNormal];
+    
     
     UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iRestaurant-logo"]];
     appNameImageView.frame = CGRectMake(0, 0, 305, 35);

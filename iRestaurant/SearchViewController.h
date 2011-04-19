@@ -25,6 +25,8 @@
     
     UIButton *restaurantsTabButton;
     UIButton *dishesTabButton;
+    
+    IBOutlet UIButton *filterButton;
     IBOutlet UIButton *mapButton;
     
     IBOutlet AutocompleteModalViewController *searchModalViewController;
@@ -45,7 +47,9 @@
 
 @property (nonatomic, retain) UIButton *restaurantsTabButton;
 @property (nonatomic, retain) UIButton *dishesTabButton;
+
 @property (nonatomic, retain) IBOutlet UIButton *mapButton;
+@property (nonatomic, retain) IBOutlet UIButton *filterButton;
 
 @property (nonatomic, retain) IBOutlet AutocompleteModalViewController *searchModalViewController;
 
