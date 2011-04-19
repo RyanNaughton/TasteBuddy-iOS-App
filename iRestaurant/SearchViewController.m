@@ -23,6 +23,9 @@
 
 @synthesize restaurantsTabButton, dishesTabButton;
 
+@synthesize searchModalViewController;
+
+@synthesize fakeTermField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,6 +44,8 @@
     [tableView release];
     [showSearchButton release];
     [searchViewControl release];
+    [searchModalViewController release];
+    [fakeTermField release];
     [super dealloc];
 }
 
@@ -81,11 +86,7 @@
     CGPoint point = CGPointMake(1.2345, 1.2345);
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
     
-    AutocompleteModalViewController *searchModal = [[AutocompleteModalViewController alloc] initWithNibName:@"AutocompleteModalViewController" bundle:nil];
-    searchModal.searchViewController = self;
-    [self presentModalViewController:searchModal animated:YES];
-    [searchModal release];
-
+    [self presentSearchModal];
 }
 
 - (void)viewDidUnload
@@ -148,4 +149,8 @@
     [tableView reloadData];
 }
 
+-(IBAction) presentSearchModal {
+    [fakeTermField resignFirstResponder];
+    [self presentModalViewController:searchModalViewController animated:YES];
+}
 @end

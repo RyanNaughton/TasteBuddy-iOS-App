@@ -378,6 +378,15 @@
 					</object>
 					<int key="connectionID">38</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">cancel</string>
+						<reference key="source" ref="49002142"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">39</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -534,7 +543,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">38</int>
+			<int key="maxID">39</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -543,14 +552,35 @@
 					<string key="className">AutocompleteModalViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">autocomplete:</string>
-						<string key="NS.object.0">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>autocomplete:</string>
+							<string>cancel</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+						</object>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">autocomplete:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">autocomplete:</string>
-							<string key="candidateClassName">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>autocomplete:</string>
+							<string>cancel</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">autocomplete:</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">cancel</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -741,14 +771,35 @@
 					<string key="className">SearchViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<object class="NSMutableDictionary" key="actions">
-						<string key="NS.key.0">switchSearchView:</string>
-						<string key="NS.object.0">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>presentSearchModal</string>
+							<string>switchSearchView:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+						</object>
 					</object>
 					<object class="NSMutableDictionary" key="actionInfosByName">
-						<string key="NS.key.0">switchSearchView:</string>
-						<object class="IBActionInfo" key="NS.object.0">
-							<string key="name">switchSearchView:</string>
-							<string key="candidateClassName">id</string>
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>presentSearchModal</string>
+							<string>switchSearchView:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBActionInfo">
+								<string key="name">presentSearchModal</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">switchSearchView:</string>
+								<string key="candidateClassName">id</string>
+							</object>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -756,14 +807,18 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>dishSearchResultTableViewController</string>
+							<string>fakeTermField</string>
 							<string>restaurantSearchResultTableViewController</string>
+							<string>searchModalViewController</string>
 							<string>searchViewControl</string>
 							<string>tableView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>DishSearchResultTableViewController</string>
+							<string>UITextField</string>
 							<string>RestaurantSearchResultTableViewController</string>
+							<string>AutocompleteModalViewController</string>
 							<string>UISegmentedControl</string>
 							<string>UITableView</string>
 						</object>
@@ -773,7 +828,9 @@
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>dishSearchResultTableViewController</string>
+							<string>fakeTermField</string>
 							<string>restaurantSearchResultTableViewController</string>
+							<string>searchModalViewController</string>
 							<string>searchViewControl</string>
 							<string>tableView</string>
 						</object>
@@ -784,8 +841,16 @@
 								<string key="candidateClassName">DishSearchResultTableViewController</string>
 							</object>
 							<object class="IBToOneOutletInfo">
+								<string key="name">fakeTermField</string>
+								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
 								<string key="name">restaurantSearchResultTableViewController</string>
 								<string key="candidateClassName">RestaurantSearchResultTableViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">searchModalViewController</string>
+								<string key="candidateClassName">AutocompleteModalViewController</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">searchViewControl</string>

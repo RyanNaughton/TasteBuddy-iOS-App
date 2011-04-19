@@ -33,7 +33,6 @@
                 yellowStarsView.frame = CGRectMake(0, 0, rating, 20);
                 yellowStarsView.clipsToBounds = TRUE;
             } else {
-                NSLog(@"red stars!");
                 [self setupRedStarsView];
                 redStarsView.frame = CGRectMake(0, 0, rating, 20);
                 redStarsView.clipsToBounds = TRUE;
@@ -54,7 +53,6 @@
             [yellowStarsView removeFromSuperview];
         }
     }
-    NSLog(@"rating is: %g", rating);
     [self setupYellowStarsView];
     yellowStarsView.frame = CGRectMake(0, 0, rating, 20);
     yellowStarsView.clipsToBounds = TRUE;
@@ -64,7 +62,6 @@
 -(void) setupOutlineStarsView {
     outlineStarsView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 100, 20)];
     for (int i=0; i < 5; i++) {
-        NSLog(@"add outline star");
         UIImageView *outlineStar = [[UIImageView alloc]initWithFrame:CGRectMake((i * 20), 0, 20, 20)];
         outlineStar.image = [UIImage imageNamed:@"outline_star.png"];
         outlineStar.contentMode = UIViewContentModeScaleToFill;
@@ -108,7 +105,6 @@
 }
 
 -(void)rate:(id)sender {
-    NSLog(@"rate");
     UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"★★★★★", @"★★★★", @"★★★", @"★★", @"★", nil];
     [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
     
@@ -165,7 +161,6 @@
 
 - (void)dealloc
 {
-    //[ratingButton release];
     [outlineStarsView release];
     [redStarsView release];
     [yellowStarsView release];

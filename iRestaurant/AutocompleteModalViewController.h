@@ -39,5 +39,6 @@
 -(IBAction) autocomplete:(id) sender;
 
 -(void) searchViewAnimateIn;
+-(IBAction) cancel;
 
 @end

@@ -11,6 +11,7 @@
 
 @class RestaurantSearchResultTableViewController;
 @class DishSearchResultTableViewController;
+@class AutocompleteModalViewController;
 
 @interface SearchViewController : UIViewController <SearchServiceDelegate, UITextFieldDelegate, UIScrollViewDelegate> {
     SearchService *searchService;
@@ -24,6 +25,10 @@
     
     UIButton *restaurantsTabButton;
     UIButton *dishesTabButton;
+    
+    IBOutlet AutocompleteModalViewController *searchModalViewController;
+    
+    IBOutlet UITextField *fakeTermField;
     
 }
 
@@ -40,9 +45,15 @@
 @property (nonatomic, retain) UIButton *restaurantsTabButton;
 @property (nonatomic, retain) UIButton *dishesTabButton;
 
+@property (nonatomic, retain) IBOutlet AutocompleteModalViewController *searchModalViewController;
+
+
+@property (nonatomic, retain) IBOutlet UITextField *fakeTermField;
 
 -(IBAction) switchSearchView:(id) sender;
 
 -(void) resultsLoading;
 -(void) resultsLoaded;
+
+-(IBAction) presentSearchModal;
 @end

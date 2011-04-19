@@ -52,6 +52,7 @@
     [super viewDidLoad];
     autocompleteService = [[AutocompleteService alloc] initWithDelegate: findAutocompleteTableViewController];
     [self searchViewAnimateIn];
+    [termField becomeFirstResponder];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -115,9 +116,13 @@
     [searchViewController.searchService searchByTerm:termField.text andNear:nearField.text];
     [searchViewController switchSearchView:(id) searchViewController.searchViewControl];
     [searchViewController resultsLoading];
+    searchViewController.fakeTermField.text = termField.text;
     [self dismissModalViewControllerAnimated:YES];
     return NO;
 }
 
-
+-(IBAction) cancel
+{
+    [self dismissModalViewControllerAnimated:YES];
+}
 @end
