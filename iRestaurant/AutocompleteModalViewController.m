@@ -96,7 +96,7 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     [searchViewController.searchService searchByTerm:termField.text andNear:nearField.text];
-    [searchViewController switchSearchView:(id) searchViewController.searchViewControl];
+    [searchViewController switchSearchView:(id) searchViewController.lastSender];
     [searchViewController resultsLoading];
     searchViewController.fakeTermField.text = termField.text;
     [self dismissModalViewControllerAnimated:YES];

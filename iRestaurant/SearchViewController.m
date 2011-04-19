@@ -18,14 +18,15 @@
 @synthesize searchService;
 @synthesize restaurantSearchResultTableViewController, dishSearchResultTableViewController;
 @synthesize showSearchButton;
-@synthesize searchViewControl;
 @synthesize tableView;
 
-@synthesize restaurantsTabButton, dishesTabButton;
+@synthesize restaurantsTabButton, dishesTabButton, mapButton;
 
 @synthesize searchModalViewController;
 
 @synthesize fakeTermField;
+
+@synthesize lastSender;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,6 +47,10 @@
     [searchViewControl release];
     [searchModalViewController release];
     [fakeTermField release];
+    [mapButton release];
+    [lastSender release];
+    [dishesTabButton release];
+    [restaurantsTabButton release];
     [super dealloc];
 }
 
@@ -63,19 +68,25 @@
 {
     [super viewDidLoad];
     
+    
     restaurantsTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [restaurantsTabButton setTitle:@"Restaurants" forState:UIControlStateNormal];
     restaurantsTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
     [restaurantsTabButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     restaurantsTabButton.frame =  CGRectMake(0, 4, 80, 35);
     [restaurantsTabButton setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
+    [restaurantsTabButton addTarget:self action:@selector(switchSearchView:) forControlEvents:UIControlEventTouchUpInside];
+
+    lastSender = restaurantsTabButton; //Set initial value for lastSender so we knew which result view we need to be in.
+
     
     dishesTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [dishesTabButton setTitle:@"Dishes" forState:UIControlStateNormal];
     dishesTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
     dishesTabButton.frame =  CGRectMake(80, 4, 80, 35);
     [dishesTabButton setBackgroundImage:[[UIImage imageNamed:NULL] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
-    
+    [dishesTabButton addTarget:self action:@selector(switchSearchView:) forControlEvents:UIControlEventTouchUpInside];
+
     UIView *tabView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 35)];
     [tabView addSubview:restaurantsTabButton];
     [tabView addSubview:dishesTabButton];
@@ -85,7 +96,7 @@
     // Do any additional setup after loading the view from its nib.    
     CGPoint point = CGPointMake(1.2345, 1.2345);
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
-    
+
     [self presentSearchModal];
 }
 
@@ -104,25 +115,29 @@
 
 -(IBAction) switchSearchView:(id) sender
 {
-    switch (searchViewControl.selectedSegmentIndex) {
-        case 0: //Restaurant
-            tableView.delegate = restaurantSearchResultTableViewController;
-            tableView.dataSource = restaurantSearchResultTableViewController;
-            [tableView reloadData];
-            tableView.hidden = false;
-            break;
-        case 1: //Dishes
-            tableView.delegate = dishSearchResultTableViewController;
-            tableView.dataSource = dishSearchResultTableViewController;
-            [tableView reloadData];
-            tableView.hidden = false;
-            break;
-        case 2: //Map
-            tableView.hidden = true;
-            break;
-        default:
-            break;
-    }   
+    lastSender = sender;
+    if(sender == restaurantsTabButton) {
+        [dishesTabButton setBackgroundImage:nil forState:UIControlStateNormal];
+        [dishesTabButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [restaurantsTabButton setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
+        [restaurantsTabButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        tableView.delegate = restaurantSearchResultTableViewController;
+        tableView.dataSource = restaurantSearchResultTableViewController;
+        [tableView reloadData];
+        tableView.hidden = false;
+    } else if (sender == dishesTabButton){
+        [restaurantsTabButton setBackgroundImage:nil forState:UIControlStateNormal];
+        [restaurantsTabButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [dishesTabButton setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
+        [dishesTabButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        tableView.delegate = dishSearchResultTableViewController;
+        tableView.dataSource = dishSearchResultTableViewController;
+        [tableView reloadData];
+        tableView.hidden = false;
+    } else if (sender == mapButton) {
+        tableView.hidden = true;
+    }
+
     [tableView setContentOffset:CGPointMake(0, 0) animated:NO];
 
     //Need to scroll to top here

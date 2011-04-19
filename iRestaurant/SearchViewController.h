@@ -25,10 +25,13 @@
     
     UIButton *restaurantsTabButton;
     UIButton *dishesTabButton;
+    IBOutlet UIButton *mapButton;
     
     IBOutlet AutocompleteModalViewController *searchModalViewController;
     
     IBOutlet UITextField *fakeTermField;
+    
+    id lastSender;
     
 }
 
@@ -40,15 +43,14 @@
 
 @property (nonatomic, retain) UIBarButtonItem *showSearchButton;
 
-@property (nonatomic, retain) IBOutlet UISegmentedControl *searchViewControl;
-
 @property (nonatomic, retain) UIButton *restaurantsTabButton;
 @property (nonatomic, retain) UIButton *dishesTabButton;
+@property (nonatomic, retain) IBOutlet UIButton *mapButton;
 
 @property (nonatomic, retain) IBOutlet AutocompleteModalViewController *searchModalViewController;
 
-
 @property (nonatomic, retain) IBOutlet UITextField *fakeTermField;
+@property (nonatomic, retain) id lastSender;
 
 -(IBAction) switchSearchView:(id) sender;
 
