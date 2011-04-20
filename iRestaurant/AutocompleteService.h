@@ -19,15 +19,11 @@
     id <AutocompleteServiceDelegate> delegate;  
     ASIFormDataRequest *request;
     NSArray *values;
-    NSString *lastTerm;
-    NSString *lastPlace;
 }
 
 @property (nonatomic, retain) id <AutocompleteServiceDelegate> delegate;
 @property (nonatomic, retain) ASIFormDataRequest *request;
 @property (nonatomic, retain) NSArray *values;
-@property (nonatomic, retain) NSString *lastTerm;
-@property (nonatomic, retain) NSString *lastPlace;
 
 -(id) initWithDelegate:(id <AutocompleteServiceDelegate>) serviceDelegate;
 -(void) getTerms:(NSString *)term;
