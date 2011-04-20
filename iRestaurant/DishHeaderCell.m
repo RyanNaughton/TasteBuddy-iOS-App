@@ -63,6 +63,9 @@
 
 - (void)dealloc
 {
+    [imageView release];
+    [price release];
+    [ratingView release];
     [super dealloc];
 }
 

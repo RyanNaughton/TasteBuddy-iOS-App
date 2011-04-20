@@ -117,7 +117,9 @@
     searchView.center = CGPointMake(searchView.center.x, searchView.frame.size.height / 2 );
     tableView.frame = CGRectMake(0, searchView.frame.size.height, self.view.frame.size.width,  self.view.frame.size.height - (216 + searchView.frame.size.height));
 }
-
+-(void) viewDidDisappear:(BOOL)animated {
+    [self autocomplete:termField];
+}
 -(IBAction) cancel
 {
     [self dismissModalViewControllerAnimated:YES];

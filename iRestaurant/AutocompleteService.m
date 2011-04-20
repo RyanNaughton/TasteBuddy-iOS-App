@@ -13,6 +13,12 @@
 
 @synthesize delegate, request, values;
 
+-(void) dealloc {
+    [delegate release];
+    [request release];
+    [values release];
+    [super dealloc];
+}
 -(id) initWithDelegate:(id <AutocompleteServiceDelegate>) serviceDelegate {
     self = [super init];
     if (self) {
@@ -30,9 +36,7 @@
 -(void) getPlaces:(NSString *)place
 {
     values = [[NSArray alloc] initWithObjects:@"Place 1", @"Place 2", @"Place 3", @"Place 4", @"Place 5", @"Place 6", @"Place 7", nil];
-    
     [self requestFinished:nil];
-    
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
