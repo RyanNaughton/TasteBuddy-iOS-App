@@ -11,9 +11,11 @@
 
 @interface RestaurantPhoneCell : UITableViewCell {
     UILabel *phone;
+    UIButton *phoneButton;
 }
 
 @property (nonatomic, retain) UILabel *phone;
+@property (nonatomic, retain) UIButton *phoneButton;
 
 -(void)loadRestaurant:(Restaurant *)restaurant;
 

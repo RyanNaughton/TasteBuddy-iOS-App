@@ -19,7 +19,6 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
-        self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         self.selectionStyle = UITableViewCellSelectionStyleGray;
         //UIView *selectedBGView = [[UIView alloc]initWithFrame:self.contentView.frame];
         //selectedBGView.backgroundColor = [UIColor redColor];

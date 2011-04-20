@@ -18,7 +18,5 @@
 @property (nonatomic, retain) Restaurant *restaurant;
 
 -(id)initWithRestaurant:(Restaurant *)restaurant_passed;
--(void)loadLunchMenu;
--(void)loadDinnerMenu;
-
+-(void)loadMenu;
 @end

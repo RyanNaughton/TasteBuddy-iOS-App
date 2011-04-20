@@ -11,11 +11,15 @@
 @class RestaurantViewController;
 
 @interface RestaurantMenuCell : UITableViewCell {
+    UIButton *menuButton;
+    
     UIButton *lunchMenuButton;
     UIButton *dinnerMenuButton;
     UIButton *bookmarkItButton;
     RestaurantViewController *parentView;
 }
+
+@property (nonatomic, retain) UIButton *menuButton;
 
 @property (nonatomic, retain) UIButton *lunchMenuButton;
 @property (nonatomic, retain) UIButton *dinnerMenuButton;
@@ -23,5 +27,5 @@
 @property (nonatomic, retain) RestaurantViewController *parentView;
 
 -(void)loadRestaurant:(Restaurant *)restaurant;
--(void)lunchMenuButtonPressed:(id)sender;
+-(void)menuButtonPressed:(id)sender;
 @end

@@ -99,14 +99,7 @@
     self.tableView.separatorColor = [UIColor clearColor];
 }
 
--(void)loadLunchMenu 
-{
-    MenuViewController *menuViewController = [[MenuViewController alloc]initWithRestaurant:restaurant];
-    [self.navigationController pushViewController:menuViewController animated:YES];
-    [menuViewController release];
-}
-
--(void)loadDinnerMenu 
+-(void)loadMenu 
 {
     MenuViewController *menuViewController = [[MenuViewController alloc]initWithRestaurant:restaurant];
     [self.navigationController pushViewController:menuViewController animated:YES];
@@ -216,9 +209,9 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Menu"]) {
         height = 60;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
-        height = 46;
+        height = 45;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
-        height = 40;
+        height = 45;
     } else {
         height = 44;
     }
