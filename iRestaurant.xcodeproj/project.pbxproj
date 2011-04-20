@@ -52,6 +52,10 @@
 		E859426F135E56070094F383 /* darkgrey-tab.png in Resources */ = {isa = PBXBuildFile; fileRef = E859426D135E56070094F383 /* darkgrey-tab.png */; };
 		E8594270135E56070094F383 /* darkgrey-tab@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E859426E135E56070094F383 /* darkgrey-tab@2x.png */; };
 		E8594272135E5A4B0094F383 /* iRestaurant-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8594271135E5A4A0094F383 /* iRestaurant-logo@2x.png */; };
+		E8594277135E5F4A0094F383 /* grey-mapmarker.png in Resources */ = {isa = PBXBuildFile; fileRef = E8594273135E5F4A0094F383 /* grey-mapmarker.png */; };
+		E8594278135E5F4A0094F383 /* grey-mapmarker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8594274135E5F4A0094F383 /* grey-mapmarker@2x.png */; };
+		E8594279135E5F4A0094F383 /* grey-magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = E8594275135E5F4A0094F383 /* grey-magnify.png */; };
+		E859427A135E5F4A0094F383 /* grey-magnify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8594276135E5F4A0094F383 /* grey-magnify@2x.png */; };
 		E85EE40A13554967004B2A10 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E85EE40913554967004B2A10 /* SystemConfiguration.framework */; };
 		E85EE412135617CB004B2A10 /* RestaurantSearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E85EE411135617CB004B2A10 /* RestaurantSearchCell.m */; };
 		E85EE41E13564224004B2A10 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E85EE41D13564224004B2A10 /* CoreLocation.framework */; };
@@ -197,6 +201,10 @@
 		E859426D135E56070094F383 /* darkgrey-tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darkgrey-tab.png"; sourceTree = "<group>"; };
 		E859426E135E56070094F383 /* darkgrey-tab@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "darkgrey-tab@2x.png"; sourceTree = "<group>"; };
 		E8594271135E5A4A0094F383 /* iRestaurant-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iRestaurant-logo@2x.png"; sourceTree = "<group>"; };
+		E8594273135E5F4A0094F383 /* grey-mapmarker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-mapmarker.png"; sourceTree = "<group>"; };
+		E8594274135E5F4A0094F383 /* grey-mapmarker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-mapmarker@2x.png"; sourceTree = "<group>"; };
+		E8594275135E5F4A0094F383 /* grey-magnify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-magnify.png"; sourceTree = "<group>"; };
+		E8594276135E5F4A0094F383 /* grey-magnify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-magnify@2x.png"; sourceTree = "<group>"; };
 		E85EE40913554967004B2A10 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E85EE410135617CB004B2A10 /* RestaurantSearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantSearchCell.h; sourceTree = "<group>"; };
 		E85EE411135617CB004B2A10 /* RestaurantSearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantSearchCell.m; sourceTree = "<group>"; };
@@ -535,6 +543,10 @@
 		E85EE42813565D8F004B2A10 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E8594273135E5F4A0094F383 /* grey-mapmarker.png */,
+				E8594274135E5F4A0094F383 /* grey-mapmarker@2x.png */,
+				E8594275135E5F4A0094F383 /* grey-magnify.png */,
+				E8594276135E5F4A0094F383 /* grey-magnify@2x.png */,
 				E8594271135E5A4A0094F383 /* iRestaurant-logo@2x.png */,
 				E859426D135E56070094F383 /* darkgrey-tab.png */,
 				E859426E135E56070094F383 /* darkgrey-tab@2x.png */,
@@ -815,6 +827,10 @@
 				E859426F135E56070094F383 /* darkgrey-tab.png in Resources */,
 				E8594270135E56070094F383 /* darkgrey-tab@2x.png in Resources */,
 				E8594272135E5A4B0094F383 /* iRestaurant-logo@2x.png in Resources */,
+				E8594277135E5F4A0094F383 /* grey-mapmarker.png in Resources */,
+				E8594278135E5F4A0094F383 /* grey-mapmarker@2x.png in Resources */,
+				E8594279135E5F4A0094F383 /* grey-magnify.png in Resources */,
+				E859427A135E5F4A0094F383 /* grey-magnify@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
