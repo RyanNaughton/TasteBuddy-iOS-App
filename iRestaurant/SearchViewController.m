@@ -27,6 +27,7 @@
 @synthesize fakeTermField;
 
 @synthesize lastSender;
+@synthesize tabView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,6 +53,7 @@
     [lastSender release];
     [dishesTabButton release];
     [restaurantsTabButton release];
+    [tabView release];
     [super dealloc];
 }
 
@@ -73,15 +75,9 @@
     [mapButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     [filterButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     
-    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iRestaurant-logo"]];
-    appNameImageView.frame = CGRectMake(0, 0, 305, 35);
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iRestaurant-logo.png"]];
+    appNameImageView.frame = CGRectMake(175, 8, 125, 19);
     appNameImageView.contentMode = UIViewContentModeRight;
-    
-    //====================
-    
-    
-    
-    //====================
     
     restaurantsTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [restaurantsTabButton setTitle:@"Restaurants" forState:UIControlStateNormal];
@@ -92,19 +88,18 @@
     dishesTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [dishesTabButton setTitle:@"Dishes" forState:UIControlStateNormal];
     dishesTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
-    dishesTabButton.frame =  CGRectMake(80, 4, 80, 35);
+    dishesTabButton.frame =  CGRectMake(78, 4, 80, 35);
     [dishesTabButton addTarget:self action:@selector(switchSearchView:) forControlEvents:UIControlEventTouchUpInside];
 
     [self switchTabs:restaurantsTabButton];
 
     lastSender = restaurantsTabButton; //Set initial value for lastSender so we knew which result view we need to be in.
 
-    UIView *tabView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 35)];
+    tabView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 35)];
     [tabView addSubview:appNameImageView];
-    [tabView addSubview:restaurantsTabButton];
     [tabView addSubview:dishesTabButton];
+    [tabView addSubview:restaurantsTabButton];
     self.navigationItem.titleView = tabView;
-    [tabView release];
     
     // Do any additional setup after loading the view from its nib.    
     CGPoint point = CGPointMake(1.2345, 1.2345);
@@ -182,10 +177,12 @@
 
     UIButton *offTab = (onTab == restaurantsTabButton) ? dishesTabButton : restaurantsTabButton;
         
-    [offTab setBackgroundImage:nil forState:UIControlStateNormal];
+    [offTab setBackgroundImage:[[UIImage imageNamed:@"darkgrey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
     [offTab setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [onTab setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
     [onTab setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [tabView bringSubviewToFront:onTab];
 
 }
 @end

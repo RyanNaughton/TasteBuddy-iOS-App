@@ -32,6 +32,7 @@
     IBOutlet AutocompleteModalViewController *searchModalViewController;
     
     IBOutlet UITextField *fakeTermField;
+    UIView *tabView;
     
     id lastSender;
     
@@ -55,6 +56,7 @@
 
 @property (nonatomic, retain) IBOutlet UITextField *fakeTermField;
 @property (nonatomic, retain) id lastSender;
+@property (nonatomic, retain) UIView *tabView;
 
 -(IBAction) switchSearchView:(id) sender;
 
