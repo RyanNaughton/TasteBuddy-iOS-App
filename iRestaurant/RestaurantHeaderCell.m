@@ -46,7 +46,7 @@
         name.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:name];
         
-        ratingView = [[RatingView alloc]initWithRating:50 andStarSize:20 andIsUserRating:FALSE andIsEditable:FALSE];
+        ratingView = [[RatingView alloc]initWithRating:50 andStarSize:20 andIsUserRating:FALSE andIsEditable:TRUE];
         ratingView.frame = CGRectMake(10, 30, 100, 20);
         [self.contentView addSubview:ratingView];
         
