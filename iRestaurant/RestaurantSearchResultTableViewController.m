@@ -102,13 +102,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    int rows;
     if ([restaurantsArray count] > 0 && !isLoading) {
-        rows = [restaurantsArray count];
+        return [restaurantsArray count];
     } else {
-        rows = 1;
+        return 1;
     }
-    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -210,6 +208,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if([restaurantsArray count] > 0 && !isLoading){
     // Navigation logic may go here. Create and push another view controller.

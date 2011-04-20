@@ -93,11 +93,11 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    if(isLoading)
+    if([restaurantsArray count] > 0 && !isLoading)
     {
-        return 1;    
+        return [restaurantsArray count];
     } else {
-        return [restaurantsArray count];        
+        return 1;     
     }
 
 }
@@ -105,45 +105,47 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if(isLoading)
+    if([restaurantsArray count] > 0 && !isLoading)
     {
-        return 1;  
-    } else {
+    
         return [((Restaurant *)[restaurantsArray objectAtIndex:section]).menu_items count];
+    } else {        
+        return 1;
     }
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
-    headerView.backgroundColor = [UIColor clearColor];
-
-    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
-    bgView.backgroundColor = [UIColor blackColor];
-    bgView.alpha = 0.66;
-    [headerView addSubview:bgView];
-    [bgView release];
-
-    if (!isLoading) {
-    UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 220, 22)];
-    restaurantName.backgroundColor = [UIColor clearColor];
-    restaurantName.textColor = [UIColor whiteColor];
-    restaurantName.font = [UIFont systemFontOfSize:14];
-    restaurantName.text = ((Restaurant *)[restaurantsArray objectAtIndex:section]).name;
-    [headerView addSubview:restaurantName];
-    [restaurantName release];
+    if (!isLoading && [restaurantsArray count] > 0) {
+        UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
+        headerView.backgroundColor = [UIColor clearColor];
     
-    UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(240, 0, 70, 22)];
-    distance.backgroundColor = [UIColor clearColor];
-    distance.textAlignment = UITextAlignmentRight;
-    distance.textColor = [UIColor whiteColor];
-    distance.font = [UIFont systemFontOfSize:14];
-    Restaurant *restaurant = [restaurantsArray objectAtIndex:section];
+        UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
+        bgView.backgroundColor = [UIColor blackColor];
+        bgView.alpha = 0.66;
+        [headerView addSubview:bgView];
+        [bgView release];
+        
+        UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 220, 22)];
+        restaurantName.backgroundColor = [UIColor clearColor];
+        restaurantName.textColor = [UIColor whiteColor];
+        restaurantName.font = [UIFont systemFontOfSize:14];
+        restaurantName.text = ((Restaurant *)[restaurantsArray objectAtIndex:section]).name;
+        [headerView addSubview:restaurantName];
+        [restaurantName release];
+    
+        UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(240, 0, 70, 22)];
+        distance.backgroundColor = [UIColor clearColor];
+        distance.textAlignment = UITextAlignmentRight;
+        distance.textColor = [UIColor whiteColor];
+        distance.font = [UIFont systemFontOfSize:14];
+        Restaurant *restaurant = [restaurantsArray objectAtIndex:section];
         distance.text = [NSString stringWithFormat:@"%@ mi", restaurant.distance];
-    [headerView addSubview:distance];
-    [distance release];
-    
+        [headerView addSubview:distance];
+        [distance release];
+        return [headerView autorelease];
+    } else {
+        return nil;
     }
-    return [headerView autorelease];
 
 }
 
@@ -185,7 +187,7 @@
 		}
 		
 		// Configure the cell...
-		cell.textLabel.text = @"No Items";
+		cell.textLabel.text = @"No Menu Items";
         cell.textLabel.textColor = [UIColor darkGrayColor];
 		
 		return cell;
@@ -246,7 +248,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
     Restaurant *restaurant = (Restaurant *)[restaurantsArray objectAtIndex:indexPath.section];
     DishViewController *dishViewController = [[DishViewController alloc] initWithMenuItem:[restaurant.menu_items objectAtIndex:indexPath.row] andRestaurant:restaurant];
     [searchViewController.navigationController pushViewController:dishViewController animated:YES];
