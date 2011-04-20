@@ -23,9 +23,9 @@
     return self;
 }
 
--(void) getMenuForRestaurant:(Restaurant *)restaurant
+-(void) getMenuForRestaurant:(Restaurant *)restaurant withMenuSection:(NSString *)section
 {
-    NSLog(@"%@", restaurant._id);
+    NSString *url = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/menu_subsection/%d.json", restaurant._id, [restaurant.menu_subsection indexOfObject: section]];
     [self requestFinished:nil];    
 }
 

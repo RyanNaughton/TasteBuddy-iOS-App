@@ -31,6 +31,8 @@
 		499B564A1357AE9000F2B407 /* AutocompleteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727DE13578626004CB2F6 /* AutocompleteService.m */; };
 		499B564C1357AEC300F2B407 /* FindAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */; };
 		499B564D1357AED200F2B407 /* NearAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */; };
+		49A64FA3135F52FC002B3655 /* MenuSubsectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A64FA2135F52FB002B3655 /* MenuSubsectionService.m */; };
+		49A64FA6135F5455002B3655 /* MenuSubsection.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A64FA5135F5455002B3655 /* MenuSubsection.m */; };
 		49BA68231354DBA40040DDB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68221354DBA40040DDB5 /* UIKit.framework */; };
 		49BA68251354DBA40040DDB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68241354DBA40040DDB5 /* Foundation.framework */; };
 		49BA68271354DBA40040DDB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68261354DBA40040DDB5 /* CoreGraphics.framework */; };
@@ -135,10 +137,6 @@
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		490F2C9B1358BB3200DA5C1F /* MenuService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuService.h; sourceTree = "<group>"; };
 		490F2C9C1358BB3200DA5C1F /* MenuService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuService.m; sourceTree = "<group>"; };
-		490F2C9F1358BB7F00DA5C1F /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
-		490F2CA01358BB7F00DA5C1F /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
-		490F2CAF1358C78600DA5C1F /* MenuSubcategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuSubcategory.h; sourceTree = "<group>"; };
-		490F2CB01358C78600DA5C1F /* MenuSubcategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuSubcategory.m; sourceTree = "<group>"; };
 		49520093135D11D200F0876E /* AutocompleteModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteModalViewController.h; sourceTree = "<group>"; };
 		49520094135D11D200F0876E /* AutocompleteModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteModalViewController.m; sourceTree = "<group>"; };
 		49520095135D11D200F0876E /* AutocompleteModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompleteModalViewController.xib; sourceTree = "<group>"; };
@@ -184,6 +182,10 @@
 		498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearAutocompleteTableViewController.m; sourceTree = "<group>"; };
 		49890396135CB6AF00643D8D /* 29-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart.png"; sourceTree = "<group>"; };
 		49890397135CB6AF00643D8D /* 29-heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart@2x.png"; sourceTree = "<group>"; };
+		49A64FA1135F52FB002B3655 /* MenuSubsectionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuSubsectionService.h; sourceTree = "<group>"; };
+		49A64FA2135F52FB002B3655 /* MenuSubsectionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuSubsectionService.m; sourceTree = "<group>"; };
+		49A64FA4135F5455002B3655 /* MenuSubsection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuSubsection.h; sourceTree = "<group>"; };
+		49A64FA5135F5455002B3655 /* MenuSubsection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuSubsection.m; sourceTree = "<group>"; };
 		49BA681E1354DBA30040DDB5 /* iRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA68221354DBA40040DDB5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BA68241354DBA40040DDB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -634,6 +636,8 @@
 				498727DE13578626004CB2F6 /* AutocompleteService.m */,
 				490F2C9B1358BB3200DA5C1F /* MenuService.h */,
 				490F2C9C1358BB3200DA5C1F /* MenuService.m */,
+				49A64FA1135F52FB002B3655 /* MenuSubsectionService.h */,
+				49A64FA2135F52FB002B3655 /* MenuSubsectionService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -733,10 +737,8 @@
 				E8E6D3F313552448003F0ECB /* Restaurant.m */,
 				E8A03E12135535500031D798 /* MenuItem.h */,
 				E8A03E13135535500031D798 /* MenuItem.m */,
-				490F2C9F1358BB7F00DA5C1F /* Menu.h */,
-				490F2CA01358BB7F00DA5C1F /* Menu.m */,
-				490F2CAF1358C78600DA5C1F /* MenuSubcategory.h */,
-				490F2CB01358C78600DA5C1F /* MenuSubcategory.m */,
+				49A64FA4135F5455002B3655 /* MenuSubsection.h */,
+				49A64FA5135F5455002B3655 /* MenuSubsection.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -942,6 +944,8 @@
 				4956EB201358F85800D68EE9 /* UIImageView+WebCache.m in Sources */,
 				E8C794BB135CB6490033C3FB /* DishButtonsCell.m in Sources */,
 				49520096135D11D200F0876E /* AutocompleteModalViewController.m in Sources */,
+				49A64FA3135F52FC002B3655 /* MenuSubsectionService.m in Sources */,
+				49A64FA6135F5455002B3655 /* MenuSubsection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

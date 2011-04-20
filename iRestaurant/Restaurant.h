@@ -43,6 +43,8 @@
     NSNumber *distance;
     
     NSMutableArray *menu_items;
+    
+    NSMutableArray *menu_metadata;
 }
 
 @property (nonatomic, retain) NSNumber *_id;
@@ -78,6 +80,8 @@
 @property (nonatomic, retain) NSNumber *distance;
 
 @property (nonatomic, retain) NSMutableArray *menu_items;
+
+@property (nonatomic, retain) NSMutableArray *menu_metadata;
 
 -(id) initWithDictionary:(NSDictionary *)restaurantDictionary;
 

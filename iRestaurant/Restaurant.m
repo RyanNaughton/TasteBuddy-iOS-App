@@ -10,6 +10,8 @@
 #import "JSON.h"
 #import "MenuItem.h"
 
+#import "MenuSubsectionService.h"
+
 @implementation Restaurant
 
 @synthesize _id;
@@ -45,6 +47,8 @@
 @synthesize distance;
 
 @synthesize menu_items;
+
+@synthesize menu_metadata;
 
 -(id) init {
     self = [super init];
@@ -86,7 +90,7 @@
         reservations      = [[restaurantDictionary objectForKey:@"reservations"] retain];
         takeout           = [[restaurantDictionary objectForKey:@"takeout"] retain];
         wheelchair_access = [[restaurantDictionary objectForKey:@"wheelchair_access"] retain];
-        pictures        = [[restaurantDictionary objectForKey:@"pictures"] retain];
+        pictures          = [[restaurantDictionary objectForKey:@"pictures"] retain];
         comments          = [[restaurantDictionary objectForKey:@"comments"] retain];
         average_meal_price= [[restaurantDictionary objectForKey:@"average_meal_price"] retain];
         distance          = [[restaurantDictionary objectForKey:@"distance"] retain];
@@ -98,7 +102,12 @@
             [menu_items addObject:menuItem];
             [menuItem release];
         }
+        menu_metadata = [[restaurantDictionary objectForKey:@"menu_metadata"] retain];
     }
+    NSLog(@"%@", restaurantDictionary);
+    MenuSubsectionService * sub = [[MenuSubsectionService alloc] initWithDelegate:self];
+    [sub getMenuSubsectionForRestaurant:self withSection:[menu_metadata objectAtIndex:0]];
+    [sub release];
     return self;
 }
 
@@ -136,6 +145,7 @@
     newRestaurant.comments          = [comments          copy];
     newRestaurant.average_meal_price= [average_meal_price copy];
     newRestaurant.distance = [distance copy];
+    newRestaurant.menu_metadata = [menu_metadata copy];
     
     return newRestaurant;
 }
@@ -169,6 +179,7 @@
     [menu_items        release];
     [average_meal_price release];
     [distance release];
+    [menu_metadata release];
     [super dealloc];
 }
 

@@ -31,7 +31,6 @@
 -(id) initWithDictionary:(NSDictionary *)menuItemDictionary {
     self = [super init];
     if (self) {
-        NSLog(@"%@",menuItemDictionary);
         // custom init
         _id             = [[menuItemDictionary objectForKey:@"_id"] retain];
         name            = [[menuItemDictionary objectForKey:@"name"] retain];
