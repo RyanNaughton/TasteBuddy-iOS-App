@@ -163,6 +163,7 @@
 
 - (void)dealloc
 {
+    [ratingButton release];
     [outlineStarsView release];
     [redStarsView release];
     [yellowStarsView release];

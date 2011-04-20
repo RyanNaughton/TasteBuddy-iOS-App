@@ -24,6 +24,8 @@
 
 - (void)dealloc
 {
+    [values release];
+    [nearField release];
     [super dealloc];
 }
 

@@ -37,6 +37,7 @@
 
 - (void)dealloc
 {
+    [restaurant release];
     [super dealloc];
 }
 

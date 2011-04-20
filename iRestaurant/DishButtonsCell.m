@@ -70,7 +70,9 @@
 }
 
 - (void)dealloc
-{
+{   
+    [generalInfoButton release];
+    [bookmarkItButton release];
     [super dealloc];
 }
 
