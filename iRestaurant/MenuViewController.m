@@ -157,13 +157,6 @@
     [headerView addSubview:restaurantName];
     [restaurantName release];
     
-//    UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(260, 0, 50, 22)];
-//    distance.backgroundColor = [UIColor clearColor];
-//    distance.textColor = [UIColor whiteColor];
-//    distance.text = @"0.2 mi";
-//    [headerView addSubview:distance];
-//    [distance release];
-    
     return [headerView autorelease];
 }
 

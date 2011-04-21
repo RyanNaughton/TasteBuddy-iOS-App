@@ -26,6 +26,7 @@
         imageView.clipsToBounds = YES;
         imageView.frame = CGRectMake(0, 0, 70, 70);
         [self.contentView addSubview:imageView];
+        [imageView release];
         
         name = [[UILabel alloc]init];
         name.frame = CGRectMake(80, 5, 160, 20);
@@ -33,6 +34,7 @@
 		name.backgroundColor = [UIColor clearColor];
 		name.font = [UIFont boldSystemFontOfSize:14];
         [self.contentView addSubview:name];
+        [name release];
         
         tags = [[UILabel alloc]init];
         tags.frame = CGRectMake(80, 25, 180, 15);
@@ -41,6 +43,7 @@
 		UIFont *italicFont = [UIFont fontWithName:@"Helvetica-Oblique" size:12];
         tags.font = italicFont;
         [self.contentView addSubview:tags];
+        [tags release];
         
         price = [[UILabel alloc]init];
         price.frame = CGRectMake(245, 30, 180, 15);
@@ -48,11 +51,14 @@
 		price.backgroundColor = [UIColor clearColor];
         price.font = [UIFont systemFontOfSize:13];
         [self.contentView addSubview:price];
+        [price release];
         
         int starSize = 12;
         ratingView = [[RatingView alloc]initWithRating:50 andStarSize:starSize andIsUserRating:FALSE andIsEditable:FALSE];
         ratingView.frame = CGRectMake((310 - (starSize * 5)), 5, (starSize * 5), starSize);
         [self.contentView addSubview:ratingView];
+        [ratingView release];
+
         
     }
     return self;
@@ -76,11 +82,6 @@
 
 - (void)dealloc
 {
-    [ratingView release];
-    [imageView release];
-    [name release];
-    [tags release];
-    [price release];
     [super dealloc];
 }
 

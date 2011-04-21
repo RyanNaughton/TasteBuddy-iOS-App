@@ -12,10 +12,12 @@
 @interface RestaurantViewController : UITableViewController {
     NSMutableArray *tableArray;
     Restaurant *restaurant;
+    int tagsRowHeight;
 }
 
 @property (nonatomic, retain) NSMutableArray *tableArray;
 @property (nonatomic, retain) Restaurant *restaurant;
+@property (nonatomic, assign) int tagsRowHeight;
 
 -(id)initWithRestaurant:(Restaurant *)restaurant_passed;
 -(void)loadMenu;

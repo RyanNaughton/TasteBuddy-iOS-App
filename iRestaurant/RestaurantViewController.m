@@ -15,9 +15,10 @@
 #import "RestaurantMenuCell.h"
 #import "RestaurantAddressCell.h"
 #import "RestaurantPhoneCell.h"
+#import "RestaurantTagsCell.h"
 
 @implementation RestaurantViewController
-@synthesize tableArray, restaurant;
+@synthesize tableArray, restaurant, tagsRowHeight;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,8 +34,9 @@
     if (self) {
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
         self.navigationController.navigationBar.translucent = YES;
-        restaurant = restaurant_passed;
+        restaurant = [restaurant_passed retain];
         tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Phone", @"Address", @"Menu", @"Tags", @"Highlights", @"Comments", nil];
+        tagsRowHeight = 44;
     }
     return self;
 }
@@ -77,24 +79,6 @@
     appNameImageView.frame = CGRectMake(0, 0, 320, 35);
     appNameImageView.contentMode = UIViewContentModeRight;
     self.navigationItem.titleView = appNameImageView;
-
-    
-//    UILabel *restaurantNameTitle = [[UILabel alloc]init];
-//    restaurantNameTitle.frame = CGRectMake(-40,0,220,44);
-//    restaurantNameTitle.textColor = [UIColor whiteColor];
-//    restaurantNameTitle.backgroundColor = [UIColor clearColor];
-//    restaurantNameTitle.font = [UIFont boldSystemFontOfSize:15];
-//    restaurantNameTitle.text = restaurant.name;
-//    restaurantNameTitle.textAlignment = UITextAlignmentCenter;
-//    restaurantNameTitle.contentMode = UIViewContentModeCenter;
-//
-//    UIView *titleView = [[UIView alloc]init];
-//    titleView.frame = CGRectMake(0,0,100,44);
-//    titleView.backgroundColor = [UIColor clearColor];
-//    [titleView addSubview:restaurantNameTitle];
-//    
-//    titleView.contentMode = UIViewContentModeCenter;
-//    self.navigationItem.titleView = titleView;
     
     self.tableView.separatorColor = [UIColor clearColor];
 }
@@ -188,6 +172,14 @@
 		}          
         [restaurantPhoneCell loadRestaurant:restaurant];
 		return restaurantPhoneCell;
+        
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
+        RestaurantTagsCell *restaurantTagsCell = (RestaurantTagsCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantTagsCell"];
+		if (restaurantTagsCell == nil) {
+		    restaurantTagsCell = [[[RestaurantTagsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantTagsCell"] autorelease];
+		}          
+        [restaurantTagsCell loadRestaurant:restaurant];
+		return restaurantTagsCell;
 
     } else {
         static NSString *CellIdentifier = @"Cell";
@@ -212,6 +204,8 @@
         height = 45;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
         height = 45;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
+        height = [RestaurantTagsCell generateCellHeight];
     } else {
         height = 44;
     }

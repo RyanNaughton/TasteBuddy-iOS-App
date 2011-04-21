@@ -10,7 +10,7 @@
 #import "Restaurant.h"
 
 @implementation RestaurantPhoneCell
-@synthesize phone, phoneButton;
+@synthesize phoneButton;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -33,18 +33,6 @@
         phoneImage.alpha = 0.8;
         [self.contentView addSubview:phoneImage];
         [phoneImage release];
-        
-//        phone = [[UILabel alloc]init];
-//        phone.frame = CGRectMake(25, 0, 250, 40);
-//        phone.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
-//        phone.textAlignment = UITextAlignmentCenter;
-//		phone.backgroundColor = [UIColor clearColor];
-//		phone.font = [UIFont boldSystemFontOfSize:20];
-//        
-//        phone.shadowColor = [UIColor whiteColor];
-//        phone.shadowOffset = CGSizeMake(0,1);
-        
-        //[self.contentView addSubview:phone];
 
     }
     return self;
@@ -52,7 +40,6 @@
 
 -(void)loadRestaurant:(Restaurant *)restaurant 
 {
-    phone.text = [NSString stringWithFormat:@"%@", restaurant.phone];
     [phoneButton setTitle:restaurant.phone forState:UIControlStateNormal];
 }
 

@@ -71,6 +71,7 @@
         [outlineStar release];
     }
     [self addSubview:outlineStarsView];
+    [outlineStarsView release];
 }
 
 -(void) setupRedStarsView {
@@ -83,7 +84,7 @@
         [outlineStar release];
     }
     [self addSubview:redStarsView];
-    
+    [redStarsView release];
 }
 
 -(void) setupYellowStarsView {
@@ -96,6 +97,7 @@
         [outlineStar release];
     }
     [self addSubview:yellowStarsView];
+    [yellowStarsView release];
 }
 
 -(void)setupRatingButton {
@@ -163,10 +165,6 @@
 
 - (void)dealloc
 {
-    [ratingButton release];
-    [outlineStarsView release];
-    [redStarsView release];
-    [yellowStarsView release];
     [super dealloc];
 }
 

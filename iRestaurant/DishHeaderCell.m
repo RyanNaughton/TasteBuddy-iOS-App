@@ -26,8 +26,8 @@
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         imageView.frame = CGRectMake(75, 50, 150, 150);
-        //imageView.center = CGPointMake(self.contentView.center.x, 80);
         [self.contentView addSubview:imageView];
+        [imageView release];
         
         price = [[UILabel alloc]init];
         price.frame = CGRectMake(75, 5, 150, 20);
@@ -38,10 +38,12 @@
         price.shadowColor = [UIColor whiteColor];
         price.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:price];
+        [price release];
         
         ratingView = [[RatingView alloc]initWithRating:50 andStarSize:20 andIsUserRating:FALSE andIsEditable:TRUE];
         ratingView.frame = CGRectMake(100, 25, 100, 20);
         [self.contentView addSubview:ratingView];
+        [ratingView release];
         
     }
     return self;
@@ -63,9 +65,6 @@
 
 - (void)dealloc
 {
-    [imageView release];
-    [price release];
-    [ratingView release];
     [super dealloc];
 }
 

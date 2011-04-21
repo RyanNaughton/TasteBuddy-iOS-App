@@ -20,16 +20,7 @@
     if (self) {
         // Initialization code
         self.selectionStyle = UITableViewCellSelectionStyleGray;
-        //UIView *selectedBGView = [[UIView alloc]initWithFrame:self.contentView.frame];
-        //selectedBGView.backgroundColor = [UIColor redColor];
-        //self.selectedBackgroundView = selectedBGView;
         self.backgroundColor = [UIColor whiteColor];
-        
-//        UIView *background = [[UIView alloc]init];
-//        background.backgroundColor = [UIColor blackColor];
-//        background.alpha = 0.25;
-//        self.backgroundView = background;
-//        [background release];
         
         imageView = [[UIImageView alloc]init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;

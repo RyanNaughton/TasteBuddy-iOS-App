@@ -82,6 +82,7 @@
 		E85EE44A1357A811004B2A10 /* grey-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE4491357A810004B2A10 /* grey-button-bg.png */; };
 		E85EE44C1357AA0D004B2A10 /* grey-button-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE44B1357AA0D004B2A10 /* grey-button-bg@2x.png */; };
 		E85EE44F1357AAE5004B2A10 /* RestaurantAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E85EE44E1357AAE5004B2A10 /* RestaurantAddressCell.m */; };
+		E875620B135FE99E001A870F /* RestaurantTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E875620A135FE99E001A870F /* RestaurantTagsCell.m */; };
 		E8A03E14135535500031D798 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E13135535500031D798 /* MenuItem.m */; };
 		E8A03E1D135539130031D798 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E1C135539130031D798 /* SearchService.m */; };
 		E8A03E49135543B90031D798 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A03E48135543B90031D798 /* MobileCoreServices.framework */; };
@@ -244,6 +245,8 @@
 		E85EE44B1357AA0D004B2A10 /* grey-button-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button-bg@2x.png"; sourceTree = "<group>"; };
 		E85EE44D1357AAE4004B2A10 /* RestaurantAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantAddressCell.h; sourceTree = "<group>"; };
 		E85EE44E1357AAE5004B2A10 /* RestaurantAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantAddressCell.m; sourceTree = "<group>"; };
+		E8756209135FE99D001A870F /* RestaurantTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTagsCell.h; sourceTree = "<group>"; };
+		E875620A135FE99E001A870F /* RestaurantTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTagsCell.m; sourceTree = "<group>"; };
 		E8A03E12135535500031D798 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		E8A03E13135535500031D798 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 		E8A03E1B135539130031D798 /* SearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchService.h; sourceTree = "<group>"; };
@@ -621,6 +624,8 @@
 				E85EE44E1357AAE5004B2A10 /* RestaurantAddressCell.m */,
 				E8CD38C51357BB2500FBC6FF /* RestaurantPhoneCell.h */,
 				E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */,
+				E8756209135FE99D001A870F /* RestaurantTagsCell.h */,
+				E875620A135FE99E001A870F /* RestaurantTagsCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -946,6 +951,7 @@
 				49520096135D11D200F0876E /* AutocompleteModalViewController.m in Sources */,
 				49A64FA3135F52FC002B3655 /* MenuSubsectionService.m in Sources */,
 				49A64FA6135F5455002B3655 /* MenuSubsection.m in Sources */,
+				E875620B135FE99E001A870F /* RestaurantTagsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

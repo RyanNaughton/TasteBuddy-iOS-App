@@ -12,18 +12,10 @@
 
 @interface RestaurantMenuCell : UITableViewCell {
     UIButton *menuButton;
-    
-    UIButton *lunchMenuButton;
-    UIButton *dinnerMenuButton;
-    UIButton *bookmarkItButton;
     RestaurantViewController *parentView;
 }
 
 @property (nonatomic, retain) UIButton *menuButton;
-
-@property (nonatomic, retain) UIButton *lunchMenuButton;
-@property (nonatomic, retain) UIButton *dinnerMenuButton;
-@property (nonatomic, retain) UIButton *bookmarkItButton;
 @property (nonatomic, retain) RestaurantViewController *parentView;
 
 -(void)loadRestaurant:(Restaurant *)restaurant;

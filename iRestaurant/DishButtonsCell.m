@@ -51,7 +51,7 @@
 }
 
 -(void)loadRestaurant:(Restaurant *)restaurant_passed {
-    [generalInfoButton setTitle:[NSString stringWithFormat:@"%@ Info", restaurant_passed.name] forState:UIControlStateNormal];
+    [generalInfoButton setTitle:[NSString stringWithFormat:@"%@ Info", [restaurant_passed.name retain]] forState:UIControlStateNormal];
 }
 
 -(void)generalInfoButtonPressed:(id)sender {
@@ -71,8 +71,6 @@
 
 - (void)dealloc
 {   
-    [generalInfoButton release];
-    [bookmarkItButton release];
     [super dealloc];
 }
 

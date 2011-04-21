@@ -43,7 +43,7 @@
     [searchService release];
     [restaurantSearchResultTableViewController release];
     [dishSearchResultTableViewController release];
-    [tableView release];
+    //[tableView release];
     [showSearchButton release];
     [searchViewControl release];
     [searchModalViewController release];
