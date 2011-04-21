@@ -18,21 +18,23 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.backgroundColor = [UIColor whiteColor];
         
-        UILabel *tagsLabel = [[UILabel alloc]init];
-        tagsLabel.frame = CGRectMake(10, 5, 50, 15);
-        tagsLabel.textColor = [UIColor blackColor];
-        tagsLabel.backgroundColor = [UIColor clearColor];
-        tagsLabel.font = [UIFont boldSystemFontOfSize:14];
-        tagsLabel.shadowColor = [UIColor whiteColor];
-        tagsLabel.shadowOffset = CGSizeMake(0,1);
-        tagsLabel.text = @"Tags";
-        [self.contentView addSubview:tagsLabel];
-        [tagsLabel release];
-    }
+            }
     return self;
 }
 
 -(void)loadRestaurant:(Restaurant *)restaurant {
+    
+    UILabel *tagsLabel = [[UILabel alloc]init];
+    tagsLabel.frame = CGRectMake(10, 5, 50, 15);
+    tagsLabel.textColor = [UIColor blackColor];
+    tagsLabel.backgroundColor = [UIColor clearColor];
+    tagsLabel.font = [UIFont boldSystemFontOfSize:14];
+    tagsLabel.shadowColor = [UIColor whiteColor];
+    tagsLabel.shadowOffset = CGSizeMake(0,1);
+    tagsLabel.text = @"Tags";
+    [self.contentView addSubview:tagsLabel];
+    [tagsLabel release];
+    
     // will have to replace this fake array with real tags passed in.
     NSArray *tags = [[NSArray alloc]initWithObjects:@"Spicy (3)", @"Tasty (5)", @"Grose (1)", @"Disgusting (2)", @"Amazing (15)", nil];
     
