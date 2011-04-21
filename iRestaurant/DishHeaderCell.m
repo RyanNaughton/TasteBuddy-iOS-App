@@ -92,7 +92,7 @@
     [svimage setContentArray:imageArray];  
     [svimage setWidth:260 andHeight:260];
     [svimage enablePageControlOnBottom];  
-    [viewForScrollView addSubview:[svimage getWithPositionMemory]]; 
+    [viewForScrollView addSubview:[svimage getWithPosition:0]]; 
     [self.contentView addSubview:viewForScrollView];
     [viewForScrollView release];
 }
