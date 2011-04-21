@@ -257,26 +257,12 @@
 {
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    // Navigation logic may go here. Create and push another view controller.
-    
+        
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
     
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Menu"]) {
     
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
-        NSString *addressString = [NSString stringWithFormat:@"%@ %@", restaurant.address_1, restaurant.address_2];
-        addressString = [addressString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-        NSString *requestString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@&z=15", addressString];
-        NSLog(@"address req string: %@", requestString);
-        UIApplication *app = [UIApplication sharedApplication];
-        [app openURL:[NSURL URLWithString:requestString]];			
-
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
-        NSString *phoneNumberString = [NSString stringWithFormat:@"tel://%@", restaurant.phone];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberString]];
-    } 
-    
+    }
 }
 
 @end

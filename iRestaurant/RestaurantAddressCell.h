@@ -12,11 +12,14 @@
 @interface RestaurantAddressCell : UITableViewCell {
     UIButton *addressButton;
     UILabel *neighborhood;
+    Restaurant *restaurant;
 }
 
 @property (nonatomic, retain) UIButton *addressButton;
-@property(nonatomic, retain) UILabel *neighborhood;
+@property (nonatomic, retain) UILabel *neighborhood;
+@property (nonatomic, retain) Restaurant *restaurant;
 
 -(void)loadRestaurant:(Restaurant *)restaurant;
+-(void)addressButtonPressed:(id)sender;
 
 @end

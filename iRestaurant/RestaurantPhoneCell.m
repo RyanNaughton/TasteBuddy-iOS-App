@@ -21,6 +21,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleGray;
         
         phoneButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [phoneButton addTarget:self action:@selector(phoneButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         UIImage *greyButtonImage = [[UIImage imageNamed:@"darkgrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
         [phoneButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [phoneButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
@@ -41,6 +42,19 @@
 -(void)loadRestaurant:(Restaurant *)restaurant 
 {
     [phoneButton setTitle:restaurant.phone forState:UIControlStateNormal];
+}
+
+-(void)phoneButtonPressed:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    
+    // clean the phone number string
+    NSString *phoneNumber = [button.titleLabel.text stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@")" withString:@""];
+    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSString *phoneNumberString = [NSString stringWithFormat:@"tel://%@", phoneNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberString]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

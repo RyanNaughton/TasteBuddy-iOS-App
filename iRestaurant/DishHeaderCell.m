@@ -16,7 +16,7 @@
 
 @implementation DishHeaderCell
 
-@synthesize name, price, ratingView, restaurantName;
+@synthesize name, price, ratingView, restaurantName, svimage;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -87,7 +87,7 @@
     NSArray *imageArray = [NSArray arrayWithObjects:image1, image2, image3, nil];
     
     UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 260, 260)];
-    IGUIScrollViewImage *svimage = [[IGUIScrollViewImage alloc] init];  
+    svimage = [[IGUIScrollViewImage alloc] init];  
     [svimage setBackGroudColor:[UIColor clearColor]];
     [svimage setContentArray:imageArray];  
     [svimage setWidth:260 andHeight:260];
@@ -110,6 +110,7 @@
     [ratingView release];
     [name release];
     [restaurantName release];
+    [svimage release];
     [super dealloc];
 }
 

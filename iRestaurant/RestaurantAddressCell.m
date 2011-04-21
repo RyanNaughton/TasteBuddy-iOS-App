@@ -10,7 +10,7 @@
 #import "Restaurant.h"
 
 @implementation RestaurantAddressCell
-@synthesize neighborhood, addressButton;
+@synthesize neighborhood, addressButton, restaurant;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -21,6 +21,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleGray;
         
         addressButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [addressButton addTarget:self action:@selector(addressButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         UIImage *addressButtonImage = [[UIImage imageNamed:@"darkgrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
         [addressButton setBackgroundImage:addressButtonImage forState:UIControlStateNormal];
         [addressButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
@@ -38,10 +39,20 @@
     return self;
 }
 
--(void)loadRestaurant:(Restaurant *)restaurant 
+-(void)loadRestaurant:(Restaurant *)restaurant_passed 
 {
-    [addressButton setTitle:restaurant.address_1 forState:UIControlStateNormal];
-    neighborhood.text = [NSString stringWithFormat:@"Neighborhood: %@", restaurant.neighborhood];
+    restaurant = [restaurant_passed retain];
+    [addressButton setTitle:restaurant_passed.address_1 forState:UIControlStateNormal];
+    neighborhood.text = [NSString stringWithFormat:@"Neighborhood: %@", restaurant_passed.neighborhood];
+}
+
+-(void)addressButtonPressed:(id)sender {
+    NSString *addressString = [NSString stringWithFormat:@"%@", restaurant.address_1];
+    addressString = [addressString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    NSString *requestString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@&z=15", addressString];
+    NSLog(@"address req string: %@", requestString);
+    UIApplication *app = [UIApplication sharedApplication];
+    [app openURL:[NSURL URLWithString:requestString]];	
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -53,6 +64,7 @@
 
 - (void)dealloc
 {
+    [restaurant release];
     [neighborhood release];
     [super dealloc];
 }

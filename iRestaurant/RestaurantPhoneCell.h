@@ -16,5 +16,5 @@
 @property (nonatomic, retain) UIButton *phoneButton;
 
 -(void)loadRestaurant:(Restaurant *)restaurant;
-
+-(void)phoneButtonPressed:(id)sender;
 @end
