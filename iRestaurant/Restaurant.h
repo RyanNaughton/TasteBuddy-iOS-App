@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface Restaurant : NSObject <NSCopying> {
     NSNumber *_id;
     NSString *name;

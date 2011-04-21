@@ -104,10 +104,7 @@
         }
         menu_metadata = [[restaurantDictionary objectForKey:@"menu_metadata"] retain];
     }
-    NSLog(@"%@", restaurantDictionary);
-    MenuSubsectionService * sub = [[MenuSubsectionService alloc] initWithDelegate:self];
-    [sub getMenuSubsectionForRestaurant:self withSection:[menu_metadata objectAtIndex:0]];
-    [sub release];
+
     return self;
 }
 
