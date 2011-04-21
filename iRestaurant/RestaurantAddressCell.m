@@ -10,7 +10,7 @@
 #import "Restaurant.h"
 
 @implementation RestaurantAddressCell
-@synthesize address_1, address_2, neighborhood, addressButton;
+@synthesize neighborhood, addressButton;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -41,9 +41,6 @@
 -(void)loadRestaurant:(Restaurant *)restaurant 
 {
     [addressButton setTitle:restaurant.address_1 forState:UIControlStateNormal];
-    
-    address_1.text = [NSString stringWithFormat:@"%@", restaurant.address_1];
-    address_2.text = [NSString stringWithFormat:@"%@", restaurant.address_2];
     neighborhood.text = [NSString stringWithFormat:@"Neighborhood: %@", restaurant.neighborhood];
 }
 
@@ -56,9 +53,6 @@
 
 - (void)dealloc
 {
-    [addressButton release];
-    [address_1 release];
-    [address_2 release];
     [neighborhood release];
     [super dealloc];
 }

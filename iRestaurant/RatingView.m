@@ -44,6 +44,30 @@
     return self;
 }
 
+-(id)initWithRating:(float)rating andHowManyRatings:(int)howManyRatings andStarSize:(int)starSize_passed andIsUserRating:(BOOL)isUserRating andIsEditable:(BOOL)isEditable {
+    self = [super initWithFrame:CGRectMake(0, 0, (((rating * (starSize_passed *5)) / 100) + 50), starSize_passed)];
+    if (self) {
+        // init code
+        starSize = starSize_passed;
+        [self setupOutlineStarsView];
+        if (rating > 0) {
+            if (isUserRating) {
+                [self setupYellowStarsView];
+                yellowStarsView.frame = CGRectMake(0, 0, ((rating * (starSize *5)) / 100), starSize);
+                yellowStarsView.clipsToBounds = TRUE;
+            } else {
+                [self setupRedStarsView];
+                redStarsView.frame = CGRectMake(0, 0, ((rating * (starSize *5)) / 100), starSize);
+                redStarsView.clipsToBounds = TRUE;
+            }
+        }
+        if (howManyRatings) { [self setupRatingCount:howManyRatings]; }
+        if (isEditable) { [self setupRatingButton]; }
+    }
+    return self;
+}
+
+
 // sets user rating to a float passed in. rating is a % (rating/100)
 -(void) setUserRating:(float)rating {
     
@@ -106,6 +130,15 @@
     ratingButton.backgroundColor = [UIColor clearColor];
     [ratingButton addTarget:self action:@selector(rate:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:ratingButton];
+}
+
+-(void)setupRatingCount:(int)howManyRatings {
+    UILabel *ratingsLabel = [[UILabel alloc]initWithFrame:CGRectMake (((starSize * 5) + 5), 0, 100, starSize)];
+    ratingsLabel.text = [NSString stringWithFormat:@"%i ratings", howManyRatings];
+    ratingsLabel.textColor = [UIColor darkGrayColor];
+    ratingsLabel.font = [UIFont italicSystemFontOfSize:12];
+    [self addSubview:ratingsLabel];
+    [ratingsLabel release];
 }
 
 -(void)rate:(id)sender {

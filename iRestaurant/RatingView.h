@@ -24,10 +24,14 @@
 @property (nonatomic, assign) int starSize;
 
 -(id)initWithRating:(float)rating andStarSize:(int)starSize_passed andIsUserRating:(BOOL)isUserRating andIsEditable:(BOOL)isEditable;
+
+-(id)initWithRating:(float)rating andHowManyRatings:(int)howManyRatings andStarSize:(int)starSize_passed andIsUserRating:(BOOL)isUserRating andIsEditable:(BOOL)isEditable;
+
 -(void) setupOutlineStarsView;
 -(void) setupRedStarsView;
 -(void) setupYellowStarsView;
 -(void) setupRatingButton;
+-(void) setupRatingCount:(int)howManyRatings;
 -(void) rate:(id)sender;
 
 @end

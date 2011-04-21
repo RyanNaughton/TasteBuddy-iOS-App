@@ -31,10 +31,11 @@
 
 -(id)initWithMenuItem:(MenuItem *)menu_item_passed andRestaurant:(Restaurant *)restaurant_passed 
 {    
-    self = [super initWithStyle:UITableViewStyleGrouped];
+    self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         // Custom initialization
-        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"Tags", @"Comments", @"Address", @"Phone", nil];
+        self.tableView.backgroundColor = [UIColor whiteColor];
+        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Phone", @"Address", @"Tags", @"Comments", nil];
         menu_item = [menu_item_passed retain];
         restaurant = [restaurant_passed retain];
     }
@@ -64,40 +65,44 @@
     [super viewDidLoad];
     [self setTitle:menu_item.name];
     
-    UILabel *restaurantNameTitle = [[UILabel alloc]init];
-    restaurantNameTitle.frame = CGRectMake(-40,0,220,25);
-    restaurantNameTitle.textColor = [UIColor whiteColor];
-    restaurantNameTitle.backgroundColor = [UIColor clearColor];
-    restaurantNameTitle.font = [UIFont boldSystemFontOfSize:15];
-    restaurantNameTitle.text = menu_item.name;
-    restaurantNameTitle.textAlignment = UITextAlignmentCenter;
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iRestaurant-logo"]];
+    appNameImageView.frame = CGRectMake(0, 0, 320, 35);
+    appNameImageView.contentMode = UIViewContentModeRight;
+    self.navigationItem.titleView = appNameImageView;
     
-    UILabel *menuTitle = [[UILabel alloc]init];
-    menuTitle.frame = CGRectMake(-40,22,220,18);
-    menuTitle.font = [UIFont boldSystemFontOfSize:13];
-    menuTitle.textColor = [UIColor whiteColor];
-    menuTitle.backgroundColor = [UIColor clearColor];
-    menuTitle.text = [NSString stringWithFormat:@"@ %@", restaurant.name];
-    menuTitle.textAlignment = UITextAlignmentCenter;
+    self.tableView.separatorColor = [UIColor clearColor];
     
-    UIView *titleView = [[UIView alloc]init];
-    titleView.frame = CGRectMake(0,0,100,44);
-    titleView.backgroundColor = [UIColor clearColor];
-    [titleView addSubview:restaurantNameTitle];
-    [titleView addSubview:menuTitle];
-    
-    titleView.contentMode = UIViewContentModeCenter;
-    self.navigationItem.titleView = titleView;
+//    UILabel *restaurantNameTitle = [[UILabel alloc]init];
+//    restaurantNameTitle.frame = CGRectMake(-40,0,220,25);
+//    restaurantNameTitle.textColor = [UIColor whiteColor];
+//    restaurantNameTitle.backgroundColor = [UIColor clearColor];
+//    restaurantNameTitle.font = [UIFont boldSystemFontOfSize:15];
+//    restaurantNameTitle.text = [NSString stringWithFormat:@"%@",menu_item.name];
+//    restaurantNameTitle.textAlignment = UITextAlignmentCenter;
+//    
+//    UILabel *menuTitle = [[UILabel alloc]init];
+//    menuTitle.frame = CGRectMake(-40,22,220,18);
+//    menuTitle.font = [UIFont boldSystemFontOfSize:13];
+//    menuTitle.textColor = [UIColor whiteColor];
+//    menuTitle.backgroundColor = [UIColor clearColor];
+//    menuTitle.text = [NSString stringWithFormat:@"@ %@", restaurant.name];
+//    menuTitle.textAlignment = UITextAlignmentCenter;
+//    
+//    UIView *titleView = [[UIView alloc]init];
+//    titleView.frame = CGRectMake(0,0,100,44);
+//    titleView.backgroundColor = [UIColor clearColor];
+//    [titleView addSubview:restaurantNameTitle];
+//    [titleView addSubview:menuTitle];
+//    
+//    titleView.contentMode = UIViewContentModeCenter;
+//    self.navigationItem.titleView = titleView;
 
-    
-    self.tableView.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"grain-bg.png"]];
-    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"29-heart.png"] style:UIBarButtonItemStylePlain target:nil action:nil];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"29-heart.png"] style:UIBarButtonItemStylePlain target:nil action:nil];
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
@@ -169,7 +174,7 @@
 		if (dishHeaderCell == nil) {
 		    dishHeaderCell = [[[DishHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishHeaderCell"] autorelease];
 		}          
-        [dishHeaderCell loadMenuItem:menu_item];
+        [dishHeaderCell loadMenuItem:menu_item andRestaurant:restaurant];
 		return dishHeaderCell;
         
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
@@ -216,7 +221,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     int height;
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
-        height = 210;
+        height = 355;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
         height = 60;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
@@ -224,9 +229,9 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
         height = 40;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
-        height = 46;
+        height = 45;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
-        height = 40;
+        height = 45;
     } else {
         height = 44;
     }

@@ -9,17 +9,22 @@
 #import <UIKit/UIKit.h>
 @class MenuItem;
 @class RatingView;
+@class Restaurant;
 
 @interface DishHeaderCell : UITableViewCell {
     UIImageView *imageView;
+    UILabel *name;
+    UILabel *restaurantName;
     UILabel *price;
     RatingView *ratingView;
 }
 
 @property (nonatomic, retain) UIImageView *imageView;
+@property (nonatomic, retain) UILabel *name;
+@property (nonatomic, retain) UILabel *restaurantName;
 @property (nonatomic, retain) UILabel *price;
 @property (nonatomic, retain) RatingView *ratingView;
 
--(void)loadMenuItem:(MenuItem *)menu_item;
+-(void)loadMenuItem:(MenuItem *)menu_item andRestaurant:(Restaurant *)restaurant;
 
 @end

@@ -46,6 +46,8 @@
 		49BA684D1354DBA50040DDB5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49BA684B1354DBA50040DDB5 /* InfoPlist.strings */; };
 		49BA68501354DBA50040DDB5 /* iRestaurantTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 49BA684F1354DBA50040DDB5 /* iRestaurantTests.h */; };
 		49BA68521354DBA50040DDB5 /* iRestaurantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA68511354DBA50040DDB5 /* iRestaurantTests.m */; };
+		E80E05861360CAF900894180 /* DishTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E80E05851360CAF900894180 /* DishTagsCell.m */; };
+		E80E059C1360D2A100894180 /* IGUIScrollViewImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E80E059B1360D2A100894180 /* IGUIScrollViewImage.m */; };
 		E859425E135E463A0094F383 /* grey-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E859425C135E463A0094F383 /* grey-button.png */; };
 		E859425F135E463A0094F383 /* grey-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E859425D135E463A0094F383 /* grey-button@2x.png */; };
 		E8594263135E4E640094F383 /* text-area-image.png in Resources */ = {isa = PBXBuildFile; fileRef = E8594261135E4E640094F383 /* text-area-image.png */; };
@@ -204,6 +206,10 @@
 		49BA684E1354DBA50040DDB5 /* iRestaurantTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRestaurantTests-Prefix.pch"; sourceTree = "<group>"; };
 		49BA684F1354DBA50040DDB5 /* iRestaurantTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRestaurantTests.h; sourceTree = "<group>"; };
 		49BA68511354DBA50040DDB5 /* iRestaurantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRestaurantTests.m; sourceTree = "<group>"; };
+		E80E05841360CAF900894180 /* DishTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishTagsCell.h; sourceTree = "<group>"; };
+		E80E05851360CAF900894180 /* DishTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishTagsCell.m; sourceTree = "<group>"; };
+		E80E059A1360D2A100894180 /* IGUIScrollViewImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGUIScrollViewImage.h; sourceTree = "<group>"; };
+		E80E059B1360D2A100894180 /* IGUIScrollViewImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGUIScrollViewImage.m; sourceTree = "<group>"; };
 		E859425C135E463A0094F383 /* grey-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button.png"; sourceTree = "<group>"; };
 		E859425D135E463A0094F383 /* grey-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button@2x.png"; sourceTree = "<group>"; };
 		E8594261135E4E640094F383 /* text-area-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-area-image.png"; sourceTree = "<group>"; };
@@ -375,6 +381,7 @@
 		49578B5F135516AB00F8EC0B /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				E80E05991360D28700894180 /* IGUILibrary */,
 				4956EB0C1358F84400D68EE9 /* SDWebImage */,
 				E8A03E1E13553D190031D798 /* ASIHttpRequest */,
 				49578B61135516C600F8EC0B /* JSON */,
@@ -561,6 +568,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E80E05991360D28700894180 /* IGUILibrary */ = {
+			isa = PBXGroup;
+			children = (
+				E80E059A1360D2A100894180 /* IGUIScrollViewImage.h */,
+				E80E059B1360D2A100894180 /* IGUIScrollViewImage.m */,
+			);
+			name = IGUILibrary;
+			sourceTree = "<group>";
+		};
 		E85EE42813565D8F004B2A10 /* Images */ = {
 			isa = PBXGroup;
 			children = (
@@ -704,6 +720,8 @@
 				E8DFF5AA1358C96E007BF40E /* DishHeaderCell.m */,
 				E8C794B9135CB6490033C3FB /* DishButtonsCell.h */,
 				E8C794BA135CB6490033C3FB /* DishButtonsCell.m */,
+				E80E05841360CAF900894180 /* DishTagsCell.h */,
+				E80E05851360CAF900894180 /* DishTagsCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -952,6 +970,8 @@
 				49A64FA3135F52FC002B3655 /* MenuSubsectionService.m in Sources */,
 				49A64FA6135F5455002B3655 /* MenuSubsection.m in Sources */,
 				E875620B135FE99E001A870F /* RestaurantTagsCell.m in Sources */,
+				E80E05861360CAF900894180 /* DishTagsCell.m in Sources */,
+				E80E059C1360D2A100894180 /* IGUIScrollViewImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

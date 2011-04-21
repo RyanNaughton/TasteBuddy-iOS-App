@@ -10,10 +10,13 @@
 #import "MenuItem.h"
 #import "UIImageView+WebCache.h"
 #import "RatingView.h"
+#import "Restaurant.h"
+
+#import "IGUIScrollViewImage.h"
 
 @implementation DishHeaderCell
 
-@synthesize imageView, price, ratingView;
+@synthesize imageView, name, price, ratingView, restaurantName;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -21,39 +24,88 @@
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        imageView = [[UIImageView alloc]init];
-        imageView.contentMode = UIViewContentModeScaleAspectFill;
-        imageView.clipsToBounds = YES;
-        imageView.frame = CGRectMake(75, 50, 150, 150);
-        [self.contentView addSubview:imageView];
-        [imageView release];
+//        imageView = [[UIImageView alloc]init];
+//        imageView.contentMode = UIViewContentModeScaleAspectFill;
+//        imageView.clipsToBounds = YES;
+//        imageView.frame = CGRectMake(10, 85, 260, 260);
+//        [self.contentView addSubview:imageView];
+        
+        name = [[UILabel alloc]init];
+        name.frame = CGRectMake(10, 7, 280, 20);
+        name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+		name.backgroundColor = [UIColor clearColor];
+		name.font = [UIFont boldSystemFontOfSize:18];
+        name.shadowColor = [UIColor whiteColor];
+        name.shadowOffset = CGSizeMake(0,1);
+        [self.contentView addSubview:name];
+        
+        UILabel *byLabel = [[UILabel alloc]init];
+        byLabel.frame = CGRectMake(10, 30, 30, 20);
+        byLabel.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+		byLabel.backgroundColor = [UIColor clearColor];
+		byLabel.font = [UIFont italicSystemFontOfSize:14];
+        byLabel.shadowColor = [UIColor whiteColor];
+        byLabel.shadowOffset = CGSizeMake(0,1);
+        byLabel.text = @"by";
+        [self.contentView addSubview:byLabel];
+        [byLabel release];
+
+        restaurantName = [[UILabel alloc]init];
+        restaurantName.frame = CGRectMake(30, 30, 280, 20);
+        restaurantName.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+		restaurantName.backgroundColor = [UIColor clearColor];
+		restaurantName.font = [UIFont systemFontOfSize:15];
+        restaurantName.shadowColor = [UIColor whiteColor];
+        restaurantName.shadowOffset = CGSizeMake(0,1);
+        [self.contentView addSubview:restaurantName];
+        
+        ratingView = [[RatingView alloc]initWithRating:50 andHowManyRatings:267 andStarSize:15 andIsUserRating:FALSE andIsEditable:TRUE];
+        ratingView.frame = CGRectMake(10, 60, 100, 20);
+        [self.contentView addSubview:ratingView];
+
         
         price = [[UILabel alloc]init];
-        price.frame = CGRectMake(75, 5, 150, 20);
+        price.frame = CGRectMake(260, 7, 50, 20);
         price.textAlignment = UITextAlignmentCenter;
-        price.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+        price.textColor = [UIColor darkGrayColor];
 		price.backgroundColor = [UIColor clearColor];
-		price.font = [UIFont boldSystemFontOfSize:14];
+		price.font = [UIFont systemFontOfSize:16];
         price.shadowColor = [UIColor whiteColor];
         price.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:price];
         [price release];
         
-        ratingView = [[RatingView alloc]initWithRating:50 andStarSize:20 andIsUserRating:FALSE andIsEditable:TRUE];
-        ratingView.frame = CGRectMake(100, 25, 100, 20);
-        [self.contentView addSubview:ratingView];
-        [ratingView release];
-        
     }
     return self;
 }
 
--(void)loadMenuItem:(MenuItem *)menu_item 
+-(void)loadMenuItem:(MenuItem *)menu_item andRestaurant:(Restaurant *)restaurant
 {
+    name.text = [NSString stringWithFormat:@"%@", menu_item.name];
+    restaurantName.text = [NSString stringWithFormat:@"%@", restaurant.name];
     price.text = @"$9.99";
     [imageView setImageWithURL:[NSURL URLWithString:[[menu_item.pictures objectAtIndex:0] objectForKey:@"300px"]]
               placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
+    
+    UIImage *image1 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.iupui.edu/~psyclubs/pizza_ua%5B1%5D.jpg"]]];
+    UIImage *image2 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.gearlog.com/images/taco-bellf.jpg"]]];
+    UIImage *image3 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://3.bp.blogspot.com/_kQvP_4N8rbw/S_x11GMUoSI/AAAAAAAAAb0/Yj6azElHa9g/s400/WesternBaconDouble_Burger.jpg"]]];
+
+    NSArray *imageArray = [NSArray arrayWithObjects:image1, image2, image3, nil];
+    
+    UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 260, 260)];
+    
+    IGUIScrollViewImage *svimage = [[IGUIScrollViewImage alloc] init];  
+    [svimage setBackGroudColor:[UIColor clearColor]];
+    [svimage setContentArray:imageArray];  
+    [svimage setWidth:260 andHeight:260];
+    //[svimage setSizeFromParentView:CGRectMake(10, 85, 260, 260)];  
+    [svimage enablePageControlOnBottom];  
+    [viewForScrollView addSubview:[svimage getWithPositionMemory]]; 
+        
+    [self.contentView addSubview:viewForScrollView];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -65,6 +117,11 @@
 
 - (void)dealloc
 {
+    [price release];
+    [ratingView release];
+    [imageView release];
+    [name release];
+    [restaurantName release];
     [super dealloc];
 }
 
