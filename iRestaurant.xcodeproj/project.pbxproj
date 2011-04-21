@@ -48,6 +48,9 @@
 		49BA68521354DBA50040DDB5 /* iRestaurantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA68511354DBA50040DDB5 /* iRestaurantTests.m */; };
 		E80E05861360CAF900894180 /* DishTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E80E05851360CAF900894180 /* DishTagsCell.m */; };
 		E80E059C1360D2A100894180 /* IGUIScrollViewImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E80E059B1360D2A100894180 /* IGUIScrollViewImage.m */; };
+		E80E05A01360EA3400894180 /* pizza.png in Resources */ = {isa = PBXBuildFile; fileRef = E80E059D1360EA3300894180 /* pizza.png */; };
+		E80E05A11360EA3400894180 /* taco.png in Resources */ = {isa = PBXBuildFile; fileRef = E80E059E1360EA3300894180 /* taco.png */; };
+		E80E05A21360EA3400894180 /* cheeseburger.png in Resources */ = {isa = PBXBuildFile; fileRef = E80E059F1360EA3300894180 /* cheeseburger.png */; };
 		E859425E135E463A0094F383 /* grey-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E859425C135E463A0094F383 /* grey-button.png */; };
 		E859425F135E463A0094F383 /* grey-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E859425D135E463A0094F383 /* grey-button@2x.png */; };
 		E8594263135E4E640094F383 /* text-area-image.png in Resources */ = {isa = PBXBuildFile; fileRef = E8594261135E4E640094F383 /* text-area-image.png */; };
@@ -210,6 +213,9 @@
 		E80E05851360CAF900894180 /* DishTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishTagsCell.m; sourceTree = "<group>"; };
 		E80E059A1360D2A100894180 /* IGUIScrollViewImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGUIScrollViewImage.h; sourceTree = "<group>"; };
 		E80E059B1360D2A100894180 /* IGUIScrollViewImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGUIScrollViewImage.m; sourceTree = "<group>"; };
+		E80E059D1360EA3300894180 /* pizza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizza.png; sourceTree = "<group>"; };
+		E80E059E1360EA3300894180 /* taco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taco.png; sourceTree = "<group>"; };
+		E80E059F1360EA3300894180 /* cheeseburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheeseburger.png; sourceTree = "<group>"; };
 		E859425C135E463A0094F383 /* grey-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button.png"; sourceTree = "<group>"; };
 		E859425D135E463A0094F383 /* grey-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button@2x.png"; sourceTree = "<group>"; };
 		E8594261135E4E640094F383 /* text-area-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-area-image.png"; sourceTree = "<group>"; };
@@ -580,6 +586,9 @@
 		E85EE42813565D8F004B2A10 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E80E059D1360EA3300894180 /* pizza.png */,
+				E80E059E1360EA3300894180 /* taco.png */,
+				E80E059F1360EA3300894180 /* cheeseburger.png */,
 				E8594287135E6AAC0094F383 /* 48-fork-and-knife.png */,
 				E8594288135E6AAC0094F383 /* 48-fork-and-knife@2x.png */,
 				E8594283135E699D0094F383 /* 74-location.png */,
@@ -888,6 +897,9 @@
 				E8594286135E699D0094F383 /* 74-location@2x.png in Resources */,
 				E8594289135E6AAC0094F383 /* 48-fork-and-knife.png in Resources */,
 				E859428A135E6AAC0094F383 /* 48-fork-and-knife@2x.png in Resources */,
+				E80E05A01360EA3400894180 /* pizza.png in Resources */,
+				E80E05A11360EA3400894180 /* taco.png in Resources */,
+				E80E05A21360EA3400894180 /* cheeseburger.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

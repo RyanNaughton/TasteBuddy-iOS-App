@@ -272,7 +272,7 @@
         UIApplication *app = [UIApplication sharedApplication];
         [app openURL:[NSURL URLWithString:requestString]];			
 
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
         NSString *phoneNumberString = [NSString stringWithFormat:@"tel://%@", restaurant.phone];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberString]];
     } 

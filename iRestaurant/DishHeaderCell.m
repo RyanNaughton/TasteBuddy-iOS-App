@@ -16,7 +16,7 @@
 
 @implementation DishHeaderCell
 
-@synthesize imageView, name, price, ratingView, restaurantName;
+@synthesize name, price, ratingView, restaurantName;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -25,12 +25,6 @@
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-//        imageView = [[UIImageView alloc]init];
-//        imageView.contentMode = UIViewContentModeScaleAspectFill;
-//        imageView.clipsToBounds = YES;
-//        imageView.frame = CGRectMake(10, 85, 260, 260);
-//        [self.contentView addSubview:imageView];
         
         name = [[UILabel alloc]init];
         name.frame = CGRectMake(10, 7, 280, 20);
@@ -65,7 +59,6 @@
         ratingView.frame = CGRectMake(10, 60, 100, 20);
         [self.contentView addSubview:ratingView];
 
-        
         price = [[UILabel alloc]init];
         price.frame = CGRectMake(260, 7, 50, 20);
         price.textAlignment = UITextAlignmentCenter;
@@ -75,7 +68,6 @@
         price.shadowColor = [UIColor whiteColor];
         price.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:price];
-        [price release];
         
     }
     return self;
@@ -86,26 +78,23 @@
     name.text = [NSString stringWithFormat:@"%@", menu_item.name];
     restaurantName.text = [NSString stringWithFormat:@"%@", restaurant.name];
     price.text = @"$9.99";
-    [imageView setImageWithURL:[NSURL URLWithString:[[menu_item.pictures objectAtIndex:0] objectForKey:@"300px"]]
-              placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
+    //[imageView setImageWithURL:[NSURL URLWithString:[[menu_item.pictures objectAtIndex:0] objectForKey:@"300px"]]
+    //          placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
     
-    UIImage *image1 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.iupui.edu/~psyclubs/pizza_ua%5B1%5D.jpg"]]];
-    UIImage *image2 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.gearlog.com/images/taco-bellf.jpg"]]];
-    UIImage *image3 = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://3.bp.blogspot.com/_kQvP_4N8rbw/S_x11GMUoSI/AAAAAAAAAb0/Yj6azElHa9g/s400/WesternBaconDouble_Burger.jpg"]]];
-
+    UIImage *image1 = [UIImage imageNamed:@"pizza.png"];
+    UIImage *image2 = [UIImage imageNamed:@"taco.png"];
+    UIImage *image3 = [UIImage imageNamed:@"cheeseburger.png"];
     NSArray *imageArray = [NSArray arrayWithObjects:image1, image2, image3, nil];
     
     UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 260, 260)];
-    
     IGUIScrollViewImage *svimage = [[IGUIScrollViewImage alloc] init];  
     [svimage setBackGroudColor:[UIColor clearColor]];
     [svimage setContentArray:imageArray];  
     [svimage setWidth:260 andHeight:260];
-    //[svimage setSizeFromParentView:CGRectMake(10, 85, 260, 260)];  
     [svimage enablePageControlOnBottom];  
     [viewForScrollView addSubview:[svimage getWithPositionMemory]]; 
-        
     [self.contentView addSubview:viewForScrollView];
+    [viewForScrollView release];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -119,7 +108,6 @@
 {
     [price release];
     [ratingView release];
-    [imageView release];
     [name release];
     [restaurantName release];
     [super dealloc];

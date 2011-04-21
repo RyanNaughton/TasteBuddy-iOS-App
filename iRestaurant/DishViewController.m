@@ -69,55 +69,8 @@
     appNameImageView.frame = CGRectMake(0, 0, 320, 35);
     appNameImageView.contentMode = UIViewContentModeRight;
     self.navigationItem.titleView = appNameImageView;
-    
     self.tableView.separatorColor = [UIColor clearColor];
-    
-//    UILabel *restaurantNameTitle = [[UILabel alloc]init];
-//    restaurantNameTitle.frame = CGRectMake(-40,0,220,25);
-//    restaurantNameTitle.textColor = [UIColor whiteColor];
-//    restaurantNameTitle.backgroundColor = [UIColor clearColor];
-//    restaurantNameTitle.font = [UIFont boldSystemFontOfSize:15];
-//    restaurantNameTitle.text = [NSString stringWithFormat:@"%@",menu_item.name];
-//    restaurantNameTitle.textAlignment = UITextAlignmentCenter;
-//    
-//    UILabel *menuTitle = [[UILabel alloc]init];
-//    menuTitle.frame = CGRectMake(-40,22,220,18);
-//    menuTitle.font = [UIFont boldSystemFontOfSize:13];
-//    menuTitle.textColor = [UIColor whiteColor];
-//    menuTitle.backgroundColor = [UIColor clearColor];
-//    menuTitle.text = [NSString stringWithFormat:@"@ %@", restaurant.name];
-//    menuTitle.textAlignment = UITextAlignmentCenter;
-//    
-//    UIView *titleView = [[UIView alloc]init];
-//    titleView.frame = CGRectMake(0,0,100,44);
-//    titleView.backgroundColor = [UIColor clearColor];
-//    [titleView addSubview:restaurantNameTitle];
-//    [titleView addSubview:menuTitle];
-//    
-//    titleView.contentMode = UIViewContentModeCenter;
-//    self.navigationItem.titleView = titleView;
-
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"29-heart.png"] style:UIBarButtonItemStylePlain target:nil action:nil];
 }
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)];
-    return headerView;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 1;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 0;
-}
-
 
 - (void)viewDidUnload
 {
@@ -291,7 +244,7 @@
         UIApplication *app = [UIApplication sharedApplication];
         [app openURL:[NSURL URLWithString:requestString]];			
     
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
         NSString *phoneNumberString = [NSString stringWithFormat:@"tel://%@", restaurant.phone];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberString]];
     } 
