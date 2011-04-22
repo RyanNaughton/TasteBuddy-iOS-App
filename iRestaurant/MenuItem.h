@@ -15,7 +15,7 @@
     NSNumber *average_rating;
     NSArray *tags;
     NSArray *photo_urls;
-    NSArray *comments;
+    NSMutableArray *comments;
     NSArray *pictures;
     NSNumber *restaurant_id;
 }
@@ -25,7 +25,7 @@
 @property (nonatomic, retain) NSNumber *average_rating;
 @property (nonatomic, retain) NSArray *tags;
 @property (nonatomic, retain) NSArray *photo_urls;
-@property (nonatomic, retain) NSArray *comments;
+@property (nonatomic, retain) NSMutableArray *comments;
 @property (nonatomic, retain) NSArray *pictures;
 @property (nonatomic, retain) NSNumber *restaurant_id;
 

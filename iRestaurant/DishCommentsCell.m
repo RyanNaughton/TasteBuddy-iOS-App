@@ -26,16 +26,16 @@
     [self.contentView addSubview:topRounding];
     [topRounding release];
     
-    UILabel *tagsLabel = [[UILabel alloc]init];
-    tagsLabel.frame = CGRectMake(10, 25, 120, 15);
-    tagsLabel.textColor = [UIColor blackColor];
-    tagsLabel.backgroundColor = [UIColor clearColor];
-    tagsLabel.font = [UIFont boldSystemFontOfSize:16];
-    tagsLabel.shadowColor = [UIColor whiteColor];
-    tagsLabel.shadowOffset = CGSizeMake(0,1);
-    tagsLabel.text = @"Comments";
-    [self.contentView addSubview:tagsLabel];
-    [tagsLabel release];
+    UILabel *commentsLabel = [[UILabel alloc]init];
+    commentsLabel.frame = CGRectMake(10, 25, 120, 15);
+    commentsLabel.textColor = [UIColor blackColor];
+    commentsLabel.backgroundColor = [UIColor clearColor];
+    commentsLabel.font = [UIFont boldSystemFontOfSize:16];
+    commentsLabel.shadowColor = [UIColor whiteColor];
+    commentsLabel.shadowOffset = CGSizeMake(0,1);
+    commentsLabel.text = @"Comments";
+    [self.contentView addSubview:commentsLabel];
+    [commentsLabel release];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
