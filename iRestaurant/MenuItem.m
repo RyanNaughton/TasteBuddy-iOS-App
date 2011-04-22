@@ -45,8 +45,9 @@
 
         # warning Code here needs to be changed when API updates.
         //Actual array [menuItemDictionary objectForKey:@"comments"]
-        NSArray *temporaryArrayOfComments = [@"[{\"text\": \"I like this food.\", \"user_id\": \"4d83c94588a847d8a9000001\", \"user_name\": \"John\"}, {\"text\": \"I do too honey.\", \"user_id\": \"4d83c94588a847d8a9000002\", \"user_name\": \"Martha\"}, {\"text\": \"Excuse me, Mr. White.\n\nI was wondering if, if, uh, perhaps you could arrange for half my salary to be sent to this address on a weekly basis.\", \"user_id\": \"4d83c94588a847d8a9000002\", \"user_name\": \"Clark\"}]" JSONValue];
-        comments        = [[NSMutableArray init] alloc];
+        NSString *tempJson = @"[{\"text\": \"I like this food.\", \"user_id\": \"4d83c94588a847d8a9000001\", \"user_name\": \"John\"}, {\"text\": \"I do too honey.\", \"user_id\": \"4d83c94588a847d8a9000002\", \"user_name\": \"Martha\"}, {\"text\": \"Excuse me, Mr. White.\n\nI was wondering if, if, uh, perhaps you could arrange for half my salary to be sent to this address on a weekly basis.\", \"user_id\": \"4d83c94588a847d8a9000002\", \"user_name\": \"Clark\"}]";
+        NSArray *temporaryArrayOfComments = [tempJson JSONValue];
+        comments        = [[NSMutableArray alloc] init];
         for(NSDictionary *commentDictionary in temporaryArrayOfComments/* [menuItemDictionary objectForKey:@"comments"] */)
         {
             Comment *comment = [[Comment init] initWithDictionary:commentDictionary];
