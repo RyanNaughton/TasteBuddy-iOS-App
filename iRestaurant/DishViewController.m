@@ -202,7 +202,7 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
         height = 60;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
-        height = 100;
+        height = 200;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
         height = 100;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {

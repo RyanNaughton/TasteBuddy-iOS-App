@@ -115,6 +115,13 @@
 		E8AA4AEF1361064A00A8E37B /* top-rounding.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4AED1361064A00A8E37B /* top-rounding.png */; };
 		E8AA4AF01361064A00A8E37B /* top-rounding@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */; };
 		E8AA4AF3136107B400A8E37B /* DishCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AA4AF2136107B300A8E37B /* DishCommentsCell.m */; };
+		E8AA4AFF1361165800A8E37B /* IGUIScrollViewCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AA4AFB1361165700A8E37B /* IGUIScrollViewCanvas.m */; };
+		E8AA4B001361165800A8E37B /* IGUIScrollViewElements.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AA4AFD1361165700A8E37B /* IGUIScrollViewElements.m */; };
+		E8AA4B0313611F5500A8E37B /* 33-circle-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4B0113611F5500A8E37B /* 33-circle-plus@2x.png */; };
+		E8AA4B0413611F5500A8E37B /* 33-circle-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4B0213611F5500A8E37B /* 33-circle-plus.png */; };
+		E8AA4B07136122EC00A8E37B /* 39-circle-check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4B05136122EC00A8E37B /* 39-circle-check@2x.png */; };
+		E8AA4B08136122EC00A8E37B /* 39-circle-check.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4B06136122EC00A8E37B /* 39-circle-check.png */; };
+		E8AF71F2136127F60068DA6C /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BED7F81361110B00DE8CC4 /* Comment.m */; };
 		E8C794BB135CB6490033C3FB /* DishButtonsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C794BA135CB6490033C3FB /* DishButtonsCell.m */; };
 		E8C794CF135D13A80033C3FB /* grey-tab.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C794CE135D13A80033C3FB /* grey-tab.png */; };
 		E8C794D4135D15B80033C3FB /* dishes-tab-on.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C794D0135D15B80033C3FB /* dishes-tab-on.png */; };
@@ -310,6 +317,15 @@
 		E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-rounding@2x.png"; sourceTree = "<group>"; };
 		E8AA4AF1136107B300A8E37B /* DishCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishCommentsCell.h; sourceTree = "<group>"; };
 		E8AA4AF2136107B300A8E37B /* DishCommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishCommentsCell.m; sourceTree = "<group>"; };
+		E8AA4AFA1361165700A8E37B /* IGUIScrollViewCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGUIScrollViewCanvas.h; sourceTree = "<group>"; };
+		E8AA4AFB1361165700A8E37B /* IGUIScrollViewCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGUIScrollViewCanvas.m; sourceTree = "<group>"; };
+		E8AA4AFC1361165700A8E37B /* IGUIScrollViewElements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGUIScrollViewElements.h; sourceTree = "<group>"; };
+		E8AA4AFD1361165700A8E37B /* IGUIScrollViewElements.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGUIScrollViewElements.m; sourceTree = "<group>"; };
+		E8AA4AFE1361165800A8E37B /* IGUIScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGUIScrollView.h; sourceTree = "<group>"; };
+		E8AA4B0113611F5500A8E37B /* 33-circle-plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "33-circle-plus@2x.png"; sourceTree = "<group>"; };
+		E8AA4B0213611F5500A8E37B /* 33-circle-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "33-circle-plus.png"; sourceTree = "<group>"; };
+		E8AA4B05136122EC00A8E37B /* 39-circle-check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "39-circle-check@2x.png"; sourceTree = "<group>"; };
+		E8AA4B06136122EC00A8E37B /* 39-circle-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "39-circle-check.png"; sourceTree = "<group>"; };
 		E8C794B9135CB6490033C3FB /* DishButtonsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishButtonsCell.h; sourceTree = "<group>"; };
 		E8C794BA135CB6490033C3FB /* DishButtonsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishButtonsCell.m; sourceTree = "<group>"; };
 		E8C794CE135D13A80033C3FB /* grey-tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-tab.png"; sourceTree = "<group>"; };
@@ -592,6 +608,11 @@
 			children = (
 				E80E059A1360D2A100894180 /* IGUIScrollViewImage.h */,
 				E80E059B1360D2A100894180 /* IGUIScrollViewImage.m */,
+				E8AA4AFA1361165700A8E37B /* IGUIScrollViewCanvas.h */,
+				E8AA4AFB1361165700A8E37B /* IGUIScrollViewCanvas.m */,
+				E8AA4AFC1361165700A8E37B /* IGUIScrollViewElements.h */,
+				E8AA4AFD1361165700A8E37B /* IGUIScrollViewElements.m */,
+				E8AA4AFE1361165800A8E37B /* IGUIScrollView.h */,
 			);
 			name = IGUILibrary;
 			sourceTree = "<group>";
@@ -599,6 +620,10 @@
 		E85EE42813565D8F004B2A10 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E8AA4B05136122EC00A8E37B /* 39-circle-check@2x.png */,
+				E8AA4B06136122EC00A8E37B /* 39-circle-check.png */,
+				E8AA4B0113611F5500A8E37B /* 33-circle-plus@2x.png */,
+				E8AA4B0213611F5500A8E37B /* 33-circle-plus.png */,
 				E8AA4AED1361064A00A8E37B /* top-rounding.png */,
 				E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */,
 				E80E059D1360EA3300894180 /* pizza.png */,
@@ -923,6 +948,10 @@
 				E80E05A21360EA3400894180 /* cheeseburger.png in Resources */,
 				E8AA4AEF1361064A00A8E37B /* top-rounding.png in Resources */,
 				E8AA4AF01361064A00A8E37B /* top-rounding@2x.png in Resources */,
+				E8AA4B0313611F5500A8E37B /* 33-circle-plus@2x.png in Resources */,
+				E8AA4B0413611F5500A8E37B /* 33-circle-plus.png in Resources */,
+				E8AA4B07136122EC00A8E37B /* 39-circle-check@2x.png in Resources */,
+				E8AA4B08136122EC00A8E37B /* 39-circle-check.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -958,6 +987,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8AF71F2136127F60068DA6C /* Comment.m in Sources */,
 				499B564D1357AED200F2B407 /* NearAutocompleteTableViewController.m in Sources */,
 				499B564C1357AEC300F2B407 /* FindAutocompleteTableViewController.m in Sources */,
 				499B564A1357AE9000F2B407 /* AutocompleteService.m in Sources */,
@@ -1010,6 +1040,8 @@
 				E8AA4AF3136107B400A8E37B /* DishCommentsCell.m in Sources */,
 				49BED7F91361110B00DE8CC4 /* Comment.m in Sources */,
 				49BED7FD13611BA700DE8CC4 /* CommentCell.m in Sources */,
+				E8AA4AFF1361165800A8E37B /* IGUIScrollViewCanvas.m in Sources */,
+				E8AA4B001361165800A8E37B /* IGUIScrollViewElements.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1076,7 +1108,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1095,7 +1127,7 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
