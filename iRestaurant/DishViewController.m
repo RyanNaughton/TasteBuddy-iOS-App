@@ -15,6 +15,8 @@
 #import "DishButtonsCell.h"
 #import "RestaurantAddressCell.h"
 #import "RestaurantPhoneCell.h"
+#import "DishTagsCell.h"
+#import "DishCommentsCell.h"
 
 @implementation DishViewController
 
@@ -130,22 +132,6 @@
         [dishHeaderCell loadMenuItem:menu_item andRestaurant:restaurant];
 		return dishHeaderCell;
         
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
-        DishButtonsCell *dishButtonsCell = (DishButtonsCell *)[tableView dequeueReusableCellWithIdentifier:@"DishButtonsCell"];
-		if (dishButtonsCell == nil) {
-		    dishButtonsCell = [[[DishButtonsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishButtonsCell"] autorelease];
-		}          
-        [dishButtonsCell loadRestaurant:restaurant];
-		return dishButtonsCell;
-
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
-        RestaurantAddressCell *restaurantAddressCell = (RestaurantAddressCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantAddressCell"];
-		if (restaurantAddressCell == nil) {
-		    restaurantAddressCell = [[[RestaurantAddressCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantAddressCell"] autorelease];
-		}          
-        [restaurantAddressCell loadRestaurant:restaurant];
-		return restaurantAddressCell;
-        
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
         RestaurantPhoneCell *restaurantPhoneCell = (RestaurantPhoneCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantPhoneCell"];
 		if (restaurantPhoneCell == nil) {
@@ -154,6 +140,30 @@
         [restaurantPhoneCell loadRestaurant:restaurant];
 		return restaurantPhoneCell;
 
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
+        RestaurantAddressCell *restaurantAddressCell = (RestaurantAddressCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantAddressCell"];
+		if (restaurantAddressCell == nil) {
+		    restaurantAddressCell = [[[RestaurantAddressCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantAddressCell"] autorelease];
+		}          
+        [restaurantAddressCell loadRestaurant:restaurant];
+		return restaurantAddressCell;
+   
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
+        NSLog(@"TAG CELL");
+        DishTagsCell *dishTagsCell = (DishTagsCell *)[tableView dequeueReusableCellWithIdentifier:@"DishTagsCell"];
+		if (dishTagsCell == nil) {
+		    dishTagsCell = [[[DishTagsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishTagsCell"] autorelease];
+		}          
+        [dishTagsCell loadMenuItem:menu_item];
+		return dishTagsCell;
+        
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
+        DishCommentsCell *dishCommentsCell = (DishCommentsCell *)[tableView dequeueReusableCellWithIdentifier:@"DishCommentsCell"];
+		if (dishCommentsCell == nil) {
+		    dishCommentsCell = [[[DishCommentsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishCommentsCell"] autorelease];
+		}          
+        [dishCommentsCell loadMenuItem:menu_item];
+		return dishCommentsCell;
         
     } else {
         static NSString *CellIdentifier = @"Cell";
@@ -178,9 +188,9 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
         height = 60;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
-        height = 46;
+        height = 100;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
-        height = 40;
+        height = 100;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
         height = 45;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {

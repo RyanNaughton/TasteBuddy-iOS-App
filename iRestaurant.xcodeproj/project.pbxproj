@@ -110,6 +110,9 @@
 		E8A6E8171355465A0095E157 /* ASIWebPageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6E80E1355465A0095E157 /* ASIWebPageRequest.m */; };
 		E8A6E81A1355466D0095E157 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A6E8191355466D0095E157 /* Reachability.m */; };
 		E8A6E824135547050095E157 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A6E823135547050095E157 /* libxml2.dylib */; };
+		E8AA4AEF1361064A00A8E37B /* top-rounding.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4AED1361064A00A8E37B /* top-rounding.png */; };
+		E8AA4AF01361064A00A8E37B /* top-rounding@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */; };
+		E8AA4AF3136107B400A8E37B /* DishCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AA4AF2136107B300A8E37B /* DishCommentsCell.m */; };
 		E8C794BB135CB6490033C3FB /* DishButtonsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C794BA135CB6490033C3FB /* DishButtonsCell.m */; };
 		E8C794CF135D13A80033C3FB /* grey-tab.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C794CE135D13A80033C3FB /* grey-tab.png */; };
 		E8C794D4135D15B80033C3FB /* dishes-tab-on.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C794D0135D15B80033C3FB /* dishes-tab-on.png */; };
@@ -297,6 +300,10 @@
 		E8A6E8181355466D0095E157 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		E8A6E8191355466D0095E157 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		E8A6E823135547050095E157 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		E8AA4AED1361064A00A8E37B /* top-rounding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-rounding.png"; sourceTree = "<group>"; };
+		E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-rounding@2x.png"; sourceTree = "<group>"; };
+		E8AA4AF1136107B300A8E37B /* DishCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishCommentsCell.h; sourceTree = "<group>"; };
+		E8AA4AF2136107B300A8E37B /* DishCommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishCommentsCell.m; sourceTree = "<group>"; };
 		E8C794B9135CB6490033C3FB /* DishButtonsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishButtonsCell.h; sourceTree = "<group>"; };
 		E8C794BA135CB6490033C3FB /* DishButtonsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishButtonsCell.m; sourceTree = "<group>"; };
 		E8C794CE135D13A80033C3FB /* grey-tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-tab.png"; sourceTree = "<group>"; };
@@ -586,6 +593,8 @@
 		E85EE42813565D8F004B2A10 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E8AA4AED1361064A00A8E37B /* top-rounding.png */,
+				E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */,
 				E80E059D1360EA3300894180 /* pizza.png */,
 				E80E059E1360EA3300894180 /* taco.png */,
 				E80E059F1360EA3300894180 /* cheeseburger.png */,
@@ -731,6 +740,8 @@
 				E8C794BA135CB6490033C3FB /* DishButtonsCell.m */,
 				E80E05841360CAF900894180 /* DishTagsCell.h */,
 				E80E05851360CAF900894180 /* DishTagsCell.m */,
+				E8AA4AF1136107B300A8E37B /* DishCommentsCell.h */,
+				E8AA4AF2136107B300A8E37B /* DishCommentsCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -900,6 +911,8 @@
 				E80E05A01360EA3400894180 /* pizza.png in Resources */,
 				E80E05A11360EA3400894180 /* taco.png in Resources */,
 				E80E05A21360EA3400894180 /* cheeseburger.png in Resources */,
+				E8AA4AEF1361064A00A8E37B /* top-rounding.png in Resources */,
+				E8AA4AF01361064A00A8E37B /* top-rounding@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -984,6 +997,7 @@
 				E875620B135FE99E001A870F /* RestaurantTagsCell.m in Sources */,
 				E80E05861360CAF900894180 /* DishTagsCell.m in Sources */,
 				E80E059C1360D2A100894180 /* IGUIScrollViewImage.m in Sources */,
+				E8AA4AF3136107B400A8E37B /* DishCommentsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1105,8 +1119,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iRestaurant/iRestaurant-Prefix.pch";
@@ -1118,7 +1132,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "0FA40D43-730C-46A5-8B89-D19B3A150949";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0FA40D43-730C-46A5-8B89-D19B3A150949";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;

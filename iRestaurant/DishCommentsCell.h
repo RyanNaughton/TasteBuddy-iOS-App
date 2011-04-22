@@ -1,5 +1,5 @@
 //
-//  DishTagsCell.h
+//  DishCommentsCell.h
 //  iRestaurant
 //
 //  Created by Josh Timonen on 4/21/11.
@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 @class MenuItem;
 
-@interface DishTagsCell : UITableViewCell {
+@interface DishCommentsCell : UITableViewCell {
     
 }
 
--(void) loadMenuItem:(MenuItem *)menu_item;
+-(void)loadMenuItem:(MenuItem *)menu_item;
+
 
 @end
