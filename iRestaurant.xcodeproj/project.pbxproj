@@ -46,7 +46,6 @@
 		49BA684D1354DBA50040DDB5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 49BA684B1354DBA50040DDB5 /* InfoPlist.strings */; };
 		49BA68501354DBA50040DDB5 /* iRestaurantTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 49BA684F1354DBA50040DDB5 /* iRestaurantTests.h */; };
 		49BA68521354DBA50040DDB5 /* iRestaurantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA68511354DBA50040DDB5 /* iRestaurantTests.m */; };
-		49BED7F91361110B00DE8CC4 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BED7F81361110B00DE8CC4 /* Comment.m */; };
 		E80E05861360CAF900894180 /* DishTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E80E05851360CAF900894180 /* DishTagsCell.m */; };
 		E80E059C1360D2A100894180 /* IGUIScrollViewImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E80E059B1360D2A100894180 /* IGUIScrollViewImage.m */; };
 		E80E05A01360EA3400894180 /* pizza.png in Resources */ = {isa = PBXBuildFile; fileRef = E80E059D1360EA3300894180 /* pizza.png */; };
@@ -1099,7 +1098,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1118,7 +1117,7 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
