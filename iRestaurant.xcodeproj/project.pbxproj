@@ -1106,7 +1106,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1114,8 +1114,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1124,8 +1124,9 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos4.3;
+				PROVISIONING_PROFILE = "C833E2D7-A59E-4E3F-9DC6-8E68DC233238";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C833E2D7-A59E-4E3F-9DC6-8E68DC233238";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -1174,8 +1175,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0FA40D43-730C-46A5-8B89-D19B3A150949";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0FA40D43-730C-46A5-8B89-D19B3A150949";
+				PROVISIONING_PROFILE = "C833E2D7-A59E-4E3F-9DC6-8E68DC233238";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C833E2D7-A59E-4E3F-9DC6-8E68DC233238";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;

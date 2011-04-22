@@ -37,12 +37,12 @@
 
 -(void) loadComment:(Comment *)commentToLoad {
     
-    user_name.frame = CGRectMake(0, 0, 320, 20);        
+    user_name.frame = CGRectMake(10, 0, 320, 20);        
     user_name.textColor = [UIColor darkGrayColor];
     user_name.backgroundColor = [UIColor clearColor];
     user_name.font = [UIFont systemFontOfSize:16];
     
-    text.frame = CGRectMake(0, 30, 320, 20);   
+    text.frame = CGRectMake(10, 30, 320, 20);   
 
     comment = commentToLoad;
     user_name.text = comment.user_name;
