@@ -69,6 +69,21 @@
         price.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:price];
         
+        UIImage *image1 = [UIImage imageNamed:@"pizza.png"];
+        UIImage *image2 = [UIImage imageNamed:@"taco.png"];
+        UIImage *image3 = [UIImage imageNamed:@"cheeseburger.png"];
+        NSArray *imageArray = [NSArray arrayWithObjects:image1, image2, image3, nil];
+        
+        UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 260, 260)];
+        svimage = [[IGUIScrollViewImage alloc] init];  
+        [svimage setBackGroudColor:[UIColor clearColor]];
+        [svimage setContentArray:imageArray];  
+        [svimage setWidth:260 andHeight:260];
+        [svimage enablePageControlOnBottom];  
+        [viewForScrollView addSubview:[svimage getWithPosition:0]]; 
+        [self.contentView addSubview:viewForScrollView];
+        [viewForScrollView release];
+        
     }
     return self;
 }
@@ -81,21 +96,7 @@
     //[imageView setImageWithURL:[NSURL URLWithString:[[menu_item.pictures objectAtIndex:0] objectForKey:@"300px"]]
     //          placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
     
-    UIImage *image1 = [UIImage imageNamed:@"pizza.png"];
-    UIImage *image2 = [UIImage imageNamed:@"taco.png"];
-    UIImage *image3 = [UIImage imageNamed:@"cheeseburger.png"];
-    NSArray *imageArray = [NSArray arrayWithObjects:image1, image2, image3, nil];
-    
-    UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 260, 260)];
-    svimage = [[IGUIScrollViewImage alloc] init];  
-    [svimage setBackGroudColor:[UIColor clearColor]];
-    [svimage setContentArray:imageArray];  
-    [svimage setWidth:260 andHeight:260];
-    [svimage enablePageControlOnBottom];  
-    [viewForScrollView addSubview:[svimage getWithPosition:0]]; 
-    [self.contentView addSubview:viewForScrollView];
-    [viewForScrollView release];
-}
+   }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
