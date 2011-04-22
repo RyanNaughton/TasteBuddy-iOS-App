@@ -54,6 +54,8 @@
     NSString *json = [NSString stringWithFormat:@"{\"find\": \"%@\", \"near\": \"%@\", \"coordinates\": [%g, %g]}", 
                       term, nearString, latitude, longitude];
     
+    NSLog(@"json: %@", json);
+    
     NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/search.json"];
     
     request = [ASIFormDataRequest requestWithURL:url];
