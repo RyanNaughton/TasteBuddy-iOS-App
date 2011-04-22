@@ -17,6 +17,7 @@
 #import "RestaurantPhoneCell.h"
 #import "DishTagsCell.h"
 #import "DishCommentsCell.h"
+#import "CommentCell.h"
 
 @implementation DishViewController
 
@@ -118,7 +119,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return 1;
+    if ([@"Comments" isEqualToString:[tableArray objectAtIndex:section]]) {
+        return 1 + [menu_item.comments count];
+    } else {
+        return 1;        
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,12 +163,21 @@
 		return dishTagsCell;
         
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
-        DishCommentsCell *dishCommentsCell = (DishCommentsCell *)[tableView dequeueReusableCellWithIdentifier:@"DishCommentsCell"];
-		if (dishCommentsCell == nil) {
-		    dishCommentsCell = [[[DishCommentsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishCommentsCell"] autorelease];
-		}          
-        [dishCommentsCell loadMenuItem:menu_item];
-		return dishCommentsCell;
+        if(indexPath.row == 0) {
+            DishCommentsCell *dishCommentsCell = (DishCommentsCell *)[tableView dequeueReusableCellWithIdentifier:@"DishCommentsCell"];
+            if (dishCommentsCell == nil) {
+                dishCommentsCell = [[[DishCommentsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishCommentsCell"] autorelease];
+            }          
+            [dishCommentsCell loadMenuItem:menu_item];
+            return dishCommentsCell;
+        } else {
+            CommentCell *commentCell = (CommentCell *)[tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+            if (commentCell == nil) {
+                commentCell = [[[CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CommentCell"] autorelease];
+            }
+            [commentCell loadComment:[menu_item.comments objectAtIndex:(indexPath.row - 1)]];
+            return commentCell;
+        }
         
     } else {
         static NSString *CellIdentifier = @"Cell";

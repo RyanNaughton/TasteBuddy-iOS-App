@@ -45,13 +45,16 @@
 
         # warning Code here needs to be changed when API updates.
         //Actual array [menuItemDictionary objectForKey:@"comments"]
-        NSString *tempJson = @"[{\"text\": \"I like this food.\", \"user_id\": \"4d83c94588a847d8a9000001\", \"user_name\": \"John\"}, {\"text\": \"I do too honey.\", \"user_id\": \"4d83c94588a847d8a9000002\", \"user_name\": \"Martha\"}, {\"text\": \"Excuse me, Mr. White.\n\nI was wondering if, if, uh, perhaps you could arrange for half my salary to be sent to this address on a weekly basis.\", \"user_id\": \"4d83c94588a847d8a9000002\", \"user_name\": \"Clark\"}]";
+        NSString *tempJson = @"[{\"text\": \"Lorem ipsum\", \"user_name\": \"Clark\", \"user_id\": \"456789\"}]";
         NSArray *temporaryArrayOfComments = [tempJson JSONValue];
+        NSLog(@"Temp Array of Comment count %d", [temporaryArrayOfComments count]);
+
         comments        = [[NSMutableArray alloc] init];
         for(NSDictionary *commentDictionary in temporaryArrayOfComments/* [menuItemDictionary objectForKey:@"comments"] */)
         {
             Comment *comment = [[Comment init] initWithDictionary:commentDictionary];
             [comments addObject:comment];
+            NSLog(@"Comment count %d", [comments count]);
             [comment release];
         }
     }
