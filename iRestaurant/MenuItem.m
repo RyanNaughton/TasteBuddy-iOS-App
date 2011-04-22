@@ -46,19 +46,19 @@
         comments        = [[NSMutableArray alloc] init];
 
         
-//        # warning Code here needs to be changed when API updates.
-//        //Actual array [menuItemDictionary objectForKey:@"comments"]
-//        NSString *tempJson = @"[{\"text\": \"Lorem ipsum\", \"user_name\": \"Clark\", \"user_id\": \"456789\"}]";
-//        NSArray *temporaryArrayOfComments = [tempJson JSONValue];
-//        NSLog(@"Temp Array of Comment count %d", [temporaryArrayOfComments count]);
-//
-//        for(NSDictionary *commentDictionary in temporaryArrayOfComments/* [menuItemDictionary objectForKey:@"comments"] */)
-//        {
-//            Comment *comment = [[Comment init] initWithDictionary:commentDictionary];
-//            [comments addObject:comment];
-//            NSLog(@"Comment count %d", [comments count]);
-//            [comment release];
-//        }
+        # warning Code here needs to be changed when API updates.
+        //Actual array [menuItemDictionary objectForKey:@"comments"]
+        NSString *tempJson = @"[{\"text\": \"Lorem ipsum\", \"user_name\": \"Clark\", \"user_id\": \"456789\"}]";
+        NSArray *temporaryArrayOfComments = [tempJson JSONValue];
+        NSLog(@"Temp Array of Comment count %@", temporaryArrayOfComments);
+
+        for (NSDictionary *commentDictionary in temporaryArrayOfComments) /* [menuItemDictionary objectForKey:@"comments"] */
+        {
+            Comment *comment = [[Comment alloc] initWithDictionary:commentDictionary];
+            [comments addObject:comment];
+            NSLog(@"Comment count %i", [comments count]);
+            [comment release];
+        }
     }
     return self;
 }

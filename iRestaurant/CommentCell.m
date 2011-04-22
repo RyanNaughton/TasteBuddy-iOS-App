@@ -19,6 +19,11 @@
     if (self) {
         // Initialization code
 //        [self addSubview:text];
+            user_name = [[UILabel alloc] init];
+            text = [[UILabel alloc]init];
+        [self addSubview:text];
+        [self addSubview:user_name];
+
     }
     return self;
 }
@@ -31,19 +36,13 @@
 }
 
 -(void) loadComment:(Comment *)commentToLoad {
-    if (user_name == nil) {
-        user_name = [[UILabel alloc] init];
-    }
-
+    
     user_name.frame = CGRectMake(0, 0, 320, 20);        
     user_name.textColor = [UIColor darkGrayColor];
     user_name.backgroundColor = [UIColor clearColor];
     user_name.font = [UIFont systemFontOfSize:16];
     
-    //text = [[UILabel alloc] init];
-    //text.frame = CGRectMake(0, 0, 320, 20);
-    
-    [self addSubview:user_name];
+    text.frame = CGRectMake(0, 30, 320, 20);   
 
     comment = commentToLoad;
     user_name.text = comment.user_name;

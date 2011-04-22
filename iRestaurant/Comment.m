@@ -24,8 +24,8 @@
     self = [super init];
     if (self) {
         user_id   = [[commentDictionary objectForKey:@"user_id"] retain];
-        user_name = [[commentDictionary objectForKey:@"user_id"] retain];
-        text      = [[commentDictionary objectForKey:@"user_id"] retain];
+        user_name = [[commentDictionary objectForKey:@"user_name"] retain];
+        text      = [[commentDictionary objectForKey:@"text"] retain];
     }
     return self;       
 }
