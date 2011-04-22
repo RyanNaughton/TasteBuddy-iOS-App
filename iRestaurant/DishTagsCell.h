@@ -10,9 +10,15 @@
 @class MenuItem;
 
 @interface DishTagsCell : UITableViewCell {
-    
+    UIImage *circlePlus;
+    UIImage *circleCheck;
+
 }
 
+@property (nonatomic, retain) UIImage *circlePlus;
+@property (nonatomic, retain) UIImage *circleCheck;
+
 -(void) loadMenuItem:(MenuItem *)menu_item;
+-(void)tagButtonPressed:(id)sender;
 
 @end
