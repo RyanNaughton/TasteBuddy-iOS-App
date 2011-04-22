@@ -81,6 +81,7 @@
         [svimage setWidth:260 andHeight:260];
         [svimage enablePageControlOnBottom];  
         [viewForScrollView addSubview:[svimage getWithPosition:0]]; 
+        svimage.scrollView.showsHorizontalScrollIndicator = FALSE;
         [self.contentView addSubview:viewForScrollView];
         [viewForScrollView release];
         

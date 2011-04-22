@@ -23,6 +23,33 @@
         circlePlus = [UIImage imageNamed:@"33-circle-plus.png"];
         circleCheck = [UIImage imageNamed:@"39-circle-check.png"];
         
+        UIImageView *topRounding = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"top-rounding.png"]];
+        topRounding.frame = CGRectMake(0, 10, 320, 15);
+        [self.contentView addSubview:topRounding];
+        [topRounding release];
+        
+        UILabel *tagsLabel = [[UILabel alloc]init];
+        tagsLabel.frame = CGRectMake(10, 25, 120, 15);
+        tagsLabel.textColor = [UIColor blackColor];
+        tagsLabel.backgroundColor = [UIColor clearColor];
+        tagsLabel.font = [UIFont boldSystemFontOfSize:16];
+        tagsLabel.shadowColor = [UIColor whiteColor];
+        tagsLabel.shadowOffset = CGSizeMake(0,1);
+        tagsLabel.text = @"Quick Review";
+        [self.contentView addSubview:tagsLabel];
+        [tagsLabel release];
+        
+        UILabel *tagsSubLabel = [[UILabel alloc]init];
+        tagsSubLabel.frame = CGRectMake(10, 45, 300, 15);
+        tagsSubLabel.textColor = [UIColor darkGrayColor];
+        tagsSubLabel.backgroundColor = [UIColor clearColor];
+        tagsSubLabel.font = [UIFont systemFontOfSize:14];
+        tagsSubLabel.shadowColor = [UIColor whiteColor];
+        tagsSubLabel.shadowOffset = CGSizeMake(0,1);
+        tagsSubLabel.text = @"Up-vote adjectives that describe this restaurant";
+        [self.contentView addSubview:tagsSubLabel];
+        [tagsSubLabel release];
+        
         // Contains entire tag scrolling area in cell
         UIView *tagScrollContainer = [[UIView alloc]initWithFrame:CGRectMake(0, 70, 320, 130)]; 
         
@@ -109,33 +136,7 @@
 
 -(void) loadMenuItem:(MenuItem *)menu_item {
     
-    UIImageView *topRounding = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"top-rounding.png"]];
-    topRounding.frame = CGRectMake(0, 10, 320, 15);
-    [self.contentView addSubview:topRounding];
-    [topRounding release];
-    
-    UILabel *tagsLabel = [[UILabel alloc]init];
-    tagsLabel.frame = CGRectMake(10, 25, 120, 15);
-    tagsLabel.textColor = [UIColor blackColor];
-    tagsLabel.backgroundColor = [UIColor clearColor];
-    tagsLabel.font = [UIFont boldSystemFontOfSize:16];
-    tagsLabel.shadowColor = [UIColor whiteColor];
-    tagsLabel.shadowOffset = CGSizeMake(0,1);
-    tagsLabel.text = @"Quick Review";
-    [self.contentView addSubview:tagsLabel];
-    [tagsLabel release];
-    
-    UILabel *tagsSubLabel = [[UILabel alloc]init];
-    tagsSubLabel.frame = CGRectMake(10, 45, 300, 15);
-    tagsSubLabel.textColor = [UIColor darkGrayColor];
-    tagsSubLabel.backgroundColor = [UIColor clearColor];
-    tagsSubLabel.font = [UIFont systemFontOfSize:14];
-    tagsSubLabel.shadowColor = [UIColor whiteColor];
-    tagsSubLabel.shadowOffset = CGSizeMake(0,1);
-    tagsSubLabel.text = @"Up-vote adjectives that describe this restaurant";
-    [self.contentView addSubview:tagsSubLabel];
-    [tagsSubLabel release];
-    
+       
 
 }
 
