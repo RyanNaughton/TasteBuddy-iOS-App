@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
+		494D34B21365FC7B00E03CCA /* CellUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D34B11365FC7B00E03CCA /* CellUtility.m */; };
 		49520096135D11D200F0876E /* AutocompleteModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49520094135D11D200F0876E /* AutocompleteModalViewController.m */; };
 		49520097135D11D200F0876E /* AutocompleteModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49520095135D11D200F0876E /* AutocompleteModalViewController.xib */; };
 		4956EB1B1358F85800D68EE9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4956EB0D1358F85800D68EE9 /* LICENSE */; };
@@ -159,6 +160,8 @@
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		490F2C9B1358BB3200DA5C1F /* MenuService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuService.h; sourceTree = "<group>"; };
 		490F2C9C1358BB3200DA5C1F /* MenuService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuService.m; sourceTree = "<group>"; };
+		494D34B01365FC7B00E03CCA /* CellUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; path = CellUtility.h; sourceTree = "<group>"; };
+		494D34B11365FC7B00E03CCA /* CellUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellUtility.m; sourceTree = "<group>"; };
 		49520093135D11D200F0876E /* AutocompleteModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteModalViewController.h; sourceTree = "<group>"; };
 		49520094135D11D200F0876E /* AutocompleteModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteModalViewController.m; sourceTree = "<group>"; };
 		49520095135D11D200F0876E /* AutocompleteModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompleteModalViewController.xib; sourceTree = "<group>"; };
@@ -395,6 +398,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		494D34AD1365FC0B00E03CCA /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				494D34B01365FC7B00E03CCA /* CellUtility.h */,
+				494D34B11365FC7B00E03CCA /* CellUtility.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		4952008C135D113C00F0876E /* Autocomplete */ = {
 			isa = PBXGroup;
 			children = (
@@ -569,6 +581,7 @@
 		49BA68281354DBA40040DDB5 /* iRestaurant */ = {
 			isa = PBXGroup;
 			children = (
+				494D34AD1365FC0B00E03CCA /* Utilities */,
 				E8A03E1A135538EB0031D798 /* Services */,
 				E8E6D3F113552435003F0ECB /* Models */,
 				49578B741355184500F8EC0B /* Controllers */,
@@ -1062,6 +1075,7 @@
 				49BED7FD13611BA700DE8CC4 /* CommentCell.m in Sources */,
 				E8AA4AFF1361165800A8E37B /* IGUIScrollViewCanvas.m in Sources */,
 				E8AA4B001361165800A8E37B /* IGUIScrollViewElements.m in Sources */,
+				494D34B21365FC7B00E03CCA /* CellUtility.m in Sources */,
 				E83A9473136608CE00A5B706 /* RestaurantTagsCell.m in Sources */,
 				E83A947613660E4B00A5B706 /* RestaurantWebsiteCell.m in Sources */,
 			);

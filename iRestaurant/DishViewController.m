@@ -9,6 +9,7 @@
 #import "DishViewController.h"
 #import "Restaurant.h"
 #import "MenuItem.h"
+#import "Comment.h"
 
 // CELLS
 #import "DishHeaderCell.h"
@@ -18,6 +19,8 @@
 #import "DishTagsCell.h"
 #import "DishCommentsCell.h"
 #import "CommentCell.h"
+
+#import "CellUtility.h"
 
 @implementation DishViewController
 
@@ -154,7 +157,6 @@
 		return restaurantAddressCell;
    
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
-        NSLog(@"TAG CELL");
         DishTagsCell *dishTagsCell = (DishTagsCell *)[tableView dequeueReusableCellWithIdentifier:@"DishTagsCell"];
 		if (dishTagsCell == nil) {
 		    dishTagsCell = [[[DishTagsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishTagsCell"] autorelease];
@@ -170,15 +172,16 @@
             }          
             [dishCommentsCell loadMenuItem:menu_item];
             return dishCommentsCell;
-        } else {
+        } else if ([menu_item.comments count] > 0) {
             CommentCell *commentCell = (CommentCell *)[tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
             if (commentCell == nil) {
                 commentCell = [[[CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CommentCell"] autorelease];
             }
             [commentCell loadComment:[menu_item.comments objectAtIndex:(indexPath.row - 1)]];
             return commentCell;
+        } else {
+            return nil;
         }
-        
     } else {
         static NSString *CellIdentifier = @"Cell";
     
@@ -204,7 +207,12 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         height = 200;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
-        height = 100;
+        if([menu_item.comments count] > 0 && indexPath.row > 0) {
+            Comment * comment = (Comment *)[menu_item.comments objectAtIndex:(indexPath.row - 1)];
+            height = [CellUtility cellHeightForString:comment.text withFrame:CGRectMake(10, 30, 310, 20) andBottomPadding:10.0];
+        } else {
+            height = 50;
+        }
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
         height = 45;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
