@@ -255,7 +255,7 @@
         [searchViewController.navigationController pushViewController:dishViewController animated:YES];
         [dishViewController release];  
     }
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 

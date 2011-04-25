@@ -154,7 +154,6 @@
 		return restaurantAddressCell;
    
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
-        NSLog(@"TAG CELL");
         DishTagsCell *dishTagsCell = (DishTagsCell *)[tableView dequeueReusableCellWithIdentifier:@"DishTagsCell"];
 		if (dishTagsCell == nil) {
 		    dishTagsCell = [[[DishTagsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishTagsCell"] autorelease];
@@ -170,15 +169,16 @@
             }          
             [dishCommentsCell loadMenuItem:menu_item];
             return dishCommentsCell;
-        } else {
+        } else if ([menu_item.comments count] > 0) {
             CommentCell *commentCell = (CommentCell *)[tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
             if (commentCell == nil) {
                 commentCell = [[[CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CommentCell"] autorelease];
             }
             [commentCell loadComment:[menu_item.comments objectAtIndex:(indexPath.row - 1)]];
             return commentCell;
+        } else {
+            return nil;
         }
-        
     } else {
         static NSString *CellIdentifier = @"Cell";
     
