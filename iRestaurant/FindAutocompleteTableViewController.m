@@ -158,9 +158,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     findField.text = [values objectAtIndex:indexPath.row];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [nearField becomeFirstResponder];
     [nearField selectAll:nearField];
     [UIMenuController sharedMenuController].menuVisible = NO;
+
 }
 
 -(void) autocompleteFinished:(NSArray *)termsArray {

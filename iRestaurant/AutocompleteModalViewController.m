@@ -98,6 +98,13 @@
         } else {
             [autocompleteService getPlaces:nearField.text];
         }
+    } else {
+        
+        if([tableView.dataSource isKindOfClass:[NearAutocompleteTableViewController class]]) {
+            [(NearAutocompleteTableViewController *)tableView.dataSource autocompleteFinished:[[NSMutableArray alloc] init]];
+        } else if([tableView.dataSource isKindOfClass:[FindAutocompleteTableViewController class]]) {
+            [(FindAutocompleteTableViewController *)tableView.dataSource autocompleteFinished:[[NSMutableArray alloc] init]];            
+        }
     }
 }
 

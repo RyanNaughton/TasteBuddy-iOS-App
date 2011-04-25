@@ -18,17 +18,14 @@
 @interface AutocompleteService : NSObject {
     id <AutocompleteServiceDelegate> delegate;  
     ASIFormDataRequest *request;
-    NSArray *values;
 }
 
 @property (nonatomic, retain) id <AutocompleteServiceDelegate> delegate;
 @property (nonatomic, retain) ASIFormDataRequest *request;
-@property (nonatomic, retain) NSArray *values;
 
 -(id) initWithDelegate:(id <AutocompleteServiceDelegate>) serviceDelegate;
 -(void) getTerms:(NSString *)term;
 -(void) getPlaces:(NSString *)place;
--(void) requestFinished:(ASIHTTPRequest *)request_passed;
 
 
 @end

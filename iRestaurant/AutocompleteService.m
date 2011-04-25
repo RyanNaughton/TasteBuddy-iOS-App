@@ -7,16 +7,16 @@
 //
 
 #import "AutocompleteService.h"
-
+#import "ASIFormDataRequest.h"
+#import "JSON.h"
 
 @implementation AutocompleteService
 
-@synthesize delegate, request, values;
+@synthesize delegate, request;
 
 -(void) dealloc {
     [delegate release];
     [request release];
-    [values release];
     [super dealloc];
 }
 -(id) initWithDelegate:(id <AutocompleteServiceDelegate>) serviceDelegate {
@@ -29,20 +29,70 @@
 
 -(void) getTerms:(NSString *)term
 {
-    values = [[NSArray alloc] initWithObjects:@"Term 1", @"Term 2", @"Term 3", @"Term 4", @"Term 5", @"Term 6", @"Term 7", nil];
-    [self requestFinished:nil];
+    
+    if (request != nil) {
+        [request cancel];
+        request = nil;
+    }
+    
+    #warning Replace with real co-ordinates
+    double latitude = 41.884432;
+    double longitude = -87.643464;
+    
+    NSString *json = [NSString stringWithFormat:@"{\"find\": \"%@\", \"coordinates\": [%g, %g]}", 
+                      term, latitude, longitude];
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/complete.json"];
+    
+    request = [ASIFormDataRequest requestWithURL:url];
+    [request addRequestHeader:@"Content-Type" value:@"application/json"];
+    [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setDelegate:self];
+    [request startAsynchronous];
 }
 
 -(void) getPlaces:(NSString *)place
 {
-    values = [[NSArray alloc] initWithObjects:@"Place 1", @"Place 2", @"Place 3", @"Place 4", @"Place 5", @"Place 6", @"Place 7", nil];
-    [self requestFinished:nil];
+    if (request != nil) {
+        [request cancel];
+        request = nil;
+    }
+    
+    
+    #warning Replace with real co-ordinates
+    double latitude = 41.884432;
+    double longitude = -87.643464;
+    
+    NSString *json = [NSString stringWithFormat:@"{\"near\": \"%@\", \"coordinates\": [%g, %g]}", 
+                      place, latitude, longitude];
+    
+    
+    NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/complete.json"];
+    
+    request = [ASIFormDataRequest requestWithURL:url];
+    [request addRequestHeader:@"Content-Type" value:@"application/json"];
+    [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setDelegate:self];
+    [request startAsynchronous];
+
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
+    NSDictionary *reponseDictionary = [[request_passed responseString] JSONValue];
+    NSMutableArray *values = [[NSMutableArray alloc]init];
+
+    for (NSArray *array in [reponseDictionary objectEnumerator]) {
+        for (NSString *value in array) {
+            [values addObject:[value copy]]; //Retain to stop crashes
+        }
+    }
+    
+    //[values autorelease];
     [delegate autocompleteFinished:values];
     delegate = nil;
+    request = nil;
 }
 
 @end
