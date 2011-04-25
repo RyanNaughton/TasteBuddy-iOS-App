@@ -205,7 +205,7 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
         height = 45;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
-        height = [RestaurantTagsCell generateCellHeight];
+        height = 200;
     } else {
         height = 44;
     }
