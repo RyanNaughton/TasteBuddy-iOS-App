@@ -9,6 +9,7 @@
 #import "DishViewController.h"
 #import "Restaurant.h"
 #import "MenuItem.h"
+#import "Comment.h"
 
 // CELLS
 #import "DishHeaderCell.h"
@@ -18,6 +19,8 @@
 #import "DishTagsCell.h"
 #import "DishCommentsCell.h"
 #import "CommentCell.h"
+
+#import "CellUtility.h"
 
 @implementation DishViewController
 
@@ -204,7 +207,12 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         height = 200;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
-        height = 100;
+        if([menu_item.comments count] > 0 && indexPath.row > 0) {
+            Comment * comment = (Comment *)[menu_item.comments objectAtIndex:(indexPath.row - 1)];
+            height = [CellUtility cellHeightForString:comment.text withFrame:CGRectMake(10, 30, 310, 20) andBottomPadding:10.0];
+        } else {
+            height = 50;
+        }
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
         height = 45;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {

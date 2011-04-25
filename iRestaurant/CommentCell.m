@@ -17,10 +17,8 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        // Initialization code
-//        [self addSubview:text];
-            user_name = [[UILabel alloc] init];
-            text = [[UILabel alloc]init];
+        user_name = [[UILabel alloc] init];
+        text = [[UILabel alloc]init];
         [self addSubview:text];
         [self addSubview:user_name];
 
@@ -37,16 +35,19 @@
 
 -(void) loadComment:(Comment *)commentToLoad {
     
-    user_name.frame = CGRectMake(10, 0, 320, 20);        
+    user_name.frame = CGRectMake(10, 0, 310, 20);        
     user_name.textColor = [UIColor darkGrayColor];
     user_name.backgroundColor = [UIColor clearColor];
     user_name.font = [UIFont systemFontOfSize:16];
     
-    text.frame = CGRectMake(10, 30, 320, 20);   
-
     comment = commentToLoad;
+    
+    text.frame = CGRectMake(10, 30, 310, 20);   
+    text.numberOfLines = 0;
+    text.lineBreakMode = UILineBreakModeWordWrap;
     user_name.text = comment.user_name;
     text.text = comment.text;
+    [text sizeToFit];
 }
 
 @end
