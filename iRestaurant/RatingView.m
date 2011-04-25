@@ -133,10 +133,10 @@
 }
 
 -(void)setupRatingCount:(int)howManyRatings {
-    UILabel *ratingsLabel = [[UILabel alloc]initWithFrame:CGRectMake (((starSize * 5) + 5), 0, 100, starSize)];
+    UILabel *ratingsLabel = [[UILabel alloc]initWithFrame:CGRectMake (((starSize * 5) + 5), 2, 100, starSize)];
     ratingsLabel.text = [NSString stringWithFormat:@"%i ratings", howManyRatings];
     ratingsLabel.textColor = [UIColor darkGrayColor];
-    ratingsLabel.font = [UIFont italicSystemFontOfSize:12];
+    ratingsLabel.font = [UIFont systemFontOfSize:12];
     [self addSubview:ratingsLabel];
     [ratingsLabel release];
 }

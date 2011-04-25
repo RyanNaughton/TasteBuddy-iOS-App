@@ -42,7 +42,16 @@
 -(void)loadRestaurant:(Restaurant *)restaurant_passed 
 {
     restaurant = [restaurant_passed retain];
-    [addressButton setTitle:restaurant_passed.address_1 forState:UIControlStateNormal];
+    UILabel *addressButtonLabel = [[UILabel alloc]initWithFrame:CGRectMake(30, 0, 240, 35)];
+    addressButtonLabel.adjustsFontSizeToFitWidth = TRUE;
+    addressButtonLabel.textColor = [UIColor darkGrayColor];
+    addressButtonLabel.backgroundColor = [UIColor clearColor];
+    addressButtonLabel.font = [UIFont boldSystemFontOfSize:16];
+    addressButtonLabel.text = restaurant_passed.address_1;
+    addressButtonLabel.textAlignment = UITextAlignmentCenter;
+    [addressButton addSubview:addressButtonLabel];
+    [addressButtonLabel release];
+    
     neighborhood.text = [NSString stringWithFormat:@"Neighborhood: %@", restaurant_passed.neighborhood];
 }
 
