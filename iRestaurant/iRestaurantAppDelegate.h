@@ -12,11 +12,15 @@
 
 @interface iRestaurantAppDelegate : NSObject <UIApplicationDelegate> {
     IBOutlet UITabBarController *tabBarController;
+    NSString *savedSettingsPath;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
+@property (nonatomic, retain) NSString *savedSettingsPath;
 
+-(void)createPList;
+-(id) readSavedSetting:(NSString *)key;
+-(void) setSavedSetting:(NSString *)key withValue:(id)value;
 
 @end

@@ -27,7 +27,8 @@
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
         name = [[UILabel alloc]init];
-        name.frame = CGRectMake(10, 7, 280, 20);
+        name.frame = CGRectMake(10, 7, 240, 20);
+        name.adjustsFontSizeToFitWidth = TRUE;
         name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		name.backgroundColor = [UIColor clearColor];
 		name.font = [UIFont boldSystemFontOfSize:18];

@@ -16,13 +16,15 @@
 @synthesize window=_window;
 
 @synthesize tabBarController;
+@synthesize savedSettingsPath;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
      
     //Restaurant *restaurantTest = [[Restaurant alloc]initWithDictionary:NULL];
-    
+        
+    [self createPList];
     
     [self.window makeKeyAndVisible];
     [self.window addSubview:tabBarController.view];
@@ -67,6 +69,45 @@
      See also applicationDidEnterBackground:.
      */
 }
+
+-(void)createPList {
+	NSError *error;
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //1
+	NSString *documentsDirectory = [paths objectAtIndex:0]; //2
+	savedSettingsPath = [documentsDirectory stringByAppendingPathComponent:@"SavedSettings.plist"]; //3
+	
+	NSFileManager *fileManager = [NSFileManager defaultManager];
+	
+	if (![fileManager fileExistsAtPath: savedSettingsPath]) //4
+	{
+		NSString *bundle = [[NSBundle mainBundle] pathForResource:@"SavedSettings" ofType:@"plist"]; //5
+		
+		[fileManager copyItemAtPath:bundle toPath: savedSettingsPath error:&error]; //6
+	}
+}
+
+-(id) readSavedSetting:(NSString *)key {
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //1
+	NSString *documentsDirectory = [paths objectAtIndex:0]; //2
+	savedSettingsPath = [documentsDirectory stringByAppendingPathComponent:@"SavedSettings.plist"]; //3
+	
+	NSMutableDictionary *savedStock = [[NSMutableDictionary alloc] initWithContentsOfFile: savedSettingsPath];
+	return [savedStock objectForKey:key];
+}
+
+-(void) setSavedSetting:(NSString *)key withValue:(id)value {
+	
+	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //1
+	NSString *documentsDirectory = [paths objectAtIndex:0]; //2
+	savedSettingsPath = [documentsDirectory stringByAppendingPathComponent:@"SavedSettings.plist"]; //3
+	
+	NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile: savedSettingsPath];
+	[data setObject:value forKey:key];
+	[data writeToFile: savedSettingsPath atomically:YES];
+	[data release];
+}
+
 
 - (void)dealloc
 {

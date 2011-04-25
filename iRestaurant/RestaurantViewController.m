@@ -16,6 +16,7 @@
 #import "RestaurantAddressCell.h"
 #import "RestaurantPhoneCell.h"
 #import "RestaurantTagsCell.h"
+#import "RestaurantWebsiteCell.h"
 
 @implementation RestaurantViewController
 @synthesize tableArray, restaurant, tagsRowHeight;
@@ -35,7 +36,7 @@
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
         self.navigationController.navigationBar.translucent = YES;
         restaurant = [restaurant_passed retain];
-        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Phone", @"Address", @"Menu", @"Tags", @"Highlights", @"Comments", nil];
+        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Phone", @"Address", @"Menu", @"Tags", @"Comments", @"AdditionalInformation", @"WebsiteLink", nil];
         tagsRowHeight = 44;
     }
     return self;
@@ -180,6 +181,14 @@
 		}          
         [restaurantTagsCell loadRestaurant:restaurant];
 		return restaurantTagsCell;
+        
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"WebsiteLink"]) {
+        RestaurantWebsiteCell *restaurantWebsiteCell = (RestaurantWebsiteCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantWebsiteCell"];
+		if (restaurantWebsiteCell == nil) {
+		    restaurantWebsiteCell = [[[RestaurantWebsiteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantWebsiteCell"] autorelease];
+		}          
+        [restaurantWebsiteCell loadRestaurant:restaurant];
+		return restaurantWebsiteCell;
 
     } else {
         static NSString *CellIdentifier = @"Cell";
@@ -206,6 +215,8 @@
         height = 45;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         height = 200;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"WebsiteLink"]) {
+        height = 48;
     } else {
         height = 44;
     }

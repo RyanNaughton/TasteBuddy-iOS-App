@@ -55,6 +55,8 @@
 		E83A946F1365F15400A5B706 /* 29-heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E83A946D1365F15400A5B706 /* 29-heart@2x.png */; };
 		E83A94701365F15400A5B706 /* 29-heart.png in Resources */ = {isa = PBXBuildFile; fileRef = E83A946E1365F15400A5B706 /* 29-heart.png */; };
 		E83A9473136608CE00A5B706 /* RestaurantTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E83A9472136608CE00A5B706 /* RestaurantTagsCell.m */; };
+		E83A947613660E4B00A5B706 /* RestaurantWebsiteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E83A947513660E4A00A5B706 /* RestaurantWebsiteCell.m */; };
+		E83A94781366119900A5B706 /* SavedSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = E83A94771366119900A5B706 /* SavedSettings.plist */; };
 		E859425E135E463A0094F383 /* grey-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E859425C135E463A0094F383 /* grey-button.png */; };
 		E859425F135E463A0094F383 /* grey-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E859425D135E463A0094F383 /* grey-button@2x.png */; };
 		E8594263135E4E640094F383 /* text-area-image.png in Resources */ = {isa = PBXBuildFile; fileRef = E8594261135E4E640094F383 /* text-area-image.png */; };
@@ -238,6 +240,9 @@
 		E83A946E1365F15400A5B706 /* 29-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart.png"; sourceTree = "<group>"; };
 		E83A9471136608CE00A5B706 /* RestaurantTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTagsCell.h; sourceTree = "<group>"; };
 		E83A9472136608CE00A5B706 /* RestaurantTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTagsCell.m; sourceTree = "<group>"; };
+		E83A947413660E4A00A5B706 /* RestaurantWebsiteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantWebsiteCell.h; sourceTree = "<group>"; };
+		E83A947513660E4A00A5B706 /* RestaurantWebsiteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantWebsiteCell.m; sourceTree = "<group>"; };
+		E83A94771366119900A5B706 /* SavedSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SavedSettings.plist; sourceTree = "<group>"; };
 		E859425C135E463A0094F383 /* grey-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button.png"; sourceTree = "<group>"; };
 		E859425D135E463A0094F383 /* grey-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button@2x.png"; sourceTree = "<group>"; };
 		E8594261135E4E640094F383 /* text-area-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-area-image.png"; sourceTree = "<group>"; };
@@ -585,6 +590,7 @@
 				49BA682B1354DBA40040DDB5 /* InfoPlist.strings */,
 				49BA682E1354DBA40040DDB5 /* iRestaurant-Prefix.pch */,
 				49BA682F1354DBA40040DDB5 /* main.m */,
+				E83A94771366119900A5B706 /* SavedSettings.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -701,6 +707,8 @@
 				E875620A135FE99E001A870F /* RestaurantTagsCell_OLD.m */,
 				E83A9471136608CE00A5B706 /* RestaurantTagsCell.h */,
 				E83A9472136608CE00A5B706 /* RestaurantTagsCell.m */,
+				E83A947413660E4A00A5B706 /* RestaurantWebsiteCell.h */,
+				E83A947513660E4A00A5B706 /* RestaurantWebsiteCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -964,6 +972,7 @@
 				E83A946B1365F11A00A5B706 /* red-heart@2x.png in Resources */,
 				E83A946F1365F15400A5B706 /* 29-heart@2x.png in Resources */,
 				E83A94701365F15400A5B706 /* 29-heart.png in Resources */,
+				E83A94781366119900A5B706 /* SavedSettings.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1054,6 +1063,7 @@
 				E8AA4AFF1361165800A8E37B /* IGUIScrollViewCanvas.m in Sources */,
 				E8AA4B001361165800A8E37B /* IGUIScrollViewElements.m in Sources */,
 				E83A9473136608CE00A5B706 /* RestaurantTagsCell.m in Sources */,
+				E83A947613660E4B00A5B706 /* RestaurantWebsiteCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

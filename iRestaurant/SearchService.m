@@ -11,6 +11,8 @@
 #import "Restaurant.h"
 #import "JSON.h"
 
+#import "iRestaurantAppDelegate.h"
+
 @implementation SearchService
 @synthesize location, delegate, request;
 
@@ -43,6 +45,11 @@
 
 -(void)searchByTerm:(NSString *)term andNear:(NSString *)nearString
 {
+    // Example of how to read from plist. Can also do: [appDelegate setSavedSetting:@"username" withValue:@"my value"];
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSLog(@"username: %@", [appDelegate readSavedSetting:@"username"]);
+    
+    
     if (request != nil) {
         [request cancel];
         request = nil;

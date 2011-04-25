@@ -23,6 +23,7 @@
         
         name = [[UILabel alloc]init];
         name.frame = CGRectMake(10, 7, 195, 20);
+        name.adjustsFontSizeToFitWidth = FALSE;
         name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		name.backgroundColor = [UIColor clearColor];
 		name.font = [UIFont boldSystemFontOfSize:15];

@@ -40,6 +40,7 @@
         [tagsLabel release];
         
         UILabel *tagsSubLabel = [[UILabel alloc]init];
+        tagsSubLabel.adjustsFontSizeToFitWidth = TRUE;
         tagsSubLabel.frame = CGRectMake(10, 45, 300, 15);
         tagsSubLabel.textColor = [UIColor darkGrayColor];
         tagsSubLabel.backgroundColor = [UIColor clearColor];
