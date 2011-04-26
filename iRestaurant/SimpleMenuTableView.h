@@ -12,10 +12,12 @@
 @interface SimpleMenuTableView : UITableViewController {
     Menu *menu;
     NSMutableArray *simpleMenuItemArray;
+    UINavigationController *navController;
 }
 
 @property (nonatomic, retain) Menu *menu;
 @property (nonatomic, retain) NSMutableArray *simpleMenuItemArray;
+@property (nonatomic, retain) UINavigationController *navController;
 
 -(id)initWithMenu:(Menu *)menu_passed;
 

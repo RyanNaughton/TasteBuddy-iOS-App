@@ -10,9 +10,11 @@
 @class Menu;
 
 @interface SectionsMenuTableView : UITableViewController {
-      Menu *menu;
+    Menu *menu;
+    UINavigationController *navController;
 }
 
 @property (nonatomic, retain) Menu *menu;
+@property (nonatomic, retain) UINavigationController *navController;
 
 @end

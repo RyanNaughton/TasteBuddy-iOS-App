@@ -1,20 +1,20 @@
 //
-//  SimpleMenuTableView.m
+//  SubsectionsMenuTableView.m
 //  iRestaurant
 //
-//  Created by Josh Timonen on 4/25/11.
+//  Created by Josh Timonen on 4/26/11.
 //  Copyright 2011 N/A. All rights reserved.
 //
 
-#import "SimpleMenuTableView.h"
+#import "SubsectionsMenuTableView.h"
 #import "Menu.h"
 #import "MenuCategory.h"
 #import "MenuSubcategory.h"
-#import "DishCell.h"
 #import "MenuItem.h"
+#import "DishViewController.h"
 
-@implementation SimpleMenuTableView
-@synthesize menu, simpleMenuItemArray, navController;
+@implementation SubsectionsMenuTableView
+@synthesize menu;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -28,27 +28,7 @@
 -(id)initWithMenu:(Menu *)menu_passed {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
-        // Custom initialization
         menu = [menu_passed retain];
-        simpleMenuItemArray = [[NSMutableArray alloc]init];
-        
-        for (MenuCategory *category in menu.arrayOfCategories) {
-            
-            NSMutableDictionary *categoryDictionary = [[NSMutableDictionary alloc]init];
-            [categoryDictionary setObject:category.name forKey:@"name"];
-            NSLog(@"category name: %@", category.name);
-            NSMutableArray *arrayOfMenuItems = [[NSMutableArray alloc]init];
-            
-            for (MenuSubcategory *subcategory in category.menuSubcategories) {
-            
-                for (MenuItem *menuItem in subcategory.arrayOfMenuItems) {
-                    [arrayOfMenuItems addObject:menuItem];
-                }
-            
-                [categoryDictionary setObject:arrayOfMenuItems forKey:@"items"];
-            }
-            [simpleMenuItemArray addObject:categoryDictionary];
-        }
     }
     return self;
 }
@@ -107,10 +87,6 @@
     [super viewDidDisappear:animated];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
-	return 70;
-}
-
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
@@ -121,40 +97,40 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [simpleMenuItemArray count];
+    return [menu.arrayOfCategories count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    int rows = [[[simpleMenuItemArray objectAtIndex:section] objectForKey:@"items"] count];
-//    MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:section];
-//    for (MenuSubcategory *menuSubcategory in menuCategory.menuSubcategories) {
-//        rows = rows + [menuSubcategory.arrayOfMenuItems count];
-//    }
-    return [[[simpleMenuItemArray objectAtIndex:section] objectForKey:@"items"] count];
-}
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-//	NSString *header;
-//	MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:section];
-//    header = [NSString stringWithFormat:@"%@", menuCategory.name];
-    NSString *header = [[simpleMenuItemArray objectAtIndex:section] objectForKey:@"name"];
-    NSLog(@"header: %@", header);
-    return header;
+    MenuCategory *menuCategory = [menu.arrayOfCategories objectAtIndex:section];
+    return [menuCategory.menuSubcategories count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"DishCell"];
-    if (dishCell == nil) {
-        dishCell = [[[DishCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishCell"] autorelease];
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    MenuItem *menuItem = (MenuItem *)[[[simpleMenuItemArray objectAtIndex:indexPath.section] objectForKey:@"items"]objectAtIndex:indexPath.row];
-    [dishCell loadMenuItem:menuItem];
+    // Configure the cell...
+    MenuCategory *menuCategory = [menu.arrayOfCategories objectAtIndex:indexPath.section];
+    MenuSubcategory *menuSubcategory = [menuCategory.menuSubcategories objectAtIndex:indexPath.row];
     
-    return dishCell;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", menuSubcategory.name];
+    
+    return cell;
 }
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    NSString *header;
+    MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:section];
+    header = [NSString stringWithFormat:@"%@", menuCategory.name];
+    return header;
+}
+
 
 /*
 // Override to support conditional editing of the table view.
@@ -199,14 +175,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    // go to menu subcategory page
 }
 
 @end

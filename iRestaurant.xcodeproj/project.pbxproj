@@ -134,6 +134,7 @@
 		E8BEDE7113665A20001E5079 /* SimpleMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BEDE7013665A20001E5079 /* SimpleMenuTableView.m */; };
 		E8BEDE7313665A8C001E5079 /* MenuViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8BEDE7213665A8C001E5079 /* MenuViewController.xib */; };
 		E8BEDE7C13666877001E5079 /* SectionsMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BEDE7B13666876001E5079 /* SectionsMenuTableView.m */; };
+		E8BEDE7F136753FA001E5079 /* SubsectionsMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BEDE7E136753F9001E5079 /* SubsectionsMenuTableView.m */; };
 		E8C794BB135CB6490033C3FB /* DishButtonsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8C794BA135CB6490033C3FB /* DishButtonsCell.m */; };
 		E8C794CF135D13A80033C3FB /* grey-tab.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C794CE135D13A80033C3FB /* grey-tab.png */; };
 		E8C794D4135D15B80033C3FB /* dishes-tab-on.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C794D0135D15B80033C3FB /* dishes-tab-on.png */; };
@@ -358,6 +359,8 @@
 		E8BEDE7213665A8C001E5079 /* MenuViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuViewController.xib; sourceTree = "<group>"; };
 		E8BEDE7A13666876001E5079 /* SectionsMenuTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionsMenuTableView.h; sourceTree = "<group>"; };
 		E8BEDE7B13666876001E5079 /* SectionsMenuTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionsMenuTableView.m; sourceTree = "<group>"; };
+		E8BEDE7D136753F8001E5079 /* SubsectionsMenuTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubsectionsMenuTableView.h; sourceTree = "<group>"; };
+		E8BEDE7E136753F9001E5079 /* SubsectionsMenuTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubsectionsMenuTableView.m; sourceTree = "<group>"; };
 		E8C794B9135CB6490033C3FB /* DishButtonsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishButtonsCell.h; sourceTree = "<group>"; };
 		E8C794BA135CB6490033C3FB /* DishButtonsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishButtonsCell.m; sourceTree = "<group>"; };
 		E8C794CE135D13A80033C3FB /* grey-tab.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-tab.png"; sourceTree = "<group>"; };
@@ -818,6 +821,8 @@
 				E8BEDE7013665A20001E5079 /* SimpleMenuTableView.m */,
 				E8BEDE7A13666876001E5079 /* SectionsMenuTableView.h */,
 				E8BEDE7B13666876001E5079 /* SectionsMenuTableView.m */,
+				E8BEDE7D136753F8001E5079 /* SubsectionsMenuTableView.h */,
+				E8BEDE7E136753F9001E5079 /* SubsectionsMenuTableView.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -1122,6 +1127,7 @@
 				E8BEDE6E13665846001E5079 /* MenuViewController.m in Sources */,
 				E8BEDE7113665A20001E5079 /* SimpleMenuTableView.m in Sources */,
 				E8BEDE7C13666877001E5079 /* SectionsMenuTableView.m in Sources */,
+				E8BEDE7F136753FA001E5079 /* SubsectionsMenuTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

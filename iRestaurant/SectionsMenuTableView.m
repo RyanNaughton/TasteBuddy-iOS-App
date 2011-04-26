@@ -10,10 +10,11 @@
 #import "Menu.h"
 #import "MenuCategory.h"
 #import "MenuSubcategory.h"
+#import "SubsectionsMenuTableView.h"
 
 @implementation SectionsMenuTableView
 
-@synthesize menu;
+@synthesize menu, navController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -182,15 +183,11 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+{    
+    NSLog(@"did select row");
+    SubsectionsMenuTableView *subsectionsMenuTableView = [[SubsectionsMenuTableView alloc] initWithMenu:menu];
+    [navController pushViewController:subsectionsMenuTableView animated:YES];
+    [subsectionsMenuTableView release];
 }
 
 @end

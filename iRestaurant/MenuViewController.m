@@ -56,6 +56,7 @@
         SectionsMenuTableView *sectionsMenuTableView = [[SectionsMenuTableView alloc]initWithMenu:menu];
         tableView.dataSource = sectionsMenuTableView;
         tableView.delegate = sectionsMenuTableView;
+        sectionsMenuTableView.navController = self.navigationController;
         [tableView reloadData];
         //[sectionsMenuTableView release];
         
@@ -63,6 +64,7 @@
         SimpleMenuTableView *simpleMenuTableView = [[SimpleMenuTableView alloc]initWithMenu:menu];
         tableView.dataSource = simpleMenuTableView;
         tableView.delegate = simpleMenuTableView;
+        simpleMenuTableView.navController = self.navigationController;
         [tableView reloadData];
         //[simpleMenuTableView release];
     }
