@@ -24,7 +24,7 @@
     self = [super init];
     if (self) {
         // init
-        name = [dictionary objectForKey:@"name"];
+        name = [[dictionary objectForKey:@"name"] retain];
         
         NSLog(@"subcategory name: %@", name);
         
