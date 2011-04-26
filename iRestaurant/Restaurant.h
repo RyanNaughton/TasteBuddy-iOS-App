@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Menu;
 
 @interface Restaurant : NSObject <NSCopying> {
     NSNumber *_id;
@@ -21,7 +22,6 @@
     NSString *neighborhood;
     NSString *location;
     NSString *website_url;
-    NSArray *menu;
     NSString *alcohol_type;
     NSNumber *credit_cards;
     NSArray *cuisine_types;
@@ -44,6 +44,8 @@
     NSMutableArray *menu_items;
     
     NSMutableArray *menu_metadata;
+    
+    Menu *menu;
 }
 
 @property (nonatomic, retain) NSNumber *_id;
@@ -58,7 +60,6 @@
 @property (nonatomic, retain) NSString *neighborhood;
 @property (nonatomic, retain) NSString *location;
 @property (nonatomic, retain) NSString *website_url;
-@property (nonatomic, retain) NSArray *menu;
 @property (nonatomic, retain) NSString *alcohol_type;
 @property (nonatomic, retain) NSNumber *credit_cards;
 @property (nonatomic, retain) NSArray *cuisine_types;
@@ -81,6 +82,8 @@
 @property (nonatomic, retain) NSMutableArray *menu_items;
 
 @property (nonatomic, retain) NSMutableArray *menu_metadata;
+
+@property (nonatomic, retain) Menu *menu;
 
 -(id) initWithDictionary:(NSDictionary *)restaurantDictionary;
 

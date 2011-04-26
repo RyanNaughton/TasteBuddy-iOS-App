@@ -10,9 +10,12 @@
 #import "Restaurant.h"
 #import "Menu.h"
 #import "JSON.h"
+#import "ASIHTTPRequest.h"
+#import "Menu.h"
+
 @implementation MenuService
 
-@synthesize delegate;
+@synthesize delegate, request;
 
 -(id) initWithDelegate:(id <MenuServiceDelegate>) menuDelegate 
 {
@@ -23,10 +26,13 @@
     return self;
 }
 
--(void) getMenuForRestaurant:(Restaurant *)restaurant withMenuSection:(NSString *)section
+-(void) getMenuForRestaurant:(Restaurant *)restaurant
 {
-    NSString *url = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/menu_subsection/%d.json", restaurant._id, [restaurant.menu_subsection indexOfObject: section]];
-    [self requestFinished:nil];    
+    NSString *urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/menu.json", restaurant._id];    
+    NSURL *url = [NSURL URLWithString:urlString];
+    request = [ASIHTTPRequest requestWithURL:url];
+    [request setDelegate:self];
+    [request startAsynchronous];
 }
 
 -(void) dealloc
@@ -37,9 +43,10 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
-    NSString *json = @"{}";
-    NSDictionary *dict = [json JSONValue];
-    Menu *menu = [[Menu alloc] initWithDictionary:dict];
+    NSString *responseString = [request_passed responseString];
+    NSArray *array = [responseString JSONValue];
+    Menu *menu = [[Menu alloc] initWithArray:array];
+    NSLog(@"menu: %@", menu);
     [delegate menuReturned:menu];
 }
 

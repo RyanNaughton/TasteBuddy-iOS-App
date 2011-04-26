@@ -9,8 +9,8 @@
 #import "Restaurant.h"
 #import "JSON.h"
 #import "MenuItem.h"
-
 #import "MenuSubsectionService.h"
+#import "Menu.h"
 
 @implementation Restaurant
 
@@ -26,7 +26,6 @@
 @synthesize neighborhood;
 @synthesize location;
 @synthesize website_url;
-@synthesize menu;
 @synthesize alcohol_type;
 @synthesize credit_cards;
 @synthesize cuisine_types;
@@ -45,10 +44,9 @@
 @synthesize comments;
 @synthesize average_meal_price;
 @synthesize distance;
-
 @synthesize menu_items;
-
 @synthesize menu_metadata;
+@synthesize menu;
 
 -(id) init {
     self = [super init];
@@ -75,7 +73,6 @@
         neighborhood      = [[restaurantDictionary objectForKey:@"neighborhood"] retain];
         location          = [[restaurantDictionary objectForKey:@"location"] retain];
         website_url       = [[restaurantDictionary objectForKey:@"website_url"] retain];
-        menu              = [[restaurantDictionary objectForKey:@"menu"] retain];
         alcohol_type      = [[restaurantDictionary objectForKey:@"alcohol_type"] retain];
         credit_cards      = [[restaurantDictionary objectForKey:@"credit_cards"] retain];
         cuisine_types     = [[restaurantDictionary objectForKey:@"cuisine_types"] retain];
@@ -123,7 +120,6 @@
     newRestaurant.neighborhood      = [neighborhood      copy];
     newRestaurant.location          = [location          copy];
     newRestaurant.website_url       = [website_url       copy];
-    newRestaurant.menu              = [menu              copy];
     newRestaurant.alcohol_type      = [alcohol_type      copy];
     newRestaurant.credit_cards      = [credit_cards      copy];
     newRestaurant.cuisine_types     = [cuisine_types     copy];
@@ -161,7 +157,6 @@
     [neighborhood      release];
     [location          release];
     [website_url       release];
-    [menu              release];
     [alcohol_type      release];
     [cuisine_types     release];
     [delivery          release];
@@ -177,6 +172,7 @@
     [average_meal_price release];
     [distance release];
     [menu_metadata release];
+    [menu release];
     [super dealloc];
 }
 

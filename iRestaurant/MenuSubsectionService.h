@@ -9,11 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @class ASIFormDataRequest;
-@class MenuSubsection;
+@class MenuSubcategory;
 @class Restaurant;
 
 @protocol MenuSubsectionServiceDelegate <NSObject>
-    -(void)menuSubsectionReturned:(MenuSubsection *) menuSubsection;
+    -(void)menuSubsectionReturned:(MenuSubcategory *) menuSubsection;
 @end
 
 @interface MenuSubsectionService : NSObject {

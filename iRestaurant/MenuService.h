@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @class ASIFormDataRequest;
+@class ASIHTTPRequest;
 
 @class Menu;
 @class Restaurant;
@@ -19,14 +20,15 @@
 
 @interface MenuService : NSObject {
     id<MenuServiceDelegate> delegate;
-    ASIFormDataRequest *request;
+    ASIHTTPRequest *request;
 }
 
 @property (nonatomic, retain) id<MenuServiceDelegate> delegate;
+@property (nonatomic, retain) ASIHTTPRequest *request;
 
 -(id) initWithDelegate:(id <MenuServiceDelegate>) menuDelegate;
 
--(void) getMenuForRestaurant:(Restaurant *)restaurant, withMenuSection:(NSString *)section;
+-(void) getMenuForRestaurant:(Restaurant *)restaurant;
 
 
 @end
