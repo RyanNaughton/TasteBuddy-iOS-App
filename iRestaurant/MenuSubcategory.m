@@ -25,6 +25,9 @@
     if (self) {
         // init
         name = [dictionary objectForKey:@"name"];
+        
+        NSLog(@"subcategory name: %@", name);
+        
         arrayOfMenuItems = [[NSMutableArray alloc]init];
         for (NSDictionary *dict in [dictionary objectForKey:@"items"]) {
             MenuItem *menuItem = [[MenuItem alloc]initWithDictionary:dict];
