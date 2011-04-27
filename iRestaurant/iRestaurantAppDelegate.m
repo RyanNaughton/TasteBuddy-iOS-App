@@ -24,7 +24,7 @@
      
     //Restaurant *restaurantTest = [[Restaurant alloc]initWithDictionary:NULL];
         
-    [self createPList];
+    [self checkOrCreatePlist];
     
     [self.window makeKeyAndVisible];
     [self.window addSubview:tabBarController.view];
@@ -70,7 +70,7 @@
      */
 }
 
--(void)createPList {
+-(void)checkOrCreatePlist {
 	NSError *error;
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //1
 	NSString *documentsDirectory = [paths objectAtIndex:0]; //2
@@ -113,6 +113,7 @@
 {
     [_window release];
     [tabBarController release];
+    [savedSettingsPath release];
     [super dealloc];
 }
 

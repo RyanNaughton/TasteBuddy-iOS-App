@@ -19,7 +19,7 @@
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain) NSString *savedSettingsPath;
 
--(void)createPList;
+-(void)checkOrCreatePlist;
 -(id) readSavedSetting:(NSString *)key;
 -(void) setSavedSetting:(NSString *)key withValue:(id)value;
 
