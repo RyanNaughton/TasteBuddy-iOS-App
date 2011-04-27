@@ -25,6 +25,7 @@
    
     frame.size.height = expectedLabelSize.height;
     label.frame = frame;
+    [label release];
     return frame.origin.y + frame.size.height + paddingBottom;
 }
 
