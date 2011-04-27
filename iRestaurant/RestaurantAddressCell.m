@@ -56,10 +56,9 @@
 }
 
 -(void)addressButtonPressed:(id)sender {
-    NSString *addressString = [NSString stringWithFormat:@"%@", restaurant.address_1];
-    addressString = [addressString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    NSString *addressString = [NSString stringWithFormat:@"%@, %@, %@, %@, %@, %@", restaurant.address_1, restaurant.address_2, restaurant.city_town, restaurant.state_province, restaurant.postal_code, restaurant.country];
+    addressString = [addressString stringByAddingPercentEscapesUsingEncoding: NSASCIIStringEncoding];
     NSString *requestString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@&z=15", addressString];
-    NSLog(@"address req string: %@", requestString);
     UIApplication *app = [UIApplication sharedApplication];
     [app openURL:[NSURL URLWithString:requestString]];	
 }
