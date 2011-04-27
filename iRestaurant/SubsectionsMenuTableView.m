@@ -12,6 +12,7 @@
 #import "MenuSubcategory.h"
 #import "MenuItem.h"
 #import "DishViewController.h"
+#import "MenuItemsViewController.h"
 
 @implementation SubsectionsMenuTableView
 @synthesize menu;
@@ -175,7 +176,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // go to menu subcategory page
+    MenuItemsViewController *menuItemsViewController = [[MenuItemsViewController alloc]initWithMenu:menu andSection:indexPath.section andSubsection:indexPath.row];
+    [self.navigationController pushViewController:menuItemsViewController animated:YES];
+    [menuItemsViewController release];
 }
 
 @end
