@@ -8,14 +8,17 @@
 
 #import <UIKit/UIKit.h>
 @class Menu;
+@class Restaurant;
 
 @interface MenuItemsViewController : UITableViewController {
     Menu *menu;
     int menuSection;
     int menuSubsection;
+    Restaurant *restaurant;
 }
 
 @property (nonatomic, retain) Menu *menu;
+@property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, assign) int menuSection;
 @property (nonatomic, assign) int menuSubsection;
 
