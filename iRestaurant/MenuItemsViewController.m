@@ -13,9 +13,10 @@
 #import "MenuSubcategory.h"
 #import "DishCell.h"
 #import "DishViewController.h"
+#import "Restaurant.h"
 
 @implementation MenuItemsViewController
-@synthesize menu, menuSection, menuSubsection;
+@synthesize menu, menuSection, menuSubsection, restaurant;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -38,6 +39,7 @@
 
 - (void)dealloc
 {
+    [restaurant release];
     [menu release];
     [super dealloc];
 }
@@ -183,7 +185,7 @@
     MenuSubcategory *menuSubcategory = [menuCategory.menuSubcategories objectAtIndex:menuSubsection];
     MenuItem *menuItem = [menuSubcategory.arrayOfMenuItems objectAtIndex:indexPath.row];
     
-    DishViewController *dishViewController = [[DishViewController alloc]initWithMenuItem:menuItem andRestaurant:nil];
+    DishViewController *dishViewController = [[DishViewController alloc]initWithMenuItem:menuItem andRestaurant:restaurant];
     [self.navigationController pushViewController:dishViewController animated:YES];
     [dishViewController release];
 }

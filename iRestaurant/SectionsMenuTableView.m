@@ -11,10 +11,11 @@
 #import "MenuCategory.h"
 #import "MenuSubcategory.h"
 #import "SubsectionsMenuTableView.h"
+#import "Restaurant.h"
 
 @implementation SectionsMenuTableView
 
-@synthesize menu, navController;
+@synthesize menu, navController, restaurant;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -186,6 +187,7 @@
 {    
     NSLog(@"did select row");
     SubsectionsMenuTableView *subsectionsMenuTableView = [[SubsectionsMenuTableView alloc] initWithMenu:menu];
+    subsectionsMenuTableView.restaurant = restaurant;
     [navController pushViewController:subsectionsMenuTableView animated:YES];
     NSIndexPath *jumpIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
     [subsectionsMenuTableView.tableView scrollToRowAtIndexPath:jumpIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];

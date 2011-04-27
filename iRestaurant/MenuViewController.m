@@ -57,6 +57,7 @@
         tableView.dataSource = sectionsMenuTableView;
         tableView.delegate = sectionsMenuTableView;
         sectionsMenuTableView.navController = self.navigationController;
+        sectionsMenuTableView.restaurant = restaurant;
         [tableView reloadData];
         //[sectionsMenuTableView release];
         

@@ -13,9 +13,10 @@
 #import "MenuItem.h"
 #import "DishViewController.h"
 #import "MenuItemsViewController.h"
+#import "Restaurant.h"
 
 @implementation SubsectionsMenuTableView
-@synthesize menu;
+@synthesize menu, restaurant;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -36,6 +37,7 @@
 
 - (void)dealloc
 {
+    [restaurant release];
     [menu release];
     [super dealloc];
 }
@@ -177,6 +179,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     MenuItemsViewController *menuItemsViewController = [[MenuItemsViewController alloc]initWithMenu:menu andSection:indexPath.section andSubsection:indexPath.row];
+    menuItemsViewController.restaurant = restaurant;
     [self.navigationController pushViewController:menuItemsViewController animated:YES];
     [menuItemsViewController release];
 }
