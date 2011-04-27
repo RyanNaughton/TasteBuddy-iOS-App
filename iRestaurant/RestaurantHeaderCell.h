@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @class Restaurant;
 @class RatingView;
+@class TakePhoto;
 
 @interface RestaurantHeaderCell : UITableViewCell {
     UIImageView *imageView;
@@ -21,6 +22,8 @@
     UIButton *favoriteButton;
     UIImage *greyHeart;
     UIImage *redHeart;
+    
+    TakePhoto *takePhoto;
 }
 
 @property (nonatomic, retain) UIImageView *imageView;
@@ -33,6 +36,8 @@
 @property (nonatomic, retain) UIButton *favoriteButton;
 @property (nonatomic, retain) UIImage *greyHeart;
 @property (nonatomic, retain) UIImage *redHeart;
+
+@property (nonatomic, retain) TakePhoto *takePhoto;
 
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 - (void) loadRestaurant:(Restaurant *)restaurant;

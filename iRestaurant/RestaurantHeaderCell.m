@@ -10,9 +10,11 @@
 #import "Restaurant.h"
 #import "UIImageView+WebCache.h"
 #import "RatingView.h"
+#import "iRestaurantAppDelegate.h"
+#import "TakePhoto.h"
 
 @implementation RestaurantHeaderCell
-@synthesize imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart;
+@synthesize imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, takePhoto;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -24,6 +26,13 @@
         
         greyHeart = [UIImage imageNamed:@"29-heart.png"];
         redHeart = [UIImage imageNamed:@"red-heart.png"];
+        takePhoto = [[TakePhoto alloc]init];
+        
+        UIButton *cameraButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [cameraButton setBackgroundImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
+        [cameraButton addTarget:takePhoto action:@selector(cameraButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        cameraButton.frame = CGRectMake(230, 10, 24, 18);
+        [self.contentView addSubview:cameraButton];
         
         imageView = [[UIImageView alloc]init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -38,7 +47,7 @@
         [self.contentView addSubview:favoriteButton];
         
         name = [[UILabel alloc]init];
-        name.frame = CGRectMake(10, 7, 280, 20);
+        name.frame = CGRectMake(10, 7, 210, 20);
         name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		name.backgroundColor = [UIColor clearColor];
 		name.font = [UIFont boldSystemFontOfSize:18];
@@ -201,6 +210,7 @@
 
 - (void)dealloc
 {
+    [takePhoto release];
     [imageView release];
     [name release];
     [ratingView release];
