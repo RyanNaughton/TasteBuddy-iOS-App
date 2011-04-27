@@ -46,6 +46,7 @@
 		49BA68501354DBA50040DDB5 /* iRestaurantTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 49BA684F1354DBA50040DDB5 /* iRestaurantTests.h */; };
 		49BA68521354DBA50040DDB5 /* iRestaurantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA68511354DBA50040DDB5 /* iRestaurantTests.m */; };
 		49BED7FD13611BA700DE8CC4 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BED7FC13611BA700DE8CC4 /* CommentCell.m */; };
+		49EE9A7A136799CF00528C91 /* JSONBuiltModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE9A79136799CF00528C91 /* JSONBuiltModel.m */; };
 		E80E05861360CAF900894180 /* DishTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E80E05851360CAF900894180 /* DishTagsCell.m */; };
 		E80E059C1360D2A100894180 /* IGUIScrollViewImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E80E059B1360D2A100894180 /* IGUIScrollViewImage.m */; };
 		E80E05A01360EA3400894180 /* pizza.png in Resources */ = {isa = PBXBuildFile; fileRef = E80E059D1360EA3300894180 /* pizza.png */; };
@@ -239,6 +240,8 @@
 		49BED7F81361110B00DE8CC4 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		49BED7FB13611BA700DE8CC4 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
 		49BED7FC13611BA700DE8CC4 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		49EE9A78136799CF00528C91 /* JSONBuiltModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONBuiltModel.h; sourceTree = "<group>"; };
+		49EE9A79136799CF00528C91 /* JSONBuiltModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONBuiltModel.m; sourceTree = "<group>"; };
 		E80E05841360CAF900894180 /* DishTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishTagsCell.h; sourceTree = "<group>"; };
 		E80E05851360CAF900894180 /* DishTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishTagsCell.m; sourceTree = "<group>"; };
 		E80E059A1360D2A100894180 /* IGUIScrollViewImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGUIScrollViewImage.h; sourceTree = "<group>"; };
@@ -890,6 +893,8 @@
 		E8E6D3F113552435003F0ECB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				49EE9A78136799CF00528C91 /* JSONBuiltModel.h */,
+				49EE9A79136799CF00528C91 /* JSONBuiltModel.m */,
 				E8BEDE6B13665769001E5079 /* Menu */,
 				E8E6D3F213552448003F0ECB /* Restaurant.h */,
 				E8E6D3F313552448003F0ECB /* Restaurant.m */,
@@ -1134,6 +1139,7 @@
 				E8BEDE7C13666877001E5079 /* SectionsMenuTableView.m in Sources */,
 				E8BEDE7F136753FA001E5079 /* SubsectionsMenuTableView.m in Sources */,
 				E8BEDE8213678F5A001E5079 /* MenuItemsViewController.m in Sources */,
+				49EE9A7A136799CF00528C91 /* JSONBuiltModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
