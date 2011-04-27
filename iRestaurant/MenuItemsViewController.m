@@ -1,20 +1,21 @@
 //
-//  SectionsMenuTableView.m
+//  MenuItemsViewController.m
 //  iRestaurant
 //
-//  Created by Josh Timonen on 4/25/11.
+//  Created by Josh Timonen on 4/26/11.
 //  Copyright 2011 N/A. All rights reserved.
 //
 
-#import "SectionsMenuTableView.h"
+#import "MenuItemsViewController.h"
+#import "MenuItem.h"
 #import "Menu.h"
 #import "MenuCategory.h"
 #import "MenuSubcategory.h"
-#import "SubsectionsMenuTableView.h"
+#import "DishCell.h"
+#import "DishViewController.h"
 
-@implementation SectionsMenuTableView
-
-@synthesize menu, navController;
+@implementation MenuItemsViewController
+@synthesize menu, menuSection, menuSubsection;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -25,10 +26,12 @@
     return self;
 }
 
--(id)initWithMenu:(Menu *)menu_passed {
-    self = [super initWithStyle:UITableViewStyleGrouped];
+-(id)initWithMenu:(Menu *)menu_passed andSection:(int)section andSubsection:(int)subSection {
+    self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         menu = [menu_passed retain];
+        menuSection = section;
+        menuSubsection = subSection;
     }
     return self;
 }
@@ -52,6 +55,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    MenuCategory *menuCategory = [menu.arrayOfCategories objectAtIndex:menuSection];
+    MenuSubcategory *menuSubcategory = [menuCategory.menuSubcategories objectAtIndex:menuSubsection];
+    
+    [self setTitle:menuSubcategory.name];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -98,47 +106,34 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    return [menu.arrayOfCategories count];
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    
-    return 1;
+    MenuCategory *menuCategory = [menu.arrayOfCategories objectAtIndex:menuSection];
+    MenuSubcategory *menuSubcategory = [menuCategory.menuSubcategories objectAtIndex:menuSubsection];
+    return [menuSubcategory.arrayOfMenuItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row == 0) {
+    MenuCategory *menuCategory = [menu.arrayOfCategories objectAtIndex:menuSection];
+    MenuSubcategory *menuSubcategory = [menuCategory.menuSubcategories objectAtIndex:menuSubsection];
+    MenuItem *menuItem = [menuSubcategory.arrayOfMenuItems objectAtIndex:indexPath.row];
     
-    static NSString *CellIdentifier = @"Cell";
+    DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"DishCell"];
+    if (dishCell == nil) {
+        dishCell = [[[DishCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishCell"] autorelease];
+    }          
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-    // Configure the cell...
-    MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", menuCategory.name];
-    //cell.textLabel.text = @"hi";
-    return cell;
+    [dishCell loadMenuItem:menuItem];
+    return dishCell;
+}
 
-    } else {
-        UITableViewCell *sub_cell = [tableView dequeueReusableCellWithIdentifier:@"sub_cell"];
-        if (sub_cell == nil) {
-            sub_cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"sub_cell"] autorelease];
-        }
-        
-        // Configure the cell...
-        MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
-        MenuSubcategory *subcategory = [menuCategory.menuSubcategories objectAtIndex:(indexPath.row - 1)];
-        sub_cell.textLabel.text = [NSString stringWithFormat:@"%@", subcategory.name];
-        //cell.textLabel.text = @"hi";
-        return sub_cell;
-
-    }
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
+    return 70;
 }
 
 /*
@@ -183,13 +178,14 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{    
-    NSLog(@"did select row");
-    SubsectionsMenuTableView *subsectionsMenuTableView = [[SubsectionsMenuTableView alloc] initWithMenu:menu];
-    [navController pushViewController:subsectionsMenuTableView animated:YES];
-    NSIndexPath *jumpIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
-    [subsectionsMenuTableView.tableView scrollToRowAtIndexPath:jumpIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    [subsectionsMenuTableView release];
+{
+    MenuCategory *menuCategory = [menu.arrayOfCategories objectAtIndex:menuSection];
+    MenuSubcategory *menuSubcategory = [menuCategory.menuSubcategories objectAtIndex:menuSubsection];
+    MenuItem *menuItem = [menuSubcategory.arrayOfMenuItems objectAtIndex:indexPath.row];
+    
+    DishViewController *dishViewController = [[DishViewController alloc]initWithMenuItem:menuItem andRestaurant:nil];
+    [self.navigationController pushViewController:dishViewController animated:YES];
+    [dishViewController release];
 }
 
 @end
