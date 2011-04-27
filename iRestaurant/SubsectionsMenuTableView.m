@@ -122,8 +122,8 @@
     MenuCategory *menuCategory = [menu.arrayOfCategories objectAtIndex:indexPath.section];
     MenuSubcategory *menuSubcategory = [menuCategory.menuSubcategories objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", menuSubcategory.name];
-    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%i)", menuSubcategory.name, [menuSubcategory.arrayOfMenuItems count]];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 

@@ -16,7 +16,7 @@
 #import "SectionsMenuTableView.h"
 
 @implementation MenuViewController
-@synthesize restaurant, menuService, tableView;
+@synthesize restaurant, menuService, tableView, activityIndicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -40,8 +40,8 @@
 }
 
 -(void)menuReturned:(Menu *)menu {
-    NSLog(@"menu: %@", menu);
- //   restaurant.menu = [menu retain];
+    [activityIndicator stopAnimating];
+    tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
     int menuItems = 0;
     for (MenuCategory *menuCategory in menu.arrayOfCategories) {
@@ -96,13 +96,19 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    activityIndicator.frame = CGRectMake(0, 0, 25, 25);
+    activityIndicator.center = CGPointMake(self.view.center.x, (self.view.center.y - 50));
+    [self.view addSubview:activityIndicator];
+    [activityIndicator startAnimating];
+    tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
-*/
+
 
 - (void)viewDidUnload
 {

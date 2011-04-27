@@ -110,9 +110,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == 0) {
-    
+{    
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -120,26 +118,10 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
     MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", menuCategory.name];
-    //cell.textLabel.text = @"hi";
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%i)", menuCategory.name, [menuCategory.menuSubcategories count]];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
-
-    } else {
-        UITableViewCell *sub_cell = [tableView dequeueReusableCellWithIdentifier:@"sub_cell"];
-        if (sub_cell == nil) {
-            sub_cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"sub_cell"] autorelease];
-        }
-        
-        // Configure the cell...
-        MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
-        MenuSubcategory *subcategory = [menuCategory.menuSubcategories objectAtIndex:(indexPath.row - 1)];
-        sub_cell.textLabel.text = [NSString stringWithFormat:@"%@", subcategory.name];
-        //cell.textLabel.text = @"hi";
-        return sub_cell;
-
-    }
 }
 
 /*

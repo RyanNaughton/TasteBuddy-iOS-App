@@ -15,11 +15,13 @@
     Restaurant *restaurant;
     MenuService *menuService;
     IBOutlet UITableView *tableView;
+    UIActivityIndicatorView *activityIndicator;
 }
 
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, retain) MenuService *menuService;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
 
 - (id) initWithRestaurant:(Restaurant *)restaurant_passed;
 - (void) menuReturned:(Menu *)menu;
