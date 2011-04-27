@@ -75,11 +75,11 @@
         UIImage *image3 = [UIImage imageNamed:@"cheeseburger.png"];
         NSArray *imageArray = [NSArray arrayWithObjects:image1, image2, image3, nil];
         
-        UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 260, 260)];
+        UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
         svimage = [[IGUIScrollViewImage alloc] init];  
         [svimage setBackGroudColor:[UIColor clearColor]];
         [svimage setContentArray:imageArray];  
-        [svimage setWidth:260 andHeight:260];
+        [svimage setWidth:300 andHeight:300];
         [svimage enablePageControlOnBottom];  
         [viewForScrollView addSubview:[svimage getWithPosition:0]]; 
         svimage.scrollView.showsHorizontalScrollIndicator = FALSE;

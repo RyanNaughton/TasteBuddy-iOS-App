@@ -201,7 +201,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     int height;
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
-        height = 355;
+        height = 395;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
         height = 60;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
