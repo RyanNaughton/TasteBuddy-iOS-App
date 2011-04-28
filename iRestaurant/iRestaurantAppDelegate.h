@@ -8,21 +8,25 @@
 
 #import <UIKit/UIKit.h>
 
-@class iRestaurantViewController;
+@class AuthenticationResponse;
 
 @interface iRestaurantAppDelegate : NSObject <UIApplicationDelegate> {
     IBOutlet UITabBarController *tabBarController;
     NSString *savedSettingsPath;
+    AuthenticationResponse *authenticationResponse;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain) NSString *savedSettingsPath;
+@property (nonatomic, retain) AuthenticationResponse *authenticationResponse;
 
 -(void)checkOrCreatePlist;
 -(id) readSavedSetting:(NSString *)key;
 -(void) setSavedSetting:(NSString *)key withValue:(id)value;
 
 -(void) login;
+-(void) logout;
+-(void) updateAuthentication:(AuthenticationResponse *) authResponse;
 
 @end

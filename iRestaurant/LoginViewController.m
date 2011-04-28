@@ -7,11 +7,10 @@
 //
 
 #import "LoginViewController.h"
-
-
+#import "iRestaurantAppDelegate.h"
 @implementation LoginViewController
 
-@synthesize username, password, cancelButton, loginButton;
+@synthesize username, password, cancelButton, loginButton, loginService;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -24,6 +23,7 @@
 
 - (void)dealloc
 {
+    [loginService release];
     [cancelButton release];
     [loginButton release];
     [username release];
@@ -45,6 +45,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    loginService = [[LoginService alloc] initWithDelegate:self];
 }
 
 - (void)viewDidUnload
@@ -65,7 +66,12 @@
 }
 
 -(IBAction) login {
-    
+    [loginService loginWith:username.text andPassword:password.text];
 }
 
+-(void) loginComplete:(AuthenticationResponse *)authToken
+{
+    [(iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate] updateAuthentication:authToken]; 
+    [self cancel];
+}
 @end

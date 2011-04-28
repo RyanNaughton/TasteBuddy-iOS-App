@@ -10,6 +10,7 @@
 
 #import "Restaurant.h"
 #import "LoginViewController.h"
+#import "AuthenticationResponse.h"
 
 @implementation iRestaurantAppDelegate
 
@@ -18,6 +19,7 @@
 
 @synthesize tabBarController;
 @synthesize savedSettingsPath;
+@synthesize authenticationResponse;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -30,6 +32,7 @@
     [self.window addSubview:tabBarController.view];
 
     [self checkOrCreatePlist];
+    [self logout];
     [self login];
     
     return YES;
@@ -114,7 +117,7 @@
 
 
 -(void) login {
-    if ( [self readSavedSetting:@"authentication_token"] == nil ) {
+    if ( [self readSavedSetting:@"authentication_token"] == nil || [[self readSavedSetting:@"authentication_token"]  isEqualToString:@""]) {
         LoginViewController *lvc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
         lvc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self.tabBarController presentModalViewController:lvc animated:YES];
@@ -122,11 +125,21 @@
     }
 }
 
+
+-(IBAction) logout {
+    [self setSavedSetting:@"authentication_token" withValue:@""];
+}
+-(void) updateAuthentication:(AuthenticationResponse *) authResponse {
+    authenticationResponse = authResponse;
+    [self setSavedSetting:@"authentication_token" withValue:authenticationResponse.authentication_token];
+}
+
 - (void)dealloc
 {
     [_window release];
     [tabBarController release];
     [savedSettingsPath release];
+    [authenticationResponse release];
     [super dealloc];
 }
 

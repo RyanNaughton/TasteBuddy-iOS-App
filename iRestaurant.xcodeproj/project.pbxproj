@@ -29,7 +29,6 @@
 		499B564A1357AE9000F2B407 /* AutocompleteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727DE13578626004CB2F6 /* AutocompleteService.m */; };
 		499B564C1357AEC300F2B407 /* FindAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */; };
 		499B564D1357AED200F2B407 /* NearAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */; };
-		49A64FA3135F52FC002B3655 /* MenuSubsectionService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A64FA2135F52FB002B3655 /* MenuSubsectionService.m */; };
 		49A64FA6135F5455002B3655 /* MenuSubcategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A64FA5135F5455002B3655 /* MenuSubcategory.m */; };
 		49BA68231354DBA40040DDB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68221354DBA40040DDB5 /* UIKit.framework */; };
 		49BA68251354DBA40040DDB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68241354DBA40040DDB5 /* Foundation.framework */; };
@@ -225,8 +224,6 @@
 		498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindAutocompleteTableViewController.m; sourceTree = "<group>"; };
 		498727E51357A1F4004CB2F6 /* NearAutocompleteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearAutocompleteTableViewController.h; sourceTree = "<group>"; };
 		498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearAutocompleteTableViewController.m; sourceTree = "<group>"; };
-		49A64FA1135F52FB002B3655 /* MenuSubsectionService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuSubsectionService.h; sourceTree = "<group>"; };
-		49A64FA2135F52FB002B3655 /* MenuSubsectionService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuSubsectionService.m; sourceTree = "<group>"; };
 		49A64FA4135F5455002B3655 /* MenuSubcategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuSubcategory.h; sourceTree = "<group>"; };
 		49A64FA5135F5455002B3655 /* MenuSubcategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuSubcategory.m; sourceTree = "<group>"; };
 		49BA681E1354DBA30040DDB5 /* iRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -858,8 +855,6 @@
 				498727DE13578626004CB2F6 /* AutocompleteService.m */,
 				490F2C9B1358BB3200DA5C1F /* MenuService.h */,
 				490F2C9C1358BB3200DA5C1F /* MenuService.m */,
-				49A64FA1135F52FB002B3655 /* MenuSubsectionService.h */,
-				49A64FA2135F52FB002B3655 /* MenuSubsectionService.m */,
 				49EE9AF81368E67A00528C91 /* LoginService.h */,
 				49EE9AF91368E67A00528C91 /* LoginService.m */,
 				E86A84741368FE9A00720FA3 /* PhotoUploadService.h */,
@@ -1223,7 +1218,6 @@
 				4956EB201358F85800D68EE9 /* UIImageView+WebCache.m in Sources */,
 				E8C794BB135CB6490033C3FB /* DishButtonsCell.m in Sources */,
 				49520096135D11D200F0876E /* AutocompleteModalViewController.m in Sources */,
-				49A64FA3135F52FC002B3655 /* MenuSubsectionService.m in Sources */,
 				49A64FA6135F5455002B3655 /* MenuSubcategory.m in Sources */,
 				E875620B135FE99E001A870F /* RestaurantTagsCell_OLD.m in Sources */,
 				E80E05861360CAF900894180 /* DishTagsCell.m in Sources */,

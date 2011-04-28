@@ -32,8 +32,7 @@
     if (self) {
         location = current_location;
         delegate = searchServiceDelegate;
-        
-           }
+    }
     return self;
 }
 
