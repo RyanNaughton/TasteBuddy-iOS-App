@@ -16,9 +16,15 @@
 @end
 
 @interface LoginService : NSObject {
-    
+    id<LoginServiceDelegate> delegate;
+    ASIFormDataRequest *request;
 }
 
+@property (nonatomic, retain) ASIFormDataRequest *request;
+@property (nonatomic, retain) id<LoginServiceDelegate> delegate;
+
+
+-(id) initWithDelegate:(id<LoginServiceDelegate>) serviceDelegate;
 -(void) loginWith:(NSString *)username andPassword:(NSString *)password;
 
 @end
