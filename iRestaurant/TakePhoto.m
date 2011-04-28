@@ -35,7 +35,6 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSLog(@"index; %i", buttonIndex);
     iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
@@ -46,12 +45,10 @@
 
     if (buttonIndex == 0) 
     {
-        NSLog(@"take pic");
         imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
     }
     if (buttonIndex == 1) 
     {
-        NSLog(@"choose from library");
         imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
         
@@ -63,8 +60,8 @@
 	UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
 	
 	if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
-		NSLog(@"save image");
-		UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+		// Save Image to Photo Library on Device
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 	}
     [picker dismissModalViewControllerAnimated:NO];
     [self launchAdditionalDetailsWindowWithImage:image andPicker:picker];

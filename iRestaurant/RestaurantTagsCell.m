@@ -133,7 +133,6 @@
 }
 
 -(void)tagButtonPressed:(id)sender {
-    NSLog(@"hit");
     UIButton *tagButton = (UIButton *)sender;
     
     for (UIView *view in tagButton.subviews) {

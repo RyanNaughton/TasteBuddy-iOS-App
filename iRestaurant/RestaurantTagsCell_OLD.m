@@ -86,7 +86,6 @@
 
 -(void)tagButtonPressed:(id)sender {
     UIButton *senderButton = (UIButton *)sender;
-    NSLog(@"tagButtonPressed: %@", senderButton.titleLabel.text);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

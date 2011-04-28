@@ -48,7 +48,6 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField_passed {
-    NSLog(@"hit");
     [outerScroll scrollRectToVisible:currentTextFieldRect animated:YES];
 }
 

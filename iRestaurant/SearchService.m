@@ -45,8 +45,8 @@
 -(void)searchByTerm:(NSString *)term andNear:(NSString *)nearString
 {
     // Example of how to read from plist. Can also do: [appDelegate setSavedSetting:@"username" withValue:@"my value"];
-    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSLog(@"username: %@", [appDelegate readSavedSetting:@"username"]);
+    //iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
+   // NSLog(@"username: %@", [appDelegate readSavedSetting:@"username"]);
     
     
     if (request != nil) {
@@ -59,9 +59,7 @@
     
     NSString *json = [NSString stringWithFormat:@"{\"find\": \"%@\", \"near\": \"%@\", \"coordinates\": [%g, %g]}", 
                       term, nearString, latitude, longitude];
-    
-    NSLog(@"json: %@", json);
-    
+        
     NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/search.json"];
     
     request = [ASIFormDataRequest requestWithURL:url];
@@ -82,9 +80,7 @@
         
     NSString *responseString = [request_passed responseString];
     NSArray *arrayOfDictionaries = [responseString JSONValue];
-    
-    NSLog(@"restaurants: %@", arrayOfDictionaries);
-    
+        
     NSMutableArray *resultsForDelegate = [[NSMutableArray alloc]init];
     
     for (NSDictionary *dict in arrayOfDictionaries) {

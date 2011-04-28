@@ -167,7 +167,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {    
-    NSLog(@"did select row");
     SubsectionsMenuTableView *subsectionsMenuTableView = [[SubsectionsMenuTableView alloc] initWithMenu:menu];
     subsectionsMenuTableView.restaurant = restaurant;
     [navController pushViewController:subsectionsMenuTableView animated:YES];

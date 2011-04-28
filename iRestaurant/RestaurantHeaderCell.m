@@ -201,7 +201,6 @@
 }
 
 -(void) favoriteButtonPressed:(id)sender {
-    NSLog(@"fav button pressed");
     //UIButton *favoriteButton = (UIButton *)sender;
     [favoriteButton setBackgroundImage:redHeart forState:UIControlStateNormal];
 }

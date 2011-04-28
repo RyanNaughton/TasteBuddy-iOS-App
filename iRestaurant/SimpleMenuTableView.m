@@ -36,7 +36,6 @@
             
             NSMutableDictionary *categoryDictionary = [[NSMutableDictionary alloc]init];
             [categoryDictionary setObject:category.name forKey:@"name"];
-            NSLog(@"category name: %@", category.name);
             NSMutableArray *arrayOfMenuItems = [[NSMutableArray alloc]init];
             
             for (MenuSubcategory *subcategory in category.menuSubcategories) {
@@ -139,7 +138,6 @@
 //	MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:section];
 //    header = [NSString stringWithFormat:@"%@", menuCategory.name];
     NSString *header = [[simpleMenuItemArray objectAtIndex:section] objectForKey:@"name"];
-    NSLog(@"header: %@", header);
     return header;
 }
 

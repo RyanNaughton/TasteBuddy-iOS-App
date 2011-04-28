@@ -162,7 +162,6 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSLog(@"index; %i", buttonIndex);
     
     if (buttonIndex == 0) // 5 stars
     {

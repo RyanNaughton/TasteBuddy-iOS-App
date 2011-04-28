@@ -25,7 +25,6 @@
 {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
-        NSLog(@"init");
         // Custom initialization
         where = [where_passed retain];
         what = [what_passed retain];
@@ -52,8 +51,6 @@
 {
     [super viewDidLoad];
     
-    NSLog(@"view did load");
-
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  

@@ -40,7 +40,6 @@
 }
 
 -(void)menuReturned:(Menu *)menu {
-    NSLog(@"menu: %@", menu);
     restaurant.menu = [menu retain];
     [self.tableView reloadData];
 }

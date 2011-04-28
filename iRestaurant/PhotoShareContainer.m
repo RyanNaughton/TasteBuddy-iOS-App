@@ -35,7 +35,6 @@
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    NSLog(@"hit");
     scrollView.frame = CGRectMake(0, 44, 320, 200);
     [scrollView scrollRectToVisible:textField.frame animated:NO];
 }
@@ -53,7 +52,6 @@
 }
 
 -(void) imageLoadingDone {
-    NSLog(@"image loading done");
     [self dismissModalViewControllerAnimated:YES];
 }
 

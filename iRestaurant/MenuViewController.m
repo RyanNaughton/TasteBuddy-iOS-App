@@ -49,9 +49,7 @@
             menuItems = menuItems + [menuSubcategory.arrayOfMenuItems count];
         }
     }
-    
-    NSLog(@"how many menu items: %i", menuItems);
-    
+        
     if (menuItems > 10) {
         SectionsMenuTableView *sectionsMenuTableView = [[SectionsMenuTableView alloc]initWithMenu:menu];
         tableView.dataSource = sectionsMenuTableView;

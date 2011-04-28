@@ -105,7 +105,6 @@
 		E86A84641368C6F700720FA3 /* PhotoShareContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = E86A84621368C6F700720FA3 /* PhotoShareContainer.xib */; };
 		E86A84671368D47E00720FA3 /* PhotoShareTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A84661368D47E00720FA3 /* PhotoShareTextCell.m */; };
 		E86A84761368FE9A00720FA3 /* PhotoUploadService.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A84751368FE9A00720FA3 /* PhotoUploadService.m */; };
-		E86A847A136901E300720FA3 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A8479136901E300720FA3 /* NSData+Base64.m */; };
 		E875620B135FE99E001A870F /* RestaurantTagsCell_OLD.m in Sources */ = {isa = PBXBuildFile; fileRef = E875620A135FE99E001A870F /* RestaurantTagsCell_OLD.m */; };
 		E8A03E14135535500031D798 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E13135535500031D798 /* MenuItem.m */; };
 		E8A03E1D135539130031D798 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E1C135539130031D798 /* SearchService.m */; };
@@ -158,6 +157,7 @@
 		E8CD38C71357BB2500FBC6FF /* RestaurantPhoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */; };
 		E8CD38CF1357C82600FBC6FF /* search-text-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E8CD38CD1357C82600FBC6FF /* search-text-bg.png */; };
 		E8CD38D01357C82600FBC6FF /* search-text-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8CD38CE1357C82600FBC6FF /* search-text-bg@2x.png */; };
+		E8D306FD136912CA00BA12B5 /* Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E8D306FC136912CA00BA12B5 /* Base64.m */; };
 		E8DFF5981358B7CE007BF40E /* MenuViewController_OLD.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DFF5971358B7CE007BF40E /* MenuViewController_OLD.m */; };
 		E8DFF5A71358C820007BF40E /* DishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DFF5A61358C820007BF40E /* DishViewController.m */; };
 		E8DFF5AB1358C96E007BF40E /* DishHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8DFF5AA1358C96E007BF40E /* DishHeaderCell.m */; };
@@ -326,8 +326,6 @@
 		E86A84661368D47E00720FA3 /* PhotoShareTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoShareTextCell.m; sourceTree = "<group>"; };
 		E86A84741368FE9A00720FA3 /* PhotoUploadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoUploadService.h; sourceTree = "<group>"; };
 		E86A84751368FE9A00720FA3 /* PhotoUploadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoUploadService.m; sourceTree = "<group>"; };
-		E86A8478136901E300720FA3 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
-		E86A8479136901E300720FA3 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		E8756209135FE99D001A870F /* RestaurantTagsCell_OLD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTagsCell_OLD.h; sourceTree = "<group>"; };
 		E875620A135FE99E001A870F /* RestaurantTagsCell_OLD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTagsCell_OLD.m; sourceTree = "<group>"; };
 		E8A03E12135535500031D798 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
@@ -408,6 +406,8 @@
 		E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantPhoneCell.m; sourceTree = "<group>"; };
 		E8CD38CD1357C82600FBC6FF /* search-text-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-text-bg.png"; sourceTree = "<group>"; };
 		E8CD38CE1357C82600FBC6FF /* search-text-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-text-bg@2x.png"; sourceTree = "<group>"; };
+		E8D306FB136912CA00BA12B5 /* Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base64.h; sourceTree = "<group>"; };
+		E8D306FC136912CA00BA12B5 /* Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base64.m; sourceTree = "<group>"; };
 		E8DFF5961358B7CE007BF40E /* MenuViewController_OLD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController_OLD.h; sourceTree = "<group>"; };
 		E8DFF5971358B7CE007BF40E /* MenuViewController_OLD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController_OLD.m; sourceTree = "<group>"; };
 		E8DFF5A51358C820007BF40E /* DishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishViewController.h; sourceTree = "<group>"; };
@@ -840,8 +840,8 @@
 		E86A8477136901D700720FA3 /* NSData + Base 64 */ = {
 			isa = PBXGroup;
 			children = (
-				E86A8478136901E300720FA3 /* NSData+Base64.h */,
-				E86A8479136901E300720FA3 /* NSData+Base64.m */,
+				E8D306FB136912CA00BA12B5 /* Base64.h */,
+				E8D306FC136912CA00BA12B5 /* Base64.m */,
 			);
 			name = "NSData + Base 64";
 			sourceTree = "<group>";
@@ -1245,7 +1245,7 @@
 				E86A84631368C6F700720FA3 /* PhotoShareContainer.m in Sources */,
 				E86A84671368D47E00720FA3 /* PhotoShareTextCell.m in Sources */,
 				E86A84761368FE9A00720FA3 /* PhotoUploadService.m in Sources */,
-				E86A847A136901E300720FA3 /* NSData+Base64.m in Sources */,
+				E8D306FD136912CA00BA12B5 /* Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

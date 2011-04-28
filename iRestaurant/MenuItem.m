@@ -55,7 +55,6 @@
         {
             Comment *comment = [[Comment alloc] initWithDictionary:commentDictionary];
             [comments addObject:comment];
-            NSLog(@"Comment count %i", [comments count]);
             [comment release];
         }
     }
