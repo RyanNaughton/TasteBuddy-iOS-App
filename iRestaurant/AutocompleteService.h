@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 @class ASIFormDataRequest;
-@class ASIHTTPRequest;
 
 @protocol AutocompleteServiceDelegate <NSObject>
   -(void)autocompleteFinished:(NSArray *)termsArray;

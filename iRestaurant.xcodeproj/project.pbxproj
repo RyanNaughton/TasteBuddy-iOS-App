@@ -26,7 +26,6 @@
 		49578B8013551D7200F8EC0B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49578B7E13551D7200F8EC0B /* SearchViewController.xib */; };
 		49578BCD1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BCB1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m */; };
 		49578BDA1355F8CF00F8EC0B /* DishSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BD91355F8CF00F8EC0B /* DishSearchResultTableViewController.m */; };
-		49578BE51356350900F8EC0B /* RestaurantService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BE41356350900F8EC0B /* RestaurantService.m */; };
 		499B564A1357AE9000F2B407 /* AutocompleteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727DE13578626004CB2F6 /* AutocompleteService.m */; };
 		499B564C1357AEC300F2B407 /* FindAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */; };
 		499B564D1357AED200F2B407 /* NearAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */; };
@@ -47,6 +46,10 @@
 		49BA68521354DBA50040DDB5 /* iRestaurantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA68511354DBA50040DDB5 /* iRestaurantTests.m */; };
 		49BED7FD13611BA700DE8CC4 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BED7FC13611BA700DE8CC4 /* CommentCell.m */; };
 		49EE9A7A136799CF00528C91 /* JSONBuiltModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE9A79136799CF00528C91 /* JSONBuiltModel.m */; };
+		49EE9AF41368D7E100528C91 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE9AF21368D7E100528C91 /* LoginViewController.m */; };
+		49EE9AF51368D7E100528C91 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EE9AF31368D7E100528C91 /* LoginViewController.xib */; };
+		49EE9AFA1368E67A00528C91 /* LoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE9AF91368E67A00528C91 /* LoginService.m */; };
+		49EE9AFD1368E97000528C91 /* AuthenticationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE9AFC1368E97000528C91 /* AuthenticationResponse.m */; };
 		E80E05861360CAF900894180 /* DishTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E80E05851360CAF900894180 /* DishTagsCell.m */; };
 		E80E059C1360D2A100894180 /* IGUIScrollViewImage.m in Sources */ = {isa = PBXBuildFile; fileRef = E80E059B1360D2A100894180 /* IGUIScrollViewImage.m */; };
 		E80E05A01360EA3400894180 /* pizza.png in Resources */ = {isa = PBXBuildFile; fileRef = E80E059D1360EA3300894180 /* pizza.png */; };
@@ -214,8 +217,6 @@
 		49578BCB1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantSearchResultTableViewController.m; sourceTree = "<group>"; };
 		49578BD81355F8CE00F8EC0B /* DishSearchResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishSearchResultTableViewController.h; sourceTree = "<group>"; };
 		49578BD91355F8CF00F8EC0B /* DishSearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishSearchResultTableViewController.m; sourceTree = "<group>"; };
-		49578BE31356350900F8EC0B /* RestaurantService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantService.h; sourceTree = "<group>"; };
-		49578BE41356350900F8EC0B /* RestaurantService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantService.m; sourceTree = "<group>"; };
 		498727DD13578626004CB2F6 /* AutocompleteService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteService.h; sourceTree = "<group>"; };
 		498727DE13578626004CB2F6 /* AutocompleteService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteService.m; sourceTree = "<group>"; };
 		498727E113578CDD004CB2F6 /* FindAutocompleteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindAutocompleteTableViewController.h; sourceTree = "<group>"; };
@@ -249,6 +250,13 @@
 		49BED7FC13611BA700DE8CC4 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		49EE9A78136799CF00528C91 /* JSONBuiltModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONBuiltModel.h; sourceTree = "<group>"; };
 		49EE9A79136799CF00528C91 /* JSONBuiltModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONBuiltModel.m; sourceTree = "<group>"; };
+		49EE9AF11368D7E100528C91 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		49EE9AF21368D7E100528C91 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		49EE9AF31368D7E100528C91 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		49EE9AF81368E67A00528C91 /* LoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginService.h; sourceTree = "<group>"; };
+		49EE9AF91368E67A00528C91 /* LoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginService.m; sourceTree = "<group>"; };
+		49EE9AFB1368E97000528C91 /* AuthenticationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; path = AuthenticationResponse.h; sourceTree = "<group>"; };
+		49EE9AFC1368E97000528C91 /* AuthenticationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationResponse.m; sourceTree = "<group>"; };
 		E80E05841360CAF900894180 /* DishTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishTagsCell.h; sourceTree = "<group>"; };
 		E80E05851360CAF900894180 /* DishTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishTagsCell.m; sourceTree = "<group>"; };
 		E80E059A1360D2A100894180 /* IGUIScrollViewImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGUIScrollViewImage.h; sourceTree = "<group>"; };
@@ -523,6 +531,7 @@
 		49578B731355183500F8EC0B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				49EE9AF71368D80700528C91 /* User */,
 				E8DFF5B11358E0E7007BF40E /* Rating */,
 				E8E6D3F01355240A003F0ECB /* Restaurant */,
 				49578B75135519DB00F8EC0B /* Search */,
@@ -533,6 +542,7 @@
 		49578B741355184500F8EC0B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				49EE9AF61368D7F400528C91 /* User */,
 				E86A845C1368BD6800720FA3 /* Photo */,
 				E8DFF5A41358C653007BF40E /* Dish */,
 				E8DFF5911358B76A007BF40E /* Menu */,
@@ -676,6 +686,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		49EE9AF61368D7F400528C91 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				49EE9AF11368D7E100528C91 /* LoginViewController.h */,
+				49EE9AF21368D7E100528C91 /* LoginViewController.m */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
+		49EE9AF71368D80700528C91 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				49EE9AF31368D7E100528C91 /* LoginViewController.xib */,
+			);
+			name = User;
+			sourceTree = "<group>";
+		};
 		E80E05991360D28700894180 /* IGUILibrary */ = {
 			isa = PBXGroup;
 			children = (
@@ -803,14 +830,14 @@
 			children = (
 				E8A03E1B135539130031D798 /* SearchService.h */,
 				E8A03E1C135539130031D798 /* SearchService.m */,
-				49578BE31356350900F8EC0B /* RestaurantService.h */,
-				49578BE41356350900F8EC0B /* RestaurantService.m */,
 				498727DD13578626004CB2F6 /* AutocompleteService.h */,
 				498727DE13578626004CB2F6 /* AutocompleteService.m */,
 				490F2C9B1358BB3200DA5C1F /* MenuService.h */,
 				490F2C9C1358BB3200DA5C1F /* MenuService.m */,
 				49A64FA1135F52FB002B3655 /* MenuSubsectionService.h */,
 				49A64FA2135F52FB002B3655 /* MenuSubsectionService.m */,
+				49EE9AF81368E67A00528C91 /* LoginService.h */,
+				49EE9AF91368E67A00528C91 /* LoginService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -945,6 +972,8 @@
 				E8E6D3F313552448003F0ECB /* Restaurant.m */,
 				49BED7F71361110B00DE8CC4 /* Comment.h */,
 				49BED7F81361110B00DE8CC4 /* Comment.m */,
+				49EE9AFB1368E97000528C91 /* AuthenticationResponse.h */,
+				49EE9AFC1368E97000528C91 /* AuthenticationResponse.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1086,6 +1115,7 @@
 				E8BEDE7313665A8C001E5079 /* MenuViewController.xib in Resources */,
 				E86A844F1368AD7200720FA3 /* 86-camera@2x.png in Resources */,
 				E86A84501368AD7200720FA3 /* 86-camera.png in Resources */,
+				49EE9AF51368D7E100528C91 /* LoginViewController.xib in Resources */,
 				E86A84641368C6F700720FA3 /* PhotoShareContainer.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1151,7 +1181,6 @@
 				E8A6E81A1355466D0095E157 /* Reachability.m in Sources */,
 				49578BCD1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m in Sources */,
 				49578BDA1355F8CF00F8EC0B /* DishSearchResultTableViewController.m in Sources */,
-				49578BE51356350900F8EC0B /* RestaurantService.m in Sources */,
 				E85EE412135617CB004B2A10 /* RestaurantSearchCell.m in Sources */,
 				E85EE431135688DB004B2A10 /* DishCell.m in Sources */,
 				E85EE43513578D63004B2A10 /* RestaurantHeaderCell.m in Sources */,
@@ -1189,6 +1218,9 @@
 				E8BEDE8213678F5A001E5079 /* MenuItemsViewController.m in Sources */,
 				49EE9A7A136799CF00528C91 /* JSONBuiltModel.m in Sources */,
 				E86A845B1368BA1400720FA3 /* TakePhoto.m in Sources */,
+				49EE9AF41368D7E100528C91 /* LoginViewController.m in Sources */,
+				49EE9AFA1368E67A00528C91 /* LoginService.m in Sources */,
+				49EE9AFD1368E97000528C91 /* AuthenticationResponse.m in Sources */,
 				E86A845F1368BEC500720FA3 /* PhotoShareViewController.m in Sources */,
 				E86A84631368C6F700720FA3 /* PhotoShareContainer.m in Sources */,
 				E86A84671368D47E00720FA3 /* PhotoShareTextCell.m in Sources */,

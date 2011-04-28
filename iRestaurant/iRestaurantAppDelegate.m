@@ -9,6 +9,7 @@
 #import "iRestaurantAppDelegate.h"
 
 #import "Restaurant.h"
+#import "LoginViewController.h"
 
 @implementation iRestaurantAppDelegate
 
@@ -24,10 +25,13 @@
      
     //Restaurant *restaurantTest = [[Restaurant alloc]initWithDictionary:NULL];
         
-    [self createPList];
     
     [self.window makeKeyAndVisible];
     [self.window addSubview:tabBarController.view];
+
+    [self checkOrCreatePlist];
+    [self login];
+    
     return YES;
 }
 
@@ -70,7 +74,7 @@
      */
 }
 
--(void)createPList {
+-(void)checkOrCreatePlist {
 	NSError *error;
 	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES); //1
 	NSString *documentsDirectory = [paths objectAtIndex:0]; //2
@@ -109,10 +113,20 @@
 }
 
 
+-(void) login {
+    if ( [self readSavedSetting:@"authentication_token"] == nil ) {
+        LoginViewController *lvc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+        lvc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [self.tabBarController presentModalViewController:lvc animated:YES];
+        [lvc release];
+    }
+}
+
 - (void)dealloc
 {
     [_window release];
     [tabBarController release];
+    [savedSettingsPath release];
     [super dealloc];
 }
 
