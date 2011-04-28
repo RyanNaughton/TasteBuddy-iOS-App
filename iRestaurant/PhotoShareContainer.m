@@ -7,10 +7,9 @@
 //
 
 #import "PhotoShareContainer.h"
-#import "PhotoShareViewController.h"
 
 @implementation PhotoShareContainer
-@synthesize photoShareViewController, tableView, cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch;
+@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,13 +47,6 @@
 
 - (void)dealloc
 {
-    [photoShareViewController release];
-    [tableView release];
-    [imageView release];
-    [what release];
-    [where release];
-    [image release];
-    [scrollView release];
     [super dealloc];
 }
 
@@ -76,7 +68,6 @@
     whatTextField.delegate = self;
     commentsTextField.delegate = self;
     scrollView.contentSize = CGSizeMake(320, 261);
-    tableView.scrollEnabled = FALSE;
     imageView.image = image;
 
 }

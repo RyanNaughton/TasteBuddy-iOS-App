@@ -7,11 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class PhotoShareViewController;
 
 @interface PhotoShareContainer : UIViewController <UITextFieldDelegate> {
-    PhotoShareViewController *photoShareViewController;
-    IBOutlet UITableView *tableView;
     IBOutlet UIBarButtonItem *cancelButton;
     IBOutlet UIImageView *imageView;
     
@@ -28,8 +25,6 @@
     
 }
 
-@property (nonatomic, retain) PhotoShareViewController *photoShareViewController;
-@property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *cancelButton;
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
 

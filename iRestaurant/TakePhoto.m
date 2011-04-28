@@ -66,7 +66,7 @@
     PhotoShareContainer *photoShareContainer = [[PhotoShareContainer alloc]initWithWhere:@"where" andWhat:@"what" andImage:image];
     photoShareContainer.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     photoShareContainer.modalPresentationStyle = UIModalPresentationPageSheet;
-    [appDelegate.tabBarController presentModalViewController:photoShareContainer animated:NO];
+    [appDelegate.tabBarController presentModalViewController:photoShareContainer animated:YES];
     [photoShareContainer release];
 }
 
