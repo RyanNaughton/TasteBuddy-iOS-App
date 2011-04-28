@@ -23,4 +23,6 @@
 -(id) readSavedSetting:(NSString *)key;
 -(void) setSavedSetting:(NSString *)key withValue:(id)value;
 
+-(void) login;
+
 @end
