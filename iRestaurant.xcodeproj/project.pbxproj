@@ -98,6 +98,10 @@
 		E86A844F1368AD7200720FA3 /* 86-camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E86A844D1368AD7200720FA3 /* 86-camera@2x.png */; };
 		E86A84501368AD7200720FA3 /* 86-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = E86A844E1368AD7200720FA3 /* 86-camera.png */; };
 		E86A845B1368BA1400720FA3 /* TakePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A845A1368BA1400720FA3 /* TakePhoto.m */; };
+		E86A845F1368BEC500720FA3 /* PhotoShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A845E1368BEC500720FA3 /* PhotoShareViewController.m */; };
+		E86A84631368C6F700720FA3 /* PhotoShareContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A84611368C6F700720FA3 /* PhotoShareContainer.m */; };
+		E86A84641368C6F700720FA3 /* PhotoShareContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = E86A84621368C6F700720FA3 /* PhotoShareContainer.xib */; };
+		E86A84671368D47E00720FA3 /* PhotoShareTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A84661368D47E00720FA3 /* PhotoShareTextCell.m */; };
 		E875620B135FE99E001A870F /* RestaurantTagsCell_OLD.m in Sources */ = {isa = PBXBuildFile; fileRef = E875620A135FE99E001A870F /* RestaurantTagsCell_OLD.m */; };
 		E8A03E14135535500031D798 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E13135535500031D798 /* MenuItem.m */; };
 		E8A03E1D135539130031D798 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E1C135539130031D798 /* SearchService.m */; };
@@ -306,6 +310,13 @@
 		E86A844E1368AD7200720FA3 /* 86-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "86-camera.png"; sourceTree = "<group>"; };
 		E86A84591368BA1400720FA3 /* TakePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhoto.h; sourceTree = "<group>"; };
 		E86A845A1368BA1400720FA3 /* TakePhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TakePhoto.m; sourceTree = "<group>"; };
+		E86A845D1368BEC500720FA3 /* PhotoShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoShareViewController.h; sourceTree = "<group>"; };
+		E86A845E1368BEC500720FA3 /* PhotoShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoShareViewController.m; sourceTree = "<group>"; };
+		E86A84601368C6F700720FA3 /* PhotoShareContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoShareContainer.h; sourceTree = "<group>"; };
+		E86A84611368C6F700720FA3 /* PhotoShareContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoShareContainer.m; sourceTree = "<group>"; };
+		E86A84621368C6F700720FA3 /* PhotoShareContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoShareContainer.xib; sourceTree = "<group>"; };
+		E86A84651368D47E00720FA3 /* PhotoShareTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoShareTextCell.h; sourceTree = "<group>"; };
+		E86A84661368D47E00720FA3 /* PhotoShareTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoShareTextCell.m; sourceTree = "<group>"; };
 		E8756209135FE99D001A870F /* RestaurantTagsCell_OLD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTagsCell_OLD.h; sourceTree = "<group>"; };
 		E875620A135FE99E001A870F /* RestaurantTagsCell_OLD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTagsCell_OLD.m; sourceTree = "<group>"; };
 		E8A03E12135535500031D798 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
@@ -522,6 +533,7 @@
 		49578B741355184500F8EC0B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E86A845C1368BD6800720FA3 /* Photo */,
 				E8DFF5A41358C653007BF40E /* Dish */,
 				E8DFF5911358B76A007BF40E /* Menu */,
 				E8E6D3E913552231003F0ECB /* Restaurant */,
@@ -770,6 +782,20 @@
 				E85EE42C13567388004B2A10 /* 06-magnify@2x.png */,
 			);
 			name = icons;
+			sourceTree = "<group>";
+		};
+		E86A845C1368BD6800720FA3 /* Photo */ = {
+			isa = PBXGroup;
+			children = (
+				E86A845D1368BEC500720FA3 /* PhotoShareViewController.h */,
+				E86A845E1368BEC500720FA3 /* PhotoShareViewController.m */,
+				E86A84601368C6F700720FA3 /* PhotoShareContainer.h */,
+				E86A84611368C6F700720FA3 /* PhotoShareContainer.m */,
+				E86A84621368C6F700720FA3 /* PhotoShareContainer.xib */,
+				E86A84651368D47E00720FA3 /* PhotoShareTextCell.h */,
+				E86A84661368D47E00720FA3 /* PhotoShareTextCell.m */,
+			);
+			name = Photo;
 			sourceTree = "<group>";
 		};
 		E8A03E1A135538EB0031D798 /* Services */ = {
@@ -1060,6 +1086,7 @@
 				E8BEDE7313665A8C001E5079 /* MenuViewController.xib in Resources */,
 				E86A844F1368AD7200720FA3 /* 86-camera@2x.png in Resources */,
 				E86A84501368AD7200720FA3 /* 86-camera.png in Resources */,
+				E86A84641368C6F700720FA3 /* PhotoShareContainer.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1162,6 +1189,9 @@
 				E8BEDE8213678F5A001E5079 /* MenuItemsViewController.m in Sources */,
 				49EE9A7A136799CF00528C91 /* JSONBuiltModel.m in Sources */,
 				E86A845B1368BA1400720FA3 /* TakePhoto.m in Sources */,
+				E86A845F1368BEC500720FA3 /* PhotoShareViewController.m in Sources */,
+				E86A84631368C6F700720FA3 /* PhotoShareContainer.m in Sources */,
+				E86A84671368D47E00720FA3 /* PhotoShareTextCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

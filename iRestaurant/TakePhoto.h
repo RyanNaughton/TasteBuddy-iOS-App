@@ -10,9 +10,12 @@
 
 
 @interface TakePhoto : NSObject <UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate> {
-    
+    UIViewController *containerView;
 }
 
+@property (nonatomic, retain) UIViewController *containerView;
+
 -(void) cameraButtonPressed:(id)sender;
+-(void)launchAdditionalDetailsWindowWithImage:(UIImage *)image andPicker:(UIImagePickerController *)picker;
 
 @end

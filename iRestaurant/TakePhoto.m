@@ -8,9 +8,10 @@
 
 #import "TakePhoto.h"
 #import "iRestaurantAppDelegate.h"
+#import "PhotoShareContainer.h"
 
 @implementation TakePhoto
-
+@synthesize containerView;
 
 -(void) cameraButtonPressed:(id)sender {
     NSLog(@"camera button pressed");
@@ -25,43 +26,49 @@
     NSLog(@"index; %i", buttonIndex);
     iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+    imagePickerController.delegate = self;
+    imagePickerController.allowsEditing = YES;
+    imagePickerController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    imagePickerController.modalPresentationStyle = UIModalPresentationPageSheet;
+
     if (buttonIndex == 0) 
     {
         NSLog(@"take pic");
-        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
         imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
-        imagePickerController.delegate = self;
-        imagePickerController.allowsEditing = YES;
-        imagePickerController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-        imagePickerController.modalPresentationStyle = UIModalPresentationPageSheet;
-        [appDelegate.tabBarController presentModalViewController:imagePickerController animated:YES];
-        [imagePickerController release];
     }
     if (buttonIndex == 1) 
     {
         NSLog(@"choose from library");
-        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
         imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        imagePickerController.delegate = self;
-        imagePickerController.allowsEditing = YES;
-        imagePickerController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-        imagePickerController.modalPresentationStyle = UIModalPresentationPageSheet;
-        [appDelegate.tabBarController presentModalViewController:imagePickerController animated:YES];
-        [imagePickerController release];
     }
+        
+    [appDelegate.tabBarController presentModalViewController:imagePickerController animated:YES];
+    [imagePickerController release];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     NSLog(@"image picker finished");
-	UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+	UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
 	
 	if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
 		NSLog(@"save image");
 		UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
 	}
-    [picker dismissModalViewControllerAnimated:YES];
+    [picker dismissModalViewControllerAnimated:NO];
+    [self launchAdditionalDetailsWindowWithImage:image andPicker:picker];
 }
 
+-(void)launchAdditionalDetailsWindowWithImage:(UIImage *)image andPicker:(UIImagePickerController *)picker {
+    NSLog(@"launchAdditionalDetailsWindowWithImage");
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];    
+    
+    PhotoShareContainer *photoShareContainer = [[PhotoShareContainer alloc]initWithWhere:@"where" andWhat:@"what" andImage:image];
+    photoShareContainer.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+    photoShareContainer.modalPresentationStyle = UIModalPresentationPageSheet;
+    [appDelegate.tabBarController presentModalViewController:photoShareContainer animated:NO];
+    [photoShareContainer release];
+}
 
 
 @end
