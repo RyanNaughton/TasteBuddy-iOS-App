@@ -7,6 +7,7 @@
 //
 
 #import "PhotoShareContainer.h"
+#import "PhotoUploadService.h"
 
 @implementation PhotoShareContainer
 @synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch;
@@ -44,6 +45,16 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+-(IBAction) submitButtonPressed:(id)sender 
+{
+    PhotoUploadService *photoUploadService = [[PhotoUploadService alloc]init];
+    [photoUploadService uploadImage:image withWhere:whereTextField.text andWhat:whatTextField.text andComments:commentsTextField.text andFacebook:facebookSwitch.on andDelegate:self];
+    // present loading screen...
+}
+
+-(void) imageLoadingDone {
+    NSLog(@"image loading done");
+}
 
 - (void)dealloc
 {
@@ -67,6 +78,11 @@
     whereTextField.delegate = self;
     whatTextField.delegate = self;
     commentsTextField.delegate = self;
+    
+    whereTextField.text = where;
+    whatTextField.text = what;
+    
+    
     scrollView.contentSize = CGSizeMake(320, 261);
     imageView.image = image;
 

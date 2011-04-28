@@ -27,5 +27,5 @@
 @property (nonatomic, retain) IGUIScrollViewImage *svimage;
 
 -(void)loadMenuItem:(MenuItem *)menu_item andRestaurant:(Restaurant *)restaurant;
-
+-(void)cameraButtonPressed:(id)sender;
 @end

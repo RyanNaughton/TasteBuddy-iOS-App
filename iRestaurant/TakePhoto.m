@@ -9,12 +9,24 @@
 #import "TakePhoto.h"
 #import "iRestaurantAppDelegate.h"
 #import "PhotoShareContainer.h"
+#import "Restaurant.h"
+#import "MenuItem.h"
 
 @implementation TakePhoto
-@synthesize containerView;
+@synthesize containerView, restaurant, menuItem;
 
--(void) cameraButtonPressed:(id)sender {
-    NSLog(@"camera button pressed");
+-(void)loadPhotoForRestaurant:(Restaurant *)restaurant_passed {
+    restaurant = [restaurant_passed retain];
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Choose Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Picture", @"Use Photo Library", nil];
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [popupQuery showInView:appDelegate.tabBarController.view];
+    [popupQuery release];
+}
+
+-(void)loadPhotoForMenuItem:(MenuItem *)menu_item_passed atRestaurant:(Restaurant *)restaurant_passed {
+    menuItem = [menu_item_passed retain];
+    restaurant = [restaurant_passed retain];
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Choose Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Picture", @"Use Photo Library", nil];
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -48,7 +60,6 @@
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    NSLog(@"image picker finished");
 	UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
 	
 	if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
@@ -60,15 +71,19 @@
 }
 
 -(void)launchAdditionalDetailsWindowWithImage:(UIImage *)image andPicker:(UIImagePickerController *)picker {
-    NSLog(@"launchAdditionalDetailsWindowWithImage");
     iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];    
     
-    PhotoShareContainer *photoShareContainer = [[PhotoShareContainer alloc]initWithWhere:@"where" andWhat:@"what" andImage:image];
+    PhotoShareContainer *photoShareContainer = [[PhotoShareContainer alloc]initWithWhere:restaurant.name andWhat:@"" andImage:image];
     photoShareContainer.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     photoShareContainer.modalPresentationStyle = UIModalPresentationPageSheet;
     [appDelegate.tabBarController presentModalViewController:photoShareContainer animated:YES];
     [photoShareContainer release];
 }
 
+-(void)dealloc {
+    [menuItem release];
+    [restaurant release];
+    [super dealloc];
+}
 
 @end

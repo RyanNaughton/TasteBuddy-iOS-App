@@ -105,6 +105,8 @@
 		E86A84631368C6F700720FA3 /* PhotoShareContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A84611368C6F700720FA3 /* PhotoShareContainer.m */; };
 		E86A84641368C6F700720FA3 /* PhotoShareContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = E86A84621368C6F700720FA3 /* PhotoShareContainer.xib */; };
 		E86A84671368D47E00720FA3 /* PhotoShareTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A84661368D47E00720FA3 /* PhotoShareTextCell.m */; };
+		E86A84761368FE9A00720FA3 /* PhotoUploadService.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A84751368FE9A00720FA3 /* PhotoUploadService.m */; };
+		E86A847A136901E300720FA3 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A8479136901E300720FA3 /* NSData+Base64.m */; };
 		E875620B135FE99E001A870F /* RestaurantTagsCell_OLD.m in Sources */ = {isa = PBXBuildFile; fileRef = E875620A135FE99E001A870F /* RestaurantTagsCell_OLD.m */; };
 		E8A03E14135535500031D798 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E13135535500031D798 /* MenuItem.m */; };
 		E8A03E1D135539130031D798 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E1C135539130031D798 /* SearchService.m */; };
@@ -255,7 +257,7 @@
 		49EE9AF31368D7E100528C91 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		49EE9AF81368E67A00528C91 /* LoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginService.h; sourceTree = "<group>"; };
 		49EE9AF91368E67A00528C91 /* LoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginService.m; sourceTree = "<group>"; };
-		49EE9AFB1368E97000528C91 /* AuthenticationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; path = AuthenticationResponse.h; sourceTree = "<group>"; };
+		49EE9AFB1368E97000528C91 /* AuthenticationResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationResponse.h; sourceTree = "<group>"; };
 		49EE9AFC1368E97000528C91 /* AuthenticationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticationResponse.m; sourceTree = "<group>"; };
 		E80E05841360CAF900894180 /* DishTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishTagsCell.h; sourceTree = "<group>"; };
 		E80E05851360CAF900894180 /* DishTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishTagsCell.m; sourceTree = "<group>"; };
@@ -325,6 +327,10 @@
 		E86A84621368C6F700720FA3 /* PhotoShareContainer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoShareContainer.xib; sourceTree = "<group>"; };
 		E86A84651368D47E00720FA3 /* PhotoShareTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoShareTextCell.h; sourceTree = "<group>"; };
 		E86A84661368D47E00720FA3 /* PhotoShareTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoShareTextCell.m; sourceTree = "<group>"; };
+		E86A84741368FE9A00720FA3 /* PhotoUploadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoUploadService.h; sourceTree = "<group>"; };
+		E86A84751368FE9A00720FA3 /* PhotoUploadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoUploadService.m; sourceTree = "<group>"; };
+		E86A8478136901E300720FA3 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		E86A8479136901E300720FA3 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		E8756209135FE99D001A870F /* RestaurantTagsCell_OLD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTagsCell_OLD.h; sourceTree = "<group>"; };
 		E875620A135FE99E001A870F /* RestaurantTagsCell_OLD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTagsCell_OLD.m; sourceTree = "<group>"; };
 		E8A03E12135535500031D798 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
@@ -494,6 +500,7 @@
 		49578B5F135516AB00F8EC0B /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				E86A8477136901D700720FA3 /* NSData + Base 64 */,
 				E80E05991360D28700894180 /* IGUILibrary */,
 				4956EB0C1358F84400D68EE9 /* SDWebImage */,
 				E8A03E1E13553D190031D798 /* ASIHttpRequest */,
@@ -814,15 +821,32 @@
 		E86A845C1368BD6800720FA3 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
-				E86A845D1368BEC500720FA3 /* PhotoShareViewController.h */,
-				E86A845E1368BEC500720FA3 /* PhotoShareViewController.m */,
+				E86A84731368F26000720FA3 /* old */,
 				E86A84601368C6F700720FA3 /* PhotoShareContainer.h */,
 				E86A84611368C6F700720FA3 /* PhotoShareContainer.m */,
 				E86A84621368C6F700720FA3 /* PhotoShareContainer.xib */,
-				E86A84651368D47E00720FA3 /* PhotoShareTextCell.h */,
-				E86A84661368D47E00720FA3 /* PhotoShareTextCell.m */,
 			);
 			name = Photo;
+			sourceTree = "<group>";
+		};
+		E86A84731368F26000720FA3 /* old */ = {
+			isa = PBXGroup;
+			children = (
+				E86A84651368D47E00720FA3 /* PhotoShareTextCell.h */,
+				E86A84661368D47E00720FA3 /* PhotoShareTextCell.m */,
+				E86A845D1368BEC500720FA3 /* PhotoShareViewController.h */,
+				E86A845E1368BEC500720FA3 /* PhotoShareViewController.m */,
+			);
+			name = old;
+			sourceTree = "<group>";
+		};
+		E86A8477136901D700720FA3 /* NSData + Base 64 */ = {
+			isa = PBXGroup;
+			children = (
+				E86A8478136901E300720FA3 /* NSData+Base64.h */,
+				E86A8479136901E300720FA3 /* NSData+Base64.m */,
+			);
+			name = "NSData + Base 64";
 			sourceTree = "<group>";
 		};
 		E8A03E1A135538EB0031D798 /* Services */ = {
@@ -838,6 +862,8 @@
 				49A64FA2135F52FB002B3655 /* MenuSubsectionService.m */,
 				49EE9AF81368E67A00528C91 /* LoginService.h */,
 				49EE9AF91368E67A00528C91 /* LoginService.m */,
+				E86A84741368FE9A00720FA3 /* PhotoUploadService.h */,
+				E86A84751368FE9A00720FA3 /* PhotoUploadService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -1224,6 +1250,8 @@
 				E86A845F1368BEC500720FA3 /* PhotoShareViewController.m in Sources */,
 				E86A84631368C6F700720FA3 /* PhotoShareContainer.m in Sources */,
 				E86A84671368D47E00720FA3 /* PhotoShareTextCell.m in Sources */,
+				E86A84761368FE9A00720FA3 /* PhotoUploadService.m in Sources */,
+				E86A847A136901E300720FA3 /* NSData+Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1290,7 +1318,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1310,7 +1338,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "1A081128-A48D-4CCF-B739-27B6521BEB77";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1A081128-A48D-4CCF-B739-27B6521BEB77";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

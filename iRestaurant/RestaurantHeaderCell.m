@@ -14,7 +14,7 @@
 #import "TakePhoto.h"
 
 @implementation RestaurantHeaderCell
-@synthesize imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, takePhoto;
+@synthesize imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -30,7 +30,7 @@
         
         UIButton *cameraButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [cameraButton setBackgroundImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
-        [cameraButton addTarget:takePhoto action:@selector(cameraButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [cameraButton addTarget:self action:@selector(cameraButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         cameraButton.frame = CGRectMake(230, 10, 24, 18);
         [self.contentView addSubview:cameraButton];
         
@@ -168,8 +168,9 @@
     return self;
 }
 
--(void)loadRestaurant:(Restaurant *)restaurant 
+-(void)loadRestaurant:(Restaurant *)restaurant_passed
 {
+    restaurant = [restaurant_passed retain];
     if ([restaurant.pictures count] > 0) {
         [imageView setImageWithURL:[NSURL URLWithString:[[restaurant.pictures objectAtIndex:0] objectForKey:@"160px"]]
                   placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
@@ -195,6 +196,10 @@
     }
 }
 
+-(void)cameraButtonPressed:(id)sender {
+    [takePhoto loadPhotoForRestaurant:restaurant];
+}
+
 -(void) favoriteButtonPressed:(id)sender {
     NSLog(@"fav button pressed");
     //UIButton *favoriteButton = (UIButton *)sender;
@@ -218,6 +223,7 @@
     [dinner_hours release];
     [average_meal release];
     [cuisine_types release];
+    [restaurant release];
     [super dealloc];
 }
 

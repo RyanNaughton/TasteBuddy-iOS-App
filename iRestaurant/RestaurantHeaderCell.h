@@ -23,6 +23,7 @@
     UIImage *greyHeart;
     UIImage *redHeart;
     
+    Restaurant *restaurant;
     TakePhoto *takePhoto;
 }
 
@@ -37,6 +38,7 @@
 @property (nonatomic, retain) UIImage *greyHeart;
 @property (nonatomic, retain) UIImage *redHeart;
 
+@property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, retain) TakePhoto *takePhoto;
 
 - (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
