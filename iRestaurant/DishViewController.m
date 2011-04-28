@@ -199,11 +199,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
-    int height;
+    CGFloat height;
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
-        height = 395;
+        height = 395.0;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
-        height = 60;
+        height = 60.0;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         height = 200;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
