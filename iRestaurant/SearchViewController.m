@@ -105,7 +105,7 @@
     CGPoint point = CGPointMake(1.2345, 1.2345);
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
 
-    [self presentSearchModal];
+    //[self presentSearchModal];
 }
 
 - (void)viewDidUnload

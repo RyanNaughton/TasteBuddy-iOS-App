@@ -9,7 +9,6 @@
 #import "Restaurant.h"
 #import "JSON.h"
 #import "MenuItem.h"
-#import "MenuSubsectionService.h"
 #import "Menu.h"
 
 @implementation Restaurant

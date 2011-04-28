@@ -54,6 +54,7 @@
 
 -(void) imageLoadingDone {
     NSLog(@"image loading done");
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (void)dealloc
