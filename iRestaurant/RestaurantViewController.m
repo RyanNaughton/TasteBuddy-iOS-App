@@ -153,7 +153,7 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
         RestaurantButtonsCell *restaurantButtonsCell = (RestaurantButtonsCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantMenuCell"];
 		if (restaurantButtonsCell == nil) {
-		    restaurantButtonsCell = [[[RestaurantButtonsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantButtonsCell"] autorelease];
+		    restaurantButtonsCell = [[[RestaurantButtonsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantButtonsCell" andParentView:self] autorelease];
 		}          
         //[restaurantButtonsCell loadRestaurant:restaurant];
         //restaurantButtonsCell.parentView = self;
