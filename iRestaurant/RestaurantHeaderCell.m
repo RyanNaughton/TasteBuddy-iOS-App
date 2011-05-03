@@ -28,11 +28,11 @@
         redHeart = [UIImage imageNamed:@"red-heart.png"];
         takePhoto = [[TakePhoto alloc]init];
         
-        UIButton *cameraButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [cameraButton setBackgroundImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
-        [cameraButton addTarget:self action:@selector(cameraButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        cameraButton.frame = CGRectMake(230, 10, 24, 18);
-        [self.contentView addSubview:cameraButton];
+//        UIButton *cameraButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [cameraButton setBackgroundImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
+//        [cameraButton addTarget:self action:@selector(cameraButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//        cameraButton.frame = CGRectMake(230, 10, 24, 18);
+//        [self.contentView addSubview:cameraButton];
         
         imageView = [[UIImageView alloc]init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
@@ -40,17 +40,17 @@
         imageView.frame = CGRectMake(10, 55, 120, 120);
         [self.contentView addSubview:imageView];
         
-        favoriteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [favoriteButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [favoriteButton setBackgroundImage:greyHeart forState:UIControlStateNormal];
-        favoriteButton.frame = CGRectMake(280, 10, 20, 20);
-        [self.contentView addSubview:favoriteButton];
+//        favoriteButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [favoriteButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//        [favoriteButton setBackgroundImage:greyHeart forState:UIControlStateNormal];
+//        favoriteButton.frame = CGRectMake(280, 10, 20, 20);
+//        [self.contentView addSubview:favoriteButton];
         
         name = [[UILabel alloc]init];
-        name.frame = CGRectMake(10, 7, 210, 20);
+        name.frame = CGRectMake(10, 7, 280, 20);
         name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		name.backgroundColor = [UIColor clearColor];
-		name.font = [UIFont boldSystemFontOfSize:18];
+		name.font = [UIFont boldSystemFontOfSize:20];
         name.shadowColor = [UIColor whiteColor];
         name.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:name];

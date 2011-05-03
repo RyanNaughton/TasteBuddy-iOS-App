@@ -18,7 +18,7 @@
     if (self) {
         // Initialization code
         
-        restaurantViewController = restaurantViewController_passed;
+        restaurantViewController = [restaurantViewController_passed retain];
         
          UIImage *greyButtonImage = [[UIImage imageNamed:@"darkgrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
         CGRect iconFrame = CGRectMake(14, 14, 12, 12);

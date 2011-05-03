@@ -9,6 +9,7 @@
 #import "RestaurantViewController.h"
 #import "Restaurant.h"
 #import "MenuViewController.h"
+#import "TakePhoto.h"
 
 // CELLS =========
 #import "RestaurantHeaderCell.h"
@@ -20,7 +21,7 @@
 #import "RestaurantButtonsCell.h"
 
 @implementation RestaurantViewController
-@synthesize tableArray, restaurant, tagsRowHeight;
+@synthesize tableArray, restaurant, tagsRowHeight, takePhoto;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -45,6 +46,9 @@
 
 - (void)dealloc
 {
+    [restaurant release];
+    [tableArray release];
+    [takePhoto release];
     [tableArray release];
     [super dealloc];
 }
@@ -77,6 +81,8 @@
 {
     [super viewDidLoad];
  
+    takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
+    
     UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iRestaurant-logo"]];
     appNameImageView.frame = CGRectMake(0, 0, 320, 35);
     appNameImageView.contentMode = UIViewContentModeRight;
@@ -302,7 +308,7 @@
 }
 -(void)photoButtonPressed:(id)sender
 {
-    
+    [takePhoto loadPhotoForRestaurant:restaurant];
 }
 -(void)menuButtonPressed:(id)sender
 {

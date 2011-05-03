@@ -38,12 +38,13 @@
     #warning Replace with real co-ordinates
     double latitude = 41.884432;
     double longitude = -87.643464;
+    NSString *near = @"";
     
-    NSString *json = [NSString stringWithFormat:@"{\"find\": \"%@\", \"coordinates\": [%g, %g]}", 
-                      term, latitude, longitude];
+    NSString *json = [NSString stringWithFormat:@"{\"find\": \"%@\", \"near\": \"%@\", \"coordinates\": [%g, %g]}", 
+                      term, near, latitude, longitude];
     
     
-    NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/complete.json"];
+    NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/complete"];
     
     request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
@@ -80,10 +81,11 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
-    NSDictionary *reponseDictionary = [[request_passed responseString] JSONValue];
+    NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
+    NSLog(@"responseString: %@", [request_passed responseString]);
     NSMutableArray *values = [[NSMutableArray alloc]init];
 
-    for (NSArray *array in [reponseDictionary objectEnumerator]) {
+    for (NSArray *array in [responseDictionary objectEnumerator]) {
         for (NSString *value in array) {
             [values addObject:[value copy]]; //Retain to stop crashes
         }

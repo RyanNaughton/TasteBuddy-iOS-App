@@ -8,16 +8,19 @@
 
 #import <UIKit/UIKit.h>
 @class Restaurant;
+@class TakePhoto;
 
 @interface RestaurantViewController : UITableViewController {
     NSMutableArray *tableArray;
     Restaurant *restaurant;
     int tagsRowHeight;
+    TakePhoto *takePhoto;
 }
 
 @property (nonatomic, retain) NSMutableArray *tableArray;
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, assign) int tagsRowHeight;
+@property (nonatomic, retain) TakePhoto *takePhoto;
 
 -(id)initWithRestaurant:(Restaurant *)restaurant_passed;
 -(void)loadMenu;
@@ -27,6 +30,6 @@
 -(void)mapItButtonPressed:(id)sender;
 -(void)photoButtonPressed:(id)sender;
 -(void)menuButtonPressed:(id)sender;
--(void)addressButtonPressed:(id)sender;
+-(void)bookmarkButtonPressed:(id)sender;
 
 @end

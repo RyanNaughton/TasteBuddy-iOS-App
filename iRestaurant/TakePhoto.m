@@ -11,16 +11,26 @@
 #import "PhotoShareContainer.h"
 #import "Restaurant.h"
 #import "MenuItem.h"
+#import "RestaurantViewController.h"
 
 @implementation TakePhoto
-@synthesize containerView, restaurant, menuItem;
+@synthesize containerView, restaurant, menuItem, parentViewController;
+
+-(id)initWithParentViewController:(RestaurantViewController *)viewController {
+    self = [super init];
+    if (self) {
+        parentViewController = [viewController retain];
+    }
+    return self;
+}
 
 -(void)loadPhotoForRestaurant:(Restaurant *)restaurant_passed {
     restaurant = [restaurant_passed retain];
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Choose Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Picture", @"Use Photo Library", nil];
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    popupQuery.delegate = self;
     iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [popupQuery showInView:appDelegate.tabBarController.view];
+    [popupQuery showFromTabBar:appDelegate.tabBarController.tabBar];
     [popupQuery release];
 }
 
@@ -29,31 +39,42 @@
     restaurant = [restaurant_passed retain];
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Choose Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Picture", @"Use Photo Library", nil];
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    popupQuery.delegate = self;
     iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
-    [popupQuery showInView:appDelegate.tabBarController.view];
+    [popupQuery showFromTabBar:appDelegate.tabBarController.tabBar];
     [popupQuery release];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
-    imagePickerController.delegate = self;
-    imagePickerController.allowsEditing = YES;
-    imagePickerController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    imagePickerController.modalPresentationStyle = UIModalPresentationPageSheet;
 
+   
     if (buttonIndex == 0) 
     {
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.delegate = self;
+        imagePickerController.allowsEditing = YES;
+        imagePickerController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        imagePickerController.modalPresentationStyle = UIModalPresentationPageSheet;
+
         imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
+        [appDelegate.tabBarController presentModalViewController:imagePickerController animated:YES];
+        [imagePickerController release];
+
     }
     if (buttonIndex == 1) 
     {
+        UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
+        imagePickerController.delegate = self;
+        imagePickerController.allowsEditing = YES;
+        imagePickerController.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
+        imagePickerController.modalPresentationStyle = UIModalPresentationPageSheet;
         imagePickerController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-    }
-        
-    [appDelegate.tabBarController presentModalViewController:imagePickerController animated:YES];
-    [imagePickerController release];
+                
+        [appDelegate.tabBarController presentModalViewController:imagePickerController animated:YES];
+        [imagePickerController release];
+
+    }        
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
@@ -68,16 +89,16 @@
 }
 
 -(void)launchAdditionalDetailsWindowWithImage:(UIImage *)image andPicker:(UIImagePickerController *)picker {
-    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];    
     
     PhotoShareContainer *photoShareContainer = [[PhotoShareContainer alloc]initWithWhere:restaurant.name andWhat:@"" andImage:image];
     photoShareContainer.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     photoShareContainer.modalPresentationStyle = UIModalPresentationPageSheet;
-    [appDelegate.tabBarController presentModalViewController:photoShareContainer animated:YES];
+    [parentViewController presentModalViewController:photoShareContainer animated:YES];
     [photoShareContainer release];
 }
 
 -(void)dealloc {
+    [parentViewController release];
     [menuItem release];
     [restaurant release];
     [super dealloc];
