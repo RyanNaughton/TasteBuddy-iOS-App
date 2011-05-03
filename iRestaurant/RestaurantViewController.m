@@ -17,6 +17,7 @@
 #import "RestaurantPhoneCell.h"
 #import "RestaurantTagsCell.h"
 #import "RestaurantWebsiteCell.h"
+#import "RestaurantButtonsCell.h"
 
 @implementation RestaurantViewController
 @synthesize tableArray, restaurant, tagsRowHeight;
@@ -36,7 +37,7 @@
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
         self.navigationController.navigationBar.translucent = YES;
         restaurant = [restaurant_passed retain];
-        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Phone", @"Address", @"Menu", @"Tags", @"Comments", @"AdditionalInformation", @"WebsiteLink", nil];
+        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"Tags", @"Comments", @"AdditionalInformation", @"WebsiteLink", nil];
         tagsRowHeight = 44;
     }
     return self;
@@ -149,14 +150,14 @@
         [restaurantHeaderCell loadRestaurant:restaurant];
 		return restaurantHeaderCell;
         
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Menu"]) {
-        RestaurantMenuCell *restaurantMenuCell = (RestaurantMenuCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantMenuCell"];
-		if (restaurantMenuCell == nil) {
-		    restaurantMenuCell = [[[RestaurantMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantMenuCell"] autorelease];
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
+        RestaurantButtonsCell *restaurantButtonsCell = (RestaurantButtonsCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantMenuCell"];
+		if (restaurantButtonsCell == nil) {
+		    restaurantButtonsCell = [[[RestaurantButtonsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantButtonsCell"] autorelease];
 		}          
-        [restaurantMenuCell loadRestaurant:restaurant];
-        restaurantMenuCell.parentView = self;
-		return restaurantMenuCell;
+        //[restaurantButtonsCell loadRestaurant:restaurant];
+        //restaurantButtonsCell.parentView = self;
+		return restaurantButtonsCell;
 
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
         RestaurantAddressCell *restaurantAddressCell = (RestaurantAddressCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantAddressCell"];
@@ -207,8 +208,9 @@
     int height;
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
         height = 180;
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Menu"]) {
-        height = 60;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
+        height = 160;
+        
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
         height = 45;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
@@ -274,6 +276,41 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Menu"]) {
     
     }
+}
+
+-(void)callButtonPressed:(id)sender
+{
+    NSString *phoneNumber = [restaurant.phone stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@")" withString:@""];
+    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@" " withString:@""];    
+    NSString *phoneNumberString = [NSString stringWithFormat:@"tel://%@", phoneNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberString]];
+}
+-(void)rateItButtonPressed:(id)sender 
+{
+    
+}
+-(void)mapItButtonPressed:(id)sender
+{
+    NSString *addressString = [NSString stringWithFormat:@"%@, %@, %@, %@, %@, %@", restaurant.address_1, restaurant.address_2, restaurant.city_town, restaurant.state_province, restaurant.postal_code, restaurant.country];
+    addressString = [addressString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    NSString *requestString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@&z=15", addressString];
+    UIApplication *app = [UIApplication sharedApplication];
+    [app openURL:[NSURL URLWithString:requestString]];	
+
+}
+-(void)photoButtonPressed:(id)sender
+{
+    
+}
+-(void)menuButtonPressed:(id)sender
+{
+    [self loadMenu];
+}
+-(void)bookmarkButtonPressed:(id)sender
+{
+   
 }
 
 @end

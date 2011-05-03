@@ -21,4 +21,12 @@
 
 -(id)initWithRestaurant:(Restaurant *)restaurant_passed;
 -(void)loadMenu;
+
+-(void)callButtonPressed:(id)sender;
+-(void)rateItButtonPressed:(id)sender;
+-(void)mapItButtonPressed:(id)sender;
+-(void)photoButtonPressed:(id)sender;
+-(void)menuButtonPressed:(id)sender;
+-(void)addressButtonPressed:(id)sender;
+
 @end

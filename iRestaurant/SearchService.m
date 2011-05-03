@@ -56,6 +56,7 @@
     
     double latitude = 41.884432;
     double longitude = -87.643464;
+    nearString = @"";
     
     NSString *json = [NSString stringWithFormat:@"{\"find\": \"%@\", \"near\": \"%@\", \"coordinates\": [%g, %g]}", 
                       term, nearString, latitude, longitude];
@@ -79,6 +80,7 @@
 {
         
     NSString *responseString = [request_passed responseString];
+    NSLog(@"response string: %@", responseString);
     NSArray *arrayOfDictionaries = [responseString JSONValue];
         
     NSMutableArray *resultsForDelegate = [[NSMutableArray alloc]init];
