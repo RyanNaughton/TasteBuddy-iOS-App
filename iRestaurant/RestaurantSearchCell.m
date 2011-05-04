@@ -28,7 +28,6 @@
 		name.backgroundColor = [UIColor clearColor];
 		name.font = [UIFont boldSystemFontOfSize:15];
         [self.contentView addSubview:name];
-        [name release]; 
 
         addressLine1 = [[UILabel alloc]init];
         addressLine1.frame = CGRectMake(10, 30, 180, 15);
@@ -36,7 +35,6 @@
 		addressLine1.backgroundColor = [UIColor clearColor];
 		addressLine1.font = [UIFont systemFontOfSize:13];
         [self.contentView addSubview:addressLine1];
-        [addressLine1 release];
 
         tags = [[UILabel alloc]init];
         tags.frame = CGRectMake(10, 45, 180, 15);
@@ -45,7 +43,6 @@
 		UIFont *italicFont = [UIFont fontWithName:@"Helvetica-Oblique" size:12];
         tags.font = italicFont;
         [self.contentView addSubview:tags];
-        [tags release];
 
         distance = [[UILabel alloc]init];
         distance.frame = CGRectMake(240, 30, 70, 15);
@@ -54,7 +51,6 @@
 		distance.backgroundColor = [UIColor clearColor];
 		distance.font = [UIFont systemFontOfSize:13];
         [self.contentView addSubview:distance];
-        [distance release];
 
         averageDishPrice = [[UILabel alloc]init];
         averageDishPrice.frame = CGRectMake(200, 45, 110, 15);
@@ -63,15 +59,13 @@
 		averageDishPrice.backgroundColor = [UIColor clearColor];
 		averageDishPrice.font = [UIFont systemFontOfSize:13];
         [self.contentView addSubview:averageDishPrice];
-        [averageDishPrice release];
         
         int starSize = 15;
-        ratingView = [[RatingView alloc]initWithRating:50 andStarSize:starSize andIsUserRating:FALSE andIsEditable:FALSE];
+        ratingView = [[RatingView alloc]initWithRating:0 andStarSize:starSize andIsUserRating:FALSE andIsEditable:FALSE];
         ratingView.contentMode = UIViewContentModeScaleAspectFit;
         ratingView.clipsToBounds = TRUE;
         ratingView.frame = CGRectMake((310 - (starSize * 5)), 10, (starSize * 5), 20);
         [self.contentView addSubview:ratingView];
-        [ratingView release];
         
     }
     return self;
@@ -86,7 +80,7 @@
     averageDishPrice.text = [NSString stringWithFormat:@"avg. dish: $%@", restaurant.average_meal_price];
     
     // set average rating
-    
+    [ratingView setRating: ([restaurant.average_rating floatValue] * 20)];
 }
 
 
@@ -98,6 +92,12 @@
 
 - (void)dealloc
 {
+    [name release]; 
+    [addressLine1 release];
+    [tags release];
+    [distance release];
+    [averageDishPrice release];
+    [ratingView release];
     [super dealloc];
 }
 

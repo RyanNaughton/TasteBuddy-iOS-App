@@ -55,7 +55,7 @@
         name.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:name];
         
-        ratingView = [[RatingView alloc]initWithRating:50 andHowManyRatings:267 andStarSize:20 andIsUserRating:FALSE andIsEditable:TRUE];
+        ratingView = [[RatingView alloc]initWithRating:0 andHowManyRatings:267 andStarSize:20 andIsUserRating:FALSE andIsEditable:TRUE];
         ratingView.frame = CGRectMake(10, 30, 100, 20);
         [self.contentView addSubview:ratingView];
         
@@ -194,6 +194,8 @@
     } else  {
         cuisine_types.text = [NSString stringWithFormat:@"%@", [restaurant.cuisine_types objectAtIndex:0]];
     }
+    
+    [ratingView setRating: [restaurant.average_rating floatValue] * 20];
 }
 
 -(void)cameraButtonPressed:(id)sender {

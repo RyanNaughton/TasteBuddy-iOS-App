@@ -63,6 +63,9 @@
         _id               = [[restaurantDictionary objectForKey:@"id"] retain];
         name              = [[restaurantDictionary objectForKey:@"name"] retain];
         average_rating    = [[restaurantDictionary objectForKey:@"average_rating"] retain];
+        if([average_rating isKindOfClass:[NSNull class]]) {
+            average_rating = [NSNumber numberWithInt:0];
+        }
         address_1         = [[restaurantDictionary objectForKey:@"address_1"] retain];
         address_2         = [[restaurantDictionary objectForKey:@"address_2"] retain];
         city_town         = [[restaurantDictionary objectForKey:@"city_town"] retain];
@@ -89,6 +92,9 @@
         pictures          = [[restaurantDictionary objectForKey:@"pictures"] retain];
         comments          = [[restaurantDictionary objectForKey:@"comments"] retain];
         average_meal_price= [[restaurantDictionary objectForKey:@"average_meal_price"] retain];
+        if([average_meal_price isKindOfClass:[NSNull class]]){
+            average_meal_price = @"$--.--";
+        }
         distance          = [[restaurantDictionary objectForKey:@"distance"] retain];
         
         menu_items        = [[NSMutableArray alloc] init];
