@@ -33,5 +33,6 @@
 -(void) setupRatingButton;
 -(void) setupRatingCount:(int)howManyRatings;
 -(void) rate:(id)sender;
+-(void) setRating:(float)rating;
 
 @end

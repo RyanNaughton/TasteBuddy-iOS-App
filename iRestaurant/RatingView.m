@@ -85,6 +85,13 @@
     [self bringSubviewToFront:ratingButton];
 }
 
+-(void) setRating:(float)rating {
+    redStarsView.frame = CGRectMake(0, 0, ((rating * (starSize *5)) / 100), starSize);
+    redStarsView.clipsToBounds = TRUE;
+    [self bringSubviewToFront:ratingButton];
+}
+
+
 -(void) setupOutlineStarsView {
     outlineStarsView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, (starSize * 5), starSize)];
     for (int i=0; i < 5; i++) {

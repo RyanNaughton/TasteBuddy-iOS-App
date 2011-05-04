@@ -47,7 +47,7 @@
         tagsSubLabel.font = [UIFont systemFontOfSize:14];
         tagsSubLabel.shadowColor = [UIColor whiteColor];
         tagsSubLabel.shadowOffset = CGSizeMake(0,1);
-        tagsSubLabel.text = @"Up-vote adjectives that describe this restaurant";
+        tagsSubLabel.text = @"Touch the adjectives that describe this restaurant";
         [self.contentView addSubview:tagsSubLabel];
         [tagsSubLabel release];
         
