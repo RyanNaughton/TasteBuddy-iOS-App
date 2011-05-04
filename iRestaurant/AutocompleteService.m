@@ -43,8 +43,7 @@
     NSString *json = [NSString stringWithFormat:@"{\"find\": \"%@\", \"near\": \"%@\", \"coordinates\": [%g, %g]}", 
                       term, near, latitude, longitude];
     
-    
-    NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/complete"];
+    NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/complete.json"];
     
     request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
@@ -68,7 +67,7 @@
     NSString *json = [NSString stringWithFormat:@"{\"near\": \"%@\", \"coordinates\": [%g, %g]}", 
                       place, latitude, longitude];
     
-    
+
     NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/complete.json"];
     
     request = [ASIFormDataRequest requestWithURL:url];
@@ -82,7 +81,6 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
     NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
-    NSLog(@"responseString: %@", [request_passed responseString]);
     NSMutableArray *values = [[NSMutableArray alloc]init];
 
     for (NSArray *array in [responseDictionary objectEnumerator]) {
