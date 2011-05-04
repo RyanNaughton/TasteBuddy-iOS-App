@@ -18,7 +18,7 @@
     if (self) {
         // Initialization code
         
-        restaurantViewController = [restaurantViewController_passed retain];
+        restaurantViewController = restaurantViewController_passed;
         
          UIImage *greyButtonImage = [[UIImage imageNamed:@"darkgrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
         CGRect iconFrame = CGRectMake(14, 14, 12, 12);
@@ -38,7 +38,7 @@
         phoneImage.frame = iconFrame;
         phoneImage.alpha = 0.8;
         [callButton addSubview:phoneImage];
-        [phoneImage release];
+        //[phoneImage release];
         
         // RATE IT ============
         
@@ -55,7 +55,7 @@
         starImage.frame = iconFrame;
         starImage.alpha = 0.8;
         [rateItButton addSubview:starImage];
-        [starImage release];
+        //[starImage release];
         
         // MAP IT ============
         
@@ -72,7 +72,7 @@
         addressImage.frame = iconFrame;
         addressImage.alpha = 0.8;
         [mapItButton addSubview:addressImage];
-        [addressImage release];
+        //[addressImage release];
 
         // ADD PHOTO ============
         
@@ -89,7 +89,7 @@
         cameraImage.frame = iconFrame;
         cameraImage.alpha = 0.8;
         [photoButton addSubview:cameraImage];
-        [addressImage release];
+        //[addressImage release];
 
         // MENUS ============
         
@@ -106,7 +106,7 @@
         menuImage.frame = iconFrame;
         menuImage.alpha = 0.8;
         [menuButton addSubview:menuImage];
-        [menuImage release];
+        //[menuImage release];
         
         // BOOKMARK ============
         
@@ -123,7 +123,7 @@
         bookmarkImage.frame = iconFrame;
         bookmarkImage.alpha = 0.8;
         [bookmarkButton addSubview:bookmarkImage];
-        [menuImage release];
+        //[menuImage release];
     
     }
     return self;
