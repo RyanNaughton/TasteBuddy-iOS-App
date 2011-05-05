@@ -51,6 +51,9 @@
 {
     NSString *responseString = [request_passed responseString];
     NSLog(@"response string: %@", responseString);
+    
+    #warning TODO do some stuff with this string
+    [delegate doneRating];
 }
 
 @end

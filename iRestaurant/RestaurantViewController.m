@@ -11,6 +11,8 @@
 #import "MenuViewController.h"
 #import "TakePhoto.h"
 #import "AuthenticationResponse.h"
+#import "RestaurantRatingService.h"
+
 // CELLS =========
 #import "RestaurantHeaderCell.h"
 #import "RestaurantMenuCell.h"
@@ -41,6 +43,7 @@
         restaurant = [restaurant_passed retain];
         tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"Tags", @"Comments", @"AdditionalInformation", @"WebsiteLink", nil];
         tagsRowHeight = 44;
+        restaurantRatingService = [[RestaurantRatingService alloc] initWithDelegate:self];
     }
     return self;
 }
@@ -83,7 +86,7 @@
     [super viewDidLoad];
  
     takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
-    
+
     UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iRestaurant-logo"]];
     appNameImageView.frame = CGRectMake(0, 0, 320, 35);
     appNameImageView.contentMode = UIViewContentModeRight;
@@ -326,17 +329,13 @@
     
     [actionSheet showInView:appDelegate.tabBarController.view];
     [actionSheet release];
-    
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    NSLog(@"%@", appDelegate.authenticationResponse.authentication_token);
     float rating = 5 - buttonIndex * 1.0;
-    NSLog(@"Rating %f", rating);
     RestaurantRatingService *rrs = [[RestaurantRatingService alloc] initWithDelegate:self];
     [rrs rateRestaurant:restaurant withRating:rating andAuthToken:appDelegate.authenticationResponse.authentication_token];
-    //[rrs release];
 }
 
 -(void) doneRating {
