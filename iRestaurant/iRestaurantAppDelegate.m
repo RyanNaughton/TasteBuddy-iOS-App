@@ -130,7 +130,7 @@
     [self setSavedSetting:@"authentication_token" withValue:@""];
 }
 -(void) updateAuthentication:(AuthenticationResponse *) authResponse {
-    authenticationResponse = authResponse;
+    authenticationResponse = [authResponse retain];
     [self setSavedSetting:@"authentication_token" withValue:authenticationResponse.authentication_token];
 }
 

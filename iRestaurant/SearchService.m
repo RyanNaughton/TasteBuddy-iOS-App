@@ -16,16 +16,6 @@
 @implementation SearchService
 @synthesize location, delegate, request;
 
--(id) init
-
-{
-    self = [super init];
-    if (self) {
-        // custom init
-    }
-    return self;
-}
-
 -(id) initWithLocation:(CGPoint)current_location withDelegate:(id<SearchServiceDelegate>)searchServiceDelegate 
 {
     self = [super init];
