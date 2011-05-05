@@ -47,4 +47,10 @@
     [request startAsynchronous];
 }
 
+- (void)requestFinished:(ASIHTTPRequest *)request_passed 
+{
+    NSString *responseString = [request_passed responseString];
+    NSLog(@"response string: %@", responseString);
+}
+
 @end

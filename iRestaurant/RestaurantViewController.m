@@ -5,12 +5,12 @@
 //  Created by Josh Timonen on 4/12/11.
 //  Copyright 2011 N/A. All rights reserved.
 //
-
+#import "iRestaurantAppDelegate.h"
 #import "RestaurantViewController.h"
 #import "Restaurant.h"
 #import "MenuViewController.h"
 #import "TakePhoto.h"
-
+#import "AuthenticationResponse.h"
 // CELLS =========
 #import "RestaurantHeaderCell.h"
 #import "RestaurantMenuCell.h"
@@ -19,6 +19,7 @@
 #import "RestaurantTagsCell.h"
 #import "RestaurantWebsiteCell.h"
 #import "RestaurantButtonsCell.h"
+
 
 @implementation RestaurantViewController
 @synthesize tableArray, restaurant, tagsRowHeight, takePhoto;
@@ -293,10 +294,7 @@
     NSString *phoneNumberString = [NSString stringWithFormat:@"tel://%@", phoneNumber];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberString]];
 }
--(void)rateItButtonPressed:(id)sender 
-{
-    
-}
+
 -(void)mapItButtonPressed:(id)sender
 {
     NSString *addressString = [NSString stringWithFormat:@"%@, %@, %@, %@, %@, %@", restaurant.address_1, restaurant.address_2, restaurant.city_town, restaurant.state_province, restaurant.postal_code, restaurant.country];
@@ -318,5 +316,32 @@
 {
    
 }
+
+-(void)rateItButtonPressed:(id)sender 
+{
+    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"★★★★★", @"★★★★", @"★★★", @"★★", @"★", nil];
+    [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    
+    [actionSheet showInView:appDelegate.tabBarController.view];
+    [actionSheet release];
+    
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    NSLog(@"%@", appDelegate.authenticationResponse.authentication_token);
+    float rating = 5 - buttonIndex * 1.0;
+    NSLog(@"Rating %f", rating);
+    RestaurantRatingService *rrs = [[RestaurantRatingService alloc] initWithDelegate:self];
+    [rrs rateRestaurant:restaurant withRating:rating andAuthToken:appDelegate.authenticationResponse.authentication_token];
+    //[rrs release];
+}
+
+-(void) doneRating {
+    NSLog(@"doneRating");
+}
+
 
 @end
