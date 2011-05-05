@@ -24,6 +24,9 @@
 
 -(id) initWithDelegate:(id <RestaurantTaggingServiceDelegate>) restaurantDelegate {
     self = [super init];
+    if (self) {
+        delegate = restaurantDelegate;
+    }
     return self;
 }
 -(void) tagRestaurant:(Restaurant *) restaurant withTag:(NSString *)tag andAuthToken:(NSString *)authToken {
@@ -32,11 +35,12 @@
         request = nil;
     }
     
-    NSString *json = [NSString stringWithFormat:@"{\"find\": \"%@\", \"near\": \"%@\", \"coordinates\": [%g, %g]}"];
+    NSString *json = [NSString stringWithFormat:@"{\"value\": \"%@\", \"auth_token\": \"%@\"}", tag, authToken];
     
-    NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/search.json"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/tag.json", restaurant._id]];
     
     request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod: @"PUT"];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];

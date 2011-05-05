@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 @class Menu;
 
-@interface Restaurant : NSObject <NSCopying> {
-    NSNumber *_id;
+@interface Restaurant : NSObject {
+    NSString *_id;
     NSString *name;
     NSNumber *average_rating;
     NSString *address_1;
@@ -48,7 +48,7 @@
     Menu *menu;
 }
 
-@property (nonatomic, retain) NSNumber *_id;
+@property (nonatomic, retain) NSString *_id;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSNumber *average_rating;
 @property (nonatomic, retain) NSString *address_1;

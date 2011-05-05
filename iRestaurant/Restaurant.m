@@ -110,47 +110,8 @@
     return self;
 }
 
-- (id)copyWithZone:(NSZone *)zone {
-    Restaurant *newRestaurant = [[Restaurant alloc]init];
-    
-    newRestaurant._id      = [_id      copy];
-    newRestaurant.name              = [name              copy];
-    newRestaurant.average_rating    = [average_rating    copy];
-    newRestaurant.address_1         = [address_1         copy];
-    newRestaurant.address_2         = [address_2         copy];
-    newRestaurant.city_town         = [city_town         copy];
-    newRestaurant.state_province    = [state_province    copy];
-    newRestaurant.country           = [country           copy];
-    newRestaurant.postal_code       = [postal_code       copy];
-    newRestaurant.neighborhood      = [neighborhood      copy];
-    newRestaurant.location          = [location          copy];
-    newRestaurant.website_url       = [website_url       copy];
-    newRestaurant.alcohol_type      = [alcohol_type      copy];
-    newRestaurant.credit_cards      = [credit_cards      copy];
-    newRestaurant.cuisine_types     = [cuisine_types     copy];
-    newRestaurant.delivery          = [delivery          copy];
-    newRestaurant.dress_code        = [dress_code        copy];
-    newRestaurant.group_friendly    = [group_friendly    copy];
-    newRestaurant.kid_friendly      = [kid_friendly      copy];
-    newRestaurant.nearest_transit   = [nearest_transit   copy];
-    newRestaurant.outdoor_seating   = [outdoor_seating   copy];
-    newRestaurant.parking           = [parking           copy];
-    newRestaurant.phone             = [phone             copy];
-    newRestaurant.reservations      = [reservations      copy];
-    newRestaurant.takeout           = [takeout           copy];
-    newRestaurant.wheelchair_access = [wheelchair_access copy];
-    newRestaurant.pictures          = [pictures        copy];
-    newRestaurant.comments          = [comments          copy];
-    newRestaurant.average_meal_price= [average_meal_price copy];
-    newRestaurant.distance = [distance copy];
-    newRestaurant.menu_metadata = [menu_metadata copy];
-    
-    return newRestaurant;
-}
-
-
 -(void) dealloc {
-    [_id      release];
+    [_id               release];
     [name              release];
     [average_rating    release];
     [address_1         release];
@@ -171,14 +132,14 @@
     [nearest_transit   release];
     [parking           release];
     [phone             release];
-    [pictures        release];
+    [pictures          release];
     [comments          release];
     [menu_items        release];
     [average_meal_price release];
-    [distance release];
-    [menu_metadata release];
-    [menu release];
-    [super dealloc];
+    [distance           release];
+    [menu_metadata      release];
+    [menu               release];
+    [super              dealloc];
 }
 
 
