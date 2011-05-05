@@ -43,7 +43,6 @@
         restaurant = [restaurant_passed retain];
         tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"Tags", @"Comments", @"AdditionalInformation", @"WebsiteLink", nil];
         tagsRowHeight = 44;
-        restaurantRatingService = [[RestaurantRatingService alloc] initWithDelegate:self];
     }
     return self;
 }
