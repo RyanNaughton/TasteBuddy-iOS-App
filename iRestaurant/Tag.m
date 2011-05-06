@@ -15,7 +15,6 @@
 
 - (void)dealloc {
     [name release];
-    [count release];
     [super dealloc];
 }
 
@@ -23,7 +22,7 @@
     self = [super init];
     if(self) {
         name = [value retain];
-        count = [NSNumber numberWithInt:0];
+        count = 0;
         isUserTag = false;
     }
     return self;

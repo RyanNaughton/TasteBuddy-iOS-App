@@ -11,12 +11,12 @@
 
 @interface Tag : NSObject {
     NSString *name;
-    NSNumber *count;
+    int count;
     bool isUserTag;
 }
 
 @property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSNumber *count;
+@property (nonatomic, assign) int count;
 @property (nonatomic, assign) bool isUserTag;
 
 -(id) initWithTagValue:(NSString *) value;

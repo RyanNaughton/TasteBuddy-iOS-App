@@ -56,7 +56,8 @@
     for (NSString *value in tagsRetrieved) {
         Tag *tag = [[Tag alloc] initWithTagValue:value];
         tag.isUserTag = true;
-        tag.count = [NSNumber numberWithInt:1];
+        #warning TODO add real value
+        tag.count = 1;
         [tags addObject:tag];
     }
     request = nil;

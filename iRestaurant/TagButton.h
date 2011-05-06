@@ -7,30 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Tag.h"
-#import "RestaurantTaggingService.h"
 #import "Restaurant.h"
+@class Tag;
 
-@interface TagButton : UIButton<RestaurantTaggingServiceDelegate> {
-    Tag *tag;
+@interface TagButton : UIButton {
     UILabel *tagName;
     UIImageView *circleImageView;
-    UIImage *circlePlus;
-    UIImage *circleCheck;
-    UIImage *greyButtonImage;
-    RestaurantTaggingService *restauarantTaggingService;
-    Restaurant *restaurant;
 }
 
-@property (nonatomic, retain) Tag *tag;
 @property (nonatomic, retain) UILabel *tagName;
 @property (nonatomic, retain) UIImageView *circleImageView;
-@property (nonatomic, retain) UIImage *circlePlus;
-@property (nonatomic, retain) UIImage *circleCheck;
-@property (nonatomic, retain) UIImage *greyButtonImage;
-@property (nonatomic, retain) RestaurantTaggingService *restauarantTaggingService;
-@property (nonatomic, retain) Restaurant *restaurant;
 
--(void) loadTag:(Tag *) tagToLoad andRestaurant:(Restaurant *) restaurant;
--(void) refreshTag;
+-(void) prepareButton;
+-(void) loadTag:(Tag *) tagToLoad;
+
 @end

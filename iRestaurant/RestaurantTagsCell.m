@@ -13,9 +13,12 @@
 #import "Tag.h"
 #import "TagService.h"
 #import "TagButton.h"
+#import "iRestaurantAppDelegate.h"
+#import "RestaurantTaggingService.h"
+#import "AuthenticationResponse.h"
 
 @implementation RestaurantTagsCell
-@synthesize tagService, restaurant;
+@synthesize tagService, restaurant, tagButtons, restaurantTaggingService, tags, tagValues;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -53,6 +56,9 @@
         [tagsSubLabel release];
 
         tagService =[[TagService alloc] initWithDelegate:self];
+        restaurantTaggingService  = [[RestaurantTaggingService alloc] initWithDelegate:self];
+        tagButtons = [[NSMutableArray alloc] init];
+        tagValues = [[NSMutableArray alloc] init];
         [tagService getTags];
         
     }
@@ -70,7 +76,8 @@
     // Configure the view for the selected state
 }
 
--(void) tagsRetrieved:(NSMutableArray *)tags {
+-(void) tagsRetrieved:(NSMutableArray *)tagsRetrieved {
+    tags = tagsRetrieved;
     // Contains entire tag scrolling area in cell
     UIView *tagScrollContainer = [[UIView alloc]initWithFrame:CGRectMake(0, 70, 320, 130)]; 
     
@@ -90,10 +97,13 @@
         }
         
         TagButton *tagButton = (TagButton *)[TagButton buttonWithType:UIButtonTypeCustom];
-        [tagButton addTarget:tagButton action:@selector(tagButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [tagButton prepareButton];
+        [tagButtons addObject:tagButton];
+        [tagButton addTarget:self action:@selector(tagButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         Tag *tag = (Tag *)[tags objectAtIndex:i];
 
-        [tagButton loadTag:tag andRestaurant:restaurant];
+        [tagButton loadTag:tag];
+        [tagValues addObject:tag.name];
         
         tagButton.frame = CGRectMake(((column * btnWidth) - btnWidth + (xPadding * column)), ((btnHeight * positionInColumn) - btnHeight + (yPadding * positionInColumn)), btnWidth, btnHeight);
         [viewForTagButtons addSubview:tagButton];
@@ -128,9 +138,34 @@
     [tagScrollContainer release];
 
 }
+                                
+-(void)tagButtonPressed:(id)sender {
+    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    Tag *tag = [tags objectAtIndex:[tagButtons indexOfObject:sender]];
+    [restaurantTaggingService tagRestaurant:restaurant withTag:tag.name andAuthToken:appDelegate.authenticationResponse.authentication_token];
+}
+
+-(void) doneTagging:(NSMutableArray *) tagsFromUser {
+    for (Tag* tagForUser in tagsFromUser) {
+        NSUInteger indexOfTag = [tagValues indexOfObject:tagForUser.name];
+        Tag *tag = [tags objectAtIndex:indexOfTag];
+        TagButton *button = [tagButtons objectAtIndex:indexOfTag]; 
+        if([tag.name isEqualToString:tagForUser.name]) {
+            tag.isUserTag = true;
+            tag.count = tagForUser.count;
+            [button loadTag:tag];
+        }
+    }
+
+}
+
 
 - (void)dealloc
 {
+    [restaurantTaggingService release];
+    [tags release];
+    [tagValues release];
+    [tagButtons release];
     [restaurant release];
     [tagService release];
     [super dealloc];
