@@ -10,6 +10,10 @@
 #import "Restaurant.h"
 #import "MenuItem.h"
 #import "Comment.h"
+#import "TakePhoto.h"
+#import "iRestaurantAppDelegate.h"
+#import "RestaurantRatingService.h"
+#import "AuthenticationResponse.h"
 
 // CELLS
 #import "DishHeaderCell.h"
@@ -24,7 +28,7 @@
 
 @implementation DishViewController
 
-@synthesize restaurant, menu_item, tableArray;
+@synthesize restaurant, menu_item, tableArray, takePhoto;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,7 +45,7 @@
     if (self) {
         // Custom initialization
         self.tableView.backgroundColor = [UIColor whiteColor];
-        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Phone", @"Address", @"Tags", @"Comments", nil];
+        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"Tags", @"Comments", nil];
         menu_item = [menu_item_passed retain];
         restaurant = [restaurant_passed retain];
     }
@@ -70,6 +74,8 @@
 {
     [super viewDidLoad];
     [self setTitle:menu_item.name];
+    
+    takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
     
     UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iRestaurant-logo"]];
     appNameImageView.frame = CGRectMake(0, 0, 320, 35);
@@ -140,22 +146,13 @@
         [dishHeaderCell loadMenuItem:menu_item andRestaurant:restaurant];
 		return dishHeaderCell;
         
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
-        RestaurantPhoneCell *restaurantPhoneCell = (RestaurantPhoneCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantPhoneCell"];
-		if (restaurantPhoneCell == nil) {
-		    restaurantPhoneCell = [[[RestaurantPhoneCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantPhoneCell"] autorelease];
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
+        DishButtonsCell *dishButtonsCell = (DishButtonsCell *)[tableView dequeueReusableCellWithIdentifier:@"DishButtonsCell"];
+		if (dishButtonsCell == nil) {
+		    dishButtonsCell = [[[DishButtonsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishButtonsCell" andParentView:self] autorelease];
 		}          
-        [restaurantPhoneCell loadRestaurant:restaurant];
-		return restaurantPhoneCell;
-
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
-        RestaurantAddressCell *restaurantAddressCell = (RestaurantAddressCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantAddressCell"];
-		if (restaurantAddressCell == nil) {
-		    restaurantAddressCell = [[[RestaurantAddressCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantAddressCell"] autorelease];
-		}          
-        [restaurantAddressCell loadRestaurant:restaurant];
-		return restaurantAddressCell;
-   
+        //[dishButtonsCell loadRestaurant:restaurant];
+		return dishButtonsCell;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         DishTagsCell *dishTagsCell = (DishTagsCell *)[tableView dequeueReusableCellWithIdentifier:@"DishTagsCell"];
 		if (dishTagsCell == nil) {
@@ -203,7 +200,7 @@
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
         height = 395.0;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
-        height = 60.0;
+        height = 160.0;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         height = 200;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
@@ -213,10 +210,6 @@
         } else {
             height = 50;
         }
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
-        height = 45;
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
-        height = 45;
     } else {
         height = 44;
     }
@@ -274,5 +267,59 @@
     
     } 
 }
+
+-(void)callButtonPressed:(id)sender
+{
+    NSString *phoneNumber = [restaurant.phone stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@")" withString:@""];
+    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@"-" withString:@""];
+    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@" " withString:@""];    
+    NSString *phoneNumberString = [NSString stringWithFormat:@"tel://%@", phoneNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberString]];
+}
+
+-(void)mapItButtonPressed:(id)sender
+{
+    NSLog(@"map it pressed");
+    NSString *addressString = [NSString stringWithFormat:@"%@, %@, %@, %@, %@, %@", restaurant.address_1, restaurant.address_2, restaurant.city_town, restaurant.state_province, restaurant.postal_code, restaurant.country];
+    addressString = [addressString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
+    NSString *requestString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@&z=15", addressString];
+    UIApplication *app = [UIApplication sharedApplication];
+    [app openURL:[NSURL URLWithString:requestString]];	
+    
+}
+-(void)photoButtonPressed:(id)sender
+{
+    [takePhoto loadPhotoForRestaurant:restaurant];
+}
+-(void)menuButtonPressed:(id)sender
+{
+   // [self loadMenu];
+}
+-(void)bookmarkButtonPressed:(id)sender
+{
+    
+}
+
+-(void)rateItButtonPressed:(id)sender 
+{
+    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"★★★★★", @"★★★★", @"★★★", @"★★", @"★", nil];
+    [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+    
+    [actionSheet showInView:appDelegate.tabBarController.view];
+    [actionSheet release];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    float rating = 5 - buttonIndex * 1.0;
+    //RestaurantRatingService *rrs = [[RestaurantRatingService alloc] initWithDelegate:self];
+    //[rrs rateRestaurant:restaurant withRating:rating andAuthToken:appDelegate.authenticationResponse.authentication_token];
+}
+
+
+
 
 @end

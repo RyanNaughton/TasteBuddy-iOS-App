@@ -16,7 +16,7 @@
 @implementation TakePhoto
 @synthesize containerView, restaurant, menuItem, parentViewController;
 
--(id)initWithParentViewController:(RestaurantViewController *)viewController {
+-(id)initWithParentViewController:(id)viewController {
     self = [super init];
     if (self) {
         parentViewController = [viewController retain];

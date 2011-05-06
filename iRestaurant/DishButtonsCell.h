@@ -7,18 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Restaurant;
+@class DishViewController;
 
 @interface DishButtonsCell : UITableViewCell {
-    UIButton *generalInfoButton;
-    UIButton *bookmarkItButton;
+    DishViewController *dishViewController;
 }
 
-@property (nonatomic, retain) UIButton *generalInfoButton;
-@property (nonatomic, retain) UIButton *bookmarkItButton;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andParentView:(DishViewController *)dishViewController_passed;
 
--(void)loadRestaurant:(Restaurant *)restaurant_passed;
--(void)generalInfoButtonPressed:(id)sender;
--(void)bookmarkItButtonPressed:(id)sender;
+@property (nonatomic, retain) DishViewController *dishViewController;
 
 @end
