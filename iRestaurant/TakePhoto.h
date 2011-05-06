@@ -15,15 +15,15 @@
     UIViewController *containerView;
     Restaurant *restaurant;
     MenuItem *menuItem;
-    RestaurantViewController *parentViewController;
+    id parentViewController;
 }
 
 @property (nonatomic, retain) UIViewController *containerView;
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, retain) MenuItem *menuItem;
-@property (nonatomic, retain) RestaurantViewController *parentViewController;
+@property (nonatomic, retain) id parentViewController;
 
--(id)initWithParentViewController:(RestaurantViewController *)viewController;
+-(id)initWithParentViewController:(id)viewController;
 -(void)loadPhotoForRestaurant:(Restaurant *)restaurant_passed;
 -(void)launchAdditionalDetailsWindowWithImage:(UIImage *)image andPicker:(UIImagePickerController *)picker;
 -(void)loadPhotoForMenuItem:(MenuItem *)menu_item_passed atRestaurant:(Restaurant *)restaurant_passed;
