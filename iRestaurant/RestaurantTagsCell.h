@@ -7,18 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TagService.h"
 @class Restaurant;
 
-@interface RestaurantTagsCell : UITableViewCell {
-    UIImage *circlePlus;
-    UIImage *circleCheck;
-    
+@interface RestaurantTagsCell : UITableViewCell<TagServiceDelegate> {
+    TagService *tagService;
+    Restaurant *restaurant;
 }
 
-@property (nonatomic, retain) UIImage *circlePlus;
-@property (nonatomic, retain) UIImage *circleCheck;
+@property (nonatomic, retain) TagService *tagService;
+@property (nonatomic, retain) Restaurant *restaurant;
 
--(void) loadRestaurant:(Restaurant *)restaurant;
--(void)tagButtonPressed:(id)sender;
+-(void) loadRestaurant:(Restaurant *)restaurantPassed;
 
 @end

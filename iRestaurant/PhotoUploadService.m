@@ -54,6 +54,7 @@
     NSLog(@"response: %@", responseString);
     // need to setup a delegate protocol..
     [delegate imageLoadingDone];
+    request = nil;
 }
 
 

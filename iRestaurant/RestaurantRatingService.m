@@ -54,6 +54,7 @@
     
     #warning TODO do some stuff with this string
     [delegate doneRating];
+    request = nil;
 }
 
 @end

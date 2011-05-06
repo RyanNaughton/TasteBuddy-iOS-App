@@ -11,7 +11,7 @@
 @class ASIFormDataRequest;
 
 @protocol RestaurantTaggingServiceDelegate <NSObject>
--(void) doneTagging;
+    -(void) doneTagging:(NSMutableArray *) tagsFromUser;
 @end
 
 @interface RestaurantTaggingService : NSObject {

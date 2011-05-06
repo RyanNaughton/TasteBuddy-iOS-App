@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
+		4929F4BA13733532003D4EE8 /* TagService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4B913733531003D4EE8 /* TagService.m */; };
+		4929F4BE1373374F003D4EE8 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4BD1373374F003D4EE8 /* Tag.m */; };
+		4929F4C213735B0E003D4EE8 /* TagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4C113735B0E003D4EE8 /* TagButton.m */; };
 		494D34B21365FC7B00E03CCA /* CellUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D34B11365FC7B00E03CCA /* CellUtility.m */; };
 		49520096135D11D200F0876E /* AutocompleteModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49520094135D11D200F0876E /* AutocompleteModalViewController.m */; };
 		49520097135D11D200F0876E /* AutocompleteModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49520095135D11D200F0876E /* AutocompleteModalViewController.xib */; };
@@ -201,6 +204,12 @@
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		490F2C9B1358BB3200DA5C1F /* MenuService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuService.h; sourceTree = "<group>"; };
 		490F2C9C1358BB3200DA5C1F /* MenuService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuService.m; sourceTree = "<group>"; };
+		4929F4B813733531003D4EE8 /* TagService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagService.h; sourceTree = "<group>"; };
+		4929F4B913733531003D4EE8 /* TagService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagService.m; sourceTree = "<group>"; };
+		4929F4BC1373374F003D4EE8 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
+		4929F4BD1373374F003D4EE8 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
+		4929F4C013735B0E003D4EE8 /* TagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagButton.h; sourceTree = "<group>"; };
+		4929F4C113735B0E003D4EE8 /* TagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagButton.m; sourceTree = "<group>"; };
 		494D34B01365FC7B00E03CCA /* CellUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellUtility.h; sourceTree = "<group>"; };
 		494D34B11365FC7B00E03CCA /* CellUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellUtility.m; sourceTree = "<group>"; };
 		49520093135D11D200F0876E /* AutocompleteModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteModalViewController.h; sourceTree = "<group>"; };
@@ -501,6 +510,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4929F4BF13735AE8003D4EE8 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				4929F4C013735B0E003D4EE8 /* TagButton.h */,
+				4929F4C113735B0E003D4EE8 /* TagButton.m */,
+			);
+			name = Tag;
+			sourceTree = "<group>";
+		};
 		494D34AD1365FC0B00E03CCA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,6 +600,7 @@
 		49578B731355183500F8EC0B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4929F4BF13735AE8003D4EE8 /* Tag */,
 				E859D26A13722D6400D47CEB /* Profile */,
 				49EE9AF71368D80700528C91 /* User */,
 				E8DFF5B11358E0E7007BF40E /* Rating */,
@@ -949,6 +968,8 @@
 				E86A84751368FE9A00720FA3 /* PhotoUploadService.m */,
 				4964AEA31372200D0060C65A /* RestaurantRatingService.h */,
 				4964AEA41372200D0060C65A /* RestaurantRatingService.m */,
+				4929F4B813733531003D4EE8 /* TagService.h */,
+				4929F4B913733531003D4EE8 /* TagService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -1085,6 +1106,8 @@
 				49BED7F81361110B00DE8CC4 /* Comment.m */,
 				49EE9AFB1368E97000528C91 /* AuthenticationResponse.h */,
 				49EE9AFC1368E97000528C91 /* AuthenticationResponse.m */,
+				4929F4BC1373374F003D4EE8 /* Tag.h */,
+				4929F4BD1373374F003D4EE8 /* Tag.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1356,6 +1379,9 @@
 				E859D27D137232D000D47CEB /* ProfileHeadCell.m in Sources */,
 				E859D28B13723E6400D47CEB /* ProfilePhotoDayTopCell.m in Sources */,
 				E859D28E13723F6800D47CEB /* ProfilePhotoCell.m in Sources */,
+				4929F4BA13733532003D4EE8 /* TagService.m in Sources */,
+				4929F4BE1373374F003D4EE8 /* Tag.m in Sources */,
+				4929F4C213735B0E003D4EE8 /* TagButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

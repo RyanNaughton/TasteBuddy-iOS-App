@@ -10,7 +10,7 @@
 #import "ASIFormDataRequest.h"
 #import "Restaurant.h"
 #import "JSON.h"
-
+#import "Tag.h"
 
 @implementation RestaurantTaggingService
 
@@ -50,8 +50,17 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed 
 {
     NSString *responseString = [request_passed responseString];
-    NSLog(@"response string: %@", responseString);
+    NSArray *tagsRetrieved = [[responseString JSONValue] objectForKey:@"user_tags"];
 
+    NSMutableArray *tags = [[NSMutableArray alloc] init];
+    for (NSString *value in tagsRetrieved) {
+        Tag *tag = [[Tag alloc] initWithTagValue:value];
+        tag.isUserTag = true;
+        tag.count = [NSNumber numberWithInt:1];
+        [tags addObject:tag];
+    }
+    request = nil;
+    [delegate doneTagging:tags];
 }
 
 @end
