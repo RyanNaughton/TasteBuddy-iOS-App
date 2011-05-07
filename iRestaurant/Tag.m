@@ -28,4 +28,14 @@
     return self;
 }
 
+
+-(id) initWithTagValue:(NSString *) value andCount:(int) valueCount {
+    self = [super init];
+    if(self) {
+        name = [value retain];
+        count =  valueCount;
+        isUserTag = false;
+    }    
+    return self;
+}
 @end

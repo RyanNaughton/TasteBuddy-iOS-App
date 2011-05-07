@@ -16,7 +16,7 @@
 #import "iRestaurantAppDelegate.h"
 #import "RestaurantTaggingService.h"
 #import "AuthenticationResponse.h"
-
+    
 @implementation RestaurantTagsCell
 @synthesize tagService, restaurant, tagButtons, restaurantTaggingService, tags, tagValues;
 
@@ -126,6 +126,14 @@
                 positionInColumn ++;
             }
         }
+        
+       
+    }
+    
+    for (Tag *tag in [restaurant tags]) {
+        NSUInteger indexOfTag = [tagValues indexOfObject:tag.name];
+        TagButton *tagButton = [tagButtons objectAtIndex:indexOfTag];
+        [tagButton loadTag:tag];
     }
     
     IGUIScrollViewCanvas *scrollView = [[IGUIScrollViewCanvas alloc] init];  

@@ -10,6 +10,7 @@
 #import "JSON.h"
 #import "MenuItem.h"
 #import "Menu.h"
+#import "Tag.h"
 
 @implementation Restaurant
 
@@ -46,6 +47,7 @@
 @synthesize menu_items;
 @synthesize menu_metadata;
 @synthesize menu;
+@synthesize tags;
 
 -(id) init {
     self = [super init];
@@ -104,6 +106,17 @@
             [menu_items addObject:menuItem];
             [menuItem release];
         }
+        
+        tags = [[NSMutableArray alloc] init];
+        NSDictionary *tagDictionary = [restaurantDictionary objectForKey:@"tags"];
+        if (![tagDictionary isKindOfClass:[NSNull class]]) {
+            for(NSString *key in [tagDictionary allKeys]) {
+                Tag *tag = [[Tag alloc] initWithTagValue:key andCount:[[tagDictionary valueForKey:key] intValue]];
+                [tags addObject:tag];
+                [tag release];
+            }
+            [tags count];
+        }
         menu_metadata = [[restaurantDictionary objectForKey:@"menu_metadata"] retain];
     }
 
@@ -139,6 +152,7 @@
     [distance           release];
     [menu_metadata      release];
     [menu               release];
+    [tags               release];
     [super              dealloc];
 }
 

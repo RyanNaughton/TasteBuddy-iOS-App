@@ -46,6 +46,8 @@
     NSMutableArray *menu_metadata;
     
     Menu *menu;
+    
+    NSMutableArray *tags;
 }
 
 @property (nonatomic, retain) NSString *_id;
@@ -84,6 +86,8 @@
 @property (nonatomic, retain) NSMutableArray *menu_metadata;
 
 @property (nonatomic, retain) Menu *menu;
+
+@property (nonatomic, retain) NSMutableArray *tags;
 
 -(id) initWithDictionary:(NSDictionary *)restaurantDictionary;
 

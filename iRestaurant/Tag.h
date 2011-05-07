@@ -20,5 +20,6 @@
 @property (nonatomic, assign) bool isUserTag;
 
 -(id) initWithTagValue:(NSString *) value;
+-(id) initWithTagValue:(NSString *) value andCount:(int) valueCount;
 
 @end
