@@ -28,13 +28,13 @@
     }
     return self;
 }
--(void) tagRestaurant:(Restaurant *) restaurant withTag:(NSString *)tag andAuthToken:(NSString *)authToken {
+-(void) tagRestaurant:(Restaurant *) restaurant withTag:(NSString *)tag {
     if (request != nil) {
         [request cancel];
         request = nil;
     }
     
-    NSString *json = [NSString stringWithFormat:@"{\"value\": \"%@\", \"auth_token\": \"%@\"}", tag, authToken];
+    NSString *json = [NSString stringWithFormat:@"{\"value\": \"%@\", \"auth_token\": \"%@\"}", tag, [self authToken]];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/tag.json", restaurant._id]];
     

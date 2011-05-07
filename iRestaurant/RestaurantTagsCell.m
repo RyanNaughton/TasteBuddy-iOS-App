@@ -148,9 +148,9 @@
 }
                                 
 -(void)tagButtonPressed:(id)sender {
-    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
     Tag *tag = [tags objectAtIndex:[tagButtons indexOfObject:sender]];
-    [restaurantTaggingService tagRestaurant:restaurant withTag:tag.name andAuthToken:appDelegate.authenticationResponse.authentication_token];
+    [restaurantTaggingService tagRestaurant:restaurant withTag:tag.name];
 }
 
 -(void) doneTagging:(NSMutableArray *) tagsFromUser {

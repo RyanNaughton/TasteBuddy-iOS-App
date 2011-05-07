@@ -24,6 +24,6 @@
 
 -(id) initWithDelegate:(id <RestaurantTaggingServiceDelegate>) restaurantDelegate;
 
--(void) tagRestaurant:(Restaurant *) restaurant withTag:(NSString *)tag andAuthToken:(NSString *) authToken;
+-(void) tagRestaurant:(Restaurant *) restaurant withTag:(NSString *)tag;
 
 @end
