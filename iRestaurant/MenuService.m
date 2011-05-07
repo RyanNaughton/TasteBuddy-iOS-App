@@ -15,7 +15,7 @@
 
 @implementation MenuService
 
-@synthesize delegate, request;
+@synthesize delegate;
 
 -(id) initWithDelegate:(id <MenuServiceDelegate>) menuDelegate 
 {

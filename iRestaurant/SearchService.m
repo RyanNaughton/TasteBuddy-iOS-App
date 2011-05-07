@@ -14,7 +14,7 @@
 #import "iRestaurantAppDelegate.h"
 
 @implementation SearchService
-@synthesize location, delegate, request;
+@synthesize location, delegate;
 
 -(id) initWithLocation:(CGPoint)current_location withDelegate:(id<SearchServiceDelegate>)searchServiceDelegate 
 {
@@ -28,7 +28,6 @@
 
 -(void)dealloc {
     [delegate release];
-    [request release];
     [super dealloc];
 }
 

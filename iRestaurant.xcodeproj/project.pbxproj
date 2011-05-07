@@ -49,6 +49,7 @@
 		49BA68501354DBA50040DDB5 /* iRestaurantTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 49BA684F1354DBA50040DDB5 /* iRestaurantTests.h */; };
 		49BA68521354DBA50040DDB5 /* iRestaurantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA68511354DBA50040DDB5 /* iRestaurantTests.m */; };
 		49BED7FD13611BA700DE8CC4 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BED7FC13611BA700DE8CC4 /* CommentCell.m */; };
+		49EA6E7E1374D0F3003D8703 /* AbstractService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EA6E7D1374D0F3003D8703 /* AbstractService.m */; };
 		49EE9A7A136799CF00528C91 /* JSONBuiltModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE9A79136799CF00528C91 /* JSONBuiltModel.m */; };
 		49EE9AF41368D7E100528C91 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE9AF21368D7E100528C91 /* LoginViewController.m */; };
 		49EE9AF51368D7E100528C91 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EE9AF31368D7E100528C91 /* LoginViewController.xib */; };
@@ -287,6 +288,8 @@
 		49BED7F81361110B00DE8CC4 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		49BED7FB13611BA700DE8CC4 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
 		49BED7FC13611BA700DE8CC4 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		49EA6E7C1374D0F3003D8703 /* AbstractService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractService.h; sourceTree = "<group>"; };
+		49EA6E7D1374D0F3003D8703 /* AbstractService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractService.m; sourceTree = "<group>"; };
 		49EE9A78136799CF00528C91 /* JSONBuiltModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONBuiltModel.h; sourceTree = "<group>"; };
 		49EE9A79136799CF00528C91 /* JSONBuiltModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONBuiltModel.m; sourceTree = "<group>"; };
 		49EE9AF11368D7E100528C91 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -1031,6 +1034,8 @@
 				E86CC60B1374D9170022FCBD /* RestaurantBookmarkService.m */,
 				4929F4B813733531003D4EE8 /* TagService.h */,
 				4929F4B913733531003D4EE8 /* TagService.m */,
+				49EA6E7C1374D0F3003D8703 /* AbstractService.h */,
+				49EA6E7D1374D0F3003D8703 /* AbstractService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -1446,6 +1451,7 @@
 				4929F4BA13733532003D4EE8 /* TagService.m in Sources */,
 				4929F4BE1373374F003D4EE8 /* Tag.m in Sources */,
 				4929F4C213735B0E003D4EE8 /* TagButton.m in Sources */,
+				49EA6E7E1374D0F3003D8703 /* AbstractService.m in Sources */,
 				E86CC5F51374CED30022FCBD /* FavoritesViewController.m in Sources */,
 				E86CC5FF1374D2E40022FCBD /* FavoritesRestaurantsTVC.m in Sources */,
 				E86CC6081374D3EB0022FCBD /* FavoritesDishesTVC.m in Sources */,

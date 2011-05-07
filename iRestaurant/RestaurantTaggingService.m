@@ -14,11 +14,10 @@
 
 @implementation RestaurantTaggingService
 
-@synthesize delegate, request;
+@synthesize delegate;
 
 - (void)dealloc {
     [delegate release];
-    [request release];
     [super dealloc];
 }
 

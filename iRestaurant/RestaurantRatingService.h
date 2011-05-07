@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AbstractService.h"
+
 @class Restaurant;
 @class ASIFormDataRequest;
 
@@ -14,13 +16,11 @@
 -(void) doneRating;
 @end
 
-@interface RestaurantRatingService : NSObject {
+@interface RestaurantRatingService : AbstractService {
     id <RestaurantRatingServiceDelegate> delegate;
-    ASIFormDataRequest *request;
 }
 
 @property (nonatomic, retain) id <RestaurantRatingServiceDelegate> delegate;
-@property (nonatomic, retain) ASIFormDataRequest *request;
 
 -(id) initWithDelegate:(id <RestaurantRatingServiceDelegate>) restaurantDelegate;
 

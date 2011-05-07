@@ -12,11 +12,10 @@
 
 @implementation AutocompleteService
 
-@synthesize delegate, request;
+@synthesize delegate;
 
 -(void) dealloc {
     [delegate release];
-    [request release];
     [super dealloc];
 }
 -(id) initWithDelegate:(id <AutocompleteServiceDelegate>) serviceDelegate {

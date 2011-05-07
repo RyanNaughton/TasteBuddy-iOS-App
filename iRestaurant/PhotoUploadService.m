@@ -12,7 +12,7 @@
 #import "Base64.h"
 
 @implementation PhotoUploadService
-@synthesize request, delegate;
+@synthesize delegate;
 
 -(void) uploadImage:(UIImage *)image withWhere:(NSString *)where andWhat:(NSString *)what andComments:(NSString *)comments andFacebook:(BOOL)facebookBOOL andDelegate:(id)delegate_passed 
 {
@@ -44,7 +44,6 @@
 -(void) dealloc
 {
     [delegate release];
-    [request release];
     [super dealloc];
 }
 

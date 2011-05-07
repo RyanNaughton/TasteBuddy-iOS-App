@@ -7,24 +7,21 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AbstractService.h"
 
 @class Restaurant;
-@class ASIFormDataRequest;
 
 @protocol SearchServiceDelegate <NSObject>
 -(void)searchFinished:(NSMutableArray *)restaurantsArray;
 @end
 
-@interface SearchService : NSObject {
+@interface SearchService : AbstractService {
     CGPoint location;
-    id <SearchServiceDelegate> delegate;
-    ASIFormDataRequest *request;
-    
+    id <SearchServiceDelegate> delegate;    
 }
 
 @property (nonatomic,assign) CGPoint location;
 @property (nonatomic, retain) id <SearchServiceDelegate> delegate;
-@property (nonatomic, retain) ASIFormDataRequest *request;
 
 //CLLocationCoordinate2D
 

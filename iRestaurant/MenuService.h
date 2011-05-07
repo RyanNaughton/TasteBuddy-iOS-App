@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AbstractService.h"
 
 @class ASIFormDataRequest;
-@class ASIHTTPRequest;
 
 @class Menu;
 @class Restaurant;
@@ -18,13 +18,11 @@
     -(void)menuReturned:(Menu *)menu;
 @end
 
-@interface MenuService : NSObject {
+@interface MenuService : AbstractService {
     id<MenuServiceDelegate> delegate;
-    ASIHTTPRequest *request;
 }
 
 @property (nonatomic, retain) id<MenuServiceDelegate> delegate;
-@property (nonatomic, retain) ASIHTTPRequest *request;
 
 -(id) initWithDelegate:(id <MenuServiceDelegate>) menuDelegate;
 
