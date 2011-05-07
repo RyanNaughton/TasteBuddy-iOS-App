@@ -24,7 +24,7 @@
 
 -(id) initWithDelegate:(id <RestaurantRatingServiceDelegate>) restaurantDelegate;
 
--(void) rateRestaurant:(Restaurant *) restaurant withRating:(float) rating andAuthToken:(NSString *) authToken;
+-(void) rateRestaurant:(Restaurant *) restaurant withRating:(float) rating;
 
 
 @end

@@ -28,13 +28,13 @@
     return self;
 }
 
--(void) rateRestaurant:(Restaurant *) restaurant withRating:(float) rating andAuthToken:(NSString *)authToken {
+-(void) rateRestaurant:(Restaurant *) restaurant withRating:(float) rating {
     if (request != nil) {
         [request cancel];
         request = nil;
     }
     
-    NSString *json = [NSString stringWithFormat:@"{\"rating\": \"%f\", \"auth_token\": \"%@\"}", rating, authToken];
+    NSString *json = [NSString stringWithFormat:@"{\"rating\": \"%f\", \"auth_token\": \"%@\"}", rating, [self authToken]];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/rate.json", restaurant._id]];
     

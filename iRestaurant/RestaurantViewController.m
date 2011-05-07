@@ -332,10 +332,9 @@
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     float rating = 5 - buttonIndex * 1.0;
     RestaurantRatingService *rrs = [[RestaurantRatingService alloc] initWithDelegate:self];
-    [rrs rateRestaurant:restaurant withRating:rating andAuthToken:appDelegate.authenticationResponse.authentication_token];
+    [rrs rateRestaurant:restaurant withRating:rating];
 }
 
 -(void) doneRating {
