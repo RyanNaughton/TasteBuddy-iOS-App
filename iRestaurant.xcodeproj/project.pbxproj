@@ -125,6 +125,7 @@
 		E86CC5FA1374D0150022FCBD /* favorites-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E86CC5F81374D0150022FCBD /* favorites-logo@2x.png */; };
 		E86CC5FF1374D2E40022FCBD /* FavoritesRestaurantsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E86CC5FE1374D2E40022FCBD /* FavoritesRestaurantsTVC.m */; };
 		E86CC6081374D3EB0022FCBD /* FavoritesDishesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E86CC6071374D3EB0022FCBD /* FavoritesDishesTVC.m */; };
+		E86CC60C1374D9170022FCBD /* RestaurantBookmarkService.m in Sources */ = {isa = PBXBuildFile; fileRef = E86CC60B1374D9170022FCBD /* RestaurantBookmarkService.m */; };
 		E875620B135FE99E001A870F /* RestaurantTagsCell_OLD.m in Sources */ = {isa = PBXBuildFile; fileRef = E875620A135FE99E001A870F /* RestaurantTagsCell_OLD.m */; };
 		E8A03E14135535500031D798 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E13135535500031D798 /* MenuItem.m */; };
 		E8A03E1D135539130031D798 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E1C135539130031D798 /* SearchService.m */; };
@@ -387,6 +388,8 @@
 		E86CC5FE1374D2E40022FCBD /* FavoritesRestaurantsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesRestaurantsTVC.m; sourceTree = "<group>"; };
 		E86CC6061374D3EB0022FCBD /* FavoritesDishesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesDishesTVC.h; sourceTree = "<group>"; };
 		E86CC6071374D3EB0022FCBD /* FavoritesDishesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesDishesTVC.m; sourceTree = "<group>"; };
+		E86CC60A1374D9170022FCBD /* RestaurantBookmarkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantBookmarkService.h; sourceTree = "<group>"; };
+		E86CC60B1374D9170022FCBD /* RestaurantBookmarkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantBookmarkService.m; sourceTree = "<group>"; };
 		E8756209135FE99D001A870F /* RestaurantTagsCell_OLD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTagsCell_OLD.h; sourceTree = "<group>"; };
 		E875620A135FE99E001A870F /* RestaurantTagsCell_OLD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTagsCell_OLD.m; sourceTree = "<group>"; };
 		E8A03E12135535500031D798 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
@@ -1024,6 +1027,8 @@
 				E86A84751368FE9A00720FA3 /* PhotoUploadService.m */,
 				4964AEA31372200D0060C65A /* RestaurantRatingService.h */,
 				4964AEA41372200D0060C65A /* RestaurantRatingService.m */,
+				E86CC60A1374D9170022FCBD /* RestaurantBookmarkService.h */,
+				E86CC60B1374D9170022FCBD /* RestaurantBookmarkService.m */,
 				4929F4B813733531003D4EE8 /* TagService.h */,
 				4929F4B913733531003D4EE8 /* TagService.m */,
 			);
@@ -1444,6 +1449,7 @@
 				E86CC5F51374CED30022FCBD /* FavoritesViewController.m in Sources */,
 				E86CC5FF1374D2E40022FCBD /* FavoritesRestaurantsTVC.m in Sources */,
 				E86CC6081374D3EB0022FCBD /* FavoritesDishesTVC.m in Sources */,
+				E86CC60C1374D9170022FCBD /* RestaurantBookmarkService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Restaurant;
+@class ASIFormDataRequest;
 
+@protocol RestaurantRatingServiceDelegate <NSObject>
+-(void) doneRating;
+@end
 
 @interface RestaurantBookmarkService : NSObject {
     
