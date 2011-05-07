@@ -17,5 +17,8 @@
 }
 
 @property (nonatomic, retain) ASIFormDataRequest *request;
+@property (nonatomic, assign) bool authTokenRequired;
 
+
+-(NSString *) authToken;
 @end
