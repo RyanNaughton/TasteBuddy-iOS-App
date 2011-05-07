@@ -12,11 +12,10 @@
 #import "JSON.h"
 
 @implementation RestaurantBookmarkService
-@synthesize delegate, request;
+@synthesize delegate;
 
 - (void)dealloc {
     [delegate release];
-    [request release];
     [super dealloc];
 }
 
@@ -28,15 +27,16 @@
     return self;
 }
 
--(void) rateRestaurant:(Restaurant *) restaurant withRating:(float) rating andAuthToken:(NSString *)authToken {
+-(void) bookmarkRestaurant:(Restaurant *) restaurant
+{
     if (request != nil) {
         [request cancel];
         request = nil;
     }
     
-    NSString *json = [NSString stringWithFormat:@"{\"rating\": \"%f\", \"auth_token\": \"%@\"}", rating, authToken];
+    NSString *json = [NSString stringWithFormat:@"{\"auth_token\": \"%@\"}", [self authToken]];
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/rate.json", restaurant._id]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/bookmark.json", restaurant._id]];
     
     request = [ASIFormDataRequest requestWithURL:url];
     [request setRequestMethod: @"PUT"];
@@ -49,7 +49,7 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed 
 {
     NSString *responseString = [request_passed responseString];
-    NSLog(@"response string: %@", responseString);
+    NSLog(@"bookmark request response string: %@", responseString);
     
 #warning TODO do some stuff with this string
     [delegate doneRating];

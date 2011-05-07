@@ -7,15 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AbstractService.h"
 @class Restaurant;
 @class ASIFormDataRequest;
 
-@protocol RestaurantRatingServiceDelegate <NSObject>
+@protocol RestaurantBookmarkServiceDelegate <NSObject>
 -(void) doneRating;
 @end
 
-@interface RestaurantBookmarkService : NSObject {
-    
+@interface RestaurantBookmarkService : AbstractService {
+     id <RestaurantBookmarkServiceDelegate> delegate;
 }
+
+@property (nonatomic, retain) id <RestaurantBookmarkServiceDelegate> delegate;
+
+-(id) initWithDelegate:(id <RestaurantBookmarkServiceDelegate>) restaurantDelegate;
+
+-(void) bookmarkRestaurant:(Restaurant *) restaurant;
 
 @end
