@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AbstractService.h"
 
 @class ASIFormDataRequest;
 
@@ -14,13 +15,11 @@
   -(void)autocompleteFinished:(NSArray *)termsArray;
 @end
 
-@interface AutocompleteService : NSObject {
+@interface AutocompleteService : AbstractService {
     id <AutocompleteServiceDelegate> delegate;  
-    ASIFormDataRequest *request;
 }
 
 @property (nonatomic, retain) id <AutocompleteServiceDelegate> delegate;
-@property (nonatomic, retain) ASIFormDataRequest *request;
 
 -(id) initWithDelegate:(id <AutocompleteServiceDelegate>) serviceDelegate;
 -(void) getTerms:(NSString *)term;

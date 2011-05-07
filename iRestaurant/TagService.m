@@ -13,7 +13,7 @@
 
 @implementation TagService
 
-@synthesize delegate, request;
+@synthesize delegate;
 
 -(id) initWithDelegate:(id<TagServiceDelegate>) serviceDelegate {
 
@@ -55,7 +55,6 @@
 
 - (void)dealloc {
     [delegate release];
-    [request release];
     [super dealloc];
 }
 

@@ -7,20 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AbstractService.h"
 
-@class ASIFormDataRequest;
 @class AuthenticationResponse;
 
 @protocol LoginServiceDelegate <NSObject>
     -(void) loginComplete:(AuthenticationResponse *)authToken;
 @end
 
-@interface LoginService : NSObject {
+@interface LoginService : AbstractService {
     id<LoginServiceDelegate> delegate;
-    ASIFormDataRequest *request;
 }
 
-@property (nonatomic, retain) ASIFormDataRequest *request;
 @property (nonatomic, retain) id<LoginServiceDelegate> delegate;
 
 

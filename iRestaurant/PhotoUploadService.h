@@ -7,16 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-@class ASIFormDataRequest;
+#import "AbstractService.h"
 
-@interface PhotoUploadService : NSObject {
-    ASIFormDataRequest *request;
-    id delegate;
+@class ASIFormDataRequest;
+@protocol PhotoUploadServiceDelegate <NSObject> 
+-(void) imageLoadingDone;
+@end
+@interface PhotoUploadService : AbstractService {
+    id<PhotoUploadServiceDelegate> delegate;
 }
 
-@property (nonatomic, retain) ASIFormDataRequest *request;
-@property (nonatomic, retain) id delegate;
+@property (nonatomic, retain) id<PhotoUploadServiceDelegate> delegate;
 
--(void) uploadImage:(UIImage *)image withWhere:(NSString *)where andWhat:(NSString *)what andComments:(NSString *)comments andFacebook:(BOOL)facebookBOOL andDelegate:(id)delegate_passed;
+-(void) uploadImage:(UIImage *)image withWhere:(NSString *)where andWhat:(NSString *)what andComments:(NSString *)comments andFacebook:(BOOL)facebookBOOL andDelegate:(id<PhotoUploadServiceDelegate>)delegate_passed;
 
 @end

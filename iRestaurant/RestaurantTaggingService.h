@@ -7,22 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AbstractService.h"
+
 @class Restaurant;
-@class ASIFormDataRequest;
 
 @protocol RestaurantTaggingServiceDelegate <NSObject>
     -(void) doneTagging:(NSMutableArray *) tagsFromUser;
 @end
 
-@interface RestaurantTaggingService : NSObject {
+@interface RestaurantTaggingService : AbstractService {
     id <RestaurantTaggingServiceDelegate> delegate;
-    ASIFormDataRequest *request;
 }
 
 
 @property (nonatomic, retain) id <RestaurantTaggingServiceDelegate> delegate;
-@property (nonatomic, retain) ASIFormDataRequest *request;
-
 
 -(id) initWithDelegate:(id <RestaurantTaggingServiceDelegate>) restaurantDelegate;
 

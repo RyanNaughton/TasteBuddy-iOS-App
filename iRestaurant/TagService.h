@@ -7,20 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AbstractService.h"
 
-@class ASIFormDataRequest;
 
 @protocol TagServiceDelegate <NSObject> 
     -(void) tagsRetrieved:(NSMutableArray *) tags;
 @end
 
-@interface TagService : NSObject {
+@interface TagService : AbstractService {
     id<TagServiceDelegate> delegate;
-    ASIFormDataRequest *request;
 }
 
 @property (nonatomic, retain) id<TagServiceDelegate> delegate;
-@property (nonatomic, retain) ASIFormDataRequest *request;
 
 -(id) initWithDelegate:(id<TagServiceDelegate>) serviceDelegate;
 -(void) getTags;

@@ -13,7 +13,7 @@
 
 @implementation LoginService
 
-@synthesize request, delegate;
+@synthesize delegate;
 
 -(id) initWithDelegate:(id<LoginServiceDelegate>) serviceDelegate {
     self = [super init];
