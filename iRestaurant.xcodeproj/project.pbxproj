@@ -120,6 +120,12 @@
 		E86A84641368C6F700720FA3 /* PhotoShareContainer.xib in Resources */ = {isa = PBXBuildFile; fileRef = E86A84621368C6F700720FA3 /* PhotoShareContainer.xib */; };
 		E86A84671368D47E00720FA3 /* PhotoShareTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A84661368D47E00720FA3 /* PhotoShareTextCell.m */; };
 		E86A84761368FE9A00720FA3 /* PhotoUploadService.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A84751368FE9A00720FA3 /* PhotoUploadService.m */; };
+		E86CC5F51374CED30022FCBD /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E86CC5F31374CED30022FCBD /* FavoritesViewController.m */; };
+		E86CC5F61374CED30022FCBD /* FavoritesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E86CC5F41374CED30022FCBD /* FavoritesViewController.xib */; };
+		E86CC5F91374D0150022FCBD /* favorites-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E86CC5F71374D0150022FCBD /* favorites-logo.png */; };
+		E86CC5FA1374D0150022FCBD /* favorites-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E86CC5F81374D0150022FCBD /* favorites-logo@2x.png */; };
+		E86CC5FF1374D2E40022FCBD /* FavoritesRestaurantsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E86CC5FE1374D2E40022FCBD /* FavoritesRestaurantsTVC.m */; };
+		E86CC6081374D3EB0022FCBD /* FavoritesDishesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E86CC6071374D3EB0022FCBD /* FavoritesDishesTVC.m */; };
 		E875620B135FE99E001A870F /* RestaurantTagsCell_OLD.m in Sources */ = {isa = PBXBuildFile; fileRef = E875620A135FE99E001A870F /* RestaurantTagsCell_OLD.m */; };
 		E8A03E14135535500031D798 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E13135535500031D798 /* MenuItem.m */; };
 		E8A03E1D135539130031D798 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E1C135539130031D798 /* SearchService.m */; };
@@ -375,6 +381,15 @@
 		E86A84661368D47E00720FA3 /* PhotoShareTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoShareTextCell.m; sourceTree = "<group>"; };
 		E86A84741368FE9A00720FA3 /* PhotoUploadService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoUploadService.h; sourceTree = "<group>"; };
 		E86A84751368FE9A00720FA3 /* PhotoUploadService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoUploadService.m; sourceTree = "<group>"; };
+		E86CC5F21374CED20022FCBD /* FavoritesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
+		E86CC5F31374CED30022FCBD /* FavoritesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
+		E86CC5F41374CED30022FCBD /* FavoritesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoritesViewController.xib; sourceTree = "<group>"; };
+		E86CC5F71374D0150022FCBD /* favorites-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorites-logo.png"; sourceTree = "<group>"; };
+		E86CC5F81374D0150022FCBD /* favorites-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favorites-logo@2x.png"; sourceTree = "<group>"; };
+		E86CC5FD1374D2E40022FCBD /* FavoritesRestaurantsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesRestaurantsTVC.h; sourceTree = "<group>"; };
+		E86CC5FE1374D2E40022FCBD /* FavoritesRestaurantsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesRestaurantsTVC.m; sourceTree = "<group>"; };
+		E86CC6061374D3EB0022FCBD /* FavoritesDishesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesDishesTVC.h; sourceTree = "<group>"; };
+		E86CC6071374D3EB0022FCBD /* FavoritesDishesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesDishesTVC.m; sourceTree = "<group>"; };
 		E8756209135FE99D001A870F /* RestaurantTagsCell_OLD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTagsCell_OLD.h; sourceTree = "<group>"; };
 		E875620A135FE99E001A870F /* RestaurantTagsCell_OLD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTagsCell_OLD.m; sourceTree = "<group>"; };
 		E8A03E12135535500031D798 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
@@ -603,6 +618,8 @@
 		49578B731355183500F8EC0B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E86CC6091374D6540022FCBD /* Deals */,
+				E86CC5F01374CE2D0022FCBD /* Favorites */,
 				4929F4BF13735AE8003D4EE8 /* Tag */,
 				E859D26A13722D6400D47CEB /* Profile */,
 				49EE9AF71368D80700528C91 /* User */,
@@ -821,6 +838,8 @@
 				E86A84521368AD7B00720FA3 /* icons */,
 				E8AA4AED1361064A00A8E37B /* top-rounding.png */,
 				E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */,
+				E86CC5F71374D0150022FCBD /* favorites-logo.png */,
+				E86CC5F81374D0150022FCBD /* favorites-logo@2x.png */,
 				E80E059D1360EA3300894180 /* pizza.png */,
 				E80E059E1360EA3300894180 /* taco.png */,
 				E80E059F1360EA3300894180 /* cheeseburger.png */,
@@ -952,6 +971,43 @@
 				E8D306FC136912CA00BA12B5 /* Base64.m */,
 			);
 			name = "NSData + Base 64";
+			sourceTree = "<group>";
+		};
+		E86CC5F01374CE2D0022FCBD /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				E86CC5FC1374D2C40022FCBD /* Dishes TableView */,
+				E86CC5FB1374D2B70022FCBD /* Restaurants TableView */,
+				E86CC5F21374CED20022FCBD /* FavoritesViewController.h */,
+				E86CC5F31374CED30022FCBD /* FavoritesViewController.m */,
+				E86CC5F41374CED30022FCBD /* FavoritesViewController.xib */,
+			);
+			name = Favorites;
+			sourceTree = "<group>";
+		};
+		E86CC5FB1374D2B70022FCBD /* Restaurants TableView */ = {
+			isa = PBXGroup;
+			children = (
+				E86CC5FD1374D2E40022FCBD /* FavoritesRestaurantsTVC.h */,
+				E86CC5FE1374D2E40022FCBD /* FavoritesRestaurantsTVC.m */,
+			);
+			name = "Restaurants TableView";
+			sourceTree = "<group>";
+		};
+		E86CC5FC1374D2C40022FCBD /* Dishes TableView */ = {
+			isa = PBXGroup;
+			children = (
+				E86CC6061374D3EB0022FCBD /* FavoritesDishesTVC.h */,
+				E86CC6071374D3EB0022FCBD /* FavoritesDishesTVC.m */,
+			);
+			name = "Dishes TableView";
+			sourceTree = "<group>";
+		};
+		E86CC6091374D6540022FCBD /* Deals */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Deals;
 			sourceTree = "<group>";
 		};
 		E8A03E1A135538EB0031D798 /* Services */ = {
@@ -1269,6 +1325,9 @@
 				E859D28113723AE600D47CEB /* 42-photos.png in Resources */,
 				E859D28413723BB000D47CEB /* 162-receipt.png in Resources */,
 				E859D28513723BB000D47CEB /* 162-receipt@2x.png in Resources */,
+				E86CC5F61374CED30022FCBD /* FavoritesViewController.xib in Resources */,
+				E86CC5F91374D0150022FCBD /* favorites-logo.png in Resources */,
+				E86CC5FA1374D0150022FCBD /* favorites-logo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1388,6 +1447,9 @@
 				4929F4BE1373374F003D4EE8 /* Tag.m in Sources */,
 				4929F4C213735B0E003D4EE8 /* TagButton.m in Sources */,
 				49EA6E7E1374D0F3003D8703 /* AbstractService.m in Sources */,
+				E86CC5F51374CED30022FCBD /* FavoritesViewController.m in Sources */,
+				E86CC5FF1374D2E40022FCBD /* FavoritesRestaurantsTVC.m in Sources */,
+				E86CC6081374D3EB0022FCBD /* FavoritesDishesTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

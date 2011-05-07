@@ -108,6 +108,21 @@
     //[self presentSearchModal];
 }
 
+-(void) switchTabs:(UIButton *) onTab 
+{
+    
+    UIButton *offTab = (onTab == restaurantsTabButton) ? dishesTabButton : restaurantsTabButton;
+    
+    [offTab setBackgroundImage:[[UIImage imageNamed:@"darkgrey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
+    [offTab setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [onTab setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
+    [onTab setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    [tabView bringSubviewToFront:onTab];
+    
+}
+
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -172,17 +187,4 @@
     [self presentModalViewController:searchModalViewController animated:YES];
 }
 
--(void) switchTabs:(UIButton *) onTab 
-{
-
-    UIButton *offTab = (onTab == restaurantsTabButton) ? dishesTabButton : restaurantsTabButton;
-        
-    [offTab setBackgroundImage:[[UIImage imageNamed:@"darkgrey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
-    [offTab setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [onTab setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
-    [onTab setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
-    [tabView bringSubviewToFront:onTab];
-
-}
 @end
