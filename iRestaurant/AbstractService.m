@@ -7,11 +7,17 @@
 //
 
 #import "AbstractService.h"
-
+#import "iRestaurantAppDelegate.h"
+#import "AuthenticationResponse.h"
 
 @implementation AbstractService
 
-@synthesize request;
+@synthesize request, authTokenRequired;
+
+-(NSString *) authToken {
+    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    return appDelegate.authenticationResponse.authentication_token;
+}
 
 - (void)dealloc {
     [request release];
