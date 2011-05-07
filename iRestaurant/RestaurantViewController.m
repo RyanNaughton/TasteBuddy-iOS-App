@@ -12,6 +12,7 @@
 #import "TakePhoto.h"
 #import "AuthenticationResponse.h"
 #import "RestaurantRatingService.h"
+#import "RestaurantBookmarkService.h"
 
 // CELLS =========
 #import "RestaurantHeaderCell.h"
@@ -317,7 +318,12 @@
 }
 -(void)bookmarkButtonPressed:(id)sender
 {
-   
+    RestaurantBookmarkService *rbs = [[RestaurantBookmarkService alloc]initWithDelegate:self];
+    [rbs bookmarkRestaurant:restaurant];
+}
+
+-(void) doneRating {
+    NSLog(@"done rating");
 }
 
 -(void)rateItButtonPressed:(id)sender 
@@ -336,10 +342,5 @@
     RestaurantRatingService *rrs = [[RestaurantRatingService alloc] initWithDelegate:self];
     [rrs rateRestaurant:restaurant withRating:rating];
 }
-
--(void) doneRating {
-    NSLog(@"doneRating");
-}
-
 
 @end

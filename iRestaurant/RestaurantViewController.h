@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "RestaurantRatingService.h"
+#import "RestaurantBookmarkService.h"
 
 @class Restaurant;
 @class TakePhoto;
 
-@interface RestaurantViewController : UITableViewController <UIActionSheetDelegate, RestaurantRatingServiceDelegate> {
+@interface RestaurantViewController : UITableViewController <UIActionSheetDelegate, RestaurantRatingServiceDelegate, RestaurantBookmarkServiceDelegate> {
     NSMutableArray *tableArray;
     Restaurant *restaurant;
     int tagsRowHeight;
@@ -33,5 +34,6 @@
 -(void)photoButtonPressed:(id)sender;
 -(void)menuButtonPressed:(id)sender;
 -(void)bookmarkButtonPressed:(id)sender;
+-(void) doneRating;
 
 @end
