@@ -318,7 +318,7 @@
 }
 -(void)bookmarkButtonPressed:(id)sender
 {
-    RestaurantBookmarkService *rbs = [[[RestaurantBookmarkService alloc]initWithDelegate:self]autorelease];
+    RestaurantBookmarkService *rbs = [[RestaurantBookmarkService alloc]initWithDelegate:self];
     [rbs bookmarkRestaurant:restaurant];
 }
 
@@ -343,10 +343,5 @@
     RestaurantRatingService *rrs = [[RestaurantRatingService alloc] initWithDelegate:self];
     [rrs rateRestaurant:restaurant withRating:rating andAuthToken:appDelegate.authenticationResponse.authentication_token];
 }
-
--(void) doneRating {
-    NSLog(@"doneRating");
-}
-
 
 @end
