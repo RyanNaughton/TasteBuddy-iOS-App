@@ -12,10 +12,12 @@
 #import "MenuSubcategory.h"
 #import "SubsectionsMenuTableView.h"
 #import "Restaurant.h"
+#import "MenuViewController.h"
+#import "MenuItemsViewController.h"
 
 @implementation SectionsMenuTableView
 
-@synthesize menu, navController, restaurant;
+@synthesize menu, navController, restaurant, sectionExpanded, parentVC, isExpanded;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -36,6 +38,7 @@
 
 - (void)dealloc
 {
+    [parentVC release];
     [menu release];
     [super dealloc];
 }
@@ -53,6 +56,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -105,23 +110,57 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    NSLog(@"SET ROWS!");
+   
+    int rows;
     
-    return 1;
+    if ((section == sectionExpanded) && (isExpanded)) {
+         NSLog(@"section expanded: %i", sectionExpanded);
+        
+         MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:section];
+        rows = [menuCategory.menuSubcategories count] + 1;
+        
+        //rows = 2;
+    } else {
+        rows = 1;
+    }
+    
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {    
-    static NSString *CellIdentifier = @"Cell";
+    if (indexPath.row == 0) {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        static NSString *CellIdentifier = @"Cell";
+    
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+    
+        MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ (%i)", menuCategory.name, [menuCategory.menuSubcategories count]];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
+        
+    } else {
+        // build subsection cell
+        static NSString *CellIdentifier = @"SubCell";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+        
+        MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
+        MenuSubcategory *menuSubCategory = (MenuSubcategory *)[menuCategory.menuSubcategories objectAtIndex:(indexPath.row -1)];
+        cell.textLabel.text = [NSString stringWithFormat:@"%@ (%i)", menuSubCategory.name, [menuSubCategory.arrayOfMenuItems count]];
+        cell.textLabel.textColor = [UIColor darkGrayColor];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
+
     }
-    
-    MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ (%i)", menuCategory.name, [menuCategory.menuSubcategories count]];
-    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    return cell;
 }
 
 /*
@@ -166,13 +205,52 @@
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{    
-    SubsectionsMenuTableView *subsectionsMenuTableView = [[SubsectionsMenuTableView alloc] initWithMenu:menu];
-    subsectionsMenuTableView.restaurant = restaurant;
-    [navController pushViewController:subsectionsMenuTableView animated:YES];
-    NSIndexPath *jumpIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
-    [subsectionsMenuTableView.tableView scrollToRowAtIndexPath:jumpIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    [subsectionsMenuTableView release];
+{ 
+    
+    if ((indexPath.row == 0) && (!isExpanded)) {
+    // expand section, when no others are expanded
+        
+    isExpanded = TRUE;
+    sectionExpanded = indexPath.section;
+    
+    NSLog(@"section expanded set: %i", sectionExpanded);
+    
+    //[self.tableView reloadData];   
+    NSIndexSet *section = [NSIndexSet indexSetWithIndex:indexPath.section];
+    [parentVC.tableView reloadSections:section withRowAnimation:UITableViewRowAnimationFade];
+
+    //[parentVC.tableView reloadData];
+        
+    } else if ((indexPath.row == 0) && (isExpanded) && (indexPath.section != sectionExpanded)) {
+        // collapse one, expand another
+        isExpanded = TRUE;
+        NSIndexSet *oldSection = [NSIndexSet indexSetWithIndex:sectionExpanded];
+        [parentVC.tableView reloadSections:oldSection withRowAnimation:UITableViewRowAnimationFade];
+        sectionExpanded = indexPath.section;
+        NSIndexSet *section = [NSIndexSet indexSetWithIndex:indexPath.section];
+        [parentVC.tableView reloadSections:section withRowAnimation:UITableViewRowAnimationFade];
+    
+    } else if ((indexPath.row == 0) && (isExpanded) && (indexPath.section == sectionExpanded)) {
+        // Collapse header
+        isExpanded = FALSE;
+        sectionExpanded = indexPath.section;
+        NSIndexSet *section = [NSIndexSet indexSetWithIndex:indexPath.section];
+        [parentVC.tableView reloadSections:section withRowAnimation:UITableViewRowAnimationFade];
+    } else {
+        // go to menu list
+        MenuItemsViewController *menuItemsViewController = [[MenuItemsViewController alloc]initWithMenu:menu andSection:indexPath.section  andSubsection:(indexPath.row - 1)];
+        menuItemsViewController.restaurant = restaurant;
+        [navController pushViewController:menuItemsViewController animated:YES];
+        [menuItemsViewController release];
+
+        
+//    SubsectionsMenuTableView *subsectionsMenuTableView = [[SubsectionsMenuTableView alloc] initWithMenu:menu];
+//    subsectionsMenuTableView.restaurant = restaurant;
+//    [navController pushViewController:subsectionsMenuTableView animated:YES];
+//    NSIndexPath *jumpIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
+//    [subsectionsMenuTableView.tableView scrollToRowAtIndexPath:jumpIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+//    [subsectionsMenuTableView release];
+    }
 }
 
 @end
