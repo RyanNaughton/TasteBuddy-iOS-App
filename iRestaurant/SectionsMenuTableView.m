@@ -172,6 +172,7 @@
         
         if ((sectionExpanded == indexPath.section) && (isExpanded)) {
             categoryCell.accessoryType = UITableViewCellAccessoryNone;
+            categoryCell.count.text = @"";
         } else { 
             categoryCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             categoryCell.count.text = [NSString stringWithFormat:@"(%i)", [menuCategory.menuSubcategories count]];
