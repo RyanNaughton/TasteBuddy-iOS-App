@@ -96,11 +96,18 @@
 }
 */
 
+-(void)viewDidAppear:(BOOL)animated {
+    NSLog(@"view did appear");
+    [self.tableView reloadData];
+}
+
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setTitle:@"Menu"];
+    self.tableView.backgroundColor = [[UIColor alloc] initWithRed:230.0 / 255 green:230.0 / 255 blue:230.0 / 255 alpha:1.0];
     activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activityIndicator.frame = CGRectMake(0, 0, 25, 25);
     activityIndicator.center = CGPointMake(self.view.center.x, (self.view.center.y - 50));

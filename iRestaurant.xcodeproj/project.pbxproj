@@ -159,6 +159,8 @@
 		E8AA4B0413611F5500A8E37B /* 33-circle-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4B0213611F5500A8E37B /* 33-circle-plus.png */; };
 		E8AA4B07136122EC00A8E37B /* 39-circle-check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4B05136122EC00A8E37B /* 39-circle-check@2x.png */; };
 		E8AA4B08136122EC00A8E37B /* 39-circle-check.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4B06136122EC00A8E37B /* 39-circle-check.png */; };
+		E8AEFC381378A90C00A8F8C1 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AEFC371378A90C00A8F8C1 /* CategoryCell.m */; };
+		E8AEFC3B1378ABD000A8F8C1 /* SubCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AEFC3A1378ABD000A8F8C1 /* SubCategoryCell.m */; };
 		E8AF71F2136127F60068DA6C /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BED7F81361110B00DE8CC4 /* Comment.m */; };
 		E8AF9DA61370AD250092A249 /* 07-map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AF9DA41370AD250092A249 /* 07-map-marker.png */; };
 		E8AF9DA71370AD250092A249 /* 07-map-marker@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AF9DA51370AD250092A249 /* 07-map-marker@2x.png */; };
@@ -446,6 +448,10 @@
 		E8AA4B0213611F5500A8E37B /* 33-circle-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "33-circle-plus.png"; sourceTree = "<group>"; };
 		E8AA4B05136122EC00A8E37B /* 39-circle-check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "39-circle-check@2x.png"; sourceTree = "<group>"; };
 		E8AA4B06136122EC00A8E37B /* 39-circle-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "39-circle-check.png"; sourceTree = "<group>"; };
+		E8AEFC361378A90C00A8F8C1 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
+		E8AEFC371378A90C00A8F8C1 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
+		E8AEFC391378ABD000A8F8C1 /* SubCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategoryCell.h; sourceTree = "<group>"; };
+		E8AEFC3A1378ABD000A8F8C1 /* SubCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubCategoryCell.m; sourceTree = "<group>"; };
 		E8AF9DA41370AD250092A249 /* 07-map-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "07-map-marker.png"; sourceTree = "<group>"; };
 		E8AF9DA51370AD250092A249 /* 07-map-marker@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "07-map-marker@2x.png"; sourceTree = "<group>"; };
 		E8AF9DA91370AD860092A249 /* 111-user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "111-user.png"; sourceTree = "<group>"; };
@@ -1079,6 +1085,17 @@
 			name = Bookmarking;
 			sourceTree = "<group>";
 		};
+		E8AEFC341378A8F500A8F8C1 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E8AEFC361378A90C00A8F8C1 /* CategoryCell.h */,
+				E8AEFC371378A90C00A8F8C1 /* CategoryCell.m */,
+				E8AEFC391378ABD000A8F8C1 /* SubCategoryCell.h */,
+				E8AEFC3A1378ABD000A8F8C1 /* SubCategoryCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		E8BEDE6B13665769001E5079 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -1097,6 +1114,7 @@
 		E8DFF5911358B76A007BF40E /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				E8AEFC341378A8F500A8F8C1 /* Cells */,
 				E8BEDE6C13665846001E5079 /* MenuViewController.h */,
 				E8BEDE6D13665846001E5079 /* MenuViewController.m */,
 				E8DFF5961358B7CE007BF40E /* MenuViewController_OLD.h */,
@@ -1464,6 +1482,8 @@
 				E86CC5FF1374D2E40022FCBD /* FavoritesRestaurantsTVC.m in Sources */,
 				E86CC6081374D3EB0022FCBD /* FavoritesDishesTVC.m in Sources */,
 				E86CC60C1374D9170022FCBD /* RestaurantBookmarkService.m in Sources */,
+				E8AEFC381378A90C00A8F8C1 /* CategoryCell.m in Sources */,
+				E8AEFC3B1378ABD000A8F8C1 /* SubCategoryCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
