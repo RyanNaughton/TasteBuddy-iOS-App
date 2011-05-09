@@ -17,24 +17,27 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
+        
+        self.selectionStyle = UITableViewCellSelectionStyleGray;
+        
         name = [[UILabel alloc]init];
-        name.frame = CGRectMake(40, 0, 190, 44);
-        name.adjustsFontSizeToFitWidth = TRUE;
+        name.frame = CGRectMake(40, 0, 190, 35);
+        //name.adjustsFontSizeToFitWidth = TRUE;
         name.textAlignment = UITextAlignmentLeft;
         name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:0.7];
 		name.backgroundColor = [UIColor clearColor];
-		name.font = [UIFont boldSystemFontOfSize:15];
+		name.font = [UIFont systemFontOfSize:15];
         name.shadowColor = [UIColor whiteColor];
         name.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:name];
         
         count = [[UILabel alloc]init];
-        count.frame = CGRectMake(240, 0, 30, 44);
+        count.frame = CGRectMake(240, 0, 30, 35);
         count.adjustsFontSizeToFitWidth = TRUE;
         count.textAlignment = UITextAlignmentRight;
         count.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:0.7];
 		count.backgroundColor = [UIColor clearColor];
-		count.font = [UIFont boldSystemFontOfSize:12];
+		count.font = [UIFont systemFontOfSize:13];
         count.shadowColor = [UIColor whiteColor];
         count.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:count];

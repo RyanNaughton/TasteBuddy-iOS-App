@@ -104,6 +104,17 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    int height;
+    if (indexPath.row == 0) {
+        height = 44;
+    } else {
+        height = 35;
+    }
+    return height;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 10;
