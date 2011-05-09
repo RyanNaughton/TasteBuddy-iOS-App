@@ -46,9 +46,29 @@
     [request startAsynchronous];
 }
 
+-(void) deleteTagFromRestaurant:(Restaurant *) restaurant withTag:(NSString *)tag {
+    if (request != nil) {
+        [request cancel];
+        request = nil;
+    }
+    
+    NSString *json = [NSString stringWithFormat:@"{\"value\": \"%@\", \"auth_token\": \"%@\"}", tag, [self authToken]];
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/tag.json", restaurant._id]];
+    NSLog(@"%@",[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/tag.json", restaurant._id]);
+    request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod: @"DELETE"];
+    [request addRequestHeader:@"Content-Type" value:@"application/json"];
+    [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setDelegate:self];
+    [request startAsynchronous];
+}
+
+
 - (void)requestFinished:(ASIHTTPRequest *)request_passed 
 {
     NSString *responseString = [request_passed responseString];
+    NSLog(@"RESPONSE %@", responseString);
     NSDictionary *responseDictionary = [responseString JSONValue];
     NSArray *userTagsRetrieved = [responseDictionary objectForKey:@"user_tags"];
     NSDictionary *tagsWithCount = [responseDictionary objectForKey:@"tags"];

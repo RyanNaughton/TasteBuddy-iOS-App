@@ -132,11 +132,11 @@
 }
 
 -(void)setupRatingButton {
-    ratingButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    ratingButton.frame = CGRectMake(0, 0, (starSize * 5), starSize);
-    ratingButton.backgroundColor = [UIColor clearColor];
-    [ratingButton addTarget:self action:@selector(rate:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:ratingButton];
+//    ratingButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//    ratingButton.frame = CGRectMake(0, 0, (starSize * 5), starSize);
+//    ratingButton.backgroundColor = [UIColor clearColor];
+//    [ratingButton addTarget:self action:@selector(rate:) forControlEvents:UIControlEventTouchUpInside];
+//    [self addSubview:ratingButton];
 }
 
 -(void)setupRatingCount:(int)howManyRatings {
