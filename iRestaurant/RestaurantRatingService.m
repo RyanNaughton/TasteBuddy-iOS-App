@@ -34,7 +34,9 @@
         request = nil;
     }
     
-    NSString *json = [NSString stringWithFormat:@"{\"rating\": \"%f\", \"auth_token\": \"%@\"}", rating, [self authToken]];
+    NSString *json = [NSString stringWithFormat:@"{\"rating\": %.1f, \"auth_token\": \"%@\"}", rating, [self authToken]];
+    
+    NSLog(@"%@", json);
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/rate.json", restaurant._id]];
     
