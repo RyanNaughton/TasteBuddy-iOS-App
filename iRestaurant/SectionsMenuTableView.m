@@ -15,6 +15,9 @@
 #import "MenuViewController.h"
 #import "MenuItemsViewController.h"
 
+#import "CategoryCell.h"
+#import "SubCategoryCell.h"
+
 @implementation SectionsMenuTableView
 
 @synthesize menu, navController, restaurant, sectionExpanded, parentVC, isExpanded;
@@ -58,7 +61,7 @@
     [super viewDidLoad];
     
     
-
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -80,7 +83,9 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    NSLog(@"viewdidappear");    
     [super viewDidAppear:animated];
+    isExpanded = FALSE;   
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -97,6 +102,28 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 10;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = [[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)]autorelease];
+    return view;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 1;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *view = [[[UIView alloc]initWithFrame:CGRectMake(0, 0, 1, 1)]autorelease];
+    return view;
 }
 
 #pragma mark - Table view data source
@@ -132,33 +159,41 @@
 {    
     if (indexPath.row == 0) {
     
-        static NSString *CellIdentifier = @"Cell";
+        static NSString *CellIdentifier = @"CategoryCell";
     
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        CategoryCell *categoryCell = (CategoryCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (categoryCell == nil) {
+            categoryCell = [[[CategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         }
     
         MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ (%i)", menuCategory.name, [menuCategory.menuSubcategories count]];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        return cell;
+        categoryCell.name.text = [NSString stringWithFormat:@"%@", menuCategory.name];
+        
+        
+        if ((sectionExpanded == indexPath.section) && (isExpanded)) {
+            categoryCell.accessoryType = UITableViewCellAccessoryNone;
+            categoryCell.count.text = @"";
+        } else { 
+            categoryCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            categoryCell.count.text = [NSString stringWithFormat:@"(%i)", [menuCategory.menuSubcategories count]];
+        }
+        return categoryCell;
         
     } else {
         // build subsection cell
-        static NSString *CellIdentifier = @"SubCell";
+        static NSString *CellIdentifier = @"SubCategoryCell";
         
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        SubCategoryCell *subCategoryCell = (SubCategoryCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (subCategoryCell == nil) {
+            subCategoryCell = [[[SubCategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         }
         
         MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
         MenuSubcategory *menuSubCategory = (MenuSubcategory *)[menuCategory.menuSubcategories objectAtIndex:(indexPath.row -1)];
-        cell.textLabel.text = [NSString stringWithFormat:@"%@ (%i)", menuSubCategory.name, [menuSubCategory.arrayOfMenuItems count]];
-        cell.textLabel.textColor = [UIColor darkGrayColor];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-        return cell;
+        subCategoryCell.name.text = [NSString stringWithFormat:@"%@", menuSubCategory.name];
+        subCategoryCell.count.text = [NSString stringWithFormat:@"(%i)", [menuSubCategory.arrayOfMenuItems count]];
+        subCategoryCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return subCategoryCell;
 
     }
 }
@@ -206,29 +241,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 { 
-    
+    [parentVC.tableView deselectRowAtIndexPath:indexPath animated:YES];
     if ((indexPath.row == 0) && (!isExpanded)) {
-    // expand section, when no others are expanded
-        
-    isExpanded = TRUE;
-    sectionExpanded = indexPath.section;
-    
-    NSLog(@"section expanded set: %i", sectionExpanded);
-    
-    //[self.tableView reloadData];   
-    NSIndexSet *section = [NSIndexSet indexSetWithIndex:indexPath.section];
-    [parentVC.tableView reloadSections:section withRowAnimation:UITableViewRowAnimationFade];
+        // expand section, when no others are expanded        
+        isExpanded = TRUE;
+        sectionExpanded = indexPath.section;    
+        NSIndexSet *section = [NSIndexSet indexSetWithIndex:indexPath.section];
+        [parentVC.tableView reloadSections:section withRowAnimation:UITableViewRowAnimationFade];
 
-    //[parentVC.tableView reloadData];
-        
     } else if ((indexPath.row == 0) && (isExpanded) && (indexPath.section != sectionExpanded)) {
         // collapse one, expand another
         isExpanded = TRUE;
-        NSIndexSet *oldSection = [NSIndexSet indexSetWithIndex:sectionExpanded];
-        [parentVC.tableView reloadSections:oldSection withRowAnimation:UITableViewRowAnimationFade];
         sectionExpanded = indexPath.section;
-        NSIndexSet *section = [NSIndexSet indexSetWithIndex:indexPath.section];
-        [parentVC.tableView reloadSections:section withRowAnimation:UITableViewRowAnimationFade];
+        NSIndexSet *allSections = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [menu.arrayOfCategories count])];
+        [parentVC.tableView reloadSections:allSections withRowAnimation:UITableViewRowAnimationNone];
     
     } else if ((indexPath.row == 0) && (isExpanded) && (indexPath.section == sectionExpanded)) {
         // Collapse header
@@ -242,14 +268,6 @@
         menuItemsViewController.restaurant = restaurant;
         [navController pushViewController:menuItemsViewController animated:YES];
         [menuItemsViewController release];
-
-        
-//    SubsectionsMenuTableView *subsectionsMenuTableView = [[SubsectionsMenuTableView alloc] initWithMenu:menu];
-//    subsectionsMenuTableView.restaurant = restaurant;
-//    [navController pushViewController:subsectionsMenuTableView animated:YES];
-//    NSIndexPath *jumpIndexPath = [NSIndexPath indexPathForRow:0 inSection:indexPath.section];
-//    [subsectionsMenuTableView.tableView scrollToRowAtIndexPath:jumpIndexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-//    [subsectionsMenuTableView release];
     }
 }
 
