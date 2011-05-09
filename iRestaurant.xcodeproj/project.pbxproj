@@ -1559,7 +1559,7 @@
 				GCC_PREFIX_HEADER = "iRestaurant/iRestaurant-Prefix.pch";
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = "iRestaurant/iRestaurant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-ObjC",
@@ -1586,7 +1586,7 @@
 				GCC_PREFIX_HEADER = "iRestaurant/iRestaurant-Prefix.pch";
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = "iRestaurant/iRestaurant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-ObjC",

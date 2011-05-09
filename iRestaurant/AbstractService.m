@@ -12,11 +12,27 @@
 
 @implementation AbstractService
 
-@synthesize request, authTokenRequired;
+@synthesize request, authTokenRequired, authTokenOptional;
+
+-(id) init {
+    self = [super init];
+    
+    if(self) {
+        authTokenRequired = NO;
+        authTokenOptional = NO;
+    }
+    
+    return self;
+}
 
 -(NSString *) authToken {
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     return appDelegate.authenticationResponse.authentication_token;
+}
+
+-(bool) isLoggedIn {
+    NSLog(@"Auth token %@", [self authToken]);
+    return ![[self authToken] isEqualToString:@""];
 }
 
 - (void)dealloc {

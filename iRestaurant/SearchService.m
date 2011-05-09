@@ -22,6 +22,7 @@
     if (self) {
         location = current_location;
         delegate = searchServiceDelegate;
+        authTokenOptional = YES;
     }
     return self;
 }
@@ -47,9 +48,20 @@
     double longitude = -87.643464;
     nearString = @"";
     
-    NSString *json = [NSString stringWithFormat:@"{\"find\": \"%@\", \"near\": \"%@\", \"coordinates\": [%g, %g]}", 
-                      term, nearString, latitude, longitude];
-        
+    NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
+    
+    [jsonDictionary setObject:term forKey:@"find"];
+    [jsonDictionary setObject:nearString forKey:@"near"];
+    [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
+    
+    
+    if([self isLoggedIn] && authTokenOptional) {
+        [jsonDictionary setObject:[self authToken] forKey:@"auth_token"];
+    }
+    
+    NSString *json = [jsonDictionary JSONRepresentation];
+    [jsonDictionary release];
+    NSLog(@"json : %@", json);
     NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/search.json"];
     
     request = [ASIFormDataRequest requestWithURL:url];

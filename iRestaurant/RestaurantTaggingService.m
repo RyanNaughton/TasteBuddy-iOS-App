@@ -49,14 +49,15 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed 
 {
     NSString *responseString = [request_passed responseString];
-    NSArray *tagsRetrieved = [[responseString JSONValue] objectForKey:@"user_tags"];
-
+    NSDictionary *responseDictionary = [responseString JSONValue];
+    NSArray *userTagsRetrieved = [responseDictionary objectForKey:@"user_tags"];
+    NSDictionary *tagsWithCount = [responseDictionary objectForKey:@"tags"];
+    
     NSMutableArray *tags = [[NSMutableArray alloc] init];
-    for (NSString *value in tagsRetrieved) {
+    for (NSString *value in [tagsWithCount allKeys]) {
         Tag *tag = [[Tag alloc] initWithTagValue:value];
-        tag.isUserTag = true;
-        #warning TODO add real value
-        tag.count = 1;
+        tag.isUserTag = [userTagsRetrieved containsObject:value];
+        tag.count = [[tagsWithCount objectForKey:value] intValue];
         [tags addObject:tag];
     }
     request = nil;
