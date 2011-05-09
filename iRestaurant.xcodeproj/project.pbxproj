@@ -1016,6 +1016,7 @@
 		E8A03E1A135538EB0031D798 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E8AE703713785B7B009CB87E /* Bookmarking */,
 				E8A03E1B135539130031D798 /* SearchService.h */,
 				E8A03E1C135539130031D798 /* SearchService.m */,
 				4964AEA7137220340060C65A /* RestaurantTaggingService.h */,
@@ -1030,8 +1031,6 @@
 				E86A84751368FE9A00720FA3 /* PhotoUploadService.m */,
 				4964AEA31372200D0060C65A /* RestaurantRatingService.h */,
 				4964AEA41372200D0060C65A /* RestaurantRatingService.m */,
-				E86CC60A1374D9170022FCBD /* RestaurantBookmarkService.h */,
-				E86CC60B1374D9170022FCBD /* RestaurantBookmarkService.m */,
 				4929F4B813733531003D4EE8 /* TagService.h */,
 				4929F4B913733531003D4EE8 /* TagService.m */,
 				49EA6E7C1374D0F3003D8703 /* AbstractService.h */,
@@ -1069,6 +1068,15 @@
 				E8A6E80E1355465A0095E157 /* ASIWebPageRequest.m */,
 			);
 			name = ASIHttpRequest;
+			sourceTree = "<group>";
+		};
+		E8AE703713785B7B009CB87E /* Bookmarking */ = {
+			isa = PBXGroup;
+			children = (
+				E86CC60A1374D9170022FCBD /* RestaurantBookmarkService.h */,
+				E86CC60B1374D9170022FCBD /* RestaurantBookmarkService.m */,
+			);
+			name = Bookmarking;
 			sourceTree = "<group>";
 		};
 		E8BEDE6B13665769001E5079 /* Menu */ = {

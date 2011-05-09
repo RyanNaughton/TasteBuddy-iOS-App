@@ -56,6 +56,7 @@
         tableView.delegate = sectionsMenuTableView;
         sectionsMenuTableView.navController = self.navigationController;
         sectionsMenuTableView.restaurant = restaurant;
+        sectionsMenuTableView.parentVC = self;
         [tableView reloadData];
         //[sectionsMenuTableView release];
         
@@ -63,6 +64,7 @@
         SimpleMenuTableView *simpleMenuTableView = [[SimpleMenuTableView alloc]initWithMenu:menu];
         tableView.dataSource = simpleMenuTableView;
         tableView.delegate = simpleMenuTableView;
+        //simpleMenuTableView.parentView = self;
         simpleMenuTableView.navController = self.navigationController;
         [tableView reloadData];
         //[simpleMenuTableView release];
