@@ -25,5 +25,5 @@
 -(id) initWithDelegate:(id <RestaurantTaggingServiceDelegate>) restaurantDelegate;
 
 -(void) tagRestaurant:(Restaurant *) restaurant withTag:(NSString *)tag;
-
+-(void) deleteTagFromRestaurant:(Restaurant *) restaurant withTag:(NSString *)tag;
 @end

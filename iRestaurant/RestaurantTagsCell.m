@@ -150,7 +150,11 @@
 -(void)tagButtonPressed:(id)sender {
 
     Tag *tag = [tags objectAtIndex:[tagButtons indexOfObject:sender]];
-    [restaurantTaggingService tagRestaurant:restaurant withTag:tag.name];
+    if (tag.isUserTag) {
+        [restaurantTaggingService deleteTagFromRestaurant:restaurant withTag:tag.name];
+    } else {
+        [restaurantTaggingService tagRestaurant:restaurant withTag:tag.name];
+    }
 }
 
 -(void) doneTagging:(NSMutableArray *) tagsFromUser {

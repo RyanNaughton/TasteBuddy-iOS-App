@@ -34,7 +34,7 @@
         request = nil;
     }
     
-    NSString *json = [NSString stringWithFormat:@"{\"rating\": %.1f, \"auth_token\": \"%@\"}", rating, [self authToken]];
+    NSString *json = [NSString stringWithFormat:@"{\"value\": %.1f, \"auth_token\": \"%@\"}", rating, [self authToken]];
     
     NSLog(@"%@", json);
     
