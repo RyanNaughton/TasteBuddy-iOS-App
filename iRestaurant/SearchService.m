@@ -54,14 +54,12 @@
     [jsonDictionary setObject:nearString forKey:@"near"];
     [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
     
-    
-    if([self isLoggedIn] && authTokenOptional) {
-        [jsonDictionary setObject:[self authToken] forKey:@"auth_token"];
-    }
+    [self updatePostData:jsonDictionary];
     
     NSString *json = [jsonDictionary JSONRepresentation];
+    
     [jsonDictionary release];
-    NSLog(@"json : %@", json);
+
     NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/search.json"];
     
     request = [ASIFormDataRequest requestWithURL:url];

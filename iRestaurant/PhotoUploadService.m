@@ -18,8 +18,6 @@
 {
     delegate = delegate_passed;
     
-    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSString *authToken = [appDelegate readSavedSetting:@"authentication_token"];
     NSData *imageData = UIImagePNGRepresentation(image);
     //NSString *imageBase64String = [Base64 encodeBase64WithData:imageData];
         
@@ -35,7 +33,7 @@
     [request setPostValue:where forKey:@"location_description"];
     [request setPostValue:what forKey:@"content_description"];
     [request setPostValue:imageData forKey:@"attachment"];
-    [request setPostValue:authToken forKey:@"auth_token"];
+    [request setPostValue:[self authToken] forKey:@"auth_token"];
     [request setDelegate:self];
     [request startAsynchronous];
     

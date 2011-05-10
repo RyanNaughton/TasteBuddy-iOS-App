@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ASIHTTPRequestDelegate.h"
 
 @class ASIFormDataRequest;
 
 
-@interface AbstractService : NSObject {
+@interface AbstractService : NSObject<ASIHTTPRequestDelegate> {
     ASIFormDataRequest *request;
     bool authTokenRequired;
     bool authTokenOptional;
@@ -23,4 +24,5 @@
 
 -(NSString *) authToken;
 -(bool) isLoggedIn;
+-(void) updatePostData:(NSMutableDictionary *) dictionaryRequest;
 @end

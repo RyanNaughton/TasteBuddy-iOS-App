@@ -24,6 +24,7 @@
     self = [super init];
     if (self) {
         delegate = restaurantDelegate;
+        authTokenRequired = TRUE;
     }
     return self;
 }

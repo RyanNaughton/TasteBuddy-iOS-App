@@ -506,7 +506,7 @@ static NSOperationQueue *sharedQueue = nil;
 	}
 		
 	if ([self postLength] > 0) {
-		if ([requestMethod isEqualToString:@"GET"] || [requestMethod isEqualToString:@"DELETE"] || [requestMethod isEqualToString:@"HEAD"]) {
+		if ([requestMethod isEqualToString:@"GET"] || [requestMethod isEqualToString:@"HEAD"]) {
 			[self setRequestMethod:@"POST"];
 		}
 		[self addRequestHeader:@"Content-Length" value:[NSString stringWithFormat:@"%llu",[self postLength]]];

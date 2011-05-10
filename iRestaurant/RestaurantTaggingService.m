@@ -24,6 +24,7 @@
 -(id) initWithDelegate:(id <RestaurantTaggingServiceDelegate>) restaurantDelegate {
     self = [super init];
     if (self) {
+        authTokenRequired = true;
         delegate = restaurantDelegate;
     }
     return self;
@@ -34,7 +35,15 @@
         request = nil;
     }
     
-    NSString *json = [NSString stringWithFormat:@"{\"value\": \"%@\", \"auth_token\": \"%@\"}", tag, [self authToken]];
+    NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
+    
+    [jsonDictionary setObject:tag forKey:@"value"];
+    
+    [self updatePostData:jsonDictionary];
+    
+    NSString *json = [jsonDictionary JSONRepresentation];
+    
+    [jsonDictionary release];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/tag.json", restaurant._id]];
     
@@ -52,10 +61,17 @@
         request = nil;
     }
     
-    NSString *json = [NSString stringWithFormat:@"{\"value\": \"%@\", \"auth_token\": \"%@\"}", tag, [self authToken]];
+    NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
+    
+    [jsonDictionary setObject:tag forKey:@"value"];
+    
+    [self updatePostData:jsonDictionary];
+    
+    NSString *json = [jsonDictionary JSONRepresentation];
+    
+    [jsonDictionary release];
     
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/tag.json", restaurant._id]];
-    NSLog(@"%@",[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/tag.json", restaurant._id]);
     request = [ASIFormDataRequest requestWithURL:url];
     [request setRequestMethod: @"DELETE"];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
@@ -68,7 +84,6 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed 
 {
     NSString *responseString = [request_passed responseString];
-    NSLog(@"RESPONSE %@", responseString);
     NSDictionary *responseDictionary = [responseString JSONValue];
     NSArray *userTagsRetrieved = [responseDictionary objectForKey:@"user_tags"];
     NSDictionary *tagsWithCount = [responseDictionary objectForKey:@"tags"];

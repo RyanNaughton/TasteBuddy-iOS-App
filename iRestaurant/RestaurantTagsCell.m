@@ -158,12 +158,21 @@
 }
 
 -(void) doneTagging:(NSMutableArray *) tagsFromUser {
+    //Reset Tags
+    for (int i = 0; i < [tags count]; i++) {
+        Tag *tag = [tags objectAtIndex:i];
+        tag.isUserTag = false;
+        tag.count = 0;
+        TagButton *button = [tagButtons objectAtIndex:i];
+        [button loadTag:tag];
+    }
+    //Update Tags
     for (Tag* tagForUser in tagsFromUser) {
         NSUInteger indexOfTag = [tagValues indexOfObject:tagForUser.name];
         Tag *tag = [tags objectAtIndex:indexOfTag];
         TagButton *button = [tagButtons objectAtIndex:indexOfTag]; 
         if([tag.name isEqualToString:tagForUser.name]) {
-            tag.isUserTag = true;
+            tag.isUserTag = tagForUser.isUserTag;
             tag.count = tagForUser.count;
             [button loadTag:tag];
         }

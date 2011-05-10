@@ -39,8 +39,17 @@
     double longitude = -87.643464;
     NSString *near = @"";
     
-    NSString *json = [NSString stringWithFormat:@"{\"find\": \"%@\", \"near\": \"%@\", \"coordinates\": [%g, %g]}", 
-                      term, near, latitude, longitude];
+    NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
+    
+    [jsonDictionary setObject:term forKey:@"find"];
+    [jsonDictionary setObject:near forKey:@"near"];
+    [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
+    
+    [self updatePostData:jsonDictionary];
+    
+    NSString *json = [jsonDictionary JSONRepresentation];
+    
+    [jsonDictionary release];
     
     NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/complete.json"];
     
@@ -63,9 +72,16 @@
     double latitude = 41.884432;
     double longitude = -87.643464;
     
-    NSString *json = [NSString stringWithFormat:@"{\"near\": \"%@\", \"coordinates\": [%g, %g]}", 
-                      place, latitude, longitude];
+    NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
     
+    [jsonDictionary setObject:place forKey:@"near"];
+    [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
+    
+    [self updatePostData:jsonDictionary];
+    
+    NSString *json = [jsonDictionary JSONRepresentation];
+    
+    [jsonDictionary release];
 
     NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/complete.json"];
     
