@@ -11,7 +11,7 @@
 #import "iRestaurantAppDelegate.h"
 
 @implementation RatingView
-@synthesize outlineStarsView, redStarsView, yellowStarsView, ratingButton, starSize;
+@synthesize outlineStarsView, redStarsView, yellowStarsView, ratingButton, starSize, ratingsLabel;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -39,6 +39,10 @@
                 redStarsView.clipsToBounds = TRUE;
             }
         }
+        ratingsLabel = [[UILabel alloc]initWithFrame:CGRectMake (((starSize * 5) + 5), 2, 100, starSize)];
+        ratingsLabel.textColor = [UIColor darkGrayColor];
+        ratingsLabel.font = [UIFont systemFontOfSize:12];
+        [self addSubview:ratingsLabel];
         if (isEditable) { [self setupRatingButton]; }
     }
     return self;
@@ -140,12 +144,7 @@
 }
 
 -(void)setupRatingCount:(int)howManyRatings {
-    UILabel *ratingsLabel = [[UILabel alloc]initWithFrame:CGRectMake (((starSize * 5) + 5), 2, 100, starSize)];
     ratingsLabel.text = [NSString stringWithFormat:@"%i ratings", howManyRatings];
-    ratingsLabel.textColor = [UIColor darkGrayColor];
-    ratingsLabel.font = [UIFont systemFontOfSize:12];
-    [self addSubview:ratingsLabel];
-    [ratingsLabel release];
 }
 
 /*
@@ -159,6 +158,11 @@
 
 - (void)dealloc
 {
+    [outlineStarsView release];
+    [redStarsView release];
+    [yellowStarsView release];
+    [ratingButton release];
+    [ratingsLabel release];
     [super dealloc];
 }
 

@@ -48,6 +48,7 @@
 @synthesize menu_metadata;
 @synthesize menu;
 @synthesize tags;
+@synthesize ratings_count;
 
 -(id) init {
     self = [super init];
@@ -67,6 +68,10 @@
         average_rating    = [[restaurantDictionary objectForKey:@"average_rating"] retain];
         if([average_rating isKindOfClass:[NSNull class]]) {
             average_rating = [NSNumber numberWithInt:0];
+        }
+        ratings_count    = [[restaurantDictionary objectForKey:@"ratrings_count"] retain];
+        if([ratings_count isKindOfClass:[NSNull class]]) {
+            ratings_count = [NSNumber numberWithInt:0];
         }
         address_1         = [[restaurantDictionary objectForKey:@"address_1"] retain];
         address_2         = [[restaurantDictionary objectForKey:@"address_2"] retain];
@@ -115,8 +120,16 @@
                 [tags addObject:tag];
                 [tag release];
             }
-            [tags count];
         }
+        
+        NSArray * user_tags = [[restaurantDictionary objectForKey:@"user_tags"] retain];
+        
+        if (![user_tags isKindOfClass:[NSNull class]]) {
+            for (Tag *tag in tags) {
+                tag.isUserTag = [user_tags containsObject:tag.name];
+            }
+        }
+        [user_tags release];
         menu_metadata = [[restaurantDictionary objectForKey:@"menu_metadata"] retain];
     }
 

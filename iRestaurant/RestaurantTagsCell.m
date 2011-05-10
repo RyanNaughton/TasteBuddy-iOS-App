@@ -133,6 +133,8 @@
     for (Tag *tag in [restaurant tags]) {
         NSUInteger indexOfTag = [tagValues indexOfObject:tag.name];
         TagButton *tagButton = [tagButtons objectAtIndex:indexOfTag];
+        Tag *tagToUpdate = [tags objectAtIndex:indexOfTag];
+        tagToUpdate.isUserTag = tag.isUserTag;
         [tagButton loadTag:tag];
     }
     
@@ -177,7 +179,8 @@
             [button loadTag:tag];
         }
     }
-
+    
+    restaurant.tags = tags;
 }
 
 

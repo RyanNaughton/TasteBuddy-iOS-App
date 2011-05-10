@@ -23,29 +23,16 @@
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.backgroundColor = [UIColor whiteColor];
-        
-        greyHeart = [UIImage imageNamed:@"29-heart.png"];
-        redHeart = [UIImage imageNamed:@"red-heart.png"];
+   
         takePhoto = [[TakePhoto alloc]init];
-        
-//        UIButton *cameraButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [cameraButton setBackgroundImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
-//        [cameraButton addTarget:self action:@selector(cameraButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//        cameraButton.frame = CGRectMake(230, 10, 24, 18);
-//        [self.contentView addSubview:cameraButton];
-        
+
         imageView = [[UIImageView alloc]init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         imageView.frame = CGRectMake(10, 55, 120, 120);
         [self.contentView addSubview:imageView];
         
-//        favoriteButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [favoriteButton addTarget:self action:@selector(favoriteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//        [favoriteButton setBackgroundImage:greyHeart forState:UIControlStateNormal];
-//        favoriteButton.frame = CGRectMake(280, 10, 20, 20);
-//        [self.contentView addSubview:favoriteButton];
-        
+
         name = [[UILabel alloc]init];
         name.frame = CGRectMake(10, 7, 280, 20);
         name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
@@ -55,7 +42,7 @@
         name.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:name];
         
-        ratingView = [[RatingView alloc]initWithRating:0 andHowManyRatings:267 andStarSize:20 andIsUserRating:FALSE andIsEditable:TRUE];
+        ratingView = [[RatingView alloc]initWithRating:0 andHowManyRatings:0 andStarSize:20 andIsUserRating:FALSE andIsEditable:FALSE];
         ratingView.frame = CGRectMake(10, 30, 100, 20);
         [self.contentView addSubview:ratingView];
         
@@ -196,6 +183,7 @@
     }
     
     [ratingView setRating: [restaurant.average_rating floatValue] * 20];
+    [ratingView setupRatingCount: [restaurant.ratings_count intValue]];
 }
 
 -(void)cameraButtonPressed:(id)sender {

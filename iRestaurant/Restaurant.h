@@ -40,6 +40,7 @@
     NSArray *comments;
     NSString *average_meal_price;
     NSNumber *distance;
+    NSNumber *ratings_count;
     
     NSMutableArray *menu_items;
     
@@ -80,6 +81,7 @@
 @property (nonatomic, retain) NSArray *comments;
 @property (nonatomic, retain) NSString *average_meal_price;
 @property (nonatomic, retain) NSNumber *distance;
+@property (nonatomic, retain) NSNumber *ratings_count;
 
 @property (nonatomic, retain) NSMutableArray *menu_items;
 

@@ -14,6 +14,7 @@
     UIView *redStarsView;
     UIView *yellowStarsView;
     UIButton *ratingButton;
+    UILabel *ratingsLabel;
     int starSize;
 }
 
@@ -21,6 +22,7 @@
 @property (nonatomic, retain) UIView *redStarsView;
 @property (nonatomic, retain) UIView *yellowStarsView;
 @property (nonatomic, retain) UIButton *ratingButton;
+@property (nonatomic, retain) UILabel *ratingsLabel;
 @property (nonatomic, assign) int starSize;
 
 -(id)initWithRating:(float)rating andStarSize:(int)starSize_passed andIsUserRating:(BOOL)isUserRating andIsEditable:(BOOL)isEditable;
