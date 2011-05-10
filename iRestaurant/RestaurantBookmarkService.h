@@ -12,7 +12,7 @@
 @class ASIFormDataRequest;
 
 @protocol RestaurantBookmarkServiceDelegate <NSObject>
--(void) doneRating;
+-(void) doneBookmarking;
 @end
 
 @interface RestaurantBookmarkService : AbstractService {

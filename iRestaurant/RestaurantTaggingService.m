@@ -14,9 +14,10 @@
 
 @implementation RestaurantTaggingService
 
-@synthesize delegate;
+@synthesize delegate, requestMethod;
 
 - (void)dealloc {
+    [requestMethod release];
     [delegate release];
     [super dealloc];
 }
@@ -30,54 +31,43 @@
     return self;
 }
 -(void) tagRestaurant:(Restaurant *) restaurant withTag:(NSString *)tag {
-    if (request != nil) {
-        [request cancel];
-        request = nil;
-    }
-    
-    NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
-    
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/tag.json", restaurant._id];    
+
     [jsonDictionary setObject:tag forKey:@"value"];
     
-    [self updatePostData:jsonDictionary];
-    
-    NSString *json = [jsonDictionary JSONRepresentation];
-    
-    [jsonDictionary release];
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/tag.json", restaurant._id]];
-    
-    request = [ASIFormDataRequest requestWithURL:url];
-    [request setRequestMethod: @"PUT"];
-    [request addRequestHeader:@"Content-Type" value:@"application/json"];
-    [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
-    [request setDelegate:self];
-    [request startAsynchronous];
+    [self prepareRequest];
+
+    requestMethod = @"PUT";
+
 }
 
 -(void) deleteTagFromRestaurant:(Restaurant *) restaurant withTag:(NSString *)tag {
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/tag.json", restaurant._id];
+
+    [jsonDictionary setObject:tag forKey:@"value"];
+    
+    [self prepareRequest];
+
+    requestMethod = @"DELETE";
+}
+
+-(void) performRequest {
+    
     if (request != nil) {
         [request cancel];
         request = nil;
     }
-    
-    NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
-    
-    [jsonDictionary setObject:tag forKey:@"value"];
-    
-    [self updatePostData:jsonDictionary];
-    
+    NSLog(@"RequestMethod %@", requestMethod);
+
     NSString *json = [jsonDictionary JSONRepresentation];
     
-    [jsonDictionary release];
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/tag.json", restaurant._id]];
+    NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
-    [request setRequestMethod: @"DELETE"];
+    [request setRequestMethod: requestMethod];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];
-    [request startAsynchronous];
+    [request startAsynchronous]; 
 }
 
 

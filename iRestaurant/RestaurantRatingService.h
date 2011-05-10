@@ -13,7 +13,7 @@
 @class ASIFormDataRequest;
 
 @protocol RestaurantRatingServiceDelegate <NSObject>
--(void) doneRating;
+    -(void) doneRating;
 @end
 
 @interface RestaurantRatingService : AbstractService {

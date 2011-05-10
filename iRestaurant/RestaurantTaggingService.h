@@ -17,10 +17,12 @@
 
 @interface RestaurantTaggingService : AbstractService {
     id <RestaurantTaggingServiceDelegate> delegate;
+    NSString *requestMethod;
 }
 
 
 @property (nonatomic, retain) id <RestaurantTaggingServiceDelegate> delegate;
+@property (nonatomic, retain) NSString *requestMethod;
 
 -(id) initWithDelegate:(id <RestaurantTaggingServiceDelegate>) restaurantDelegate;
 

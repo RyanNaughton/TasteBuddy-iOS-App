@@ -8,9 +8,10 @@
 
 #import "LoginViewController.h"
 #import "iRestaurantAppDelegate.h"
+#import "AbstractService.h"
 @implementation LoginViewController
 
-@synthesize username, password, cancelButton, loginButton, loginService;
+@synthesize username, password, cancelButton, loginButton, loginService, serviceToPerformSubsequentRequest;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -71,7 +72,10 @@
 
 -(void) loginComplete:(AuthenticationResponse *)authToken
 {
-    [(iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate] updateAuthentication:authToken]; 
+    [(iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate] updateAuthentication:authToken];
+    if(serviceToPerformSubsequentRequest != nil) {
+        [serviceToPerformSubsequentRequest logInFinished];        
+    }
     [self cancel];
 }
 @end

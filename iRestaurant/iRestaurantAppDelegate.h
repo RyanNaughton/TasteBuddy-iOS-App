@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AbstractService.h"
 
 @class AuthenticationResponse;
 
@@ -25,7 +26,7 @@
 -(id) readSavedSetting:(NSString *)key;
 -(void) setSavedSetting:(NSString *)key withValue:(id)value;
 
--(void) login;
+-(void) login:(AbstractService *) service;
 -(void) logout;
 -(void) updateAuthentication:(AuthenticationResponse *) authResponse;
 

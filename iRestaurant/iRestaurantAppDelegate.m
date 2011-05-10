@@ -33,7 +33,6 @@
 
     [self checkOrCreatePlist];
     [self logout];
-    [self login];
     
     return YES;
 }
@@ -116,9 +115,10 @@
 }
 
 
--(void) login {
+-(void) login:(AbstractService *) service {
     if ( [self readSavedSetting:@"authentication_token"] == nil || [[self readSavedSetting:@"authentication_token"]  isEqualToString:@""]) {
         LoginViewController *lvc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
+        lvc.serviceToPerformSubsequentRequest = [service retain];
         lvc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [self.tabBarController presentModalViewController:lvc animated:YES];
         [lvc release];

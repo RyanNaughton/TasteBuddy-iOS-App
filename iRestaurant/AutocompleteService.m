@@ -22,6 +22,8 @@
     self = [super init];
     if (self) {
         delegate = serviceDelegate;
+        urlString = @"http://monkey.elhideout.org/complete.json";
+
     }
     return self;
 }
@@ -29,68 +31,46 @@
 -(void) getTerms:(NSString *)term
 {
     
-    if (request != nil) {
-        [request cancel];
-        request = nil;
-    }
-    
     #warning Replace with real co-ordinates
     double latitude = 41.884432;
     double longitude = -87.643464;
     NSString *near = @"";
-    
-    NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
-    
+        
     [jsonDictionary setObject:term forKey:@"find"];
     [jsonDictionary setObject:near forKey:@"near"];
     [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
     
-    [self updatePostData:jsonDictionary];
-    
-    NSString *json = [jsonDictionary JSONRepresentation];
-    
-    [jsonDictionary release];
-    
-    NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/complete.json"];
-    
-    request = [ASIFormDataRequest requestWithURL:url];
-    [request addRequestHeader:@"Content-Type" value:@"application/json"];
-    [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
-    [request setDelegate:self];
-    [request startAsynchronous];
+    [self prepareRequest];
 }
 
 -(void) getPlaces:(NSString *)place
-{
+{    
+    #warning Replace with real co-ordinates
+    double latitude = 41.884432;
+    double longitude = -87.643464;
+    
+    
+    [jsonDictionary setObject:place forKey:@"near"];
+    [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
+    
+    [self prepareRequest];
+    
+
+}
+
+-(void) performRequest {
     if (request != nil) {
         [request cancel];
         request = nil;
     }
     
-    
-    #warning Replace with real co-ordinates
-    double latitude = 41.884432;
-    double longitude = -87.643464;
-    
-    NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
-    
-    [jsonDictionary setObject:place forKey:@"near"];
-    [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
-    
-    [self updatePostData:jsonDictionary];
-    
     NSString *json = [jsonDictionary JSONRepresentation];
-    
-    [jsonDictionary release];
-
-    NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/complete.json"];
-    
+    NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];
     [request startAsynchronous];
-
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request_passed

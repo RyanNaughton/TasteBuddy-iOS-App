@@ -25,21 +25,30 @@
 
 -(void) loginWith:(NSString *)username andPassword:(NSString *)password {
     
+    urlString = @"http://monkey.elhideout.org/users/sign_in.json";
+    
+    NSMutableDictionary *loginDictionary = [[NSMutableDictionary alloc] init];
+    [loginDictionary setObject:username forKey:@"login"];
+    [loginDictionary setObject:password forKey:@"password"];
+    
+    [jsonDictionary setObject:loginDictionary forKey:@"user"];
+    [loginDictionary release];
+    [self prepareRequest];
+}
+
+-(void) performRequest {
     if (request != nil) {
         [request cancel];
         request = nil;
     }
     
-    NSString *json = [NSString stringWithFormat:@"{'user' : { 'login' : '%@', 'password' : '%@'}}", username, password];
-    
-    NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/users/sign_in.json"];
-    
+    NSString *json = [jsonDictionary JSONRepresentation];
+    NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];
-    [request startSynchronous];
-
+    [request startAsynchronous];    
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request_passed

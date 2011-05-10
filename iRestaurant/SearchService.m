@@ -38,37 +38,35 @@
     //iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
    // NSLog(@"username: %@", [appDelegate readSavedSetting:@"username"]);
     
-    
-    if (request != nil) {
-        [request cancel];
-        request = nil;
-    }
+    urlString = @"http://monkey.elhideout.org/search.json";
     
     double latitude = 41.884432;
     double longitude = -87.643464;
     nearString = @"";
     
-    NSMutableDictionary *jsonDictionary = [[NSMutableDictionary alloc] init];
-    
+
     [jsonDictionary setObject:term forKey:@"find"];
     [jsonDictionary setObject:nearString forKey:@"near"];
     [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
     
-    [self updatePostData:jsonDictionary];
-    
-    NSString *json = [jsonDictionary JSONRepresentation];
-    
-    [jsonDictionary release];
+    [self prepareRequest];
 
-    NSURL *url = [NSURL URLWithString:@"http://monkey.elhideout.org/search.json"];
-    
+}
+
+-(void) performRequest {
+    if (request != nil) {
+        [request cancel];
+        request = nil;
+    }
+
+    NSString *json = [jsonDictionary JSONRepresentation];
+    NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];
     [request startAsynchronous];
 }
-
 
 -(void)searchByTerm:(NSString *)term 
 {

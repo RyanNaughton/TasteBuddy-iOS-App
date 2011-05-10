@@ -30,17 +30,23 @@
 }
 
 -(void) rateRestaurant:(Restaurant *) restaurant withRating:(float) rating {
+    
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/rate.json", restaurant._id];
+
+    [jsonDictionary setObject:[NSNumber numberWithFloat:rating] forKey:@"value"];
+    
+    [self prepareRequest];
+    
+}
+
+-(void) performRequest {
     if (request != nil) {
         [request cancel];
         request = nil;
     }
     
-    NSString *json = [NSString stringWithFormat:@"{\"value\": %.1f, \"auth_token\": \"%@\"}", rating, [self authToken]];
-    
-    NSLog(@"%@", json);
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/rate.json", restaurant._id]];
-    
+    NSString *json = [jsonDictionary JSONRepresentation];
+    NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
     [request setRequestMethod: @"PUT"];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];

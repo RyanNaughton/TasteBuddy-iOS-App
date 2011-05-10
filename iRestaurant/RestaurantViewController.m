@@ -339,8 +339,10 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     float rating = 5 - buttonIndex * 1.0;
-    RestaurantRatingService *rrs = [[RestaurantRatingService alloc] initWithDelegate:self];
-    [rrs rateRestaurant:restaurant withRating:rating];
+    if(rating > 0.0f) {
+        RestaurantRatingService *rrs = [[RestaurantRatingService alloc] initWithDelegate:self];
+        [rrs rateRestaurant:restaurant withRating:rating];
+    }
 }
 
 @end

@@ -14,7 +14,7 @@
 
 @implementation AbstractService
 
-@synthesize request, authTokenRequired, authTokenOptional;
+@synthesize request, authTokenRequired, authTokenOptional, appDelegate, jsonDictionary, urlString;
 
 -(id) init {
     self = [super init];
@@ -22,31 +22,45 @@
     if(self) {
         authTokenRequired = NO;
         authTokenOptional = NO;
+        appDelegate = [[UIApplication sharedApplication] delegate];
+        jsonDictionary = [[NSMutableDictionary alloc] init];
     }
     
     return self;
 }
 
 -(NSString *) authToken {
-    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     return appDelegate.authenticationResponse.authentication_token;
 }
 
 -(bool) isLoggedIn {
-    NSLog(@"Auth token %@", [self authToken]);
-    return !([[self authToken] isEqualToString:@""]);
+    return [self authToken] != nil && ![[self authToken] isEqualToString:@""];
 }
 
--(void) updatePostData:(NSMutableDictionary *) dictionaryRequest {
-    if(authTokenRequired) {        
-        [dictionaryRequest setObject:[self authToken] forKey:@"auth_token"];
+-(void) prepareRequest {
+    if(authTokenRequired) {
+        if([self isLoggedIn]){
+            [self logInFinished];
+        } else {
+            [urlString retain];
+            [appDelegate login:self];
+        }
     } else if([self isLoggedIn] && authTokenOptional) {
-        [dictionaryRequest setObject:[self authToken] forKey:@"auth_token"];
+        [self logInFinished];
+    } else {
+        [self performRequest];
     }
 }
 
+-(void) logInFinished {
+    [jsonDictionary setObject:[self authToken] forKey:@"auth_token"];   
+    [self performRequest];
+}
+
 - (void)dealloc {
+    [urlString release];
     [request release];
+    [jsonDictionary release];
     [super dealloc];
 }
 

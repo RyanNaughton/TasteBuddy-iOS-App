@@ -23,27 +23,32 @@
     self = [super init];
     if (self) {
         delegate = restaurantDelegate;
+        authTokenRequired = YES;
     }
     return self;
 }
 
 -(void) bookmarkRestaurant:(Restaurant *) restaurant
 {
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/bookmark.json", restaurant._id];
+    
+    [self prepareRequest];
+}
+
+-(void) performRequest {
     if (request != nil) {
         [request cancel];
         request = nil;
     }
     
-    NSString *json = [NSString stringWithFormat:@"{\"auth_token\": \"%@\"}", [self authToken]];
-    
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/bookmark.json", restaurant._id]];
-    
+    NSString *json = [jsonDictionary JSONRepresentation];
+    NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
     [request setRequestMethod: @"PUT"];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];
-    [request startAsynchronous];
+    [request startAsynchronous];    
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request_passed 
@@ -67,8 +72,8 @@
         [alert release];
     }
     
-#warning TODO do some stuff with this string
-    [delegate doneRating];
+    #warning TODO do some stuff with this string
+    [delegate doneBookmarking];
     request = nil;
 }
 

@@ -28,7 +28,7 @@
 
 -(void) getMenuForRestaurant:(Restaurant *)restaurant
 {
-    NSString *urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/menu.json", restaurant._id];    
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/menu.json", restaurant._id];    
     NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIHTTPRequest requestWithURL:url];
     [request setDelegate:self];

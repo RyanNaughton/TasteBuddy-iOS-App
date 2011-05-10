@@ -39,6 +39,10 @@
     
 }
 
+-(void) performRequest {
+    #warning TODO move the upload in here
+}
+
 -(void) dealloc
 {
     [delegate release];
