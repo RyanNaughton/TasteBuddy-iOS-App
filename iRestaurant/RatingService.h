@@ -10,21 +10,23 @@
 #import "AbstractService.h"
 
 @class Restaurant;
+@class MenuItem;
 @class ASIFormDataRequest;
 
-@protocol RestaurantRatingServiceDelegate <NSObject>
+@protocol RatingServiceDelegate <NSObject>
     -(void) doneRating;
 @end
 
-@interface RestaurantRatingService : AbstractService {
-    id <RestaurantRatingServiceDelegate> delegate;
+@interface RatingService : AbstractService {
+    id <RatingServiceDelegate> delegate;
 }
 
-@property (nonatomic, retain) id <RestaurantRatingServiceDelegate> delegate;
+@property (nonatomic, retain) id <RatingServiceDelegate> delegate;
 
--(id) initWithDelegate:(id <RestaurantRatingServiceDelegate>) restaurantDelegate;
+-(id) initWithDelegate:(id <RatingServiceDelegate>) ratingDelegate;
 
 -(void) rateRestaurant:(Restaurant *) restaurant withRating:(float) rating;
+-(void) rateMenuItem:(MenuItem *) menuItem withRating:(float) rating;
 
 
 @end

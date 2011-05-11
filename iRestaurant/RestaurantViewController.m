@@ -11,7 +11,7 @@
 #import "MenuViewController.h"
 #import "TakePhoto.h"
 #import "AuthenticationResponse.h"
-#import "RestaurantRatingService.h"
+#import "RatingService.h"
 #import "RestaurantBookmarkService.h"
 #import "WebViewController.h"
 
@@ -357,7 +357,7 @@
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     float rating = 5 - buttonIndex * 1.0;
     if(rating > 0.0f) {
-        RestaurantRatingService *rrs = [[RestaurantRatingService alloc] initWithDelegate:self];
+        RatingService *rrs = [[RatingService alloc] initWithDelegate:self];
         [rrs rateRestaurant:restaurant withRating:rating];
     }
 }

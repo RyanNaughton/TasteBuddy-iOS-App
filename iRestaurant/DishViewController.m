@@ -12,7 +12,7 @@
 #import "Comment.h"
 #import "TakePhoto.h"
 #import "iRestaurantAppDelegate.h"
-#import "RestaurantRatingService.h"
+#import "RatingService.h"
 #import "AuthenticationResponse.h"
 
 // CELLS
@@ -314,11 +314,15 @@
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     float rating = 5 - buttonIndex * 1.0;
-    //RestaurantRatingService *rrs = [[RestaurantRatingService alloc] initWithDelegate:self];
-    //[rrs rateRestaurant:restaurant withRating:rating andAuthToken:appDelegate.authenticationResponse.authentication_token];
+    if(rating > 0.0f) {
+        RatingService *rrs = [[RatingService alloc] initWithDelegate:self];
+        [rrs rateRestaurant:restaurant withRating:rating];
+    }
 }
 
-
+-(void) doneRating {
+    NSLog(@"Done Rating");
+}
 
 
 @end

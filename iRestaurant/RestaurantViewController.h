@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RestaurantRatingService.h"
+#import "RatingService.h"
 #import "RestaurantBookmarkService.h"
 
 @class Restaurant;
 @class TakePhoto;
 
-@interface RestaurantViewController : UITableViewController <UIActionSheetDelegate, RestaurantRatingServiceDelegate, RestaurantBookmarkServiceDelegate> {
+@interface RestaurantViewController : UITableViewController <UIActionSheetDelegate, RatingServiceDelegate, RestaurantBookmarkServiceDelegate> {
     NSMutableArray *tableArray;
     Restaurant *restaurant;
     int tagsRowHeight;

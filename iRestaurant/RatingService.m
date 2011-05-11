@@ -6,12 +6,13 @@
 //  Copyright 2011 N/A. All rights reserved.
 //
 
-#import "RestaurantRatingService.h"
+#import "RatingService.h"
 #import "ASIFormDataRequest.h"
 #import "Restaurant.h"
+#import "MenuItem.h"
 #import "JSON.h"
 
-@implementation RestaurantRatingService
+@implementation RatingService
 
 @synthesize delegate;
 
@@ -20,13 +21,22 @@
     [super dealloc];
 }
 
--(id) initWithDelegate:(id <RestaurantRatingServiceDelegate>) restaurantDelegate {
+-(id) initWithDelegate:(id <RatingServiceDelegate>) ratingDelegate {
     self = [super init];
     if (self) {
-        delegate = restaurantDelegate;
+        delegate = ratingDelegate;
         authTokenRequired = TRUE;
     }
     return self;
+}
+
+-(void) rateMenuItem:(MenuItem *) menuItem withRating:(float) rating {
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/menu_items/%@/rate.json", menuItem._id];
+
+    [jsonDictionary setObject:[NSNumber numberWithFloat:rating] forKey:@"value"];
+    
+    [self prepareRequest];
+
 }
 
 -(void) rateRestaurant:(Restaurant *) restaurant withRating:(float) rating {

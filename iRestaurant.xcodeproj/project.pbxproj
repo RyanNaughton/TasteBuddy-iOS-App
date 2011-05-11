@@ -31,7 +31,7 @@
 		49578B8013551D7200F8EC0B /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49578B7E13551D7200F8EC0B /* SearchViewController.xib */; };
 		49578BCD1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BCB1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m */; };
 		49578BDA1355F8CF00F8EC0B /* DishSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BD91355F8CF00F8EC0B /* DishSearchResultTableViewController.m */; };
-		4964AEA51372200D0060C65A /* RestaurantRatingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4964AEA41372200D0060C65A /* RestaurantRatingService.m */; };
+		4964AEA51372200D0060C65A /* RatingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4964AEA41372200D0060C65A /* RatingService.m */; };
 		4964AEA9137220340060C65A /* RestaurantTaggingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4964AEA8137220340060C65A /* RestaurantTaggingService.m */; };
 		499B564A1357AE9000F2B407 /* AutocompleteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727DE13578626004CB2F6 /* AutocompleteService.m */; };
 		499B564C1357AEC300F2B407 /* FindAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */; };
@@ -264,8 +264,8 @@
 		49578BCB1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantSearchResultTableViewController.m; sourceTree = "<group>"; };
 		49578BD81355F8CE00F8EC0B /* DishSearchResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishSearchResultTableViewController.h; sourceTree = "<group>"; };
 		49578BD91355F8CF00F8EC0B /* DishSearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishSearchResultTableViewController.m; sourceTree = "<group>"; };
-		4964AEA31372200D0060C65A /* RestaurantRatingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantRatingService.h; sourceTree = "<group>"; };
-		4964AEA41372200D0060C65A /* RestaurantRatingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantRatingService.m; sourceTree = "<group>"; };
+		4964AEA31372200D0060C65A /* RatingService.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RatingService.h; sourceTree = "<group>"; };
+		4964AEA41372200D0060C65A /* RatingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingService.m; sourceTree = "<group>"; };
 		4964AEA7137220340060C65A /* RestaurantTaggingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTaggingService.h; sourceTree = "<group>"; };
 		4964AEA8137220340060C65A /* RestaurantTaggingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTaggingService.m; sourceTree = "<group>"; };
 		498727DD13578626004CB2F6 /* AutocompleteService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteService.h; sourceTree = "<group>"; };
@@ -1059,8 +1059,8 @@
 				49EE9AF91368E67A00528C91 /* LoginService.m */,
 				E86A84741368FE9A00720FA3 /* PhotoUploadService.h */,
 				E86A84751368FE9A00720FA3 /* PhotoUploadService.m */,
-				4964AEA31372200D0060C65A /* RestaurantRatingService.h */,
-				4964AEA41372200D0060C65A /* RestaurantRatingService.m */,
+				4964AEA31372200D0060C65A /* RatingService.h */,
+				4964AEA41372200D0060C65A /* RatingService.m */,
 				4929F4B813733531003D4EE8 /* TagService.h */,
 				4929F4B913733531003D4EE8 /* TagService.m */,
 				49EA6E7C1374D0F3003D8703 /* AbstractService.h */,
@@ -1494,7 +1494,7 @@
 				E86A84761368FE9A00720FA3 /* PhotoUploadService.m in Sources */,
 				E8D306FD136912CA00BA12B5 /* Base64.m in Sources */,
 				E8AF9DB31370AF7D0092A249 /* RestaurantButtonsCell.m in Sources */,
-				4964AEA51372200D0060C65A /* RestaurantRatingService.m in Sources */,
+				4964AEA51372200D0060C65A /* RatingService.m in Sources */,
 				4964AEA9137220340060C65A /* RestaurantTaggingService.m in Sources */,
 				E859D27813722DCB00D47CEB /* ProfileTableViewController.m in Sources */,
 				E859D27D137232D000D47CEB /* ProfileHeadCell.m in Sources */,
@@ -1578,7 +1578,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1598,7 +1598,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "1A081128-A48D-4CCF-B739-27B6521BEB77";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1A081128-A48D-4CCF-B739-27B6521BEB77";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

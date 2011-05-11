@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RatingService.h"
+
 @class Restaurant;
 @class MenuItem;
 @class TakePhoto;
 
-@interface DishViewController : UITableViewController <UIActionSheetDelegate> {
+@interface DishViewController : UITableViewController <UIActionSheetDelegate, RatingServiceDelegate> {
     Restaurant *restaurant;
     MenuItem *menu_item;
     NSMutableArray *tableArray;
