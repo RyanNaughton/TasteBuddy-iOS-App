@@ -14,7 +14,7 @@
 #import "TagService.h"
 #import "TagButton.h"
 #import "iRestaurantAppDelegate.h"
-#import "RestaurantTaggingService.h"
+#import "TaggingService.h"
 #import "AuthenticationResponse.h"
     
 @implementation RestaurantTagsCell
@@ -56,7 +56,7 @@
         [tagsSubLabel release];
 
         tagService =[[TagService alloc] initWithDelegate:self];
-        restaurantTaggingService  = [[RestaurantTaggingService alloc] initWithDelegate:self];
+        restaurantTaggingService  = [[TaggingService alloc] initWithDelegate:self];
         tagButtons = [[NSMutableArray alloc] init];
         tagValues = [[NSMutableArray alloc] init];
         [tagService getTags];

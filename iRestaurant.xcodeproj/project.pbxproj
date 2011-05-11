@@ -32,7 +32,7 @@
 		49578BCD1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BCB1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m */; };
 		49578BDA1355F8CF00F8EC0B /* DishSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BD91355F8CF00F8EC0B /* DishSearchResultTableViewController.m */; };
 		4964AEA51372200D0060C65A /* RatingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4964AEA41372200D0060C65A /* RatingService.m */; };
-		4964AEA9137220340060C65A /* RestaurantTaggingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4964AEA8137220340060C65A /* RestaurantTaggingService.m */; };
+		4964AEA9137220340060C65A /* TaggingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4964AEA8137220340060C65A /* TaggingService.m */; };
 		499B564A1357AE9000F2B407 /* AutocompleteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727DE13578626004CB2F6 /* AutocompleteService.m */; };
 		499B564C1357AEC300F2B407 /* FindAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */; };
 		499B564D1357AED200F2B407 /* NearAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */; };
@@ -266,8 +266,8 @@
 		49578BD91355F8CF00F8EC0B /* DishSearchResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishSearchResultTableViewController.m; sourceTree = "<group>"; };
 		4964AEA31372200D0060C65A /* RatingService.h */ = {isa = PBXFileReference; fileEncoding = 4; path = RatingService.h; sourceTree = "<group>"; };
 		4964AEA41372200D0060C65A /* RatingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingService.m; sourceTree = "<group>"; };
-		4964AEA7137220340060C65A /* RestaurantTaggingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTaggingService.h; sourceTree = "<group>"; };
-		4964AEA8137220340060C65A /* RestaurantTaggingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTaggingService.m; sourceTree = "<group>"; };
+		4964AEA7137220340060C65A /* TaggingService.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TaggingService.h; sourceTree = "<group>"; };
+		4964AEA8137220340060C65A /* TaggingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaggingService.m; sourceTree = "<group>"; };
 		498727DD13578626004CB2F6 /* AutocompleteService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteService.h; sourceTree = "<group>"; };
 		498727DE13578626004CB2F6 /* AutocompleteService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteService.m; sourceTree = "<group>"; };
 		498727E113578CDD004CB2F6 /* FindAutocompleteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindAutocompleteTableViewController.h; sourceTree = "<group>"; };
@@ -1049,8 +1049,8 @@
 				E8AE703713785B7B009CB87E /* Bookmarking */,
 				E8A03E1B135539130031D798 /* SearchService.h */,
 				E8A03E1C135539130031D798 /* SearchService.m */,
-				4964AEA7137220340060C65A /* RestaurantTaggingService.h */,
-				4964AEA8137220340060C65A /* RestaurantTaggingService.m */,
+				4964AEA7137220340060C65A /* TaggingService.h */,
+				4964AEA8137220340060C65A /* TaggingService.m */,
 				498727DD13578626004CB2F6 /* AutocompleteService.h */,
 				498727DE13578626004CB2F6 /* AutocompleteService.m */,
 				490F2C9B1358BB3200DA5C1F /* MenuService.h */,
@@ -1495,7 +1495,7 @@
 				E8D306FD136912CA00BA12B5 /* Base64.m in Sources */,
 				E8AF9DB31370AF7D0092A249 /* RestaurantButtonsCell.m in Sources */,
 				4964AEA51372200D0060C65A /* RatingService.m in Sources */,
-				4964AEA9137220340060C65A /* RestaurantTaggingService.m in Sources */,
+				4964AEA9137220340060C65A /* TaggingService.m in Sources */,
 				E859D27813722DCB00D47CEB /* ProfileTableViewController.m in Sources */,
 				E859D27D137232D000D47CEB /* ProfileHeadCell.m in Sources */,
 				E859D28B13723E6400D47CEB /* ProfilePhotoDayTopCell.m in Sources */,

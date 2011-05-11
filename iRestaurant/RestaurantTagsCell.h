@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "TagService.h"
-#import "RestaurantTaggingService.h"
+#import "TaggingService.h"
 
 @class Restaurant;
 
-@interface RestaurantTagsCell : UITableViewCell<TagServiceDelegate, RestaurantTaggingServiceDelegate> {
+@interface RestaurantTagsCell : UITableViewCell<TagServiceDelegate, TaggingServiceDelegate> {
     TagService *tagService;
     Restaurant *restaurant;
-    RestaurantTaggingService *restaurantTaggingService;
+    TaggingService *restaurantTaggingService;
     NSMutableArray *tagButtons;
     NSMutableArray *tags;
     NSMutableArray *tagValues;
@@ -26,7 +26,7 @@
 @property (nonatomic, retain) NSMutableArray *tagButtons;
 @property (nonatomic, retain) NSMutableArray *tags;
 @property (nonatomic, retain) NSMutableArray *tagValues;
-@property (nonatomic, retain) RestaurantTaggingService *restaurantTaggingService;
+@property (nonatomic, retain) TaggingService *restaurantTaggingService;
 
 -(void) loadRestaurant:(Restaurant *)restaurantPassed;
 

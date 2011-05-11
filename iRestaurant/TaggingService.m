@@ -6,13 +6,14 @@
 //  Copyright 2011 N/A. All rights reserved.
 //
 
-#import "RestaurantTaggingService.h"
+#import "TaggingService.h"
 #import "ASIFormDataRequest.h"
 #import "Restaurant.h"
+#import "MenuItem.h"
 #import "JSON.h"
 #import "Tag.h"
 
-@implementation RestaurantTaggingService
+@implementation TaggingService
 
 @synthesize delegate, requestMethod;
 
@@ -22,7 +23,7 @@
     [super dealloc];
 }
 
--(id) initWithDelegate:(id <RestaurantTaggingServiceDelegate>) restaurantDelegate {
+-(id) initWithDelegate:(id <TaggingServiceDelegate>) restaurantDelegate {
     self = [super init];
     if (self) {
         authTokenRequired = true;
@@ -30,6 +31,31 @@
     }
     return self;
 }
+
+
+-(void) tagMenuItem:(MenuItem *) menuItem withTag:(NSString *)tag {
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/menu_items/%@/tag.json", menuItem._id];    
+    
+    [jsonDictionary setObject:tag forKey:@"value"];
+    
+    requestMethod = @"PUT";
+    
+    [self prepareRequest];
+    
+    
+}
+
+-(void) deleteTagFromMenuItem:(MenuItem *) menuItem withTag:(NSString *)tag {
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/menu_items/%@/tag.json", menuItem._id];
+    
+    [jsonDictionary setObject:tag forKey:@"value"];
+    
+    requestMethod = @"DELETE";
+    
+    [self prepareRequest];
+    
+}
+
 -(void) tagRestaurant:(Restaurant *) restaurant withTag:(NSString *)tag {
     urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/tag.json", restaurant._id];    
 

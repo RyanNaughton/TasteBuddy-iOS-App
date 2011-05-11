@@ -10,22 +10,26 @@
 #import "AbstractService.h"
 
 @class Restaurant;
+@class MenuItem;
 
-@protocol RestaurantTaggingServiceDelegate <NSObject>
+@protocol TaggingServiceDelegate <NSObject>
     -(void) doneTagging:(NSMutableArray *) tagsFromUser;
 @end
 
-@interface RestaurantTaggingService : AbstractService {
-    id <RestaurantTaggingServiceDelegate> delegate;
+@interface TaggingService : AbstractService {
+    id <TaggingServiceDelegate> delegate;
     NSString *requestMethod;
 }
 
 
-@property (nonatomic, retain) id <RestaurantTaggingServiceDelegate> delegate;
+@property (nonatomic, retain) id <TaggingServiceDelegate> delegate;
 @property (nonatomic, retain) NSString *requestMethod;
 
--(id) initWithDelegate:(id <RestaurantTaggingServiceDelegate>) restaurantDelegate;
+-(id) initWithDelegate:(id <TaggingServiceDelegate>) restaurantDelegate;
 
+-(void) tagMenuItem:(MenuItem *) menuItem withTag:(NSString *)tag;
+-(void) deleteTagFromMenuItem:(MenuItem *) menuItem withTag:(NSString *)tag;
 -(void) tagRestaurant:(Restaurant *) restaurant withTag:(NSString *)tag;
 -(void) deleteTagFromRestaurant:(Restaurant *) restaurant withTag:(NSString *)tag;
+
 @end
