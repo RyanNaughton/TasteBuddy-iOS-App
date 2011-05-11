@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PhotoUploadService.h"
 
-@interface PhotoShareContainer : UIViewController <UITextFieldDelegate> {
+@interface PhotoShareContainer : UIViewController <UITextFieldDelegate, PhotoUploadServiceDelegate> {
     IBOutlet UIBarButtonItem *cancelButton;
     IBOutlet UIImageView *imageView;
     
@@ -23,6 +24,8 @@
     IBOutlet UITextField *commentsTextField;
     IBOutlet UISwitch *facebookSwitch;
     
+    NSString *restaurant;
+    NSString *menuItem;
 }
 
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *cancelButton;
@@ -39,8 +42,10 @@
 @property (nonatomic, retain) IBOutlet UITextField *commentsTextField;
 @property (nonatomic, retain) IBOutlet UISwitch *facebookSwitch;
 
-- (id)initWithWhere:(NSString *)where_passed andWhat:(NSString *)what_passed andImage:(UIImage *)image_passed;
+@property (nonatomic, retain) NSString *restaurant;
+@property (nonatomic, retain) NSString *menuItem;
 
+- (id)initWithWhere:(NSString *)where_passed andWhat:(NSString *)what_passed andImage:(UIImage *)image_passed andRestaurantId:(NSString *)restaurant_id_passed andMenuItemId:(NSString *) menu_item_id_passed;
 -(IBAction) cancelButtonPressed:(id)sender;
 
 @end

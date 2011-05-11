@@ -10,7 +10,7 @@
 #import "PhotoUploadService.h"
 
 @implementation PhotoShareContainer
-@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch;
+@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch, restaurant, menuItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,14 +22,15 @@
     return self;
 }
 
-- (id)initWithWhere:(NSString *)where_passed andWhat:(NSString *)what_passed andImage:(UIImage *)image_passed {
+- (id)initWithWhere:(NSString *)where_passed andWhat:(NSString *)what_passed andImage:(UIImage *)image_passed andRestaurantId:(NSString *)restaurant_id_passed andMenuItemId:(NSString *) menu_item_id_passed{
     self = [super initWithNibName:@"PhotoShareContainer" bundle:nil];
     if (self) {
         //init
         what = what_passed;
         where = where_passed;
         image = image_passed;
-        
+        menuItem = menu_item_id_passed;
+        restaurant = restaurant_id_passed;
            }
     return self;
 }
@@ -47,8 +48,7 @@
 -(IBAction) submitButtonPressed:(id)sender 
 {
     PhotoUploadService *photoUploadService = [[PhotoUploadService alloc]init];
-    [photoUploadService uploadImage:image withWhere:whereTextField.text andWhat:whatTextField.text andComments:commentsTextField.text andFacebook:facebookSwitch.on andDelegate:self];
-    // present loading screen...
+    [photoUploadService uploadImage:image withWhere:whereTextField.text andWhat:whatTextField.text andComments:commentsTextField.text andFacebook:facebookSwitch.on andDelegate:self andRestaurantId:restaurant andMenuItemId:menuItem];
 }
 
 -(void) imageLoadingDone {
@@ -57,6 +57,11 @@
 
 - (void)dealloc
 {
+    [what release];
+    [where release];
+    [image release];
+    [menuItem release];
+    [restaurant release];
     [super dealloc];
 }
 

@@ -11,6 +11,7 @@
 #import "Restaurant.h"
 #import "LoginViewController.h"
 #import "AuthenticationResponse.h"
+#import "PhotoUploadService.h"
 
 @implementation iRestaurantAppDelegate
 
@@ -111,15 +112,22 @@
 
 
 -(void) login:(AbstractService *) service {
-    if ( [self readSavedSetting:@"authentication_token"] == nil || [[self readSavedSetting:@"authentication_token"]  isEqualToString:@""]) {
+    if (![self loggedIn]) {
         LoginViewController *lvc = [[LoginViewController alloc] initWithNibName:@"LoginViewController" bundle:nil];
         lvc.serviceToPerformSubsequentRequest = [service retain];
         lvc.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self.tabBarController presentModalViewController:lvc animated:YES];
+        if ([service isKindOfClass:[PhotoUploadService class]]) {
+            [self.tabBarController.modalViewController presentModalViewController:lvc animated:YES];
+        } else {
+            [self.tabBarController presentModalViewController:lvc animated:YES];            
+        }
         [lvc release];
     }
 }
 
+-(bool) loggedIn {
+   return [self readSavedSetting:@"authentication_token"] != nil && ![[self readSavedSetting:@"authentication_token"]isEqualToString:@""];
+}
 
 -(IBAction) logout {
     [self setSavedSetting:@"authentication_token" withValue:@""];

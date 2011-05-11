@@ -19,6 +19,6 @@
 
 @property (nonatomic, retain) id<PhotoUploadServiceDelegate> delegate;
 
--(void) uploadImage:(UIImage *)image withWhere:(NSString *)where andWhat:(NSString *)what andComments:(NSString *)comments andFacebook:(BOOL)facebookBOOL andDelegate:(id<PhotoUploadServiceDelegate>)delegate_passed;
+-(void) uploadImage:(UIImage *)image withWhere:(NSString *)where andWhat:(NSString *)what andComments:(NSString *)comments andFacebook:(BOOL)facebookBOOL andDelegate:(id<PhotoUploadServiceDelegate>)delegate_passed andRestaurantId:(NSString *) restaurant_id andMenuItemId:(NSString *) menu_item_id;
 
 @end

@@ -14,37 +14,39 @@
 @implementation PhotoUploadService
 @synthesize delegate;
 
--(void) uploadImage:(UIImage *)image withWhere:(NSString *)where andWhat:(NSString *)what andComments:(NSString *)comments andFacebook:(BOOL)facebookBOOL andDelegate:(id)delegate_passed 
+-(void) uploadImage:(UIImage *)image withWhere:(NSString *)where andWhat:(NSString *)what andComments:(NSString *)comments andFacebook:(BOOL)facebookBOOL andDelegate:(id<PhotoUploadServiceDelegate>)delegate_passed andRestaurantId:(NSString *) restaurant_id andMenuItemId:(NSString *) menu_item_id
 {
+    authTokenRequired = YES;
     delegate = delegate_passed;
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/pictures.json"];    
     
     NSData *imageData = UIImagePNGRepresentation(image);
-   // NSString *imageBase64String = [Base64 encodeBase64WithData:imageData];
-        
-    //NSString *json = [NSString stringWithFormat:@"{\"auth_token\": \"%@\", \"picture\" : {\"location_description\": \"%@\", \"content_description\": \"%@\", \"attachment\": \"%@\"}}", authToken, where, what, imageBase64String];
-        
-    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/pictures.json"];    
-    NSURL *url = [NSURL URLWithString:urlString];
-
     
-    request = [ASIFormDataRequest requestWithURL:url];
-    [request addRequestHeader:@"Content-Type" value:@"multipart/form-data"];
-    [request setPostValue:where forKey:@"picture[location_description]"];
-    [request setPostValue:what forKey:@"picture[content_description]"];
-    
-    [request addData:imageData withFileName:@"updloadedimage.png" andContentType:@"image/png" forKey:@"picture[attachment]"];
+    [jsonDictionary setObject:where forKey:@"where"];
+    [jsonDictionary setObject:what forKey:@"what"];
+    [jsonDictionary setObject:imageData forKey:@"imageData"];
+    [jsonDictionary setObject:restaurant_id forKey:@"retuarant_id"];
+    [jsonDictionary setObject:menu_item_id forKey:@"menu_item_id"];
     
     
-    [request setPostValue:@"4d776a379a16856d080000cb" forKey:@"picture[restaurant_id]"];
-    [request setPostValue:@"" forKey:@"picture[menu_item_id]"];
-    [request setPostValue:[self authToken] forKey:@"auth_token"];
-    [request setDelegate:self];
-    [request startAsynchronous];
-    
+    [self prepareRequest];
 }
 
 -(void) performRequest {
-    #warning TODO move the upload in here
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    request = [ASIFormDataRequest requestWithURL:url];
+    [request addRequestHeader:@"Content-Type" value:@"multipart/form-data"];
+    [request setPostValue:[jsonDictionary objectForKey:@"where"] forKey:@"picture[location_description]"];
+    [request setPostValue:[jsonDictionary objectForKey:@"what"] forKey:@"picture[content_description]"];
+    
+    [request addData:[jsonDictionary objectForKey:@"imageData"] withFileName:@"updloadedimage.png" andContentType:@"image/png" forKey:@"picture[attachment]"];
+    
+    [request setPostValue:@"4d776a379a16856d080000cb" forKey:@"picture[restaurant_id]"];
+    [request setPostValue:@"" forKey:@"picture[menu_item_id]"];
+    [request setPostValue:[jsonDictionary objectForKey:@"auth_token"] forKey:@"auth_token"];
+    [request setDelegate:self];
+    [request startAsynchronous];
 }
 
 -(void) dealloc

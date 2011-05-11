@@ -25,6 +25,7 @@
 -(void) setSavedSetting:(NSString *)key withValue:(id)value;
 
 -(void) login:(AbstractService *) service;
+-(bool) loggedIn;
 -(void) logout;
 -(void) updateAuthentication:(AuthenticationResponse *) authResponse;
 
