@@ -8,41 +8,33 @@
 
 #import "RestaurantWebsiteCell.h"
 #import "Restaurant.h"
+#import "RestaurantViewController.h"
 
 @implementation RestaurantWebsiteCell
-@synthesize websiteButton, restaurant;
+@synthesize websiteButton, restaurantViewController;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andRestaruantController:(RestaurantViewController *)restaurantViewControllerPassed
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor whiteColor];
         self.selectionStyle = UITableViewCellSelectionStyleGray;
-        
+
+        restaurantViewController = restaurantViewControllerPassed;
+
         websiteButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [websiteButton setTitle:@"Visit Restaurant Website" forState:UIControlStateNormal];
-        [websiteButton addTarget:self action:@selector(websiteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [websiteButton addTarget:restaurantViewController action:@selector(websiteButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         UIImage *greyButtonImage = [[UIImage imageNamed:@"darkgrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
         [websiteButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [websiteButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         websiteButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
         websiteButton.frame = CGRectMake(10, 10, 300, 35);
         [self.contentView addSubview:websiteButton];
-
+        
     }
     return self;
-}
-
--(void)loadRestaurant:(Restaurant *)restaurant_passed 
-{
-    restaurant = [restaurant_passed retain];
-}
-
--(void) websiteButtonPressed:(id)sender {
-    NSString *websiteString = [NSString stringWithFormat:@"%@", restaurant.website_url];
-    UIApplication *app = [UIApplication sharedApplication];
-    [app openURL:[NSURL URLWithString:websiteString]];	
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -54,6 +46,7 @@
 
 - (void)dealloc
 {
+    [restaurantViewController release];
     [super dealloc];
 }
 

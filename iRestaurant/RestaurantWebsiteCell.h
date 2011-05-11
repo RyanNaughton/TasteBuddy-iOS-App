@@ -7,17 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-@class Restaurant;
+@class RestaurantViewController;
 
 @interface RestaurantWebsiteCell : UITableViewCell {
     UIButton *websiteButton;
-    Restaurant *restaurant;
+    RestaurantViewController *restaurantViewController;
 }
 
 @property (nonatomic, retain) UIButton *websiteButton;
-@property (nonatomic, retain) Restaurant *restaurant;
+@property (nonatomic, retain) RestaurantViewController *restaurantViewController;
 
--(void)loadRestaurant:(Restaurant *)restaurant_passed;
--(void) websiteButtonPressed:(id)sender;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andRestaruantController:(RestaurantViewController *)restaurantViewControllerPassed;
 
 @end

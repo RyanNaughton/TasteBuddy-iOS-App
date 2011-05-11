@@ -34,6 +34,7 @@
 -(void)photoButtonPressed:(id)sender;
 -(void)menuButtonPressed:(id)sender;
 -(void)bookmarkButtonPressed:(id)sender;
+-(void)websiteButtonPressed:(id)sender;
 -(void) doneRating;
 
 @end

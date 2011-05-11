@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
+		4910746D137A363C007A2A58 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4910746B137A3630007A2A58 /* WebViewController.m */; };
+		4910746E137A363C007A2A58 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4910746C137A3637007A2A58 /* WebViewController.xib */; };
 		4929F4BA13733532003D4EE8 /* TagService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4B913733531003D4EE8 /* TagService.m */; };
 		4929F4BE1373374F003D4EE8 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4BD1373374F003D4EE8 /* Tag.m */; };
 		4929F4C213735B0E003D4EE8 /* TagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4C113735B0E003D4EE8 /* TagButton.m */; };
@@ -214,6 +216,9 @@
 		320AF8492C47A4D819F7C450 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		490F2C9B1358BB3200DA5C1F /* MenuService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuService.h; sourceTree = "<group>"; };
 		490F2C9C1358BB3200DA5C1F /* MenuService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuService.m; sourceTree = "<group>"; };
+		4910746A137A362D007A2A58 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		4910746B137A3630007A2A58 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		4910746C137A3637007A2A58 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		4929F4B813733531003D4EE8 /* TagService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagService.h; sourceTree = "<group>"; };
 		4929F4B913733531003D4EE8 /* TagService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagService.m; sourceTree = "<group>"; };
 		4929F4BC1373374F003D4EE8 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
@@ -648,6 +653,9 @@
 				E8DFF5911358B76A007BF40E /* Menu */,
 				E8E6D3E913552231003F0ECB /* Restaurant */,
 				49578B7B13551D4C00F8EC0B /* Search */,
+				4910746A137A362D007A2A58 /* WebViewController.h */,
+				4910746B137A3630007A2A58 /* WebViewController.m */,
+				4910746C137A3637007A2A58 /* WebViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1359,6 +1367,7 @@
 				E86CC5F61374CED30022FCBD /* FavoritesViewController.xib in Resources */,
 				E86CC5F91374D0150022FCBD /* favorites-logo.png in Resources */,
 				E86CC5FA1374D0150022FCBD /* favorites-logo@2x.png in Resources */,
+				4910746E137A363C007A2A58 /* WebViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1484,6 +1493,7 @@
 				E86CC60C1374D9170022FCBD /* RestaurantBookmarkService.m in Sources */,
 				E8AEFC381378A90C00A8F8C1 /* CategoryCell.m in Sources */,
 				E8AEFC3B1378ABD000A8F8C1 /* SubCategoryCell.m in Sources */,
+				4910746D137A363C007A2A58 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -65,9 +65,14 @@
 }
 
 -(void)requestFailed:(ASIHTTPRequest *)requestPassed {
-    if([requestPassed responseStatusCode] == 401) {
+    int responseCode = [requestPassed responseStatusCode];
+    if(responseCode == 401) {
         NSLog(@"Invalid username and password");
         NSLog(@"%@", [requestPassed responseString]);
+    } else if (responseCode == 500) {
+        NSLog(@"Internal Service Error");
+    } else {
+        NSLog(@"Unknown Error Has Occured");
     }
     request = nil;
 }

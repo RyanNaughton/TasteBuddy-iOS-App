@@ -13,6 +13,7 @@
 #import "AuthenticationResponse.h"
 #import "RestaurantRatingService.h"
 #import "RestaurantBookmarkService.h"
+#import "WebViewController.h"
 
 // CELLS =========
 #import "RestaurantHeaderCell.h"
@@ -196,9 +197,8 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"WebsiteLink"]) {
         RestaurantWebsiteCell *restaurantWebsiteCell = (RestaurantWebsiteCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantWebsiteCell"];
 		if (restaurantWebsiteCell == nil) {
-		    restaurantWebsiteCell = [[[RestaurantWebsiteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantWebsiteCell"] autorelease];
+		    restaurantWebsiteCell = [[[RestaurantWebsiteCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantWebsiteCell" andRestaruantController:self] autorelease];
 		}          
-        [restaurantWebsiteCell loadRestaurant:restaurant];
 		return restaurantWebsiteCell;
 
     } else {
@@ -320,6 +320,19 @@
 {
     RestaurantBookmarkService *rbs = [[RestaurantBookmarkService alloc]initWithDelegate:self];
     [rbs bookmarkRestaurant:restaurant];
+}
+
+-(void)websiteButtonPressed:(id)sender {
+    if(![restaurant.website_url isKindOfClass:[NSNull class]]){
+        WebViewController *wvc = [[WebViewController alloc] init];
+        wvc.urlAddress = [restaurant.website_url retain];
+        [self.navigationController pushViewController:wvc animated:YES];
+        [wvc release];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Unknown Website" message:[NSString stringWithFormat:@"Website for \"%@\" is missing.", restaurant.name] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    }
 }
 
 -(void) doneBookmarking {
