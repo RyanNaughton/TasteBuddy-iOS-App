@@ -19,22 +19,18 @@
     delegate = delegate_passed;
     
     NSData *imageData = UIImagePNGRepresentation(image);
-    NSString *imageBase64String = [Base64 encodeBase64WithData:imageData];
+   // NSString *imageBase64String = [Base64 encodeBase64WithData:imageData];
         
     //NSString *json = [NSString stringWithFormat:@"{\"auth_token\": \"%@\", \"picture\" : {\"location_description\": \"%@\", \"content_description\": \"%@\", \"attachment\": \"%@\"}}", authToken, where, what, imageBase64String];
         
-    NSString *urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/pictures/"];    
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/pictures.json"];    
     NSURL *url = [NSURL URLWithString:urlString];
-//    request = [ASIHTTPRequest requestWithURL:url];
-//    [request addRequestHeader:@"Content-Type" value:@"application/json"];
-//    [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
+
     
     request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"multipart/form-data"];
     [request setPostValue:where forKey:@"picture[location_description]"];
     [request setPostValue:what forKey:@"picture[content_description]"];
-    
-    //[request setPostValue:imageBase64String forKey:@"picture[attachment]"];
     
     [request addData:imageData withFileName:@"updloadedimage.png" andContentType:@"image/png" forKey:@"picture[attachment]"];
     
