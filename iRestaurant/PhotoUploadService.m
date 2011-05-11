@@ -19,7 +19,7 @@
     delegate = delegate_passed;
     
     NSData *imageData = UIImagePNGRepresentation(image);
-    //NSString *imageBase64String = [Base64 encodeBase64WithData:imageData];
+    NSString *imageBase64String = [Base64 encodeBase64WithData:imageData];
         
     //NSString *json = [NSString stringWithFormat:@"{\"auth_token\": \"%@\", \"picture\" : {\"location_description\": \"%@\", \"content_description\": \"%@\", \"attachment\": \"%@\"}}", authToken, where, what, imageBase64String];
         
@@ -33,10 +33,15 @@
     [request addRequestHeader:@"Content-Type" value:@"multipart/form-data"];
     [request setPostValue:where forKey:@"picture[location_description]"];
     [request setPostValue:what forKey:@"picture[content_description]"];
-    [request setPostValue:imageData forKey:@"picture[attachment]"];
+    
+    //[request setPostValue:imageBase64String forKey:@"picture[attachment]"];
+    
+    [request addData:imageData withFileName:@"updloadedimage.png" andContentType:@"image/png" forKey:@"picture[attachment]"];
+    
+    
     [request setPostValue:@"4d776a379a16856d080000cb" forKey:@"picture[restaurant_id]"];
     [request setPostValue:@"" forKey:@"picture[menu_item_id]"];
-    [request setPostValue:[self authToken] forKey:@"picture[menu_item_id]"];
+    [request setPostValue:[self authToken] forKey:@"auth_token"];
     [request setDelegate:self];
     [request startAsynchronous];
     
