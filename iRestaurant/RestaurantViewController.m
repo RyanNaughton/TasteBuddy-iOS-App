@@ -322,6 +322,10 @@
     [rbs bookmarkRestaurant:restaurant];
 }
 
+-(void) doneBookmarking {
+    
+}
+
 -(void) doneRating {
     NSLog(@"done rating");
 }

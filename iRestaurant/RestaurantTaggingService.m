@@ -34,10 +34,11 @@
     urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/tag.json", restaurant._id];    
 
     [jsonDictionary setObject:tag forKey:@"value"];
-    
-    [self prepareRequest];
 
     requestMethod = @"PUT";
+
+    [self prepareRequest];
+
 
 }
 
@@ -45,10 +46,11 @@
     urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/tag.json", restaurant._id];
 
     [jsonDictionary setObject:tag forKey:@"value"];
-    
-    [self prepareRequest];
 
     requestMethod = @"DELETE";
+
+    [self prepareRequest];
+
 }
 
 -(void) performRequest {
@@ -57,7 +59,6 @@
         [request cancel];
         request = nil;
     }
-    NSLog(@"RequestMethod %@", requestMethod);
 
     NSString *json = [jsonDictionary JSONRepresentation];
     
