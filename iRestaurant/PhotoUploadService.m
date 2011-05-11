@@ -30,10 +30,13 @@
 //    [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
     
     request = [ASIFormDataRequest requestWithURL:url];
-    [request setPostValue:where forKey:@"location_description"];
-    [request setPostValue:what forKey:@"content_description"];
-    [request setPostValue:imageData forKey:@"attachment"];
-    [request setPostValue:[self authToken] forKey:@"auth_token"];
+    [request addRequestHeader:@"Content-Type" value:@"multipart/form-data"];
+    [request setPostValue:where forKey:@"picture[location_description]"];
+    [request setPostValue:what forKey:@"picture[content_description]"];
+    [request setPostValue:imageData forKey:@"picture[attachment]"];
+    [request setPostValue:@"4d776a379a16856d080000cb" forKey:@"picture[restaurant_id]"];
+    [request setPostValue:@"" forKey:@"picture[menu_item_id]"];
+    [request setPostValue:[self authToken] forKey:@"picture[menu_item_id]"];
     [request setDelegate:self];
     [request startAsynchronous];
     
