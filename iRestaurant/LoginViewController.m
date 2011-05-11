@@ -9,9 +9,11 @@
 #import "LoginViewController.h"
 #import "iRestaurantAppDelegate.h"
 #import "AbstractService.h"
+#import "SignUpViewController.h"
+
 @implementation LoginViewController
 
-@synthesize username, password, cancelButton, loginButton, loginService, serviceToPerformSubsequentRequest;
+@synthesize username, password, cancelButton, loginButton, loginService, serviceToPerformSubsequentRequest, signUpButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,6 +31,7 @@
     [loginButton release];
     [username release];
     [password release];
+    [signUpButton release];
     [super dealloc];
 }
 
@@ -68,6 +71,13 @@
 
 -(IBAction) login {
     [loginService loginWith:username.text andPassword:password.text];
+}
+
+-(IBAction) signup {
+    //[self dismissModalViewControllerAnimated:NO];
+    SignUpViewController *signUpVC = [[SignUpViewController alloc]initWithNibName:@"SignUpViewController" bundle:nil];
+    [self presentModalViewController:signUpVC animated:YES];
+    
 }
 
 -(void) loginComplete:(AuthenticationResponse *)authToken

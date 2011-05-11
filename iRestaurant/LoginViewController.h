@@ -18,6 +18,7 @@
     IBOutlet UIBarItem *loginButton;
     LoginService *loginService;
     AbstractService *serviceToPerformSubsequentRequest;
+    IBOutlet UIButton *signUpButton;
 }
 
 @property (nonatomic, retain) IBOutlet UITextField *username;
@@ -26,9 +27,10 @@
 @property (nonatomic, retain) IBOutlet UIBarItem *loginButton;
 @property (nonatomic, retain) LoginService *loginService;
 @property (nonatomic, retain) AbstractService *serviceToPerformSubsequentRequest;
+@property (nonatomic, retain) IBOutlet UIButton *signUpButton;
 
 -(IBAction) cancel;
 -(IBAction) login;
-
+-(IBAction) signup;
 
 @end
