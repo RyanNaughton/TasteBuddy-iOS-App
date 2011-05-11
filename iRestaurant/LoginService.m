@@ -23,6 +23,10 @@
     return self;
 }
 
+//-(void) logout {
+//    urlString = @"http://monkey.elhideout.org/users/sign_out";
+//}
+
 -(void) loginWith:(NSString *)username andPassword:(NSString *)password {
     
     urlString = @"http://monkey.elhideout.org/users/sign_in.json";
@@ -33,7 +37,7 @@
     
     [jsonDictionary setObject:loginDictionary forKey:@"user"];
     [loginDictionary release];
-    [self prepareRequest];
+    [self performRequest];
 }
 
 -(void) performRequest {
@@ -48,14 +52,14 @@
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];
-    [request startAsynchronous];    
+    [request setUseCookiePersistence:NO];
+    [request startAsynchronous];
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
     NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
     AuthenticationResponse *response = [[AuthenticationResponse alloc] initWithDicationary:responseDictionary];
-    [response autorelease];
     [delegate loginComplete:response];
     request = nil;
     

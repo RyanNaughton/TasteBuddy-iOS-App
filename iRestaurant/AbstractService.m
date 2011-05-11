@@ -30,7 +30,7 @@
 }
 
 -(NSString *) authToken {
-    return appDelegate.authenticationResponse.authentication_token;
+    return [appDelegate readSavedSetting:@"authentication_token"];
 }
 
 -(bool) isLoggedIn {

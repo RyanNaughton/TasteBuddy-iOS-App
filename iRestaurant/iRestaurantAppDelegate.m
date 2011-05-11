@@ -19,20 +19,15 @@
 
 @synthesize tabBarController;
 @synthesize savedSettingsPath;
-@synthesize authenticationResponse;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-     
-    //Restaurant *restaurantTest = [[Restaurant alloc]initWithDictionary:NULL];
-        
     
     [self.window makeKeyAndVisible];
     [self.window addSubview:tabBarController.view];
 
     [self checkOrCreatePlist];
-    [self logout];
     
     return YES;
 }
@@ -130,8 +125,8 @@
     [self setSavedSetting:@"authentication_token" withValue:@""];
 }
 -(void) updateAuthentication:(AuthenticationResponse *) authResponse {
-    authenticationResponse = [authResponse retain];
-    [self setSavedSetting:@"authentication_token" withValue:authenticationResponse.authentication_token];
+    NSLog(@"Auth Token %@", authResponse.authentication_token);
+    [self setSavedSetting:@"authentication_token" withValue:authResponse.authentication_token];
 }
 
 - (void)dealloc
@@ -139,7 +134,6 @@
     [_window release];
     [tabBarController release];
     [savedSettingsPath release];
-    [authenticationResponse release];
     [super dealloc];
 }
 

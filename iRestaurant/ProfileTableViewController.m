@@ -10,6 +10,7 @@
 #import "ProfileHeadCell.h"
 #import "ProfilePhotoDayTopCell.h"
 #import "ProfilePhotoCell.h"
+#import "iRestaurantAppDelegate.h"
 
 @implementation ProfileTableViewController
 
@@ -48,6 +49,15 @@
                                                            action:@selector(settingsBtnPressed:)]; 
     self.navigationItem.rightBarButtonItem = settingsBtn;
     [settingsBtn release]; 
+    
+    UIBarButtonItem *logoutBtn = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+                                                                    style:UIBarButtonItemStyleBordered
+                                                                   target:self
+                                                                   action:@selector(logoutPressed:)]; 
+    self.navigationItem.leftBarButtonItem = logoutBtn;
+    [logoutBtn release]; 
+    
+    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -219,6 +229,12 @@
      [self.navigationController pushViewController:detailViewController animated:YES];
      [detailViewController release];
      */
+}
+
+-(IBAction) logoutPressed:(id)sender {
+    NSLog(@"Logout Pressed");
+    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate logout];
 }
 
 @end

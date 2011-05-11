@@ -13,4 +13,6 @@
     
 }
 
+-(IBAction) logoutPressed:(id)sender;
+
 @end
