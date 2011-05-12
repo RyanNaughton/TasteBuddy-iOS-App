@@ -71,6 +71,7 @@
 		E83A9473136608CE00A5B706 /* TagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E83A9472136608CE00A5B706 /* TagsCell.m */; };
 		E83A947613660E4B00A5B706 /* RestaurantWebsiteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E83A947513660E4A00A5B706 /* RestaurantWebsiteCell.m */; };
 		E83A94781366119900A5B706 /* SavedSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = E83A94771366119900A5B706 /* SavedSettings.plist */; };
+		E842967F137C64C200E791B2 /* UserProfileService.m in Sources */ = {isa = PBXBuildFile; fileRef = E842967E137C64C200E791B2 /* UserProfileService.m */; };
 		E859425E135E463A0094F383 /* grey-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E859425C135E463A0094F383 /* grey-button.png */; };
 		E859425F135E463A0094F383 /* grey-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E859425D135E463A0094F383 /* grey-button@2x.png */; };
 		E8594263135E4E640094F383 /* text-area-image.png in Resources */ = {isa = PBXBuildFile; fileRef = E8594261135E4E640094F383 /* text-area-image.png */; };
@@ -327,6 +328,8 @@
 		E83A947413660E4A00A5B706 /* RestaurantWebsiteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantWebsiteCell.h; sourceTree = "<group>"; };
 		E83A947513660E4A00A5B706 /* RestaurantWebsiteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantWebsiteCell.m; sourceTree = "<group>"; };
 		E83A94771366119900A5B706 /* SavedSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SavedSettings.plist; sourceTree = "<group>"; };
+		E842967D137C64C200E791B2 /* UserProfileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileService.h; sourceTree = "<group>"; };
+		E842967E137C64C200E791B2 /* UserProfileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileService.m; sourceTree = "<group>"; };
 		E859425C135E463A0094F383 /* grey-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button.png"; sourceTree = "<group>"; };
 		E859425D135E463A0094F383 /* grey-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button@2x.png"; sourceTree = "<group>"; };
 		E8594261135E4E640094F383 /* text-area-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-area-image.png"; sourceTree = "<group>"; };
@@ -1046,6 +1049,8 @@
 		E8A03E1A135538EB0031D798 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E842967D137C64C200E791B2 /* UserProfileService.h */,
+				E842967E137C64C200E791B2 /* UserProfileService.m */,
 				E8AE703713785B7B009CB87E /* Bookmarking */,
 				E8A03E1B135539130031D798 /* SearchService.h */,
 				E8A03E1C135539130031D798 /* SearchService.m */,
@@ -1512,6 +1517,7 @@
 				4910746D137A363C007A2A58 /* WebViewController.m in Sources */,
 				E824E29B137B113000E790D2 /* SignUpViewController.m in Sources */,
 				49ABCCE8137C38190006218B /* UserBookmarksService.m in Sources */,
+				E842967F137C64C200E791B2 /* UserProfileService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

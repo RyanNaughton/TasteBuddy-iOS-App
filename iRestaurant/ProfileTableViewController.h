@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserProfileService.h"
 
-
-@interface ProfileTableViewController : UITableViewController {
-    
+@interface ProfileTableViewController : UITableViewController <UserProfileServiceDelegate> {
+    UserProfileService *ups;
 }
 
+@property (nonatomic, retain) UserProfileService *ups;
+
 -(IBAction) logoutPressed:(id)sender;
+-(void) doneRetrievingProfile:(NSMutableDictionary *) profile;
 
 @end

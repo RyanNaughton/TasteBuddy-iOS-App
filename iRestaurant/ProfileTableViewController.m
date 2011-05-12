@@ -11,8 +11,10 @@
 #import "ProfilePhotoDayTopCell.h"
 #import "ProfilePhotoCell.h"
 #import "iRestaurantAppDelegate.h"
+#import "UserProfileService.h"
 
 @implementation ProfileTableViewController
+@synthesize ups;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -25,6 +27,7 @@
 
 - (void)dealloc
 {
+    [ups release];
     [super dealloc];
 }
 
@@ -41,6 +44,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];    
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     UIBarButtonItem *settingsBtn = [[UIBarButtonItem alloc] initWithTitle:@"Settings"
@@ -81,6 +85,12 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    ups = [[UserProfileService alloc]initWithDelegate:self];
+    [ups getUserProfile];
+}
+
+-(void) doneRetrievingProfile:(NSMutableDictionary *) profile {
+    NSLog(@"profile retrieved: %@", profile);
 }
 
 - (void)viewWillDisappear:(BOOL)animated
