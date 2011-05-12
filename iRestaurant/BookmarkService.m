@@ -65,21 +65,8 @@
     NSString *responseString = [request_passed responseString];    
     NSDictionary *dictFromJSON = [responseString JSONValue];
     
-    if ([[dictFromJSON objectForKey:@"status"] isEqualToString:@"success"]) {
-        NSString *messageString = [NSString stringWithFormat:@"You have successfully saved this item to your bookmarks!"];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Bookmark Saved!" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-        [alert show];
-        [alert release];
-    } else  {
-        NSLog(@"dictFromJSON: %@", dictFromJSON);
-        NSString *messageString = [NSString stringWithFormat:@"We're sorry, but there was an error."];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-        [alert show];
-        [alert release];
-    }
-    
     #warning TODO do some stuff with this string
-    [delegate doneBookmarking];
+    [delegate doneBookmarking: dictFromJSON];
     request = nil;
 }
 

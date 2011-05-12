@@ -326,8 +326,20 @@
     NSLog(@"Done Rating");
 }
 
--(void) doneBookmarking {
-    NSLog(@"Done Bookmarking");
+-(void) doneBookmarking:(NSDictionary *) status {
+    
+    if ([[status objectForKey:@"status"] isEqualToString:@"success"]) {
+        NSString *messageString = [NSString stringWithFormat:@"You have successfully bookmarked this Menu item!"];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Bookmark Saved!" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    } else  {
+        NSString *messageString = [NSString stringWithFormat:@"We're sorry, but there was an error."];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    }
+    
 }
 
 

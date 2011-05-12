@@ -335,8 +335,18 @@
     }
 }
 
--(void) doneBookmarking {
-    
+-(void) doneBookmarking:(NSDictionary *) status {
+    if ([[status objectForKey:@"status"] isEqualToString:@"success"]) {
+        NSString *messageString = [NSString stringWithFormat:@"You have successfully bookmarked this restaurant!"];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Bookmark Saved!" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    } else  {
+        NSString *messageString = [NSString stringWithFormat:@"We're sorry, but there was an error."];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    } 
 }
 
 -(void) doneRating {

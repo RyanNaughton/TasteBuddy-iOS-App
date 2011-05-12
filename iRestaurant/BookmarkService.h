@@ -13,7 +13,7 @@
 @class ASIFormDataRequest;
 
 @protocol BookmarkServiceDelegate <NSObject>
--(void) doneBookmarking;
+-(void) doneBookmarking:(NSDictionary *) status;
 @end
 
 @interface BookmarkService : AbstractService {
