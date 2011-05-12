@@ -26,6 +26,14 @@
 
 - (void)dealloc
 {
+    [restaurantsTabButton release];
+    [dishesTabButton release];
+    [tabView release];
+    [lastSender release];
+    [favoritesDishesTVC release];
+    [favoritesRestaurantsTVC release];
+    [tableView release];
+    [ubs release];
     [super dealloc];
 }
 

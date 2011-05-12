@@ -11,6 +11,7 @@
 #import "FavoritesViewController.h"
 #import "DishCell.h"
 #import "DishViewController.h"
+#import "RestaurantService.h"
 
 
 @implementation FavoritesDishesTVC
@@ -18,6 +19,7 @@
 @synthesize dishesArray;
 @synthesize isLoading;
 @synthesize favoritesViewController;
+@synthesize menu_item;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -30,6 +32,8 @@
 
 - (void)dealloc
 {
+    [favoritesViewController release];
+    [menu_item release];
     [dishesArray release];
     [super dealloc];
 }
@@ -208,12 +212,17 @@
 {
     if ([dishesArray count] > 0) {
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
-        DishViewController *dishViewController = [[DishViewController alloc] initWithMenuItem:[dishesArray objectAtIndex:indexPath.row] andRestaurant:nil];
-        [favoritesViewController.navigationController pushViewController:dishViewController animated:YES];
-        [dishViewController release];  
+        menu_item = [dishesArray objectAtIndex:indexPath.row];
+        [[[RestaurantService alloc] initWithDelegate:self] findRestaurantById:menu_item.restaurant_id];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
+}
+
+-(void) restauarantRetrieved:(Restaurant *)restuarant {
+    DishViewController *dishViewController = [[DishViewController alloc] initWithMenuItem:menu_item andRestaurant:restuarant];
+    [favoritesViewController.navigationController pushViewController:dishViewController animated:YES];
+    [dishViewController release];  
 }
 
 @end

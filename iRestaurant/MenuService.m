@@ -22,17 +22,34 @@
     self = [super init];
     if (self) {
         delegate = menuDelegate;
+        authTokenOptional = YES;
     }
     return self;
 }
 
 -(void) getMenuForRestaurant:(Restaurant *)restaurant
 {
-    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/menu.json", restaurant._id];    
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/menu.json", restaurant._id];
+    [self prepareRequest];
+}
+
+-(void) performRequest {
+    if (request != nil) {
+        [request cancel];
+        request = nil;
+    }
+    
+
+    if([self isLoggedIn]) {
+        urlString = [NSString stringWithFormat:@"%@?auth_token=%@", urlString, [self authToken]];        
+    }
+    
     NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIHTTPRequest requestWithURL:url];
     [request setDelegate:self];
     [request startAsynchronous];
+
+    
 }
 
 -(void) dealloc

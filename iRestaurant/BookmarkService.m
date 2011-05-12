@@ -50,6 +50,8 @@
         request = nil;
     }
     
+    NSLog(@"url : %@", urlString); 
+    
     NSString *json = [jsonDictionary JSONRepresentation];
     NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
@@ -64,7 +66,7 @@
 {
     NSString *responseString = [request_passed responseString];    
     NSDictionary *dictFromJSON = [responseString JSONValue];
-    
+    NSLog(@"Response : %@", dictFromJSON);
     #warning TODO do some stuff with this string
     [delegate doneBookmarking: dictFromJSON];
     request = nil;
