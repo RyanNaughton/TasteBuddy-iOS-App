@@ -15,6 +15,6 @@
 
 @property (nonatomic, retain) UILabel *dayLabel;
 
--(void)setDate;
+-(void)setDate:(NSString *)date;
 
 @end

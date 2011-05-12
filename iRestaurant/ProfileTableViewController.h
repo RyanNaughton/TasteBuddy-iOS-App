@@ -11,9 +11,22 @@
 
 @interface ProfileTableViewController : UITableViewController <UserProfileServiceDelegate> {
     UserProfileService *ups;
+    BOOL dataReceived;
+    int reviewsCount;
+    int picturesCount;
+    NSDictionary *picturesDictionary;
+    NSMutableArray *picturesArray;
+    NSString *username;
 }
 
 @property (nonatomic, retain) UserProfileService *ups;
+@property (nonatomic, assign) BOOL dataReceived;
+@property (nonatomic, assign) int reviewsCount;
+@property (nonatomic, assign) int picturesCount;
+@property (nonatomic, retain) NSString *username;
+@property (nonatomic, retain) NSDictionary *picturesDictionary;
+@property (nonatomic, retain) NSMutableArray *picturesArray;
+
 
 -(IBAction) logoutPressed:(id)sender;
 -(void) doneRetrievingProfile:(NSMutableDictionary *) profile;

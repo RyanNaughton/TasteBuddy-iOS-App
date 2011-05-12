@@ -7,7 +7,7 @@
 //
 
 #import "ProfilePhotoCell.h"
-
+#import "UIImageView+WebCache.h"
 
 @implementation ProfilePhotoCell
 @synthesize imageView, restaurantLabel, pictureCountLabel;
@@ -45,8 +45,9 @@
     return self;
 }
 
--(void) setLabels {
-    imageView.image = [UIImage imageNamed:@"pizza.png"];
+-(void)setVariablesWithDictionary:(NSDictionary *)currentPhoto {
+    NSURL *url = [NSURL URLWithString:[currentPhoto objectForKey:@"300px"]];
+    [imageView setImageWithURL:url]; 
     restaurantLabel.text = @"Ballydoyle Pub";
     int pictureCount = 3;
     pictureCountLabel.text = [NSString stringWithFormat:@"%i pictures", pictureCount];

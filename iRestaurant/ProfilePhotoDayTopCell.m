@@ -39,8 +39,8 @@
     return self;
 }
 
--(void)setDate {
-    dayLabel.text = @"Monday, April 25, 2011";
+-(void)setDate:(NSString *)date {
+    dayLabel.text = [NSString stringWithFormat:@"%@", date];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

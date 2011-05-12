@@ -21,4 +21,6 @@
 
 -(void) setLabels;
 
+-(void)setVariablesWithDictionary:(NSDictionary *)currentPhoto;
+
 @end

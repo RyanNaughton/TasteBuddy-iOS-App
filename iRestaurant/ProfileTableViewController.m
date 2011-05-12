@@ -14,7 +14,7 @@
 #import "UserProfileService.h"
 
 @implementation ProfileTableViewController
-@synthesize ups;
+@synthesize ups, dataReceived, reviewsCount, picturesCount, username, picturesDictionary, picturesArray;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,6 +27,9 @@
 
 - (void)dealloc
 {
+    [picturesDictionary release];
+    [picturesArray release];
+    [username release];
     [ups release];
     [super dealloc];
 }
@@ -91,6 +94,23 @@
 
 -(void) doneRetrievingProfile:(NSMutableDictionary *) profile {
     NSLog(@"profile retrieved: %@", profile);
+    reviewsCount = [[profile objectForKey:@"ratings_count"] intValue];
+    picturesDictionary = [[NSDictionary alloc]initWithDictionary:[profile objectForKey:@"pictures"]];
+    picturesArray = [[NSMutableArray alloc]init];
+    
+    picturesCount = 0;
+    for (id key in picturesDictionary) {
+        picturesCount = picturesCount + [[picturesDictionary objectForKey:key] count];
+        //NSString *keyString = [NSString stringWithFormat:@"%@", key];
+        NSDictionary *currentDict = [[NSDictionary alloc]initWithObjectsAndKeys:[picturesDictionary objectForKey:key], key, nil];
+        [picturesArray addObject:currentDict];
+    }
+    
+    NSLog(@"pictures Array: %@", picturesArray);
+    
+    username = @"Andrew Chalkley";
+    dataReceived = TRUE;
+    [self.tableView reloadData];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -113,25 +133,39 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    int daysPhotosWereTaken = 3;
-    return (daysPhotosWereTaken + 1);
+    if (dataReceived) {
+        int daysPhotosWereTaken = [picturesArray count];
+        return (daysPhotosWereTaken + 1);
+    } else {
+        return 1;
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     int rowsInSection;
-    if (section == 0) {
-        rowsInSection = 1;
+    if (dataReceived) {
+        if (section == 0) {
+            rowsInSection = 1;
+        } else {
+            NSArray *photoArray;
+            NSDictionary *currentDict = [picturesArray objectAtIndex:(section - 1)];
+            for (id key in currentDict) {
+                photoArray = [currentDict objectForKey:key];
+            }
+            rowsInSection = [photoArray count] + 1;
+        }
     } else {
-        int photosInThisSection = 2;
-        rowsInSection = (photosInThisSection + 1);
+        rowsInSection = 1;
     }
+    
     return rowsInSection;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (dataReceived) {
+        
     if (indexPath.section == 0) {
         // Andrew Jackson
         // You've submitted 8 reviews
@@ -140,7 +174,7 @@
 		if (profileHeadCell == nil) {
 		    profileHeadCell = [[[ProfileHeadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfileHeadCell"] autorelease];
 		}          
-        [profileHeadCell setUserInfo];
+        [profileHeadCell setUserInfoWithName:username andReviews:reviewsCount andPictures:picturesCount];
 		return profileHeadCell;
 
     }
@@ -153,19 +187,45 @@
             ProfilePhotoDayTopCell *profilePhotoDayTopCell = (ProfilePhotoDayTopCell *)[tableView dequeueReusableCellWithIdentifier:@"ProfilePhotoDayTopCell"];
             if (profilePhotoDayTopCell == nil) {
                 profilePhotoDayTopCell = [[[ProfilePhotoDayTopCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfilePhotoDayTopCell"] autorelease];
-            }          
-            [profilePhotoDayTopCell setDate];
+            }    
+            NSString *currentPhotoDate;
+            NSDictionary *currentDict = [picturesArray objectAtIndex:(indexPath.section - 1)];
+            for (id key in currentDict) {
+                // should only be one key.  the date.
+                currentPhotoDate = [NSString stringWithFormat:@"%@", key];
+                NSLog(@"current photo date for section %i: %@", indexPath.section, currentPhotoDate);
+            }
+            [profilePhotoDayTopCell setDate:currentPhotoDate];
             return profilePhotoDayTopCell;
         } else {
             // photo cell
             ProfilePhotoCell *profilePhotoCell = (ProfilePhotoCell *)[tableView dequeueReusableCellWithIdentifier:@"ProfilePhotoCell"];
             if (profilePhotoCell == nil) {
                 profilePhotoCell = [[[ProfilePhotoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfilePhotoCell"] autorelease];
-            }          
-            [profilePhotoCell setLabels];
+            }  
+            NSArray *photoArray;
+            NSDictionary *currentDict = [picturesArray objectAtIndex:(indexPath.section - 1)];
+            for (id key in currentDict) {
+                photoArray = [currentDict objectForKey:key];
+            }
+            
+            NSDictionary *currentPhoto = [photoArray objectAtIndex:(indexPath.row -1)];
+            
+            [profilePhotoCell setVariablesWithDictionary:currentPhoto];
             return profilePhotoCell;
         }
 
+    }
+        
+    } else {
+        // no data received yet
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoadingCell"];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LoadingCell"] autorelease];
+        }          
+        cell.textLabel.textColor = [UIColor lightGrayColor];
+        cell.textLabel.text = @"Loading...";
+        return cell;
     }
     
 }

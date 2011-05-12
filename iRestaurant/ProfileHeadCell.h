@@ -19,6 +19,7 @@
 @property (nonatomic, retain) UILabel *reviewsLabel;
 @property (nonatomic, retain) UILabel *picturesLabel;
 
--(void)setUserInfo;
+-(void)setUserInfoWithName:(NSString *)name andReviews:(int)reviewsCount andPictures:(int)picturesCount;
+
 
 @end
