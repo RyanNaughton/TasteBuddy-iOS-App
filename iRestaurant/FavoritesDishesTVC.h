@@ -7,16 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestaurantService.h"
 @class FavoritesViewController;
+@class MenuItem;
 
-@interface FavoritesDishesTVC : UITableViewController {
+@interface FavoritesDishesTVC : UITableViewController<RestaurantServiceDelegate> {
     NSMutableArray *dishesArray;
     IBOutlet FavoritesViewController *favoritesViewController;
     bool isLoading;
+    MenuItem *menu_item;
 }
 
 @property (nonatomic, retain) FavoritesViewController *favoritesViewController;
 @property (nonatomic, retain) NSMutableArray *dishesArray;
 @property (nonatomic, assign) bool isLoading;
+@property (nonatomic, assign) MenuItem *menu_item;
 
 @end
