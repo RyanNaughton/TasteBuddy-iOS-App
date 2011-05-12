@@ -131,6 +131,11 @@
 
 -(IBAction) logout {
     [self setSavedSetting:@"authentication_token" withValue:@""];
+    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Logged Out" message:@"You have successfully logged out." delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+    
 }
 -(void) updateAuthentication:(AuthenticationResponse *) authResponse {
     NSLog(@"Auth Token %@", authResponse.authentication_token);
