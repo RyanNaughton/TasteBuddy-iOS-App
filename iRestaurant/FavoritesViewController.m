@@ -85,7 +85,9 @@
         favoritesDishesTVC.dishesArray = [[NSArray alloc] init];
         [tableView reloadData];
     }
-    [ubs getUserBookmarks];
+    if(!animated) {
+        [ubs getUserBookmarks];
+    }
 }
 
 -(void) switchTabs:(UIButton *) onTab 
