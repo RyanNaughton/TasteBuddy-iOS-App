@@ -128,9 +128,9 @@
         return  cell;
     } else if ([restaurantsArray count] > 0) {
         
-		RestaurantSearchCell *restaurantSearchCell = (RestaurantSearchCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantSearchCell"];
+		RestaurantSearchCell *restaurantSearchCell = (RestaurantSearchCell *)[tableView dequeueReusableCellWithIdentifier:@"FavoritesRestaurantSearchCell"];
 		if (restaurantSearchCell == nil) {
-		    restaurantSearchCell = [[[RestaurantSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantSearchCell"] autorelease];
+		    restaurantSearchCell = [[[RestaurantSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FavoritesRestaurantSearchCell"] autorelease];
 		}          
         
         [restaurantSearchCell loadRestaurant:[restaurantsArray objectAtIndex:indexPath.row]];

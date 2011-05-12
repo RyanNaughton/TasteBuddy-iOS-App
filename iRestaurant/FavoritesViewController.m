@@ -121,7 +121,7 @@
 
 -(void) doneRetrievingBookmarks:(NSMutableDictionary *) bookmarks {
     favoritesRestaurantsTVC.restaurantsArray = [bookmarks objectForKey:@"restaurants"];
-    favoritesDishesTVC = [bookmarks objectForKey:@"menu_items"];
+    favoritesDishesTVC.dishesArray = [bookmarks objectForKey:@"menu_items"];
     [tableView reloadData];
 }
 
