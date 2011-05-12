@@ -67,8 +67,8 @@
 
 -(void)loadMenuItem:(MenuItem *)menuItem {
     name.text = menuItem.name;
-    tags.text = @"fun, awesome, totally cool";
-    price.text = @"$7.95";
+    tags.text = menuItem.tags_text;
+    price.text = menuItem.price;
     [imageView setImageWithURL:[NSURL URLWithString:[[menuItem.pictures objectAtIndex:0] objectForKey:@"80px"]]
               placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
 

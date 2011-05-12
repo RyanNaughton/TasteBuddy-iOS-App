@@ -19,6 +19,10 @@
     NSArray *pictures;
     
     NSString *restaurant_id;
+    
+    NSString *price;
+    
+    NSString *tags_text;
 }
 
 @property (nonatomic, retain) NSString *_id;
@@ -29,6 +33,8 @@
 @property (nonatomic, retain) NSMutableArray *comments;
 @property (nonatomic, retain) NSArray *pictures;
 @property (nonatomic, retain) NSString *restaurant_id;
+@property (nonatomic, retain) NSString *price;
+@property (nonatomic, retain) NSString *tags_text;
 
 -(id) initWithDictionary:(NSDictionary *)menuItemDictionary;
 

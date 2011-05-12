@@ -49,6 +49,7 @@
 @synthesize menu;
 @synthesize tags;
 @synthesize ratings_count;
+@synthesize tags_text;
 
 -(id) init {
     self = [super init];
@@ -100,7 +101,7 @@
         comments          = [[restaurantDictionary objectForKey:@"comments"] retain];
         average_meal_price= [[restaurantDictionary objectForKey:@"average_meal_price"] retain];
         if([average_meal_price isKindOfClass:[NSNull class]]){
-            average_meal_price = @"$--.--";
+            average_meal_price = @"--.--";
         }
         distance          = [[restaurantDictionary objectForKey:@"distance"] retain];
         
@@ -114,6 +115,9 @@
         
         tags = [[NSMutableArray alloc] init];
         NSDictionary *tagDictionary = [restaurantDictionary objectForKey:@"tags"];
+
+        tags_text = [[[tagDictionary allKeys] componentsJoinedByString:@", "] retain];
+
         if (![tagDictionary isKindOfClass:[NSNull class]]) {
             for(NSString *key in [tagDictionary allKeys]) {
                 Tag *tag = [[Tag alloc] initWithTagValue:key andCount:[[tagDictionary valueForKey:key] intValue]];
@@ -166,6 +170,7 @@
     [menu_metadata      release];
     [menu               release];
     [tags               release];
+    [tags_text          release];
     [super              dealloc];
 }
 
