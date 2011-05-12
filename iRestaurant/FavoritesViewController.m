@@ -80,7 +80,14 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated {
-    [ubs getUserBookmarks];
+    if(![ubs isLoggedIn]) {
+        favoritesRestaurantsTVC.restaurantsArray = [[NSArray alloc] init];
+        favoritesDishesTVC.dishesArray = [[NSArray alloc] init];
+        [tableView reloadData];
+    }
+    if(!animated) {
+        [ubs getUserBookmarks];
+    }
 }
 
 -(void) switchTabs:(UIButton *) onTab 
