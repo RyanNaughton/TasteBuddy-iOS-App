@@ -11,10 +11,12 @@
 #import "TaggingService.h"
 
 @class Restaurant;
+@class MenuItem;
 
-@interface RestaurantTagsCell : UITableViewCell<TagServiceDelegate, TaggingServiceDelegate> {
+@interface TagsCell : UITableViewCell<TagServiceDelegate, TaggingServiceDelegate> {
     TagService *tagService;
     Restaurant *restaurant;
+    MenuItem *menuItem;
     TaggingService *restaurantTaggingService;
     NSMutableArray *tagButtons;
     NSMutableArray *tags;
@@ -23,11 +25,12 @@
 
 @property (nonatomic, retain) TagService *tagService;
 @property (nonatomic, retain) Restaurant *restaurant;
+@property (nonatomic, retain) MenuItem *menuItem;
 @property (nonatomic, retain) NSMutableArray *tagButtons;
 @property (nonatomic, retain) NSMutableArray *tags;
 @property (nonatomic, retain) NSMutableArray *tagValues;
 @property (nonatomic, retain) TaggingService *restaurantTaggingService;
 
 -(void) loadRestaurant:(Restaurant *)restaurantPassed;
-
+-(void) loadMenuItem:(MenuItem *)menuItemPassed;
 @end

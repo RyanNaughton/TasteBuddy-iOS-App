@@ -25,7 +25,7 @@
 @property (nonatomic, retain) id <TaggingServiceDelegate> delegate;
 @property (nonatomic, retain) NSString *requestMethod;
 
--(id) initWithDelegate:(id <TaggingServiceDelegate>) restaurantDelegate;
+-(id) initWithDelegate:(id <TaggingServiceDelegate>) taggingDelegate;
 
 -(void) tagMenuItem:(MenuItem *) menuItem withTag:(NSString *)tag;
 -(void) deleteTagFromMenuItem:(MenuItem *) menuItem withTag:(NSString *)tag;

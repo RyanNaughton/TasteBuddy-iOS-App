@@ -20,7 +20,7 @@
 #import "RestaurantMenuCell.h"
 #import "RestaurantAddressCell.h"
 #import "RestaurantPhoneCell.h"
-#import "RestaurantTagsCell.h"
+#import "TagsCell.h"
 #import "RestaurantWebsiteCell.h"
 #import "RestaurantButtonsCell.h"
 
@@ -187,9 +187,9 @@
 		return restaurantPhoneCell;
         
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
-        RestaurantTagsCell *restaurantTagsCell = (RestaurantTagsCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantTagsCell"];
+        TagsCell *restaurantTagsCell = (TagsCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantTagsCell"];
 		if (restaurantTagsCell == nil) {
-		    restaurantTagsCell = [[[RestaurantTagsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantTagsCell"] autorelease];
+		    restaurantTagsCell = [[[TagsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantTagsCell"] autorelease];
 		}          
         [restaurantTagsCell loadRestaurant:restaurant];
 		return restaurantTagsCell;

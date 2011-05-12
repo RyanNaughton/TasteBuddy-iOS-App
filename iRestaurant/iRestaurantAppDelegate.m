@@ -125,9 +125,9 @@
     }
 }
 
-//-(bool) loggedIn {
-//   return [self readSavedSetting:@"authentication_token"] != nil && ![[self readSavedSetting:@"authentication_token"]isEqualToString:@""];
-//}
+-(bool) loggedIn {
+   return [self readSavedSetting:@"authentication_token"] != nil && ![[self readSavedSetting:@"authentication_token"]isEqualToString:@""];
+}
 
 -(IBAction) logout {
     [self setSavedSetting:@"authentication_token" withValue:@""];

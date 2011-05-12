@@ -8,6 +8,7 @@
 
 #import "MenuItem.h"
 #import "Comment.h"
+#import "Tag.h"
 
 #warning TODO remove this when API updates
 #import "JSON.h"
@@ -35,16 +36,33 @@
     self = [super init];
     if (self) {
         // custom init
-        _id             = [[menuItemDictionary objectForKey:@"_id"] retain];
+        _id             = [[menuItemDictionary objectForKey:@"id"] retain];
         name            = [[menuItemDictionary objectForKey:@"name"] retain];
         average_rating  = [[menuItemDictionary objectForKey:@"average_rating"] retain];
-        tags            = [[menuItemDictionary objectForKey:@"tags"] retain];
         photo_urls      = [[menuItemDictionary objectForKey:@"photo_urls"] retain];
         pictures        = [[menuItemDictionary objectForKey:@"pictures"] retain];
         restaurant_id   = [[menuItemDictionary objectForKey:@"restaurant_id"] retain];
 
         comments        = [[NSMutableArray alloc] init];
 
+        tags = [[NSMutableArray alloc] init];
+        NSDictionary *tagDictionary = [menuItemDictionary objectForKey:@"tags"];
+        if (![tagDictionary isKindOfClass:[NSNull class]]) {
+            for(NSString *key in [tagDictionary allKeys]) {
+                Tag *tag = [[Tag alloc] initWithTagValue:key andCount:[[tagDictionary valueForKey:key] intValue]];
+                [tags addObject:tag];
+                [tag release];
+            }
+        }
+        
+        NSArray * user_tags = [[menuItemDictionary objectForKey:@"user_tags"] retain];
+        
+        if (![user_tags isKindOfClass:[NSNull class]]) {
+            for (Tag *tag in tags) {
+                tag.isUserTag = [user_tags containsObject:tag.name];
+            }
+        }
+        [user_tags release];
         
         # warning Code here needs to be changed when API updates.
         //Actual array [menuItemDictionary objectForKey:@"comments"]
@@ -59,21 +77,6 @@
         }
     }
     return self;
-}
-
-- (id)copyWithZone:(NSZone *)zone {
-    
-    MenuItem *newMenuItem = [[MenuItem alloc]init];
-    
-    newMenuItem._id             = [_id            copy];
-    newMenuItem.name            = [name           copy];
-    newMenuItem.average_rating  = [average_rating copy];
-    newMenuItem.tags            = [tags           copy];
-    newMenuItem.photo_urls      = [photo_urls     copy];
-    newMenuItem.comments        = [comments       copy];
-    newMenuItem.restaurant_id   = [restaurant_id  copy];
-    
-    return newMenuItem;
 }
 
 -(void)dealloc {

@@ -23,11 +23,11 @@
     [super dealloc];
 }
 
--(id) initWithDelegate:(id <TaggingServiceDelegate>) restaurantDelegate {
+-(id) initWithDelegate:(id <TaggingServiceDelegate>) taggingDelegate {
     self = [super init];
     if (self) {
         authTokenRequired = true;
-        delegate = restaurantDelegate;
+        delegate = taggingDelegate;
     }
     return self;
 }
@@ -35,7 +35,7 @@
 
 -(void) tagMenuItem:(MenuItem *) menuItem withTag:(NSString *)tag {
     urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/menu_items/%@/tag.json", menuItem._id];    
-    
+    NSLog(@"URL STRING %@", urlString);
     [jsonDictionary setObject:tag forKey:@"value"];
     
     requestMethod = @"PUT";
@@ -47,7 +47,7 @@
 
 -(void) deleteTagFromMenuItem:(MenuItem *) menuItem withTag:(NSString *)tag {
     urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/menu_items/%@/tag.json", menuItem._id];
-    
+    NSLog(@"URL STRING %@", urlString);    
     [jsonDictionary setObject:tag forKey:@"value"];
     
     requestMethod = @"DELETE";
@@ -88,7 +88,11 @@
 
     NSString *json = [jsonDictionary JSONRepresentation];
     
+    NSLog(@"URL STRING %@", urlString);
+    NSLog(@"Request Method %@", requestMethod);    
+    
     NSURL *url = [NSURL URLWithString:urlString];
+    
     request = [ASIFormDataRequest requestWithURL:url];
     [request setRequestMethod: requestMethod];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
@@ -101,6 +105,7 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed 
 {
     NSString *responseString = [request_passed responseString];
+    NSLog(@"Response String %@", responseString);
     NSDictionary *responseDictionary = [responseString JSONValue];
     NSArray *userTagsRetrieved = [responseDictionary objectForKey:@"user_tags"];
     NSDictionary *tagsWithCount = [responseDictionary objectForKey:@"tags"];

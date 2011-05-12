@@ -9,21 +9,22 @@
 #import <Foundation/Foundation.h>
 
 
-@interface MenuItem : NSObject <NSCopying> {
-    NSNumber *_id;
+@interface MenuItem : NSObject {
+    NSString *_id;
     NSString *name;
     NSNumber *average_rating;
-    NSArray *tags;
+    NSMutableArray *tags;
     NSArray *photo_urls;
     NSMutableArray *comments;
     NSArray *pictures;
+    
     NSNumber *restaurant_id;
 }
 
-@property (nonatomic, retain) NSNumber *_id;
+@property (nonatomic, retain) NSString *_id;
 @property (nonatomic, retain) NSString *name;
 @property (nonatomic, retain) NSNumber *average_rating;
-@property (nonatomic, retain) NSArray *tags;
+@property (nonatomic, retain) NSMutableArray *tags;
 @property (nonatomic, retain) NSArray *photo_urls;
 @property (nonatomic, retain) NSMutableArray *comments;
 @property (nonatomic, retain) NSArray *pictures;

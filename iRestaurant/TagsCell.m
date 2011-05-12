@@ -6,10 +6,11 @@
 //  Copyright 2011 N/A. All rights reserved.
 //
 
-#import "RestaurantTagsCell.h"
+#import "TagsCell.h"
 #import "JSON.h"
 #import "IGUIScrollViewCanvas.h"
 #import "Restaurant.h"
+#import "MenuItem.h"
 #import "Tag.h"
 #import "TagService.h"
 #import "TagButton.h"
@@ -17,8 +18,8 @@
 #import "TaggingService.h"
 #import "AuthenticationResponse.h"
     
-@implementation RestaurantTagsCell
-@synthesize tagService, restaurant, tagButtons, restaurantTaggingService, tags, tagValues;
+@implementation TagsCell
+@synthesize tagService, restaurant, menuItem, tagButtons, restaurantTaggingService, tags, tagValues;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -26,6 +27,9 @@
     if (self) {
         // Initialization code
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        menuItem = nil;
+        restaurant = nil;
         
         UIImageView *topRounding = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"top-rounding.png"]];
         topRounding.frame = CGRectMake(0, 10, 320, 15);
@@ -67,6 +71,10 @@
 
 -(void) loadRestaurant:(Restaurant *)restaurantPassed {
     restaurant = restaurantPassed;
+}
+
+-(void) loadMenuItem:(MenuItem *)menuItemPassed {
+    menuItem = menuItemPassed;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -130,7 +138,8 @@
        
     }
     
-    for (Tag *tag in [restaurant tags]) {
+    NSMutableArray *tagsToLoad = (restaurant == nil) ? menuItem.tags : restaurant.tags;
+    for (Tag *tag in tagsToLoad) {
         NSUInteger indexOfTag = [tagValues indexOfObject:tag.name];
         TagButton *tagButton = [tagButtons objectAtIndex:indexOfTag];
         Tag *tagToUpdate = [tags objectAtIndex:indexOfTag];
@@ -153,9 +162,17 @@
 
     Tag *tag = [tags objectAtIndex:[tagButtons indexOfObject:sender]];
     if (tag.isUserTag) {
-        [restaurantTaggingService deleteTagFromRestaurant:restaurant withTag:tag.name];
+        if (restaurant == nil) {
+            [restaurantTaggingService deleteTagFromMenuItem:menuItem withTag:tag.name];
+        } else {
+            [restaurantTaggingService deleteTagFromRestaurant:restaurant withTag:tag.name];
+        }
     } else {
-        [restaurantTaggingService tagRestaurant:restaurant withTag:tag.name];
+        if (restaurant == nil) {
+            [restaurantTaggingService tagMenuItem:menuItem withTag:tag.name];
+        } else {
+            [restaurantTaggingService tagRestaurant:restaurant withTag:tag.name];
+        }
     }
 }
 
@@ -180,7 +197,11 @@
         }
     }
     
-    restaurant.tags = tags;
+    if(restaurant == nil) {
+        menuItem.tags = tags;
+    } else {
+        restaurant.tags = tags;
+    }
 }
 
 
@@ -191,6 +212,7 @@
     [tagValues release];
     [tagButtons release];
     [restaurant release];
+    [menuItem release];
     [tagService release];
     [super dealloc];
 }
