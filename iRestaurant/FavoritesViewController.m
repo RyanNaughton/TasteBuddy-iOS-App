@@ -13,7 +13,7 @@
 @implementation FavoritesViewController
 @synthesize restaurantsTabButton, dishesTabButton, tabView, lastSender;
 @synthesize favoritesDishesTVC, favoritesRestaurantsTVC, tableView;
-
+@synthesize ubs;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,7 +42,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    ubs = [[UserBookmarksService alloc] initWithDelegate:self];
     UIImageView *favoritesNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"favorites-logo.png"]];
     favoritesNameImageView.frame = CGRectMake(145, 8, 159, 24);
     favoritesNameImageView.contentMode = UIViewContentModeRight;
@@ -68,6 +68,11 @@
     [tabView addSubview:dishesTabButton];
     [tabView addSubview:restaurantsTabButton];
     self.navigationItem.titleView = tabView;
+    
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    [ubs getUserBookmarks];
 }
 
 -(void) switchTabs:(UIButton *) onTab 
@@ -91,15 +96,12 @@
         [self switchTabs:restaurantsTabButton];
         tableView.delegate = favoritesRestaurantsTVC;
         tableView.dataSource = favoritesRestaurantsTVC;
-        [tableView reloadData];
-        tableView.hidden = false;
     } else if (sender == dishesTabButton){
         [self switchTabs:dishesTabButton];
         tableView.delegate = favoritesDishesTVC;
         tableView.dataSource = favoritesDishesTVC;
-        [tableView reloadData];
-        tableView.hidden = false;
     }
+    [tableView reloadData];
     [tableView setContentOffset:CGPointMake(0, 0) animated:NO];
 }
 
@@ -115,6 +117,12 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(void) doneRetrievingBookmarks:(NSMutableDictionary *) bookmarks {
+    favoritesRestaurantsTVC.restaurantsArray = [bookmarks objectForKey:@"restaurants"];
+    favoritesDishesTVC = [bookmarks objectForKey:@"menu_items"];
+    [tableView reloadData];
 }
 
 @end

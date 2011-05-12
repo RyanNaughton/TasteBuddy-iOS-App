@@ -27,5 +27,4 @@
 -(void) bookmarkRestaurant:(Restaurant *) restaurant;
 -(void) bookmarkMenuItem:(MenuItem *) menuItem;
 
-
 @end

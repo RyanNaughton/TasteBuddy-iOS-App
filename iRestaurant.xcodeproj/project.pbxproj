@@ -37,6 +37,7 @@
 		499B564C1357AEC300F2B407 /* FindAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */; };
 		499B564D1357AED200F2B407 /* NearAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */; };
 		49A64FA6135F5455002B3655 /* MenuSubcategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A64FA5135F5455002B3655 /* MenuSubcategory.m */; };
+		49ABCCE8137C38190006218B /* UserBookmarksService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ABCCE7137C38190006218B /* UserBookmarksService.m */; };
 		49BA68231354DBA40040DDB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68221354DBA40040DDB5 /* UIKit.framework */; };
 		49BA68251354DBA40040DDB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68241354DBA40040DDB5 /* Foundation.framework */; };
 		49BA68271354DBA40040DDB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68261354DBA40040DDB5 /* CoreGraphics.framework */; };
@@ -275,6 +276,8 @@
 		498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearAutocompleteTableViewController.m; sourceTree = "<group>"; };
 		49A64FA4135F5455002B3655 /* MenuSubcategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuSubcategory.h; sourceTree = "<group>"; };
 		49A64FA5135F5455002B3655 /* MenuSubcategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuSubcategory.m; sourceTree = "<group>"; };
+		49ABCCE6137C38180006218B /* UserBookmarksService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserBookmarksService.h; sourceTree = "<group>"; };
+		49ABCCE7137C38190006218B /* UserBookmarksService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserBookmarksService.m; sourceTree = "<group>"; };
 		49BA681E1354DBA30040DDB5 /* iRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA68221354DBA40040DDB5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BA68241354DBA40040DDB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -400,7 +403,7 @@
 		E86CC5FE1374D2E40022FCBD /* FavoritesRestaurantsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesRestaurantsTVC.m; sourceTree = "<group>"; };
 		E86CC6061374D3EB0022FCBD /* FavoritesDishesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavoritesDishesTVC.h; sourceTree = "<group>"; };
 		E86CC6071374D3EB0022FCBD /* FavoritesDishesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoritesDishesTVC.m; sourceTree = "<group>"; };
-		E86CC60A1374D9170022FCBD /* BookmarkService.h */ = {isa = PBXFileReference; fileEncoding = 4; path = BookmarkService.h; sourceTree = "<group>"; };
+		E86CC60A1374D9170022FCBD /* BookmarkService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkService.h; sourceTree = "<group>"; };
 		E86CC60B1374D9170022FCBD /* BookmarkService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkService.m; sourceTree = "<group>"; };
 		E8756209135FE99D001A870F /* RestaurantTagsCell_OLD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantTagsCell_OLD.h; sourceTree = "<group>"; };
 		E875620A135FE99E001A870F /* RestaurantTagsCell_OLD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantTagsCell_OLD.m; sourceTree = "<group>"; };
@@ -656,6 +659,8 @@
 				E8E6D3E913552231003F0ECB /* Restaurant */,
 				49578B7B13551D4C00F8EC0B /* Search */,
 				4910746A137A362D007A2A58 /* WebViewController.h */,
+				E86CC5F21374CED20022FCBD /* FavoritesViewController.h */,
+				E86CC5F31374CED30022FCBD /* FavoritesViewController.m */,
 				4910746B137A3630007A2A58 /* WebViewController.m */,
 				4910746C137A3637007A2A58 /* WebViewController.xib */,
 			);
@@ -1008,8 +1013,6 @@
 			children = (
 				E86CC5FC1374D2C40022FCBD /* Dishes TableView */,
 				E86CC5FB1374D2B70022FCBD /* Restaurants TableView */,
-				E86CC5F21374CED20022FCBD /* FavoritesViewController.h */,
-				E86CC5F31374CED30022FCBD /* FavoritesViewController.m */,
 				E86CC5F41374CED30022FCBD /* FavoritesViewController.xib */,
 			);
 			name = Favorites;
@@ -1102,6 +1105,8 @@
 			children = (
 				E86CC60A1374D9170022FCBD /* BookmarkService.h */,
 				E86CC60B1374D9170022FCBD /* BookmarkService.m */,
+				49ABCCE6137C38180006218B /* UserBookmarksService.h */,
+				49ABCCE7137C38190006218B /* UserBookmarksService.m */,
 			);
 			name = Bookmarking;
 			sourceTree = "<group>";
@@ -1506,6 +1511,7 @@
 				E8AEFC3B1378ABD000A8F8C1 /* SubCategoryCell.m in Sources */,
 				4910746D137A363C007A2A58 /* WebViewController.m in Sources */,
 				E824E29B137B113000E790D2 /* SignUpViewController.m in Sources */,
+				49ABCCE8137C38190006218B /* UserBookmarksService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,13 +10,13 @@
 @class FavoritesViewController;
 
 @interface FavoritesDishesTVC : UITableViewController {
-    NSMutableArray *restaurantsArray;
+    NSMutableArray *dishesArray;
     IBOutlet FavoritesViewController *favoritesViewController;
     bool isLoading;
 }
 
 @property (nonatomic, retain) FavoritesViewController *favoritesViewController;
-@property (nonatomic, retain) NSMutableArray *restaurantsArray;
+@property (nonatomic, retain) NSMutableArray *dishesArray;
 @property (nonatomic, assign) bool isLoading;
 
 @end
