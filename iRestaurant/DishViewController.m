@@ -316,7 +316,7 @@
     float rating = 5 - buttonIndex * 1.0;
     if(rating > 0.0f) {
         RatingService *rrs = [[RatingService alloc] initWithDelegate:self];
-        [rrs rateRestaurant:restaurant withRating:rating];
+        [rrs rateMenuItem:menu_item withRating:rating];
     }
 }
 
