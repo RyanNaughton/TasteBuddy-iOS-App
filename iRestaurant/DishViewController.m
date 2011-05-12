@@ -14,6 +14,7 @@
 #import "iRestaurantAppDelegate.h"
 #import "RatingService.h"
 #import "AuthenticationResponse.h"
+#import "BookmarkService.h"
 
 // CELLS
 #import "DishHeaderCell.h"
@@ -298,7 +299,8 @@
 }
 -(void)bookmarkButtonPressed:(id)sender
 {
-    
+    BookmarkService *bs = [[BookmarkService alloc]initWithDelegate:self];
+    [bs bookmarkMenuItem:menu_item]; 
 }
 
 -(void)rateItButtonPressed:(id)sender 
@@ -322,6 +324,10 @@
 
 -(void) doneRating {
     NSLog(@"Done Rating");
+}
+
+-(void) doneBookmarking {
+    NSLog(@"Done Bookmarking");
 }
 
 

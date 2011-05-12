@@ -6,12 +6,13 @@
 //  Copyright 2011 N/A. All rights reserved.
 //
 
-#import "RestaurantBookmarkService.h"
+#import "BookmarkService.h"
 #import "ASIFormDataRequest.h"
 #import "Restaurant.h"
+#import "MenuItem.h"
 #import "JSON.h"
 
-@implementation RestaurantBookmarkService
+@implementation BookmarkService
 @synthesize delegate;
 
 - (void)dealloc {
@@ -19,7 +20,7 @@
     [super dealloc];
 }
 
--(id) initWithDelegate:(id <RestaurantBookmarkServiceDelegate>) restaurantDelegate {
+-(id) initWithDelegate:(id <BookmarkServiceDelegate>) restaurantDelegate {
     self = [super init];
     if (self) {
         delegate = restaurantDelegate;
@@ -27,6 +28,14 @@
     }
     return self;
 }
+
+-(void) bookmarkMenuItem:(MenuItem *)menuItem
+{
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/menu_items/%@/bookmark.json", menuItem._id];
+    
+    [self prepareRequest];
+}
+
 
 -(void) bookmarkRestaurant:(Restaurant *) restaurant
 {
@@ -53,14 +62,11 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request_passed 
 {
-    NSString *responseString = [request_passed responseString];
-    NSLog(@"bookmark request response string: %@", responseString);
-    
+    NSString *responseString = [request_passed responseString];    
     NSDictionary *dictFromJSON = [responseString JSONValue];
     
     if ([[dictFromJSON objectForKey:@"status"] isEqualToString:@"success"]) {
-        NSLog(@"success detected");
-        NSString *messageString = [NSString stringWithFormat:@"You have successfully bookmarked this restaurant!"];
+        NSString *messageString = [NSString stringWithFormat:@"You have successfully saved this item to your bookmarks!"];
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Bookmark Saved!" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
         [alert show];
         [alert release];

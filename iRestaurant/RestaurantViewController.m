@@ -12,7 +12,7 @@
 #import "TakePhoto.h"
 #import "AuthenticationResponse.h"
 #import "RatingService.h"
-#import "RestaurantBookmarkService.h"
+#import "BookmarkService.h"
 #import "WebViewController.h"
 
 // CELLS =========
@@ -318,7 +318,7 @@
 }
 -(void)bookmarkButtonPressed:(id)sender
 {
-    RestaurantBookmarkService *rbs = [[RestaurantBookmarkService alloc]initWithDelegate:self];
+    BookmarkService *rbs = [[BookmarkService alloc]initWithDelegate:self];
     [rbs bookmarkRestaurant:restaurant];
 }
 
