@@ -44,7 +44,15 @@
         photo_urls      = [[menuItemDictionary objectForKey:@"photo_urls"] retain];
         pictures        = [[menuItemDictionary objectForKey:@"pictures"] retain];
         restaurant_id   = [[menuItemDictionary objectForKey:@"restaurant_id"] retain];
-        price           = [[menuItemDictionary objectForKey:@"prive"] retain];
+        
+        NSNumber *priceFromDictionary = [[menuItemDictionary objectForKey:@"price"] retain];
+
+        if([priceFromDictionary isKindOfClass:[NSNull class]]) {
+            price = @"--.--";
+        } else {
+            price = [[NSString stringWithFormat:@"%@", priceFromDictionary] retain];    
+        }
+        [priceFromDictionary release];
 
         comments        = [[NSMutableArray alloc] init];
 
