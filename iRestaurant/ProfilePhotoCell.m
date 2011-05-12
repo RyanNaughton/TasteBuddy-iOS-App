@@ -48,9 +48,8 @@
 -(void)setVariablesWithDictionary:(NSDictionary *)currentPhoto {
     NSURL *url = [NSURL URLWithString:[currentPhoto objectForKey:@"300px"]];
     [imageView setImageWithURL:url]; 
-    restaurantLabel.text = @"Ballydoyle Pub";
-    int pictureCount = 3;
-    pictureCountLabel.text = [NSString stringWithFormat:@"%i pictures", pictureCount];
+    restaurantLabel.text = [NSString stringWithFormat:@"%@", [currentPhoto objectForKey:@"restaurant_name"]];
+    pictureCountLabel.text = [NSString stringWithFormat:@"%@", [currentPhoto objectForKey:@"menu_item_name"]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
