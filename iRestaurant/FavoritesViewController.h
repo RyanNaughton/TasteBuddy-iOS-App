@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserBookmarksService.h"
 @class FavoritesDishesTVC;
 @class FavoritesRestaurantsTVC;
 
-@interface FavoritesViewController : UIViewController {
+@interface FavoritesViewController : UIViewController <UserBookmarkServiceDelegate> {
     UIButton *restaurantsTabButton;
     UIButton *dishesTabButton;
     UIView *tabView;
@@ -18,6 +19,7 @@
     IBOutlet FavoritesDishesTVC *favoritesDishesTVC;
     IBOutlet FavoritesRestaurantsTVC *favoritesRestaurantsTVC;
     IBOutlet UITableView *tableView;
+    UserBookmarksService *ubs;
 }
 
 @property (nonatomic, retain) UIButton *restaurantsTabButton;
@@ -27,6 +29,7 @@
 @property (nonatomic, retain) IBOutlet FavoritesDishesTVC *favoritesDishesTVC;
 @property (nonatomic, retain) IBOutlet FavoritesRestaurantsTVC *favoritesRestaurantsTVC;
 @property (nonatomic, retain) UITableView *tableView;
+@property (nonatomic, retain) UserBookmarksService *ubs;
 
 -(void) switchTabs:(UIButton *) onTab;
 -(void)switchFavoriteView:(id)sender;

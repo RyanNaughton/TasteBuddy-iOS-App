@@ -14,6 +14,7 @@
 #import "iRestaurantAppDelegate.h"
 #import "RatingService.h"
 #import "AuthenticationResponse.h"
+#import "BookmarkService.h"
 
 // CELLS
 #import "DishHeaderCell.h"
@@ -298,7 +299,8 @@
 }
 -(void)bookmarkButtonPressed:(id)sender
 {
-    
+    BookmarkService *bs = [[BookmarkService alloc]initWithDelegate:self];
+    [bs bookmarkMenuItem:menu_item]; 
 }
 
 -(void)rateItButtonPressed:(id)sender 
@@ -322,6 +324,22 @@
 
 -(void) doneRating {
     NSLog(@"Done Rating");
+}
+
+-(void) doneBookmarking:(NSDictionary *) status {
+    
+    if ([[status objectForKey:@"status"] isEqualToString:@"success"]) {
+        NSString *messageString = [NSString stringWithFormat:@"You have successfully bookmarked this Menu item!"];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Bookmark Saved!" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    } else  {
+        NSString *messageString = [NSString stringWithFormat:@"We're sorry, but there was an error."];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    }
+    
 }
 
 

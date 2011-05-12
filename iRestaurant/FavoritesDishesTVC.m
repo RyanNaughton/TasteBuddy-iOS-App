@@ -7,7 +7,6 @@
 //
 
 #import "FavoritesDishesTVC.h"
-#import "Restaurant.h"
 #import "MenuItem.h"
 #import "FavoritesViewController.h"
 #import "DishCell.h"
@@ -16,7 +15,7 @@
 
 @implementation FavoritesDishesTVC
 
-@synthesize restaurantsArray;
+@synthesize dishesArray;
 @synthesize isLoading;
 @synthesize favoritesViewController;
 
@@ -31,7 +30,7 @@
 
 - (void)dealloc
 {
-    [restaurantsArray release];
+    [dishesArray release];
     [super dealloc];
 }
 
@@ -48,7 +47,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    restaurantsArray = [[NSMutableArray alloc] init];
     isLoading = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -94,61 +92,18 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    if([restaurantsArray count] > 0 && !isLoading)
-    {
-        return [restaurantsArray count];
-    } else {
-        return 1;     
-    }
-    
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if([restaurantsArray count] > 0 && !isLoading)
+    if([dishesArray count] > 0 && !isLoading)
     {
-        
-        return [((Restaurant *)[restaurantsArray objectAtIndex:section]).menu_items count];
+        return [dishesArray count];
     } else {        
         return 1;
     }
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    if (!isLoading && [restaurantsArray count] > 0) {
-        UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
-        headerView.backgroundColor = [UIColor clearColor];
-        
-        UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
-        bgView.backgroundColor = [UIColor blackColor];
-        bgView.alpha = 0.66;
-        [headerView addSubview:bgView];
-        [bgView release];
-        
-        UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 220, 22)];
-        restaurantName.backgroundColor = [UIColor clearColor];
-        restaurantName.textColor = [UIColor whiteColor];
-        restaurantName.font = [UIFont systemFontOfSize:14];
-        restaurantName.text = ((Restaurant *)[restaurantsArray objectAtIndex:section]).name;
-        [headerView addSubview:restaurantName];
-        [restaurantName release];
-        
-        UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(240, 0, 70, 22)];
-        distance.backgroundColor = [UIColor clearColor];
-        distance.textAlignment = UITextAlignmentRight;
-        distance.textColor = [UIColor whiteColor];
-        distance.font = [UIFont systemFontOfSize:14];
-        Restaurant *restaurant = [restaurantsArray objectAtIndex:section];
-        distance.text = [NSString stringWithFormat:@"%@ mi", restaurant.distance];
-        [headerView addSubview:distance];
-        [distance release];
-        return [headerView autorelease];
-    } else {
-        return nil;
-    }
-    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -167,14 +122,14 @@
         [cell setAccessoryView:documentActivityIndicator];
         [documentActivityIndicator release];
         return  cell;        
-    } else if ([restaurantsArray count] > 0) {
+    } else if ([dishesArray count] > 0) {
         
-		DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"DishCell"];
+		DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"FavoriteDishCell"];
 		if (dishCell == nil) {
-		    dishCell = [[[DishCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishCell"] autorelease];
+		    dishCell = [[[DishCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FavoriteDishCell"] autorelease];
 		}          
         
-        MenuItem *menuItem = (MenuItem *)[((Restaurant *)[restaurantsArray objectAtIndex:indexPath.section]).menu_items objectAtIndex:indexPath.row];
+        MenuItem *menuItem = (MenuItem *)[dishesArray objectAtIndex:indexPath.row];
         [dishCell loadMenuItem:menuItem];
 		
 		return dishCell;
@@ -199,7 +154,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     int height;
-    if ([restaurantsArray count] > 0) {
+    if ([dishesArray count] > 0) {
         height = 70;
     } else {
         height = 44;
@@ -250,10 +205,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([restaurantsArray count] > 0) {
+    if ([dishesArray count] > 0) {
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
-        Restaurant *restaurant = (Restaurant *)[restaurantsArray objectAtIndex:indexPath.section];
-        DishViewController *dishViewController = [[DishViewController alloc] initWithMenuItem:[restaurant.menu_items objectAtIndex:indexPath.row] andRestaurant:restaurant];
+        DishViewController *dishViewController = [[DishViewController alloc] initWithMenuItem:[dishesArray objectAtIndex:indexPath.row] andRestaurant:nil];
         [favoritesViewController.navigationController pushViewController:dishViewController animated:YES];
         [dishViewController release];  
     }
