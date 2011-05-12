@@ -319,7 +319,7 @@
 		E83A94691365F11A00A5B706 /* red-heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-heart@2x.png"; sourceTree = "<group>"; };
 		E83A946D1365F15400A5B706 /* 29-heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart@2x.png"; sourceTree = "<group>"; };
 		E83A946E1365F15400A5B706 /* 29-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart.png"; sourceTree = "<group>"; };
-		E83A9471136608CE00A5B706 /* TagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; path = TagsCell.h; sourceTree = "<group>"; };
+		E83A9471136608CE00A5B706 /* TagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsCell.h; sourceTree = "<group>"; };
 		E83A9472136608CE00A5B706 /* TagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsCell.m; sourceTree = "<group>"; };
 		E83A947413660E4A00A5B706 /* RestaurantWebsiteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantWebsiteCell.h; sourceTree = "<group>"; };
 		E83A947513660E4A00A5B706 /* RestaurantWebsiteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantWebsiteCell.m; sourceTree = "<group>"; };
@@ -1572,7 +1572,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
 		};
@@ -1592,7 +1592,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "1A081128-A48D-4CCF-B739-27B6521BEB77";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1A081128-A48D-4CCF-B739-27B6521BEB77";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Release;
 		};
