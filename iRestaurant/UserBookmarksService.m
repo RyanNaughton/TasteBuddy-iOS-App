@@ -33,6 +33,8 @@
 
 -(void) getUserBookmarks 
 {
+    urlString = @"http://monkey.elhideout.org/users/bookmarks.json";
+    
     [self prepareRequest];
 }
 
