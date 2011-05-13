@@ -83,7 +83,7 @@
     
     [ratingView loadRating:menu_item.rating];
     NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
-    for (NSDictionary *pictDict in [menu_item objectForKey:@"pictures"]) {
+    for (NSDictionary *pictDict in menu_item.pictures) {
         [arrayOfURLStrings addObject:[pictDict objectForKey:@"300px"]];
     }
     
