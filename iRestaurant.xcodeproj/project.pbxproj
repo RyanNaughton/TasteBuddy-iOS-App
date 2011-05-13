@@ -39,6 +39,7 @@
 		49A64FA6135F5455002B3655 /* MenuSubcategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A64FA5135F5455002B3655 /* MenuSubcategory.m */; };
 		49ABCCE8137C38190006218B /* UserBookmarksService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ABCCE7137C38190006218B /* UserBookmarksService.m */; };
 		49ABCCF4137C6B2C0006218B /* RestaurantService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ABCCF3137C6B2B0006218B /* RestaurantService.m */; };
+		49ABCCFC137CAC9F0006218B /* Rating.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ABCCFB137CAC9E0006218B /* Rating.m */; };
 		49BA68231354DBA40040DDB5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68221354DBA40040DDB5 /* UIKit.framework */; };
 		49BA68251354DBA40040DDB5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68241354DBA40040DDB5 /* Foundation.framework */; };
 		49BA68271354DBA40040DDB5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49BA68261354DBA40040DDB5 /* CoreGraphics.framework */; };
@@ -282,6 +283,8 @@
 		49ABCCE7137C38190006218B /* UserBookmarksService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserBookmarksService.m; sourceTree = "<group>"; };
 		49ABCCF2137C6B2A0006218B /* RestaurantService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantService.h; sourceTree = "<group>"; };
 		49ABCCF3137C6B2B0006218B /* RestaurantService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantService.m; sourceTree = "<group>"; };
+		49ABCCFA137CAC9D0006218B /* Rating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rating.h; sourceTree = "<group>"; };
+		49ABCCFB137CAC9E0006218B /* Rating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rating.m; sourceTree = "<group>"; };
 		49BA681E1354DBA30040DDB5 /* iRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA68221354DBA40040DDB5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BA68241354DBA40040DDB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -1234,6 +1237,8 @@
 				49EE9AFC1368E97000528C91 /* AuthenticationResponse.m */,
 				4929F4BC1373374F003D4EE8 /* Tag.h */,
 				4929F4BD1373374F003D4EE8 /* Tag.m */,
+				49ABCCFA137CAC9D0006218B /* Rating.h */,
+				49ABCCFB137CAC9E0006218B /* Rating.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1524,6 +1529,7 @@
 				49ABCCE8137C38190006218B /* UserBookmarksService.m in Sources */,
 				E842967F137C64C200E791B2 /* UserProfileService.m in Sources */,
 				49ABCCF4137C6B2C0006218B /* RestaurantService.m in Sources */,
+				49ABCCFC137CAC9F0006218B /* Rating.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+@class Rating;
 @class Menu;
 
 @interface Restaurant : NSObject {
     NSString *_id;
     NSString *name;
-    NSNumber *average_rating;
     NSString *address_1;
     NSString *address_2;
     NSString *city_town;
@@ -40,7 +40,6 @@
     NSArray *comments;
     NSString *average_meal_price;
     NSNumber *distance;
-    NSNumber *ratings_count;
     
     NSMutableArray *menu_items;
     
@@ -51,11 +50,12 @@
     NSMutableArray *tags;
     
     NSString *tags_text;
+    
+    Rating *rating;
 }
 
 @property (nonatomic, retain) NSString *_id;
 @property (nonatomic, retain) NSString *name;
-@property (nonatomic, retain) NSNumber *average_rating;
 @property (nonatomic, retain) NSString *address_1;
 @property (nonatomic, retain) NSString *address_2;
 @property (nonatomic, retain) NSString *city_town;
@@ -83,7 +83,6 @@
 @property (nonatomic, retain) NSArray *comments;
 @property (nonatomic, retain) NSString *average_meal_price;
 @property (nonatomic, retain) NSNumber *distance;
-@property (nonatomic, retain) NSNumber *ratings_count;
 
 @property (nonatomic, retain) NSMutableArray *menu_items;
 
@@ -94,6 +93,8 @@
 @property (nonatomic, retain) NSMutableArray *tags;
 
 @property (nonatomic, retain) NSString *tags_text;
+
+@property (nonatomic, retain) Rating *rating;
 
 -(id) initWithDictionary:(NSDictionary *)restaurantDictionary;
 

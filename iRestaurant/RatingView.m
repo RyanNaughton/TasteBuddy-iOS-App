@@ -8,7 +8,7 @@
 // 100 x 20 pixels
 
 #import "RatingView.h"
-#import "iRestaurantAppDelegate.h"
+#import "Rating.h"
 
 @implementation RatingView
 @synthesize outlineStarsView, redStarsView, yellowStarsView, ratingButton, starSize, ratingsLabel;
@@ -145,6 +145,13 @@
 
 -(void)setupRatingCount:(int)howManyRatings {
     ratingsLabel.text = [NSString stringWithFormat:@"%i ratings", howManyRatings];
+}
+
+
+-(void) loadRating:(Rating *)rating {
+    [self setupRatingCount:rating.ratings_count];
+    [self setRating:rating.average_rating * 20];
+    [self setUserRating:rating.user_rating * 20];
 }
 
 /*

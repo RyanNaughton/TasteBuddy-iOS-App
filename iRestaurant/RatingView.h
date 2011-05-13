@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Rating;
 
 @interface RatingView : UIView <UIActionSheetDelegate> {
     UIView *outlineStarsView;
@@ -35,5 +35,8 @@
 -(void) setupRatingButton;
 -(void) setupRatingCount:(int)howManyRatings;
 -(void) setRating:(float)rating;
+
+
+-(void) loadRating:(Rating *)rating;
 
 @end

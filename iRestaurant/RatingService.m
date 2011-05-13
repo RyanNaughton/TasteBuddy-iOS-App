@@ -10,6 +10,7 @@
 #import "ASIFormDataRequest.h"
 #import "Restaurant.h"
 #import "MenuItem.h"
+#import "Rating.h"
 #import "JSON.h"
 
 @implementation RatingService
@@ -68,10 +69,11 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed 
 {
     NSString *responseString = [request_passed responseString];
-    NSLog(@"response string: %@", responseString);
+    NSDictionary *dict = [responseString JSONValue];
     
-    #warning TODO do some stuff with this string
-    [delegate doneRating];
+    Rating *rating  = [[Rating alloc] initWithUserRating:[dict objectForKey:@"user_rating"] andAverageRating:[dict objectForKey:@"average_rating"] andRatingsCount:[dict objectForKey:@"ratrings_count"]];
+    
+    [delegate doneRating:rating];
     request = nil;
 }
 

@@ -12,9 +12,10 @@
 @class Restaurant;
 @class MenuItem;
 @class ASIFormDataRequest;
+@class Rating;
 
 @protocol RatingServiceDelegate <NSObject>
-    -(void) doneRating;
+-(void) doneRating:(Rating *) rating;
 @end
 
 @interface RatingService : AbstractService {

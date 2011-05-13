@@ -11,12 +11,12 @@
 #import "MenuItem.h"
 #import "Menu.h"
 #import "Tag.h"
+#import "Rating.h"
 
 @implementation Restaurant
 
 @synthesize _id;
 @synthesize name;
-@synthesize average_rating;
 @synthesize address_1;
 @synthesize address_2;
 @synthesize city_town;
@@ -48,7 +48,7 @@
 @synthesize menu_metadata;
 @synthesize menu;
 @synthesize tags;
-@synthesize ratings_count;
+@synthesize rating;
 @synthesize tags_text;
 
 -(id) init {
@@ -66,14 +66,9 @@
         
         _id               = [[restaurantDictionary objectForKey:@"id"] retain];
         name              = [[restaurantDictionary objectForKey:@"name"] retain];
-        average_rating    = [[restaurantDictionary objectForKey:@"average_rating"] retain];
-        if([average_rating isKindOfClass:[NSNull class]]) {
-            average_rating = [NSNumber numberWithInt:0];
-        }
-        ratings_count    = [[restaurantDictionary objectForKey:@"ratrings_count"] retain];
-        if([ratings_count isKindOfClass:[NSNull class]]) {
-            ratings_count = [NSNumber numberWithInt:0];
-        }
+        
+        rating = [[Rating alloc] initWithUserRating:[restaurantDictionary objectForKey:@"user_rating"] andAverageRating:[restaurantDictionary objectForKey:@"average_rating"] andRatingsCount:[restaurantDictionary objectForKey:@"ratrings_count"]];
+
         address_1         = [[restaurantDictionary objectForKey:@"address_1"] retain];
         address_2         = [[restaurantDictionary objectForKey:@"address_2"] retain];
         city_town         = [[restaurantDictionary objectForKey:@"city_town"] retain];
@@ -143,7 +138,6 @@
 -(void) dealloc {
     [_id               release];
     [name              release];
-    [average_rating    release];
     [address_1         release];
     [address_2         release];
     [city_town         release];

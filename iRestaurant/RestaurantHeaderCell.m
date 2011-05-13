@@ -181,9 +181,7 @@
     } else  {
         cuisine_types.text = [NSString stringWithFormat:@"%@", [restaurant.cuisine_types objectAtIndex:0]];
     }
-    
-    [ratingView setRating: [restaurant.average_rating floatValue] * 20];
-    [ratingView setupRatingCount: [restaurant.ratings_count intValue]];
+    [ratingView loadRating:restaurant.rating];
 }
 
 -(void)cameraButtonPressed:(id)sender {

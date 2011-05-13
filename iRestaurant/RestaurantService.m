@@ -37,7 +37,6 @@
     if([self isLoggedIn]) {
         urlString = [NSString stringWithFormat:@"%@?auth_token=%@", urlString, [self authToken]];        
     }
-    NSLog(@"URL for Restaurant : %@ ", urlString);
     
     NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIHTTPRequest requestWithURL:url];
@@ -46,7 +45,6 @@
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)requestPassed {
-    NSLog(@" Response For Restauran : %@", [requestPassed responseString]);
    [delegate restauarantRetrieved: [[Restaurant alloc] initWithDictionary:[[requestPassed responseString] JSONValue]]];
     request = nil;
 }

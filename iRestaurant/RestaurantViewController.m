@@ -349,8 +349,9 @@
     } 
 }
 
--(void) doneRating {
-    NSLog(@"done rating");
+-(void) doneRating:(Rating *) rating {
+    restaurant.rating = rating;
+    NSLog(@"Need to update **** ");
 }
 
 -(void)rateItButtonPressed:(id)sender 

@@ -15,6 +15,7 @@
 #import "RatingService.h"
 #import "AuthenticationResponse.h"
 #import "BookmarkService.h"
+#import "Rating.h"
 
 // CELLS
 #import "DishHeaderCell.h"
@@ -322,8 +323,8 @@
     }
 }
 
--(void) doneRating {
-    NSLog(@"Done Rating");
+-(void) doneRating:(Rating *) rating {
+    menu_item.rating = rating;
 }
 
 -(void) doneBookmarking:(NSDictionary *) status {

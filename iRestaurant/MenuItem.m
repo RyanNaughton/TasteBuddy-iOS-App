@@ -9,6 +9,7 @@
 #import "MenuItem.h"
 #import "Comment.h"
 #import "Tag.h"
+#import "Rating.h"
 
 #warning TODO remove this when API updates
 #import "JSON.h"
@@ -17,7 +18,6 @@
 
 @synthesize _id;
 @synthesize name;
-@synthesize average_rating;
 @synthesize tags;
 @synthesize photo_urls;
 @synthesize comments;
@@ -25,6 +25,7 @@
 @synthesize restaurant_id;
 @synthesize price;
 @synthesize tags_text;
+@synthesize rating;
 
 -(id) init {
     self = [super init];
@@ -40,10 +41,13 @@
         // custom init
         _id             = [[menuItemDictionary objectForKey:@"id"] retain];
         name            = [[menuItemDictionary objectForKey:@"name"] retain];
-        average_rating  = [[menuItemDictionary objectForKey:@"average_rating"] retain];
         photo_urls      = [[menuItemDictionary objectForKey:@"photo_urls"] retain];
         pictures        = [[menuItemDictionary objectForKey:@"pictures"] retain];
         restaurant_id   = [[menuItemDictionary objectForKey:@"restaurant_id"] retain];
+        
+        rating = [[Rating alloc] initWithUserRating:[menuItemDictionary objectForKey:@"user_rating"] andAverageRating:[menuItemDictionary objectForKey:@"average_rating"] andRatingsCount:[menuItemDictionary objectForKey:@"ratrings_count"]];
+        
+
         
         NSNumber *priceFromDictionary = [[menuItemDictionary objectForKey:@"price"] retain];
 
@@ -96,7 +100,7 @@
 -(void)dealloc {
     [_id            release];
     [name           release];
-    [average_rating release];
+    [rating         release];
     [tags           release];
     [photo_urls     release];
     [comments       release];
