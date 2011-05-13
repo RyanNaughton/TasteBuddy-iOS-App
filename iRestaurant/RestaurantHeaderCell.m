@@ -13,6 +13,7 @@
 #import "iRestaurantAppDelegate.h"
 #import "TakePhoto.h"
 #import "PhotoViewer.h"
+#import "hours.h"
 
 @implementation RestaurantHeaderCell
 @synthesize imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto;
@@ -170,8 +171,8 @@
         imageView.image = [UIImage imageNamed:@"restaurant-icon.gif"];
     }
     name.text = restaurant.name;
-    lunch_hours.text = @"11:00am - 1:00pm";
-    dinner_hours.text = @"3:00am - 1:00am";
+    lunch_hours.text = [restaurant.hours todaysFirstOpeningHours];
+    dinner_hours.text = [restaurant.hours todaysSecondOpeningHours];
         
     NSString* average_meal_price_formatted = [NSString stringWithFormat:@"%.02f", restaurant.average_meal_price];
     
