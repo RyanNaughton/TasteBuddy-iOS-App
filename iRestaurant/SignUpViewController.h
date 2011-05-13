@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SignUpViewController : UIViewController {
-	IBOutlet UITextField *usernameField;
+@interface SignUpViewController : UIViewController <UITextFieldDelegate> {
+	IBOutlet UIScrollView *scrollView;
+    IBOutlet UITextField *usernameField;
     IBOutlet UITextField *firstNameField;
     IBOutlet UITextField *lastNameField;
     IBOutlet UITextField *passwordField;
@@ -23,6 +24,7 @@
     IBOutlet UITextField *birthdayYearField;
 }
 
+@property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, retain) IBOutlet UITextField *usernameField;
 @property (nonatomic, retain) IBOutlet UITextField *firstNameField;
 @property (nonatomic, retain) IBOutlet UITextField *lastNameField;
@@ -37,5 +39,6 @@
 
 -(IBAction)cancelButtonPressed;
 -(IBAction)sendButtonPressed;
+- (void)keyboardDidShow:(NSNotification *)notification;
 
 @end

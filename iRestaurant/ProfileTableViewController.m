@@ -50,12 +50,12 @@
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    UIBarButtonItem *settingsBtn = [[UIBarButtonItem alloc] initWithTitle:@"Settings"
-                                                            style:UIBarButtonItemStyleBordered
-                                                           target:self
-                                                           action:@selector(settingsBtnPressed:)]; 
-    self.navigationItem.rightBarButtonItem = settingsBtn;
-    [settingsBtn release]; 
+//    UIBarButtonItem *settingsBtn = [[UIBarButtonItem alloc] initWithTitle:@"Settings"
+//                                                            style:UIBarButtonItemStyleBordered
+//                                                           target:self
+//                                                           action:@selector(settingsBtnPressed:)]; 
+//    self.navigationItem.rightBarButtonItem = settingsBtn;
+//    [settingsBtn release]; 
     
     UIBarButtonItem *logoutBtn = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
                                                                     style:UIBarButtonItemStyleBordered
@@ -96,17 +96,27 @@
     NSLog(@"profile retrieved: %@", profile);
     reviewsCount = [[profile objectForKey:@"ratings_count"] intValue];
     picturesDictionary = [[NSDictionary alloc]initWithDictionary:[profile objectForKey:@"pictures"]];
-    picturesArray = [[NSMutableArray alloc]init];
     
+    picturesArray = [[NSMutableArray alloc]init];
     picturesCount = 0;
+    
     for (id key in picturesDictionary) {
-        picturesCount = picturesCount + [[picturesDictionary objectForKey:key] count];
-        //NSString *keyString = [NSString stringWithFormat:@"%@", key];
-        NSDictionary *currentDict = [[NSDictionary alloc]initWithObjectsAndKeys:[picturesDictionary objectForKey:key], key, nil];
-        [picturesArray addObject:currentDict];
+        NSDictionary *dictOfDates = [picturesDictionary objectForKey:key];
+        NSMutableArray *datesArray = [[NSMutableArray alloc]init];
+        
+        for (id key2 in dictOfDates) {
+            NSArray *arrayOfImagesForRestaurant = [dictOfDates objectForKey:key2];
+            picturesCount = [arrayOfImagesForRestaurant count] + picturesCount;
+            NSDictionary *restaurantDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:arrayOfImagesForRestaurant, key2, nil];
+            [datesArray addObject:restaurantDictionary];            
+        }
+        
+        NSDictionary *dateDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:datesArray, key, nil];
+        
+        [picturesArray addObject:dateDictionary];
     }
     
-    NSLog(@"pictures Array: %@", picturesArray);
+    NSLog(@"pictures array: %@", picturesArray);
     
     username = @"Andrew Chalkley";
     dataReceived = TRUE;
@@ -148,12 +158,14 @@
         if (section == 0) {
             rowsInSection = 1;
         } else {
-            NSArray *photoArray;
-            NSDictionary *currentDict = [picturesArray objectAtIndex:(section - 1)];
-            for (id key in currentDict) {
-                photoArray = [currentDict objectForKey:key];
+            NSDictionary *dict = [picturesArray objectAtIndex:(section - 1)];
+            NSLog(@"dict %@", dict);
+            NSArray *array;
+            for (id key in dict) {
+                array = [dict objectForKey:key];
             }
-            rowsInSection = [photoArray count] + 1;
+            
+            rowsInSection = [array count] + 1;
         }
     } else {
         rowsInSection = 1;
@@ -188,14 +200,12 @@
             if (profilePhotoDayTopCell == nil) {
                 profilePhotoDayTopCell = [[[ProfilePhotoDayTopCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfilePhotoDayTopCell"] autorelease];
             }    
-            NSString *currentPhotoDate;
-            NSDictionary *currentDict = [picturesArray objectAtIndex:(indexPath.section - 1)];
-            for (id key in currentDict) {
-                // should only be one key.  the date.
-                currentPhotoDate = [NSString stringWithFormat:@"%@", key];
-                NSLog(@"current photo date for section %i: %@", indexPath.section, currentPhotoDate);
+            NSDictionary *dict = [picturesArray objectAtIndex:(indexPath.section -1)];       
+            NSString *dateString;
+            for (id key in dict) {
+                dateString = key;
             }
-            [profilePhotoDayTopCell setDate:currentPhotoDate];
+            [profilePhotoDayTopCell setDate:dateString];
             return profilePhotoDayTopCell;
         } else {
             // photo cell
@@ -203,15 +213,17 @@
             if (profilePhotoCell == nil) {
                 profilePhotoCell = [[[ProfilePhotoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfilePhotoCell"] autorelease];
             }  
-            NSArray *photoArray;
-            NSDictionary *currentDict = [picturesArray objectAtIndex:(indexPath.section - 1)];
-            for (id key in currentDict) {
-                photoArray = [currentDict objectForKey:key];
+            
+            NSDictionary *dict = [picturesArray objectAtIndex:(indexPath.section - 1)];
+            NSLog(@"dict %@", dict);
+            NSArray *array;
+            for (id key in dict) {
+                array = [dict objectForKey:key];
             }
             
-            NSDictionary *currentPhoto = [photoArray objectAtIndex:(indexPath.row -1)];
-            
-            [profilePhotoCell setVariablesWithDictionary:currentPhoto];
+            NSDictionary *currentRestaurantDict = [array objectAtIndex:(indexPath.row -1)];
+            NSLog(@"currentRestaurantDict: %@", currentRestaurantDict);
+            [profilePhotoCell setVariablesWithDictionary:currentRestaurantDict];
             return profilePhotoCell;
         }
 
@@ -305,6 +317,10 @@
     NSLog(@"Logout Pressed");
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [appDelegate logout];
+}
+
+-(IBAction) settingsButtonPressed:(id)sender {
+    
 }
 
 @end
