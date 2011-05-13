@@ -32,5 +32,6 @@
 -(IBAction) cancel;
 -(IBAction) login;
 -(IBAction) signup;
+-(void) loginComplete:(AuthenticationResponse *)authToken;
 
 @end

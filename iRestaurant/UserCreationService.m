@@ -72,9 +72,49 @@
 {
     NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
     NSLog(@"Request string : %@", [request_passed responseString]);
-    AuthenticationResponse *response = [[AuthenticationResponse alloc] initWithDicationary:responseDictionary];
-    [delegate signupComplete:response];
-    request = nil;
+    
+    if ([responseDictionary objectForKey:@"authentication_token"]) {
+        // success
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"SUCCESS!" message:@"You have successfully signed up for TasteBuddy!" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+        
+        AuthenticationResponse *response = [[AuthenticationResponse alloc] initWithDicationary:responseDictionary];
+        [delegate signupComplete:response];
+        request = nil;
+    } else {
+        // errors
+        NSString *errorMessagesAll = @"";
+        NSString *errorName;
+        NSString *errorMessage = @"";
+        for (id key in responseDictionary) {
+            errorName = [NSString stringWithFormat:@"%@", key];
+            
+            NSArray *errorMessageArray = [responseDictionary objectForKey:key];
+            for (NSString *errorMessageString in errorMessageArray) {
+                if ([errorMessage isEqualToString:@""]) {
+                    errorMessage = [NSString stringWithFormat:@"%@", errorMessageString];
+                } else {
+                    errorMessage = [NSString stringWithFormat:@"%@, %@", errorMessage, errorMessageString];
+                }
+            }
+
+            if ([errorMessagesAll isEqualToString:@""]) {
+                errorMessagesAll = [NSString stringWithFormat:@"%@: %@", errorName, errorMessage];
+            } else {
+                errorMessagesAll = [NSString stringWithFormat:@"%@ \n %@: %@", errorMessagesAll, errorName, errorMessage];
+            }
+            errorMessage = @"";
+        
+        }
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"ERROR" message:errorMessagesAll delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+
+    }
+    
+    
     
 }
 - (void)dealloc {

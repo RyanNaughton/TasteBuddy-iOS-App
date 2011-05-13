@@ -11,6 +11,7 @@
 @class AuthenticationResponse;
 @class UserCreationService;
 @class LoginViewController;
+@class AbstractService;
 
 @interface SignUpViewController : UIViewController <UITextFieldDelegate, UserCreationServiceDelegate> {
 	IBOutlet UIScrollView *scrollView;
@@ -27,6 +28,7 @@
     IBOutlet UITextField *birthdayYearField;
     UserCreationService *ucs;
     LoginViewController *loginViewController;
+    AbstractService *serviceToPerformSubsequentRequest;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
@@ -43,6 +45,7 @@
 @property (nonatomic, retain) IBOutlet UITextField *birthdayYearField;
 @property (nonatomic, retain) UserCreationService *ucs;
 @property (nonatomic, retain) LoginViewController *loginViewController;
+@property (nonatomic, retain) AbstractService *serviceToPerformSubsequentRequest;
 
 -(IBAction)cancelButtonPressed;
 -(IBAction)sendButtonPressed;

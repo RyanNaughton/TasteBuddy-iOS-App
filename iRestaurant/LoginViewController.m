@@ -74,8 +74,11 @@
 }
 
 -(IBAction) signup {
-    //[self dismissModalViewControllerAnimated:NO];
+    //iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
     SignUpViewController *signUpVC = [[SignUpViewController alloc]initWithNibName:@"SignUpViewController" bundle:nil];
+    signUpVC.serviceToPerformSubsequentRequest = self.serviceToPerformSubsequentRequest;
+    signUpVC.loginViewController = self;
     [self presentModalViewController:signUpVC animated:YES];
     
 }

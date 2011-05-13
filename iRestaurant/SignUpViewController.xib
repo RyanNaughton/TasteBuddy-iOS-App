@@ -53,7 +53,7 @@
 						<string key="NSFrameSize">{320, 44}</string>
 						<reference key="NSSuperview" ref="52076892"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="709418453"/>
+						<reference key="NSNextKeyView" ref="471340688"/>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<int key="IBUIBarStyle">1</int>
 						<object class="NSArray" key="IBUIItems">
@@ -88,13 +88,15 @@
 								<string key="NSFrame">{{134, 180}, {166, 31}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="858596279"/>
+								<reference key="NSNextKeyView" ref="461072013"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
+								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<string key="IBUIText"/>
 								<int key="IBUIBorderStyle">3</int>
+								<string key="IBUIPlaceholder">United States</string>
 								<object class="NSColor" key="IBUITextColor">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MAA</bytes>
@@ -114,7 +116,7 @@
 								<string key="NSFrame">{{134, 146}, {166, 31}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="254714506"/>
+								<reference key="NSNextKeyView" ref="1031577477"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -139,7 +141,7 @@
 								<string key="NSFrame">{{134, 112}, {166, 31}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="721009596"/>
+								<reference key="NSNextKeyView" ref="58266141"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -164,7 +166,7 @@
 								<string key="NSFrame">{{134, 214}, {166, 31}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="58266141"/>
+								<reference key="NSNextKeyView" ref="1019096810"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -179,6 +181,7 @@
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<int key="IBUIKeyboardType">4</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 							</object>
@@ -188,7 +191,7 @@
 								<string key="NSFrame">{{134, 248}, {166, 31}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="1031577477"/>
+								<reference key="NSNextKeyView" ref="406070960"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -203,6 +206,7 @@
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<int key="IBUIKeyboardType">7</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 							</object>
@@ -212,7 +216,7 @@
 								<string key="NSFrame">{{134, 78}, {166, 31}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="461072013"/>
+								<reference key="NSNextKeyView" ref="721009596"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -236,7 +240,7 @@
 								<string key="NSFrame">{{134, 44}, {166, 31}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="1019096810"/>
+								<reference key="NSNextKeyView" ref="254714506"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -260,7 +264,7 @@
 								<string key="NSFrame">{{134, 10}, {166, 31}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="406070960"/>
+								<reference key="NSNextKeyView" ref="858596279"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -299,6 +303,7 @@
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<int key="IBUIKeyboardType">4</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 							</object>
@@ -323,6 +328,7 @@
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<int key="IBUIKeyboardType">4</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 							</object>
@@ -332,6 +338,7 @@
 								<string key="NSFrame">{{219, 285}, {78, 31}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -346,6 +353,7 @@
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<int key="IBUIKeyboardType">4</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
 							</object>
@@ -355,7 +363,7 @@
 								<string key="NSFrame">{{26, 15}, {100, 21}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="830261074"/>
+								<reference key="NSNextKeyView" ref="264946155"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -382,7 +390,7 @@
 								<string key="NSFrame">{{26, 49}, {100, 21}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="52109655"/>
+								<reference key="NSNextKeyView" ref="614059472"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -402,7 +410,7 @@
 								<string key="NSFrame">{{26, 83}, {100, 21}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="845515770"/>
+								<reference key="NSNextKeyView" ref="719149659"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -422,7 +430,7 @@
 								<string key="NSFrame">{{26, 117}, {100, 21}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="760775458"/>
+								<reference key="NSNextKeyView" ref="845515770"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -442,7 +450,7 @@
 								<string key="NSFrame">{{26, 151}, {100, 21}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="700004235"/>
+								<reference key="NSNextKeyView" ref="52109655"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -462,7 +470,7 @@
 								<string key="NSFrame">{{26, 185}, {100, 21}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="719149659"/>
+								<reference key="NSNextKeyView" ref="830261074"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -482,7 +490,7 @@
 								<string key="NSFrame">{{26, 219}, {100, 21}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="614059472"/>
+								<reference key="NSNextKeyView" ref="760775458"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -502,7 +510,7 @@
 								<string key="NSFrame">{{26, 253}, {100, 21}}</string>
 								<reference key="NSSuperview" ref="471340688"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="264946155"/>
+								<reference key="NSNextKeyView" ref="700004235"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<int key="IBUIContentMode">7</int>
@@ -540,6 +548,7 @@
 						<string key="NSFrame">{{0, 44}, {320, 326}}</string>
 						<reference key="NSSuperview" ref="52076892"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="709418453"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<int key="IBUIContentMode">5</int>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -550,6 +559,7 @@
 				<string key="NSFrameSize">{320, 460}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
+				<reference key="NSNextKeyView" ref="480885700"/>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MQA</bytes>
@@ -561,14 +571,6 @@
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">usernameField</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="830261074"/>
-					</object>
-					<int key="connectionID">37</int>
-				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchEventConnection" key="connection">
 						<string key="label">cancelButtonPressed</string>
@@ -680,6 +682,14 @@
 						<reference key="destination" ref="471340688"/>
 					</object>
 					<int key="connectionID">57</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">usernameField</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="264946155"/>
+					</object>
+					<int key="connectionID">58</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -949,7 +959,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">57</int>
+			<int key="maxID">58</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

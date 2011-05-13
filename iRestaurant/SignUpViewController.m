@@ -10,6 +10,7 @@
 #import "AuthenticationResponse.h"
 #import "UserCreationService.h"
 #import "LoginViewController.h"
+#import "iRestaurantAppDelegate.h"
 
 @implementation SignUpViewController
 
@@ -27,6 +28,7 @@
 @synthesize birthdayYearField;
 @synthesize ucs;
 @synthesize loginViewController;
+@synthesize serviceToPerformSubsequentRequest;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -51,6 +53,9 @@
     [birthdayMonthField   release];
     [birthdayDayField     release];
     [birthdayYearField    release];
+    [ucs release];
+    [loginViewController release];
+    [serviceToPerformSubsequentRequest release];
     [super dealloc];
 }
 
@@ -93,6 +98,13 @@
     // Do any additional setup after loading the view from its nib.
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+}
+
+-(void)viewDidDisappear:(BOOL)animated {
+    [loginViewController cancel];
+}
+
 - (void)keyboardDidShow:(NSNotification *)notification {
     scrollView.frame = CGRectMake(0, 44, 320, 200);
 }
@@ -116,12 +128,11 @@
 }
 
 -(void) signupComplete:(AuthenticationResponse *)authToken {
-    
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Sign up complete!" message:@"Welcome to TaseBuddy!" delegate:self cancelButtonTitle:@"continue" otherButtonTitles:nil];
-    [alert show];
-    [alert release];
-    
-    [loginViewController loginComplete:authToken];
+    [(iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate] updateAuthentication:authToken];
+    if(serviceToPerformSubsequentRequest != nil) {
+        [serviceToPerformSubsequentRequest logInFinished];        
+    }
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end
