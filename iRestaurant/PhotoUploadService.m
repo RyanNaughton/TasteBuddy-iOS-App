@@ -14,8 +14,10 @@
 @implementation PhotoUploadService
 @synthesize delegate;
 
--(void) uploadImage:(UIImage *)image withWhere:(NSString *)where andWhat:(NSString *)what andComments:(NSString *)comments andFacebook:(BOOL)facebookBOOL andDelegate:(id<PhotoUploadServiceDelegate>)delegate_passed andRestaurantId:(NSString *) restaurant_id andMenuItemId:(NSString *) menu_item_id
+-(void) uploadImage:(UIImage *)image withWhere:(NSString *)where andWhat:(NSString *)what andComments:(NSString *)comments andFacebook:(BOOL)facebookBOOL andDelegate:(id<PhotoUploadServiceDelegate>)delegate_passed andRestaurantId:(NSString *)restaurant_id andMenuItemId:(NSString *) menu_item_id
 {
+    
+    NSLog(@"restaurant id: %@", restaurant_id);
     authTokenRequired = YES;
     delegate = delegate_passed;
     urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/pictures.json"];    
@@ -43,7 +45,9 @@
     [request addData:[jsonDictionary objectForKey:@"imageData"] withFileName:@"updloadedimage.png" andContentType:@"image/png" forKey:@"picture[attachment]"];
     
     [request setPostValue:[jsonDictionary objectForKey:@"restaurant_id"] forKey:@"picture[restaurant_id]"];
+    if(![[jsonDictionary objectForKey:@"menu_item_id"] isEqualToString:@""]){
     [request setPostValue:[jsonDictionary objectForKey:@"menu_item_id"] forKey:@"picture[menu_item_id]"];
+    }
     [request setPostValue:[jsonDictionary objectForKey:@"auth_token"] forKey:@"auth_token"];
     [request setDelegate:self];
     [request startAsynchronous];
