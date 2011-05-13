@@ -26,13 +26,6 @@
         self.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        UIButton *cameraButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [cameraButton setBackgroundImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
-        [cameraButton addTarget:self action:@selector(cameraButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        cameraButton.frame = CGRectMake(230, 10, 24, 18);
-        [self.contentView addSubview:cameraButton];
-
-        
         name = [[UILabel alloc]init];
         name.frame = CGRectMake(10, 7, 240, 20);
         name.adjustsFontSizeToFitWidth = TRUE;
