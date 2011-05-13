@@ -15,7 +15,7 @@
 #import "PhotoViewer.h"
 
 @implementation ProfileTableViewController
-@synthesize ups, dataReceived, reviewsCount, picturesCount, username, picturesDictionary, picturesArray;
+@synthesize ups, dataReceived, reviewsCount, picturesCount, username, picturesDictionary, picturesArray, loading;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -47,7 +47,11 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];    
+    [super viewDidLoad];  
+    
+        ups = [[UserProfileService alloc]initWithDelegate:self];
+        [ups getUserProfile];
+        loading = TRUE;
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -58,13 +62,7 @@
 //    self.navigationItem.rightBarButtonItem = settingsBtn;
 //    [settingsBtn release]; 
     
-    UIBarButtonItem *logoutBtn = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
-                                                                    style:UIBarButtonItemStyleBordered
-                                                                   target:self
-                                                                   action:@selector(logoutPressed:)]; 
-    self.navigationItem.leftBarButtonItem = logoutBtn;
-    [logoutBtn release]; 
-    
+    [self checkLogin];    
     
 
     // Uncomment the following line to preserve selection between presentations.
@@ -72,6 +70,28 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void) checkLogin {
+    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if ([appDelegate loggedIn]) {
+        
+        UIBarButtonItem *logoutBtn = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+                                                                      style:UIBarButtonItemStyleBordered
+                                                                     target:self
+                                                                     action:@selector(logoutPressed:)]; 
+        self.navigationItem.leftBarButtonItem = logoutBtn;
+        [logoutBtn release]; 
+        
+    } else {
+        UIBarButtonItem *loginBtn = [[UIBarButtonItem alloc] initWithTitle:@"Login"
+                                                                     style:UIBarButtonItemStyleBordered
+                                                                    target:self
+                                                                    action:@selector(loginPressed:)]; 
+        self.navigationItem.leftBarButtonItem = loginBtn;
+        [loginBtn release]; 
+    }
+
 }
 
 - (void)viewDidUnload
@@ -89,8 +109,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    ups = [[UserProfileService alloc]initWithDelegate:self];
-    [ups getUserProfile];
+    
 }
 
 -(void) doneRetrievingProfile:(NSMutableDictionary *) profile {
@@ -123,6 +142,8 @@
     }
         
     dataReceived = TRUE;
+    loading = FALSE;
+    [self checkLogin];
     [self.tableView reloadData];
 }
 
@@ -231,13 +252,33 @@
         
     } else {
         // no data received yet
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoadingCell"];
-        if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LoadingCell"] autorelease];
-        }          
-        cell.textLabel.textColor = [UIColor lightGrayColor];
-        cell.textLabel.text = @"Loading...";
-        return cell;
+        iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        if ([appDelegate loggedIn]) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoadingCell"];
+            if (cell == nil) {
+                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LoadingCell"] autorelease];
+            }          
+            cell.textLabel.textColor = [UIColor lightGrayColor];
+            cell.textLabel.textAlignment = UITextAlignmentCenter;
+            cell.textLabel.text = @"Loading...";
+            UIActivityIndicatorView *act = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            [act startAnimating];
+            act.frame = CGRectMake(0, 0, 30, 30);
+            act.center = CGPointMake(cell.contentView.center.x, 200);
+            [cell.contentView addSubview:act];
+            [act release];
+            return cell;
+        } else {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoggedOutCell"];
+            if (cell == nil) {
+                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LoggedOutCell"] autorelease];
+            }          
+            cell.textLabel.textColor = [UIColor lightGrayColor];
+            cell.textLabel.textAlignment = UITextAlignmentCenter;
+            cell.textLabel.text = @"You are Logged Out.";
+            return cell;
+        }
+        
     }
     
 }
@@ -245,6 +286,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     int height;
     
+    if ((dataReceived) && (!loading)) {
     if (indexPath.section == 0) {
         height = 130;
     } else {
@@ -254,6 +296,9 @@
         } else {
             height = 85;
         }
+    }
+    } else {
+        height = 300;
     }
     
     return height;
@@ -340,6 +385,16 @@
 -(IBAction) logoutPressed:(id)sender {
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [appDelegate logout];
+    dataReceived = FALSE;
+    [self checkLogin];
+    [self.tableView reloadData];
+}
+
+-(IBAction) loginPressed:(id)sender {
+    ups = [[UserProfileService alloc]initWithDelegate:self];
+    [ups getUserProfile];
+    loading = TRUE;
+    dataReceived = FALSE;
 }
 
 -(IBAction) settingsButtonPressed:(id)sender {

@@ -12,6 +12,7 @@
 @interface ProfileTableViewController : UITableViewController <UserProfileServiceDelegate> {
     UserProfileService *ups;
     BOOL dataReceived;
+    BOOL loading;
     int reviewsCount;
     int picturesCount;
     NSDictionary *picturesDictionary;
@@ -21,6 +22,7 @@
 
 @property (nonatomic, retain) UserProfileService *ups;
 @property (nonatomic, assign) BOOL dataReceived;
+@property (nonatomic, assign) BOOL loading;
 @property (nonatomic, assign) int reviewsCount;
 @property (nonatomic, assign) int picturesCount;
 @property (nonatomic, retain) NSString *username;
@@ -29,7 +31,8 @@
 
 
 -(IBAction) logoutPressed:(id)sender;
+-(IBAction) loginPressed:(id)sender;
 -(IBAction) settingsButtonPressed:(id)sender;
 -(void) doneRetrievingProfile:(NSMutableDictionary *) profile;
-
+-(void) checkLogin;
 @end
