@@ -37,7 +37,7 @@
     NSNumber *takeout;
     NSNumber *wheelchair_access;
     NSArray *pictures;
-    NSArray *comments;
+    NSMutableArray *comments;
     float average_meal_price;
     NSNumber *distance;
     

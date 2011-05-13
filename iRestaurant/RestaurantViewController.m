@@ -351,7 +351,8 @@
 
 -(void) doneRating:(Rating *) rating {
     restaurant.rating = rating;
-    NSLog(@"Need to update **** ");
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
+    [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
 }
 
 -(void)rateItButtonPressed:(id)sender 

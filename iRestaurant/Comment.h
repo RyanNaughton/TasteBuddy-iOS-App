@@ -10,11 +10,13 @@
 
 
 @interface Comment : NSObject {
+    NSString *_id;
     NSString *user_id;
     NSString *user_name;
     NSString *text;
 }
 
+@property (nonatomic, retain) NSString *_id;
 @property (nonatomic, retain) NSString *user_id;
 @property (nonatomic, retain) NSString *user_name;
 @property (nonatomic, retain) NSString *text;

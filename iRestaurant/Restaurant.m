@@ -12,6 +12,7 @@
 #import "Menu.h"
 #import "Tag.h"
 #import "Rating.h"
+#import "Comment.h"
 
 @implementation Restaurant
 
@@ -93,7 +94,16 @@
         takeout           = [[restaurantDictionary objectForKey:@"takeout"] retain];
         wheelchair_access = [[restaurantDictionary objectForKey:@"wheelchair_access"] retain];
         pictures          = [[restaurantDictionary objectForKey:@"pictures"] retain];
-        comments          = [[restaurantDictionary objectForKey:@"comments"] retain];
+        comments          = [[NSMutableArray alloc] init];
+        
+        
+        
+        for (NSDictionary *dict in [restaurantDictionary objectForKey:@"comments"]) {
+            Comment *comment = [[Comment alloc] initWithDictionary:dict];
+            [comments addObject:comment];
+            [comment release];
+        }
+        
         NSNumber *avgPrice = [[restaurantDictionary objectForKey:@"average_meal_price"] retain];
         
         if(avgPrice != nil && [avgPrice isKindOfClass:[NSNumber class]]){

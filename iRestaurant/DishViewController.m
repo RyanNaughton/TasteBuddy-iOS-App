@@ -325,6 +325,8 @@
 
 -(void) doneRating:(Rating *) rating {
     menu_item.rating = rating;
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
+    [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
 }
 
 -(void) doneBookmarking:(NSDictionary *) status {
