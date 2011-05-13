@@ -94,6 +94,10 @@
 }
 
 -(void) doneRetrievingProfile:(NSMutableDictionary *) profile {
+    
+    NSLog(@"profile: %@", profile);
+    
+    username = [[NSString stringWithFormat:@"%@",[profile objectForKey:@"username"]]retain];
     reviewsCount = [[profile objectForKey:@"ratings_count"] intValue];
     picturesDictionary = [[NSDictionary alloc]initWithDictionary:[profile objectForKey:@"pictures"]];
     
@@ -111,12 +115,13 @@
             [datesArray addObject:restaurantDictionary];            
         }
         
-        NSDictionary *dateDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:datesArray, key, nil];
+        NSArray *sortedArray = [[datesArray reverseObjectEnumerator] allObjects];        
+                
+        NSDictionary *dateDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:sortedArray, key, nil];
         
         [picturesArray addObject:dateDictionary];
     }
         
-    username = @"Andrew Chalkley";
     dataReceived = TRUE;
     [self.tableView reloadData];
 }
@@ -183,7 +188,7 @@
 		if (profileHeadCell == nil) {
 		    profileHeadCell = [[[ProfileHeadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfileHeadCell"] autorelease];
 		}          
-        [profileHeadCell setUserInfoWithName:username andReviews:reviewsCount andPictures:picturesCount];
+        [profileHeadCell setUserInfoWithName:[NSString stringWithFormat:@"%@", username] andReviews:reviewsCount andPictures:picturesCount];
 		return profileHeadCell;
 
     }
