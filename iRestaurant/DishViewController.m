@@ -292,7 +292,7 @@
 }
 -(void)photoButtonPressed:(id)sender
 {
-    [takePhoto loadPhotoForRestaurant:restaurant];
+        [takePhoto loadPhotoForMenuItem:menu_item atRestaurant:restaurant];
 }
 -(void)menuButtonPressed:(id)sender
 {

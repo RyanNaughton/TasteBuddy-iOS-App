@@ -65,6 +65,7 @@
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];
+    [request setUseCookiePersistence:NO];
     [request startAsynchronous];
 }
 

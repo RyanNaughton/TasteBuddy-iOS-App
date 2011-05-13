@@ -25,6 +25,7 @@
 
 -(id)initWithParentViewController:(id)viewController;
 -(void)loadPhotoForRestaurant:(Restaurant *)restaurant_passed;
+-(void)loadPhotoForDish:(MenuItem *)menu_item_passed andRestaurant:(Restaurant *)restaurant_passed;
 -(void)launchAdditionalDetailsWindowWithImage:(UIImage *)image andPicker:(UIImagePickerController *)picker;
 -(void)loadPhotoForMenuItem:(MenuItem *)menu_item_passed atRestaurant:(Restaurant *)restaurant_passed;
 

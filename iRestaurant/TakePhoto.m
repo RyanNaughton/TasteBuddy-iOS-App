@@ -26,6 +26,18 @@
 
 -(void)loadPhotoForRestaurant:(Restaurant *)restaurant_passed {
     restaurant = [restaurant_passed retain];
+    menuItem.name = @"";
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Choose Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Picture", @"Use Photo Library", nil];
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    popupQuery.delegate = self;
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [popupQuery showFromTabBar:appDelegate.tabBarController.tabBar];
+    [popupQuery release];
+}
+
+-(void)loadPhotoForDish:(MenuItem *)menu_item_passed andRestaurant:(Restaurant *)restaurant_passed {
+    restaurant = [restaurant_passed retain];
+    menuItem = [menu_item_passed retain];
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Choose Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Picture", @"Use Photo Library", nil];
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     popupQuery.delegate = self;
@@ -90,7 +102,7 @@
 
 -(void)launchAdditionalDetailsWindowWithImage:(UIImage *)image andPicker:(UIImagePickerController *)picker {
     
-    PhotoShareContainer *photoShareContainer = [[PhotoShareContainer alloc]initWithWhere:restaurant.name andWhat:@"" andImage:image andRestaurantId:restaurant._id andMenuItemId:@""];
+    PhotoShareContainer *photoShareContainer = [[PhotoShareContainer alloc]initWithWhere:restaurant.name andWhat:menuItem.name andImage:image andRestaurantId:restaurant._id andMenuItemId:@""];
     photoShareContainer.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     photoShareContainer.modalPresentationStyle = UIModalPresentationPageSheet;
     [parentViewController presentModalViewController:photoShareContainer animated:YES];

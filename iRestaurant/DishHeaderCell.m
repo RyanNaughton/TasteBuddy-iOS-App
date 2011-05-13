@@ -70,22 +70,7 @@
         price.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:price];
         
-        UIImage *image1 = [UIImage imageNamed:@"pizza.png"];
-        UIImage *image2 = [UIImage imageNamed:@"taco.png"];
-        UIImage *image3 = [UIImage imageNamed:@"cheeseburger.png"];
-        NSArray *imageArray = [NSArray arrayWithObjects:image1, image2, image3, nil];
-        
-        UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
-        svimage = [[IGUIScrollViewImage alloc] init];  
-        [svimage setBackGroudColor:[UIColor clearColor]];
-        [svimage setContentArray:imageArray];  
-        [svimage setWidth:300 andHeight:300];
-        [svimage enablePageControlOnBottom];  
-        [viewForScrollView addSubview:[svimage getWithPosition:0]]; 
-        svimage.scrollView.showsHorizontalScrollIndicator = FALSE;
-        [self.contentView addSubview:viewForScrollView];
-        [viewForScrollView release];
-        
+                
     }
     return self;
 }
@@ -97,10 +82,31 @@
     price.text = [NSString stringWithFormat:@"$%.2f", menu_item.price];
     
     [ratingView loadRating:menu_item.rating];
-
-    //[imageView setImageWithURL:[NSURL URLWithString:[[menu_item.pictures objectAtIndex:0] objectForKey:@"300px"]]
-    //          placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
+    NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
+    for (NSDictionary *pictDict in [menu_item objectForKey:@"pictures"]) {
+        [arrayOfURLStrings addObject:[pictDict objectForKey:@"300px"]];
+    }
     
+    NSLog(@"arrayOfURLStrings: %@", arrayOfURLStrings);
+    
+    NSMutableArray *imageArray = [[NSMutableArray alloc]init];
+    
+    for (int i=0; i < [arrayOfURLStrings count]; i++) {
+        UIImage *image = [[UIImage alloc]initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[arrayOfURLStrings objectAtIndex:i]]]];
+        [imageArray addObject:image];
+    }
+    
+    UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
+    svimage = [[IGUIScrollViewImage alloc] init];  
+    [svimage setBackGroudColor:[UIColor clearColor]];
+    [svimage setContentArray:imageArray];  
+    [svimage setWidth:300 andHeight:300];
+    [svimage enablePageControlOnBottom];  
+    [viewForScrollView addSubview:[svimage getWithPosition:0]]; 
+    svimage.scrollView.showsHorizontalScrollIndicator = FALSE;
+    [self.contentView addSubview:viewForScrollView];
+    [viewForScrollView release];
+
 }
 
 -(void)cameraButtonPressed:(id)sender {

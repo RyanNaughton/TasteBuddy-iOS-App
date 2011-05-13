@@ -50,6 +50,7 @@
     }
     [request setPostValue:[jsonDictionary objectForKey:@"auth_token"] forKey:@"auth_token"];
     [request setDelegate:self];
+    [request setUseCookiePersistence:NO];
     [request startAsynchronous];
 }
 

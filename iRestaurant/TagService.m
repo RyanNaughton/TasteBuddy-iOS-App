@@ -35,6 +35,7 @@
     request = [ASIHTTPRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request setDelegate:self];
+    [request setUseCookiePersistence:NO];
     [request startAsynchronous];
 }
 
