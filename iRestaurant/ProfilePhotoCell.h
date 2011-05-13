@@ -21,6 +21,6 @@
 
 -(void) setLabels;
 
--(void)setVariablesWithDictionary:(NSDictionary *)currentPhoto;
+-(void)setVariablesWithDictionary:(NSDictionary *)restaurantDictionary;
 
 @end

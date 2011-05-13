@@ -42,8 +42,8 @@
     
     [request addData:[jsonDictionary objectForKey:@"imageData"] withFileName:@"updloadedimage.png" andContentType:@"image/png" forKey:@"picture[attachment]"];
     
-    [request setPostValue:@"4d776a379a16856d080000cb" forKey:@"picture[restaurant_id]"];
-    [request setPostValue:@"" forKey:@"picture[menu_item_id]"];
+    [request setPostValue:[jsonDictionary objectForKey:@"restaurant_id"] forKey:@"picture[restaurant_id]"];
+    [request setPostValue:[jsonDictionary objectForKey:@"menu_item_id"] forKey:@"picture[menu_item_id]"];
     [request setPostValue:[jsonDictionary objectForKey:@"auth_token"] forKey:@"auth_token"];
     [request setDelegate:self];
     [request startAsynchronous];

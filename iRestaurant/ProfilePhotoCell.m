@@ -45,11 +45,20 @@
     return self;
 }
 
--(void)setVariablesWithDictionary:(NSDictionary *)currentPhoto {
+-(void)setVariablesWithDictionary:(NSDictionary *)restaurantDictionary {
+    NSArray *photoArray;
+    NSString *restaurantName;
+    for (id key in restaurantDictionary) {
+        photoArray = [restaurantDictionary objectForKey:key];
+        restaurantName = key;
+    }
+    
+    NSDictionary *currentPhoto = [photoArray objectAtIndex:0];
+    
     NSURL *url = [NSURL URLWithString:[currentPhoto objectForKey:@"300px"]];
     [imageView setImageWithURL:url]; 
-    restaurantLabel.text = [NSString stringWithFormat:@"%@", [currentPhoto objectForKey:@"restaurant_name"]];
-    pictureCountLabel.text = [NSString stringWithFormat:@"%@", [currentPhoto objectForKey:@"menu_item_name"]];
+    restaurantLabel.text = [NSString stringWithFormat:@"%@", restaurantName];
+    pictureCountLabel.text = [NSString stringWithFormat:@"%i Pictures", [photoArray count]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

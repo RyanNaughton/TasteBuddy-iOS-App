@@ -29,6 +29,7 @@
 
 
 -(IBAction) logoutPressed:(id)sender;
+-(IBAction) settingsButtonPressed:(id)sender;
 -(void) doneRetrievingProfile:(NSMutableDictionary *) profile;
 
 @end

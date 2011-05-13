@@ -83,8 +83,8 @@
     whatTextField.delegate = self;
     commentsTextField.delegate = self;
     
-    whereTextField.text = where;
-    whatTextField.text = what;
+    whereTextField.text = [NSString stringWithFormat:@"%@", where];
+    whatTextField.text = [NSString stringWithFormat:@"%@", what];
     
     
     scrollView.contentSize = CGSizeMake(320, 261);

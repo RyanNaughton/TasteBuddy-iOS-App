@@ -11,6 +11,7 @@
 
 @implementation SignUpViewController
 
+@synthesize scrollView;
 @synthesize usernameField;
 @synthesize firstNameField;
 @synthesize lastNameField;
@@ -34,6 +35,18 @@
 
 - (void)dealloc
 {
+    [scrollView           release];
+    [usernameField        release];
+    [firstNameField       release];
+    [lastNameField        release];
+    [passwordField        release];
+    [confirmPasswordField release];
+    [countryField         release];
+    [postalCodeField      release];
+    [emailField           release];
+    [birthdayMonthField   release];
+    [birthdayDayField     release];
+    [birthdayYearField    release];
     [super dealloc];
 }
 
@@ -60,7 +73,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
+    
+    scrollView.contentSize = CGSizeMake(320, 346);
     // Do any additional setup after loading the view from its nib.
+}
+
+- (void)keyboardDidShow:(NSNotification *)notification {
+    scrollView.frame = CGRectMake(0, 44, 320, 200);
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    //scrollView.frame = CGRectMake(0, 44, 320, 200);
+    //[scrollView scrollRectToVisible:textField.frame animated:YES];
 }
 
 - (void)viewDidUnload
