@@ -74,6 +74,8 @@
 		E83A947613660E4B00A5B706 /* RestaurantWebsiteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E83A947513660E4A00A5B706 /* RestaurantWebsiteCell.m */; };
 		E83A94781366119900A5B706 /* SavedSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = E83A94771366119900A5B706 /* SavedSettings.plist */; };
 		E842967F137C64C200E791B2 /* UserProfileService.m in Sources */ = {isa = PBXBuildFile; fileRef = E842967E137C64C200E791B2 /* UserProfileService.m */; };
+		E842969E137CCD3800E791B2 /* PhotoViewer.m in Sources */ = {isa = PBXBuildFile; fileRef = E842969C137CCD3800E791B2 /* PhotoViewer.m */; };
+		E842969F137CCD3800E791B2 /* PhotoViewer.xib in Resources */ = {isa = PBXBuildFile; fileRef = E842969D137CCD3800E791B2 /* PhotoViewer.xib */; };
 		E859425E135E463A0094F383 /* grey-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E859425C135E463A0094F383 /* grey-button.png */; };
 		E859425F135E463A0094F383 /* grey-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E859425D135E463A0094F383 /* grey-button@2x.png */; };
 		E8594263135E4E640094F383 /* text-area-image.png in Resources */ = {isa = PBXBuildFile; fileRef = E8594261135E4E640094F383 /* text-area-image.png */; };
@@ -336,6 +338,9 @@
 		E83A94771366119900A5B706 /* SavedSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SavedSettings.plist; sourceTree = "<group>"; };
 		E842967D137C64C200E791B2 /* UserProfileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfileService.h; sourceTree = "<group>"; };
 		E842967E137C64C200E791B2 /* UserProfileService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfileService.m; sourceTree = "<group>"; };
+		E842969B137CCD3800E791B2 /* PhotoViewer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoViewer.h; sourceTree = "<group>"; };
+		E842969C137CCD3800E791B2 /* PhotoViewer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoViewer.m; sourceTree = "<group>"; };
+		E842969D137CCD3800E791B2 /* PhotoViewer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoViewer.xib; sourceTree = "<group>"; };
 		E859425C135E463A0094F383 /* grey-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button.png"; sourceTree = "<group>"; };
 		E859425D135E463A0094F383 /* grey-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button@2x.png"; sourceTree = "<group>"; };
 		E8594261135E4E640094F383 /* text-area-image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "text-area-image.png"; sourceTree = "<group>"; };
@@ -646,6 +651,7 @@
 		49578B731355183500F8EC0B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E8429695137CCC1B00E791B2 /* Photo Viewer */,
 				E86CC6091374D6540022FCBD /* Deals */,
 				E86CC5F01374CE2D0022FCBD /* Favorites */,
 				4929F4BF13735AE8003D4EE8 /* Tag */,
@@ -850,6 +856,16 @@
 				E824E29A137B113000E790D2 /* SignUpViewController.xib */,
 			);
 			name = "Sign up";
+			sourceTree = "<group>";
+		};
+		E8429695137CCC1B00E791B2 /* Photo Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				E842969B137CCD3800E791B2 /* PhotoViewer.h */,
+				E842969C137CCD3800E791B2 /* PhotoViewer.m */,
+				E842969D137CCD3800E791B2 /* PhotoViewer.xib */,
+			);
+			name = "Photo Viewer";
 			sourceTree = "<group>";
 		};
 		E859D26A13722D6400D47CEB /* Profile */ = {
@@ -1400,6 +1416,7 @@
 				E86CC5FA1374D0150022FCBD /* favorites-logo@2x.png in Resources */,
 				4910746E137A363C007A2A58 /* WebViewController.xib in Resources */,
 				E824E29C137B113000E790D2 /* SignUpViewController.xib in Resources */,
+				E842969F137CCD3800E791B2 /* PhotoViewer.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1530,6 +1547,7 @@
 				E842967F137C64C200E791B2 /* UserProfileService.m in Sources */,
 				49ABCCF4137C6B2C0006218B /* RestaurantService.m in Sources */,
 				49ABCCFC137CAC9F0006218B /* Rating.m in Sources */,
+				E842969E137CCD3800E791B2 /* PhotoViewer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1596,7 +1614,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
 		};
@@ -1616,7 +1634,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "1A081128-A48D-4CCF-B739-27B6521BEB77";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1A081128-A48D-4CCF-B739-27B6521BEB77";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Release;
 		};

@@ -12,6 +12,7 @@
 #import "ProfilePhotoCell.h"
 #import "iRestaurantAppDelegate.h"
 #import "UserProfileService.h"
+#import "PhotoViewer.h"
 
 @implementation ProfileTableViewController
 @synthesize ups, dataReceived, reviewsCount, picturesCount, username, picturesDictionary, picturesArray;
@@ -303,14 +304,39 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    if (indexPath.section > 0) {
+        if (indexPath.row > 0) {
+            NSDictionary *dict = [picturesArray objectAtIndex:(indexPath.section - 1)];
+            NSLog(@"dict %@", dict);
+            NSArray *array;
+            for (id key in dict) {
+                array = [dict objectForKey:key];
+            }
+            
+            NSDictionary *currentRestaurantDict = [array objectAtIndex:(indexPath.row -1)];
+            NSArray *arrayOfPhotos;
+            NSString *restaurantName;
+            for (id key2 in currentRestaurantDict) {
+                arrayOfPhotos = [currentRestaurantDict objectForKey:key2];
+                restaurantName = key2;
+            }
+            
+            NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
+            for (NSDictionary *photoDict in arrayOfPhotos) {
+                [arrayOfURLStrings addObject:[photoDict objectForKey:@"300px"]];
+            }
+            
+            
+            PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
+            [photoViewer setupScrollView:arrayOfURLStrings];
+            photoViewer.navItem.title = [NSString stringWithFormat:@"%@", restaurantName];
+            photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+            [self presentModalViewController:photoViewer animated:YES];
+            [photoViewer release];
+            
+        }
+    }
+
 }
 
 -(IBAction) logoutPressed:(id)sender {
