@@ -54,6 +54,7 @@
 		49BA68501354DBA50040DDB5 /* iRestaurantTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 49BA684F1354DBA50040DDB5 /* iRestaurantTests.h */; };
 		49BA68521354DBA50040DDB5 /* iRestaurantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA68511354DBA50040DDB5 /* iRestaurantTests.m */; };
 		49BED7FD13611BA700DE8CC4 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BED7FC13611BA700DE8CC4 /* CommentCell.m */; };
+		49C41108137DB809005536D0 /* hours.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C41107137DB809005536D0 /* hours.m */; };
 		49EA6E7E1374D0F3003D8703 /* AbstractService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EA6E7D1374D0F3003D8703 /* AbstractService.m */; };
 		49EE9A7A136799CF00528C91 /* JSONBuiltModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE9A79136799CF00528C91 /* JSONBuiltModel.m */; };
 		49EE9AF41368D7E100528C91 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE9AF21368D7E100528C91 /* LoginViewController.m */; };
@@ -308,6 +309,8 @@
 		49BED7F81361110B00DE8CC4 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		49BED7FB13611BA700DE8CC4 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
 		49BED7FC13611BA700DE8CC4 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		49C41106137DB808005536D0 /* hours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hours.h; sourceTree = "<group>"; };
+		49C41107137DB809005536D0 /* hours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hours.m; sourceTree = "<group>"; };
 		49EA6E7C1374D0F3003D8703 /* AbstractService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractService.h; sourceTree = "<group>"; };
 		49EA6E7D1374D0F3003D8703 /* AbstractService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractService.m; sourceTree = "<group>"; };
 		49EE9A78136799CF00528C91 /* JSONBuiltModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONBuiltModel.h; sourceTree = "<group>"; };
@@ -1255,6 +1258,8 @@
 				4929F4BD1373374F003D4EE8 /* Tag.m */,
 				49ABCCFA137CAC9D0006218B /* Rating.h */,
 				49ABCCFB137CAC9E0006218B /* Rating.m */,
+				49C41106137DB808005536D0 /* hours.h */,
+				49C41107137DB809005536D0 /* hours.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1548,6 +1553,7 @@
 				49ABCCF4137C6B2C0006218B /* RestaurantService.m in Sources */,
 				49ABCCFC137CAC9F0006218B /* Rating.m in Sources */,
 				E842969E137CCD3800E791B2 /* PhotoViewer.m in Sources */,
+				49C41108137DB809005536D0 /* hours.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
