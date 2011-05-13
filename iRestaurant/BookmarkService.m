@@ -58,6 +58,7 @@
     [request setRequestMethod: @"PUT"];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
+    [request setUseCookiePersistence:NO];
     [request setDelegate:self];
     [request startAsynchronous];    
 }

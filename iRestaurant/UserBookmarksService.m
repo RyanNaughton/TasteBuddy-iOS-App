@@ -48,6 +48,7 @@
 
     NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIHTTPRequest requestWithURL:url];
+    [request setUseCookiePersistence:NO];
     [request setDelegate:self];
     [request startAsynchronous];  
 }
