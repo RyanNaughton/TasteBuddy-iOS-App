@@ -10,9 +10,10 @@
 
 
 @implementation Comment
-@synthesize user_id, user_name, text;
+@synthesize _id, user_id, user_name, text;
 
 - (void)dealloc {
+    [_id release];
     [user_id release];
     [user_name release];
     [text release];
@@ -27,9 +28,9 @@
         user_id   = [[commentDictionary objectForKey:@"user_id"] retain];
         user_name = [[commentDictionary objectForKey:@"user_name"] retain];
         text      = [[commentDictionary objectForKey:@"text"] retain];
+        NSLog(@"text: %@", text);
     }
     return self;       
 }
-
 
 @end

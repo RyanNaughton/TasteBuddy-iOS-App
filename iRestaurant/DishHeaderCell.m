@@ -77,9 +77,9 @@
 
 -(void)loadMenuItem:(MenuItem *)menu_item andRestaurant:(Restaurant *)restaurant
 {
-    name.text = [NSString stringWithFormat:@"%@", menu_item.name];
-    restaurantName.text = [NSString stringWithFormat:@"%@", restaurant.name];
-    price.text = [NSString stringWithFormat:@"$%.2f", menu_item.price];
+    name.text = [[NSString stringWithFormat:@"%@", menu_item.name] retain];
+    restaurantName.text = [[NSString stringWithFormat:@"%@", restaurant.name]retain];
+    price.text = [[NSString stringWithFormat:@"$%.2f", menu_item.price]retain];
     
     [ratingView loadRating:menu_item.rating];
     NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
