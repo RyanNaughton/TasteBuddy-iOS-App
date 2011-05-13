@@ -34,7 +34,7 @@
              andBirthdate:(NSString *)birthdate
 {
     
-    urlString = @"http://monkey.elhideout.org/users";
+    urlString = @"http://monkey.elhideout.org/users.json";
     
     NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc] init];
     [userDictionary setObject:username forKey:@"username"];
@@ -71,6 +71,7 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
     NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
+    NSLog(@"Request string : %@", [request_passed responseString]);
     AuthenticationResponse *response = [[AuthenticationResponse alloc] initWithDicationary:responseDictionary];
     [delegate signupComplete:response];
     request = nil;

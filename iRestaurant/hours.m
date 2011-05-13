@@ -15,6 +15,8 @@
 
 - (void)dealloc {
     
+    [firstOpeningHours release];
+    [secondOpeningHours release];
     [super dealloc];
 }
 -(id) initWithArray:(NSArray *) hoursArray {
