@@ -11,9 +11,6 @@
 #import "Tag.h"
 #import "Rating.h"
 
-#warning TODO remove this when API updates
-#import "JSON.h"
-
 @implementation MenuItem
 
 @synthesize _id;
@@ -61,6 +58,11 @@
         [priceFromDictionary release];
 
         comments = [[NSMutableArray alloc] init];
+        for (NSDictionary *dict in [menuItemDictionary objectForKey:@"comments"]) {
+            Comment *comment = [[Comment alloc] initWithDictionary:dict];
+            [comments addObject:comment];
+            [comment release];
+        }
 
         tags = [[NSMutableArray alloc] init];
         NSDictionary *tagDictionary = [menuItemDictionary objectForKey:@"tags"];
@@ -84,17 +86,6 @@
         }
         [user_tags release];
         
-        # warning Code here needs to be changed when API updates.
-        //Actual array [menuItemDictionary objectForKey:@"comments"]
-        NSString *tempJson = @"[{\"text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut leo sapien, sodales ac bibendum a, pretium eu nisi. Pellentesque eleifend lacus vel elit blandit ultricies. Donec vitae malesuada ipsum. Pellentesque augue dui, condimentum ac egestas vitae, ullamcorper vel nulla. In dapibus lorem sed sapien accumsan in gravida dui tempus. Sed bibendum volutpat leo, ac consectetur lectus luctus et. Nam enim odio, iaculis id placerat ac, semper in ante. Morbi luctus felis quis lectus porta ut molestie purus pellentesque. Pellentesque urna libero, interdum vel faucibus non, ullamcorper a arcu. Nam sollicitudin sagittis vehicula. Curabitur fermentum ipsum sem. Nunc hendrerit nunc at ante fringilla euismod. Morbi mattis magna vitae orci feugiat non aliquet arcu bibendum. Quisque ornare sodales dolor eu viverra. Maecenas vehicula ipsum eget turpis iaculis non euismod nisi malesuada.Maecenas vestibulum eleifend egestas. Pellentesque vitae erat turpis. Praesent in quam mi, non cursus metus.\", \"user_name\": \"Clark\", \"user_id\": \"456789\"}, {\"text\": \"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut leo sapien, sodales ac bibendum a, pretium eu nisi. Pellentesque eleifend lacus vel elit blandit ultricies. Donec vitae malesuada ipsum. Pellentesque augue dui. Maecenas vehicula ipsum eget turpis iaculis non euismod nisi malesuada.Maecenas vestibulum eleifend egestas. Pellentesque vitae erat turpis. Praesent in quam mi, non cursus metus.\", \"user_name\": \"Clark\", \"user_id\": \"456789\"}]";
-        NSArray *temporaryArrayOfComments = [tempJson JSONValue];
-
-        for (NSDictionary *commentDictionary in temporaryArrayOfComments) /* [menuItemDictionary objectForKey:@"comments"] */
-        {
-            Comment *comment = [[Comment alloc] initWithDictionary:commentDictionary];
-            [comments addObject:comment];
-            [comment release];
-        }
     }
     return self;
 }
