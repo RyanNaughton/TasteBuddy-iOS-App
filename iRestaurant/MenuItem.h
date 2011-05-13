@@ -19,7 +19,7 @@
     
     NSString *restaurant_id;
     
-    NSString *price;
+    float price;
     
     NSString *tags_text;
     
@@ -33,7 +33,7 @@
 @property (nonatomic, retain) NSMutableArray *comments;
 @property (nonatomic, retain) NSArray *pictures;
 @property (nonatomic, retain) NSString *restaurant_id;
-@property (nonatomic, retain) NSString *price;
+@property (nonatomic, assign) float price;
 @property (nonatomic, retain) NSString *tags_text;
 @property (nonatomic, retain) Rating *rating;
 

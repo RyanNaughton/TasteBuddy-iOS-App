@@ -51,14 +51,16 @@
         
         NSNumber *priceFromDictionary = [[menuItemDictionary objectForKey:@"price"] retain];
 
-        if([priceFromDictionary isKindOfClass:[NSNull class]]) {
-            price = @"--.--";
+
+        
+        if(priceFromDictionary != nil && [priceFromDictionary isKindOfClass:[NSNumber class]]) {
+            price = [priceFromDictionary floatValue];
         } else {
-            price = [[NSString stringWithFormat:@"%@", priceFromDictionary] retain];    
+            price = 0.0f;
         }
         [priceFromDictionary release];
 
-        comments        = [[NSMutableArray alloc] init];
+        comments = [[NSMutableArray alloc] init];
 
         tags = [[NSMutableArray alloc] init];
         NSDictionary *tagDictionary = [menuItemDictionary objectForKey:@"tags"];
@@ -106,7 +108,6 @@
     [comments       release];
     [pictures       release];
     [restaurant_id  release];
-    [price          release];
     [tags_text      release];
     [super          dealloc];
 }

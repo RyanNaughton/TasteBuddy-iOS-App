@@ -38,7 +38,7 @@
     NSNumber *wheelchair_access;
     NSArray *pictures;
     NSArray *comments;
-    NSString *average_meal_price;
+    float average_meal_price;
     NSNumber *distance;
     
     NSMutableArray *menu_items;
@@ -81,7 +81,7 @@
 @property (nonatomic, retain) NSNumber *wheelchair_access;
 @property (nonatomic, retain) NSArray *pictures;
 @property (nonatomic, retain) NSArray *comments;
-@property (nonatomic, retain) NSString *average_meal_price;
+@property (nonatomic, assign) float average_meal_price;
 @property (nonatomic, retain) NSNumber *distance;
 
 @property (nonatomic, retain) NSMutableArray *menu_items;

@@ -61,7 +61,7 @@
         [self.contentView addSubview:averageDishPrice];
         
         int starSize = 15;
-        ratingView = [[RatingView alloc]initWithRating:0 andStarSize:starSize andIsUserRating:FALSE andIsEditable:FALSE];
+        ratingView = [[RatingView alloc] initWithStarSize:starSize andLabelVisible:NO];
         ratingView.contentMode = UIViewContentModeScaleAspectFit;
         ratingView.clipsToBounds = TRUE;
         ratingView.frame = CGRectMake((310 - (starSize * 5)), 10, (starSize * 5), 20);
@@ -82,7 +82,7 @@
         distance.hidden = NO;
         distance.text = [NSString stringWithFormat:@"%@ miles", restaurant.distance];
     }
-    averageDishPrice.text = [NSString stringWithFormat:@"avg. dish: $%@", restaurant.average_meal_price];
+    averageDishPrice.text = [NSString stringWithFormat:@"avg. dish: $%.2f", restaurant.average_meal_price];
     
     // set average rating
     [ratingView loadRating:restaurant.rating];

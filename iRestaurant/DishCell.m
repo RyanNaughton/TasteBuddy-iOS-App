@@ -55,7 +55,7 @@
         [price release];
         
         int starSize = 12;
-        ratingView = [[RatingView alloc]initWithRating:50 andStarSize:starSize andIsUserRating:FALSE andIsEditable:FALSE];
+        ratingView = [[RatingView alloc] initWithStarSize:12 andLabelVisible:NO];
         ratingView.frame = CGRectMake((310 - (starSize * 5)), 5, (starSize * 5), starSize);
         [self.contentView addSubview:ratingView];
         [ratingView release];
@@ -68,9 +68,11 @@
 -(void)loadMenuItem:(MenuItem *)menuItem {
     name.text = menuItem.name;
     tags.text = menuItem.tags_text;
-    price.text = [NSString stringWithFormat:@"$%@", menuItem.price];
+    price.text = [NSString stringWithFormat:@"$%.2f", menuItem.price];
     [imageView setImageWithURL:[NSURL URLWithString:[[menuItem.pictures objectAtIndex:0] objectForKey:@"80px"]]
               placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
+    
+    [ratingView loadRating:menuItem.rating];
 
 }
 

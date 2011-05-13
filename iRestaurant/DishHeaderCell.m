@@ -63,7 +63,7 @@
         restaurantName.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:restaurantName];
         
-        ratingView = [[RatingView alloc]initWithRating:50 andHowManyRatings:267 andStarSize:15 andIsUserRating:FALSE andIsEditable:TRUE];
+        ratingView = [[RatingView alloc] initWithStarSize:20 andLabelVisible:YES];
         ratingView.frame = CGRectMake(10, 60, 100, 20);
         [self.contentView addSubview:ratingView];
 
@@ -101,7 +101,8 @@
 {
     name.text = [NSString stringWithFormat:@"%@", menu_item.name];
     restaurantName.text = [NSString stringWithFormat:@"%@", restaurant.name];
-    price.text = @"$9.99";
+    price.text = [NSString stringWithFormat:@"$%.2f", menu_item.price];
+
     //[imageView setImageWithURL:[NSURL URLWithString:[[menu_item.pictures objectAtIndex:0] objectForKey:@"300px"]]
     //          placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
     

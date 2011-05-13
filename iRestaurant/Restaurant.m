@@ -94,10 +94,14 @@
         wheelchair_access = [[restaurantDictionary objectForKey:@"wheelchair_access"] retain];
         pictures          = [[restaurantDictionary objectForKey:@"pictures"] retain];
         comments          = [[restaurantDictionary objectForKey:@"comments"] retain];
-        average_meal_price= [[restaurantDictionary objectForKey:@"average_meal_price"] retain];
-        if([average_meal_price isKindOfClass:[NSNull class]]){
-            average_meal_price = @"--.--";
+        NSNumber *avgPrice = [[restaurantDictionary objectForKey:@"average_meal_price"] retain];
+        
+        if(avgPrice != nil && [avgPrice isKindOfClass:[NSNumber class]]){
+            average_meal_price = [avgPrice floatValue];
+        } else {
+            average_meal_price = 0.0f;
         }
+        
         distance          = [[restaurantDictionary objectForKey:@"distance"] retain];
         
         menu_items        = [[NSMutableArray alloc] init];
@@ -159,7 +163,6 @@
     [pictures          release];
     [comments          release];
     [menu_items        release];
-    [average_meal_price release];
     [distance           release];
     [menu_metadata      release];
     [menu               release];

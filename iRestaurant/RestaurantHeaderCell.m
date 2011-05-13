@@ -42,7 +42,7 @@
         name.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:name];
         
-        ratingView = [[RatingView alloc]initWithRating:0 andHowManyRatings:0 andStarSize:20 andIsUserRating:FALSE andIsEditable:FALSE];
+        ratingView = [[RatingView alloc] initWithStarSize:20 andLabelVisible:YES];
         ratingView.frame = CGRectMake(10, 30, 100, 20);
         [self.contentView addSubview:ratingView];
         
@@ -168,7 +168,7 @@
     lunch_hours.text = @"11:00am - 1:00pm";
     dinner_hours.text = @"3:00am - 1:00am";
         
-    NSString* average_meal_price_formatted = [NSString stringWithFormat:@"%.02f", [restaurant.average_meal_price floatValue]];
+    NSString* average_meal_price_formatted = [NSString stringWithFormat:@"%.02f", restaurant.average_meal_price];
     
     average_meal.text = [NSString stringWithFormat:@"$%@", average_meal_price_formatted];
     
