@@ -79,7 +79,7 @@
         
     NSString *responseString = [request_passed responseString];
     NSArray *arrayOfDictionaries = [responseString JSONValue];
-        
+    NSLog(@"%@", responseString);
     NSMutableArray *resultsForDelegate = [[NSMutableArray alloc]init];
     
     for (NSDictionary *dict in arrayOfDictionaries) {
