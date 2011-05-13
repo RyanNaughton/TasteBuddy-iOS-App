@@ -12,6 +12,7 @@
 #import "RatingView.h"
 #import "iRestaurantAppDelegate.h"
 #import "TakePhoto.h"
+#import "PhotoViewer.h"
 
 @implementation RestaurantHeaderCell
 @synthesize imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto;
@@ -25,14 +26,18 @@
         self.backgroundColor = [UIColor whiteColor];
    
         takePhoto = [[TakePhoto alloc]init];
-
+        
         imageView = [[UIImageView alloc]init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         imageView.frame = CGRectMake(10, 55, 120, 120);
         [self.contentView addSubview:imageView];
         
-
+        UIButton *imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [imageButton addTarget:self action:@selector(imageButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        imageButton.frame = CGRectMake(10, 55, 120, 120);
+        [self.contentView addSubview:imageButton];
+        
         name = [[UILabel alloc]init];
         name.frame = CGRectMake(10, 7, 280, 20);
         name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
@@ -182,6 +187,24 @@
         cuisine_types.text = [NSString stringWithFormat:@"%@", [restaurant.cuisine_types objectAtIndex:0]];
     }
     [ratingView loadRating:restaurant.rating];
+}
+
+-(void) imageButtonPressed:(id)sender {
+
+    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    NSLog(@"pictures data: %@", restaurant.pictures);
+    NSMutableArray *arrayOfImageURLs = [[NSMutableArray alloc]init];
+    for (NSDictionary *pictDict in restaurant.pictures) {
+        [arrayOfImageURLs addObject:[pictDict objectForKey:@"300px"]];
+    }
+    
+    PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
+    [photoViewer setupScrollView:arrayOfImageURLs];
+    photoViewer.navItem.title = [NSString stringWithFormat:@"%@", restaurant.name];
+    photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [appDelegate.tabBarController presentModalViewController:photoViewer animated:YES];
+    [photoViewer release];
 }
 
 -(void)cameraButtonPressed:(id)sender {

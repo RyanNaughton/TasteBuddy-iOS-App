@@ -67,6 +67,7 @@
 		E80E05A21360EA3400894180 /* cheeseburger.png in Resources */ = {isa = PBXBuildFile; fileRef = E80E059F1360EA3300894180 /* cheeseburger.png */; };
 		E824E29B137B113000E790D2 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E824E299137B113000E790D2 /* SignUpViewController.m */; };
 		E824E29C137B113000E790D2 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E824E29A137B113000E790D2 /* SignUpViewController.xib */; };
+		E82DA973137DB65E0060DB3E /* UserCreationService.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA972137DB65E0060DB3E /* UserCreationService.m */; };
 		E83A946A1365F11A00A5B706 /* red-heart.png in Resources */ = {isa = PBXBuildFile; fileRef = E83A94681365F11A00A5B706 /* red-heart.png */; };
 		E83A946B1365F11A00A5B706 /* red-heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E83A94691365F11A00A5B706 /* red-heart@2x.png */; };
 		E83A946F1365F15400A5B706 /* 29-heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E83A946D1365F15400A5B706 /* 29-heart@2x.png */; };
@@ -330,6 +331,8 @@
 		E824E298137B113000E790D2 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		E824E299137B113000E790D2 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		E824E29A137B113000E790D2 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		E82DA971137DB65E0060DB3E /* UserCreationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCreationService.h; sourceTree = "<group>"; };
+		E82DA972137DB65E0060DB3E /* UserCreationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCreationService.m; sourceTree = "<group>"; };
 		E83A94681365F11A00A5B706 /* red-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-heart.png"; sourceTree = "<group>"; };
 		E83A94691365F11A00A5B706 /* red-heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-heart@2x.png"; sourceTree = "<group>"; };
 		E83A946D1365F15400A5B706 /* 29-heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart@2x.png"; sourceTree = "<group>"; };
@@ -1074,6 +1077,8 @@
 		E8A03E1A135538EB0031D798 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E82DA971137DB65E0060DB3E /* UserCreationService.h */,
+				E82DA972137DB65E0060DB3E /* UserCreationService.m */,
 				E842967D137C64C200E791B2 /* UserProfileService.h */,
 				E842967E137C64C200E791B2 /* UserProfileService.m */,
 				E8AE703713785B7B009CB87E /* Bookmarking */,
@@ -1554,6 +1559,7 @@
 				49ABCCFC137CAC9F0006218B /* Rating.m in Sources */,
 				E842969E137CCD3800E791B2 /* PhotoViewer.m in Sources */,
 				49C41108137DB809005536D0 /* hours.m in Sources */,
+				E82DA973137DB65E0060DB3E /* UserCreationService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1620,7 +1626,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1640,7 +1646,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PROVISIONING_PROFILE = "1A081128-A48D-4CCF-B739-27B6521BEB77";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1A081128-A48D-4CCF-B739-27B6521BEB77";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

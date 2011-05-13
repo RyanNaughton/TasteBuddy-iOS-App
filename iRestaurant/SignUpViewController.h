@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserCreationService.h"
+@class AuthenticationResponse;
+@class UserCreationService;
+@class LoginViewController;
 
-
-@interface SignUpViewController : UIViewController <UITextFieldDelegate> {
+@interface SignUpViewController : UIViewController <UITextFieldDelegate, UserCreationServiceDelegate> {
 	IBOutlet UIScrollView *scrollView;
     IBOutlet UITextField *usernameField;
     IBOutlet UITextField *firstNameField;
@@ -22,6 +25,8 @@
     IBOutlet UITextField *birthdayMonthField;
     IBOutlet UITextField *birthdayDayField;
     IBOutlet UITextField *birthdayYearField;
+    UserCreationService *ucs;
+    LoginViewController *loginViewController;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
@@ -36,9 +41,13 @@
 @property (nonatomic, retain) IBOutlet UITextField *birthdayMonthField;
 @property (nonatomic, retain) IBOutlet UITextField *birthdayDayField;
 @property (nonatomic, retain) IBOutlet UITextField *birthdayYearField;
+@property (nonatomic, retain) UserCreationService *ucs;
+@property (nonatomic, retain) LoginViewController *loginViewController;
 
 -(IBAction)cancelButtonPressed;
 -(IBAction)sendButtonPressed;
 - (void)keyboardDidShow:(NSNotification *)notification;
+
+-(void) signupComplete:(AuthenticationResponse *)authToken;
 
 @end

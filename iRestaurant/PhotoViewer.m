@@ -34,7 +34,8 @@
         [imageArray addObject:image];
     }
     
-    UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(0, 44, 320, 320)];
+    UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(0, 102, 320, 320)];
+    
     svimage = [[IGUIScrollViewImage alloc] init];  
     [svimage setBackGroudColor:[UIColor clearColor]];
     [svimage setContentArray:imageArray];  
@@ -44,8 +45,6 @@
     svimage.scrollView.showsHorizontalScrollIndicator = FALSE;
     [self.view addSubview:viewForScrollView];
     [viewForScrollView release];
-
-    
 }
 
 -(IBAction) closeButtonPressed {

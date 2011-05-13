@@ -7,7 +7,9 @@
 //
 
 #import "SignUpViewController.h"
-
+#import "AuthenticationResponse.h"
+#import "UserCreationService.h"
+#import "LoginViewController.h"
 
 @implementation SignUpViewController
 
@@ -23,6 +25,8 @@
 @synthesize birthdayMonthField;
 @synthesize birthdayDayField;
 @synthesize birthdayYearField;
+@synthesize ucs;
+@synthesize loginViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,7 +61,16 @@
 
 -(IBAction)sendButtonPressed 
 {
-    NSLog(@"send");
+    ucs = [[UserCreationService alloc]initWithDelegate:self];
+    [ucs signUpWithUsername:usernameField.text 
+               andFirstName:firstNameField.text 
+                andLastName:lastNameField.text 
+                andPassword:passwordField.text 
+               andConfirmPW:confirmPasswordField.text 
+                 andCountry:countryField.text 
+              andPostalCode:postalCodeField.text 
+                   andEmail:emailField.text 
+               andBirthdate:birthdayDayField.text];
 }
 
 - (void)didReceiveMemoryWarning
@@ -100,6 +113,15 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(void) signupComplete:(AuthenticationResponse *)authToken {
+    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Sign up complete!" message:@"Welcome to TaseBuddy!" delegate:self cancelButtonTitle:@"continue" otherButtonTitles:nil];
+    [alert show];
+    [alert release];
+    
+    [loginViewController loginComplete:authToken];
 }
 
 @end
