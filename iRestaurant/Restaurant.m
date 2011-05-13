@@ -69,7 +69,6 @@
         
         _id               = [[restaurantDictionary objectForKey:@"id"] retain];
         name              = [[restaurantDictionary objectForKey:@"name"] retain];
-        NSLog(@"Restaurant Name : %@", name);
         rating = [[Rating alloc] initWithUserRating:[restaurantDictionary objectForKey:@"user_rating"] andAverageRating:[restaurantDictionary objectForKey:@"average_rating"] andRatingsCount:[restaurantDictionary objectForKey:@"ratings_count"]];
 
         address_1         = [[restaurantDictionary objectForKey:@"address_1"] retain];

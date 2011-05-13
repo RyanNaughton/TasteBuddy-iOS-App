@@ -30,7 +30,6 @@
         
         for (NSArray *daysHours in hoursArray) {
             [openingTimesCount addObject:[NSNumber numberWithInt:[daysHours count]]];
-            NSLog(@"Hours Count : %i", [daysHours count]);
 
             NSDictionary *firstOpenHours = [[daysHours objectAtIndex:0] objectForKey:@"open"];
             NSDictionary *firstCloseHours = [[daysHours objectAtIndex:0] objectForKey:@"close"];
