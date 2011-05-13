@@ -25,5 +25,6 @@
 -(NSString *) todaysFirstOpeningHours;
 -(NSString *) todaysSecondOpeningHours;
 -(int) dayNumber;
+-(int) todaysOpeningTimesCount;
 
 @end

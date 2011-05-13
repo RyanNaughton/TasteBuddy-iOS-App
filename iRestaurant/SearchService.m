@@ -77,7 +77,6 @@
 {
         
     NSString *responseString = [request_passed responseString];
-    NSLog(@"response string: %@", responseString);
     NSArray *arrayOfDictionaries = [responseString JSONValue];
         
     NSMutableArray *resultsForDelegate = [[NSMutableArray alloc]init];

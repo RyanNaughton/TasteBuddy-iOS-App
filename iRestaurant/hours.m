@@ -30,6 +30,8 @@
         
         for (NSArray *daysHours in hoursArray) {
             [openingTimesCount addObject:[NSNumber numberWithInt:[daysHours count]]];
+            NSLog(@"Hours Count : %i", [daysHours count]);
+
             NSDictionary *firstOpenHours = [[daysHours objectAtIndex:0] objectForKey:@"open"];
             NSDictionary *firstCloseHours = [[daysHours objectAtIndex:0] objectForKey:@"close"];
             
@@ -39,7 +41,7 @@
             if([daysHours count] > 1) {
                 NSDictionary *secondOpenHours = [[daysHours objectAtIndex:1] objectForKey:@"open"];
                 NSDictionary *secondCloseHours = [[daysHours objectAtIndex:1] objectForKey:@"close"];
-                [secondOpeningHours addObject:[NSString stringWithFormat:@"%@:%@ - @:%@",  [secondOpenHours objectForKey:@"h"], [secondOpenHours objectForKey:@"m"], [secondCloseHours objectForKey:@"h"], [secondCloseHours objectForKey:@"m"]]];
+                [secondOpeningHours addObject:[NSString stringWithFormat:@"%@:%@ - %@:%@",  [secondOpenHours objectForKey:@"h"], [secondOpenHours objectForKey:@"m"], [secondCloseHours objectForKey:@"h"], [secondCloseHours objectForKey:@"m"]]];
                 
             } else {
                 [secondOpeningHours addObject:@"-"];
@@ -60,6 +62,10 @@
     return [secondOpeningHours objectAtIndex:[self dayNumber]];   
 }
 
+-(int) todaysOpeningTimesCount {
+    return [[openingTimesCount objectAtIndex:[self dayNumber]] intValue];
+}
+
 
 -(int) dayNumber {
     NSDate *today = [NSDate date];
@@ -68,9 +74,7 @@
     NSDateComponents *weekdayComponents =
     [gregorian components:(NSDayCalendarUnit | NSWeekdayCalendarUnit) fromDate:today];
     NSInteger day = [weekdayComponents weekday];
-    return  day;
+    return  day - 1;
 }
-
-
 
 @end
