@@ -46,12 +46,15 @@
 // sets user rating to a float passed in. rating is a % (rating/100)
 -(void) setUserRating:(float)rating {
     [redStarsView removeFromSuperview];
+    [yellowStarsView removeFromSuperview];
     [self setupYellowStarsView];
     yellowStarsView.frame = CGRectMake(0, 0, ((rating * (starSize *5)) / 100), starSize);
     yellowStarsView.clipsToBounds = TRUE;
 }
 
 -(void) setRating:(float)rating {
+    [redStarsView removeFromSuperview];
+    [yellowStarsView removeFromSuperview];
     [self setupRedStarsView];
     redStarsView.frame = CGRectMake(0, 0, ((rating * (starSize *5)) / 100), starSize);
     redStarsView.clipsToBounds = TRUE;
@@ -67,6 +70,7 @@
         [outlineStarsView addSubview:outlineStar];
         [outlineStar release];
     }
+    [self addSubview:outlineStarsView];
 }
 
 -(void) setupRedStarsView {

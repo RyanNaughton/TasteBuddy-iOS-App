@@ -45,7 +45,7 @@
         pictures        = [[menuItemDictionary objectForKey:@"pictures"] retain];
         restaurant_id   = [[menuItemDictionary objectForKey:@"restaurant_id"] retain];
         
-        rating = [[Rating alloc] initWithUserRating:[menuItemDictionary objectForKey:@"user_rating"] andAverageRating:[menuItemDictionary objectForKey:@"average_rating"] andRatingsCount:[menuItemDictionary objectForKey:@"ratrings_count"]];
+        rating = [[Rating alloc] initWithUserRating:[menuItemDictionary objectForKey:@"user_rating"] andAverageRating:[menuItemDictionary objectForKey:@"average_rating"] andRatingsCount:[menuItemDictionary objectForKey:@"ratings_count"]];
         
 
         

@@ -102,6 +102,8 @@
     name.text = [NSString stringWithFormat:@"%@", menu_item.name];
     restaurantName.text = [NSString stringWithFormat:@"%@", restaurant.name];
     price.text = [NSString stringWithFormat:@"$%.2f", menu_item.price];
+    
+    [ratingView loadRating:menu_item.rating];
 
     //[imageView setImageWithURL:[NSURL URLWithString:[[menu_item.pictures objectAtIndex:0] objectForKey:@"300px"]]
     //          placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];

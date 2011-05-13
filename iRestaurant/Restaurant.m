@@ -67,7 +67,7 @@
         _id               = [[restaurantDictionary objectForKey:@"id"] retain];
         name              = [[restaurantDictionary objectForKey:@"name"] retain];
         
-        rating = [[Rating alloc] initWithUserRating:[restaurantDictionary objectForKey:@"user_rating"] andAverageRating:[restaurantDictionary objectForKey:@"average_rating"] andRatingsCount:[restaurantDictionary objectForKey:@"ratrings_count"]];
+        rating = [[Rating alloc] initWithUserRating:[restaurantDictionary objectForKey:@"user_rating"] andAverageRating:[restaurantDictionary objectForKey:@"average_rating"] andRatingsCount:[restaurantDictionary objectForKey:@"ratings_count"]];
 
         address_1         = [[restaurantDictionary objectForKey:@"address_1"] retain];
         address_2         = [[restaurantDictionary objectForKey:@"address_2"] retain];
