@@ -94,7 +94,10 @@
 }
 
 -(void) doneRetrievingProfile:(NSMutableDictionary *) profile {
-    NSLog(@"profile retrieved: %@", profile);
+    
+    NSLog(@"profile: %@", profile);
+    
+    username = [[NSString stringWithFormat:@"%@",[profile objectForKey:@"username"]]retain];
     reviewsCount = [[profile objectForKey:@"ratings_count"] intValue];
     picturesDictionary = [[NSDictionary alloc]initWithDictionary:[profile objectForKey:@"pictures"]];
     
@@ -112,14 +115,13 @@
             [datesArray addObject:restaurantDictionary];            
         }
         
-        NSDictionary *dateDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:datesArray, key, nil];
+        NSArray *sortedArray = [[datesArray reverseObjectEnumerator] allObjects];        
+                
+        NSDictionary *dateDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:sortedArray, key, nil];
         
         [picturesArray addObject:dateDictionary];
     }
-    
-    NSLog(@"pictures array: %@", picturesArray);
-    
-    username = @"Andrew Chalkley";
+        
     dataReceived = TRUE;
     [self.tableView reloadData];
 }
@@ -160,7 +162,6 @@
             rowsInSection = 1;
         } else {
             NSDictionary *dict = [picturesArray objectAtIndex:(section - 1)];
-            NSLog(@"dict %@", dict);
             NSArray *array;
             for (id key in dict) {
                 array = [dict objectForKey:key];
@@ -187,7 +188,7 @@
 		if (profileHeadCell == nil) {
 		    profileHeadCell = [[[ProfileHeadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfileHeadCell"] autorelease];
 		}          
-        [profileHeadCell setUserInfoWithName:username andReviews:reviewsCount andPictures:picturesCount];
+        [profileHeadCell setUserInfoWithName:[NSString stringWithFormat:@"%@", username] andReviews:reviewsCount andPictures:picturesCount];
 		return profileHeadCell;
 
     }
@@ -216,14 +217,12 @@
             }  
             
             NSDictionary *dict = [picturesArray objectAtIndex:(indexPath.section - 1)];
-            NSLog(@"dict %@", dict);
             NSArray *array;
             for (id key in dict) {
                 array = [dict objectForKey:key];
             }
             
             NSDictionary *currentRestaurantDict = [array objectAtIndex:(indexPath.row -1)];
-            NSLog(@"currentRestaurantDict: %@", currentRestaurantDict);
             [profilePhotoCell setVariablesWithDictionary:currentRestaurantDict];
             return profilePhotoCell;
         }
@@ -307,7 +306,6 @@
     if (indexPath.section > 0) {
         if (indexPath.row > 0) {
             NSDictionary *dict = [picturesArray objectAtIndex:(indexPath.section - 1)];
-            NSLog(@"dict %@", dict);
             NSArray *array;
             for (id key in dict) {
                 array = [dict objectForKey:key];
@@ -340,7 +338,6 @@
 }
 
 -(IBAction) logoutPressed:(id)sender {
-    NSLog(@"Logout Pressed");
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     [appDelegate logout];
 }
