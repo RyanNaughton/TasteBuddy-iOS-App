@@ -76,7 +76,12 @@
     name.text = [restaurant.name retain];
     tags.text = restaurant.tags_text;
     addressLine1.text = [restaurant.address_1 retain];
-    distance.text = [NSString stringWithFormat:@"%@ miles", restaurant.distance];
+    if([restaurant.distance isKindOfClass:[NSNull class]]) {
+        distance.hidden = YES;
+    } else {
+        distance.hidden = NO;
+        distance.text = [NSString stringWithFormat:@"%@ miles", restaurant.distance];
+    }
     averageDishPrice.text = [NSString stringWithFormat:@"avg. dish: $%@", restaurant.average_meal_price];
     
     // set average rating

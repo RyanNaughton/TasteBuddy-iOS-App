@@ -86,6 +86,8 @@
         [tableView reloadData];
     }
     if(!animated) {
+        favoritesDishesTVC.isLoading = YES;
+        favoritesRestaurantsTVC.isLoading = YES;
         [ubs getUserBookmarks];
     }
 }
@@ -137,6 +139,8 @@
 -(void) doneRetrievingBookmarks:(NSMutableDictionary *) bookmarks {
     favoritesRestaurantsTVC.restaurantsArray = [bookmarks objectForKey:@"restaurants"];
     favoritesDishesTVC.dishesArray = [bookmarks objectForKey:@"menu_items"];
+    favoritesDishesTVC.isLoading = NO;
+    favoritesRestaurantsTVC.isLoading = NO;
     [tableView reloadData];
 }
 
