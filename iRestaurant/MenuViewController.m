@@ -116,7 +116,11 @@
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 }
 
-
+-(void) viewWillDisappear:(BOOL)animated {
+    if (menuService.request != nil) {
+        [menuService.request cancel];
+    }
+}
 - (void)viewDidUnload
 {
     [super viewDidUnload];
