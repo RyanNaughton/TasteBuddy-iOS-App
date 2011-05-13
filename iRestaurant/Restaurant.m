@@ -13,6 +13,7 @@
 #import "Tag.h"
 #import "Rating.h"
 #import "Comment.h"
+#import "hours.h"
 
 @implementation Restaurant
 
@@ -51,6 +52,7 @@
 @synthesize tags;
 @synthesize rating;
 @synthesize tags_text;
+@synthesize hours;
 
 -(id) init {
     self = [super init];
@@ -67,7 +69,6 @@
         
         _id               = [[restaurantDictionary objectForKey:@"id"] retain];
         name              = [[restaurantDictionary objectForKey:@"name"] retain];
-        
         rating = [[Rating alloc] initWithUserRating:[restaurantDictionary objectForKey:@"user_rating"] andAverageRating:[restaurantDictionary objectForKey:@"average_rating"] andRatingsCount:[restaurantDictionary objectForKey:@"ratings_count"]];
 
         address_1         = [[restaurantDictionary objectForKey:@"address_1"] retain];
@@ -96,7 +97,7 @@
         pictures          = [[restaurantDictionary objectForKey:@"pictures"] retain];
         comments          = [[NSMutableArray alloc] init];
         
-        
+        hours             =  [[Hours alloc] initWithArray:[[restaurantDictionary objectForKey:@"hours"] retain]];
         
         for (NSDictionary *dict in [restaurantDictionary objectForKey:@"comments"]) {
             Comment *comment = [[Comment alloc] initWithDictionary:dict];
@@ -178,6 +179,7 @@
     [menu               release];
     [tags               release];
     [tags_text          release];
+    [hours              release];
     [super              dealloc];
 }
 

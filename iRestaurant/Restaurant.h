@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 @class Rating;
 @class Menu;
+@class Hours;
 
 @interface Restaurant : NSObject {
     NSString *_id;
@@ -52,6 +53,8 @@
     NSString *tags_text;
     
     Rating *rating;
+    
+    Hours *hours;
 }
 
 @property (nonatomic, retain) NSString *_id;
@@ -95,6 +98,8 @@
 @property (nonatomic, retain) NSString *tags_text;
 
 @property (nonatomic, retain) Rating *rating;
+
+@property (nonatomic, retain) Hours *hours;
 
 -(id) initWithDictionary:(NSDictionary *)restaurantDictionary;
 

@@ -11,43 +11,69 @@
 
 @implementation Hours
 
-@synthesize firstOpeningHours, secondOpeningHours;
+@synthesize firstOpeningHours, secondOpeningHours, openingTimesCount;
 
 - (void)dealloc {
     
     [firstOpeningHours release];
     [secondOpeningHours release];
+    [openingTimesCount release];
     [super dealloc];
 }
 -(id) initWithArray:(NSArray *) hoursArray {
     self = [super init];
     if(self) {
         
-        firstOpeningHours = [[NSMutableArray alloc] initWithCapacity:7];
-        secondOpeningHours = [[NSMutableArray alloc] initWithCapacity:7];
+        firstOpeningHours   = [[NSMutableArray alloc] initWithCapacity:7];
+        secondOpeningHours  = [[NSMutableArray alloc] initWithCapacity:7];
+        openingTimesCount   = [[NSMutableArray alloc] initWithCapacity:7];
         
         for (NSArray *daysHours in hoursArray) {
-            NSDictionary *firstHours = [daysHours objectAtIndex:0];
-            NSDictionary *secondHours = [daysHours objectAtIndex:1];
-            [firstOpeningHours addObject:[NSString stringWithFormat:@"%@:%@", [firstHours objectForKey:@"h"], [firstHours objectForKey:@"m"]]];
-            [secondOpeningHours addObject:[NSString stringWithFormat:@"%@:%@", [secondHours objectForKey:@"h"], [secondHours objectForKey:@"m"]]];
+            [openingTimesCount addObject:[NSNumber numberWithInt:[daysHours count]]];
+
+            NSDictionary *firstOpenHours = [[daysHours objectAtIndex:0] objectForKey:@"open"];
+            NSDictionary *firstCloseHours = [[daysHours objectAtIndex:0] objectForKey:@"close"];
             
-            [firstHours release];
-            [secondOpeningHours release];
+            [firstOpeningHours addObject:[NSString stringWithFormat:@"%@:%@ - %@:%@", [firstOpenHours objectForKey:@"h"], [firstOpenHours objectForKey:@"m"], [firstCloseHours objectForKey:@"h"], [firstCloseHours objectForKey:@"m"]]];
+
+            
+            if([daysHours count] > 1) {
+                NSDictionary *secondOpenHours = [[daysHours objectAtIndex:1] objectForKey:@"open"];
+                NSDictionary *secondCloseHours = [[daysHours objectAtIndex:1] objectForKey:@"close"];
+                [secondOpeningHours addObject:[NSString stringWithFormat:@"%@:%@ - %@:%@",  [secondOpenHours objectForKey:@"h"], [secondOpenHours objectForKey:@"m"], [secondCloseHours objectForKey:@"h"], [secondCloseHours objectForKey:@"m"]]];
+                
+            } else {
+                [secondOpeningHours addObject:@"-"];
+            }
+            
+            
         }
-        
-        
+
     }
     return self;
 }
 
--(NSString *) todaysOpeningHours {
-    return @"";    
+-(NSString *) todaysFirstOpeningHours {    
+    return [firstOpeningHours objectAtIndex:[self dayNumber]];    
 }
 
--(NSString *) todaysClosingHours {
-    return @"";
+-(NSString *) todaysSecondOpeningHours {
+    return [secondOpeningHours objectAtIndex:[self dayNumber]];   
 }
 
+-(int) todaysOpeningTimesCount {
+    return [[openingTimesCount objectAtIndex:[self dayNumber]] intValue];
+}
+
+
+-(int) dayNumber {
+    NSDate *today = [NSDate date];
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    NSDateComponents *weekdayComponents =
+    [gregorian components:(NSDayCalendarUnit | NSWeekdayCalendarUnit) fromDate:today];
+    NSInteger day = [weekdayComponents weekday];
+    return  day - 1;
+}
 
 @end

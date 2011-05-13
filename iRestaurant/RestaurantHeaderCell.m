@@ -13,9 +13,10 @@
 #import "iRestaurantAppDelegate.h"
 #import "TakePhoto.h"
 #import "PhotoViewer.h"
+#import "hours.h"
 
 @implementation RestaurantHeaderCell
-@synthesize imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto;
+@synthesize imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto, lunch_text, dinner_text;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -69,7 +70,7 @@
         [self.contentView addSubview:greyLine3];
         [greyLine3 release];
         
-        UILabel *lunch_text = [[UILabel alloc]init];
+        lunch_text = [[UILabel alloc]init];
         lunch_text.frame = CGRectMake(155, 60, 155, 20);
         lunch_text.textColor = [UIColor darkGrayColor];
 		lunch_text.backgroundColor = [UIColor clearColor];
@@ -77,11 +78,9 @@
 		lunch_text.font = [UIFont systemFontOfSize:12];
         lunch_text.shadowColor = [UIColor whiteColor];
         lunch_text.shadowOffset = CGSizeMake(0,1);
-        lunch_text.text = @"lunch";
         [self.contentView addSubview:lunch_text];
-        [lunch_text release];
         
-        UILabel *dinner_text = [[UILabel alloc]init];
+        dinner_text = [[UILabel alloc]init];
         dinner_text.frame = CGRectMake(155, 90, 155, 20);
         dinner_text.textColor = [UIColor darkGrayColor];
 		dinner_text.backgroundColor = [UIColor clearColor];
@@ -89,10 +88,8 @@
 		dinner_text.font = [UIFont systemFontOfSize:12];
         dinner_text.shadowColor = [UIColor whiteColor];
         dinner_text.shadowOffset = CGSizeMake(0,1);
-        dinner_text.text = @"dinner";
         [self.contentView addSubview:dinner_text];
-        [dinner_text release];
-
+        
         
         UILabel *cuisine_types_text = [[UILabel alloc]init];
         cuisine_types_text.frame = CGRectMake(155, 120, 155, 20);
@@ -170,9 +167,15 @@
         imageView.image = [UIImage imageNamed:@"restaurant-icon.gif"];
     }
     name.text = restaurant.name;
-    lunch_hours.text = @"11:00am - 1:00pm";
-    dinner_hours.text = @"3:00am - 1:00am";
-        
+    lunch_hours.text = [restaurant.hours todaysFirstOpeningHours];
+    dinner_hours.text = [restaurant.hours todaysSecondOpeningHours];
+    if([restaurant.hours todaysOpeningTimesCount] > 1) {
+        lunch_text.text = @"lunch";
+        dinner_text.text = @"dinner";
+    } else {
+        lunch_text.text = @"hours";        
+        dinner_text.text = @"-";
+    }
     NSString* average_meal_price_formatted = [NSString stringWithFormat:@"%.02f", restaurant.average_meal_price];
     
     average_meal.text = [NSString stringWithFormat:@"$%@", average_meal_price_formatted];
@@ -225,6 +228,8 @@
 
 - (void)dealloc
 {
+    [dinner_text release];
+    [lunch_text release];
     [takePhoto release];
     [imageView release];
     [name release];

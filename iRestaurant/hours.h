@@ -12,14 +12,19 @@
 @interface Hours : NSObject {
     NSMutableArray *firstOpeningHours;
     NSMutableArray *secondOpeningHours;
+    NSMutableArray *openingTimesCount;
 }
 
 @property (nonatomic, retain) NSMutableArray *firstOpeningHours;
 @property (nonatomic, retain) NSMutableArray *secondOpeningHours;
+@property (nonatomic, retain) NSMutableArray *openingTimesCount;
+
 
 -(id) initWithArray:(NSArray *) hoursArray;
 
 -(NSString *) todaysFirstOpeningHours;
 -(NSString *) todaysSecondOpeningHours;
+-(int) dayNumber;
+-(int) todaysOpeningTimesCount;
 
 @end

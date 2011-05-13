@@ -23,6 +23,9 @@
     UIImage *greyHeart;
     UIImage *redHeart;
     
+    UILabel *dinner_text;
+    UILabel *lunch_text;
+    
     Restaurant *restaurant;
     TakePhoto *takePhoto;
 }
@@ -37,6 +40,9 @@
 @property (nonatomic, retain) UIButton *favoriteButton;
 @property (nonatomic, retain) UIImage *greyHeart;
 @property (nonatomic, retain) UIImage *redHeart;
+
+@property (nonatomic, retain) UILabel *dinner_text;
+@property (nonatomic, retain) UILabel *lunch_text;
 
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, retain) TakePhoto *takePhoto;
