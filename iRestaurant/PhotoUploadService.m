@@ -9,7 +9,7 @@
 #import "PhotoUploadService.h"
 #import "ASIFormDataRequest.h"
 #import "iRestaurantAppDelegate.h"
-#import "Base64.h"
+#import "JSON.h"
 
 @implementation PhotoUploadService
 @synthesize delegate;
@@ -36,6 +36,8 @@
 
 -(void) performRequest {
     NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSLog(@"json for photo: %@", jsonDictionary);
     
     request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"multipart/form-data"];

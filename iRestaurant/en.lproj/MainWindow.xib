@@ -86,7 +86,7 @@
 						<int key="IBUIBarStyle">1</int>
 						<object class="NSColor" key="IBUITintColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4yMDcxODUxMDQ1IDAuNzA3MDA4MTgzIDAuMTYyMDIxNDg4AA</bytes>
+							<bytes key="NSRGB">MC4yMDc4NDMxMzczIDAuNzA1ODgyMzUyOSAwLjE2MDc4NDMxMzcAA</bytes>
 						</object>
 					</object>
 					<object class="NSMutableArray" key="IBUIViewControllers">
@@ -136,7 +136,7 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<object class="NSColor" key="IBUITintColor">
 								<int key="NSColorSpace">1</int>
-								<bytes key="NSRGB">MC4xOTY1NjE3MjM5IDAuNjY1OTUwMzU3OSAwLjE1NDAyMzkwMDYAA</bytes>
+								<bytes key="NSRGB">MC4yMDc4NDMxMzczIDAuNzA1ODgyMzUyOSAwLjE2MDc4NDMxMzcAA</bytes>
 							</object>
 						</object>
 						<object class="NSMutableArray" key="IBUIViewControllers">
