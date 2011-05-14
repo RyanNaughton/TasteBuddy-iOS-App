@@ -49,6 +49,12 @@
 {
     [super viewDidLoad];  
     
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"profileLogo.png"]];
+    appNameImageView.frame = CGRectMake(0, -3, 150, 44);
+    appNameImageView.contentMode = UIViewContentModeRight;
+    self.navigationItem.titleView = appNameImageView;
+
+    
         ups = [[UserProfileService alloc]initWithDelegate:self];
         [ups getUserProfile];
         loading = TRUE;

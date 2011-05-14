@@ -91,6 +91,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [usernameField becomeFirstResponder];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     
