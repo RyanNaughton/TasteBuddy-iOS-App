@@ -27,7 +27,7 @@
     [jsonDictionary setObject:where forKey:@"where"];
     [jsonDictionary setObject:what forKey:@"what"];
     [jsonDictionary setObject:imageData forKey:@"imageData"];
-    [jsonDictionary setObject:restaurant_id forKey:@"retuarant_id"];
+    [jsonDictionary setObject:restaurant_id forKey:@"restaurant_id"];
     [jsonDictionary setObject:menu_item_id forKey:@"menu_item_id"];
     
     
