@@ -125,6 +125,8 @@
         [bookmarkButton addSubview:bookmarkImage];
         //[menuImage release];
         
+        self.selectionStyle = UITableViewCellEditingStyleNone;
+        
     }
     return self;
 }

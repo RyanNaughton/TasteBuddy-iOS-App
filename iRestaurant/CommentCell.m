@@ -21,7 +21,7 @@
         text = [[UILabel alloc]init];
         [self addSubview:text];
         [self addSubview:user_name];
-
+        self.selectionStyle = UITableViewCellEditingStyleNone;
     }
     return self;
 }

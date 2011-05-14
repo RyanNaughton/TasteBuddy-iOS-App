@@ -124,7 +124,7 @@
         bookmarkImage.alpha = 0.8;
         [bookmarkButton addSubview:bookmarkImage];
         //[menuImage release];
-    
+        self.selectionStyle = UITableViewCellEditingStyleNone;
     }
     return self;
 }

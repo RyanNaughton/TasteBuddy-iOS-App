@@ -69,6 +69,16 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if(textField == password) {
+        [textField resignFirstResponder];
+        [self login];
+    }
+    return NO;
+}
+
+
 -(IBAction) login {
     [loginService loginWith:username.text andPassword:password.text];
 }

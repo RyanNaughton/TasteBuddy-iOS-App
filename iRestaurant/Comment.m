@@ -13,7 +13,6 @@
 @synthesize _id, user_id, user_name, text;
 
 - (void)dealloc {
-    [_id release];
     [user_id release];
     [user_name release];
     [text release];
@@ -26,9 +25,10 @@
     if (self) {
         _id       = [[commentDictionary objectForKey:@"_id"] retain];
         user_id   = [[commentDictionary objectForKey:@"user_id"] retain];
-        user_name = [[commentDictionary objectForKey:@"user_name"] retain];
+        user_name = [[commentDictionary objectForKey:@"username"] retain];
         text      = [[commentDictionary objectForKey:@"text"] retain];
         NSLog(@"text: %@", text);
+        NSLog(@"user_name: %@", user_name);
     }
     return self;       
 }

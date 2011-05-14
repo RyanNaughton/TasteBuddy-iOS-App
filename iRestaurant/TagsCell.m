@@ -64,7 +64,7 @@
         tagButtons = [[NSMutableArray alloc] init];
         tagValues = [[NSMutableArray alloc] init];
         [tagService getTags];
-        
+        self.selectionStyle = UITableViewCellEditingStyleNone;
     }
     return self;
 }

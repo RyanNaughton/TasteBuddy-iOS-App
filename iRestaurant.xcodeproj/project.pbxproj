@@ -165,7 +165,7 @@
 		E8A6E824135547050095E157 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A6E823135547050095E157 /* libxml2.dylib */; };
 		E8AA4AEF1361064A00A8E37B /* top-rounding.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4AED1361064A00A8E37B /* top-rounding.png */; };
 		E8AA4AF01361064A00A8E37B /* top-rounding@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */; };
-		E8AA4AF3136107B400A8E37B /* DishCommentsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AA4AF2136107B300A8E37B /* DishCommentsCell.m */; };
+		E8AA4AF3136107B400A8E37B /* CommentsHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AA4AF2136107B300A8E37B /* CommentsHeaderCell.m */; };
 		E8AA4AFF1361165800A8E37B /* IGUIScrollViewCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AA4AFB1361165700A8E37B /* IGUIScrollViewCanvas.m */; };
 		E8AA4B001361165800A8E37B /* IGUIScrollViewElements.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AA4AFD1361165700A8E37B /* IGUIScrollViewElements.m */; };
 		E8AA4B0313611F5500A8E37B /* 33-circle-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4B0113611F5500A8E37B /* 33-circle-plus@2x.png */; };
@@ -471,8 +471,8 @@
 		E8A6E823135547050095E157 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		E8AA4AED1361064A00A8E37B /* top-rounding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-rounding.png"; sourceTree = "<group>"; };
 		E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top-rounding@2x.png"; sourceTree = "<group>"; };
-		E8AA4AF1136107B300A8E37B /* DishCommentsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishCommentsCell.h; sourceTree = "<group>"; };
-		E8AA4AF2136107B300A8E37B /* DishCommentsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishCommentsCell.m; sourceTree = "<group>"; };
+		E8AA4AF1136107B300A8E37B /* CommentsHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentsHeaderCell.h; sourceTree = "<group>"; };
+		E8AA4AF2136107B300A8E37B /* CommentsHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentsHeaderCell.m; sourceTree = "<group>"; };
 		E8AA4AFA1361165700A8E37B /* IGUIScrollViewCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGUIScrollViewCanvas.h; sourceTree = "<group>"; };
 		E8AA4AFB1361165700A8E37B /* IGUIScrollViewCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IGUIScrollViewCanvas.m; sourceTree = "<group>"; };
 		E8AA4AFC1361165700A8E37B /* IGUIScrollViewElements.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGUIScrollViewElements.h; sourceTree = "<group>"; };
@@ -580,6 +580,27 @@
 			name = Tag;
 			sourceTree = "<group>";
 		};
+		494C28F4137DFF9800F30F64 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				494C28F5137DFFA700F30F64 /* Cells */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		494C28F5137DFFA700F30F64 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E8AA4AF1136107B300A8E37B /* CommentsHeaderCell.h */,
+				E8AA4AF2136107B300A8E37B /* CommentsHeaderCell.m */,
+				E83A9471136608CE00A5B706 /* TagsCell.h */,
+				49BED7FB13611BA700DE8CC4 /* CommentCell.h */,
+				49BED7FC13611BA700DE8CC4 /* CommentCell.m */,
+				E83A9472136608CE00A5B706 /* TagsCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		494D34AD1365FC0B00E03CCA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -661,6 +682,7 @@
 		49578B731355183500F8EC0B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				494C28F4137DFF9800F30F64 /* Shared */,
 				E8429695137CCC1B00E791B2 /* Photo Viewer */,
 				E86CC6091374D6540022FCBD /* Deals */,
 				E86CC5F01374CE2D0022FCBD /* Favorites */,
@@ -969,8 +991,6 @@
 				E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */,
 				E8756209135FE99D001A870F /* RestaurantTagsCell_OLD.h */,
 				E875620A135FE99E001A870F /* RestaurantTagsCell_OLD.m */,
-				E83A9471136608CE00A5B706 /* TagsCell.h */,
-				E83A9472136608CE00A5B706 /* TagsCell.m */,
 				E83A947413660E4A00A5B706 /* RestaurantWebsiteCell.h */,
 				E83A947513660E4A00A5B706 /* RestaurantWebsiteCell.m */,
 			);
@@ -1217,10 +1237,6 @@
 				E8DFF5AA1358C96E007BF40E /* DishHeaderCell.m */,
 				E8C794B9135CB6490033C3FB /* DishButtonsCell.h */,
 				E8C794BA135CB6490033C3FB /* DishButtonsCell.m */,
-				E8AA4AF1136107B300A8E37B /* DishCommentsCell.h */,
-				E8AA4AF2136107B300A8E37B /* DishCommentsCell.m */,
-				49BED7FB13611BA700DE8CC4 /* CommentCell.h */,
-				49BED7FC13611BA700DE8CC4 /* CommentCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1518,7 +1534,7 @@
 				49A64FA6135F5455002B3655 /* MenuSubcategory.m in Sources */,
 				E875620B135FE99E001A870F /* RestaurantTagsCell_OLD.m in Sources */,
 				E80E059C1360D2A100894180 /* IGUIScrollViewImage.m in Sources */,
-				E8AA4AF3136107B400A8E37B /* DishCommentsCell.m in Sources */,
+				E8AA4AF3136107B400A8E37B /* CommentsHeaderCell.m in Sources */,
 				49BED7FD13611BA700DE8CC4 /* CommentCell.m in Sources */,
 				E8AA4AFF1361165800A8E37B /* IGUIScrollViewCanvas.m in Sources */,
 				E8AA4B001361165800A8E37B /* IGUIScrollViewElements.m in Sources */,

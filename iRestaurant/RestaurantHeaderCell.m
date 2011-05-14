@@ -152,7 +152,7 @@
         average_meal.shadowColor = [UIColor whiteColor];
         average_meal.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:average_meal];
-    
+        self.selectionStyle = UITableViewCellEditingStyleNone;
     }
     return self;
 }

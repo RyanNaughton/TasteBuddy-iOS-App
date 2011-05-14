@@ -32,7 +32,7 @@
         websiteButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
         websiteButton.frame = CGRectMake(10, 10, 300, 35);
         [self.contentView addSubview:websiteButton];
-        
+        self.selectionStyle = UITableViewCellEditingStyleNone;
     }
     return self;
 }

@@ -7,13 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-@class MenuItem;
 
-@interface DishCommentsCell : UITableViewCell {
+@interface CommentsHeaderCell : UITableViewCell {
     
 }
-
--(void)loadMenuItem:(MenuItem *)menu_item;
-
 
 @end
