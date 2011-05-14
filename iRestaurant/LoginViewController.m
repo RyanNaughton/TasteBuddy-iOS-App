@@ -74,6 +74,8 @@
     if(textField == password) {
         [textField resignFirstResponder];
         [self login];
+    } else {
+        [password becomeFirstResponder];
     }
     return NO;
 }
