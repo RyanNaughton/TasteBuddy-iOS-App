@@ -136,4 +136,32 @@
     [self dismissModalViewControllerAnimated:YES];
 }
 
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    if(textField == birthdayYearField) {
+        [birthdayYearField resignFirstResponder];
+        [self sendButtonPressed];
+    } else if(textField == usernameField ){
+        [firstNameField becomeFirstResponder];
+    } else if(textField == firstNameField) {
+        [lastNameField becomeFirstResponder];
+    } else if(textField == lastNameField) {
+        [passwordField becomeFirstResponder];
+    } else if(textField == passwordField) {
+        [confirmPasswordField becomeFirstResponder];
+    } else if(textField == confirmPasswordField) {
+        [postalCodeField becomeFirstResponder];
+    } else if(textField == postalCodeField) {
+        [emailField becomeFirstResponder];
+    } else if(textField == emailField) {
+        [birthdayMonthField becomeFirstResponder];
+    } else if(textField == birthdayMonthField) {
+        [birthdayDayField becomeFirstResponder];
+    } else if(textField == birthdayDayField) {
+        [birthdayYearField becomeFirstResponder];
+    }
+    return NO;
+}
+
+
 @end
