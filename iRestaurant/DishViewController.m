@@ -79,8 +79,8 @@
     
     takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
     
-    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iRestaurant-logo"]];
-    appNameImageView.frame = CGRectMake(0, 0, 320, 35);
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
+    appNameImageView.frame = CGRectMake(0, -3, 320, 44);
     appNameImageView.contentMode = UIViewContentModeRight;
     self.navigationItem.titleView = appNameImageView;
     self.tableView.separatorColor = [UIColor clearColor];
@@ -144,8 +144,12 @@
         DishHeaderCell *dishHeaderCell = (DishHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"DishHeaderCell"];
 		if (dishHeaderCell == nil) {
 		    dishHeaderCell = [[[DishHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishHeaderCell"] autorelease];
-		}          
-        [dishHeaderCell loadMenuItem:menu_item andRestaurant:restaurant];
+		
+#warning this should probably be outside the nil check... but for speed let's try this.
+            [dishHeaderCell loadMenuItem:menu_item andRestaurant:restaurant];
+        
+        }          
+        
 		return dishHeaderCell;
         
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
