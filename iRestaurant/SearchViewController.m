@@ -75,20 +75,20 @@
     [mapButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     [filterButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     
-    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iRestaurant-logo.png"]];
-    appNameImageView.frame = CGRectMake(175, 8, 125, 19);
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
+    appNameImageView.frame = CGRectMake(160, -3, 150, 44);
     appNameImageView.contentMode = UIViewContentModeRight;
     
     restaurantsTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [restaurantsTabButton setTitle:@"Restaurants" forState:UIControlStateNormal];
     restaurantsTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
-    restaurantsTabButton.frame =  CGRectMake(0, 4, 80, 35);
+    restaurantsTabButton.frame =  CGRectMake(0, 4, 83, 35);
     [restaurantsTabButton addTarget:self action:@selector(switchSearchView:) forControlEvents:UIControlEventTouchUpInside];
     
     dishesTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [dishesTabButton setTitle:@"Dishes" forState:UIControlStateNormal];
     dishesTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
-    dishesTabButton.frame =  CGRectMake(78, 4, 80, 35);
+    dishesTabButton.frame =  CGRectMake(78, 4, 83, 35);
     [dishesTabButton addTarget:self action:@selector(switchSearchView:) forControlEvents:UIControlEventTouchUpInside];
 
     [self switchTabs:restaurantsTabButton];
@@ -114,7 +114,7 @@
     UIButton *offTab = (onTab == restaurantsTabButton) ? dishesTabButton : restaurantsTabButton;
     
     [offTab setBackgroundImage:[[UIImage imageNamed:@"darkgrey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
-    [offTab setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [offTab setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [onTab setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
     [onTab setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     

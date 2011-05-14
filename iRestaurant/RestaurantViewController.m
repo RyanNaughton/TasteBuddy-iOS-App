@@ -91,8 +91,8 @@
  
     takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
 
-    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"iRestaurant-logo"]];
-    appNameImageView.frame = CGRectMake(0, 0, 320, 35);
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
+    appNameImageView.frame = CGRectMake(0, -3, 320, 44);
     appNameImageView.contentMode = UIViewContentModeRight;
     self.navigationItem.titleView = appNameImageView;
     

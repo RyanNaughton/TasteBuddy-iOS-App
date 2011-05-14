@@ -68,6 +68,8 @@
 		E824E29B137B113000E790D2 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E824E299137B113000E790D2 /* SignUpViewController.m */; };
 		E824E29C137B113000E790D2 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E824E29A137B113000E790D2 /* SignUpViewController.xib */; };
 		E82DA973137DB65E0060DB3E /* UserCreationService.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA972137DB65E0060DB3E /* UserCreationService.m */; };
+		E82DA97B137DFF5F0060DB3E /* tasteBuddyLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E82DA979137DFF5F0060DB3E /* tasteBuddyLogo.png */; };
+		E82DA97C137DFF5F0060DB3E /* tasteBuddyLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E82DA97A137DFF5F0060DB3E /* tasteBuddyLogo@2x.png */; };
 		E83A946A1365F11A00A5B706 /* red-heart.png in Resources */ = {isa = PBXBuildFile; fileRef = E83A94681365F11A00A5B706 /* red-heart.png */; };
 		E83A946B1365F11A00A5B706 /* red-heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E83A94691365F11A00A5B706 /* red-heart@2x.png */; };
 		E83A946F1365F15400A5B706 /* 29-heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E83A946D1365F15400A5B706 /* 29-heart@2x.png */; };
@@ -333,6 +335,8 @@
 		E824E29A137B113000E790D2 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		E82DA971137DB65E0060DB3E /* UserCreationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserCreationService.h; sourceTree = "<group>"; };
 		E82DA972137DB65E0060DB3E /* UserCreationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserCreationService.m; sourceTree = "<group>"; };
+		E82DA979137DFF5F0060DB3E /* tasteBuddyLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tasteBuddyLogo.png; sourceTree = "<group>"; };
+		E82DA97A137DFF5F0060DB3E /* tasteBuddyLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tasteBuddyLogo@2x.png"; sourceTree = "<group>"; };
 		E83A94681365F11A00A5B706 /* red-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-heart.png"; sourceTree = "<group>"; };
 		E83A94691365F11A00A5B706 /* red-heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-heart@2x.png"; sourceTree = "<group>"; };
 		E83A946D1365F15400A5B706 /* 29-heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart@2x.png"; sourceTree = "<group>"; };
@@ -926,6 +930,8 @@
 				E86A84521368AD7B00720FA3 /* icons */,
 				E8AA4AED1361064A00A8E37B /* top-rounding.png */,
 				E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */,
+				E82DA979137DFF5F0060DB3E /* tasteBuddyLogo.png */,
+				E82DA97A137DFF5F0060DB3E /* tasteBuddyLogo@2x.png */,
 				E86CC5F71374D0150022FCBD /* favorites-logo.png */,
 				E86CC5F81374D0150022FCBD /* favorites-logo@2x.png */,
 				E80E059D1360EA3300894180 /* pizza.png */,
@@ -1443,6 +1449,8 @@
 				4910746E137A363C007A2A58 /* WebViewController.xib in Resources */,
 				E824E29C137B113000E790D2 /* SignUpViewController.xib in Resources */,
 				E842969F137CCD3800E791B2 /* PhotoViewer.xib in Resources */,
+				E82DA97B137DFF5F0060DB3E /* tasteBuddyLogo.png in Resources */,
+				E82DA97C137DFF5F0060DB3E /* tasteBuddyLogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
