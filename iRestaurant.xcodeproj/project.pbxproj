@@ -304,7 +304,7 @@
 		49BA68311354DBA40040DDB5 /* iRestaurantAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRestaurantAppDelegate.h; sourceTree = "<group>"; };
 		49BA68321354DBA40040DDB5 /* iRestaurantAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRestaurantAppDelegate.m; sourceTree = "<group>"; };
 		49BA68351354DBA40040DDB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		49BA68421354DBA50040DDB5 /* iRestaurantTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRestaurantTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		49BA68421354DBA50040DDB5 /* iRestaurantTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = iRestaurantTests.octest; path = "/Users/andrew/Projects/iRestaurant/build/Release-iphoneos/iRestaurantTests.octest"; sourceTree = "<absolute>"; };
 		49BA684A1354DBA50040DDB5 /* iRestaurantTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRestaurantTests-Info.plist"; sourceTree = "<group>"; };
 		49BA684C1354DBA50040DDB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		49BA684E1354DBA50040DDB5 /* iRestaurantTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRestaurantTests-Prefix.pch"; sourceTree = "<group>"; };
@@ -780,7 +780,6 @@
 			isa = PBXGroup;
 			children = (
 				49BA681E1354DBA30040DDB5 /* iRestaurant.app */,
-				49BA68421354DBA50040DDB5 /* iRestaurantTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1704,7 +1703,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1731,7 +1730,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "1A081128-A48D-4CCF-B739-27B6521BEB77";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1A081128-A48D-4CCF-B739-27B6521BEB77";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
