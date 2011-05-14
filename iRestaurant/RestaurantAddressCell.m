@@ -34,7 +34,7 @@
         addressImage.alpha = 0.8;
         [self.contentView addSubview:addressImage];
         [addressImage release];
-
+        self.selectionStyle = UITableViewCellEditingStyleNone;
     }
     return self;
 }

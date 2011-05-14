@@ -6,10 +6,9 @@
 //  Copyright 2011 N/A. All rights reserved.
 //
 
-#import "DishCommentsCell.h"
-#import "MenuItem.h"
+#import "CommentsHeaderCell.h"
 
-@implementation DishCommentsCell
+@implementation CommentsHeaderCell
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -31,12 +30,10 @@
         commentsLabel.text = @"Comments";
         [self.contentView addSubview:commentsLabel];
         [commentsLabel release];
+        
+        self.selectionStyle = UITableViewCellEditingStyleNone;
     }
     return self;
-}
-
--(void)loadMenuItem:(MenuItem *)menu_item {
-
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

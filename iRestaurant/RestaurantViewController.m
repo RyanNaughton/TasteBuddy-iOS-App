@@ -14,6 +14,8 @@
 #import "RatingService.h"
 #import "BookmarkService.h"
 #import "WebViewController.h"
+#import "CellUtility.h"
+#import "Comment.h"
 
 // CELLS =========
 #import "RestaurantHeaderCell.h"
@@ -23,7 +25,8 @@
 #import "TagsCell.h"
 #import "RestaurantWebsiteCell.h"
 #import "RestaurantButtonsCell.h"
-
+#import "CommentsHeaderCell.h"
+#import "CommentCell.h"
 
 @implementation RestaurantViewController
 @synthesize tableArray, restaurant, tagsRowHeight, takePhoto;
@@ -146,8 +149,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    return 1;
+    if ([@"Comments" isEqualToString:[tableArray objectAtIndex:section]]) {
+        return 1 + [restaurant.comments count];
+    } else {
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -201,6 +207,23 @@
 		}          
 		return restaurantWebsiteCell;
 
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
+        if(indexPath.row == 0) {
+            CommentsHeaderCell *commentsHeaderCell = (CommentsHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"CommentsHeaderCell"];
+            if (commentsHeaderCell == nil) {
+                commentsHeaderCell = [[[CommentsHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CommentsHeaderCell"] autorelease];
+            }          
+            return commentsHeaderCell;
+        } else if ([restaurant.comments count] > 0) {
+            CommentCell *commentCell = (CommentCell *)[tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+            if (commentCell == nil) {
+                commentCell = [[[CommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CommentCell"] autorelease];
+            }
+            [commentCell loadComment:[restaurant.comments objectAtIndex:(indexPath.row - 1)]];
+            return commentCell;
+        } else {
+            return nil;
+        }
     } else {
         static NSString *CellIdentifier = @"Cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -229,6 +252,14 @@
         height = 200;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"WebsiteLink"]) {
         height = 48;
+
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
+        if([restaurant.comments count] > 0 && indexPath.row > 0) {
+            Comment * comment = (Comment *)[restaurant.comments objectAtIndex:(indexPath.row - 1)];
+            height = [CellUtility cellHeightForString:comment.text withFrame:CGRectMake(10, 30, 310, 20) andBottomPadding:10.0];
+        } else {
+            height = 50;
+        }
     } else {
         height = 44;
     }

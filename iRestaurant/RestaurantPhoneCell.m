@@ -34,7 +34,7 @@
         phoneImage.alpha = 0.8;
         [self.contentView addSubview:phoneImage];
         [phoneImage release];
-
+        self.selectionStyle = UITableViewCellEditingStyleNone;
     }
     return self;
 }

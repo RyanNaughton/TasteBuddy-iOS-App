@@ -23,7 +23,7 @@
 #import "RestaurantAddressCell.h"
 #import "RestaurantPhoneCell.h"
 #import "TagsCell.h"
-#import "DishCommentsCell.h"
+#import "CommentsHeaderCell.h"
 #import "CommentCell.h"
 
 #import "CellUtility.h"
@@ -165,12 +165,11 @@
         
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
         if(indexPath.row == 0) {
-            DishCommentsCell *dishCommentsCell = (DishCommentsCell *)[tableView dequeueReusableCellWithIdentifier:@"DishCommentsCell"];
-            if (dishCommentsCell == nil) {
-                dishCommentsCell = [[[DishCommentsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishCommentsCell"] autorelease];
+            CommentsHeaderCell *commentsHeaderCell = (CommentsHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"CommentsHeaderCell"];
+            if (commentsHeaderCell == nil) {
+                commentsHeaderCell = [[[CommentsHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CommentsHeaderCell"] autorelease];
             }          
-            [dishCommentsCell loadMenuItem:menu_item];
-            return dishCommentsCell;
+            return commentsHeaderCell;
         } else if ([menu_item.comments count] > 0) {
             CommentCell *commentCell = (CommentCell *)[tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
             if (commentCell == nil) {

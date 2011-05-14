@@ -70,7 +70,7 @@
         price.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:price];
         
-                
+        self.selectionStyle = UITableViewCellEditingStyleNone;        
     }
     return self;
 }
