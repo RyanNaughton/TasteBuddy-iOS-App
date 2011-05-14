@@ -16,8 +16,6 @@
 
 -(void) uploadImage:(UIImage *)image withWhere:(NSString *)where andWhat:(NSString *)what andComments:(NSString *)comments andFacebook:(BOOL)facebookBOOL andDelegate:(id<PhotoUploadServiceDelegate>)delegate_passed andRestaurantId:(NSString *)restaurant_id andMenuItemId:(NSString *) menu_item_id
 {
-    
-    NSLog(@"restaurant id: %@", restaurant_id);
     authTokenRequired = YES;
     delegate = delegate_passed;
     urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/pictures.json"];    
@@ -27,7 +25,11 @@
     [jsonDictionary setObject:where forKey:@"where"];
     [jsonDictionary setObject:what forKey:@"what"];
     [jsonDictionary setObject:imageData forKey:@"imageData"];
+    
+    if (restaurant_id == nil) { restaurant_id = @" "; }
     [jsonDictionary setObject:restaurant_id forKey:@"restaurant_id"];
+    
+    if (menu_item_id == nil) { menu_item_id = @" "; }
     [jsonDictionary setObject:menu_item_id forKey:@"menu_item_id"];
     
     
@@ -36,9 +38,7 @@
 
 -(void) performRequest {
     NSURL *url = [NSURL URLWithString:urlString];
-    
-    NSLog(@"json for photo: %@", jsonDictionary);
-    
+        
     request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"multipart/form-data"];
     [request setPostValue:[jsonDictionary objectForKey:@"where"] forKey:@"picture[location_description]"];
@@ -65,7 +65,6 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
     NSString *responseString = [request_passed responseString];
-    NSLog(@"response: %@", responseString);
     // need to setup a delegate protocol..
     [delegate imageLoadingDone];
     request = nil;

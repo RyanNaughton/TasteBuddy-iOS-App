@@ -125,9 +125,7 @@
 }
 
 -(void) doneRetrievingProfile:(NSMutableDictionary *) profile {
-    
-    NSLog(@"profile: %@", profile);
-    
+        
     username = [[NSString stringWithFormat:@"%@",[profile objectForKey:@"username"]]retain];
     reviewsCount = [[profile objectForKey:@"ratings_count"] intValue];
     picturesDictionary = [[NSDictionary alloc]initWithDictionary:[profile objectForKey:@"pictures"]];
