@@ -116,6 +116,12 @@
 {
     [super viewDidAppear:animated];
     
+    if (!animated) {
+        ups = [[UserProfileService alloc]initWithDelegate:self];
+        [ups getUserProfile];
+        loading = TRUE;
+    }
+    
 }
 
 -(void) doneRetrievingProfile:(NSMutableDictionary *) profile {

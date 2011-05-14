@@ -98,7 +98,7 @@
     UIButton *offTab = (onTab == restaurantsTabButton) ? dishesTabButton : restaurantsTabButton;
     
     [offTab setBackgroundImage:[[UIImage imageNamed:@"darkgrey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
-    [offTab setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    [offTab setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [onTab setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
     [onTab setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
