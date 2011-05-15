@@ -50,7 +50,7 @@
         }
     }
         
-    if (menuItems > 10) {
+    if (menuItems > 100000) {
         SectionsMenuTableView *sectionsMenuTableView = [[SectionsMenuTableView alloc]initWithMenu:menu];
         tableView.dataSource = sectionsMenuTableView;
         tableView.delegate = sectionsMenuTableView;
@@ -98,7 +98,7 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     NSLog(@"view did appear");
-    [self.tableView reloadData];
+    //[self.tableView reloadData];
 }
 
 
@@ -107,6 +107,12 @@
 {
     [super viewDidLoad];
     [self setTitle:@"Menu"];
+    
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"menuLogo.png"]];
+    appNameImageView.frame = CGRectMake(160, -3, 150, 44);
+    appNameImageView.contentMode = UIViewContentModeCenter;
+    self.navigationItem.titleView = appNameImageView;
+    
     self.tableView.backgroundColor = [[UIColor alloc] initWithRed:230.0 / 255 green:230.0 / 255 blue:230.0 / 255 alpha:1.0];
     activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activityIndicator.frame = CGRectMake(0, 0, 25, 25);
