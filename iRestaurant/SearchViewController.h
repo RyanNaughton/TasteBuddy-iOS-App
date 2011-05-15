@@ -36,6 +36,8 @@
     
     id lastSender;
     
+    bool needsToPerformDefaultSearch;
+    
 }
 
 @property (nonatomic, retain) SearchService *searchService;
@@ -57,6 +59,7 @@
 @property (nonatomic, retain) IBOutlet UITextField *fakeTermField;
 @property (nonatomic, retain) id lastSender;
 @property (nonatomic, retain) UIView *tabView;
+@property (nonatomic, assign) bool needsToPerformDefaultSearch;
 
 -(IBAction) switchSearchView:(id) sender;
 
