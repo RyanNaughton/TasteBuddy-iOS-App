@@ -66,11 +66,17 @@
 }
 
 -(void)loadMenuItem:(MenuItem *)menuItem {
+    UIImage *noImage = [UIImage imageNamed:@"no-image-80.png"];
     name.text = [menuItem.name retain];
     tags.text = [menuItem.tags_text retain];
     price.text = [NSString stringWithFormat:@"$%.2f", menuItem.price];
-    [imageView setImageWithURL:[NSURL URLWithString:[[menuItem.pictures objectAtIndex:0] objectForKey:@"80px"]]
-              placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
+    
+    if ([menuItem.pictures count] > 0) {
+        [imageView setImageWithURL:[NSURL URLWithString:[[menuItem.pictures objectAtIndex:0] objectForKey:@"80px"]]
+              placeholderImage:noImage];
+    } else {
+        imageView.image = noImage;
+    }
     
     [ratingView loadRating:menuItem.rating];
 
