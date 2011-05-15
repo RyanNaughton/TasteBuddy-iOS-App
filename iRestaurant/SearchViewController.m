@@ -29,6 +29,8 @@
 @synthesize lastSender;
 @synthesize tabView;
 
+@synthesize needsToPerformDefaultSearch;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -70,7 +72,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    needsToPerformDefaultSearch = YES;
     UIImage *greyButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
     [mapButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     [filterButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
@@ -106,6 +108,15 @@
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
 
     [self switchSearchView:restaurantsTabButton]; //Show no results initially.
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    if(needsToPerformDefaultSearch) {
+        needsToPerformDefaultSearch = NO;
+        restaurantSearchResultTableViewController.isLoading = YES;
+        dishSearchResultTableViewController.isLoading = YES;
+        [searchService searchByTerm:@""];
+    }
 }
 
 -(void) switchTabs:(UIButton *) onTab 
