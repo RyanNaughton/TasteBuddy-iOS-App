@@ -89,17 +89,19 @@
     
     NSLog(@"arrayOfURLStrings: %@", arrayOfURLStrings);
     
-    NSMutableArray *imageArray = [[NSMutableArray alloc]init];
+    UIImage *noImage = [UIImage imageNamed:@"no-image-300.png"];
+    NSMutableArray *imageViewArray = [[NSMutableArray alloc]init];
     
     for (int i=0; i < [arrayOfURLStrings count]; i++) {
-        UIImage *image = [[UIImage alloc]initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[arrayOfURLStrings objectAtIndex:i]]]];
-        [imageArray addObject:image];
+        UIImageView *imageView = [[UIImageView alloc]init];
+        [imageView setImageWithURL:[NSURL URLWithString:[arrayOfURLStrings objectAtIndex:i]] placeholderImage:noImage];
+        [imageViewArray addObject:imageView];
     }
     
     UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
     svimage = [[IGUIScrollViewImage alloc] init];  
     [svimage setBackGroudColor:[UIColor clearColor]];
-    [svimage setContentArray:imageArray];  
+    [svimage setContentArray:imageViewArray];  
     [svimage setWidth:300 andHeight:300];
     [svimage enablePageControlOnBottom];  
     [viewForScrollView addSubview:[svimage getWithPosition:0]]; 

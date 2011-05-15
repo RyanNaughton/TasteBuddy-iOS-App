@@ -82,14 +82,14 @@
 	
 	UIView *main = [[[UIView alloc] initWithFrame:rectScrollView] autorelease];
 	int i = 0;
-	for (UIImage *img in contentArray) {
-		UIImageView *imageView = [[UIImageView alloc] init];
-		imageView.image = img;
+	for (UIImageView *imageView in contentArray) {
+		//UIImageView *imageView = [[UIImageView alloc] init];
+		//imageView.image = img;
 		imageView.contentMode = UIViewContentModeScaleAspectFit;
 		imageView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 		imageView.backgroundColor = [UIColor blackColor];
-		float ratio = img.size.width/rectScrollView.size.width;
-		CGRect imageFrame = CGRectMake(i, 0, rectScrollView.size.width, (img.size.height / ratio));
+		float ratio = imageView.image.size.width/rectScrollView.size.width;
+		CGRect imageFrame = CGRectMake(i, 0, rectScrollView.size.width, (imageView.image.size.height / ratio));
 		imageView.frame = imageFrame;
 		[self.scrollView addSubview:(UIView *)imageView];
 		i += scrollWidth;

@@ -26,19 +26,21 @@
 -(void)setupScrollView:(NSArray *)arrayOfURLStrings {
     
     self.view.backgroundColor = [UIColor blackColor];
-    
-    NSMutableArray *imageArray = [[NSMutableArray alloc]init];
+    UIImage *noImage = [UIImage imageNamed:@"no-image-300.png"];
+    NSMutableArray *imageViewArray = [[NSMutableArray alloc]init];
     
     for (int i=0; i < [arrayOfURLStrings count]; i++) {
-        UIImage *image = [[UIImage alloc]initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[arrayOfURLStrings objectAtIndex:i]]]];
-        [imageArray addObject:image];
+        UIImageView *imageView = [[UIImageView alloc]init];
+        [imageView setImageWithURL:[NSURL URLWithString:[arrayOfURLStrings objectAtIndex:i]] placeholderImage:noImage];
+//        UIImage *image = [[UIImage alloc]initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[arrayOfURLStrings objectAtIndex:i]]]];
+        [imageViewArray addObject:imageView];
     }
     
     UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(0, 102, 320, 320)];
     
     svimage = [[IGUIScrollViewImage alloc] init];  
     [svimage setBackGroudColor:[UIColor clearColor]];
-    [svimage setContentArray:imageArray];  
+    [svimage setContentArray:imageViewArray];  
     [svimage setWidth:320 andHeight:320];
     [svimage enablePageControlOnBottom];  
     [viewForScrollView addSubview:[svimage getWithPosition:0]]; 
