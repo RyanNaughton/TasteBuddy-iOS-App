@@ -52,13 +52,14 @@
         [alcoholLabel release];
         
         alcoholText = [[UILabel alloc]init];
-        alcoholText.frame = CGRectMake(10, 7, 280, 20);
-        alcoholText.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+        alcoholText.frame = CGRectMake(10, 55, 140, 20);
+        alcoholText.textColor = [UIColor blackColor];
 		alcoholText.backgroundColor = [UIColor clearColor];
 		alcoholText.font = [UIFont boldSystemFontOfSize:20];
         alcoholText.textAlignment = UITextAlignmentRight;
         alcoholText.shadowColor = [UIColor whiteColor];
         alcoholText.shadowOffset = CGSizeMake(0,1);
+        alcoholText.text = @"-";
         [self.contentView addSubview:alcoholText];
         
         UIView *greyLine = [[UIView alloc]initWithFrame:CGRectMake(10, 80, 140, 1)];
@@ -79,6 +80,17 @@
         [self.contentView addSubview:ccLabel];
         [ccLabel release];
         
+        ccText = [[UILabel alloc]init];
+        ccText.frame = CGRectMake(10, 85, 140, 20);
+        ccText.textColor = [UIColor blackColor];
+        ccText.backgroundColor = [UIColor clearColor];
+        ccText.font = [UIFont boldSystemFontOfSize:20];
+        ccText.textAlignment = UITextAlignmentRight;
+        ccText.shadowColor = [UIColor whiteColor];
+        ccText.shadowOffset = CGSizeMake(0,1);
+        ccText.text = @"-";
+        [self.contentView addSubview:ccText];
+
         UIView *greyLine2 = [[UIView alloc]initWithFrame:CGRectMake(10, 110, 140, 1)];
         greyLine2.backgroundColor = [UIColor lightGrayColor];
         greyLine2.alpha = 0.5;
@@ -97,6 +109,99 @@
         deliveryLabel.text = @"delivery";
         [self.contentView addSubview:deliveryLabel];
         [deliveryLabel release];
+                
+        deliveryText = [[UILabel alloc]init];
+        deliveryText.frame = CGRectMake(10, 115, 140, 20);
+        deliveryText.textColor = [UIColor blackColor];
+        deliveryText.backgroundColor = [UIColor clearColor];
+        deliveryText.font = [UIFont boldSystemFontOfSize:20];
+        deliveryText.textAlignment = UITextAlignmentRight;
+        deliveryText.shadowColor = [UIColor whiteColor];
+        deliveryText.shadowOffset = CGSizeMake(0,1);
+        deliveryText.text = @"-";
+        [self.contentView addSubview:deliveryText];
+
+        UILabel *parkingLabel = [[UILabel alloc]init];
+        parkingLabel.frame = CGRectMake(170, 55, 140, 20);
+        parkingLabel.textColor = [UIColor darkGrayColor];
+        parkingLabel.backgroundColor = [UIColor clearColor];
+        parkingLabel.textAlignment = UITextAlignmentLeft;
+        parkingLabel.font = [UIFont systemFontOfSize:12];
+        parkingLabel.shadowColor = [UIColor whiteColor];
+        parkingLabel.shadowOffset = CGSizeMake(0,1);
+        parkingLabel.text = @"parking";
+        [self.contentView addSubview:parkingLabel];
+        [parkingLabel release];
+        
+        parkingText = [[UILabel alloc]init];
+        parkingText.frame = CGRectMake(170, 55, 140, 20);
+        parkingText.textColor = [UIColor blackColor];
+        parkingText.backgroundColor = [UIColor clearColor];
+        parkingText.font = [UIFont boldSystemFontOfSize:20];
+        parkingText.textAlignment = UITextAlignmentRight;
+        parkingText.shadowColor = [UIColor whiteColor];
+        parkingText.shadowOffset = CGSizeMake(0,1);
+        parkingText.text = @"-";
+        [self.contentView addSubview:parkingText];
+        
+        UIView *greyLine3 = [[UIView alloc]initWithFrame:CGRectMake(170, 80, 140, 1)];
+        greyLine3.backgroundColor = [UIColor lightGrayColor];
+        greyLine3.alpha = 0.5;
+        [self.contentView addSubview:greyLine3];
+        [greyLine3 release];
+        
+        UILabel *reservationsLabel = [[UILabel alloc]init];
+        reservationsLabel.frame = CGRectMake(170, 85, 140, 20);
+        reservationsLabel.textColor = [UIColor darkGrayColor];
+        reservationsLabel.backgroundColor = [UIColor clearColor];
+        reservationsLabel.textAlignment = UITextAlignmentLeft;
+        reservationsLabel.font = [UIFont systemFontOfSize:12];
+        reservationsLabel.shadowColor = [UIColor whiteColor];
+        reservationsLabel.shadowOffset = CGSizeMake(0,1);
+        reservationsLabel.text = @"reservations";
+        [self.contentView addSubview:reservationsLabel];
+        [reservationsLabel release];
+        
+        reservationsText = [[UILabel alloc]init];
+        reservationsText.frame = CGRectMake(170, 85, 140, 20);
+        reservationsText.textColor = [UIColor blackColor];
+        reservationsText.backgroundColor = [UIColor clearColor];
+        reservationsText.font = [UIFont boldSystemFontOfSize:20];
+        reservationsText.textAlignment = UITextAlignmentRight;
+        reservationsText.shadowColor = [UIColor whiteColor];
+        reservationsText.shadowOffset = CGSizeMake(0,1);
+        reservationsText.text = @"-";
+        [self.contentView addSubview:reservationsText];
+        
+        UIView *greyLine4 = [[UIView alloc]initWithFrame:CGRectMake(170, 110, 140, 1)];
+        greyLine4.backgroundColor = [UIColor lightGrayColor];
+        greyLine4.alpha = 0.5;
+        [self.contentView addSubview:greyLine4];
+        [greyLine4 release];
+        
+        
+        UILabel *wifiLabel = [[UILabel alloc]init];
+        wifiLabel.frame = CGRectMake(170, 115, 140, 20);
+        wifiLabel.textColor = [UIColor darkGrayColor];
+        wifiLabel.backgroundColor = [UIColor clearColor];
+        wifiLabel.textAlignment = UITextAlignmentLeft;
+        wifiLabel.font = [UIFont systemFontOfSize:12];
+        wifiLabel.shadowColor = [UIColor whiteColor];
+        wifiLabel.shadowOffset = CGSizeMake(0,1);
+        wifiLabel.text = @"wifi";
+        [self.contentView addSubview:wifiLabel];
+        [wifiLabel release];
+        
+        wifiText = [[UILabel alloc]init];
+        wifiText.frame = CGRectMake(170, 115, 140, 20);
+        wifiText.textColor = [UIColor blackColor];
+        wifiText.backgroundColor = [UIColor clearColor];
+        wifiText.font = [UIFont boldSystemFontOfSize:20];
+        wifiText.textAlignment = UITextAlignmentRight;
+        wifiText.shadowColor = [UIColor whiteColor];
+        wifiText.shadowOffset = CGSizeMake(0,1);
+        wifiText.text = @"-";
+        [self.contentView addSubview:wifiText];
         
         
         self.selectionStyle = UITableViewCellEditingStyleNone;
