@@ -29,6 +29,7 @@
     UserCreationService *ucs;
     LoginViewController *loginViewController;
     AbstractService *serviceToPerformSubsequentRequest;
+    IBOutlet UINavigationItem *navItem;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
@@ -46,6 +47,7 @@
 @property (nonatomic, retain) UserCreationService *ucs;
 @property (nonatomic, retain) LoginViewController *loginViewController;
 @property (nonatomic, retain) AbstractService *serviceToPerformSubsequentRequest;
+@property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
 
 -(IBAction)cancelButtonPressed;
 -(IBAction)sendButtonPressed;

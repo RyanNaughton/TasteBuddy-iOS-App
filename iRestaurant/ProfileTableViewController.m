@@ -62,13 +62,6 @@
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    UIBarButtonItem *settingsBtn = [[UIBarButtonItem alloc] initWithTitle:@"Settings"
-                                                            style:UIBarButtonItemStyleBordered
-                                                           target:self
-                                                           action:@selector(settingsBtnPressed:)]; 
-    self.navigationItem.rightBarButtonItem = settingsBtn;
-    [settingsBtn release]; 
-    
     [self checkLogin];    
     
 
@@ -83,6 +76,13 @@
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([appDelegate loggedIn]) {
         
+        UIBarButtonItem *settingsBtn = [[UIBarButtonItem alloc] initWithTitle:@"Settings"
+                                                                        style:UIBarButtonItemStyleBordered
+                                                                       target:self
+                                                                       action:@selector(settingsBtnPressed:)]; 
+        self.navigationItem.rightBarButtonItem = settingsBtn;
+        [settingsBtn release];
+        
         UIBarButtonItem *logoutBtn = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
                                                                       style:UIBarButtonItemStyleBordered
                                                                      target:self
@@ -96,6 +96,7 @@
                                                                     target:self
                                                                     action:@selector(loginPressed:)]; 
         self.navigationItem.leftBarButtonItem = loginBtn;
+        self.navigationItem.rightBarButtonItem = nil;
         [loginBtn release]; 
     }
 

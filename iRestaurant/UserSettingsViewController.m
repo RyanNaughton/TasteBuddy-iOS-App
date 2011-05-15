@@ -34,7 +34,7 @@
     return self;
 }
 
--(void)setUserWithDictionary:(NSdictionary *)dict
+-(void)setUserWithDictionary:(NSDictionary *)dict
 {
     // setup textfields
 }

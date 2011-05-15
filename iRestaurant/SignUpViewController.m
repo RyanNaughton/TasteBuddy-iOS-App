@@ -29,6 +29,7 @@
 @synthesize ucs;
 @synthesize loginViewController;
 @synthesize serviceToPerformSubsequentRequest;
+@synthesize navItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -92,6 +93,11 @@
 {
     [super viewDidLoad];
         
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"signupLogo.png"]];
+    appNameImageView.frame = CGRectMake(0, -3, 150, 44);
+    appNameImageView.contentMode = UIViewContentModeRight;
+    self.navItem.titleView = appNameImageView;
+    
     [usernameField becomeFirstResponder];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];

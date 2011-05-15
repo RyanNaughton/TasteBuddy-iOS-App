@@ -37,7 +37,7 @@
 @property (nonatomic, retain) IBOutlet UITextField *birthdayDayField;
 @property (nonatomic, retain) IBOutlet UITextField *birthdayYearField;
 
--(void)setUserWithDictionary:(NSdictionary *)dict;
+-(void)setUserWithDictionary:(NSDictionary *)dict;
 
 -(void)updateBtnPressed:(id)sender;
 -(void)keyboardDidShow:(NSNotification *)notification;

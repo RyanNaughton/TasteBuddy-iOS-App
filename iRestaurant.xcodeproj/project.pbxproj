@@ -152,6 +152,10 @@
 		E89CB80B138055A200F74837 /* UserSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89CB809138055A200F74837 /* UserSettingsViewController.xib */; };
 		E89CB80E13805D3100F74837 /* settingsLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E89CB80C13805D3100F74837 /* settingsLogo.png */; };
 		E89CB80F13805D3100F74837 /* settingsLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E89CB80D13805D3100F74837 /* settingsLogo@2x.png */; };
+		E89CB81413805E8200F74837 /* signupLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E89CB81013805E8200F74837 /* signupLogo.png */; };
+		E89CB81513805E8200F74837 /* signupLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E89CB81113805E8200F74837 /* signupLogo@2x.png */; };
+		E89CB81613805E8200F74837 /* loginLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E89CB81213805E8200F74837 /* loginLogo.png */; };
+		E89CB81713805E8200F74837 /* loginLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E89CB81313805E8200F74837 /* loginLogo@2x.png */; };
 		E8A03E14135535500031D798 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E13135535500031D798 /* MenuItem.m */; };
 		E8A03E1D135539130031D798 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E1C135539130031D798 /* SearchService.m */; };
 		E8A03E49135543B90031D798 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A03E48135543B90031D798 /* MobileCoreServices.framework */; };
@@ -454,6 +458,10 @@
 		E89CB809138055A200F74837 /* UserSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserSettingsViewController.xib; sourceTree = "<group>"; };
 		E89CB80C13805D3100F74837 /* settingsLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsLogo.png; sourceTree = "<group>"; };
 		E89CB80D13805D3100F74837 /* settingsLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsLogo@2x.png"; sourceTree = "<group>"; };
+		E89CB81013805E8200F74837 /* signupLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = signupLogo.png; sourceTree = "<group>"; };
+		E89CB81113805E8200F74837 /* signupLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "signupLogo@2x.png"; sourceTree = "<group>"; };
+		E89CB81213805E8200F74837 /* loginLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loginLogo.png; sourceTree = "<group>"; };
+		E89CB81313805E8200F74837 /* loginLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loginLogo@2x.png"; sourceTree = "<group>"; };
 		E8A03E12135535500031D798 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		E8A03E13135535500031D798 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 		E8A03E1B135539130031D798 /* SearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchService.h; sourceTree = "<group>"; };
@@ -955,6 +963,10 @@
 				E86A84521368AD7B00720FA3 /* icons */,
 				E8AA4AED1361064A00A8E37B /* top-rounding.png */,
 				E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */,
+				E89CB81013805E8200F74837 /* signupLogo.png */,
+				E89CB81113805E8200F74837 /* signupLogo@2x.png */,
+				E89CB81213805E8200F74837 /* loginLogo.png */,
+				E89CB81313805E8200F74837 /* loginLogo@2x.png */,
 				E89CB80C13805D3100F74837 /* settingsLogo.png */,
 				E89CB80D13805D3100F74837 /* settingsLogo@2x.png */,
 				E89CB7F41380430300F74837 /* no-image-80.png */,
@@ -1504,6 +1516,10 @@
 				E89CB80B138055A200F74837 /* UserSettingsViewController.xib in Resources */,
 				E89CB80E13805D3100F74837 /* settingsLogo.png in Resources */,
 				E89CB80F13805D3100F74837 /* settingsLogo@2x.png in Resources */,
+				E89CB81413805E8200F74837 /* signupLogo.png in Resources */,
+				E89CB81513805E8200F74837 /* signupLogo@2x.png in Resources */,
+				E89CB81613805E8200F74837 /* loginLogo.png in Resources */,
+				E89CB81713805E8200F74837 /* loginLogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

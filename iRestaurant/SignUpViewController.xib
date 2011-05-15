@@ -63,7 +63,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<object class="IBUINavigationItem" id="680886893">
 								<reference key="IBUINavigationBar" ref="480885700"/>
-								<string key="IBUITitle">Sign up</string>
+								<string key="IBUITitle"/>
 								<object class="IBUIBarButtonItem" key="IBUILeftBarButtonItem" id="842442302">
 									<string key="IBUITitle">Cancel</string>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -107,7 +107,7 @@
 										<int key="NSID">2</int>
 									</object>
 								</object>
-								<object class="NSFont" key="IBUIFont" id="468030628">
+								<object class="NSFont" key="IBUIFont" id="519011986">
 									<string key="NSName">Helvetica</string>
 									<double key="NSSize">16</double>
 									<int key="NSfFlags">16</int>
@@ -137,7 +137,7 @@
 									<bytes key="NSWhite">MAA</bytes>
 									<reference key="NSCustomColorSpace" ref="260393992"/>
 								</object>
-								<reference key="IBUIFont" ref="468030628"/>
+								<reference key="IBUIFont" ref="519011986"/>
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -164,7 +164,7 @@
 									<bytes key="NSWhite">MAA</bytes>
 									<reference key="NSCustomColorSpace" ref="260393992"/>
 								</object>
-								<reference key="IBUIFont" ref="468030628"/>
+								<reference key="IBUIFont" ref="519011986"/>
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -191,7 +191,7 @@
 									<bytes key="NSWhite">MAA</bytes>
 									<reference key="NSCustomColorSpace" ref="260393992"/>
 								</object>
-								<reference key="IBUIFont" ref="468030628"/>
+								<reference key="IBUIFont" ref="519011986"/>
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -218,7 +218,7 @@
 									<bytes key="NSWhite">MAA</bytes>
 									<reference key="NSCustomColorSpace" ref="260393992"/>
 								</object>
-								<reference key="IBUIFont" ref="468030628"/>
+								<reference key="IBUIFont" ref="519011986"/>
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -245,7 +245,7 @@
 									<bytes key="NSWhite">MAA</bytes>
 									<reference key="NSCustomColorSpace" ref="260393992"/>
 								</object>
-								<reference key="IBUIFont" ref="468030628"/>
+								<reference key="IBUIFont" ref="519011986"/>
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -271,7 +271,7 @@
 									<bytes key="NSWhite">MAA</bytes>
 									<reference key="NSCustomColorSpace" ref="260393992"/>
 								</object>
-								<reference key="IBUIFont" ref="468030628"/>
+								<reference key="IBUIFont" ref="519011986"/>
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -297,7 +297,7 @@
 									<bytes key="NSWhite">MAA</bytes>
 									<reference key="NSCustomColorSpace" ref="260393992"/>
 								</object>
-								<reference key="IBUIFont" ref="468030628"/>
+								<reference key="IBUIFont" ref="519011986"/>
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -324,7 +324,7 @@
 									<bytes key="NSWhite">MAA</bytes>
 									<reference key="NSCustomColorSpace" ref="260393992"/>
 								</object>
-								<reference key="IBUIFont" ref="468030628"/>
+								<reference key="IBUIFont" ref="519011986"/>
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -352,7 +352,7 @@
 									<bytes key="NSWhite">MAA</bytes>
 									<reference key="NSCustomColorSpace" ref="260393992"/>
 								</object>
-								<reference key="IBUIFont" ref="468030628"/>
+								<reference key="IBUIFont" ref="519011986"/>
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -380,7 +380,7 @@
 									<bytes key="NSWhite">MAA</bytes>
 									<reference key="NSCustomColorSpace" ref="260393992"/>
 								</object>
-								<reference key="IBUIFont" ref="468030628"/>
+								<reference key="IBUIFont" ref="519011986"/>
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
@@ -576,7 +576,7 @@
 								<float key="IBUIMinimumFontSize">10</float>
 								<int key="IBUITextAlignment">2</int>
 							</object>
-							<object class="IBUILabel" id="695577063">
+							<object class="IBUILabel" id="281652408">
 								<reference key="NSNextResponder" ref="471340688"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{176, 290}, {10, 21}}</string>
@@ -595,7 +595,7 @@
 								<float key="IBUIMinimumFontSize">10</float>
 								<int key="IBUITextAlignment">2</int>
 							</object>
-							<object class="IBUILabel" id="1060705064">
+							<object class="IBUILabel" id="517323106">
 								<reference key="NSNextResponder" ref="471340688"/>
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{230, 290}, {10, 21}}</string>
@@ -840,6 +840,14 @@
 					</object>
 					<int key="connectionID">69</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">navItem</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="680886893"/>
+					</object>
+					<int key="connectionID">72</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -925,8 +933,8 @@
 							<reference ref="1033333791"/>
 							<reference ref="534283351"/>
 							<reference ref="566442334"/>
-							<reference ref="695577063"/>
-							<reference ref="1060705064"/>
+							<reference ref="281652408"/>
+							<reference ref="517323106"/>
 						</object>
 						<reference key="parent" ref="52076892"/>
 					</object>
@@ -1033,12 +1041,12 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">70</int>
-						<reference key="object" ref="695577063"/>
+						<reference key="object" ref="281652408"/>
 						<reference key="parent" ref="471340688"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">71</int>
-						<reference key="object" ref="1060705064"/>
+						<reference key="object" ref="517323106"/>
 						<reference key="parent" ref="471340688"/>
 					</object>
 				</object>
@@ -1124,7 +1132,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">71</int>
+			<int key="maxID">72</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1176,6 +1184,7 @@
 							<string>emailField</string>
 							<string>firstNameField</string>
 							<string>lastNameField</string>
+							<string>navItem</string>
 							<string>passwordField</string>
 							<string>postalCodeField</string>
 							<string>scrollView</string>
@@ -1191,6 +1200,7 @@
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
+							<string>UINavigationItem</string>
 							<string>UITextField</string>
 							<string>UITextField</string>
 							<string>UIScrollView</string>
@@ -1209,6 +1219,7 @@
 							<string>emailField</string>
 							<string>firstNameField</string>
 							<string>lastNameField</string>
+							<string>navItem</string>
 							<string>passwordField</string>
 							<string>postalCodeField</string>
 							<string>scrollView</string>
@@ -1247,6 +1258,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">lastNameField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">navItem</string>
+								<string key="candidateClassName">UINavigationItem</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">passwordField</string>
