@@ -27,6 +27,7 @@
 #import "RestaurantButtonsCell.h"
 #import "CommentsHeaderCell.h"
 #import "CommentCell.h"
+#import "RestaurantAdditionalInformationCell.h"
 
 @implementation RestaurantViewController
 @synthesize tableArray, restaurant, tagsRowHeight, takePhoto;
@@ -224,6 +225,13 @@
         } else {
             return nil;
         }
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"AdditionalInformation"]) {
+        RestaurantAdditionalInformationCell *cell = (RestaurantAdditionalInformationCell *)[tableView dequeueReusableCellWithIdentifier:@"AdditionalInformationCell"];
+        if(cell==nil){
+            cell =[[[RestaurantAdditionalInformationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AdditionalInformationCell"] autorelease];
+        }
+        [cell loadRestaurant:restaurant];
+        return cell;
     } else {
         static NSString *CellIdentifier = @"Cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -251,8 +259,9 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         height = 200;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"WebsiteLink"]) {
-        height = 48;
-
+        height = 58;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"AdditionalInformation"]) {
+        height = 145;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
         if([restaurant.comments count] > 0 && indexPath.row > 0) {
             Comment * comment = (Comment *)[restaurant.comments objectAtIndex:(indexPath.row - 1)];
