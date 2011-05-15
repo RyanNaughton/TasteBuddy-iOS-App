@@ -106,4 +106,12 @@
     }
     [self cancel];
 }
+
+-(void) loginFailed {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Log in error" message:@"Invalid Username or Password" delegate:self cancelButtonTitle:@"Try Again" otherButtonTitles: nil];
+    [alert show];
+    [alert release];
+    [username becomeFirstResponder];
+}
+
 @end

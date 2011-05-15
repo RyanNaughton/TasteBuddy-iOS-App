@@ -56,14 +56,22 @@
     [request startAsynchronous];
 }
 
-- (void)requestFinished:(ASIHTTPRequest *)request_passed
+- (void)requestFinished:(ASIHTTPRequest *)requestPassed
 {
-    NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
+    NSDictionary *responseDictionary = [[requestPassed responseString] JSONValue];
     AuthenticationResponse *response = [[AuthenticationResponse alloc] initWithDicationary:responseDictionary];
     [delegate loginComplete:response];
     request = nil;
     
 }
+
+- (void) requestFailed:(ASIHTTPRequest *)requestPassed {
+    if([requestPassed responseStatusCode] == 401) {
+        [delegate loginFailed];
+    }
+    request = nil;
+}
+
 - (void)dealloc {
     [request release];
     [super dealloc];

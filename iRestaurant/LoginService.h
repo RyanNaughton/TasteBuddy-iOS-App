@@ -13,6 +13,7 @@
 
 @protocol LoginServiceDelegate <NSObject>
     -(void) loginComplete:(AuthenticationResponse *)authToken;
+    -(void) loginFailed;
 @end
 
 @interface LoginService : AbstractService {
