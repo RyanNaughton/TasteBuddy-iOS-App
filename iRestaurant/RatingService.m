@@ -71,8 +71,7 @@
 {
     NSString *responseString = [request_passed responseString];
     NSDictionary *dict = [responseString JSONValue];
-    
-    Rating *rating  = [[Rating alloc] initWithUserRating:[dict objectForKey:@"user_rating"] andAverageRating:[dict objectForKey:@"average_rating"] andRatingsCount:[dict objectForKey:@"ratrings_count"]];
+    Rating *rating  = [[Rating alloc] initWithUserRating:[dict objectForKey:@"user_rating"] andAverageRating:[dict objectForKey:@"average_rating"] andRatingsCount:[dict objectForKey:@"ratings_count"]];
     
     [delegate doneRating:rating];
     request = nil;
