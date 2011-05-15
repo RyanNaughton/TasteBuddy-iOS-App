@@ -91,12 +91,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+        
     [usernameField becomeFirstResponder];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     
     scrollView.contentSize = CGSizeMake(320, 346);
     // Do any additional setup after loading the view from its nib.
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    int maxLength = 999;
+    if ((textField == birthdayMonthField) || (textField == birthdayDayField)) { maxLength = 2; }
+    if (textField == birthdayYearField) { maxLength = 4; }
+    if (textField == postalCodeField) { maxLength = 5; }
+    
+    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+    return (newLength > maxLength) ? NO : YES;
 }
 
 -(void)viewDidAppear:(BOOL)animated {
