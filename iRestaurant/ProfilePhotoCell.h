@@ -19,8 +19,6 @@
 @property (nonatomic, retain) UILabel *restaurantLabel;
 @property (nonatomic, retain) UILabel *pictureCountLabel;
 
--(void) setLabels;
-
 -(void)setVariablesWithDictionary:(NSDictionary *)restaurantDictionary;
 
 @end

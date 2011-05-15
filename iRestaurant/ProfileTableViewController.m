@@ -140,17 +140,22 @@
         for (id key2 in dictOfDates) {
             NSArray *arrayOfImagesForRestaurant = [dictOfDates objectForKey:key2];
             picturesCount = [arrayOfImagesForRestaurant count] + picturesCount;
-            NSDictionary *restaurantDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:arrayOfImagesForRestaurant, key2, nil];
+            NSDictionary *restaurantDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:arrayOfImagesForRestaurant, @"array", key2, @"name", nil];
             [datesArray addObject:restaurantDictionary];            
         }
         
-        NSArray *sortedArray = [[datesArray reverseObjectEnumerator] allObjects];        
-                
-        NSDictionary *dateDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:sortedArray, key, nil];
+       
+                        
+        NSDictionary *dateDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:datesArray, @"array", key, @"date", nil];
         
         [picturesArray addObject:dateDictionary];
     }
-        
+     
+    NSLog(@"picturesArray: %@", picturesArray);
+    
+    NSSortDescriptor *aSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
+    [picturesArray sortUsingDescriptors:[NSArray arrayWithObject:aSortDescriptor]];
+    
     dataReceived = TRUE;
     loading = FALSE;
     [self checkLogin];
@@ -193,11 +198,7 @@
             rowsInSection = 1;
         } else {
             NSDictionary *dict = [picturesArray objectAtIndex:(section - 1)];
-            NSArray *array;
-            for (id key in dict) {
-                array = [dict objectForKey:key];
-            }
-            
+            NSArray *array = [dict objectForKey:@"array"];            
             rowsInSection = [array count] + 1;
         }
     } else {
@@ -235,9 +236,7 @@
             }    
             NSDictionary *dict = [picturesArray objectAtIndex:(indexPath.section -1)];       
             NSString *dateString;
-            for (id key in dict) {
-                dateString = key;
-            }
+            dateString = [dict objectForKey:@"date"];
             [profilePhotoDayTopCell setDate:dateString];
             return profilePhotoDayTopCell;
         } else {
@@ -248,10 +247,7 @@
             }  
             
             NSDictionary *dict = [picturesArray objectAtIndex:(indexPath.section - 1)];
-            NSArray *array;
-            for (id key in dict) {
-                array = [dict objectForKey:key];
-            }
+            NSArray *array = [dict objectForKey:@"array"];
             
             NSDictionary *currentRestaurantDict = [array objectAtIndex:(indexPath.row -1)];
             [profilePhotoCell setVariablesWithDictionary:currentRestaurantDict];
@@ -361,24 +357,16 @@
     if (indexPath.section > 0) {
         if (indexPath.row > 0) {
             NSDictionary *dict = [picturesArray objectAtIndex:(indexPath.section - 1)];
-            NSArray *array;
-            for (id key in dict) {
-                array = [dict objectForKey:key];
-            }
+            NSArray *array = [dict objectForKey:@"array"];
             
             NSDictionary *currentRestaurantDict = [array objectAtIndex:(indexPath.row -1)];
-            NSArray *arrayOfPhotos;
-            NSString *restaurantName;
-            for (id key2 in currentRestaurantDict) {
-                arrayOfPhotos = [currentRestaurantDict objectForKey:key2];
-                restaurantName = key2;
-            }
+            NSArray *arrayOfPhotos = [currentRestaurantDict objectForKey:@"array"];
+            NSString *restaurantName = [currentRestaurantDict objectForKey:@"name"];
             
             NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
             for (NSDictionary *photoDict in arrayOfPhotos) {
                 [arrayOfURLStrings addObject:[photoDict objectForKey:@"300px"]];
             }
-            
             
             PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
             [photoViewer setupScrollView:arrayOfURLStrings];
@@ -386,10 +374,8 @@
             photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             [self presentModalViewController:photoViewer animated:YES];
             [photoViewer release];
-            
         }
     }
-
 }
 
 -(IBAction) logoutPressed:(id)sender {

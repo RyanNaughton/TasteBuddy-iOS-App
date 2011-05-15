@@ -46,15 +46,9 @@
 }
 
 -(void)setVariablesWithDictionary:(NSDictionary *)restaurantDictionary {
-    NSArray *photoArray;
-    NSString *restaurantName;
-    for (id key in restaurantDictionary) {
-        photoArray = [restaurantDictionary objectForKey:key];
-        restaurantName = key;
-    }
-    
+    NSArray *photoArray = [restaurantDictionary objectForKey:@"array"];
+    NSString *restaurantName = [restaurantDictionary objectForKey:@"name"];
     NSDictionary *currentPhoto = [photoArray objectAtIndex:0];
-    
     NSURL *url = [NSURL URLWithString:[currentPhoto objectForKey:@"300px"]];
     [imageView setImageWithURL:url]; 
     restaurantLabel.text = [NSString stringWithFormat:@"%@", restaurantName];
