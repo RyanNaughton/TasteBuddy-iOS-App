@@ -36,6 +36,7 @@
 		499B564A1357AE9000F2B407 /* AutocompleteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727DE13578626004CB2F6 /* AutocompleteService.m */; };
 		499B564C1357AEC300F2B407 /* FindAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */; };
 		499B564D1357AED200F2B407 /* NearAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */; };
+		49A3939B138086360059FA6D /* RestaurantAdditionalInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A3939A138086360059FA6D /* RestaurantAdditionalInformationCell.m */; };
 		49A64FA6135F5455002B3655 /* MenuSubcategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A64FA5135F5455002B3655 /* MenuSubcategory.m */; };
 		49ABCCE8137C38190006218B /* UserBookmarksService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ABCCE7137C38190006218B /* UserBookmarksService.m */; };
 		49ABCCF4137C6B2C0006218B /* RestaurantService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49ABCCF3137C6B2B0006218B /* RestaurantService.m */; };
@@ -301,6 +302,8 @@
 		498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FindAutocompleteTableViewController.m; sourceTree = "<group>"; };
 		498727E51357A1F4004CB2F6 /* NearAutocompleteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NearAutocompleteTableViewController.h; sourceTree = "<group>"; };
 		498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NearAutocompleteTableViewController.m; sourceTree = "<group>"; };
+		49A39399138086360059FA6D /* RestaurantAdditionalInformationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantAdditionalInformationCell.h; sourceTree = "<group>"; };
+		49A3939A138086360059FA6D /* RestaurantAdditionalInformationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantAdditionalInformationCell.m; sourceTree = "<group>"; };
 		49A64FA4135F5455002B3655 /* MenuSubcategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuSubcategory.h; sourceTree = "<group>"; };
 		49A64FA5135F5455002B3655 /* MenuSubcategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuSubcategory.m; sourceTree = "<group>"; };
 		49ABCCE6137C38180006218B /* UserBookmarksService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserBookmarksService.h; sourceTree = "<group>"; };
@@ -1042,6 +1045,8 @@
 				E875620A135FE99E001A870F /* RestaurantTagsCell_OLD.m */,
 				E83A947413660E4A00A5B706 /* RestaurantWebsiteCell.h */,
 				E83A947513660E4A00A5B706 /* RestaurantWebsiteCell.m */,
+				49A39399138086360059FA6D /* RestaurantAdditionalInformationCell.h */,
+				49A3939A138086360059FA6D /* RestaurantAdditionalInformationCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -1682,6 +1687,7 @@
 				49C41108137DB809005536D0 /* hours.m in Sources */,
 				E82DA973137DB65E0060DB3E /* UserCreationService.m in Sources */,
 				E89CB80A138055A200F74837 /* UserSettingsViewController.m in Sources */,
+				49A3939B138086360059FA6D /* RestaurantAdditionalInformationCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1735,8 +1741,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Chalkley (4MUGPXR6G6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Chalkley (4MUGPXR6G6)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -1748,8 +1754,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				PROVISIONING_PROFILE = "F32A0195-D24B-41A0-80EE-9FB3D273637C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F32A0195-D24B-41A0-80EE-9FB3D273637C";
 				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
@@ -1758,8 +1764,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Chalkley (4MUGPXR6G6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Chalkley (4MUGPXR6G6)";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1769,8 +1775,8 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				PROVISIONING_PROFILE = "F32A0195-D24B-41A0-80EE-9FB3D273637C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F32A0195-D24B-41A0-80EE-9FB3D273637C";
 				SDKROOT = iphoneos4.3;
 			};
 			name = Release;
@@ -1780,8 +1786,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Chalkley (4MUGPXR6G6)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Chalkley (4MUGPXR6G6)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1795,8 +1801,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				PROVISIONING_PROFILE = "F32A0195-D24B-41A0-80EE-9FB3D273637C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F32A0195-D24B-41A0-80EE-9FB3D273637C";
 				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

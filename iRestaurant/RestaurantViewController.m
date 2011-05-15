@@ -27,6 +27,7 @@
 #import "RestaurantButtonsCell.h"
 #import "CommentsHeaderCell.h"
 #import "CommentCell.h"
+#import "RestaurantAdditionalInformationCell.h"
 
 @implementation RestaurantViewController
 @synthesize tableArray, restaurant, tagsRowHeight, takePhoto;
@@ -224,6 +225,13 @@
         } else {
             return nil;
         }
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"AdditionalInformation"]) {
+        RestaurantAdditionalInformationCell *cell = (RestaurantAdditionalInformationCell *)[tableView dequeueReusableCellWithIdentifier:@"AdditionalInformationCell"];
+        if(cell==nil){
+            cell =[[[RestaurantAdditionalInformationCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"AdditionalInformationCell"] autorelease];
+        }
+        [cell loadRestaurant:restaurant];
+        return cell;
     } else {
         static NSString *CellIdentifier = @"Cell";
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
