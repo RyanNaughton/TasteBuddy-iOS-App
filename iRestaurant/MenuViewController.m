@@ -45,12 +45,14 @@
     
     int menuItems = 0;
     for (MenuCategory *menuCategory in menu.arrayOfCategories) {
+        NSLog(@"cat name: %@ | count: %i", menuCategory.name, [menuCategory.menuSubcategories count]);
         for (MenuSubcategory *menuSubcategory in menuCategory.menuSubcategories) {
             menuItems = menuItems + [menuSubcategory.arrayOfMenuItems count];
+            NSLog(@"subcat name: %@ | count: %i", menuSubcategory.name, [menuSubcategory.arrayOfMenuItems count]);
         }
     }
         
-    if (menuItems > 100000) {
+    if (menuItems > 10000) {
         SectionsMenuTableView *sectionsMenuTableView = [[SectionsMenuTableView alloc]initWithMenu:menu];
         tableView.dataSource = sectionsMenuTableView;
         tableView.delegate = sectionsMenuTableView;
@@ -64,6 +66,7 @@
         SimpleMenuTableView *simpleMenuTableView = [[SimpleMenuTableView alloc]initWithMenu:menu];
         tableView.dataSource = simpleMenuTableView;
         tableView.delegate = simpleMenuTableView;
+        simpleMenuTableView.restaurant = restaurant;
         //simpleMenuTableView.parentView = self;
         simpleMenuTableView.navController = self.navigationController;
         [tableView reloadData];
@@ -113,7 +116,7 @@
     appNameImageView.contentMode = UIViewContentModeCenter;
     self.navigationItem.titleView = appNameImageView;
     
-    self.tableView.backgroundColor = [[UIColor alloc] initWithRed:230.0 / 255 green:230.0 / 255 blue:230.0 / 255 alpha:1.0];
+    self.tableView.backgroundColor = [UIColor whiteColor]; //[[UIColor alloc] initWithRed:230.0 / 255 green:230.0 / 255 blue:230.0 / 255 alpha:1.0];
     activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activityIndicator.frame = CGRectMake(0, 0, 25, 25);
     activityIndicator.center = CGPointMake(self.view.center.x, (self.view.center.y - 50));

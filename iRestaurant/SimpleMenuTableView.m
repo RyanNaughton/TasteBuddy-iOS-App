@@ -12,9 +12,10 @@
 #import "MenuSubcategory.h"
 #import "DishCell.h"
 #import "MenuItem.h"
+#import "DishViewController.h"
 
 @implementation SimpleMenuTableView
-@synthesize menu, simpleMenuItemArray, navController;
+@synthesize menu, simpleMenuItemArray, navController, restaurant;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -120,6 +121,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    NSLog(@"simpleMenuItemArray: %@", simpleMenuItemArray);
     return [simpleMenuItemArray count];
 }
 
@@ -130,6 +132,9 @@
 //    for (MenuSubcategory *menuSubcategory in menuCategory.menuSubcategories) {
 //        rows = rows + [menuSubcategory.arrayOfMenuItems count];
 //    }
+    
+    NSLog(@"rows in section: %@", [[simpleMenuItemArray objectAtIndex:section] objectForKey:@"items"]);
+    
     return [[[simpleMenuItemArray objectAtIndex:section] objectForKey:@"items"] count];
 }
 
@@ -137,8 +142,36 @@
 //	NSString *header;
 //	MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:section];
 //    header = [NSString stringWithFormat:@"%@", menuCategory.name];
-    NSString *header = [[simpleMenuItemArray objectAtIndex:section] objectForKey:@"name"];
+    NSString *header = @"";
     return header;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
+    headerView.backgroundColor = [UIColor clearColor];
+    
+    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"orange-grad.png"]];
+    bgImageView.alpha = 0.66;
+    bgImageView.frame = headerView.frame;
+    bgImageView.contentMode = UIViewContentModeScaleToFill;
+    [headerView addSubview:bgImageView];
+    [bgImageView release];
+    
+//    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
+//    bgView.backgroundColor = [[UIColor alloc]initWithRed:255.0/255.0 green:168.0/255.0 blue:0.0/255.0 alpha:1.0];
+//    bgView.alpha = 0.66;
+//    [headerView addSubview:bgView];
+//    [bgView release];
+    
+    UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, -1, 220, 22)];
+    restaurantName.backgroundColor = [UIColor clearColor];
+    restaurantName.textColor = [[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
+    restaurantName.font = [UIFont systemFontOfSize:14];
+    restaurantName.text = [NSString stringWithFormat:@"%@", [[simpleMenuItemArray objectAtIndex:section] objectForKey:@"name"]];
+    [headerView addSubview:restaurantName];
+    [restaurantName release];
+    return [headerView autorelease];
+
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -197,14 +230,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    MenuItem *menuItem = (MenuItem *)[[[simpleMenuItemArray objectAtIndex:indexPath.section] objectForKey:@"items"]objectAtIndex:indexPath.row];
+    DishViewController *dishViewController = [[DishViewController alloc]initWithMenuItem:menuItem andRestaurant:restaurant];
+    [navController pushViewController:dishViewController animated:YES];
+    [dishViewController release];
 }
 
 @end

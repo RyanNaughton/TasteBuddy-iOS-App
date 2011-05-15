@@ -8,16 +8,19 @@
 
 #import <UIKit/UIKit.h>
 @class Menu;
+@class Restaurant;
 
 @interface SimpleMenuTableView : UITableViewController {
     Menu *menu;
     NSMutableArray *simpleMenuItemArray;
     UINavigationController *navController;
+    Restaurant *restaurant;
 }
 
 @property (nonatomic, retain) Menu *menu;
 @property (nonatomic, retain) NSMutableArray *simpleMenuItemArray;
 @property (nonatomic, retain) UINavigationController *navController;
+@property (nonatomic, retain) Restaurant *restaurant;
 
 -(id)initWithMenu:(Menu *)menu_passed;
 

@@ -63,6 +63,9 @@
 {
     NSString *responseString = [request_passed responseString];
     NSArray *array = [responseString JSONValue];
+    
+    NSLog(@"menu array: %@", array);
+    
     Menu *menu = [[Menu alloc] initWithArray:array];
     request = nil;
     [delegate menuReturned:menu];
