@@ -70,7 +70,7 @@
     restaurantNameTitle.font = [UIFont boldSystemFontOfSize:13];
     restaurantNameTitle.textColor = [UIColor whiteColor];
     restaurantNameTitle.backgroundColor = [UIColor clearColor];
-    restaurantNameTitle.text = [NSString stringWithFormat:@"@ %@", restaurant.name];
+    restaurantNameTitle.text = [[NSString stringWithFormat:@"@ %@", [restaurant.name retain]] retain];
     restaurantNameTitle.textAlignment = UITextAlignmentCenter;
     
     UILabel *menuTitle = [[UILabel alloc]init];

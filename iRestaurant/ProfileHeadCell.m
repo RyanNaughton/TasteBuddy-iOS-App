@@ -75,7 +75,7 @@
 }
 
 -(void)setUserInfoWithName:(NSString *)name andReviews:(int)reviewsCount andPictures:(int)picturesCount {
-    nameLabel.text = [NSString stringWithFormat:@"%@", name];
+    nameLabel.text = name;
     reviewsLabel.text = [NSString stringWithFormat:@"%i ratings", reviewsCount];
     picturesLabel.text = [NSString stringWithFormat:@"%i pictures", picturesCount];
 }

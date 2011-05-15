@@ -130,7 +130,7 @@
         restaurantName.backgroundColor = [UIColor clearColor];
         restaurantName.textColor = [UIColor whiteColor];
         restaurantName.font = [UIFont systemFontOfSize:14];
-        restaurantName.text = ((Restaurant *)[restaurantsArray objectAtIndex:section]).name;
+        restaurantName.text = [((Restaurant *)[restaurantsArray objectAtIndex:section]).name retain];
         [headerView addSubview:restaurantName];
         [restaurantName release];
     
@@ -140,7 +140,7 @@
         distance.textColor = [UIColor whiteColor];
         distance.font = [UIFont systemFontOfSize:14];
         Restaurant *restaurant = [restaurantsArray objectAtIndex:section];
-        distance.text = [NSString stringWithFormat:@"%@ mi", restaurant.distance];
+        distance.text = [NSString stringWithFormat:@"%@ mi", [restaurant.distance retain]];
         [headerView addSubview:distance];
         [distance release];
         return [headerView autorelease];

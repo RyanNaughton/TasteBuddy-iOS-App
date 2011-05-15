@@ -45,8 +45,8 @@
     text.frame = CGRectMake(10, 30, 310, 20);   
     text.numberOfLines = 0;
     text.lineBreakMode = UILineBreakModeWordWrap;
-    user_name.text = comment.user_name;
-    text.text = comment.text;
+    user_name.text = [comment.user_name retain];
+    text.text = [comment.text retain];
     [text sizeToFit];
 }
 

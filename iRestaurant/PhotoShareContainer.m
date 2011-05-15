@@ -83,9 +83,8 @@
     whatTextField.delegate = self;
     commentsTextField.delegate = self;
     
-    whereTextField.text = [NSString stringWithFormat:@"%@", where];
-    whatTextField.text = [NSString stringWithFormat:@"%@", what];
-    
+    whereTextField.text = [where retain];
+    whatTextField.text = [what retain];
     
     scrollView.contentSize = CGSizeMake(320, 261);
     imageView.image = image;

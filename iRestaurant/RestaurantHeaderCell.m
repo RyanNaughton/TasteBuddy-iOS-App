@@ -166,7 +166,7 @@
     } else {
         imageView.image = [UIImage imageNamed:@"restaurant-icon.gif"];
     }
-    name.text = restaurant.name;
+    name.text = [restaurant.name retain];
     lunch_hours.text = [restaurant.hours todaysFirstOpeningHours];
     dinner_hours.text = [restaurant.hours todaysSecondOpeningHours];
     if([restaurant.hours todaysOpeningTimesCount] > 1) {
