@@ -120,24 +120,32 @@
         UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
         headerView.backgroundColor = [UIColor clearColor];
     
-        UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
-        bgView.backgroundColor = [UIColor blackColor];
-        bgView.alpha = 0.66;
-        [headerView addSubview:bgView];
-        [bgView release];
+//        UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
+//        bgView.backgroundColor = [UIColor blackColor];
+//        bgView.alpha = 0.66;
+//        [headerView addSubview:bgView];
+//        [bgView release];
         
-        UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 220, 22)];
+        UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"orange-grad.png"]];
+        bgImageView.alpha = 0.66;
+        bgImageView.frame = headerView.frame;
+        bgImageView.contentMode = UIViewContentModeScaleToFill;
+        [headerView addSubview:bgImageView];
+        [bgImageView release];
+
+        
+        UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, -1, 220, 22)];
         restaurantName.backgroundColor = [UIColor clearColor];
-        restaurantName.textColor = [UIColor whiteColor];
+        restaurantName.textColor = [[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
         restaurantName.font = [UIFont systemFontOfSize:14];
         restaurantName.text = [((Restaurant *)[restaurantsArray objectAtIndex:section]).name retain];
         [headerView addSubview:restaurantName];
         [restaurantName release];
     
-        UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(240, 0, 70, 22)];
+        UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(240, -1, 70, 22)];
         distance.backgroundColor = [UIColor clearColor];
         distance.textAlignment = UITextAlignmentRight;
-        distance.textColor = [UIColor whiteColor];
+        distance.textColor = [[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
         distance.font = [UIFont systemFontOfSize:14];
         Restaurant *restaurant = [restaurantsArray objectAtIndex:section];
         distance.text = [NSString stringWithFormat:@"%@ mi", [restaurant.distance retain]];
