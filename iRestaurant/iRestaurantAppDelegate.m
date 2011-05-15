@@ -12,6 +12,9 @@
 #import "LoginViewController.h"
 #import "AuthenticationResponse.h"
 #import "PhotoUploadService.h"
+#import "SearchViewController.h"
+#import "FavoritesViewController.h"
+#import "ProfileTableViewController.h"
 
 @implementation iRestaurantAppDelegate
 
@@ -131,7 +134,18 @@
 
 -(IBAction) logout {
     [self setSavedSetting:@"authentication_token" withValue:@""];
-    
+    for (UINavigationController *navc in tabBarController.viewControllers) {
+        [navc popToRootViewControllerAnimated:NO];
+        if([navc.visibleViewController isKindOfClass:[SearchViewController class]]) {
+            SearchViewController *svc = (SearchViewController *) navc.visibleViewController; 
+            svc.needsToPerformDefaultSearch = YES;
+        } else if([navc.visibleViewController isKindOfClass:[FavoritesViewController class]]) {
+            FavoritesViewController *fvc = (FavoritesViewController *) navc.visibleViewController;            
+            
+        } else if([navc.visibleViewController isKindOfClass:[ProfileTableViewController class]]){
+            ProfileTableViewController *pvc = (ProfileTableViewController *) navc.visibleViewController; 
+        }
+    } 
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Logged Out" message:@"You have successfully logged out." delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
     [alert show];
     [alert release];
