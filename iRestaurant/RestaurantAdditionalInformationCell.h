@@ -11,7 +11,12 @@
 @class Restaurant;
 
 @interface RestaurantAdditionalInformationCell : UITableViewCell {
-    
+    UILabel *alcoholText;
+    UILabel *deliveryLabel;
+    UILabel *ccText;
+    UILabel *parkingText;
+    UILabel *reservationsText;
+    UILabel *wifiText;
 }
 
 -(void)loadRestaurant:(Restaurant *)restaurantPassed;

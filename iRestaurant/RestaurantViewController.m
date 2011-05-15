@@ -259,8 +259,9 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         height = 200;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"WebsiteLink"]) {
-        height = 48;
-
+        height = 58;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"AdditionalInformation"]) {
+        height = 145;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
         if([restaurant.comments count] > 0 && indexPath.row > 0) {
             Comment * comment = (Comment *)[restaurant.comments objectAtIndex:(indexPath.row - 1)];
