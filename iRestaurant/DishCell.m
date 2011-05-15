@@ -66,7 +66,7 @@
 }
 
 -(void)loadMenuItem:(MenuItem *)menuItem {
-    UIImage *noImage = [UIImage imageNamed:@"no-image-80.png"];
+    UIImage *noImage = [UIImage imageNamed:@"no-image-300.png"];
     name.text = [menuItem.name retain];
     tags.text = [menuItem.tags_text retain];
     price.text = [NSString stringWithFormat:@"$%.2f", menuItem.price];
