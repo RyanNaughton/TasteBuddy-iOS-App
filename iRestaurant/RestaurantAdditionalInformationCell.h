@@ -12,12 +12,18 @@
 
 @interface RestaurantAdditionalInformationCell : UITableViewCell {
     UILabel *alcoholText;
-    UILabel *deliveryLabel;
+    UILabel *deliveryText;
     UILabel *ccText;
     UILabel *parkingText;
     UILabel *reservationsText;
     UILabel *wifiText;
 }
+@property (nonatomic, retain) UILabel *alcoholText;
+@property (nonatomic, retain) UILabel *deliveryText;
+@property (nonatomic, retain) UILabel *ccText;
+@property (nonatomic, retain) UILabel *parkingText;
+@property (nonatomic, retain) UILabel *reservationsText;
+@property (nonatomic, retain) UILabel *wifiText;
 
 -(void)loadRestaurant:(Restaurant *)restaurantPassed;
 

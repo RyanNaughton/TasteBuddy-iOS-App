@@ -12,7 +12,7 @@
 @implementation RestaurantAdditionalInformationCell
 
 @synthesize alcoholText;
-@synthesize deliveryLabel;
+@synthesize deliveryText;
 @synthesize ccText;
 @synthesize parkingText;
 @synthesize reservationsText;
@@ -51,6 +51,15 @@
         [self.contentView addSubview:alcoholLabel];
         [alcoholLabel release];
         
+        alcoholText = [[UILabel alloc]init];
+        alcoholText.frame = CGRectMake(10, 7, 280, 20);
+        alcoholText.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+		alcoholText.backgroundColor = [UIColor clearColor];
+		alcoholText.font = [UIFont boldSystemFontOfSize:20];
+        alcoholText.textAlignment = UITextAlignmentRight;
+        alcoholText.shadowColor = [UIColor whiteColor];
+        alcoholText.shadowOffset = CGSizeMake(0,1);
+        [self.contentView addSubview:alcoholText];
         
         UIView *greyLine = [[UIView alloc]initWithFrame:CGRectMake(10, 80, 140, 1)];
         greyLine.backgroundColor = [UIColor lightGrayColor];
@@ -108,6 +117,12 @@
 
 - (void)dealloc
 {
+    [alcoholText release];
+    [deliveryText release];
+    [ccText release];
+    [parkingText release];
+    [reservationsText release];
+    [wifiText release];
     [super dealloc];
 }
 
