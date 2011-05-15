@@ -331,9 +331,13 @@
 
 -(void)mapItButtonPressed:(id)sender
 {
+    NSLog(@"map it pressed");
     NSString *addressString = [NSString stringWithFormat:@"%@, %@, %@, %@, %@, %@", restaurant.address_1, restaurant.address_2, restaurant.city_town, restaurant.state_province, restaurant.postal_code, restaurant.country];
     addressString = [addressString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSString *requestString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@&z=15", addressString];
+    NSRange range = NSMakeRange(0, [requestString length]);
+    requestString = [requestString stringByReplacingOccurrencesOfString:@"<null>" withString:@"" options:NULL range:range];
+    NSLog(@"string: %@", requestString);
     UIApplication *app = [UIApplication sharedApplication];
     [app openURL:[NSURL URLWithString:requestString]];	
 
