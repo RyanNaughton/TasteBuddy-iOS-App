@@ -118,7 +118,7 @@
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						<object class="NSColor" key="IBUITintColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4yMDc4NDMxMzczIDAuNzA1ODgyMzUyOSAwLjE2MDc4NDMxMzcAA</bytes>
+							<bytes key="NSRGB">MC4zNDgyOTg3Mjg1IDAuNTg1Mzk3ODM5NSAwLjA5NjAwMDQ2Mjc3AA</bytes>
 						</object>
 						<object class="NSArray" key="IBUIItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>

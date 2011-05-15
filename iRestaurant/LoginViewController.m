@@ -48,8 +48,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UIImage *cancelButtonImage = [[UIImage imageNamed:@"darkgrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
-    [signUpButton setBackgroundImage:cancelButtonImage forState:UIControlStateNormal];
+    UIImage *signUpBtnImage = [[UIImage imageNamed:@"orange-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
+    [signUpButton setBackgroundImage:signUpBtnImage forState:UIControlStateNormal];
     
     // Do any additional setup after loading the view from its nib.
     loginService = [[LoginService alloc] initWithDelegate:self];

@@ -116,12 +116,16 @@
 {
     [super viewDidAppear:animated];
     
+    if (!animated) {
+        ups = [[UserProfileService alloc]initWithDelegate:self];
+        [ups getUserProfile];
+        loading = TRUE;
+    }
+    
 }
 
 -(void) doneRetrievingProfile:(NSMutableDictionary *) profile {
-    
-    NSLog(@"profile: %@", profile);
-    
+        
     username = [[NSString stringWithFormat:@"%@",[profile objectForKey:@"username"]]retain];
     reviewsCount = [[profile objectForKey:@"ratings_count"] intValue];
     picturesDictionary = [[NSDictionary alloc]initWithDictionary:[profile objectForKey:@"pictures"]];

@@ -86,7 +86,7 @@
 						<int key="IBUIBarStyle">1</int>
 						<object class="NSColor" key="IBUITintColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4yMDc4NDMxMzczIDAuNzA1ODgyMzUyOSAwLjE2MDc4NDMxMzcAA</bytes>
+							<bytes key="NSRGB">MC4zNDgyOTg3Mjg1IDAuNTg1Mzk3ODM5NSAwLjA5NjAwMDQ2Mjc3AA</bytes>
 						</object>
 					</object>
 					<object class="NSMutableArray" key="IBUIViewControllers">
@@ -134,9 +134,10 @@
 							<bool key="IBUIClipsSubviews">YES</bool>
 							<bool key="IBUIMultipleTouchEnabled">YES</bool>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+							<int key="IBUIBarStyle">1</int>
 							<object class="NSColor" key="IBUITintColor">
 								<int key="NSColorSpace">1</int>
-								<bytes key="NSRGB">MC4yMDc4NDMxMzczIDAuNzA1ODgyMzUyOSAwLjE2MDc4NDMxMzcAA</bytes>
+								<bytes key="NSRGB">MC4zNDgyOTg3Mjg1IDAuNTg1Mzk3ODM5NSAwLjA5NjAwMDQ2Mjc3AA</bytes>
 							</object>
 						</object>
 						<object class="NSMutableArray" key="IBUIViewControllers">
@@ -185,7 +186,7 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							<object class="NSColor" key="IBUITintColor">
 								<int key="NSColorSpace">1</int>
-								<bytes key="NSRGB">MC4yMDcxODUxMDQ1IDAuNzA3MDA4MTgzIDAuMTYyMDIxNDg4AA</bytes>
+								<bytes key="NSRGB">MC4zNDgyOTg3Mjg1IDAuNTg1Mzk3ODM5NSAwLjA5NjAwMDQ2Mjc3AA</bytes>
 							</object>
 						</object>
 						<object class="NSMutableArray" key="IBUIViewControllers">

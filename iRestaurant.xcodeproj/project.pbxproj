@@ -72,6 +72,8 @@
 		E82DA97C137DFF5F0060DB3E /* tasteBuddyLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E82DA97A137DFF5F0060DB3E /* tasteBuddyLogo@2x.png */; };
 		E82DA984137E0C400060DB3E /* profileLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E82DA982137E0C400060DB3E /* profileLogo.png */; };
 		E82DA985137E0C400060DB3E /* profileLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E82DA983137E0C400060DB3E /* profileLogo@2x.png */; };
+		E82DA988137E13DE0060DB3E /* orange-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E82DA986137E13DE0060DB3E /* orange-button.png */; };
+		E82DA989137E13DE0060DB3E /* orange-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E82DA987137E13DE0060DB3E /* orange-button@2x.png */; };
 		E83A946A1365F11A00A5B706 /* red-heart.png in Resources */ = {isa = PBXBuildFile; fileRef = E83A94681365F11A00A5B706 /* red-heart.png */; };
 		E83A946B1365F11A00A5B706 /* red-heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E83A94691365F11A00A5B706 /* red-heart@2x.png */; };
 		E83A946F1365F15400A5B706 /* 29-heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E83A946D1365F15400A5B706 /* 29-heart@2x.png */; };
@@ -293,7 +295,7 @@
 		49ABCCF3137C6B2B0006218B /* RestaurantService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantService.m; sourceTree = "<group>"; };
 		49ABCCFA137CAC9D0006218B /* Rating.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rating.h; sourceTree = "<group>"; };
 		49ABCCFB137CAC9E0006218B /* Rating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rating.m; sourceTree = "<group>"; };
-		49BA681E1354DBA30040DDB5 /* iRestaurant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iRestaurant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		49BA681E1354DBA30040DDB5 /* TasteBuddy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TasteBuddy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		49BA68221354DBA40040DDB5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		49BA68241354DBA40040DDB5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		49BA68261354DBA40040DDB5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -304,7 +306,6 @@
 		49BA68311354DBA40040DDB5 /* iRestaurantAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iRestaurantAppDelegate.h; sourceTree = "<group>"; };
 		49BA68321354DBA40040DDB5 /* iRestaurantAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iRestaurantAppDelegate.m; sourceTree = "<group>"; };
 		49BA68351354DBA40040DDB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		49BA68421354DBA50040DDB5 /* iRestaurantTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = iRestaurantTests.octest; path = "/Users/andrew/Projects/iRestaurant/build/Release-iphoneos/iRestaurantTests.octest"; sourceTree = "<absolute>"; };
 		49BA684A1354DBA50040DDB5 /* iRestaurantTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "iRestaurantTests-Info.plist"; sourceTree = "<group>"; };
 		49BA684C1354DBA50040DDB5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		49BA684E1354DBA50040DDB5 /* iRestaurantTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iRestaurantTests-Prefix.pch"; sourceTree = "<group>"; };
@@ -341,6 +342,9 @@
 		E82DA97A137DFF5F0060DB3E /* tasteBuddyLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tasteBuddyLogo@2x.png"; sourceTree = "<group>"; };
 		E82DA982137E0C400060DB3E /* profileLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profileLogo.png; sourceTree = "<group>"; };
 		E82DA983137E0C400060DB3E /* profileLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profileLogo@2x.png"; sourceTree = "<group>"; };
+		E82DA986137E13DE0060DB3E /* orange-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange-button.png"; sourceTree = "<group>"; };
+		E82DA987137E13DE0060DB3E /* orange-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "orange-button@2x.png"; sourceTree = "<group>"; };
+		E82DA98E137E1B220060DB3E /* iRestaurantTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iRestaurantTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E83A94681365F11A00A5B706 /* red-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-heart.png"; sourceTree = "<group>"; };
 		E83A94691365F11A00A5B706 /* red-heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-heart@2x.png"; sourceTree = "<group>"; };
 		E83A946D1365F15400A5B706 /* 29-heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart@2x.png"; sourceTree = "<group>"; };
@@ -779,7 +783,8 @@
 		49BA681F1354DBA30040DDB5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				49BA681E1354DBA30040DDB5 /* iRestaurant.app */,
+				49BA681E1354DBA30040DDB5 /* TasteBuddy.app */,
+				E82DA98E137E1B220060DB3E /* iRestaurantTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -933,6 +938,8 @@
 				E86A84521368AD7B00720FA3 /* icons */,
 				E8AA4AED1361064A00A8E37B /* top-rounding.png */,
 				E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */,
+				E82DA986137E13DE0060DB3E /* orange-button.png */,
+				E82DA987137E13DE0060DB3E /* orange-button@2x.png */,
 				E82DA982137E0C400060DB3E /* profileLogo.png */,
 				E82DA983137E0C400060DB3E /* profileLogo@2x.png */,
 				E82DA979137DFF5F0060DB3E /* tasteBuddyLogo.png */,
@@ -1313,7 +1320,7 @@
 			);
 			name = iRestaurant;
 			productName = iRestaurant;
-			productReference = 49BA681E1354DBA30040DDB5 /* iRestaurant.app */;
+			productReference = 49BA681E1354DBA30040DDB5 /* TasteBuddy.app */;
 			productType = "com.apple.product-type.application";
 		};
 		49BA68411354DBA40040DDB5 /* iRestaurantTests */ = {
@@ -1332,7 +1339,7 @@
 			);
 			name = iRestaurantTests;
 			productName = iRestaurantTests;
-			productReference = 49BA68421354DBA50040DDB5 /* iRestaurantTests.octest */;
+			productReference = E82DA98E137E1B220060DB3E /* iRestaurantTests.octest */;
 			productType = "com.apple.product-type.bundle";
 		};
 /* End PBXNativeTarget section */
@@ -1458,6 +1465,8 @@
 				E82DA97C137DFF5F0060DB3E /* tasteBuddyLogo@2x.png in Resources */,
 				E82DA984137E0C400060DB3E /* profileLogo.png in Resources */,
 				E82DA985137E0C400060DB3E /* profileLogo@2x.png in Resources */,
+				E82DA988137E13DE0060DB3E /* orange-button.png in Resources */,
+				E82DA989137E13DE0060DB3E /* orange-button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1644,8 +1653,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -1654,10 +1663,12 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "";
-				SDKROOT = iphoneos;
+				PRODUCT_NAME = TasteBuddy;
+				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
 		};
@@ -1672,12 +1683,13 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
-				PROVISIONING_PROFILE = "1A081128-A48D-4CCF-B739-27B6521BEB77";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1A081128-A48D-4CCF-B739-27B6521BEB77";
-				SDKROOT = iphoneos;
+				PRODUCT_NAME = TasteBuddy;
+				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				SDKROOT = iphoneos4.3;
 			};
 			name = Release;
 		};
@@ -1686,8 +1698,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1700,9 +1712,9 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PRODUCT_NAME = TasteBuddy;
+				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
 				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -1727,9 +1739,9 @@
 					"-ObjC",
 					"-all_load",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "1A081128-A48D-4CCF-B739-27B6521BEB77";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "1A081128-A48D-4CCF-B739-27B6521BEB77";
+				PRODUCT_NAME = TasteBuddy;
+				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
 				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
