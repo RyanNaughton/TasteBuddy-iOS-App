@@ -32,7 +32,7 @@
 
 -(void) loadTag:(Tag *) tag {
     
-    tagName.text = [NSString stringWithFormat:@"%@ (%i)", tag.name, tag.count];    
+    tagName.text = [NSString stringWithFormat:@"%@ (%i)", [tag.name retain], tag.count];    
     
     if (tag.isUserTag) {
         UIImage *greyButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];

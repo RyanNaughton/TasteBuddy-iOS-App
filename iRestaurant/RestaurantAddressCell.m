@@ -47,12 +47,12 @@
     addressButtonLabel.textColor = [UIColor darkGrayColor];
     addressButtonLabel.backgroundColor = [UIColor clearColor];
     addressButtonLabel.font = [UIFont boldSystemFontOfSize:16];
-    addressButtonLabel.text = restaurant_passed.address_1;
+    addressButtonLabel.text = [restaurant_passed.address_1 retain];
     addressButtonLabel.textAlignment = UITextAlignmentCenter;
     [addressButton addSubview:addressButtonLabel];
     [addressButtonLabel release];
     
-    neighborhood.text = [NSString stringWithFormat:@"Neighborhood: %@", restaurant_passed.neighborhood];
+    neighborhood.text = [[NSString stringWithFormat:@"Neighborhood: %@", [restaurant_passed.neighborhood retain]] retain];
 }
 
 -(void)addressButtonPressed:(id)sender {

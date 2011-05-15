@@ -23,7 +23,9 @@
     NSData *imageData = UIImagePNGRepresentation(image);
     
     [jsonDictionary setObject:where forKey:@"where"];
-    [jsonDictionary setObject:what forKey:@"what"];
+    if(what != nil) {
+        [jsonDictionary setObject:what forKey:@"what"];
+    }
     [jsonDictionary setObject:imageData forKey:@"imageData"];
     
     if (restaurant_id == nil) { restaurant_id = @" "; }

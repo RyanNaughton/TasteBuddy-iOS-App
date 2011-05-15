@@ -51,7 +51,7 @@
     NSDictionary *currentPhoto = [photoArray objectAtIndex:0];
     NSURL *url = [NSURL URLWithString:[currentPhoto objectForKey:@"300px"]];
     [imageView setImageWithURL:url]; 
-    restaurantLabel.text = [NSString stringWithFormat:@"%@", restaurantName];
+    restaurantLabel.text = [restaurantName retain]; //Retain may not be needed
     pictureCountLabel.text = [NSString stringWithFormat:@"%i Pictures", [photoArray count]];
 }
 

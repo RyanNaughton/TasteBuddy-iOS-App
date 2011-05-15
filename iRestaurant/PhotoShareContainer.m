@@ -47,6 +47,9 @@
 
 -(IBAction) submitButtonPressed:(id)sender 
 {
+    UIButton *submitButton = (UIButton *)sender;
+    submitButton.enabled = FALSE;
+    cancelButton.enabled = FALSE;
     PhotoUploadService *photoUploadService = [[PhotoUploadService alloc]init];
     [photoUploadService uploadImage:image withWhere:whereTextField.text andWhat:whatTextField.text andComments:commentsTextField.text andFacebook:facebookSwitch.on andDelegate:self andRestaurantId:restaurant andMenuItemId:menuItem];
 }
@@ -83,9 +86,8 @@
     whatTextField.delegate = self;
     commentsTextField.delegate = self;
     
-    whereTextField.text = [NSString stringWithFormat:@"%@", where];
-    whatTextField.text = [NSString stringWithFormat:@"%@", what];
-    
+    whereTextField.text = [where retain];
+    whatTextField.text = [what retain];
     
     scrollView.contentSize = CGSizeMake(320, 261);
     imageView.image = image;

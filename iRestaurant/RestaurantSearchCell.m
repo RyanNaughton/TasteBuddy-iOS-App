@@ -74,13 +74,13 @@
 -(void)loadRestaurant:(Restaurant *)restaurant 
 {
     name.text = [restaurant.name retain];
-    tags.text = restaurant.tags_text;
+    tags.text = [restaurant.tags_text retain];
     addressLine1.text = [restaurant.address_1 retain];
     if(restaurant.distance == nil) {
         distance.hidden = YES;
     } else {
         distance.hidden = NO;
-        distance.text = [NSString stringWithFormat:@"%@ miles", restaurant.distance];
+        distance.text = [NSString stringWithFormat:@"%@ miles", [restaurant.distance retain]];
     }
     averageDishPrice.text = [NSString stringWithFormat:@"avg. dish: $%.2f", restaurant.average_meal_price];
     
