@@ -87,7 +87,7 @@
 		//imageView.image = img;
 		imageView.contentMode = UIViewContentModeScaleAspectFit;
 		imageView.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-		imageView.backgroundColor = [UIColor blackColor];
+		imageView.backgroundColor = [UIColor clearColor];
 		float ratio = imageView.image.size.width/rectScrollView.size.width;
 		CGRect imageFrame = CGRectMake(i, 0, rectScrollView.size.width, (imageView.image.size.height / ratio));
 		imageView.frame = imageFrame;

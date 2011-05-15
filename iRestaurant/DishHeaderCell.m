@@ -98,6 +98,11 @@
         [imageViewArray addObject:imageView];
     }
     
+    if ([arrayOfURLStrings count] == 0) {
+        UIImageView *imageView = [[UIImageView alloc]initWithImage:noImage];
+        [imageViewArray addObject:imageView];
+    }
+    
     UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
     svimage = [[IGUIScrollViewImage alloc] init];  
     [svimage setBackGroudColor:[UIColor clearColor]];
