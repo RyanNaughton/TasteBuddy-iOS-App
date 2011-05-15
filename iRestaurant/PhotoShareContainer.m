@@ -47,6 +47,9 @@
 
 -(IBAction) submitButtonPressed:(id)sender 
 {
+    UIButton *submitButton = (UIButton *)sender;
+    submitButton.enabled = FALSE;
+    cancelButton.enabled = FALSE;
     PhotoUploadService *photoUploadService = [[PhotoUploadService alloc]init];
     [photoUploadService uploadImage:image withWhere:whereTextField.text andWhat:whatTextField.text andComments:commentsTextField.text andFacebook:facebookSwitch.on andDelegate:self andRestaurantId:restaurant andMenuItemId:menuItem];
 }
