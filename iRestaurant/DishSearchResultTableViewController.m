@@ -93,11 +93,12 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
-    if([restaurantsArray count] > 0 && !isLoading)
-    {
+    if (isLoading) {
+        return 1;
+    } else if ([restaurantsArray count] > 0 && !isLoading) {
         return [restaurantsArray count];
     } else {
-        return 1;     
+        return 1;
     }
 
 }

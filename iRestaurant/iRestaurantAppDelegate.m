@@ -134,11 +134,18 @@
 
 -(IBAction) logout {
     [self setSavedSetting:@"authentication_token" withValue:@""];
+    if ([self loggedIn]) {
+        NSLog(@"%@",@"Logged in");
+    } else {
+        NSLog(@"%@",@"Logged out");        
+    }
     for (UINavigationController *navc in tabBarController.viewControllers) {
         [navc popToRootViewControllerAnimated:NO];
         if([navc.visibleViewController isKindOfClass:[SearchViewController class]]) {
             SearchViewController *svc = (SearchViewController *) navc.visibleViewController; 
             svc.needsToPerformDefaultSearch = YES;
+            svc.fakeTermField.text = @"";
+            [svc.searchService.jsonDictionary removeObjectForKey:@"auth_token"];
         } else if([navc.visibleViewController isKindOfClass:[FavoritesViewController class]]) {
             FavoritesViewController *fvc = (FavoritesViewController *) navc.visibleViewController;            
             
