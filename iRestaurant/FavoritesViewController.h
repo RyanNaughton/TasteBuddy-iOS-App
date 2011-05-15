@@ -36,5 +36,6 @@
 -(void) switchTabs:(UIButton *) onTab;
 -(void)switchFavoriteView:(id)sender;
 -(void) checkLogin;
+-(void)setupNavBarContent;
 
 @end
