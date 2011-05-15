@@ -14,7 +14,7 @@
 @implementation FavoritesViewController
 @synthesize restaurantsTabButton, dishesTabButton, tabView, lastSender;
 @synthesize favoritesDishesTVC, favoritesRestaurantsTVC, tableView;
-@synthesize ubs;
+@synthesize ubs, initialSetup;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -41,7 +41,7 @@
 -(void) checkLogin {
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([appDelegate loggedIn]) {
-        
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         UIImageView *favoritesNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"favorites-logo.png"]];
         favoritesNameImageView.frame = CGRectMake(160, -3, 150, 44);
         favoritesNameImageView.contentMode = UIViewContentModeRight;
@@ -58,17 +58,16 @@
         dishesTabButton.frame =  CGRectMake(78, 4, 83, 35);
         [dishesTabButton addTarget:self action:@selector(switchFavoriteView:) forControlEvents:UIControlEventTouchUpInside];
         
-        [self switchTabs:restaurantsTabButton];
-        
-        lastSender = restaurantsTabButton; //Set initial value for lastSender so we knew which result view we need to be in.
-        
         tabView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 35)];
         [tabView addSubview:favoritesNameImageView];
         [tabView addSubview:dishesTabButton];
         [tabView addSubview:restaurantsTabButton];
+        self.navigationItem.leftBarButtonItem = nil;
+        self.navigationItem.rightBarButtonItem = nil;
         self.navigationItem.titleView = tabView;
         
     } else {
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         UIImageView *favoritesNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"favorites-logo.png"]];
         favoritesNameImageView.frame = CGRectMake(160, -3, 320, 44);
         favoritesNameImageView.contentMode = UIViewContentModeRight;
@@ -99,13 +98,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    initialSetup = TRUE;
     ubs = [[UserBookmarksService alloc] initWithDelegate:self];
         
-    [self checkLogin];    
+    [self checkLogin];  
+    [self switchTabs:restaurantsTabButton];
+    lastSender = restaurantsTabButton;
 }
 
 -(void) viewDidAppear:(BOOL)animated {
+    //[self checkLogin];
+
+    
+    NSLog(@"view did appear");
     if(![ubs isLoggedIn]) {
+        [self checkLogin];
         favoritesRestaurantsTVC.restaurantsArray = [[NSArray alloc] init];
         favoritesDishesTVC.dishesArray = [[NSArray alloc] init];
         [tableView reloadData];
@@ -114,15 +121,26 @@
         favoritesDishesTVC.isLoading = YES;
         favoritesRestaurantsTVC.isLoading = YES;
         [ubs getUserBookmarks];
+        
+        [self.tableView reloadData];
+    } else {
         [self checkLogin];
+        [self switchTabs:lastSender];
     }
 }
 
 -(void) switchTabs:(UIButton *) onTab 
 {
-    
-    UIButton *offTab = (onTab == restaurantsTabButton) ? dishesTabButton : restaurantsTabButton;
-    
+    NSLog(@"switch tabs %@", onTab.titleLabel.text);
+    UIButton *offTab;
+    if (onTab == restaurantsTabButton) {
+        onTab = restaurantsTabButton;
+        offTab = dishesTabButton;
+    } else {
+        onTab = dishesTabButton;
+        offTab = restaurantsTabButton;
+    }
+        
     [offTab setBackgroundImage:[[UIImage imageNamed:@"darkgrey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
     [offTab setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [onTab setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -136,10 +154,12 @@
 {
     lastSender = sender;
     if(sender == restaurantsTabButton) {
+        NSLog(@"restaurant tab");
         [self switchTabs:restaurantsTabButton];
         tableView.delegate = favoritesRestaurantsTVC;
         tableView.dataSource = favoritesRestaurantsTVC;
     } else if (sender == dishesTabButton){
+        NSLog(@"dishes tab");
         [self switchTabs:dishesTabButton];
         tableView.delegate = favoritesDishesTVC;
         tableView.dataSource = favoritesDishesTVC;

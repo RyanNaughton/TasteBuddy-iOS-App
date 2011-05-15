@@ -20,6 +20,7 @@
     IBOutlet FavoritesRestaurantsTVC *favoritesRestaurantsTVC;
     IBOutlet UITableView *tableView;
     UserBookmarksService *ubs;
+    BOOL initialSetup;
 }
 
 @property (nonatomic, retain) UIButton *restaurantsTabButton;
@@ -30,8 +31,10 @@
 @property (nonatomic, retain) IBOutlet FavoritesRestaurantsTVC *favoritesRestaurantsTVC;
 @property (nonatomic, retain) UITableView *tableView;
 @property (nonatomic, retain) UserBookmarksService *ubs;
+@property (nonatomic, assign) BOOL initialSetup;
 
 -(void) switchTabs:(UIButton *) onTab;
 -(void)switchFavoriteView:(id)sender;
+-(void) checkLogin;
 
 @end

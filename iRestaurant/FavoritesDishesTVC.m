@@ -12,7 +12,7 @@
 #import "DishCell.h"
 #import "DishViewController.h"
 #import "RestaurantService.h"
-
+#import "iRestaurantAppDelegate.h"
 
 @implementation FavoritesDishesTVC
 
@@ -114,20 +114,34 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (isLoading) {
-        
-		static NSString *CellIdentifier = @"LoadingCell";
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-		if (cell == nil) {
-		    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-		}
-		
-        cell.textLabel.text = @"Loading...";
-        UIActivityIndicatorView *documentActivityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        [documentActivityIndicator startAnimating];
-        [cell setAccessoryView:documentActivityIndicator];
-        [documentActivityIndicator release];
-        return  cell;        
+        iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        if ([appDelegate loggedIn]) {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoadingCell"];
+            if (cell == nil) {
+                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LoadingCell"] autorelease];
+            }          
+            cell.textLabel.textColor = [UIColor lightGrayColor];
+            cell.textLabel.textAlignment = UITextAlignmentCenter;
+            cell.textLabel.text = @"Loading...";
+            UIActivityIndicatorView *act = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+            [act startAnimating];
+            act.frame = CGRectMake(0, 0, 30, 30);
+            act.center = CGPointMake(cell.contentView.center.x, 200);
+            [cell.contentView addSubview:act];
+            [act release];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        } else {
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoggedOutCell"];
+            if (cell == nil) {
+                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LoggedOutCell"] autorelease];
+            }          
+            cell.textLabel.textColor = [UIColor lightGrayColor];
+            cell.textLabel.textAlignment = UITextAlignmentCenter;
+            cell.textLabel.text = @"You are Logged Out.";
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+        }
     } else if ([dishesArray count] > 0) {
         
 		DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"FavoriteDishCell"];
@@ -160,10 +174,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     int height;
-    if ([dishesArray count] > 0) {
+    if (isLoading) { 
+        height = 300; 
+    } else if ([dishesArray count] > 0) {
         height = 70;
     } else {
-        height = 44;
+        height = 300;
     }
     return height;
 }

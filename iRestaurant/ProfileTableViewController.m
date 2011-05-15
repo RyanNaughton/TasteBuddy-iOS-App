@@ -275,6 +275,7 @@
             act.center = CGPointMake(cell.contentView.center.x, 200);
             [cell.contentView addSubview:act];
             [act release];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         } else {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoggedOutCell"];
@@ -284,6 +285,7 @@
             cell.textLabel.textColor = [UIColor lightGrayColor];
             cell.textLabel.textAlignment = UITextAlignmentCenter;
             cell.textLabel.text = @"You are Logged Out.";
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
         }
         
