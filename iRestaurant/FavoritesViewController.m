@@ -9,6 +9,7 @@
 #import "FavoritesViewController.h"
 #import "FavoritesDishesTVC.h"
 #import "FavoritesRestaurantsTVC.h"
+#import "iRestaurantAppDelegate.h"
 
 @implementation FavoritesViewController
 @synthesize restaurantsTabButton, dishesTabButton, tabView, lastSender;
@@ -37,6 +38,54 @@
     [super dealloc];
 }
 
+-(void) checkLogin {
+    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    if ([appDelegate loggedIn]) {
+        
+        UIImageView *favoritesNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"favorites-logo.png"]];
+        favoritesNameImageView.frame = CGRectMake(160, -3, 150, 44);
+        favoritesNameImageView.contentMode = UIViewContentModeRight;
+        
+        restaurantsTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [restaurantsTabButton setTitle:@"Restaurants" forState:UIControlStateNormal];
+        restaurantsTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
+        restaurantsTabButton.frame =  CGRectMake(0, 4, 83, 35);
+        [restaurantsTabButton addTarget:self action:@selector(switchFavoriteView:) forControlEvents:UIControlEventTouchUpInside];
+        
+        dishesTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [dishesTabButton setTitle:@"Dishes" forState:UIControlStateNormal];
+        dishesTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
+        dishesTabButton.frame =  CGRectMake(78, 4, 83, 35);
+        [dishesTabButton addTarget:self action:@selector(switchFavoriteView:) forControlEvents:UIControlEventTouchUpInside];
+        
+        [self switchTabs:restaurantsTabButton];
+        
+        lastSender = restaurantsTabButton; //Set initial value for lastSender so we knew which result view we need to be in.
+        
+        tabView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 35)];
+        [tabView addSubview:favoritesNameImageView];
+        [tabView addSubview:dishesTabButton];
+        [tabView addSubview:restaurantsTabButton];
+        self.navigationItem.titleView = tabView;
+        
+    } else {
+        UIImageView *favoritesNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"favorites-logo.png"]];
+        favoritesNameImageView.frame = CGRectMake(160, -3, 320, 44);
+        favoritesNameImageView.contentMode = UIViewContentModeRight;
+        self.navigationItem.titleView = favoritesNameImageView;
+        
+        UIBarButtonItem *loginBtn = [[UIBarButtonItem alloc] initWithTitle:@"Login"
+                                                                     style:UIBarButtonItemStyleBordered
+                                                                    target:self
+                                                                    action:@selector(loginPressed:)]; 
+        self.navigationItem.leftBarButtonItem = loginBtn;
+        self.navigationItem.rightBarButtonItem = nil;
+        [loginBtn release]; 
+    }
+    
+}
+
+
 - (void)didReceiveMemoryWarning
 {
     // Releases the view if it doesn't have a superview.
@@ -51,32 +100,8 @@
 {
     [super viewDidLoad];
     ubs = [[UserBookmarksService alloc] initWithDelegate:self];
-    UIImageView *favoritesNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"favorites-logo.png"]];
-    favoritesNameImageView.frame = CGRectMake(160, -3, 150, 44);
-    favoritesNameImageView.contentMode = UIViewContentModeRight;
-    
-    restaurantsTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [restaurantsTabButton setTitle:@"Restaurants" forState:UIControlStateNormal];
-    restaurantsTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
-    restaurantsTabButton.frame =  CGRectMake(0, 4, 83, 35);
-    [restaurantsTabButton addTarget:self action:@selector(switchFavoriteView:) forControlEvents:UIControlEventTouchUpInside];
-    
-    dishesTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [dishesTabButton setTitle:@"Dishes" forState:UIControlStateNormal];
-    dishesTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
-    dishesTabButton.frame =  CGRectMake(78, 4, 83, 35);
-    [dishesTabButton addTarget:self action:@selector(switchFavoriteView:) forControlEvents:UIControlEventTouchUpInside];
-    
-    [self switchTabs:restaurantsTabButton];
-    
-    lastSender = restaurantsTabButton; //Set initial value for lastSender so we knew which result view we need to be in.
-    
-    tabView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 35)];
-    [tabView addSubview:favoritesNameImageView];
-    [tabView addSubview:dishesTabButton];
-    [tabView addSubview:restaurantsTabButton];
-    self.navigationItem.titleView = tabView;
-    
+        
+    [self checkLogin];    
 }
 
 -(void) viewDidAppear:(BOOL)animated {
@@ -89,6 +114,7 @@
         favoritesDishesTVC.isLoading = YES;
         favoritesRestaurantsTVC.isLoading = YES;
         [ubs getUserBookmarks];
+        [self checkLogin];
     }
 }
 
@@ -142,6 +168,12 @@
     favoritesDishesTVC.isLoading = NO;
     favoritesRestaurantsTVC.isLoading = NO;
     [tableView reloadData];
+}
+
+-(void)loginPressed:(id)sender 
+{
+    NSLog(@"login pressed");
+    [self viewDidAppear:NO];
 }
 
 @end
