@@ -116,8 +116,6 @@
 {
     
 	if (isLoading) {
-		iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        if ([appDelegate loggedIn]) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoadingCell"];
             if (cell == nil) {
                 cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LoadingCell"] autorelease];
@@ -133,18 +131,7 @@
             [act release];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
-        } else {
-            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoggedOutCell"];
-            if (cell == nil) {
-                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LoggedOutCell"] autorelease];
-            }          
-            cell.textLabel.textColor = [UIColor lightGrayColor];
-            cell.textLabel.textAlignment = UITextAlignmentCenter;
-            cell.textLabel.text = @"You are Logged Out.";
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-            return cell;
-        }
-    } else if ([restaurantsArray count] > 0) {
+        } else if ([restaurantsArray count] > 0) {
         
 		RestaurantSearchCell *restaurantSearchCell = (RestaurantSearchCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantSearchCell"];
 		if (restaurantSearchCell == nil) {
@@ -176,11 +163,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     int height;
     if (isLoading) { 
+        searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         height = 300; 
     } else if ([restaurantsArray count] > 0) {
         height = 70;
+        searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     } else {
         height = 300;
+        searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return height;
 }

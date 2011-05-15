@@ -1760,8 +1760,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Chalkley (4MUGPXR6G6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Chalkley (4MUGPXR6G6)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1775,9 +1775,9 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "F32A0195-D24B-41A0-80EE-9FB3D273637C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F32A0195-D24B-41A0-80EE-9FB3D273637C";
-				SDKROOT = iphoneos;
+				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1802,7 +1802,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TasteBuddy;
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

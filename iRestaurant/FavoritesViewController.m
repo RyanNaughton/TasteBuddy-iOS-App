@@ -113,6 +113,7 @@
     NSLog(@"view did appear");
     if(![ubs isLoggedIn]) {
         [self checkLogin];
+        [self switchTabs:lastSender];
         favoritesRestaurantsTVC.restaurantsArray = [[NSArray alloc] init];
         favoritesDishesTVC.dishesArray = [[NSArray alloc] init];
         [tableView reloadData];
@@ -121,7 +122,6 @@
         favoritesDishesTVC.isLoading = YES;
         favoritesRestaurantsTVC.isLoading = YES;
         [ubs getUserBookmarks];
-        
         [self.tableView reloadData];
     } else {
         [self checkLogin];

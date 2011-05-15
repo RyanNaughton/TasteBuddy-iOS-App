@@ -153,19 +153,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (isLoading) {
-		static NSString *CellIdentifier = @"LoadingCell";
-        
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-		if (cell == nil) {
-		    cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-		}
-		
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoadingCell"];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"LoadingCell"] autorelease];
+        }          
+        cell.textLabel.textColor = [UIColor lightGrayColor];
+        cell.textLabel.textAlignment = UITextAlignmentCenter;
         cell.textLabel.text = @"Loading...";
-        UIActivityIndicatorView *documentActivityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-        [documentActivityIndicator startAnimating];
-        [cell setAccessoryView:documentActivityIndicator];
-        [documentActivityIndicator release];
-        return  cell;        
+        UIActivityIndicatorView *act = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [act startAnimating];
+        act.frame = CGRectMake(0, 0, 30, 30);
+        act.center = CGPointMake(cell.contentView.center.x, 200);
+        [cell.contentView addSubview:act];
+        [act release];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
     } else if ([restaurantsArray count] > 0) {
         
 		DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"DishCell"];
@@ -198,12 +200,26 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     int height;
-    if ([restaurantsArray count] > 0) {
-            height = 70;
+    if (isLoading) { 
+        searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        height = 300; 
+    } else if ([restaurantsArray count] > 0) {
+        height = 70;
+        searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     } else {
-        height = 44;
+        height = 300;
+        searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return height;
+
+    
+//    int height;
+//    if ([restaurantsArray count] > 0) {
+//            height = 70;
+//    } else {
+//        height = 44;
+//    }
+//    return height;
 }
 
 /*
