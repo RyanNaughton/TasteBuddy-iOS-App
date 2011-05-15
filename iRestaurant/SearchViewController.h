@@ -32,6 +32,7 @@
     IBOutlet AutocompleteModalViewController *searchModalViewController;
     
     IBOutlet UITextField *fakeTermField;
+    IBOutlet UIImageView *searchIcon;
     UIView *tabView;
     
     id lastSender;
@@ -57,6 +58,7 @@
 @property (nonatomic, retain) IBOutlet AutocompleteModalViewController *searchModalViewController;
 
 @property (nonatomic, retain) IBOutlet UITextField *fakeTermField;
+@property (nonatomic, retain) IBOutlet UIImageView *searchIcon;
 @property (nonatomic, retain) id lastSender;
 @property (nonatomic, retain) UIView *tabView;
 @property (nonatomic, assign) bool needsToPerformDefaultSearch;

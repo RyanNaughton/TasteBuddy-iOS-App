@@ -24,7 +24,7 @@
 
 @synthesize searchModalViewController;
 
-@synthesize fakeTermField;
+@synthesize fakeTermField, searchIcon;
 
 @synthesize lastSender;
 @synthesize tabView;
@@ -173,6 +173,11 @@
 
 -(void)searchFinished:(NSMutableArray *)restaurantsArray 
 { 
+    if (![fakeTermField.text isEqualToString:@""]) {
+        searchIcon.alpha = 0.0;
+    } else {
+        searchIcon.alpha = 0.35;
+    }
     restaurantSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
     dishSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
     [self resultsLoaded];
