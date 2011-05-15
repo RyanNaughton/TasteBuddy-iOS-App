@@ -98,6 +98,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setTitle:@"Favorites"];
     initialSetup = TRUE;
     ubs = [[UserBookmarksService alloc] initWithDelegate:self];
         
@@ -107,8 +108,6 @@
 }
 
 -(void) viewDidAppear:(BOOL)animated {
-    //[self checkLogin];
-
     
     NSLog(@"view did appear");
     if(![ubs isLoggedIn]) {
