@@ -113,8 +113,7 @@
 -(void) viewDidAppear:(BOOL)animated {
     if(needsToPerformDefaultSearch) {
         needsToPerformDefaultSearch = NO;
-        restaurantSearchResultTableViewController.isLoading = YES;
-        dishSearchResultTableViewController.isLoading = YES;
+        [self resultsLoading];
         [searchService searchByTerm:@""];
     }
 }

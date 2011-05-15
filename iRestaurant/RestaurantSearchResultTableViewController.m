@@ -102,7 +102,9 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    if ([restaurantsArray count] > 0 && !isLoading) {
+    if (isLoading) {
+        return 1;
+    } else if ([restaurantsArray count] > 0 && !isLoading) {
         return [restaurantsArray count];
     } else {
         return 1;
