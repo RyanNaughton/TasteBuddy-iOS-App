@@ -121,6 +121,7 @@
 - (void) viewDidAppear:(BOOL)animated {
     [termField becomeFirstResponder];
     [self autocomplete:termField]; //Force the appropriate TableView to kick in
+    [autocompleteService.jsonDictionary removeObjectForKey:@"auth_token"];
     searchView.center = CGPointMake(searchView.center.x, searchView.frame.size.height / 2 );
     tableView.frame = CGRectMake(0, searchView.frame.size.height, self.view.frame.size.width,  self.view.frame.size.height - (216 + searchView.frame.size.height));
 }
