@@ -148,6 +148,10 @@
 		E89CB7F71380430300F74837 /* no-image-80.png in Resources */ = {isa = PBXBuildFile; fileRef = E89CB7F41380430300F74837 /* no-image-80.png */; };
 		E89CB7F81380430300F74837 /* no-image-160.png in Resources */ = {isa = PBXBuildFile; fileRef = E89CB7F51380430300F74837 /* no-image-160.png */; };
 		E89CB7F91380430300F74837 /* no-image-300.png in Resources */ = {isa = PBXBuildFile; fileRef = E89CB7F61380430300F74837 /* no-image-300.png */; };
+		E89CB80A138055A200F74837 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89CB808138055A200F74837 /* UserSettingsViewController.m */; };
+		E89CB80B138055A200F74837 /* UserSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89CB809138055A200F74837 /* UserSettingsViewController.xib */; };
+		E89CB80E13805D3100F74837 /* settingsLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E89CB80C13805D3100F74837 /* settingsLogo.png */; };
+		E89CB80F13805D3100F74837 /* settingsLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E89CB80D13805D3100F74837 /* settingsLogo@2x.png */; };
 		E8A03E14135535500031D798 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E13135535500031D798 /* MenuItem.m */; };
 		E8A03E1D135539130031D798 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E1C135539130031D798 /* SearchService.m */; };
 		E8A03E49135543B90031D798 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A03E48135543B90031D798 /* MobileCoreServices.framework */; };
@@ -445,6 +449,11 @@
 		E89CB7F41380430300F74837 /* no-image-80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-image-80.png"; sourceTree = "<group>"; };
 		E89CB7F51380430300F74837 /* no-image-160.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-image-160.png"; sourceTree = "<group>"; };
 		E89CB7F61380430300F74837 /* no-image-300.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "no-image-300.png"; sourceTree = "<group>"; };
+		E89CB807138055A200F74837 /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
+		E89CB808138055A200F74837 /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
+		E89CB809138055A200F74837 /* UserSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserSettingsViewController.xib; sourceTree = "<group>"; };
+		E89CB80C13805D3100F74837 /* settingsLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsLogo.png; sourceTree = "<group>"; };
+		E89CB80D13805D3100F74837 /* settingsLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsLogo@2x.png"; sourceTree = "<group>"; };
 		E8A03E12135535500031D798 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
 		E8A03E13135535500031D798 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
 		E8A03E1B135539130031D798 /* SearchService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchService.h; sourceTree = "<group>"; };
@@ -865,6 +874,7 @@
 		49EE9AF61368D7F400528C91 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				E89CB8061380557D00F74837 /* Settings */,
 				E824E297137B110D00E790D2 /* Sign up */,
 				49EE9AF11368D7E100528C91 /* LoginViewController.h */,
 				49EE9AF21368D7E100528C91 /* LoginViewController.m */,
@@ -875,6 +885,7 @@
 		49EE9AF71368D80700528C91 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				E89CB809138055A200F74837 /* UserSettingsViewController.xib */,
 				E824E29A137B113000E790D2 /* SignUpViewController.xib */,
 				49EE9AF31368D7E100528C91 /* LoginViewController.xib */,
 			);
@@ -944,6 +955,8 @@
 				E86A84521368AD7B00720FA3 /* icons */,
 				E8AA4AED1361064A00A8E37B /* top-rounding.png */,
 				E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */,
+				E89CB80C13805D3100F74837 /* settingsLogo.png */,
+				E89CB80D13805D3100F74837 /* settingsLogo@2x.png */,
 				E89CB7F41380430300F74837 /* no-image-80.png */,
 				E89CB7F51380430300F74837 /* no-image-160.png */,
 				E89CB7F61380430300F74837 /* no-image-300.png */,
@@ -1119,6 +1132,15 @@
 			children = (
 			);
 			name = Deals;
+			sourceTree = "<group>";
+		};
+		E89CB8061380557D00F74837 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E89CB807138055A200F74837 /* UserSettingsViewController.h */,
+				E89CB808138055A200F74837 /* UserSettingsViewController.m */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		E8A03E1A135538EB0031D798 /* Services */ = {
@@ -1479,6 +1501,9 @@
 				E89CB7F71380430300F74837 /* no-image-80.png in Resources */,
 				E89CB7F81380430300F74837 /* no-image-160.png in Resources */,
 				E89CB7F91380430300F74837 /* no-image-300.png in Resources */,
+				E89CB80B138055A200F74837 /* UserSettingsViewController.xib in Resources */,
+				E89CB80E13805D3100F74837 /* settingsLogo.png in Resources */,
+				E89CB80F13805D3100F74837 /* settingsLogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1612,6 +1637,7 @@
 				E842969E137CCD3800E791B2 /* PhotoViewer.m in Sources */,
 				49C41108137DB809005536D0 /* hours.m in Sources */,
 				E82DA973137DB65E0060DB3E /* UserCreationService.m in Sources */,
+				E89CB80A138055A200F74837 /* UserSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

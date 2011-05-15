@@ -32,7 +32,7 @@
 
 -(IBAction) logoutPressed:(id)sender;
 -(IBAction) loginPressed:(id)sender;
--(IBAction) settingsButtonPressed:(id)sender;
+-(IBAction) settingsBtnPressed:(id)sender;
 -(void) doneRetrievingProfile:(NSMutableDictionary *) profile;
 -(void) checkLogin;
 @end

@@ -1,18 +1,15 @@
 //
-//  SignUpViewController.m
+//  UserSettingsViewController.m
 //  iRestaurant
 //
-//  Created by Josh Timonen on 5/11/11.
+//  Created by Josh Timonen on 5/15/11.
 //  Copyright 2011 N/A. All rights reserved.
 //
 
-#import "SignUpViewController.h"
-#import "AuthenticationResponse.h"
-#import "UserCreationService.h"
-#import "LoginViewController.h"
-#import "iRestaurantAppDelegate.h"
+#import "UserSettingsViewController.h"
 
-@implementation SignUpViewController
+
+@implementation UserSettingsViewController
 
 @synthesize scrollView;
 @synthesize usernameField;
@@ -26,9 +23,7 @@
 @synthesize birthdayMonthField;
 @synthesize birthdayDayField;
 @synthesize birthdayYearField;
-@synthesize ucs;
-@synthesize loginViewController;
-@synthesize serviceToPerformSubsequentRequest;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +32,11 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)setUserWithDictionary:(NSdictionary *)dict
+{
+    // setup textfields
 }
 
 - (void)dealloc
@@ -53,29 +53,7 @@
     [birthdayMonthField   release];
     [birthdayDayField     release];
     [birthdayYearField    release];
-    [ucs release];
-    [loginViewController release];
-    [serviceToPerformSubsequentRequest release];
     [super dealloc];
-}
-
--(IBAction)cancelButtonPressed;
-{
-    [self dismissModalViewControllerAnimated:YES];
-}
-
--(IBAction)sendButtonPressed 
-{
-    ucs = [[UserCreationService alloc]initWithDelegate:self];
-    [ucs signUpWithUsername:usernameField.text 
-               andFirstName:firstNameField.text 
-                andLastName:lastNameField.text 
-                andPassword:passwordField.text 
-               andConfirmPW:confirmPasswordField.text 
-                 andCountry:countryField.text 
-              andPostalCode:postalCodeField.text 
-                   andEmail:emailField.text 
-               andBirthdate:birthdayDayField.text];
 }
 
 - (void)didReceiveMemoryWarning
@@ -91,17 +69,36 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
-    [usernameField becomeFirstResponder];
+    [self setTitle:@"Settings"];
+    
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"settingsLogo.png"]];
+    appNameImageView.frame = CGRectMake(0, -3, 150, 44);
+    appNameImageView.contentMode = UIViewContentModeRight;
+    self.navigationItem.titleView = appNameImageView;
+    
+    UIBarButtonItem *updateBtn = [[UIBarButtonItem alloc] initWithTitle:@"Update"
+                                                                    style:UIBarButtonItemStyleBordered
+                                                                   target:self
+                                                                   action:@selector(updateBtnPressed:)]; 
+    self.navigationItem.rightBarButtonItem = updateBtn;
+    [updateBtn release]; 
+    
+    //[usernameField becomeFirstResponder];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     
     scrollView.contentSize = CGSizeMake(320, 346);
+
+    
     // Do any additional setup after loading the view from its nib.
 }
 
+- (void)keyboardDidShow:(NSNotification *)notification {
+    scrollView.frame = CGRectMake(0, 0, 320, 200);
+}
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSLog(@"should change");
+    NSLog(@"shouldChangeCharactersInRange");
     int maxLength = 999;
     if ((textField == birthdayMonthField) || (textField == birthdayDayField)) { maxLength = 2; }
     if (textField == birthdayYearField) { maxLength = 4; }
@@ -111,48 +108,15 @@
     return (newLength > maxLength) ? NO : YES;
 }
 
--(void)viewDidAppear:(BOOL)animated {
-}
-
--(void)viewDidDisappear:(BOOL)animated {
-    [loginViewController cancel];
-}
-
-- (void)keyboardDidShow:(NSNotification *)notification {
-    scrollView.frame = CGRectMake(0, 44, 320, 200);
-}
-
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    //scrollView.frame = CGRectMake(0, 44, 320, 200);
-    //[scrollView scrollRectToVisible:textField.frame animated:YES];
-}
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
--(void) signupComplete:(AuthenticationResponse *)authToken {
-    [(iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate] updateAuthentication:authToken];
-    if(serviceToPerformSubsequentRequest != nil) {
-        [serviceToPerformSubsequentRequest logInFinished];        
-    }
-    [self dismissModalViewControllerAnimated:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     if(textField == birthdayYearField) {
         [birthdayYearField resignFirstResponder];
-        [self sendButtonPressed];
+        [self updateBtnPressed:nil];
     } else if(textField == usernameField ){
         [firstNameField becomeFirstResponder];
     } else if(textField == firstNameField) {
@@ -175,5 +139,21 @@
     return NO;
 }
 
+-(void)updateBtnPressed:(id)sender {
+    
+}
+
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
 
 @end

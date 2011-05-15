@@ -13,6 +13,7 @@
 #import "iRestaurantAppDelegate.h"
 #import "UserProfileService.h"
 #import "PhotoViewer.h"
+#import "UserSettingsViewController.h"
 
 @implementation ProfileTableViewController
 @synthesize ups, dataReceived, reviewsCount, picturesCount, username, picturesDictionary, picturesArray, loading;
@@ -61,12 +62,12 @@
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-//    UIBarButtonItem *settingsBtn = [[UIBarButtonItem alloc] initWithTitle:@"Settings"
-//                                                            style:UIBarButtonItemStyleBordered
-//                                                           target:self
-//                                                           action:@selector(settingsBtnPressed:)]; 
-//    self.navigationItem.rightBarButtonItem = settingsBtn;
-//    [settingsBtn release]; 
+    UIBarButtonItem *settingsBtn = [[UIBarButtonItem alloc] initWithTitle:@"Settings"
+                                                            style:UIBarButtonItemStyleBordered
+                                                           target:self
+                                                           action:@selector(settingsBtnPressed:)]; 
+    self.navigationItem.rightBarButtonItem = settingsBtn;
+    [settingsBtn release]; 
     
     [self checkLogin];    
     
@@ -393,8 +394,10 @@
     dataReceived = FALSE;
 }
 
--(IBAction) settingsButtonPressed:(id)sender {
-    
+-(IBAction) settingsBtnPressed:(id)sender {
+    UserSettingsViewController *usvc = [[UserSettingsViewController alloc]init];
+    [self.navigationController pushViewController:usvc animated:YES];
+    [usvc release];
 }
 
 @end
