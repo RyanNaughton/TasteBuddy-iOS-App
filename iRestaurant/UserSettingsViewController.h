@@ -1,20 +1,16 @@
 //
-//  SignUpViewController.h
+//  UserSettingsViewController.h
 //  iRestaurant
 //
-//  Created by Josh Timonen on 5/11/11.
+//  Created by Josh Timonen on 5/15/11.
 //  Copyright 2011 N/A. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "UserCreationService.h"
-@class AuthenticationResponse;
-@class UserCreationService;
-@class LoginViewController;
-@class AbstractService;
 
-@interface SignUpViewController : UIViewController <UITextFieldDelegate, UserCreationServiceDelegate> {
-	IBOutlet UIScrollView *scrollView;
+
+@interface UserSettingsViewController : UIViewController <UITextFieldDelegate> {
+ 	IBOutlet UIScrollView *scrollView;
     IBOutlet UITextField *usernameField;
     IBOutlet UITextField *firstNameField;
     IBOutlet UITextField *lastNameField;
@@ -26,10 +22,6 @@
     IBOutlet UITextField *birthdayMonthField;
     IBOutlet UITextField *birthdayDayField;
     IBOutlet UITextField *birthdayYearField;
-    UserCreationService *ucs;
-    LoginViewController *loginViewController;
-    AbstractService *serviceToPerformSubsequentRequest;
-    IBOutlet UINavigationItem *navItem;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
@@ -44,15 +36,10 @@
 @property (nonatomic, retain) IBOutlet UITextField *birthdayMonthField;
 @property (nonatomic, retain) IBOutlet UITextField *birthdayDayField;
 @property (nonatomic, retain) IBOutlet UITextField *birthdayYearField;
-@property (nonatomic, retain) UserCreationService *ucs;
-@property (nonatomic, retain) LoginViewController *loginViewController;
-@property (nonatomic, retain) AbstractService *serviceToPerformSubsequentRequest;
-@property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
 
--(IBAction)cancelButtonPressed;
--(IBAction)sendButtonPressed;
-- (void)keyboardDidShow:(NSNotification *)notification;
+-(void)setUserWithDictionary:(NSDictionary *)dict;
 
--(void) signupComplete:(AuthenticationResponse *)authToken;
+-(void)updateBtnPressed:(id)sender;
+-(void)keyboardDidShow:(NSNotification *)notification;
 
 @end

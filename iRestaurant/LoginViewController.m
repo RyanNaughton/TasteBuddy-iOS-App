@@ -13,7 +13,7 @@
 
 @implementation LoginViewController
 
-@synthesize username, password, cancelButton, loginButton, loginService, serviceToPerformSubsequentRequest, signUpButton;
+@synthesize username, password, cancelButton, loginButton, loginService, serviceToPerformSubsequentRequest, signUpButton, navItem;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,6 +48,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"loginLogo.png"]];
+    appNameImageView.frame = CGRectMake(0, -3, 150, 44);
+    appNameImageView.contentMode = UIViewContentModeRight;
+    self.navItem.titleView = appNameImageView;
+    
     UIImage *signUpBtnImage = [[UIImage imageNamed:@"orange-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
     [signUpButton setBackgroundImage:signUpBtnImage forState:UIControlStateNormal];
     
