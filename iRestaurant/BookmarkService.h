@@ -10,7 +10,6 @@
 #import "AbstractService.h"
 @class Restaurant;
 @class MenuItem;
-@class ASIFormDataRequest;
 
 @protocol BookmarkServiceDelegate <NSObject>
 -(void) doneBookmarking:(NSDictionary *) status;

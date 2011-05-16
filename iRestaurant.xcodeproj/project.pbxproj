@@ -33,6 +33,7 @@
 		49578BDA1355F8CF00F8EC0B /* DishSearchResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49578BD91355F8CF00F8EC0B /* DishSearchResultTableViewController.m */; };
 		4964AEA51372200D0060C65A /* RatingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4964AEA41372200D0060C65A /* RatingService.m */; };
 		4964AEA9137220340060C65A /* TaggingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4964AEA8137220340060C65A /* TaggingService.m */; };
+		497C258F1381B23B0011F307 /* CommentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 497C258E1381B23B0011F307 /* CommentService.m */; };
 		499B564A1357AE9000F2B407 /* AutocompleteService.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727DE13578626004CB2F6 /* AutocompleteService.m */; };
 		499B564C1357AEC300F2B407 /* FindAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E213578CDD004CB2F6 /* FindAutocompleteTableViewController.m */; };
 		499B564D1357AED200F2B407 /* NearAutocompleteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 498727E61357A1F4004CB2F6 /* NearAutocompleteTableViewController.m */; };
@@ -310,6 +311,8 @@
 		4964AEA41372200D0060C65A /* RatingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingService.m; sourceTree = "<group>"; };
 		4964AEA7137220340060C65A /* TaggingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TaggingService.h; sourceTree = "<group>"; };
 		4964AEA8137220340060C65A /* TaggingService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaggingService.m; sourceTree = "<group>"; };
+		497C258D1381B23B0011F307 /* CommentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentService.h; sourceTree = "<group>"; };
+		497C258E1381B23B0011F307 /* CommentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentService.m; sourceTree = "<group>"; };
 		498727DD13578626004CB2F6 /* AutocompleteService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteService.h; sourceTree = "<group>"; };
 		498727DE13578626004CB2F6 /* AutocompleteService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteService.m; sourceTree = "<group>"; };
 		498727E113578CDD004CB2F6 /* FindAutocompleteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FindAutocompleteTableViewController.h; sourceTree = "<group>"; };
@@ -1254,6 +1257,8 @@
 				49EA6E7D1374D0F3003D8703 /* AbstractService.m */,
 				49ABCCF2137C6B2A0006218B /* RestaurantService.h */,
 				49ABCCF3137C6B2B0006218B /* RestaurantService.m */,
+				497C258D1381B23B0011F307 /* CommentService.h */,
+				497C258E1381B23B0011F307 /* CommentService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -1754,6 +1759,7 @@
 				E89CB80A138055A200F74837 /* UserSettingsViewController.m in Sources */,
 				49A3939B138086360059FA6D /* RestaurantAdditionalInformationCell.m in Sources */,
 				E8EE5B131381A38800ACC2CF /* RatingPopupViewController.m in Sources */,
+				497C258F1381B23B0011F307 /* CommentService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
