@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "RatingService.h"
 #import "BookmarkService.h"
+#import "RatingPopupViewController.h"
 
 @class Restaurant;
 @class MenuItem;
 @class TakePhoto;
 
-@interface DishViewController : UITableViewController <UIActionSheetDelegate, RatingServiceDelegate, BookmarkServiceDelegate> {
+@interface DishViewController : UITableViewController <UIActionSheetDelegate, RatingServiceDelegate, BookmarkServiceDelegate, RatingPopupDelegate> {
     Restaurant *restaurant;
     MenuItem *menu_item;
     NSMutableArray *tableArray;
@@ -34,5 +35,6 @@
 -(void)photoButtonPressed:(id)sender;
 -(void)menuButtonPressed:(id)sender;
 -(void)bookmarkButtonPressed:(id)sender;
+-(void)startRatingServiceWithRating:(float)rating;
 
 @end

@@ -17,6 +17,7 @@
 #import "CellUtility.h"
 #import "Comment.h"
 #import "RatingPopupViewController.h"
+#import "Rating.h"
 
 // CELLS =========
 #import "RestaurantHeaderCell.h"
@@ -410,20 +411,18 @@
 //    [actionSheet showInView:appDelegate.tabBarController.view];
 //    [actionSheet release];
     
-    RatingPopupViewController *rpvc = [[RatingPopupViewController alloc]init];
+    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    RatingPopupViewController *rpvc = [[RatingPopupViewController alloc]initWithCurrentRating:restaurant.rating.user_rating];
+    rpvc.delegate = self;
     rpvc.view.alpha = 0.0;
-    [self.view addSubview:rpvc.view];
-    
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration: 0.333];
-    [UIView setAnimationBeginsFromCurrentState:YES];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
-    [UIView setAnimationDelegate:self];
-    rpvc.view.alpha = 1.0;
-    //[UIView setAnimationDidStopSelector:@selector(matchAnimation2)];
-    [UIView commitAnimations];
-    
-    
+    [appDelegate.tabBarController.view addSubview:rpvc.view];
+    [rpvc animateIn];
+}
+
+-(void)startRatingServiceWithRating:(float)rating {
+    NSLog(@"rating starting");
+    RatingService *rrs = [[RatingService alloc] initWithDelegate:self];
+    [rrs rateRestaurant:restaurant withRating:rating];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
