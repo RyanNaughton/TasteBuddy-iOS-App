@@ -33,8 +33,9 @@
 @property (nonatomic, retain) UserBookmarksService *ubs;
 @property (nonatomic, assign) BOOL initialSetup;
 
--(void) switchTabs:(UIButton *) onTab;
+-(void) setActiveTab:(UIButton *) activeTab;
 -(void)switchFavoriteView:(id)sender;
 -(void) checkLogin;
+-(void)setupNavBarContent;
 
 @end

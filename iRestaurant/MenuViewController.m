@@ -52,7 +52,7 @@
         }
     }
         
-    if (menuItems > 150) {
+    if (menuItems >= 150) {
         SectionsMenuTableView *sectionsMenuTableView = [[SectionsMenuTableView alloc]initWithMenu:menu];
         tableView.dataSource = sectionsMenuTableView;
         tableView.delegate = sectionsMenuTableView;
