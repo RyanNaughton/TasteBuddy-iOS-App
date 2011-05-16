@@ -26,6 +26,9 @@
         // init
         menuSubcategories = [[NSMutableArray alloc]init];
         name = [[dictionary objectForKey:@"name"] retain];
+        if([name isKindOfClass:[NSNull class]] || name == nil) {
+            name = @"Other";
+        }
         for (NSDictionary *dict in [dictionary objectForKey:@"subcategories"]) {
             MenuSubcategory *menuSubcategory = [[MenuSubcategory alloc]initWithDictionary:dict];
             [menuSubcategories addObject:menuSubcategory];

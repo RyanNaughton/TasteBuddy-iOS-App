@@ -121,27 +121,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSLog(@"simpleMenuItemArray: %@", simpleMenuItemArray);
     return [simpleMenuItemArray count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-//    int rows = [[[simpleMenuItemArray objectAtIndex:section] objectForKey:@"items"] count];
-//    MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:section];
-//    for (MenuSubcategory *menuSubcategory in menuCategory.menuSubcategories) {
-//        rows = rows + [menuSubcategory.arrayOfMenuItems count];
-//    }
-    
-    NSLog(@"rows in section: %@", [[simpleMenuItemArray objectAtIndex:section] objectForKey:@"items"]);
-    
+{   
     return [[[simpleMenuItemArray objectAtIndex:section] objectForKey:@"items"] count];
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-//	NSString *header;
-//	MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:section];
-//    header = [NSString stringWithFormat:@"%@", menuCategory.name];
     NSString *header = @"";
     return header;
 }
@@ -156,13 +144,7 @@
     bgImageView.contentMode = UIViewContentModeScaleToFill;
     [headerView addSubview:bgImageView];
     [bgImageView release];
-    
-//    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
-//    bgView.backgroundColor = [[UIColor alloc]initWithRed:255.0/255.0 green:168.0/255.0 blue:0.0/255.0 alpha:1.0];
-//    bgView.alpha = 0.66;
-//    [headerView addSubview:bgView];
-//    [bgView release];
-    
+        
     UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, -1, 220, 22)];
     restaurantName.backgroundColor = [UIColor clearColor];
     restaurantName.textColor = [[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
