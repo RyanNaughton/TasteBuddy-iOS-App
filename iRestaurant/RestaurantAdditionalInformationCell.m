@@ -14,9 +14,9 @@
 @synthesize alcoholText;
 @synthesize deliveryText;
 @synthesize ccText;
-@synthesize parkingText;
+//@synthesize parkingText;
 @synthesize reservationsText;
-@synthesize wifiText;
+//@synthesize wifiText;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -91,15 +91,16 @@
         ccText.text = @"-";
         [self.contentView addSubview:ccText];
 
-        UIView *greyLine2 = [[UIView alloc]initWithFrame:CGRectMake(10, 110, 140, 1)];
-        greyLine2.backgroundColor = [UIColor lightGrayColor];
-        greyLine2.alpha = 0.5;
-        [self.contentView addSubview:greyLine2];
-        [greyLine2 release];
+        //UIView *greyLine2 = [[UIView alloc]initWithFrame:CGRectMake(10, 110, 140, 1)];
+        //greyLine2.backgroundColor = [UIColor lightGrayColor];
+        //greyLine2.alpha = 0.5;
+        //[self.contentView addSubview:greyLine2];
+        //[greyLine2 release];
 
         
         UILabel *deliveryLabel = [[UILabel alloc]init];
-        deliveryLabel.frame = CGRectMake(10, 115, 140, 20);
+        deliveryLabel.frame = CGRectMake(170, 55, 140, 20);
+        //deliveryLabel.frame = CGRectMake(10, 115, 140, 20);
         deliveryLabel.textColor = [UIColor darkGrayColor];
 		deliveryLabel.backgroundColor = [UIColor clearColor];
         deliveryLabel.textAlignment = UITextAlignmentLeft;
@@ -111,7 +112,8 @@
         [deliveryLabel release];
                 
         deliveryText = [[UILabel alloc]init];
-        deliveryText.frame = CGRectMake(10, 115, 140, 20);
+        deliveryText.frame = CGRectMake(170, 55, 140, 20);
+        //deliveryText.frame = CGRectMake(10, 115, 140, 20);
         deliveryText.textColor = [UIColor blackColor];
         deliveryText.backgroundColor = [UIColor clearColor];
         deliveryText.font = [UIFont boldSystemFontOfSize:13];
@@ -121,28 +123,28 @@
         deliveryText.text = @"-";
         [self.contentView addSubview:deliveryText];
 
-        UILabel *parkingLabel = [[UILabel alloc]init];
-        parkingLabel.frame = CGRectMake(170, 55, 140, 20);
-        parkingLabel.textColor = [UIColor darkGrayColor];
-        parkingLabel.backgroundColor = [UIColor clearColor];
-        parkingLabel.textAlignment = UITextAlignmentLeft;
-        parkingLabel.font = [UIFont systemFontOfSize:12];
-        parkingLabel.shadowColor = [UIColor whiteColor];
-        parkingLabel.shadowOffset = CGSizeMake(0,1);
-        parkingLabel.text = @"parking";
-        [self.contentView addSubview:parkingLabel];
-        [parkingLabel release];
+        //UILabel *parkingLabel = [[UILabel alloc]init];
+        //parkingLabel.frame = CGRectMake(170, 55, 140, 20);
+        //parkingLabel.textColor = [UIColor darkGrayColor];
+        //parkingLabel.backgroundColor = [UIColor clearColor];
+        //parkingLabel.textAlignment = UITextAlignmentLeft;
+        //parkingLabel.font = [UIFont systemFontOfSize:12];
+        //parkingLabel.shadowColor = [UIColor whiteColor];
+        //parkingLabel.shadowOffset = CGSizeMake(0,1);
+        //parkingLabel.text = @"parking";
+        //[self.contentView addSubview:parkingLabel];
+        //[parkingLabel release];
         
-        parkingText = [[UILabel alloc]init];
-        parkingText.frame = CGRectMake(170, 55, 140, 20);
-        parkingText.textColor = [UIColor blackColor];
-        parkingText.backgroundColor = [UIColor clearColor];
-        parkingText.font = [UIFont boldSystemFontOfSize:13];
-        parkingText.textAlignment = UITextAlignmentRight;
-        parkingText.shadowColor = [UIColor whiteColor];
-        parkingText.shadowOffset = CGSizeMake(0,1);
-        parkingText.text = @"-";
-        [self.contentView addSubview:parkingText];
+        //parkingText = [[UILabel alloc]init];
+        //parkingText.frame = CGRectMake(170, 55, 140, 20);
+        //parkingText.textColor = [UIColor blackColor];
+        //parkingText.backgroundColor = [UIColor clearColor];
+        //parkingText.font = [UIFont boldSystemFontOfSize:13];
+        //parkingText.textAlignment = UITextAlignmentRight;
+        //parkingText.shadowColor = [UIColor whiteColor];
+        //parkingText.shadowOffset = CGSizeMake(0,1);
+        //parkingText.text = @"-";
+        //[self.contentView addSubview:parkingText];
         
         UIView *greyLine3 = [[UIView alloc]initWithFrame:CGRectMake(170, 80, 140, 1)];
         greyLine3.backgroundColor = [UIColor lightGrayColor];
@@ -173,35 +175,35 @@
         reservationsText.text = @"-";
         [self.contentView addSubview:reservationsText];
         
-        UIView *greyLine4 = [[UIView alloc]initWithFrame:CGRectMake(170, 110, 140, 1)];
-        greyLine4.backgroundColor = [UIColor lightGrayColor];
-        greyLine4.alpha = 0.5;
-        [self.contentView addSubview:greyLine4];
-        [greyLine4 release];
+        //UIView *greyLine4 = [[UIView alloc]initWithFrame:CGRectMake(170, 110, 140, 1)];
+        //greyLine4.backgroundColor = [UIColor lightGrayColor];
+        //greyLine4.alpha = 0.5;
+        //[self.contentView addSubview:greyLine4];
+        //[greyLine4 release];
         
         
-        UILabel *wifiLabel = [[UILabel alloc]init];
-        wifiLabel.frame = CGRectMake(170, 115, 140, 20);
-        wifiLabel.textColor = [UIColor darkGrayColor];
-        wifiLabel.backgroundColor = [UIColor clearColor];
-        wifiLabel.textAlignment = UITextAlignmentLeft;
-        wifiLabel.font = [UIFont systemFontOfSize:12];
-        wifiLabel.shadowColor = [UIColor whiteColor];
-        wifiLabel.shadowOffset = CGSizeMake(0,1);
-        wifiLabel.text = @"wifi";
-        [self.contentView addSubview:wifiLabel];
-        [wifiLabel release];
+        //UILabel *wifiLabel = [[UILabel alloc]init];
+        //wifiLabel.frame = CGRectMake(170, 115, 140, 20);
+        //wifiLabel.textColor = [UIColor darkGrayColor];
+        //wifiLabel.backgroundColor = [UIColor clearColor];
+        //wifiLabel.textAlignment = UITextAlignmentLeft;
+        //wifiLabel.font = [UIFont systemFontOfSize:12];
+        //wifiLabel.shadowColor = [UIColor whiteColor];
+        //wifiLabel.shadowOffset = CGSizeMake(0,1);
+        //wifiLabel.text = @"wifi";
+        //[self.contentView addSubview:wifiLabel];
+        //[wifiLabel release];
         
-        wifiText = [[UILabel alloc]init];
-        wifiText.frame = CGRectMake(170, 115, 140, 20);
-        wifiText.textColor = [UIColor blackColor];
-        wifiText.backgroundColor = [UIColor clearColor];
-        wifiText.font = [UIFont boldSystemFontOfSize:13];
-        wifiText.textAlignment = UITextAlignmentRight;
-        wifiText.shadowColor = [UIColor whiteColor];
-        wifiText.shadowOffset = CGSizeMake(0,1);
-        wifiText.text = @"-";
-        [self.contentView addSubview:wifiText];
+       //wifiText = [[UILabel alloc]init];
+       //wifiText.frame = CGRectMake(170, 115, 140, 20);
+       //wifiText.textColor = [UIColor blackColor];
+       //wifiText.backgroundColor = [UIColor clearColor];
+       //wifiText.font = [UIFont boldSystemFontOfSize:13];
+       //wifiText.textAlignment = UITextAlignmentRight;
+       //wifiText.shadowColor = [UIColor whiteColor];
+       //wifiText.shadowOffset = CGSizeMake(0,1);
+       //wifiText.text = @"-";
+       //[self.contentView addSubview:wifiText];
         
         
         self.selectionStyle = UITableViewCellEditingStyleNone;
@@ -210,11 +212,27 @@
 }
 
 -(void)loadRestaurant:(Restaurant *)restaurantPassed {
+    
     alcoholText.text = [restaurantPassed.alcohol_type retain];
-    ccText.text = ([restaurantPassed.credit_cards intValue] == 1) ? @"YES" : @"NO";
-    parkingText.text = [restaurantPassed.parking retain];
-    reservationsText.text = ([restaurantPassed.reservations intValue] == 1) ? @"YES" : @"NO";
-    deliveryText.text = ([restaurantPassed.delivery intValue] == 1) ? @"YES" : @"NO";
+    
+    if ([restaurantPassed.credit_cards isKindOfClass:[NSNull class]]) {
+        ccText.text = @"Unknown";
+    } else {
+        ccText.text = ([restaurantPassed.credit_cards intValue] == 1) ? @"Yes" : @"No";
+    }
+    
+    //parkingText.text = [restaurantPassed.parking retain];
+    if([restaurantPassed.reservations isKindOfClass:[NSNull class]]) {
+        reservationsText.text = @"Unknown";
+    } else {
+        reservationsText.text = ([restaurantPassed.reservations intValue] == 1) ? @"Yes" : @"No";
+    }
+    
+    if ([restaurantPassed.delivery isKindOfClass:[NSNull class]]) {
+        deliveryText.text = @"Unknown";
+    } else {
+        deliveryText.text = ([restaurantPassed.delivery intValue] == 1) ? @"Yes" : @"No";        
+    }
 }
 
 
@@ -230,9 +248,9 @@
     [alcoholText release];
     [deliveryText release];
     [ccText release];
-    [parkingText release];
+    //[parkingText release];
     [reservationsText release];
-    [wifiText release];
+    //[wifiText release];
     [super dealloc];
 }
 
