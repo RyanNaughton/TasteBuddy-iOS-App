@@ -121,6 +121,8 @@
 -(void) switchTabs:(UIButton *) onTab 
 {
     
+    
+    
     UIButton *offTab = (onTab == restaurantsTabButton) ? dishesTabButton : restaurantsTabButton;
     
     [offTab setBackgroundImage:[[UIImage imageNamed:@"darkgrey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -155,12 +157,14 @@
         tableView.dataSource = restaurantSearchResultTableViewController;
         [tableView reloadData];
         tableView.hidden = false;
+        fakeTermField.placeholder = @"     Restaurants";
     } else if (sender == dishesTabButton){
         [self switchTabs:dishesTabButton];
         tableView.delegate = dishSearchResultTableViewController;
         tableView.dataSource = dishSearchResultTableViewController;
         [tableView reloadData];
         tableView.hidden = false;
+        fakeTermField.placeholder = @"     Dishes";
     } else if (sender == mapButton) {
         tableView.hidden = true;
     }

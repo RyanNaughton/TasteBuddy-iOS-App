@@ -30,6 +30,7 @@
 -(void) getMenuForRestaurant:(Restaurant *)restaurant
 {
     urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/menu.json", restaurant._id];
+    [urlString retain];
     [self prepareRequest];
 }
 

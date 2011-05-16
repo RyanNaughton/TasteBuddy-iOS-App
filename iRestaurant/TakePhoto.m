@@ -103,7 +103,6 @@
 -(void)launchAdditionalDetailsWindowWithImage:(UIImage *)image andPicker:(UIImagePickerController *)picker {
     
     PhotoShareContainer *photoShareContainer = [[PhotoShareContainer alloc]initWithWhere:restaurant.name andWhat:menuItem.name andImage:image andRestaurantId:restaurant._id andMenuItemId:menuItem._id];
-    NSLog(@"menu item id: %@", menuItem._id);
     photoShareContainer.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     photoShareContainer.modalPresentationStyle = UIModalPresentationPageSheet;
     [parentViewController presentModalViewController:photoShareContainer animated:YES];

@@ -12,18 +12,21 @@
 
 @class Restaurant;
 @class TakePhoto;
+@class MenuViewController;
 
 @interface RestaurantViewController : UITableViewController <UIActionSheetDelegate, RatingServiceDelegate, BookmarkServiceDelegate> {
     NSMutableArray *tableArray;
     Restaurant *restaurant;
     int tagsRowHeight;
     TakePhoto *takePhoto;
+    MenuViewController *menuViewController;
 }
 
 @property (nonatomic, retain) NSMutableArray *tableArray;
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, assign) int tagsRowHeight;
 @property (nonatomic, retain) TakePhoto *takePhoto;
+@property (nonatomic, retain) MenuViewController *menuViewController;
 
 -(id)initWithRestaurant:(Restaurant *)restaurant_passed;
 -(void)loadMenu;

@@ -34,7 +34,7 @@
         // Custom initialization
         restaurant = [restaurant_passed retain];
         menuService = [[MenuService alloc]initWithDelegate:self];
-        [menuService getMenuForRestaurant:restaurant];
+        
     }
     return self;
 }
@@ -110,6 +110,7 @@
 {
     [super viewDidLoad];
     [self setTitle:@"Menu"];
+    [menuService getMenuForRestaurant:restaurant];
     
     UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"menuLogo.png"]];
     appNameImageView.frame = CGRectMake(160, -3, 150, 44);

@@ -30,7 +30,7 @@
 #import "RestaurantAdditionalInformationCell.h"
 
 @implementation RestaurantViewController
-@synthesize tableArray, restaurant, tagsRowHeight, takePhoto;
+@synthesize tableArray, restaurant, tagsRowHeight, takePhoto, menuViewController;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -55,7 +55,8 @@
 
 - (void)dealloc
 {
-    [restaurant release];
+    [menuViewController release];
+    //[restaurant release];
     [tableArray release];
     [takePhoto release];
     [tableArray release];
@@ -89,7 +90,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
- 
+    menuViewController = [[MenuViewController alloc]initWithRestaurant:restaurant];
     takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
 
     UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
@@ -102,9 +103,9 @@
 
 -(void)loadMenu 
 {
-    MenuViewController *menuViewController = [[MenuViewController alloc]initWithRestaurant:restaurant];
+    
     [self.navigationController pushViewController:menuViewController animated:YES];
-    [menuViewController release];
+    
 }
 
 - (void)viewDidUnload

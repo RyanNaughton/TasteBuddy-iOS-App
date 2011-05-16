@@ -10,7 +10,7 @@
 #import "PhotoUploadService.h"
 
 @implementation PhotoShareContainer
-@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch, restaurant, menuItem;
+@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch, restaurant, menuItem, navItem, whereLabel, whatLabel, commentsLabel;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -64,7 +64,7 @@
     [where release];
     [image release];
     [menuItem release];
-    [restaurant release];
+    //[restaurant release];
     [super dealloc];
 }
 
@@ -82,12 +82,41 @@
 {
     [super viewDidLoad];
     
+    whereTextField.placeholder = @"Restaurant Name";
+    whatTextField.placeholder = @"Dish Name";
+    
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoDetailsLogo.png"]];
+    appNameImageView.frame = CGRectMake(0, -3, 175, 44);
+    appNameImageView.contentMode = UIViewContentModeRight;
+    navItem.titleView = appNameImageView;
+    
     whereTextField.delegate = self;
     whatTextField.delegate = self;
     commentsTextField.delegate = self;
     
     whereTextField.text = [where retain];
     whatTextField.text = [what retain];
+    
+    if ([where length] > 0) {
+        whereTextField.userInteractionEnabled = FALSE;
+        whereTextField.textColor = [UIColor colorWithRed:89.0/255.0 green:149.0/255.0 blue:24.0/255.0 alpha:1.0];
+    }
+    if ([what length] > 0) {
+        whatTextField.userInteractionEnabled = FALSE;
+        whatTextField.textColor = [UIColor colorWithRed:89.0/255.0 green:149.0/255.0 blue:24.0/255.0 alpha:1.0];
+    }
+    
+    if (([where length] > 0) && ([what length] > 0)) {
+        [commentsTextField becomeFirstResponder];
+    } else if ([where length] > 0) {
+        //[whatTextField becomeFirstResponder];
+        whatTextField.hidden = TRUE;
+        whatLabel.hidden = TRUE;
+        commentsTextField.frame = whatTextField.frame;
+        commentsLabel.frame = whatLabel.frame;
+    } else {
+        [whereTextField becomeFirstResponder];
+    }
     
     scrollView.contentSize = CGSizeMake(320, 261);
     imageView.image = image;

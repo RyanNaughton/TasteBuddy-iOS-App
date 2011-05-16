@@ -234,6 +234,8 @@
 		E8E6D3EE135523FF003F0ECB /* RestaurantViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D3EC135523FF003F0ECB /* RestaurantViewController.m */; };
 		E8E6D3EF135523FF003F0ECB /* RestaurantViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8E6D3ED135523FF003F0ECB /* RestaurantViewController.xib */; };
 		E8E6D3F413552448003F0ECB /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D3F313552448003F0ECB /* Restaurant.m */; };
+		E8EE5B0813818FA900ACC2CF /* photoDetailsLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E8EE5B0613818FA900ACC2CF /* photoDetailsLogo.png */; };
+		E8EE5B0913818FA900ACC2CF /* photoDetailsLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8EE5B0713818FA900ACC2CF /* photoDetailsLogo@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -586,6 +588,8 @@
 		E8E6D3ED135523FF003F0ECB /* RestaurantViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantViewController.xib; sourceTree = "<group>"; };
 		E8E6D3F213552448003F0ECB /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
 		E8E6D3F313552448003F0ECB /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
+		E8EE5B0613818FA900ACC2CF /* photoDetailsLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDetailsLogo.png; sourceTree = "<group>"; };
+		E8EE5B0713818FA900ACC2CF /* photoDetailsLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photoDetailsLogo@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -980,6 +984,8 @@
 				E86A84521368AD7B00720FA3 /* icons */,
 				E8AA4AED1361064A00A8E37B /* top-rounding.png */,
 				E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */,
+				E8EE5B0613818FA900ACC2CF /* photoDetailsLogo.png */,
+				E8EE5B0713818FA900ACC2CF /* photoDetailsLogo@2x.png */,
 				E89CB8381380935B00F74837 /* orange-grad.png */,
 				E89CB8391380935B00F74837 /* orange-grad@2x.png */,
 				E89CB8341380864D00F74837 /* menuLogo.png */,
@@ -1569,6 +1575,8 @@
 				E89CB8371380864D00F74837 /* menuLogo@2x.png in Resources */,
 				E89CB83A1380935B00F74837 /* orange-grad.png in Resources */,
 				E89CB83B1380935B00F74837 /* orange-grad@2x.png in Resources */,
+				E8EE5B0813818FA900ACC2CF /* photoDetailsLogo.png in Resources */,
+				E8EE5B0913818FA900ACC2CF /* photoDetailsLogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1757,8 +1765,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Chalkley (4MUGPXR6G6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Chalkley (4MUGPXR6G6)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -1770,8 +1778,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "F32A0195-D24B-41A0-80EE-9FB3D273637C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F32A0195-D24B-41A0-80EE-9FB3D273637C";
+				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1780,8 +1788,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Chalkley (4MUGPXR6G6)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Andrew Chalkley (4MUGPXR6G6)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1791,8 +1799,8 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "F32A0195-D24B-41A0-80EE-9FB3D273637C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F32A0195-D24B-41A0-80EE-9FB3D273637C";
+				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -1802,8 +1810,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1817,9 +1825,9 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos;
+				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1830,8 +1838,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iRestaurant/iRestaurant-Prefix.pch";
@@ -1844,7 +1852,9 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TasteBuddy;
-				SDKROOT = iphoneos;
+				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
