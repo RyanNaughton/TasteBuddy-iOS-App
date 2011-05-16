@@ -16,6 +16,7 @@
 #import "AuthenticationResponse.h"
 #import "BookmarkService.h"
 #import "Rating.h"
+#import "RatingPopupViewController.h"
 
 // CELLS
 #import "DishHeaderCell.h"
@@ -309,13 +310,19 @@
 
 -(void)rateItButtonPressed:(id)sender 
 {
-    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"★★★★★", @"★★★★", @"★★★", @"★★", @"★", nil];
-    [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-    
-    [actionSheet showInView:appDelegate.tabBarController.view];
-    [actionSheet release];
+    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];    
+    RatingPopupViewController *rpvc = [[RatingPopupViewController alloc]initWithCurrentRating:restaurant.rating.user_rating];
+    rpvc.delegate = self;
+    rpvc.view.alpha = 0.0;
+    [appDelegate.tabBarController.view addSubview:rpvc.view];
+    [rpvc animateIn];
+}
+
+-(void)startRatingServiceWithRating:(float)rating 
+{
+    RatingService *rrs = [[RatingService alloc] initWithDelegate:self];
+    [rrs rateMenuItem:menu_item withRating:rating];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {

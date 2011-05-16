@@ -12,12 +12,30 @@
 @implementation RatingPopupViewController
 
 @synthesize closeButton, submitButton;
+@synthesize star1;
+@synthesize star2;
+@synthesize star3;
+@synthesize star4;
+@synthesize star5;
+@synthesize starsArray;
+@synthesize currentRating;
+@synthesize orangeStar, whiteStar;
+@synthesize delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+    }
+    return self;
+}
+
+-(id)initWithCurrentRating:(float)rating {
+    self = [super initWithNibName:@"RatingPopupViewController" bundle:nil];
+    if (self) {
+        // Custom initialization
+        currentRating = rating;
     }
     return self;
 }
@@ -45,7 +63,8 @@
 
 -(IBAction)submitButtonPressed:(id)sender 
 {
-    
+    [delegate startRatingServiceWithRating:currentRating];
+    [self closeButtonPressed:nil];
 }
 
 
@@ -62,10 +81,60 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    orangeStar = [UIImage imageNamed:@"big-star-orange.png"];
+    whiteStar = [UIImage imageNamed:@"big-star-white.png"];
     
     UIImage *signUpBtnImage = [[UIImage imageNamed:@"orange-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
     [submitButton setBackgroundImage:signUpBtnImage forState:UIControlStateNormal];
     
+    starsArray = [[NSArray alloc]initWithObjects:star1, star2, star3, star4, star5, nil];
+    [self updateStarImages];
+}
+
+-(void) animateIn {
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration: 0.333];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDelegate:self];
+    self.view.alpha = 1.0;
+    //[UIView setAnimationDidStopSelector:@selector(matchAnimation2)];
+    [UIView commitAnimations];
+}
+
+-(IBAction) starTouchStarted:(id)sender {
+    UIButton *currentButton = (UIButton *)sender;
+    currentRating = [starsArray indexOfObject:currentButton] + 1;
+    [self updateStarImages];
+}
+
+-(IBAction) starTouchContinued:(id)sender
+{
+    UIButton *currentButton = (UIButton *)sender;
+    currentRating = [starsArray indexOfObject:currentButton] + 1;
+    [self updateStarImages];
+}
+
+-(IBAction) starTouchEnded:(id)sender
+{
+    UIButton *currentButton = (UIButton *)sender;
+    currentRating = [starsArray indexOfObject:currentButton] + 1;
+    currentButton.exclusiveTouch = FALSE;
+    [self updateStarImages];
+}
+
+-(void)updateStarImages {
+    
+    for (int i = 0; i < currentRating; i++) {
+        UIButton *starToUpdate = (UIButton *)[starsArray objectAtIndex:i];
+        [starToUpdate setImage:orangeStar forState:UIControlStateNormal];
+    }
+
+    for (int i = 4; i > (currentRating - 1); i--) {
+        UIButton *starToUpdate = (UIButton *)[starsArray objectAtIndex:i];
+        [starToUpdate setImage:whiteStar forState:UIControlStateNormal];
+    }
+
 }
 
 - (void)viewDidUnload

@@ -1822,7 +1822,7 @@
 				PRODUCT_NAME = TasteBuddy;
 				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
 		};
@@ -1843,7 +1843,7 @@
 				PRODUCT_NAME = TasteBuddy;
 				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Release;
 		};
