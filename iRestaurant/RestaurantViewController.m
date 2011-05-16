@@ -16,6 +16,7 @@
 #import "WebViewController.h"
 #import "CellUtility.h"
 #import "Comment.h"
+#import "RatingPopupViewController.h"
 
 // CELLS =========
 #import "RestaurantHeaderCell.h"
@@ -401,13 +402,28 @@
 
 -(void)rateItButtonPressed:(id)sender 
 {
-    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"★★★★★", @"★★★★", @"★★★", @"★★", @"★", nil];
-    [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+//    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+//
+//    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"★★★★★", @"★★★★", @"★★★", @"★★", @"★", nil];
+//    [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
+//    
+//    [actionSheet showInView:appDelegate.tabBarController.view];
+//    [actionSheet release];
     
-    [actionSheet showInView:appDelegate.tabBarController.view];
-    [actionSheet release];
+    RatingPopupViewController *rpvc = [[RatingPopupViewController alloc]init];
+    rpvc.view.alpha = 0.0;
+    [self.view addSubview:rpvc.view];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration: 0.333];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDelegate:self];
+    rpvc.view.alpha = 1.0;
+    //[UIView setAnimationDidStopSelector:@selector(matchAnimation2)];
+    [UIView commitAnimations];
+    
+    
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {

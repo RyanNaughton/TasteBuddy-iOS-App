@@ -236,6 +236,14 @@
 		E8E6D3F413552448003F0ECB /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = E8E6D3F313552448003F0ECB /* Restaurant.m */; };
 		E8EE5B0813818FA900ACC2CF /* photoDetailsLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E8EE5B0613818FA900ACC2CF /* photoDetailsLogo.png */; };
 		E8EE5B0913818FA900ACC2CF /* photoDetailsLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8EE5B0713818FA900ACC2CF /* photoDetailsLogo@2x.png */; };
+		E8EE5B0D1381A31F00ACC2CF /* rate-popup.png in Resources */ = {isa = PBXBuildFile; fileRef = E8EE5B0B1381A31F00ACC2CF /* rate-popup.png */; };
+		E8EE5B0E1381A31F00ACC2CF /* rate-popup@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8EE5B0C1381A31F00ACC2CF /* rate-popup@2x.png */; };
+		E8EE5B131381A38800ACC2CF /* RatingPopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8EE5B111381A38800ACC2CF /* RatingPopupViewController.m */; };
+		E8EE5B141381A38800ACC2CF /* RatingPopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8EE5B121381A38800ACC2CF /* RatingPopupViewController.xib */; };
+		E8EE5B1F1381AB9600ACC2CF /* big-star-orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8EE5B1D1381AB9600ACC2CF /* big-star-orange@2x.png */; };
+		E8EE5B201381AB9600ACC2CF /* big-star-orange.png in Resources */ = {isa = PBXBuildFile; fileRef = E8EE5B1E1381AB9600ACC2CF /* big-star-orange.png */; };
+		E8EE5B231381AC2400ACC2CF /* big-star-white.png in Resources */ = {isa = PBXBuildFile; fileRef = E8EE5B211381AC2400ACC2CF /* big-star-white.png */; };
+		E8EE5B241381AC2400ACC2CF /* big-star-white@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8EE5B221381AC2400ACC2CF /* big-star-white@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -590,6 +598,15 @@
 		E8E6D3F313552448003F0ECB /* Restaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Restaurant.m; sourceTree = "<group>"; };
 		E8EE5B0613818FA900ACC2CF /* photoDetailsLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = photoDetailsLogo.png; sourceTree = "<group>"; };
 		E8EE5B0713818FA900ACC2CF /* photoDetailsLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "photoDetailsLogo@2x.png"; sourceTree = "<group>"; };
+		E8EE5B0B1381A31F00ACC2CF /* rate-popup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rate-popup.png"; sourceTree = "<group>"; };
+		E8EE5B0C1381A31F00ACC2CF /* rate-popup@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rate-popup@2x.png"; sourceTree = "<group>"; };
+		E8EE5B101381A38800ACC2CF /* RatingPopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RatingPopupViewController.h; sourceTree = "<group>"; };
+		E8EE5B111381A38800ACC2CF /* RatingPopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RatingPopupViewController.m; sourceTree = "<group>"; };
+		E8EE5B121381A38800ACC2CF /* RatingPopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingPopupViewController.xib; sourceTree = "<group>"; };
+		E8EE5B1D1381AB9600ACC2CF /* big-star-orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big-star-orange@2x.png"; sourceTree = "<group>"; };
+		E8EE5B1E1381AB9600ACC2CF /* big-star-orange.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big-star-orange.png"; sourceTree = "<group>"; };
+		E8EE5B211381AC2400ACC2CF /* big-star-white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big-star-white.png"; sourceTree = "<group>"; };
+		E8EE5B221381AC2400ACC2CF /* big-star-white@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "big-star-white@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -984,6 +1001,12 @@
 				E86A84521368AD7B00720FA3 /* icons */,
 				E8AA4AED1361064A00A8E37B /* top-rounding.png */,
 				E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */,
+				E8EE5B1D1381AB9600ACC2CF /* big-star-orange@2x.png */,
+				E8EE5B1E1381AB9600ACC2CF /* big-star-orange.png */,
+				E8EE5B211381AC2400ACC2CF /* big-star-white.png */,
+				E8EE5B221381AC2400ACC2CF /* big-star-white@2x.png */,
+				E8EE5B0B1381A31F00ACC2CF /* rate-popup.png */,
+				E8EE5B0C1381A31F00ACC2CF /* rate-popup@2x.png */,
 				E8EE5B0613818FA900ACC2CF /* photoDetailsLogo.png */,
 				E8EE5B0713818FA900ACC2CF /* photoDetailsLogo@2x.png */,
 				E89CB8381380935B00F74837 /* orange-grad.png */,
@@ -1347,6 +1370,7 @@
 		E8DFF5B11358E0E7007BF40E /* Rating */ = {
 			isa = PBXGroup;
 			children = (
+				E8EE5B0F1381A34500ACC2CF /* Rating Popup */,
 				E8DFF5B21358E10D007BF40E /* RatingView.h */,
 				E8DFF5B31358E10D007BF40E /* RatingView.m */,
 			);
@@ -1392,6 +1416,16 @@
 				49C41107137DB809005536D0 /* hours.m */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E8EE5B0F1381A34500ACC2CF /* Rating Popup */ = {
+			isa = PBXGroup;
+			children = (
+				E8EE5B101381A38800ACC2CF /* RatingPopupViewController.h */,
+				E8EE5B111381A38800ACC2CF /* RatingPopupViewController.m */,
+				E8EE5B121381A38800ACC2CF /* RatingPopupViewController.xib */,
+			);
+			name = "Rating Popup";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1577,6 +1611,13 @@
 				E89CB83B1380935B00F74837 /* orange-grad@2x.png in Resources */,
 				E8EE5B0813818FA900ACC2CF /* photoDetailsLogo.png in Resources */,
 				E8EE5B0913818FA900ACC2CF /* photoDetailsLogo@2x.png in Resources */,
+				E8EE5B0D1381A31F00ACC2CF /* rate-popup.png in Resources */,
+				E8EE5B0E1381A31F00ACC2CF /* rate-popup@2x.png in Resources */,
+				E8EE5B141381A38800ACC2CF /* RatingPopupViewController.xib in Resources */,
+				E8EE5B1F1381AB9600ACC2CF /* big-star-orange@2x.png in Resources */,
+				E8EE5B201381AB9600ACC2CF /* big-star-orange.png in Resources */,
+				E8EE5B231381AC2400ACC2CF /* big-star-white.png in Resources */,
+				E8EE5B241381AC2400ACC2CF /* big-star-white@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1712,6 +1753,7 @@
 				E82DA973137DB65E0060DB3E /* UserCreationService.m in Sources */,
 				E89CB80A138055A200F74837 /* UserSettingsViewController.m in Sources */,
 				49A3939B138086360059FA6D /* RestaurantAdditionalInformationCell.m in Sources */,
+				E8EE5B131381A38800ACC2CF /* RatingPopupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
