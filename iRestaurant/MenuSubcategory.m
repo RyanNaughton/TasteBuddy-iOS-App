@@ -25,6 +25,9 @@
     if (self) {
         // init
         name = [[dictionary objectForKey:@"name"] retain];
+        if([name isKindOfClass:[NSNull class]] || name == nil) {
+            name = @"Other";
+        }
         arrayOfMenuItems = [[NSMutableArray alloc]init];
         for (NSDictionary *dict in [dictionary objectForKey:@"items"]) {
             MenuItem *menuItem = [[MenuItem alloc]initWithDictionary:dict];
