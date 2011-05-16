@@ -49,7 +49,7 @@
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
         self.navigationController.navigationBar.translucent = YES;
         restaurant = [restaurant_passed retain];
-        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"Tags", @"Comments", @"AdditionalInformation", @"WebsiteLink", nil];
+        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"WebsiteLink", @"AdditionalInformation", @"Tags", @"Comments", nil];
         tagsRowHeight = 44;
     }
     return self;
@@ -262,7 +262,7 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         height = 200;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"WebsiteLink"]) {
-        height = 58;
+        height = 44;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"AdditionalInformation"]) {
         height = 115;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
