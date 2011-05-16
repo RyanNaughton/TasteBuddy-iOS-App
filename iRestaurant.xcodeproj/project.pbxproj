@@ -925,6 +925,8 @@
 				E89CB8061380557D00F74837 /* Settings */,
 				E824E297137B110D00E790D2 /* Sign up */,
 				49EE9AF11368D7E100528C91 /* LoginViewController.h */,
+				E859D27513722DCB00D47CEB /* ProfileTableViewController.h */,
+				E859D27613722DCB00D47CEB /* ProfileTableViewController.m */,
 				49EE9AF21368D7E100528C91 /* LoginViewController.m */,
 			);
 			name = User;
@@ -977,8 +979,6 @@
 			isa = PBXGroup;
 			children = (
 				E859D27A137232BA00D47CEB /* Cells */,
-				E859D27513722DCB00D47CEB /* ProfileTableViewController.h */,
-				E859D27613722DCB00D47CEB /* ProfileTableViewController.m */,
 				E859D27713722DCB00D47CEB /* ProfileTableViewController.xib */,
 			);
 			name = Profile;
@@ -1858,7 +1858,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1873,7 +1873,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1886,7 +1886,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1900,7 +1900,7 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;

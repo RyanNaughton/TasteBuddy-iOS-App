@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UserProfileService.h"
 
-@interface ProfileTableViewController : UITableViewController <UserProfileServiceDelegate> {
+@interface ProfileTableViewController : UITableViewController <UserProfileServiceDelegate, UIAlertViewDelegate> {
     UserProfileService *ups;
     BOOL dataReceived;
     BOOL loading;

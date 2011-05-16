@@ -383,11 +383,11 @@
 }
 
 -(IBAction) logoutPressed:(id)sender {
-    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    [appDelegate logout];
-    dataReceived = FALSE;
-    [self checkLogin];
-    [self.tableView reloadData];
+    
+    UIAlertView *areYouSureAlert = [[UIAlertView alloc] initWithTitle:@"Logout" message:@"Are you sure?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [areYouSureAlert show];
+    [areYouSureAlert release];
+
 }
 
 -(IBAction) loginPressed:(id)sender {
@@ -403,4 +403,13 @@
     [usvc release];
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(buttonIndex == 1) {
+        iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        [appDelegate logout];
+        dataReceived = FALSE;
+        [self checkLogin];
+        [self.tableView reloadData];
+    }
+}
 @end
