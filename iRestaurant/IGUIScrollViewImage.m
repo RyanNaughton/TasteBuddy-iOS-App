@@ -14,7 +14,7 @@
 
 @implementation IGUIScrollViewImage
 
-@synthesize scrollView;
+@synthesize scrollView, menuItemLabel, showMenuItemLabel, labelArray, delegate;
 
 - (int)getScrollViewWidth {
 	return ([contentArray count] * scrollWidth);
@@ -131,8 +131,17 @@
 	return [self getWithPosition:[[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@", kIGUIScrollViewImagePageIdentifier, positionIdentifier]] intValue]];
 }
 
+-(void)setLabelArray:(NSArray *)labelArrayPassed {
+    labelArray = [labelArrayPassed retain];
+    [delegate setImageLabel:[labelArray objectAtIndex:0]];
+}
+
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)sv {
+    NSLog(@"scroll view change?");
+    
 	int page = sv.contentOffset.x / sv.frame.size.width;
+    [delegate setImageLabel:[labelArray objectAtIndex:page]];
+    
 	pageControl.currentPage = page;
 	if (rememberPosition) {
 		[[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d", page] forKey:[NSString stringWithFormat:@"%@%@", kIGUIScrollViewImagePageIdentifier, positionIdentifier]];

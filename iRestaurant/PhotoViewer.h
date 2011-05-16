@@ -7,17 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-@class IGUIScrollViewImage;
+#import "IGUIScrollViewImage.h"
 
-@interface PhotoViewer : UIViewController {
+@interface PhotoViewer : UIViewController <IGUIScrollViewImageDelegate> {
     IGUIScrollViewImage *svimage;
     IBOutlet UINavigationItem *navItem;
+    IBOutlet UILabel *label;
 }
+
 
 @property (nonatomic, retain) IGUIScrollViewImage *svimage;
 @property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
+@property (nonatomic, retain) IBOutlet UILabel *label;
 
--(void)setupScrollView:(NSArray *)arrayOfURLStrings;
+-(void) setImageLabel:(NSString *)labelString;
+-(void)setupScrollView:(NSArray *)arrayOfPhotos;
 -(IBAction) closeButtonPressed;
+
 
 @end

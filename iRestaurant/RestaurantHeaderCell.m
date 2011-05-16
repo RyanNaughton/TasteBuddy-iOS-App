@@ -197,14 +197,14 @@
 
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    NSLog(@"pictures data: %@", restaurant.pictures);
-    NSMutableArray *arrayOfImageURLs = [[NSMutableArray alloc]init];
-    for (NSDictionary *pictDict in restaurant.pictures) {
-        [arrayOfImageURLs addObject:[pictDict objectForKey:@"300px"]];
-    }
+//    NSLog(@"pictures data: %@", restaurant.pictures);
+//    NSMutableArray *arrayOfImageURLs = [[NSMutableArray alloc]init];
+//    for (NSDictionary *pictDict in restaurant.pictures) {
+//        [arrayOfImageURLs addObject:[pictDict objectForKey:@"300px"]];
+//    }
     
     PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
-    [photoViewer setupScrollView:arrayOfImageURLs];
+    [photoViewer setupScrollView:restaurant.pictures];
     photoViewer.navItem.title = [NSString stringWithFormat:@"%@", restaurant.name];
     photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     [appDelegate.tabBarController presentModalViewController:photoViewer animated:YES];

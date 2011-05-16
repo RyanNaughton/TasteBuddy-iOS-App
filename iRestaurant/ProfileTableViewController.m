@@ -373,7 +373,7 @@
             }
             
             PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
-            [photoViewer setupScrollView:arrayOfURLStrings];
+            [photoViewer setupScrollView:arrayOfPhotos];
             photoViewer.navItem.title = [NSString stringWithFormat:@"%@", restaurantName];
             photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
             [self presentModalViewController:photoViewer animated:YES];
@@ -381,6 +381,7 @@
         }
     }
 }
+
 
 -(IBAction) logoutPressed:(id)sender {
     

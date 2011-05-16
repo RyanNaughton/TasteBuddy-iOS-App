@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "UserProfileService.h"
 
+
 @interface ProfileTableViewController : UITableViewController <UserProfileServiceDelegate, UIAlertViewDelegate> {
     UserProfileService *ups;
     BOOL dataReceived;
@@ -28,7 +29,6 @@
 @property (nonatomic, retain) NSString *username;
 @property (nonatomic, retain) NSDictionary *picturesDictionary;
 @property (nonatomic, retain) NSMutableArray *picturesArray;
-
 
 -(IBAction) logoutPressed:(id)sender;
 -(IBAction) loginPressed:(id)sender;

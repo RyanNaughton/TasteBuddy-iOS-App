@@ -13,9 +13,14 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@protocol IGUIScrollViewImageDelegate <NSObject>
+-(void) setImageLabel:(NSString *)labelString;
+@end
 
 @interface IGUIScrollViewImage : NSObject <UIScrollViewDelegate> {
 	
+    id <IGUIScrollViewImageDelegate> delegate;
+    
 	UIScrollView *scrollView;
 	UIPageControl *pageControl;
 	
@@ -34,10 +39,20 @@
 	
 	BOOL rememberPosition;
 	NSString *positionIdentifier;
+    
+    UILabel *menuItemLabel;
+    BOOL showMenuItemLabel;
+    NSArray *labelArray;
 	
 }
 
+@property (nonatomic, retain) id <IGUIScrollViewImageDelegate> delegate;
 @property (nonatomic, retain) UIScrollView *scrollView;
+@property (nonatomic, retain) UILabel *menuItemLabel;
+@property (nonatomic, assign) BOOL showMenuItemLabel;
+@property (nonatomic, retain) NSArray *labelArray;
+
+-(void)setLabelArray:(NSArray *)labelArrayPassed;
 
 /// returns width of the scollview
 - (int)getScrollViewWidth;
