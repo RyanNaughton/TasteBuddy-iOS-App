@@ -67,7 +67,6 @@
 {
     NSString *responseString = [request_passed responseString];    
     NSDictionary *dictFromJSON = [responseString JSONValue];
-    NSLog(@"Response : %@", dictFromJSON);
     #warning TODO do some stuff with this string
     [delegate doneBookmarking: dictFromJSON];
     request = nil;

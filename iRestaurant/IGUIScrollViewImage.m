@@ -137,7 +137,6 @@
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)sv {
-    NSLog(@"scroll view change?");
     
 	int page = sv.contentOffset.x / sv.frame.size.width;
     [delegate setImageLabel:[labelArray objectAtIndex:page]];

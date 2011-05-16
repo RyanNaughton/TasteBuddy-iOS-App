@@ -144,11 +144,9 @@
 }
 
 -(void)generalInfoButtonPressed:(id)sender {
-    NSLog(@"generalInfoButtonPressed");
 }
 
 -(void)bookmarkItButtonPressed:(id)sender {
-    NSLog(@"bookmarkItButtonPressed");
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
