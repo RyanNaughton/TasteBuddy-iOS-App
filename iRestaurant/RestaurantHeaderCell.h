@@ -20,6 +20,7 @@
     UILabel *cuisine_types;
     RatingView *ratingView;
     UIButton *favoriteButton;
+    UIButton *imageButton;
     UIImage *greyHeart;
     UIImage *redHeart;
     
@@ -38,6 +39,7 @@
 @property (nonatomic, retain) UILabel *cuisine_types;
 @property (nonatomic, retain) RatingView *ratingView;
 @property (nonatomic, retain) UIButton *favoriteButton;
+@property (nonatomic, retain) UIButton *imageButton;
 @property (nonatomic, retain) UIImage *greyHeart;
 @property (nonatomic, retain) UIImage *redHeart;
 

@@ -16,7 +16,7 @@
 #import "hours.h"
 
 @implementation RestaurantHeaderCell
-@synthesize imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto, lunch_text, dinner_text;
+@synthesize imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto, lunch_text, dinner_text, imageButton;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -34,7 +34,7 @@
         imageView.frame = CGRectMake(10, 55, 120, 120);
         [self.contentView addSubview:imageView];
         
-        UIButton *imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [imageButton addTarget:self action:@selector(imageButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         imageButton.frame = CGRectMake(10, 55, 120, 120);
         [self.contentView addSubview:imageButton];
@@ -162,9 +162,10 @@
     restaurant = [restaurant_passed retain];
     if ([restaurant.pictures count] > 0) {
         [imageView setImageWithURL:[NSURL URLWithString:[[restaurant.pictures objectAtIndex:0] objectForKey:@"160px"]]
-                  placeholderImage:[UIImage imageNamed:@"restaurant-icon.gif"]];
+                  placeholderImage:[UIImage imageNamed:@"no-image-160.png"]];
     } else {
-        imageView.image = [UIImage imageNamed:@"restaurant-icon.gif"];
+        imageView.image = [UIImage imageNamed:@"no-image-160.png"];
+        imageButton.userInteractionEnabled = FALSE;
     }
     name.text = [restaurant.name retain];
     lunch_hours.text = [restaurant.hours todaysFirstOpeningHours];
