@@ -66,6 +66,7 @@
     self = [super init];
     if (self) {
        // custom init
+        NSLog(@"RDictionary %@", restaurantDictionary);
         
         _id               = [[restaurantDictionary objectForKey:@"id"] retain];
         name              = [[restaurantDictionary objectForKey:@"name"] retain];

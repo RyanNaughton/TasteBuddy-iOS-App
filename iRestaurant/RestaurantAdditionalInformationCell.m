@@ -55,7 +55,7 @@
         alcoholText.frame = CGRectMake(10, 55, 140, 20);
         alcoholText.textColor = [UIColor blackColor];
 		alcoholText.backgroundColor = [UIColor clearColor];
-		alcoholText.font = [UIFont boldSystemFontOfSize:20];
+		alcoholText.font = [UIFont boldSystemFontOfSize:13];
         alcoholText.textAlignment = UITextAlignmentRight;
         alcoholText.shadowColor = [UIColor whiteColor];
         alcoholText.shadowOffset = CGSizeMake(0,1);
@@ -84,7 +84,7 @@
         ccText.frame = CGRectMake(10, 85, 140, 20);
         ccText.textColor = [UIColor blackColor];
         ccText.backgroundColor = [UIColor clearColor];
-        ccText.font = [UIFont boldSystemFontOfSize:20];
+        ccText.font = [UIFont boldSystemFontOfSize:13];
         ccText.textAlignment = UITextAlignmentRight;
         ccText.shadowColor = [UIColor whiteColor];
         ccText.shadowOffset = CGSizeMake(0,1);
@@ -103,7 +103,7 @@
         deliveryLabel.textColor = [UIColor darkGrayColor];
 		deliveryLabel.backgroundColor = [UIColor clearColor];
         deliveryLabel.textAlignment = UITextAlignmentLeft;
-		deliveryLabel.font = [UIFont systemFontOfSize:12];
+		deliveryLabel.font = [UIFont systemFontOfSize:13];
         deliveryLabel.shadowColor = [UIColor whiteColor];
         deliveryLabel.shadowOffset = CGSizeMake(0,1);
         deliveryLabel.text = @"delivery";
@@ -114,7 +114,7 @@
         deliveryText.frame = CGRectMake(10, 115, 140, 20);
         deliveryText.textColor = [UIColor blackColor];
         deliveryText.backgroundColor = [UIColor clearColor];
-        deliveryText.font = [UIFont boldSystemFontOfSize:20];
+        deliveryText.font = [UIFont boldSystemFontOfSize:13];
         deliveryText.textAlignment = UITextAlignmentRight;
         deliveryText.shadowColor = [UIColor whiteColor];
         deliveryText.shadowOffset = CGSizeMake(0,1);
@@ -137,7 +137,7 @@
         parkingText.frame = CGRectMake(170, 55, 140, 20);
         parkingText.textColor = [UIColor blackColor];
         parkingText.backgroundColor = [UIColor clearColor];
-        parkingText.font = [UIFont boldSystemFontOfSize:20];
+        parkingText.font = [UIFont boldSystemFontOfSize:13];
         parkingText.textAlignment = UITextAlignmentRight;
         parkingText.shadowColor = [UIColor whiteColor];
         parkingText.shadowOffset = CGSizeMake(0,1);
@@ -166,7 +166,7 @@
         reservationsText.frame = CGRectMake(170, 85, 140, 20);
         reservationsText.textColor = [UIColor blackColor];
         reservationsText.backgroundColor = [UIColor clearColor];
-        reservationsText.font = [UIFont boldSystemFontOfSize:20];
+        reservationsText.font = [UIFont boldSystemFontOfSize:13];
         reservationsText.textAlignment = UITextAlignmentRight;
         reservationsText.shadowColor = [UIColor whiteColor];
         reservationsText.shadowOffset = CGSizeMake(0,1);
@@ -196,7 +196,7 @@
         wifiText.frame = CGRectMake(170, 115, 140, 20);
         wifiText.textColor = [UIColor blackColor];
         wifiText.backgroundColor = [UIColor clearColor];
-        wifiText.font = [UIFont boldSystemFontOfSize:20];
+        wifiText.font = [UIFont boldSystemFontOfSize:13];
         wifiText.textAlignment = UITextAlignmentRight;
         wifiText.shadowColor = [UIColor whiteColor];
         wifiText.shadowOffset = CGSizeMake(0,1);
@@ -210,6 +210,11 @@
 }
 
 -(void)loadRestaurant:(Restaurant *)restaurantPassed {
+    alcoholText.text = [restaurantPassed.alcohol_type retain];
+    ccText.text = ([restaurantPassed.credit_cards intValue] == 1) ? @"YES" : @"NO";
+    parkingText.text = [restaurantPassed.parking retain];
+    reservationsText.text = ([restaurantPassed.reservations intValue] == 1) ? @"YES" : @"NO";
+    deliveryText.text = ([restaurantPassed.delivery intValue] == 1) ? @"YES" : @"NO";
 }
 
 

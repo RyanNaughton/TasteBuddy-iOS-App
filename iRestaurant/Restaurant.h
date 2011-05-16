@@ -26,7 +26,7 @@
     NSString *alcohol_type;
     NSNumber *credit_cards;
     NSArray *cuisine_types;
-    NSString *delivery;
+    NSNumber *delivery;
     NSString *dress_code;
     NSString *group_friendly;
     NSString *kid_friendly;
@@ -71,7 +71,7 @@
 @property (nonatomic, retain) NSString *alcohol_type;
 @property (nonatomic, retain) NSNumber *credit_cards;
 @property (nonatomic, retain) NSArray *cuisine_types;
-@property (nonatomic, retain) NSString *delivery;
+@property (nonatomic, retain) NSNumber *delivery;
 @property (nonatomic, retain) NSString *dress_code;
 @property (nonatomic, retain) NSString *group_friendly;
 @property (nonatomic, retain) NSString *kid_friendly;
