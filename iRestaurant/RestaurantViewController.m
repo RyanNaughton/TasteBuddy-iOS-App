@@ -372,6 +372,7 @@
     if(![restaurant.website_url isKindOfClass:[NSNull class]]){
         WebViewController *wvc = [[WebViewController alloc] init];
         wvc.urlAddress = [restaurant.website_url retain];
+        [wvc setTitle:restaurant.name];
         [self.navigationController pushViewController:wvc animated:YES];
         [wvc release];
     } else {

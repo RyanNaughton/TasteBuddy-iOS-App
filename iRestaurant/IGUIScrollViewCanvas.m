@@ -102,6 +102,7 @@
 		pageControl = [[[UIPageControl alloc] initWithFrame:rectPageControl] autorelease];
 		pageControl.numberOfPages = [contentArray count];
 		pageControl.currentPage = page;
+        
 		[main addSubview:pageControl];
 	}
 	if (pageControlEnabledTop || pageControlEnabledBottom || rememberPosition) self.scrollView.delegate = self;

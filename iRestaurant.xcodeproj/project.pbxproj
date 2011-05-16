@@ -665,9 +665,9 @@
 			children = (
 				E8AA4AF1136107B300A8E37B /* CommentsHeaderCell.h */,
 				E8AA4AF2136107B300A8E37B /* CommentsHeaderCell.m */,
-				E83A9471136608CE00A5B706 /* TagsCell.h */,
 				49BED7FB13611BA700DE8CC4 /* CommentCell.h */,
 				49BED7FC13611BA700DE8CC4 /* CommentCell.m */,
+				E83A9471136608CE00A5B706 /* TagsCell.h */,
 				E83A9472136608CE00A5B706 /* TagsCell.m */,
 			);
 			name = Cells;

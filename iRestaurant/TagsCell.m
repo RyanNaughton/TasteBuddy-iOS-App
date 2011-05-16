@@ -148,7 +148,7 @@
     }
     
     IGUIScrollViewCanvas *scrollView = [[IGUIScrollViewCanvas alloc] init];  
-    [scrollView setBackGroudColor:[UIColor clearColor]];
+    [scrollView setBackGroudColor: [UIColor clearColor]]; //[UIColor colorWithRed:0 green:0 blue:0 alpha:0.1]];
     [scrollView setContentArray:viewsArray];  
     [scrollView setWidth:320 andHeight:130];
     [scrollView enablePageControlOnBottom];  
