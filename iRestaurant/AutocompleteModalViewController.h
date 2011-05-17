@@ -45,5 +45,6 @@
 -(IBAction) autocomplete:(id) sender;
 
 -(IBAction) cancel;
+-(void)removeView;
 
 @end

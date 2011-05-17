@@ -202,8 +202,26 @@
 
 -(IBAction) presentSearchModal {
     [fakeTermField resignFirstResponder];
-    searchModalViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [self presentModalViewController:searchModalViewController animated:YES];
+    //searchModalViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    //[self presentModalViewController:searchModalViewController animated:YES];
+    
+    searchModalViewController.view.frame = CGRectMake(0, -20, 320, 366);
+    searchModalViewController.view.alpha = 0.0;
+    [self.view addSubview:searchModalViewController.view];
+    
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration: 0.333];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDelegate:self];
+    searchModalViewController.view.alpha = 1.0;
+    searchModalViewController.view.frame = CGRectMake(0, 0, 320, 366);
+    [UIView setAnimationDidStopSelector:@selector(makeWhatFirstResponder)];
+    [UIView commitAnimations];
+}
+
+-(void) makeWhatFirstResponder {
+    [searchModalViewController.termField becomeFirstResponder];
 }
 
 @end

@@ -51,6 +51,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.alpha = 0;
     autocompleteService = [[AutocompleteService alloc] initWithDelegate: findAutocompleteTableViewController];
     
     UIImage *cancelButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
@@ -114,7 +115,8 @@
     [searchViewController switchSearchView:(id) searchViewController.lastSender];
     [searchViewController resultsLoading];
     searchViewController.fakeTermField.text = termField.text;
-    [self dismissModalViewControllerAnimated:YES];
+    //[self dismissModalViewControllerAnimated:YES];
+    [self cancel];
     return NO;
 }
 
@@ -130,6 +132,21 @@
 }
 -(IBAction) cancel
 {
-    [self dismissModalViewControllerAnimated:YES];
+    //[self dismissModalViewControllerAnimated:YES];
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration: 0.333];
+    [UIView setAnimationBeginsFromCurrentState:YES];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDelegate:self];
+    self.view.alpha = 0.0;
+    self.view.frame = CGRectMake(0, -20, 320, 366);
+    tableView.alpha = 0.0;
+    [UIView setAnimationDidStopSelector:@selector(removeView)];
+    [UIView commitAnimations];
 }
+
+-(void)removeView {
+    [self.view removeFromSuperview];
+}
+
 @end

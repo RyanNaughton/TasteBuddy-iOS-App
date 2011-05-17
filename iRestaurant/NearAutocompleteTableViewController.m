@@ -160,6 +160,8 @@
 
 -(void) autocompleteFinished:(NSArray *)termsArray {
     values = termsArray;
+    self.tableView.alpha = 1.0;
+    self.tableView.hidden = FALSE;
     [self.tableView reloadData];
 }
 
