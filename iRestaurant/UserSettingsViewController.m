@@ -54,8 +54,8 @@
     [birthdayMonthField   release];
     [birthdayDayField     release];
     [birthdayYearField    release];
-    [uss release];
-    [uas release];
+    //[uss release];
+    //[uas release];
     [super dealloc];
 }
 
