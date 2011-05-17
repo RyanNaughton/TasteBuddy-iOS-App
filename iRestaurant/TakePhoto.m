@@ -14,19 +14,20 @@
 #import "RestaurantViewController.h"
 
 @implementation TakePhoto
-@synthesize containerView, restaurant, menuItem, parentViewController;
+@synthesize containerView, restaurant, menuItem, rvc, dvc, isForRestaurant;
 
 -(id)initWithParentViewController:(id)viewController {
     self = [super init];
     if (self) {
-        parentViewController = [viewController retain];
     }
     return self;
 }
 
--(void)loadPhotoForRestaurant:(Restaurant *)restaurant_passed {
+-(void)loadPhotoForRestaurant:(Restaurant *)restaurant_passed withView:(RestaurantViewController *)rvc_passed {
     restaurant = [restaurant_passed retain];
     menuItem.name = @"";
+    rvc = rvc_passed;
+    isForRestaurant = TRUE;
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Choose Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Picture", @"Use Photo Library", nil];
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     popupQuery.delegate = self;
@@ -35,9 +36,11 @@
     [popupQuery release];
 }
 
--(void)loadPhotoForDish:(MenuItem *)menu_item_passed andRestaurant:(Restaurant *)restaurant_passed {
+-(void)loadPhotoForDish:(MenuItem *)menu_item_passed andRestaurant:(Restaurant *)restaurant_passed withView:(DishViewController *)dvc_passed {
     restaurant = [restaurant_passed retain];
     menuItem = [menu_item_passed retain];
+    dvc = dvc_passed;
+    isForRestaurant = FALSE;
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Choose Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Picture", @"Use Photo Library", nil];
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     popupQuery.delegate = self;
@@ -101,16 +104,24 @@
 }
 
 -(void)launchAdditionalDetailsWindowWithImage:(UIImage *)image andPicker:(UIImagePickerController *)picker {
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    PhotoShareContainer *photoShareContainer = [[PhotoShareContainer alloc]initWithWhere:restaurant.name andWhat:menuItem.name andImage:image andRestaurantId:restaurant._id andMenuItemId:menuItem._id];
+    PhotoShareContainer *photoShareContainer = [[PhotoShareContainer alloc]initWithWhere:restaurant.name andWhat:menuItem.name andImage:image andRestaurantId:restaurant._id andMenuItemId:menuItem._id]; 
+    
+    if (isForRestaurant) {
+        photoShareContainer.rvc = rvc;
+    } else {
+        photoShareContainer.dvc = dvc;
+    }
+    photoShareContainer.isForRestaurant = isForRestaurant;
     photoShareContainer.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     photoShareContainer.modalPresentationStyle = UIModalPresentationPageSheet;
-    [parentViewController presentModalViewController:photoShareContainer animated:YES];
+    [appDelegate.tabBarController presentModalViewController:photoShareContainer animated:YES];
     [photoShareContainer release];
 }
 
 -(void)dealloc {
-    [parentViewController release];
+    //[parentViewController release];
     [menuItem release];
     [restaurant release];
     [super dealloc];

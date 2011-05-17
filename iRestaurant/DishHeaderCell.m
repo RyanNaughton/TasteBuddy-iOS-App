@@ -13,6 +13,7 @@
 #import "Restaurant.h"
 
 #import "IGUIScrollViewImage.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation DishHeaderCell
 
@@ -104,6 +105,7 @@
     }
     
     UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
+    
     svimage = [[IGUIScrollViewImage alloc] init];  
     [svimage setBackGroudColor:[UIColor clearColor]];
     [svimage setContentArray:imageViewArray];  
@@ -111,6 +113,8 @@
     [svimage enablePageControlOnBottom];  
     [viewForScrollView addSubview:[svimage getWithPosition:0]]; 
     svimage.scrollView.showsHorizontalScrollIndicator = FALSE;
+    viewForScrollView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    viewForScrollView.layer.borderWidth = 1;
     [self.contentView addSubview:viewForScrollView];
     [viewForScrollView release];
 

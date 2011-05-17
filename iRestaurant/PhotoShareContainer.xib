@@ -162,7 +162,6 @@
 								<string key="NSFrame">{{112, 215}, {188, 31}}</string>
 								<reference key="NSSuperview" ref="977340915"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -426,6 +425,14 @@
 					</object>
 					<int key="connectionID">33</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">submitButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="215739098"/>
+					</object>
+					<int key="connectionID">34</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -608,7 +615,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">33</int>
+			<int key="maxID">34</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -638,6 +645,7 @@
 							<string>imageView</string>
 							<string>navItem</string>
 							<string>scrollView</string>
+							<string>submitButton</string>
 							<string>whatLabel</string>
 							<string>whatTextField</string>
 							<string>whereLabel</string>
@@ -652,6 +660,7 @@
 							<string>UIImageView</string>
 							<string>UINavigationItem</string>
 							<string>UIScrollView</string>
+							<string>UIBarButtonItem</string>
 							<string>UILabel</string>
 							<string>UITextField</string>
 							<string>UILabel</string>
@@ -669,6 +678,7 @@
 							<string>imageView</string>
 							<string>navItem</string>
 							<string>scrollView</string>
+							<string>submitButton</string>
 							<string>whatLabel</string>
 							<string>whatTextField</string>
 							<string>whereLabel</string>
@@ -703,6 +713,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">scrollView</string>
 								<string key="candidateClassName">UIScrollView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">submitButton</string>
+								<string key="candidateClassName">UIBarButtonItem</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">whatLabel</string>

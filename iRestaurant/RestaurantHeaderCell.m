@@ -14,6 +14,7 @@
 #import "TakePhoto.h"
 #import "PhotoViewer.h"
 #import "hours.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation RestaurantHeaderCell
 @synthesize imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto, lunch_text, dinner_text, imageButton;
@@ -32,6 +33,8 @@
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         imageView.frame = CGRectMake(10, 55, 120, 120);
+        imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        imageView.layer.borderWidth = 1;
         [self.contentView addSubview:imageView];
         
         imageButton = [UIButton buttonWithType:UIButtonTypeCustom];

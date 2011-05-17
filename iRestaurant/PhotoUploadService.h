@@ -11,7 +11,7 @@
 
 @class ASIFormDataRequest;
 @protocol PhotoUploadServiceDelegate <NSObject> 
--(void) imageLoadingDone;
+-(void) imageLoadingDone:(NSDictionary *)dict;
 @end
 @interface PhotoUploadService : AbstractService {
     id<PhotoUploadServiceDelegate> delegate;

@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "PhotoUploadService.h"
+@class RestaurantViewController;
+@class DishViewController;
 
 @interface PhotoShareContainer : UIViewController <UITextFieldDelegate, PhotoUploadServiceDelegate> {
     IBOutlet UIBarButtonItem *cancelButton;
+    IBOutlet UIBarButtonItem *submitButton;
     IBOutlet UIImageView *imageView;
     
     NSString *what;
@@ -31,12 +34,15 @@
     
     NSString *restaurant;
     NSString *menuItem;
-    
     IBOutlet UINavigationItem *navItem;
 
+    BOOL isForRestaurant;
+    RestaurantViewController *rvc;
+    DishViewController *dvc;
 }
 
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *cancelButton;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *submitButton;
 @property (nonatomic, retain) IBOutlet UIImageView *imageView;
 
 @property (nonatomic, retain) NSString *what;
@@ -60,7 +66,13 @@
 
 @property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
 
+@property (nonatomic, retain) RestaurantViewController *rvc;
+@property (nonatomic, retain) DishViewController *dvc;
+@property (nonatomic, assign) BOOL isForRestaurant;
+
 - (id)initWithWhere:(NSString *)where_passed andWhat:(NSString *)what_passed andImage:(UIImage *)image_passed andRestaurantId:(NSString *)restaurant_id_passed andMenuItemId:(NSString *) menu_item_id_passed;
 -(IBAction) cancelButtonPressed:(id)sender;
+-(void) submitAction;
+-(void) imageLoadingDone:(NSDictionary *)dict;
 
 @end

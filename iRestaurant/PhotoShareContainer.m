@@ -8,9 +8,11 @@
 
 #import "PhotoShareContainer.h"
 #import "PhotoUploadService.h"
+#import "RestaurantViewController.h"
+#import "DishViewController.h"
 
 @implementation PhotoShareContainer
-@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch, restaurant, menuItem, navItem, whereLabel, whatLabel, commentsLabel;
+@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch, restaurant, menuItem, navItem, whereLabel, whatLabel, commentsLabel, submitButton, rvc, dvc, isForRestaurant;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -47,14 +49,28 @@
 
 -(IBAction) submitButtonPressed:(id)sender 
 {
-    UIButton *submitButton = (UIButton *)sender;
+    [self submitAction];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [self submitAction];
+    return YES;
+}
+
+-(void) submitAction {
     submitButton.enabled = FALSE;
     cancelButton.enabled = FALSE;
     PhotoUploadService *photoUploadService = [[PhotoUploadService alloc]init];
     [photoUploadService uploadImage:image withWhere:whereTextField.text andWhat:whatTextField.text andComments:commentsTextField.text andFacebook:facebookSwitch.on andDelegate:self andRestaurantId:restaurant andMenuItemId:menuItem];
+
 }
 
--(void) imageLoadingDone {
+-(void) imageLoadingDone:(NSDictionary *)dict {
+    if (isForRestaurant) {
+        [rvc newImageLoaded:dict];
+    } else {
+        [dvc newImageLoaded:dict];
+    }
     [self dismissModalViewControllerAnimated:YES];
 }
 

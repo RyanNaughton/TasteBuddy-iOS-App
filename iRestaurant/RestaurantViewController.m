@@ -356,7 +356,7 @@
 }
 -(void)photoButtonPressed:(id)sender
 {
-    [takePhoto loadPhotoForRestaurant:restaurant];
+    [takePhoto loadPhotoForRestaurant:restaurant withView:self];
 }
 -(void)menuButtonPressed:(id)sender
 {
@@ -432,6 +432,12 @@
         RatingService *rrs = [[RatingService alloc] initWithDelegate:self];
         [rrs rateRestaurant:restaurant withRating:rating];
     }
+}
+
+-(void) newImageLoaded:(NSDictionary *)dict_passed {
+    NSLog(@"it made it! %@", dict_passed);
+    [restaurant.pictures addObject:dict_passed];
+    [self.tableView reloadData];
 }
 
 @end

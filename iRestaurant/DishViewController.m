@@ -145,12 +145,8 @@
         DishHeaderCell *dishHeaderCell = (DishHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"DishHeaderCell"];
 		if (dishHeaderCell == nil) {
 		    dishHeaderCell = [[[DishHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishHeaderCell"] autorelease];
-		
-#warning this should probably be outside the nil check... but for speed let's try this.
-            [dishHeaderCell loadMenuItem:menu_item andRestaurant:restaurant];
-        
         }          
-        
+        [dishHeaderCell loadMenuItem:menu_item andRestaurant:restaurant];
 		return dishHeaderCell;
         
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
@@ -296,7 +292,8 @@
 }
 -(void)photoButtonPressed:(id)sender
 {
-        [takePhoto loadPhotoForMenuItem:menu_item atRestaurant:restaurant];
+    [takePhoto loadPhotoForDish:menu_item andRestaurant:restaurant withView:self];    
+    //[takePhoto loadPhotoForMenuItem:menu_item atRestaurant:restaurant];
 }
 -(void)menuButtonPressed:(id)sender
 {
@@ -355,5 +352,10 @@
     
 }
 
+-(void) newImageLoaded:(NSDictionary *)dict_passed {
+    NSLog(@"it made it! %@", dict_passed);
+    [menu_item.pictures addObject:dict_passed];
+    [self.tableView reloadData];
+}
 
 @end

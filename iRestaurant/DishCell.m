@@ -10,6 +10,7 @@
 #import "MenuItem.h"
 #import "UIImageView+WebCache.h"
 #import "RatingView.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation DishCell
 @synthesize imageView, name, tags, price, ratingView;
@@ -24,7 +25,9 @@
         imageView = [[UIImageView alloc]init];
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
-        imageView.frame = CGRectMake(0, 0, 70, 70);
+        imageView.frame = CGRectMake(2, 2, 65, 65);
+        imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        imageView.layer.borderWidth = 1;
         [self.contentView addSubview:imageView];
         [imageView release];
         
@@ -67,6 +70,7 @@
 }
 
 -(void)loadMenuItem:(MenuItem *)menuItem {
+    NSLog(@"menuItem pictures: %@", menuItem.pictures);
     UIImage *noImage = [UIImage imageNamed:@"no-image-80.png"];
     name.text = [menuItem.name retain];
     tags.text = [menuItem.tags_text retain];

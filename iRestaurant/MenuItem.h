@@ -15,7 +15,7 @@
     NSMutableArray *tags;
     NSArray *photo_urls;
     NSMutableArray *comments;
-    NSArray *pictures;
+    NSMutableArray *pictures;
     
     NSString *restaurant_id;
     
@@ -31,7 +31,7 @@
 @property (nonatomic, retain) NSMutableArray *tags;
 @property (nonatomic, retain) NSArray *photo_urls;
 @property (nonatomic, retain) NSMutableArray *comments;
-@property (nonatomic, retain) NSArray *pictures;
+@property (nonatomic, retain) NSMutableArray *pictures;
 @property (nonatomic, retain) NSString *restaurant_id;
 @property (nonatomic, assign) float price;
 @property (nonatomic, retain) NSString *tags_text;

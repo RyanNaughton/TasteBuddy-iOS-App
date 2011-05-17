@@ -67,8 +67,10 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
     NSString *responseString = [request_passed responseString];
+    NSDictionary *dict = [responseString JSONValue];
     // need to setup a delegate protocol..
-    [delegate imageLoadingDone];
+    NSLog(@"response dict: %@", dict);
+    [delegate imageLoadingDone:dict];
     request = nil;
 }
 

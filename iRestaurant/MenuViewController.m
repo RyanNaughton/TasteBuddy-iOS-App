@@ -100,8 +100,9 @@
 */
 
 -(void)viewDidAppear:(BOOL)animated {
-    NSLog(@"view did appear");
+    NSLog(@"view did appear MVC");
     //[self.tableView reloadData];
+    [self callMenuService];
 }
 
 
@@ -110,7 +111,6 @@
 {
     [super viewDidLoad];
     [self setTitle:@"Menu"];
-    [menuService getMenuForRestaurant:restaurant];
     
     UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"menuLogo.png"]];
     appNameImageView.frame = CGRectMake(160, -3, 150, 44);
@@ -118,12 +118,18 @@
     self.navigationItem.titleView = appNameImageView;
     
     self.tableView.backgroundColor = [UIColor whiteColor]; //[[UIColor alloc] initWithRed:230.0 / 255 green:230.0 / 255 blue:230.0 / 255 alpha:1.0];
+    
+}
+
+-(void) callMenuService {
+    [menuService getMenuForRestaurant:restaurant];
     activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     activityIndicator.frame = CGRectMake(0, 0, 25, 25);
     activityIndicator.center = CGPointMake(self.view.center.x, (self.view.center.y - 50));
     [self.view addSubview:activityIndicator];
     [activityIndicator startAnimating];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
 }
 
 -(void) viewWillDisappear:(BOOL)animated {

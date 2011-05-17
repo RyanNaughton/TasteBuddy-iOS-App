@@ -25,5 +25,6 @@
 
 - (id) initWithRestaurant:(Restaurant *)restaurant_passed;
 - (void) menuReturned:(Menu *)menu;
+- (void) callMenuService;
 
 @end

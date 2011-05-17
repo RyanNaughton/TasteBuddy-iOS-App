@@ -8,6 +8,7 @@
 
 #import "ProfilePhotoCell.h"
 #import "UIImageView+WebCache.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation ProfilePhotoCell
 @synthesize imageView, restaurantLabel, pictureCountLabel;
@@ -24,6 +25,8 @@
         imageView.contentMode = UIViewContentModeScaleAspectFill;
         imageView.clipsToBounds = YES;
         imageView.frame = CGRectMake(10, 10, 65, 65);
+        imageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        imageView.layer.borderWidth = 1;
         [self.contentView addSubview:imageView];
         
         restaurantLabel = [[UILabel alloc]init];
