@@ -215,7 +215,7 @@
 
 -(IBAction) filterPressed {
     iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
-    UIActionSheet *filterActionSheet = [[UIActionSheet alloc] initWithTitle:@"Sort" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Distance", @"Rating", @"Average Meal Price", nil];
+    UIActionSheet *filterActionSheet = [[UIActionSheet alloc] initWithTitle:@"Sort" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Distance", @"Rating", @"Average Dish Price", nil];
     [filterActionSheet showFromTabBar:appDelegate.tabBarController.tabBar];
     [filterActionSheet release];
 }
