@@ -67,6 +67,8 @@
 
 -(IBAction)sendButtonPressed 
 {
+    NSString *birthdayString = [NSString stringWithFormat:@"%@-%@-%@", birthdayYearField.text, birthdayMonthField.text, birthdayDayField.text];
+    
     ucs = [[UserCreationService alloc]initWithDelegate:self];
     [ucs signUpWithUsername:usernameField.text 
                andFirstName:firstNameField.text 
@@ -76,7 +78,7 @@
                  andCountry:countryField.text 
               andPostalCode:postalCodeField.text 
                    andEmail:emailField.text 
-               andBirthdate:birthdayDayField.text];
+               andBirthdate:birthdayString];
 }
 
 - (void)didReceiveMemoryWarning

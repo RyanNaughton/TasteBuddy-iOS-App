@@ -67,6 +67,8 @@
 		E80E05A01360EA3400894180 /* pizza.png in Resources */ = {isa = PBXBuildFile; fileRef = E80E059D1360EA3300894180 /* pizza.png */; };
 		E80E05A11360EA3400894180 /* taco.png in Resources */ = {isa = PBXBuildFile; fileRef = E80E059E1360EA3300894180 /* taco.png */; };
 		E80E05A21360EA3400894180 /* cheeseburger.png in Resources */ = {isa = PBXBuildFile; fileRef = E80E059F1360EA3300894180 /* cheeseburger.png */; };
+		E81A7B431383041B0035215C /* UserSettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = E81A7B421383041B0035215C /* UserSettingsService.m */; };
+		E81A7B47138306D10035215C /* UserAttributesService.m in Sources */ = {isa = PBXBuildFile; fileRef = E81A7B46138306D10035215C /* UserAttributesService.m */; };
 		E824E29B137B113000E790D2 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E824E299137B113000E790D2 /* SignUpViewController.m */; };
 		E824E29C137B113000E790D2 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E824E29A137B113000E790D2 /* SignUpViewController.xib */; };
 		E82DA973137DB65E0060DB3E /* UserCreationService.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA972137DB65E0060DB3E /* UserCreationService.m */; };
@@ -367,6 +369,10 @@
 		E80E059D1360EA3300894180 /* pizza.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pizza.png; sourceTree = "<group>"; };
 		E80E059E1360EA3300894180 /* taco.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = taco.png; sourceTree = "<group>"; };
 		E80E059F1360EA3300894180 /* cheeseburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheeseburger.png; sourceTree = "<group>"; };
+		E81A7B411383041A0035215C /* UserSettingsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsService.h; sourceTree = "<group>"; };
+		E81A7B421383041B0035215C /* UserSettingsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsService.m; sourceTree = "<group>"; };
+		E81A7B45138306D10035215C /* UserAttributesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAttributesService.h; sourceTree = "<group>"; };
+		E81A7B46138306D10035215C /* UserAttributesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAttributesService.m; sourceTree = "<group>"; };
 		E824E298137B113000E790D2 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		E824E299137B113000E790D2 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		E824E29A137B113000E790D2 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
@@ -1232,6 +1238,10 @@
 		E8A03E1A135538EB0031D798 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E81A7B45138306D10035215C /* UserAttributesService.h */,
+				E81A7B46138306D10035215C /* UserAttributesService.m */,
+				E81A7B411383041A0035215C /* UserSettingsService.h */,
+				E81A7B421383041B0035215C /* UserSettingsService.m */,
 				E82DA971137DB65E0060DB3E /* UserCreationService.h */,
 				E82DA972137DB65E0060DB3E /* UserCreationService.m */,
 				E842967D137C64C200E791B2 /* UserProfileService.h */,
@@ -1760,6 +1770,8 @@
 				49A3939B138086360059FA6D /* RestaurantAdditionalInformationCell.m in Sources */,
 				E8EE5B131381A38800ACC2CF /* RatingPopupViewController.m in Sources */,
 				497C258F1381B23B0011F307 /* CommentService.m in Sources */,
+				E81A7B431383041B0035215C /* UserSettingsService.m in Sources */,
+				E81A7B47138306D10035215C /* UserAttributesService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

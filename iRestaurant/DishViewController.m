@@ -147,7 +147,6 @@
 		    dishHeaderCell = [[[DishHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishHeaderCell"] autorelease];
             [dishHeaderCell loadMenuItem:menu_item andRestaurant:restaurant];
         }          
-        
 		return dishHeaderCell;
         
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {

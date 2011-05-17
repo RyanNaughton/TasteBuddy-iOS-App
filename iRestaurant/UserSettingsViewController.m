@@ -7,7 +7,8 @@
 //
 
 #import "UserSettingsViewController.h"
-
+#import "UserSettingsService.h"
+#import "UserAttributesService.h"
 
 @implementation UserSettingsViewController
 
@@ -23,7 +24,7 @@
 @synthesize birthdayMonthField;
 @synthesize birthdayDayField;
 @synthesize birthdayYearField;
-
+@synthesize uss, uas;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,6 +54,8 @@
     [birthdayMonthField   release];
     [birthdayDayField     release];
     [birthdayYearField    release];
+    [uss release];
+    [uas release];
     [super dealloc];
 }
 
@@ -70,6 +73,9 @@
 {
     [super viewDidLoad];
     [self setTitle:@"Settings"];
+    uss = [[UserSettingsService alloc]initWithDelegate:self];
+    uas = [[UserAttributesService alloc]initWithDelegate:self];
+    [uas getUserData];
     
     UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"settingsLogo.png"]];
     appNameImageView.frame = CGRectMake(0, -3, 150, 44);
@@ -140,7 +146,43 @@
 }
 
 -(void)updateBtnPressed:(id)sender {
+    NSString *birthdayString = [NSString stringWithFormat:@"%@-%@-%@", birthdayYearField.text, birthdayMonthField.text, birthdayDayField.text];
     
+    [uss updateWithUsername:usernameField.text 
+               andFirstName:firstNameField.text 
+                andLastName:lastNameField.text 
+                andPassword:passwordField.text 
+               andConfirmPW:confirmPasswordField.text 
+                 andCountry:countryField.text 
+              andPostalCode:postalCodeField.text 
+                   andEmail:emailField.text 
+               andBirthdate:birthdayString];
+}
+
+-(void) settingsUpdateComplete:(AuthenticationResponse *)authToken {
+    NSLog(@"settings update complete: %@", authToken);
+}
+
+-(void) attributesServiceComplete:(NSDictionary *)dict {
+    NSLog(@"dict returned: %@", dict);
+
+    countryField.text = [dict objectForKey:@"country"];
+    emailField.text = [dict objectForKey:@"email"];
+    firstNameField.text = [dict objectForKey:@"first_name"];
+    lastNameField.text = [dict objectForKey:@"last_name"];
+    postalCodeField.text = [dict objectForKey:@"postal_code"];
+    usernameField.text = [dict objectForKey:@"username"];
+    
+    NSString *birthdayString = [dict objectForKey:@"birthday"];
+    NSArray *birthdayNumbersArray = [birthdayString componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"-"]];
+    
+    birthdayYearField.text = (NSString *)[birthdayNumbersArray objectAtIndex:0];
+    birthdayMonthField.text = (NSString *)[birthdayNumbersArray objectAtIndex:1];
+    
+    // WORKAROUND FOR EXTRA STRING AT END OF BIRTHDAY DAY
+    NSString *birthdayDayMessy = (NSString *)[birthdayNumbersArray objectAtIndex:2];
+    NSArray *birthdayDayArray = [birthdayDayMessy componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"T"]];
+    birthdayDayField.text = (NSString *)[birthdayDayArray objectAtIndex:0];
 }
 
 - (void)viewDidUnload

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserSettingsService.h"
+#import "UserAttributesService.h"
 
-
-@interface UserSettingsViewController : UIViewController <UITextFieldDelegate> {
+@interface UserSettingsViewController : UIViewController <UITextFieldDelegate, UserSettingsServiceDelegate, UserAttributesServiceDelegate> {
  	IBOutlet UIScrollView *scrollView;
     IBOutlet UITextField *usernameField;
     IBOutlet UITextField *firstNameField;
@@ -22,6 +23,8 @@
     IBOutlet UITextField *birthdayMonthField;
     IBOutlet UITextField *birthdayDayField;
     IBOutlet UITextField *birthdayYearField;
+    UserSettingsService *uss;
+    UserAttributesService *uas;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
@@ -36,10 +39,15 @@
 @property (nonatomic, retain) IBOutlet UITextField *birthdayMonthField;
 @property (nonatomic, retain) IBOutlet UITextField *birthdayDayField;
 @property (nonatomic, retain) IBOutlet UITextField *birthdayYearField;
+@property (nonatomic, retain) UserSettingsService *uss;
+@property (nonatomic, retain) UserAttributesService *uas;
 
 -(void)setUserWithDictionary:(NSDictionary *)dict;
 
 -(void)updateBtnPressed:(id)sender;
 -(void)keyboardDidShow:(NSNotification *)notification;
+
+-(void) settingsUpdateComplete:(AuthenticationResponse *)authToken;
+-(void) attributesServiceComplete:(NSDictionary *)dict;
 
 @end
