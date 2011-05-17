@@ -145,8 +145,9 @@
         DishHeaderCell *dishHeaderCell = (DishHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"DishHeaderCell"];
 		if (dishHeaderCell == nil) {
 		    dishHeaderCell = [[[DishHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishHeaderCell"] autorelease];
+            [dishHeaderCell loadMenuItem:menu_item andRestaurant:restaurant];
         }          
-        [dishHeaderCell loadMenuItem:menu_item andRestaurant:restaurant];
+        
 		return dishHeaderCell;
         
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
@@ -355,7 +356,12 @@
 -(void) newImageLoaded:(NSDictionary *)dict_passed {
     NSLog(@"it made it! %@", dict_passed);
     [menu_item.pictures addObject:dict_passed];
-    [self.tableView reloadData];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    DishHeaderCell *dhc = (DishHeaderCell *)[self.tableView cellForRowAtIndexPath:indexPath]; 
+    [dhc.viewForScrollView removeFromSuperview];
+    [dhc loadMenuItem:menu_item andRestaurant:restaurant];
+    //[self.tableView reloadData];
 }
 
 @end

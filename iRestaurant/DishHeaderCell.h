@@ -18,6 +18,7 @@
     UILabel *price;
     RatingView *ratingView;
     IGUIScrollViewImage *svimage;
+    UIView *viewForScrollView;
 }
 
 @property (nonatomic, retain) UILabel *name;
@@ -25,6 +26,7 @@
 @property (nonatomic, retain) UILabel *price;
 @property (nonatomic, retain) RatingView *ratingView;
 @property (nonatomic, retain) IGUIScrollViewImage *svimage;
+@property (nonatomic, retain) UIView *viewForScrollView;
 
 -(void)loadMenuItem:(MenuItem *)menu_item andRestaurant:(Restaurant *)restaurant;
 -(void)cameraButtonPressed:(id)sender;

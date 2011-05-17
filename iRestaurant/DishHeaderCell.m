@@ -17,7 +17,7 @@
 
 @implementation DishHeaderCell
 
-@synthesize name, price, ratingView, restaurantName, svimage;
+@synthesize name, price, ratingView, restaurantName, svimage, viewForScrollView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -71,7 +71,9 @@
         price.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:price];
         
-        self.selectionStyle = UITableViewCellEditingStyleNone;        
+        self.selectionStyle = UITableViewCellEditingStyleNone;   
+        
+       
     }
     return self;
 }
@@ -103,21 +105,18 @@
         UIImageView *imageView = [[UIImageView alloc]initWithImage:noImage];
         [imageViewArray addObject:imageView];
     }
-    
-    UIView *viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
-    
+     
+    viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
     svimage = [[IGUIScrollViewImage alloc] init];  
+    [svimage setContentArray:imageViewArray]; 
     [svimage setBackGroudColor:[UIColor clearColor]];
-    [svimage setContentArray:imageViewArray];  
     [svimage setWidth:300 andHeight:300];
     [svimage enablePageControlOnBottom];  
-    [viewForScrollView addSubview:[svimage getWithPosition:0]]; 
     svimage.scrollView.showsHorizontalScrollIndicator = FALSE;
     viewForScrollView.layer.borderColor = [UIColor lightGrayColor].CGColor;
     viewForScrollView.layer.borderWidth = 1;
+    [viewForScrollView addSubview:[svimage getWithPosition:0]];
     [self.contentView addSubview:viewForScrollView];
-    [viewForScrollView release];
-
 }
 
 -(void)cameraButtonPressed:(id)sender {
@@ -138,6 +137,7 @@
     [name release];
     [restaurantName release];
     [svimage release];
+    [viewForScrollView release];
     [super dealloc];
 }
 
