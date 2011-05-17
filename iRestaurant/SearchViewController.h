@@ -13,7 +13,7 @@
 @class DishSearchResultTableViewController;
 @class AutocompleteModalViewController;
 
-@interface SearchViewController : UIViewController <SearchServiceDelegate, UITextFieldDelegate, UIScrollViewDelegate> {
+@interface SearchViewController : UIViewController <SearchServiceDelegate, UITextFieldDelegate, UIScrollViewDelegate, UIActionSheetDelegate> {
     SearchService *searchService;
     IBOutlet RestaurantSearchResultTableViewController *restaurantSearchResultTableViewController;
     IBOutlet DishSearchResultTableViewController *dishSearchResultTableViewController;
