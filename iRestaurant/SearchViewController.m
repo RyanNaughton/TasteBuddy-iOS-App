@@ -12,6 +12,7 @@
 #import "DishSearchResultTableViewController.h"
 #import "ASIFormDataRequest.h"
 #import "AutocompleteModalViewController.h"
+#import "iRestaurantAppDelegate.h"
 
 @implementation SearchViewController
 
@@ -72,6 +73,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    fakeTermField.frame = CGRectMake(7, 7, 254, 31);
+
     needsToPerformDefaultSearch = YES;
     UIImage *greyButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
     [mapButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
@@ -121,9 +124,19 @@
 -(void) switchTabs:(UIButton *) onTab 
 {
     
-    
-    
-    UIButton *offTab = (onTab == restaurantsTabButton) ? dishesTabButton : restaurantsTabButton;
+    UIButton *offTab;
+    [UIView beginAnimations:nil context:nil];
+    if (onTab == restaurantsTabButton) {
+        offTab = dishesTabButton;
+        fakeTermField.frame = CGRectMake(7, 7, 254, 31);
+        filterButton.alpha = 1.0;
+    } else {
+        offTab = restaurantsTabButton;
+        fakeTermField.frame = CGRectMake(7, 7, 306, 31);
+        filterButton.alpha = 0.0;
+    }
+    [UIView setAnimationDuration:0.2];
+    [UIView commitAnimations];
     
     [offTab setBackgroundImage:[[UIImage imageNamed:@"darkgrey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
     [offTab setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -197,6 +210,34 @@
 {
     restaurantSearchResultTableViewController.isLoading = NO;
     dishSearchResultTableViewController.isLoading = NO;
+    [tableView reloadData];
+}
+
+-(IBAction) filterPressed {
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
+    UIActionSheet *filterActionSheet = [[UIActionSheet alloc] initWithTitle:@"Sort" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Distance", @"Rating", @"Average Dish Price", nil];
+    [filterActionSheet showFromTabBar:appDelegate.tabBarController.tabBar];
+    [filterActionSheet release];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSSortDescriptor *sortDescriptor;
+    if(buttonIndex == 0) {
+        sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"distance"
+                                                      ascending:YES] autorelease];        
+        
+    } else if(buttonIndex == 1) {
+        sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"rating.average_rating"
+                                                      ascending:NO] autorelease];  
+
+    } else if(buttonIndex == 2) {
+        sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"average_meal_price"
+                                                      ascending:YES] autorelease];
+    }
+    
+    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+    NSArray *sortedArray = [restaurantSearchResultTableViewController.restaurantsArray sortedArrayUsingDescriptors:sortDescriptors];
+    restaurantSearchResultTableViewController.restaurantsArray = [NSMutableArray arrayWithArray: sortedArray];
     [tableView reloadData];
 }
 
