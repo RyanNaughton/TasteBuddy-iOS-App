@@ -15,6 +15,7 @@
 #import "SearchViewController.h"
 #import "FavoritesViewController.h"
 #import "ProfileTableViewController.h"
+#import "SignUpViewController.h"
 
 @implementation iRestaurantAppDelegate
 
@@ -88,6 +89,7 @@
 		NSString *bundle = [[NSBundle mainBundle] pathForResource:@"SavedSettings" ofType:@"plist"]; //5
 		
 		[fileManager copyItemAtPath:bundle toPath: savedSettingsPath error:&error]; //6
+        [self displayWelcomeMessage];
 	}
 }
 
@@ -134,11 +136,6 @@
 
 -(IBAction) logout {
     [self setSavedSetting:@"authentication_token" withValue:@""];
-    if ([self loggedIn]) {
-        NSLog(@"%@",@"Logged in");
-    } else {
-        NSLog(@"%@",@"Logged out");        
-    }
     for (UINavigationController *navc in tabBarController.viewControllers) {
         [navc popToRootViewControllerAnimated:NO];
         if([navc.visibleViewController isKindOfClass:[SearchViewController class]]) {
@@ -147,13 +144,13 @@
             svc.fakeTermField.text = @"";
             [svc.searchService.jsonDictionary removeObjectForKey:@"auth_token"];
         } else if([navc.visibleViewController isKindOfClass:[FavoritesViewController class]]) {
-            FavoritesViewController *fvc = (FavoritesViewController *) navc.visibleViewController;            
+            //FavoritesViewController *fvc = (FavoritesViewController *) navc.visibleViewController;            
             
         } else if([navc.visibleViewController isKindOfClass:[ProfileTableViewController class]]){
-            ProfileTableViewController *pvc = (ProfileTableViewController *) navc.visibleViewController; 
+            //ProfileTableViewController *pvc = (ProfileTableViewController *) navc.visibleViewController; 
         }
     } 
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Logged Out" message:@"You have successfully logged out." delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Logged Out" message:@"You have successfully logged out." delegate:nil cancelButtonTitle:@"Continue" otherButtonTitles:nil];
     [alert show];
     [alert release];
     
@@ -163,12 +160,26 @@
     [self setSavedSetting:@"authentication_token" withValue:authResponse.authentication_token];
 }
 
+-(void) displayWelcomeMessage {
+    UIAlertView *welcomeAlert = [[UIAlertView alloc] initWithTitle:@"Welcome" message:@"TasteBuddy helps you find just the right food! The more you tell us what you like, the better we can help you order with confidence and discover the best hidden gems!" delegate:self cancelButtonTitle:@"Sign me up!"  otherButtonTitles:@"No, not now", nil];
+    [welcomeAlert show];
+    [welcomeAlert release];
+}
+
 - (void)dealloc
 {
     [_window release];
     [tabBarController release];
     [savedSettingsPath release];
     [super dealloc];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        SignUpViewController *signUpVC = [[SignUpViewController alloc]initWithNibName:@"SignUpViewController" bundle:nil];
+        signUpVC.loginViewController = nil;
+        [self.tabBarController presentModalViewController:signUpVC animated:YES];
+    }
 }
 
 @end

@@ -61,7 +61,6 @@
     //[restaurant release];
     [tableArray release];
     [takePhoto release];
-    [tableArray release];
     [super dealloc];
 }
 
