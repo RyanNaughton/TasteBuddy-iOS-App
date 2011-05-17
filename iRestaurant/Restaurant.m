@@ -82,6 +82,9 @@
         location          = [[restaurantDictionary objectForKey:@"location"] retain];
         website_url       = [[restaurantDictionary objectForKey:@"website_url"] retain];
         alcohol_type      = [[restaurantDictionary objectForKey:@"alcohol_type"] retain];
+        if([alcohol_type isKindOfClass:[NSNull class]]) {
+            alcohol_type = @"Unknown";
+        }
         credit_cards      = [[restaurantDictionary objectForKey:@"credit_cards"] retain];
         cuisine_types     = [[restaurantDictionary objectForKey:@"cuisine_types"] retain];
         delivery          = [[restaurantDictionary objectForKey:@"delivery"] retain];
