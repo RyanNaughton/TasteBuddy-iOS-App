@@ -60,6 +60,7 @@
     NSString *json = [jsonDictionary JSONRepresentation];
     NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"PUT"];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];
@@ -117,7 +118,6 @@
     
 }
 - (void)dealloc {
-    [request release];
     [super dealloc];
 }
 

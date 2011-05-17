@@ -53,7 +53,6 @@
     
 }
 - (void)dealloc {
-    [request release];
     [super dealloc];
 }
 
