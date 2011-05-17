@@ -70,11 +70,11 @@
 }
 
 -(void) loadRestaurant:(Restaurant *)restaurantPassed {
-    restaurant = restaurantPassed;
+    restaurant = [restaurantPassed retain];
 }
 
 -(void) loadMenuItem:(MenuItem *)menuItemPassed {
-    menuItem = menuItemPassed;
+    menuItem = [menuItemPassed retain];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -85,7 +85,7 @@
 }
 
 -(void) tagsRetrieved:(NSMutableArray *)tagsRetrieved {
-    tags = tagsRetrieved;
+    tags = [tagsRetrieved retain];
     // Contains entire tag scrolling area in cell
     UIView *tagScrollContainer = [[UIView alloc]initWithFrame:CGRectMake(0, 70, 320, 130)]; 
     
@@ -203,8 +203,6 @@
         restaurant.tags = tags;
     }
 }
-
-
 - (void)dealloc
 {
     [restaurantTaggingService release];

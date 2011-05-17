@@ -19,7 +19,7 @@
 
     self = [super init];
     if(self) {
-        delegate = serviceDelegate;
+        delegate = [serviceDelegate retain];
     }
     return self;
 }
