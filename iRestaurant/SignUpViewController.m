@@ -123,7 +123,9 @@
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
-    [loginViewController cancel];
+    if(loginViewController != nil) {
+        [loginViewController cancel];
+    }
 }
 
 - (void)keyboardDidShow:(NSNotification *)notification {

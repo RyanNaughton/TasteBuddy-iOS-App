@@ -11,7 +11,7 @@
 
 @class AuthenticationResponse;
 
-@interface iRestaurantAppDelegate : NSObject <UIApplicationDelegate> {
+@interface iRestaurantAppDelegate : NSObject <UIApplicationDelegate, UIAlertViewDelegate> {
     IBOutlet UITabBarController *tabBarController;
     NSString *savedSettingsPath;
 }
@@ -28,5 +28,6 @@
 -(bool) loggedIn;
 -(void) logout;
 -(void) updateAuthentication:(AuthenticationResponse *) authResponse;
+-(void) displayWelcomeMessage;
 
 @end

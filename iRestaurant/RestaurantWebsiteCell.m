@@ -21,7 +21,7 @@
         self.backgroundColor = [UIColor whiteColor];
         self.selectionStyle = UITableViewCellSelectionStyleGray;
 
-        restaurantViewController = restaurantViewControllerPassed;
+        restaurantViewController = [restaurantViewControllerPassed retain];
 
         websiteButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [websiteButton setTitle:@"Visit Restaurant Website" forState:UIControlStateNormal];

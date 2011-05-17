@@ -18,8 +18,8 @@
 @synthesize delegate, requestMethod;
 
 - (void)dealloc {
-    [requestMethod release];
     [delegate release];
+    [requestMethod release];
     [super dealloc];
 }
 
@@ -27,7 +27,7 @@
     self = [super init];
     if (self) {
         authTokenRequired = true;
-        delegate = taggingDelegate;
+        delegate = [taggingDelegate retain];
     }
     return self;
 }
