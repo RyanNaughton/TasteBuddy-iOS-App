@@ -16,6 +16,7 @@
 #import "FavoritesViewController.h"
 #import "ProfileTableViewController.h"
 #import "SignUpViewController.h"
+#import "CoreLocationController.h"
 
 @implementation iRestaurantAppDelegate
 
@@ -24,6 +25,7 @@
 
 @synthesize tabBarController;
 @synthesize savedSettingsPath;
+@synthesize clcontroller, currentLocation;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -33,6 +35,8 @@
     [self.window addSubview:tabBarController.view];
 
     [self checkOrCreatePlist];
+    
+    [self getLocation];
     
     return YES;
 }
@@ -74,6 +78,21 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+-(void)getLocation {
+    clcontroller = [[CoreLocationController alloc] init];
+	clcontroller.delegate = self;
+	[clcontroller.locMgr startUpdatingLocation];
+}
+
+- (void)locationUpdate:(CLLocation *)location {
+    currentLocation = [location retain];
+	NSLog(@"location desc: %@", [location description]);
+}
+
+- (void)locationError:(NSError *)error {
+	NSLog(@"error desc: %@",[error description]);
 }
 
 -(void)checkOrCreatePlist {

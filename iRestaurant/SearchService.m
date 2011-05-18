@@ -35,13 +35,12 @@
 -(void)searchByTerm:(NSString *)term andNear:(NSString *)nearString
 {
     // Example of how to read from plist. Can also do: [appDelegate setSavedSetting:@"username" withValue:@"my value"];
-    //iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
-   // NSLog(@"username: %@", [appDelegate readSavedSetting:@"username"]);
+
     
     urlString = @"http://monkey.elhideout.org/search.json";
     
-    double latitude = 41.884432;
-    double longitude = -87.643464;
+    double latitude = appDelegate.currentLocation.coordinate.latitude; //41.884432;
+    double longitude = appDelegate.currentLocation.coordinate.longitude; //-87.643464;
     nearString = @"";
     
 

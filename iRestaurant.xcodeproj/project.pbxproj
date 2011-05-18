@@ -75,6 +75,7 @@
 		E81B8F4813846A870052F240 /* icon57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E81B8F4613846A870052F240 /* icon57@2x.png */; };
 		E81B8F4B13846F520052F240 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = E81B8F4913846F520052F240 /* default.png */; };
 		E81B8F4C13846F520052F240 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E81B8F4A13846F520052F240 /* default@2x.png */; };
+		E81B8F55138479160052F240 /* CoreLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = E81B8F54138479160052F240 /* CoreLocationController.m */; };
 		E824E29B137B113000E790D2 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E824E299137B113000E790D2 /* SignUpViewController.m */; };
 		E824E29C137B113000E790D2 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E824E29A137B113000E790D2 /* SignUpViewController.xib */; };
 		E82DA973137DB65E0060DB3E /* UserCreationService.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA972137DB65E0060DB3E /* UserCreationService.m */; };
@@ -386,6 +387,8 @@
 		E81B8F4613846A870052F240 /* icon57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon57@2x.png"; sourceTree = "<group>"; };
 		E81B8F4913846F520052F240 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 		E81B8F4A13846F520052F240 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
+		E81B8F53138479160052F240 /* CoreLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationController.h; sourceTree = "<group>"; };
+		E81B8F54138479160052F240 /* CoreLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationController.m; sourceTree = "<group>"; };
 		E824E298137B113000E790D2 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		E824E299137B113000E790D2 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		E824E29A137B113000E790D2 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
@@ -891,6 +894,7 @@
 		49BA68281354DBA40040DDB5 /* iRestaurant */ = {
 			isa = PBXGroup;
 			children = (
+				E81B8F52138478F90052F240 /* Core Location */,
 				494D34AD1365FC0B00E03CCA /* Utilities */,
 				E8A03E1A135538EB0031D798 /* Services */,
 				E8E6D3F113552435003F0ECB /* Models */,
@@ -973,6 +977,15 @@
 				E8AA4AFE1361165800A8E37B /* IGUIScrollView.h */,
 			);
 			name = IGUILibrary;
+			sourceTree = "<group>";
+		};
+		E81B8F52138478F90052F240 /* Core Location */ = {
+			isa = PBXGroup;
+			children = (
+				E81B8F53138479160052F240 /* CoreLocationController.h */,
+				E81B8F54138479160052F240 /* CoreLocationController.m */,
+			);
+			name = "Core Location";
 			sourceTree = "<group>";
 		};
 		E824E297137B110D00E790D2 /* Sign up */ = {
@@ -1798,6 +1811,7 @@
 				E81A7B431383041B0035215C /* UserSettingsService.m in Sources */,
 				E81A7B47138306D10035215C /* UserAttributesService.m in Sources */,
 				49752FDF13843628000C28C4 /* TaggedObject.m in Sources */,
+				E81B8F55138479160052F240 /* CoreLocationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

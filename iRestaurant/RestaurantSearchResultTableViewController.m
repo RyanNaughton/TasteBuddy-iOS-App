@@ -169,7 +169,7 @@
         height = 70;
         searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     } else {
-        height = 300;
+        height = 50;
         searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return height;
