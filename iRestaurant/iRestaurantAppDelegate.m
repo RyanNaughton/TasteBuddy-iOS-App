@@ -36,6 +36,9 @@
 
     [self checkOrCreatePlist];
     
+    // hard-coded chicago coordinates
+    //currentLocation = [[CLLocation alloc]initWithLatitude:41.884432 longitude:-87.643464];
+    
     [self getLocation];
     
     return YES;
