@@ -50,6 +50,8 @@
 {
     [super viewDidLoad];  
     
+    [self setTitle:@"Profile"];
+    
     UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"profileLogo.png"]];
     appNameImageView.frame = CGRectMake(0, -3, 150, 44);
     appNameImageView.contentMode = UIViewContentModeRight;
@@ -76,7 +78,7 @@
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     if ([appDelegate loggedIn]) {
         
-        UIBarButtonItem *settingsBtn = [[UIBarButtonItem alloc] initWithTitle:@"Settings"
+        UIBarButtonItem *settingsBtn = [[UIBarButtonItem alloc] initWithTitle:@"Edit"
                                                                         style:UIBarButtonItemStyleBordered
                                                                        target:self
                                                                        action:@selector(settingsBtnPressed:)]; 
