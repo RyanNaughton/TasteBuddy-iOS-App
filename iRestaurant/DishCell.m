@@ -50,17 +50,20 @@
         [tags release];
         
         price = [[UILabel alloc]init];
-        price.frame = CGRectMake(210, 25, 100, 15);
+        price.frame = CGRectMake(210, 35, 100, 35);
         price.textAlignment = UITextAlignmentRight;
-        price.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+        price.textColor = [UIColor darkGrayColor];
 		price.backgroundColor = [UIColor clearColor];
-        price.font = [UIFont systemFontOfSize:13];
+        price.font = [UIFont systemFontOfSize:12];
         [self.contentView addSubview:price];
         [price release];
         
-        int starSize = 12;
-        ratingView = [[RatingView alloc] initWithStarSize:12 andLabelVisible:NO];
-        ratingView.frame = CGRectMake((310 - (starSize * 5)), 5, (starSize * 5), starSize);
+        int starSize = 15;
+        ratingView = [[RatingView alloc] initWithStarSize:starSize andLabelVisible:YES];
+        ratingView.frame = CGRectMake((310 - (starSize * 5)), 10, (starSize * 5), 20);
+        ratingView.ratingsLabel.frame = CGRectMake(0, 10, 75, 30);
+        ratingView.ratingsLabel.textAlignment = UITextAlignmentRight;
+        ratingView.ratingsLabel.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:ratingView];
         [ratingView release];
 

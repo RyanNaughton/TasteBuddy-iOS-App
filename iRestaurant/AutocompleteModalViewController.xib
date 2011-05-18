@@ -47,14 +47,14 @@
 				<int key="NSvFlags">274</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<object class="IBUIView" id="837706933">
+					<object class="IBUIView" id="263684834">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{0, 74}, {320, 459}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="671386207"/>
-						<object class="NSColor" key="IBUIBackgroundColor" id="486930452">
+						<object class="NSColor" key="IBUIBackgroundColor" id="1030324206">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MAA</bytes>
 						</object>
@@ -186,7 +186,7 @@
 								<string key="NSFrame">{{83, 40}, {157, 31}}</string>
 								<reference key="NSSuperview" ref="255259606"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="837706933"/>
+								<reference key="NSNextKeyView" ref="263684834"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -274,7 +274,7 @@
 								<string key="IBUITitleShadowOffset">{0, 1}</string>
 								<string key="IBUINormalTitle">Cancel</string>
 								<reference key="IBUIHighlightedTitleColor" ref="897790605"/>
-								<reference key="IBUINormalTitleColor" ref="486930452"/>
+								<reference key="IBUINormalTitleColor" ref="1030324206"/>
 								<object class="NSColor" key="IBUINormalTitleShadowColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -484,7 +484,7 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="255259606"/>
-							<reference ref="837706933"/>
+							<reference ref="263684834"/>
 							<reference ref="671386207"/>
 						</object>
 						<reference key="parent" ref="0"/>
@@ -593,7 +593,7 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">47</int>
-						<reference key="object" ref="837706933"/>
+						<reference key="object" ref="263684834"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 						</object>

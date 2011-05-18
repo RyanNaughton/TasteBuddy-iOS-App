@@ -17,7 +17,7 @@
 
 @implementation DishHeaderCell
 
-@synthesize name, price, ratingView, restaurantName, svimage, viewForScrollView;
+@synthesize name, price, ratingView, restaurantName, svimage, viewForScrollView, singleImageView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -100,23 +100,43 @@
         [imageView setImageWithURL:[NSURL URLWithString:[arrayOfURLStrings objectAtIndex:i]] placeholderImage:noImage];
         [imageViewArray addObject:imageView];
     }
-    
+        
     if ([arrayOfURLStrings count] == 0) {
-        UIImageView *imageView = [[UIImageView alloc]initWithImage:noImage];
-        [imageViewArray addObject:imageView];
+        singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
+        singleImageView.image = noImage;
+        singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        singleImageView.layer.borderWidth = 1;
+        [self.contentView addSubview:singleImageView];
+        
+    } else if ([arrayOfURLStrings count] == 1) {
+        singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
+        [singleImageView setImageWithURL:[NSURL URLWithString:[arrayOfURLStrings objectAtIndex:0]] placeholderImage:noImage];
+        singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        singleImageView.layer.borderWidth = 1;
+        [self.contentView addSubview:singleImageView];
+        
+    } else {
+        
+        for (UIView *view in self.contentView.subviews) {
+            if (view == singleImageView) {
+                [singleImageView removeFromSuperview];
+            }
+        }
+        
+        viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
+        svimage = [[IGUIScrollViewImage alloc] init];  
+        [svimage setContentArray:imageViewArray]; 
+        [svimage setBackGroudColor:[UIColor clearColor]];
+        [svimage setWidth:300 andHeight:300];
+        [svimage enablePageControlOnBottom];  
+        svimage.scrollView.showsHorizontalScrollIndicator = FALSE;
+        viewForScrollView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        viewForScrollView.layer.borderWidth = 1;
+        [viewForScrollView addSubview:[svimage getWithPosition:0]];
+        [self.contentView addSubview:viewForScrollView];
     }
      
-    viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
-    svimage = [[IGUIScrollViewImage alloc] init];  
-    [svimage setContentArray:imageViewArray]; 
-    [svimage setBackGroudColor:[UIColor clearColor]];
-    [svimage setWidth:300 andHeight:300];
-    [svimage enablePageControlOnBottom];  
-    svimage.scrollView.showsHorizontalScrollIndicator = FALSE;
-    viewForScrollView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-    viewForScrollView.layer.borderWidth = 1;
-    [viewForScrollView addSubview:[svimage getWithPosition:0]];
-    [self.contentView addSubview:viewForScrollView];
+    
 }
 
 -(void)cameraButtonPressed:(id)sender {
@@ -132,6 +152,7 @@
 
 - (void)dealloc
 {
+    [singleImageView release];
     [price release];
     [ratingView release];
     [name release];
