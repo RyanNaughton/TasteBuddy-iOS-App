@@ -15,13 +15,11 @@
 
 @synthesize _id;
 @synthesize name;
-@synthesize tags;
 @synthesize photo_urls;
 @synthesize comments;
 @synthesize pictures;
 @synthesize restaurant_id;
 @synthesize price;
-@synthesize tags_text;
 @synthesize rating;
 
 -(id) init {
@@ -47,8 +45,6 @@
 
         
         NSNumber *priceFromDictionary = [[menuItemDictionary objectForKey:@"price"] retain];
-
-
         
         if(priceFromDictionary != nil && [priceFromDictionary isKindOfClass:[NSNumber class]]) {
             price = [priceFromDictionary floatValue];
@@ -66,9 +62,6 @@
 
         tags = [[NSMutableArray alloc] init];
         NSDictionary *tagDictionary = [menuItemDictionary objectForKey:@"tags"];
-        
-        tags_text = [[[tagDictionary allKeys] componentsJoinedByString:@", "] retain];
-        
         if (![tagDictionary isKindOfClass:[NSNull class]]) {
             for(NSString *key in [tagDictionary allKeys]) {
                 Tag *tag = [[Tag alloc] initWithTagValue:key andCount:[[tagDictionary valueForKey:key] intValue]];
@@ -99,7 +92,6 @@
     [comments       release];
     [pictures       release];
     [restaurant_id  release];
-    [tags_text      release];
     [super          dealloc];
 }
 

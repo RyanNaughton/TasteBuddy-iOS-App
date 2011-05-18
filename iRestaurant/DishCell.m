@@ -76,7 +76,7 @@
     NSLog(@"menuItem pictures: %@", menuItem.pictures);
     UIImage *noImage = [UIImage imageNamed:@"no-image-80.png"];
     name.text = [menuItem.name retain];
-    tags.text = [menuItem.tags_text retain];
+    tags.text = [menuItem tagsText];
     price.text = [NSString stringWithFormat:@"$%.2f", menuItem.price];
     
     if ([menuItem.pictures count] > 0) {

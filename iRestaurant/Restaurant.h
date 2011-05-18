@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TaggedObject.h"
 @class Rating;
 @class Menu;
 @class Hours;
 
-@interface Restaurant : NSObject {
+@interface Restaurant : TaggedObject {
     NSString *_id;
     NSString *name;
     NSString *address_1;
@@ -47,10 +48,6 @@
     NSMutableArray *menu_metadata;
     
     Menu *menu;
-    
-    NSMutableArray *tags;
-    
-    NSString *tags_text;
     
     Rating *rating;
     
@@ -92,10 +89,6 @@
 @property (nonatomic, retain) NSMutableArray *menu_metadata;
 
 @property (nonatomic, retain) Menu *menu;
-
-@property (nonatomic, retain) NSMutableArray *tags;
-
-@property (nonatomic, retain) NSString *tags_text;
 
 @property (nonatomic, retain) Rating *rating;
 

@@ -49,9 +49,7 @@
 @synthesize menu_items;
 @synthesize menu_metadata;
 @synthesize menu;
-@synthesize tags;
 @synthesize rating;
-@synthesize tags_text;
 @synthesize hours;
 
 -(id) init {
@@ -130,8 +128,6 @@
         tags = [[NSMutableArray alloc] init];
         NSDictionary *tagDictionary = [restaurantDictionary objectForKey:@"tags"];
 
-        tags_text = [[[tagDictionary allKeys] componentsJoinedByString:@", "] retain];
-
         if (![tagDictionary isKindOfClass:[NSNull class]]) {
             for(NSString *key in [tagDictionary allKeys]) {
                 Tag *tag = [[Tag alloc] initWithTagValue:key andCount:[[tagDictionary valueForKey:key] intValue]];
@@ -182,7 +178,6 @@
     [menu_metadata      release];
     [menu               release];
     [tags               release];
-    [tags_text          release];
     [hours              release];
     [super              dealloc];
 }
