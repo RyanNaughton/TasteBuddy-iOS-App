@@ -60,7 +60,7 @@
 						<int key="IBUIBarStyle">1</int>
 						<object class="NSColor" key="IBUITintColor">
 							<int key="NSColorSpace">1</int>
-							<bytes key="NSRGB">MC4zNDgyOTg3Mjg1IDAuNTg1Mzk3ODM5NSAwLjA5NjAwMDQ2Mjc3AA</bytes>
+							<bytes key="NSRGB">MC45NDExNzY0NzA2IDAuNzQxMTc2NDcwNiAwLjEzMzMzMzMzMzMAA</bytes>
 						</object>
 						<object class="NSArray" key="IBUIItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>
