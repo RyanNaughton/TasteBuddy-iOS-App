@@ -8,17 +8,22 @@
 
 #import <UIKit/UIKit.h>
 #import "AbstractService.h"
+#import "CoreLocationController.h"
 
 @class AuthenticationResponse;
 
-@interface iRestaurantAppDelegate : NSObject <UIApplicationDelegate, UIAlertViewDelegate> {
+@interface iRestaurantAppDelegate : NSObject <UIApplicationDelegate, UIAlertViewDelegate, CoreLocationControllerDelegate> {
     IBOutlet UITabBarController *tabBarController;
     NSString *savedSettingsPath;
+    CoreLocationController *CLController;
+    CLLocation *currentLocation;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UITabBarController *tabBarController;
 @property (nonatomic, retain) NSString *savedSettingsPath;
+@property (nonatomic, retain) CoreLocationController *clcontroller;
+@property (nonatomic, retain) CLLocation *currentLocation;
 
 -(void)checkOrCreatePlist;
 -(id) readSavedSetting:(NSString *)key;
@@ -29,5 +34,6 @@
 -(void) logout;
 -(void) updateAuthentication:(AuthenticationResponse *) authResponse;
 -(void) displayWelcomeMessage;
+-(void) getLocation;
 
 @end
