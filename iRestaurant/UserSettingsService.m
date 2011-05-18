@@ -115,7 +115,7 @@
         
     }
     
-    
+    request = nil;
     
 }
 - (void)dealloc {
