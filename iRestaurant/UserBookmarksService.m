@@ -56,7 +56,6 @@
 - (void)requestFinished:(ASIHTTPRequest *)requestPassed
 {
     NSString *responseString = [requestPassed responseString]; 
-    NSLog(@"Bookmarks : %@", responseString);
     NSDictionary *dictionaryFromJSON = [responseString JSONValue];
     
     NSMutableDictionary *bookmarksToReturn = [[NSMutableDictionary alloc] init];

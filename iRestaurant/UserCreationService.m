@@ -71,9 +71,7 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
-    NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
-    NSLog(@"Request string : %@", [request_passed responseString]);
-    
+    NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];    
     if ([responseDictionary objectForKey:@"authentication_token"]) {
         // success
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"SUCCESS!" message:@"You have successfully signed up for TasteBuddy!" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
@@ -82,7 +80,6 @@
         
         AuthenticationResponse *response = [[AuthenticationResponse alloc] initWithDicationary:responseDictionary];
         [delegate signupComplete:response];
-        request = nil;
     } else {
         // errors
         NSString *errorMessagesAll = @"";
@@ -114,9 +111,7 @@
         [alert release];
 
     }
-    
-    
-    
+    request = nil;
 }
 - (void)dealloc {
     [request release];

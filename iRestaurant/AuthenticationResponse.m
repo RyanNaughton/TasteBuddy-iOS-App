@@ -20,7 +20,7 @@
 -(id) initWithDicationary:(NSDictionary *)responseDictionary {
     self = [super init];
     if (self) {
-        _id                     = [[responseDictionary objectForKey:@"_id"] retain];
+        //_id                     = [[responseDictionary objectForKey:@"_id"] retain];
         authentication_token    = [[responseDictionary objectForKey:@"authentication_token"] retain];
         username                = [[responseDictionary objectForKey:@"username"] retain];
         first_name              = [[responseDictionary objectForKey:@"first_name"] retain];
