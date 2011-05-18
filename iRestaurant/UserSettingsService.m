@@ -62,7 +62,6 @@
     }
     
     NSString *json = [jsonDictionary JSONRepresentation];
-    NSLog(@"JSON Data: %@", json);
     NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
     [request setRequestMethod:@"PUT"];
