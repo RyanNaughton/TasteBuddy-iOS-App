@@ -18,6 +18,7 @@
     self = [super init];
     if (self) {
         delegate = serviceDelegate;
+        [delegate retain];
     }
     return self;
 }
@@ -118,6 +119,7 @@
     
 }
 - (void)dealloc {
+    [delegate release];
     [super dealloc];
 }
 
