@@ -71,6 +71,10 @@
 		E81A7B431383041B0035215C /* UserSettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = E81A7B421383041B0035215C /* UserSettingsService.m */; };
 		E81A7B47138306D10035215C /* UserAttributesService.m in Sources */ = {isa = PBXBuildFile; fileRef = E81A7B46138306D10035215C /* UserAttributesService.m */; };
 		E81B8F43138465660052F240 /* bar-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E81B8F42138465660052F240 /* bar-bg.png */; };
+		E81B8F4713846A870052F240 /* icon57.png in Resources */ = {isa = PBXBuildFile; fileRef = E81B8F4513846A870052F240 /* icon57.png */; };
+		E81B8F4813846A870052F240 /* icon57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E81B8F4613846A870052F240 /* icon57@2x.png */; };
+		E81B8F4B13846F520052F240 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = E81B8F4913846F520052F240 /* default.png */; };
+		E81B8F4C13846F520052F240 /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E81B8F4A13846F520052F240 /* default@2x.png */; };
 		E824E29B137B113000E790D2 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E824E299137B113000E790D2 /* SignUpViewController.m */; };
 		E824E29C137B113000E790D2 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E824E29A137B113000E790D2 /* SignUpViewController.xib */; };
 		E82DA973137DB65E0060DB3E /* UserCreationService.m in Sources */ = {isa = PBXBuildFile; fileRef = E82DA972137DB65E0060DB3E /* UserCreationService.m */; };
@@ -378,6 +382,10 @@
 		E81A7B45138306D10035215C /* UserAttributesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAttributesService.h; sourceTree = "<group>"; };
 		E81A7B46138306D10035215C /* UserAttributesService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserAttributesService.m; sourceTree = "<group>"; };
 		E81B8F42138465660052F240 /* bar-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bar-bg.png"; sourceTree = "<group>"; };
+		E81B8F4513846A870052F240 /* icon57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon57.png; sourceTree = "<group>"; };
+		E81B8F4613846A870052F240 /* icon57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon57@2x.png"; sourceTree = "<group>"; };
+		E81B8F4913846F520052F240 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
+		E81B8F4A13846F520052F240 /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
 		E824E298137B113000E790D2 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		E824E299137B113000E790D2 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		E824E29A137B113000E790D2 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
@@ -1110,6 +1118,10 @@
 		E86A84521368AD7B00720FA3 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				E81B8F4913846F520052F240 /* default.png */,
+				E81B8F4A13846F520052F240 /* default@2x.png */,
+				E81B8F4513846A870052F240 /* icon57.png */,
+				E81B8F4613846A870052F240 /* icon57@2x.png */,
 				E859D28213723BB000D47CEB /* 162-receipt.png */,
 				E859D28313723BB000D47CEB /* 162-receipt@2x.png */,
 				E859D27E13723AE600D47CEB /* 42-photos@2x.png */,
@@ -1642,6 +1654,10 @@
 				E8EE5B231381AC2400ACC2CF /* big-star-white.png in Resources */,
 				E8EE5B241381AC2400ACC2CF /* big-star-white@2x.png in Resources */,
 				E81B8F43138465660052F240 /* bar-bg.png in Resources */,
+				E81B8F4713846A870052F240 /* icon57.png in Resources */,
+				E81B8F4813846A870052F240 /* icon57@2x.png in Resources */,
+				E81B8F4B13846F520052F240 /* default.png in Resources */,
+				E81B8F4C13846F520052F240 /* default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1850,7 +1866,7 @@
 				PRODUCT_NAME = TasteBuddy;
 				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -1871,7 +1887,7 @@
 				PRODUCT_NAME = TasteBuddy;
 				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
