@@ -19,6 +19,7 @@
     if (self) {
         delegate = [serviceDelegate retain];
         [delegate retain];
+        authTokenRequired = YES;
     }
     return self;
 }
@@ -34,7 +35,7 @@
              andBirthdate:(NSString *)birthdate
 {
     
-    urlString = @"http://monkey.elhideout.org/user.json";
+    urlString = @"http://monkey.elhideout.org/users/update.json";
     
     NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc] init];
     [userDictionary setObject:username forKey:@"username"];
@@ -52,7 +53,7 @@
     }    
     [jsonDictionary setObject:userDictionary forKey:@"user"];
     [userDictionary release];
-    [self performRequest];
+    [self prepareRequest];
 }
 
 -(void) performRequest {
@@ -62,6 +63,7 @@
     }
     
     NSString *json = [jsonDictionary JSONRepresentation];
+    NSLog(@"JSON for update : %@", json);
     NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
     [request setRequestMethod:@"PUT"];
@@ -75,15 +77,10 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
     NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
-    NSLog(@"Setting Update Service response %i %@", request_passed.responseStatusCode, responseDictionary);
     if (![[responseDictionary objectForKey:@"authentication_token"] isKindOfClass:[NSNull class]]) {
-        // success
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"SUCCESS!" message:@"You have successfully signed up for TasteBuddy!" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
-        [alert show];
-        [alert release];
-
-        AuthenticationResponse *response = [[AuthenticationResponse alloc] initWithDicationary:responseDictionary];
-        [delegate settingsUpdateComplete:response];
+        AuthenticationResponse *authToken = [[AuthenticationResponse alloc] initWithDicationary:responseDictionary];
+        [appDelegate updateAuthentication:authToken];
+        [delegate settingsUpdateComplete];
     } else {
         // errors
         NSString *errorMessagesAll = @"";

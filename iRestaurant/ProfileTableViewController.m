@@ -154,8 +154,6 @@
         
         [picturesArray addObject:dateDictionary];
     }
-     
-    NSLog(@"picturesArray: %@", picturesArray);
     
     NSSortDescriptor *aSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
     [picturesArray sortUsingDescriptors:[NSArray arrayWithObject:aSortDescriptor]];
