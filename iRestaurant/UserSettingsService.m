@@ -75,7 +75,6 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
     NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
-    NSLog(@"Request string : %@", [request_passed responseString]);
     
     if ([responseDictionary objectForKey:@"authentication_token"]) {
         // success
