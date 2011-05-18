@@ -21,7 +21,7 @@
 @implementation TagsCell
 @synthesize tagService, restaurant, menuItem, tagButtons, restaurantTaggingService, tags, tagValues;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andContext:(NSString *)context
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -55,7 +55,7 @@
         tagsSubLabel.font = [UIFont systemFontOfSize:14];
         tagsSubLabel.shadowColor = [UIColor whiteColor];
         tagsSubLabel.shadowOffset = CGSizeMake(0,1);
-        tagsSubLabel.text = @"Touch adjectives that describe this restaurant";
+        tagsSubLabel.text = [NSString stringWithFormat:@"Touch adjectives that describe this %@", context];
         [self.contentView addSubview:tagsSubLabel];
         [tagsSubLabel release];
 

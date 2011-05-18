@@ -55,7 +55,7 @@
         alcoholText.frame = CGRectMake(10, 55, 140, 20);
         alcoholText.textColor = [UIColor blackColor];
 		alcoholText.backgroundColor = [UIColor clearColor];
-		alcoholText.font = [UIFont boldSystemFontOfSize:13];
+		alcoholText.font = [UIFont systemFontOfSize:12];
         alcoholText.textAlignment = UITextAlignmentRight;
         alcoholText.shadowColor = [UIColor whiteColor];
         alcoholText.shadowOffset = CGSizeMake(0,1);
@@ -84,7 +84,7 @@
         ccText.frame = CGRectMake(10, 85, 140, 20);
         ccText.textColor = [UIColor blackColor];
         ccText.backgroundColor = [UIColor clearColor];
-        ccText.font = [UIFont boldSystemFontOfSize:13];
+        ccText.font = [UIFont systemFontOfSize:12];
         ccText.textAlignment = UITextAlignmentRight;
         ccText.shadowColor = [UIColor whiteColor];
         ccText.shadowOffset = CGSizeMake(0,1);
@@ -116,7 +116,7 @@
         //deliveryText.frame = CGRectMake(10, 115, 140, 20);
         deliveryText.textColor = [UIColor blackColor];
         deliveryText.backgroundColor = [UIColor clearColor];
-        deliveryText.font = [UIFont boldSystemFontOfSize:13];
+        deliveryText.font = [UIFont systemFontOfSize:12];
         deliveryText.textAlignment = UITextAlignmentRight;
         deliveryText.shadowColor = [UIColor whiteColor];
         deliveryText.shadowOffset = CGSizeMake(0,1);
@@ -139,7 +139,7 @@
         //parkingText.frame = CGRectMake(170, 55, 140, 20);
         //parkingText.textColor = [UIColor blackColor];
         //parkingText.backgroundColor = [UIColor clearColor];
-        //parkingText.font = [UIFont boldSystemFontOfSize:13];
+        //parkingText.font = [UIFont systemFontOfSize:12];
         //parkingText.textAlignment = UITextAlignmentRight;
         //parkingText.shadowColor = [UIColor whiteColor];
         //parkingText.shadowOffset = CGSizeMake(0,1);
@@ -168,7 +168,7 @@
         reservationsText.frame = CGRectMake(170, 85, 140, 20);
         reservationsText.textColor = [UIColor blackColor];
         reservationsText.backgroundColor = [UIColor clearColor];
-        reservationsText.font = [UIFont boldSystemFontOfSize:13];
+        reservationsText.font = [UIFont systemFontOfSize:12];
         reservationsText.textAlignment = UITextAlignmentRight;
         reservationsText.shadowColor = [UIColor whiteColor];
         reservationsText.shadowOffset = CGSizeMake(0,1);
@@ -198,7 +198,7 @@
        //wifiText.frame = CGRectMake(170, 115, 140, 20);
        //wifiText.textColor = [UIColor blackColor];
        //wifiText.backgroundColor = [UIColor clearColor];
-       //wifiText.font = [UIFont boldSystemFontOfSize:13];
+       //wifiText.font = [UIFont systemFontOfSize:12];
        //wifiText.textAlignment = UITextAlignmentRight;
        //wifiText.shadowColor = [UIColor whiteColor];
        //wifiText.shadowOffset = CGSizeMake(0,1);

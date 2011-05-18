@@ -159,7 +159,7 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         TagsCell *dishTagsCell = (TagsCell *)[tableView dequeueReusableCellWithIdentifier:@"DishTagsCell"];
 		if (dishTagsCell == nil) {
-		    dishTagsCell = [[[TagsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishTagsCell"] autorelease];
+		    dishTagsCell = [[[TagsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishTagsCell" andContext:@"dish"] autorelease];
 		}          
         [dishTagsCell loadMenuItem:menu_item];
 		return dishTagsCell;
