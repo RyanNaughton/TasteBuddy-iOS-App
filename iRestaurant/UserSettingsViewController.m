@@ -174,6 +174,9 @@
     usernameField.text = [dict objectForKey:@"username"];
     
     NSString *birthdayString = [dict objectForKey:@"birthday"];
+    
+    if (![birthdayString isKindOfClass:[NSNull class]]) {
+    
     NSArray *birthdayNumbersArray = [birthdayString componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"-"]];
     
     birthdayYearField.text = (NSString *)[birthdayNumbersArray objectAtIndex:0];
@@ -183,6 +186,8 @@
     NSString *birthdayDayMessy = (NSString *)[birthdayNumbersArray objectAtIndex:2];
     NSArray *birthdayDayArray = [birthdayDayMessy componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"T"]];
     birthdayDayField.text = (NSString *)[birthdayDayArray objectAtIndex:0];
+        
+    }
 }
 
 - (void)viewDidUnload
