@@ -38,12 +38,13 @@
     user_name.frame = CGRectMake(10, 0, 310, 20);        
     user_name.textColor = [UIColor darkGrayColor];
     user_name.backgroundColor = [UIColor clearColor];
-    user_name.font = [UIFont systemFontOfSize:16];
+    user_name.font = [UIFont boldSystemFontOfSize:14];
     
     comment = commentToLoad;
     
     text.frame = CGRectMake(10, 30, 310, 20);   
     text.numberOfLines = 0;
+    text.font = [UIFont systemFontOfSize:12];
     text.lineBreakMode = UILineBreakModeWordWrap;
     user_name.text = [comment.user_name retain];
     text.text = [comment.text retain];
