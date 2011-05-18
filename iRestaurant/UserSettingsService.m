@@ -17,7 +17,7 @@
 -(id) initWithDelegate:(id<UserSettingsServiceDelegate>) serviceDelegate {
     self = [super init];
     if (self) {
-        delegate = serviceDelegate;
+        delegate = [serviceDelegate retain];
         [delegate retain];
     }
     return self;
@@ -34,7 +34,7 @@
              andBirthdate:(NSString *)birthdate
 {
     
-    urlString = @"http://monkey.elhideout.org/users/update.json";
+    urlString = @"http://monkey.elhideout.org/user.json";
     
     NSMutableDictionary *userDictionary = [[NSMutableDictionary alloc] init];
     [userDictionary setObject:username forKey:@"username"];
@@ -75,16 +75,15 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
     NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
-    
-    if ([responseDictionary objectForKey:@"authentication_token"]) {
+    NSLog(@"Setting Update Service response %i %@", request_passed.responseStatusCode, responseDictionary);
+    if (![[responseDictionary objectForKey:@"authentication_token"] isKindOfClass:[NSNull class]]) {
         // success
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"SUCCESS!" message:@"You have successfully signed up for TasteBuddy!" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
         [alert show];
         [alert release];
-        
+
         AuthenticationResponse *response = [[AuthenticationResponse alloc] initWithDicationary:responseDictionary];
         [delegate settingsUpdateComplete:response];
-        request = nil;
     } else {
         // errors
         NSString *errorMessagesAll = @"";
@@ -116,7 +115,6 @@
         [alert release];
         
     }
-    
     request = nil;
     
 }

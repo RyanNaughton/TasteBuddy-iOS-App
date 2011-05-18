@@ -104,7 +104,6 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSLog(@"shouldChangeCharactersInRange");
     int maxLength = 999;
     if ((textField == birthdayMonthField) || (textField == birthdayDayField)) { maxLength = 2; }
     if (textField == birthdayYearField) { maxLength = 4; }
@@ -164,8 +163,6 @@
 }
 
 -(void) attributesServiceComplete:(NSDictionary *)dict {
-    NSLog(@"dict returned: %@", dict);
-
     countryField.text = [dict objectForKey:@"country"];
     emailField.text = [dict objectForKey:@"email"];
     firstNameField.text = [dict objectForKey:@"first_name"];

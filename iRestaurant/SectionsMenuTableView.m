@@ -83,7 +83,6 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    NSLog(@"viewdidappear");    
     [super viewDidAppear:animated];
     isExpanded = FALSE;   
 }
@@ -147,13 +146,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
-    NSLog(@"SET ROWS!");
-   
+    // Return the number of rows in the section.   
     int rows;
     
     if ((section == sectionExpanded) && (isExpanded)) {
-         NSLog(@"section expanded: %i", sectionExpanded);
         
          MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:section];
         rows = [menuCategory.menuSubcategories count] + 1;

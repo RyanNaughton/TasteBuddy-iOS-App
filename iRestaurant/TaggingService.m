@@ -35,7 +35,6 @@
 
 -(void) tagMenuItem:(MenuItem *) menuItem withTag:(NSString *)tag {
     urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/menu_items/%@/tag.json", menuItem._id];    
-    NSLog(@"URL STRING %@", urlString);
     [jsonDictionary setObject:tag forKey:@"value"];
     
     requestMethod = @"PUT";
@@ -47,7 +46,6 @@
 
 -(void) deleteTagFromMenuItem:(MenuItem *) menuItem withTag:(NSString *)tag {
     urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/menu_items/%@/tag.json", menuItem._id];
-    NSLog(@"URL STRING %@", urlString);    
     [jsonDictionary setObject:tag forKey:@"value"];
     
     requestMethod = @"DELETE";
