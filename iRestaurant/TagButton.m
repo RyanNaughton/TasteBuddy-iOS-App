@@ -39,11 +39,12 @@
         [self setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
 
         circleImageView.image = [UIImage imageNamed:@"39-circle-check.png"];
-        
+        circleImageView.alpha = 1.0;
     } else {
         
         [self setBackgroundImage:nil forState:UIControlStateNormal];
         circleImageView.image = [UIImage imageNamed:@"33-circle-plus.png"];
+        circleImageView.alpha = 0.7;
     }
 
 }
