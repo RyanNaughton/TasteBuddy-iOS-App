@@ -49,7 +49,7 @@
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
         self.navigationController.navigationBar.translucent = YES;
         restaurant = [restaurant_passed retain];
-        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"WebsiteLink", @"AdditionalInformation", @"Tags", @"Comments", nil];
+        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"WebsiteLink", @"AdditionalInformation", @"Tags", nil];
         tagsRowHeight = 44;
     }
     return self;

@@ -145,7 +145,18 @@
 }
 
 -(void)updateBtnPressed:(id)sender {
+    NSString *dateRegex = @"^((((19|20)(([02468][048])|([13579][26]))-02-29))|((20[0-9][0-9])|(19[0-9][0-9]))-((((0[1-9])|(1[0-2]))-((0[1-9])|(1\d)|(2[0-8])))|((((0[13578])|(1[02]))-31)|(((0[1,3-9])|(1[0-2]))-(29|30)))))$";
+
     NSString *birthdayString = [NSString stringWithFormat:@"%@-%@-%@", birthdayYearField.text, birthdayMonthField.text, birthdayDayField.text];
+    
+    NSPredicate* dateTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", dateRegex]; 
+
+    if(![dateTest evaluateWithObject:birthdayString]) {
+        birthdayDayField.text = @"";
+        birthdayMonthField.text = @"";
+        birthdayYearField.text = @"";
+        birthdayString = @"--";
+    }
     
     [uss updateWithUsername:usernameField.text 
                andFirstName:firstNameField.text 
@@ -159,7 +170,7 @@
 }
 
 -(void) settingsUpdateComplete {
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"SUCCESS!" message:@"You have successfully signed up for TasteBuddy!" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"SUCCESS!" message:@"You have successfully updated your TasteBuddy profile!" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
     [alert show];
     [alert release];
 }
