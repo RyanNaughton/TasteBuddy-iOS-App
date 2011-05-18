@@ -25,7 +25,7 @@
 
 @synthesize tabBarController;
 @synthesize savedSettingsPath;
-@synthesize clcontroller, currentLocation;
+@synthesize clcontroller, currentLocation, currentLocationEstablished;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -36,8 +36,10 @@
 
     [self checkOrCreatePlist];
     
-    // hard-coded chicago coordinates
-    //currentLocation = [[CLLocation alloc]initWithLatitude:41.884432 longitude:-87.643464];
+    currentLocationEstablished = NO;
+    
+    // Current Location defaults to the center of Chicago: State and Washington Street:  41.883333,-87.62786
+    currentLocation = [[CLLocation alloc]initWithLatitude:41.883333 longitude:-87.62786];
     
     [self getLocation];
     
@@ -91,11 +93,17 @@
 
 - (void)locationUpdate:(CLLocation *)location {
     currentLocation = [location retain];
-	NSLog(@"location desc: %@", [location description]);
+    if (!currentLocationEstablished) {
+        currentLocationEstablished = YES;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"fireSearch" object:nil];        
+    }
 }
 
 - (void)locationError:(NSError *)error {
-	NSLog(@"error desc: %@",[error description]);
+    if (!currentLocationEstablished) {
+        currentLocationEstablished = YES;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"fireSearch" object:nil];
+    }
 }
 
 -(void)checkOrCreatePlist {

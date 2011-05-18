@@ -73,9 +73,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fireSearch) name:@"fireSearch" object:nil];
+    
     fakeTermField.frame = CGRectMake(7, 7, 254, 31);
 
-    needsToPerformDefaultSearch = YES;
+    //needsToPerformDefaultSearch = YES;
     UIImage *greyButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
     [mapButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     [filterButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
@@ -119,6 +122,13 @@
         [self resultsLoading];
         [searchService searchByTerm:@""];
     }
+    [self.tableView reloadData];
+}
+
+-(void)fireSearch {
+    needsToPerformDefaultSearch = NO;
+    [self resultsLoading];
+    [searchService searchByTerm:@""];
     [self.tableView reloadData];
 }
 

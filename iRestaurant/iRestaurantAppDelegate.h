@@ -17,6 +17,7 @@
     NSString *savedSettingsPath;
     CoreLocationController *CLController;
     CLLocation *currentLocation;
+    BOOL currentLocationEstablished;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -24,6 +25,7 @@
 @property (nonatomic, retain) NSString *savedSettingsPath;
 @property (nonatomic, retain) CoreLocationController *clcontroller;
 @property (nonatomic, retain) CLLocation *currentLocation;
+@property (nonatomic, assign) BOOL currentLocationEstablished;
 
 -(void)checkOrCreatePlist;
 -(id) readSavedSetting:(NSString *)key;

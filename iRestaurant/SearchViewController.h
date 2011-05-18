@@ -71,4 +71,6 @@
 -(IBAction) presentSearchModal;
 -(void) switchTabs:(UIButton *) onTab;
 -(void) makeWhatFirstResponder;
+-(void)fireSearch;
+
 @end
