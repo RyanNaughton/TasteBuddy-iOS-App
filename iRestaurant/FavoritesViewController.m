@@ -134,6 +134,7 @@
         [ubs getUserBookmarks];
         [self.tableView reloadData];
     }
+    [self.tableView reloadData];
 }
 
 -(void) setActiveTab:(UIButton *) activeTab 
