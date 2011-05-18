@@ -32,7 +32,7 @@
         [imageView release];
         
         name = [[UILabel alloc]init];
-        name.frame = CGRectMake(80, 5, 155, 20);
+        name.frame = CGRectMake(75, 5, 155, 20);
         name.adjustsFontSizeToFitWidth = FALSE;
         name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		name.backgroundColor = [UIColor clearColor];
@@ -41,7 +41,7 @@
         [name release];
         
         tags = [[UILabel alloc]init];
-        tags.frame = CGRectMake(80, 25, 180, 15);
+        tags.frame = CGRectMake(75, 25, 180, 15);
         tags.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		tags.backgroundColor = [UIColor clearColor];
 		UIFont *italicFont = [UIFont fontWithName:@"Helvetica-Oblique" size:12];

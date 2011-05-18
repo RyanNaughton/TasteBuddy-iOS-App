@@ -119,6 +119,7 @@
         [self resultsLoading];
         [searchService searchByTerm:@""];
     }
+    [self.tableView reloadData];
 }
 
 -(void) switchTabs:(UIButton *) onTab 
