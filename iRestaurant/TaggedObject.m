@@ -27,7 +27,11 @@
             [names addObject:tag.name];            
         }
     }
-    return [names componentsJoinedByString:@", "];
+    if([names count] > 0) {
+        return [names componentsJoinedByString:@", "];
+    } else {
+        return @"Add a quick review!";
+    }
 }
 
 @end
