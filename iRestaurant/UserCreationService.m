@@ -45,8 +45,9 @@
     [userDictionary setObject:country forKey:@"country"];
     [userDictionary setObject:postalCode forKey:@"postal_code"];
     [userDictionary setObject:email forKey:@"email"];
-    [userDictionary setObject:birthdate forKey:@"birthday"];
-    
+    if(![birthdate isEqualToString:@"--"]) {
+        [userDictionary setObject:birthdate forKey:@"birthday"];
+    }
     [jsonDictionary setObject:userDictionary forKey:@"user"];
     [userDictionary release];
     [self performRequest];

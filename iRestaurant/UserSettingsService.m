@@ -40,13 +40,16 @@
     [userDictionary setObject:username forKey:@"username"];
     [userDictionary setObject:firstName forKey:@"first_name"];
     [userDictionary setObject:lastName forKey:@"last_name"];
-    [userDictionary setObject:password forKey:@"password"];
-    [userDictionary setObject:confirmPW forKey:@"password_confirmation"];
+    if(![password isEqualToString:@""]) {
+        [userDictionary setObject:password forKey:@"password"];
+        [userDictionary setObject:confirmPW forKey:@"password_confirmation"];
+    }
     [userDictionary setObject:country forKey:@"country"];
     [userDictionary setObject:postalCode forKey:@"postal_code"];
     [userDictionary setObject:email forKey:@"email"];
-    [userDictionary setObject:birthdate forKey:@"birthday"];
-    
+    if (![birthdate isEqualToString:@"--"]) {
+        [userDictionary setObject:birthdate forKey:@"birthday"];
+    }    
     [jsonDictionary setObject:userDictionary forKey:@"user"];
     [userDictionary release];
     [self performRequest];
@@ -72,7 +75,6 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
     NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
-    NSLog(@"Request string : %@", [request_passed responseString]);
     
     if ([responseDictionary objectForKey:@"authentication_token"]) {
         // success
