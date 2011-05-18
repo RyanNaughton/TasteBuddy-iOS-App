@@ -48,7 +48,7 @@
     if (self) {
         // Custom initialization
         self.tableView.backgroundColor = [UIColor whiteColor];
-        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"Tags", @"Comments", nil];
+        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"Tags", nil];
         menu_item = [menu_item_passed retain];
         restaurant = [restaurant_passed retain];
     }
