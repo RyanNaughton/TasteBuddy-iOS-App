@@ -11,6 +11,19 @@
 
 @implementation CellUtility
 
++(CGFloat) widthOfString:(NSString *)string withFrame:(CGRect)frame andFont:(UIFont *)font {
+    UILabel *label = [[UILabel alloc] init];
+    label.frame = frame;
+    label.font = font;
+    CGSize maximumLabelSize = CGSizeMake(frame.size.width,9999);
+    CGSize expectedLabelSize = [string sizeWithFont:label.font 
+                                  constrainedToSize:maximumLabelSize 
+                                      lineBreakMode:label.lineBreakMode];
+    label.frame = frame;
+    [label release];
+    return expectedLabelSize.width;
+}
+
 +(CGFloat) cellHeightForString:(NSString *)string withFrame:(CGRect)frame andBottomPadding:(CGFloat) paddingBottom{
     UILabel *label = [[UILabel alloc] init];
     label.frame = frame;

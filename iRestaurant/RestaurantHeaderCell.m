@@ -185,11 +185,8 @@
     average_meal.text = [NSString stringWithFormat:@"$%@", average_meal_price_formatted];
     
     if ([restaurant.cuisine_types count] > 1) {
-        for (int i=0; i < [restaurant.cuisine_types count]; i++) {
-            NSString *spacer;
-            if (i==0) { spacer = @"Cuisine: "; } else { spacer = @", "; }
-            cuisine_types.text = [NSString stringWithFormat:@"%@%@%@", cuisine_types.text, spacer, [restaurant.cuisine_types objectAtIndex:i]];
-        }
+  
+            cuisine_types.text = [NSString stringWithFormat:@"Cuisine: %@", [restaurant.cuisine_types componentsJoinedByString:@", "]];
     } else  {
         cuisine_types.text = [NSString stringWithFormat:@"%@", [restaurant.cuisine_types objectAtIndex:0]];
     }

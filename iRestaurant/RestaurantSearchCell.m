@@ -10,9 +10,10 @@
 #import "Restaurant.h"
 #import "UIImageView+WebCache.h"
 #import "RatingView.h"
+#import "CellUtility.h"
 
 @implementation RestaurantSearchCell
-@synthesize name, tags, addressLine1, distance, ratingView, averageDishPrice;
+@synthesize name, tags, addressLine1, distance, ratingView, averageDishPrice, cuisine;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -22,16 +23,25 @@
         self.selectionStyle = UITableViewCellSelectionStyleGray;
         
         name = [[UILabel alloc]init];
-        name.frame = CGRectMake(10, 7, 195, 20);
+        name.frame = CGRectMake(10, 7, 185, 20);
         name.adjustsFontSizeToFitWidth = FALSE;
-        name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+        name.textColor = [UIColor blackColor];
 		name.backgroundColor = [UIColor clearColor];
 		name.font = [UIFont boldSystemFontOfSize:15];
         [self.contentView addSubview:name];
+        
+        
+        cuisine = [[UILabel alloc]init];
+        cuisine.frame = CGRectMake(190, 9, 100, 20);
+        cuisine.adjustsFontSizeToFitWidth = FALSE;
+        cuisine.textColor = [UIColor grayColor];
+		cuisine.backgroundColor = [UIColor clearColor];
+		cuisine.font = [UIFont systemFontOfSize:10];
+        [self.contentView addSubview:cuisine];
 
         addressLine1 = [[UILabel alloc]init];
         addressLine1.frame = CGRectMake(10, 30, 180, 15);
-        addressLine1.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+        addressLine1.textColor = [UIColor blackColor];
 		addressLine1.backgroundColor = [UIColor clearColor];
 		addressLine1.font = [UIFont systemFontOfSize:13];
         [self.contentView addSubview:addressLine1];
@@ -76,6 +86,11 @@
     name.text = [restaurant.name retain];
     tags.text = [restaurant.tags_text retain];
     addressLine1.text = [restaurant.address_1 retain];
+    
+    CGFloat xForCuisine = [CellUtility widthOfString:name.text withFrame:name.frame andFont:name.font];
+    cuisine.text = [restaurant.cuisine_types objectAtIndex:0];
+    CGRect oldFrame = cuisine.frame;
+    cuisine.frame = CGRectMake(xForCuisine + 15, oldFrame.origin.y, oldFrame.size.width, oldFrame.size.height);
     if(restaurant.distance == nil) {
         distance.hidden = YES;
     } else {
@@ -103,6 +118,7 @@
     [distance release];
     [averageDishPrice release];
     [ratingView release];
+    [cuisine release];
     [super dealloc];
 }
 

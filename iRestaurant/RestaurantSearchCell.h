@@ -16,6 +16,7 @@
     UILabel *addressLine1;
     UILabel *distance    ;
     UILabel *averageDishPrice;
+    UILabel *cuisine;
     RatingView *ratingView;
     
 }
@@ -25,6 +26,7 @@
 @property (nonatomic, retain) UILabel *addressLine1;
 @property (nonatomic, retain) UILabel *distance    ;
 @property (nonatomic, retain) UILabel *averageDishPrice;
+@property (nonatomic, retain) UILabel *cuisine;
 @property (nonatomic, retain) RatingView *ratingView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
