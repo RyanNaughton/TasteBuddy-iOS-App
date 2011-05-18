@@ -21,7 +21,7 @@
 -(id) initWithDelegate:(id <AutocompleteServiceDelegate>) serviceDelegate {
     self = [super init];
     if (self) {
-        delegate = serviceDelegate;
+        delegate = [serviceDelegate retain];
         urlString = @"http://monkey.elhideout.org/complete.json";
 
     }
@@ -87,7 +87,6 @@
     
     //[values autorelease];
     [delegate autocompleteFinished:values];
-    delegate = nil;
     request = nil;
 }
 
