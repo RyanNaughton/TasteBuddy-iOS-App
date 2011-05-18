@@ -30,7 +30,7 @@
 @property (nonatomic, retain) NSMutableArray *tags;
 @property (nonatomic, retain) NSMutableArray *tagValues;
 @property (nonatomic, retain) TaggingService *restaurantTaggingService;
-
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andContext:(NSString *)context;
 -(void) loadRestaurant:(Restaurant *)restaurantPassed;
 -(void) loadMenuItem:(MenuItem *)menuItemPassed;
 @end

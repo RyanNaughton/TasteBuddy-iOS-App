@@ -198,7 +198,7 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         TagsCell *restaurantTagsCell = (TagsCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantTagsCell"];
 		if (restaurantTagsCell == nil) {
-		    restaurantTagsCell = [[[TagsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantTagsCell"] autorelease];
+		    restaurantTagsCell = [[[TagsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantTagsCell" andContext:@"restaurant"] autorelease];
 		}          
         [restaurantTagsCell loadRestaurant:restaurant];
 		return restaurantTagsCell;
