@@ -136,6 +136,12 @@
     if (menuService.request != nil) {
         [menuService.request cancel];
     }
+    
+    for (UIView *view in self.view.subviews) {
+        if (view == activityIndicator) {
+            [activityIndicator removeFromSuperview];
+        }
+    }
 }
 - (void)viewDidUnload
 {
