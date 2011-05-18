@@ -11,7 +11,7 @@
 @class AuthenticationResponse;
 
 @protocol UserSettingsServiceDelegate <NSObject>
--(void) settingsUpdateComplete:(AuthenticationResponse *)authToken;
+-(void) settingsUpdateComplete;
 @end
 
 @interface UserSettingsService : AbstractService {

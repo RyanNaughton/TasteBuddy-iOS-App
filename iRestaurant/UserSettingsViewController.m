@@ -158,8 +158,10 @@
                andBirthdate:birthdayString];
 }
 
--(void) settingsUpdateComplete:(AuthenticationResponse *)authToken {
-    NSLog(@"settings update complete: %@", authToken);
+-(void) settingsUpdateComplete {
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"SUCCESS!" message:@"You have successfully signed up for TasteBuddy!" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+    [alert show];
+    [alert release];
 }
 
 -(void) attributesServiceComplete:(NSDictionary *)dict {

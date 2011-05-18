@@ -66,10 +66,10 @@
 
 -(void)requestFailed:(ASIHTTPRequest *)requestPassed {
     int responseCode = [requestPassed responseStatusCode];
+    NSLog(@"Error Code  %i :\n\nResponse: %@", responseCode, [requestPassed responseString]);
     if(responseCode == 401) {
-        NSLog(@"%@", [requestPassed responseString]);
-    } else if (responseCode == 500) {
-    } else {
+        NSLog(@"%@", @"Logging out");
+        [appDelegate logout];
     }
     request = nil;
 }
