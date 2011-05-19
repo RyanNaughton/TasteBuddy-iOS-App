@@ -18,6 +18,7 @@
     CoreLocationController *CLController;
     CLLocation *currentLocation;
     BOOL currentLocationEstablished;
+    BOOL showWelcomeBox;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -26,6 +27,7 @@
 @property (nonatomic, retain) CoreLocationController *clcontroller;
 @property (nonatomic, retain) CLLocation *currentLocation;
 @property (nonatomic, assign) BOOL currentLocationEstablished;
+@property (nonatomic, assign) BOOL showWelcomeBox;
 
 -(void)checkOrCreatePlist;
 -(id) readSavedSetting:(NSString *)key;

@@ -25,7 +25,7 @@
 
 @synthesize tabBarController;
 @synthesize savedSettingsPath;
-@synthesize clcontroller, currentLocation, currentLocationEstablished;
+@synthesize clcontroller, currentLocation, currentLocationEstablished, showWelcomeBox;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -95,7 +95,11 @@
     currentLocation = [location retain];
     if (!currentLocationEstablished) {
         currentLocationEstablished = YES;
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"fireSearch" object:nil];        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"fireSearch" object:nil];   
+        if (showWelcomeBox) {
+            showWelcomeBox = FALSE;
+            [self displayWelcomeMessage];
+        }
     }
 }
 
@@ -103,6 +107,10 @@
     if (!currentLocationEstablished) {
         currentLocationEstablished = YES;
         [[NSNotificationCenter defaultCenter] postNotificationName:@"fireSearch" object:nil];
+        if (showWelcomeBox) {
+            showWelcomeBox = FALSE;
+            [self displayWelcomeMessage];
+        }
     }
 }
 
@@ -119,7 +127,8 @@
 		NSString *bundle = [[NSBundle mainBundle] pathForResource:@"SavedSettings" ofType:@"plist"]; //5
 		
 		[fileManager copyItemAtPath:bundle toPath: savedSettingsPath error:&error]; //6
-        [self displayWelcomeMessage];
+        //[self displayWelcomeMessage];
+        showWelcomeBox = TRUE;
 	}
 }
 
