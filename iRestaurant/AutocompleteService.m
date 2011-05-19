@@ -9,6 +9,7 @@
 #import "AutocompleteService.h"
 #import "ASIFormDataRequest.h"
 #import "JSON.h"
+#import "iRestaurantAppDelegate.h"
 
 @implementation AutocompleteService
 
@@ -31,9 +32,8 @@
 -(void) getTerms:(NSString *)term
 {
     
-    #warning Replace with real co-ordinates
-    double latitude = 41.884432;
-    double longitude = -87.643464;
+    double latitude = appDelegate.currentLocation.coordinate.latitude; //41.884432;
+    double longitude = appDelegate.currentLocation.coordinate.longitude; //-87.643464;
     NSString *near = @"";
         
     [jsonDictionary setObject:term forKey:@"find"];
@@ -45,10 +45,8 @@
 
 -(void) getPlaces:(NSString *)place
 {    
-    #warning Replace with real co-ordinates
-    double latitude = 41.884432;
-    double longitude = -87.643464;
-    
+    double latitude = appDelegate.currentLocation.coordinate.latitude; //41.884432;
+    double longitude = appDelegate.currentLocation.coordinate.longitude; //-87.643464;    
     
     [jsonDictionary setObject:place forKey:@"near"];
     [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];

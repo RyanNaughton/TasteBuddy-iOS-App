@@ -172,6 +172,7 @@
     }
     name.text = [restaurant.name retain];
     lunch_hours.text = [restaurant.hours todaysFirstOpeningHours];
+    NSLog(@"lunch hours text: %@", lunch_hours.text);
     dinner_hours.text = [restaurant.hours todaysSecondOpeningHours];
     if([restaurant.hours todaysOpeningTimesCount] > 1) {
         lunch_text.text = @"lunch";

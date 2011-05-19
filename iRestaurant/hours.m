@@ -34,13 +34,44 @@
             NSDictionary *firstOpenHours = [[daysHours objectAtIndex:0] objectForKey:@"open"];
             NSDictionary *firstCloseHours = [[daysHours objectAtIndex:0] objectForKey:@"close"];
             
-            [firstOpeningHours addObject:[NSString stringWithFormat:@"%@:%@ - %@:%@", [firstOpenHours objectForKey:@"h"], [firstOpenHours objectForKey:@"m"], [firstCloseHours objectForKey:@"h"], [firstCloseHours objectForKey:@"m"]]];
+            NSLog(@"first close hours: %@", firstCloseHours);
+            
+            // add extra zero if necessary
+            NSString *firstOpenHoursMinutes;
+            if ([[[firstOpenHours objectForKey:@"m"] stringValue] length] == 1) { 
+                firstOpenHoursMinutes = [NSString stringWithFormat:@"%@0", [firstOpenHours objectForKey:@"m"]];
+            } else {
+                firstOpenHoursMinutes = [firstOpenHours objectForKey:@"m"];
+            }
+            NSString *firstCloseHoursMinutes;
+            if ([[[firstCloseHours objectForKey:@"m"] stringValue] length] == 1) { 
+                firstCloseHoursMinutes = [NSString stringWithFormat:@"%@0", [firstCloseHours objectForKey:@"m"]];
+            } else {
+                firstCloseHoursMinutes = [firstCloseHours objectForKey:@"m"];
+            }
+            
+            [firstOpeningHours addObject:[NSString stringWithFormat:@"%@:%@ - %@:%@", [firstOpenHours objectForKey:@"h"], firstOpenHoursMinutes, [firstCloseHours objectForKey:@"h"], firstCloseHoursMinutes]];
 
             
             if([daysHours count] > 1) {
                 NSDictionary *secondOpenHours = [[daysHours objectAtIndex:1] objectForKey:@"open"];
                 NSDictionary *secondCloseHours = [[daysHours objectAtIndex:1] objectForKey:@"close"];
-                [secondOpeningHours addObject:[NSString stringWithFormat:@"%@:%@ - %@:%@",  [secondOpenHours objectForKey:@"h"], [secondOpenHours objectForKey:@"m"], [secondCloseHours objectForKey:@"h"], [secondCloseHours objectForKey:@"m"]]];
+                
+                // add extra zero if necessary
+                NSString *secondOpenHoursMinutes;
+                if ([[[secondOpenHours objectForKey:@"m"] stringValue] length] == 1) { 
+                    secondOpenHoursMinutes = [NSString stringWithFormat:@"%@0", [secondOpenHours objectForKey:@"m"]];
+                } else {
+                    secondOpenHoursMinutes = [secondOpenHours objectForKey:@"m"];
+                }
+                NSString *secondCloseHoursMinutes;
+                if ([[[secondCloseHours objectForKey:@"m"] stringValue] length] == 1) { 
+                    secondCloseHoursMinutes = [NSString stringWithFormat:@"%@0", [secondCloseHours objectForKey:@"m"]];
+                } else {
+                    secondCloseHoursMinutes = [secondCloseHours objectForKey:@"m"];
+                }
+                
+                [secondOpeningHours addObject:[NSString stringWithFormat:@"%@:%@ - %@:%@", [secondOpenHours objectForKey:@"h"], secondOpenHoursMinutes, [secondCloseHours objectForKey:@"h"], secondCloseHoursMinutes]];
                 
             } else {
                 [secondOpeningHours addObject:@"-"];
