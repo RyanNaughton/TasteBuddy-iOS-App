@@ -175,11 +175,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     int height;
     if (isLoading) { 
+        favoritesViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         height = 300; 
     } else if ([dishesArray count] > 0) {
+        favoritesViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         height = 70;
     } else {
-        height = 300;
+        favoritesViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        height = 50;
     }
     return height;
 }

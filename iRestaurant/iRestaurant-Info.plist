@@ -10,17 +10,13 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string>icon57.png</string>
-	<key>UILaunchImageFile</key>
-	<string>default.png</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>icon57.png</string>
 		<string>icon57@2x.png</string>
 	</array>
-	<key>UIPrerenderedIcon</key>
-	<true/>
 	<key>CFBundleIdentifier</key>
-	<string>com.secretmonkeyscience.irestaurant</string>
+	<string>com.argonavis.tastebuddy</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -37,6 +33,10 @@
 	<true/>
 	<key>NSMainNibFile</key>
 	<string>MainWindow</string>
+	<key>UILaunchImageFile</key>
+	<string>default.png</string>
+	<key>UIPrerenderedIcon</key>
+	<true/>
 	<key>UIStatusBarStyle</key>
 	<string>UIStatusBarStyleBlackOpaque</string>
 	<key>UISupportedInterfaceOrientations</key>

@@ -180,7 +180,7 @@
         height = 70;
         favoritesViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     } else {
-        height = 300;
+        height = 50;
         favoritesViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return height;
