@@ -23,7 +23,7 @@
         self.selectionStyle = UITableViewCellSelectionStyleGray;
         
         name = [[UILabel alloc]init];
-        name.frame = CGRectMake(10, 7, 185, 20);
+        name.frame = CGRectMake(10, 13, 210, 20);
         name.adjustsFontSizeToFitWidth = FALSE;
         name.textColor = [UIColor blackColor];
 		name.backgroundColor = [UIColor clearColor];
@@ -32,7 +32,7 @@
         
         
         cuisine = [[UILabel alloc]init];
-        cuisine.frame = CGRectMake(190, 9, 100, 20);
+        cuisine.frame = CGRectMake(10, 0, 100, 20);
         cuisine.adjustsFontSizeToFitWidth = FALSE;
         cuisine.textColor = [UIColor grayColor];
 		cuisine.backgroundColor = [UIColor clearColor];
@@ -40,7 +40,7 @@
         [self.contentView addSubview:cuisine];
 
         addressLine1 = [[UILabel alloc]init];
-        addressLine1.frame = CGRectMake(10, 30, 180, 15);
+        addressLine1.frame = CGRectMake(10, 32, 180, 15);
         addressLine1.textColor = [UIColor blackColor];
 		addressLine1.backgroundColor = [UIColor clearColor];
 		addressLine1.font = [UIFont systemFontOfSize:13];
@@ -89,8 +89,8 @@
     
     CGFloat xForCuisine = [CellUtility widthOfString:name.text withFrame:name.frame andFont:name.font];
     cuisine.text = [restaurant.cuisine_types objectAtIndex:0];
-    CGRect oldFrame = cuisine.frame;
-    cuisine.frame = CGRectMake(xForCuisine + 15, oldFrame.origin.y, oldFrame.size.width, oldFrame.size.height);
+  //  CGRect oldFrame = cuisine.frame;
+ //   cuisine.frame = CGRectMake(xForCuisine + 15, oldFrame.origin.y, oldFrame.size.width, oldFrame.size.height);
     if(restaurant.distance == nil) {
         distance.hidden = YES;
     } else {
