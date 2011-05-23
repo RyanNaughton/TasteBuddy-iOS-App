@@ -253,6 +253,10 @@
 }
 
 -(IBAction) presentSearchModal {
+    
+    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    [appDelegate updateLocation];
+    
     [fakeTermField resignFirstResponder];
     //searchModalViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     //[self presentModalViewController:searchModalViewController animated:YES];

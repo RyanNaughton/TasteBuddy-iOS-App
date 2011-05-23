@@ -38,6 +38,7 @@
 -(void) logout;
 -(void) updateAuthentication:(AuthenticationResponse *) authResponse;
 -(void) displayWelcomeMessage;
--(void) getLocation;
+-(void) startGettingLocation;
+-(void) updateLocation;
 
 @end
