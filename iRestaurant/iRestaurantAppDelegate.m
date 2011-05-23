@@ -41,7 +41,8 @@
     // Current Location defaults to the center of Chicago: State and Washington Street:  41.883333,-87.62786
     currentLocation = [[CLLocation alloc]initWithLatitude:41.883333 longitude:-87.62786];
     
-    [self getLocation];
+    [self startGettingLocation];
+
     
     return YES;
 }
@@ -60,6 +61,7 @@
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
      If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
      */
+    [clcontroller.locMgr stopUpdatingLocation];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -67,6 +69,7 @@
     /*
      Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
      */
+    [self startGettingLocation];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -85,10 +88,14 @@
      */
 }
 
--(void)getLocation {
+-(void)startGettingLocation {
     clcontroller = [[CoreLocationController alloc] init];
 	clcontroller.delegate = self;
 	[clcontroller.locMgr startUpdatingLocation];
+}
+
+-(void)updateLocation {
+    [clcontroller.locMgr startUpdatingLocation];
 }
 
 - (void)locationUpdate:(CLLocation *)location {
@@ -101,6 +108,7 @@
             [self displayWelcomeMessage];
         }
     }
+    [clcontroller.locMgr stopUpdatingLocation]; 
 }
 
 - (void)locationError:(NSError *)error {
@@ -112,6 +120,7 @@
             [self displayWelcomeMessage];
         }
     }
+    [clcontroller.locMgr stopUpdatingLocation]; 
 }
 
 -(void)checkOrCreatePlist {

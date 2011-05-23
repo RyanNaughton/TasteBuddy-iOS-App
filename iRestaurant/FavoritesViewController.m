@@ -72,25 +72,30 @@
     favoritesNameImageView.frame = CGRectMake(160, -3, 150, 44);
     favoritesNameImageView.contentMode = UIViewContentModeRight;
     
-    restaurantsTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [restaurantsTabButton setTitle:@"Restaurants" forState:UIControlStateNormal];
-    restaurantsTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
-    restaurantsTabButton.frame =  CGRectMake(0, 4, 83, 35);
-    [restaurantsTabButton addTarget:self action:@selector(switchFavoriteView:) forControlEvents:UIControlEventTouchUpInside];
-    
     dishesTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [dishesTabButton setTitle:@"Dishes" forState:UIControlStateNormal];
     dishesTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
-    dishesTabButton.frame =  CGRectMake(78, 4, 83, 35);
+    dishesTabButton.frame = CGRectMake(0, 4, 83, 35); 
     [dishesTabButton addTarget:self action:@selector(switchFavoriteView:) forControlEvents:UIControlEventTouchUpInside];
+
     
+    restaurantsTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [restaurantsTabButton setTitle:@"Restaurants" forState:UIControlStateNormal];
+    restaurantsTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    restaurantsTabButton.frame = CGRectMake(78, 4, 83, 35);
+    [restaurantsTabButton addTarget:self action:@selector(switchFavoriteView:) forControlEvents:UIControlEventTouchUpInside];
+    
+        
     tabView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 35)];
     [tabView addSubview:favoritesNameImageView];
-    [tabView addSubview:dishesTabButton];
     [tabView addSubview:restaurantsTabButton];
+    [tabView addSubview:dishesTabButton];
     self.navigationItem.leftBarButtonItem = nil;
     self.navigationItem.rightBarButtonItem = nil;
     self.navigationItem.titleView = tabView;
+    
+    //lastSender = restaurantsTabButton;
+    //[self switchFavoriteView:dishesTabButton];
 }
 
 
@@ -113,7 +118,8 @@
     
     [self setupNavBarContent];
     
-    lastSender = restaurantsTabButton;
+    lastSender = dishesTabButton;
+    [self switchFavoriteView:dishesTabButton];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
