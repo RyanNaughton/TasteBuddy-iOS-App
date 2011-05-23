@@ -12,15 +12,17 @@
 @interface PhotoViewer : UIViewController <IGUIScrollViewImageDelegate> {
     IGUIScrollViewImage *svimage;
     IBOutlet UINavigationItem *navItem;
-    IBOutlet UILabel *label;
+    IBOutlet UILabel *dishNameLabel;
+    IBOutlet UILabel *commentLabel;
 }
 
 
 @property (nonatomic, retain) IGUIScrollViewImage *svimage;
 @property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
-@property (nonatomic, retain) IBOutlet UILabel *label;
+@property (nonatomic, retain) IBOutlet UILabel *dishNameLabel;
+@property (nonatomic, retain) IBOutlet UILabel *commentLabel;
 
--(void) setImageLabel:(NSString *)labelString;
+-(void) setImageLabelsDishName:(NSString *)dishNameString andComment:(NSString *)commentString;
 -(void)setupScrollView:(NSArray *)arrayOfPhotos;
 -(IBAction) closeButtonPressed;
 
