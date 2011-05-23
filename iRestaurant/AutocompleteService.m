@@ -13,7 +13,7 @@
 
 @implementation AutocompleteService
 
-@synthesize delegate;
+@synthesize delegate, lastNear;
 
 -(void) dealloc {
     [delegate release];
@@ -24,20 +24,19 @@
     if (self) {
         delegate = [serviceDelegate retain];
         urlString = @"http://monkey.elhideout.org/complete.json";
-
+        
     }
     return self;
 }
 
 -(void) getTerms:(NSString *)term
 {
-    
+    lastNear = nil;
     double latitude = appDelegate.currentLocation.coordinate.latitude; //41.884432;
     double longitude = appDelegate.currentLocation.coordinate.longitude; //-87.643464;
-    NSString *near = @"";
         
     [jsonDictionary setObject:term forKey:@"find"];
-    [jsonDictionary setObject:near forKey:@"near"];
+    [jsonDictionary setObject:@"" forKey:@"near"];        
     [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
     
     [self prepareRequest];
@@ -45,10 +44,14 @@
 
 -(void) getPlaces:(NSString *)place
 {    
+    lastNear = [place retain];
     double latitude = appDelegate.currentLocation.coordinate.latitude; //41.884432;
     double longitude = appDelegate.currentLocation.coordinate.longitude; //-87.643464;    
+    if ([place isEqualToString:@"Current Location"]) {
+        place = @"";
+    } 
+    [jsonDictionary setObject:place forKey:@"near"];        
     
-    [jsonDictionary setObject:place forKey:@"near"];
     [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
     
     [self prepareRequest];
@@ -76,7 +79,9 @@
 {
     NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
     NSMutableArray *values = [[NSMutableArray alloc]init];
-
+    if(lastNear != nil && [@"Current Location" hasPrefix:lastNear]) {
+        [values addObject:@"Current Location"];
+    }
     for (NSArray *array in [responseDictionary objectEnumerator]) {
         for (NSString *value in array) {
             [values addObject:[value copy]]; //Retain to stop crashes

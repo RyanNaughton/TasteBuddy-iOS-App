@@ -17,9 +17,11 @@
 
 @interface AutocompleteService : AbstractService {
     id <AutocompleteServiceDelegate> delegate;  
+    NSString *lastNear;
 }
 
 @property (nonatomic, retain) id <AutocompleteServiceDelegate> delegate;
+@property (nonatomic, retain) NSString *lastNear;
 
 -(id) initWithDelegate:(id <AutocompleteServiceDelegate>) serviceDelegate;
 -(void) getTerms:(NSString *)term;
