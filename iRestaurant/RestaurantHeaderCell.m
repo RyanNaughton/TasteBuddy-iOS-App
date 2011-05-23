@@ -17,7 +17,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation RestaurantHeaderCell
-@synthesize imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto, lunch_text, dinner_text, imageButton;
+@synthesize imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto, lunch_text, dinner_text, imageButton, cuisine_types_text, average_meal_text;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -44,7 +44,7 @@
         
         name = [[UILabel alloc]init];
         name.frame = CGRectMake(10, 7, 280, 20);
-        name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+        name.textColor = [UIColor blackColor];
 		name.backgroundColor = [UIColor clearColor];
 		name.font = [UIFont boldSystemFontOfSize:20];
         name.shadowColor = [UIColor whiteColor];
@@ -91,10 +91,11 @@
 		dinner_text.font = [UIFont systemFontOfSize:12];
         dinner_text.shadowColor = [UIColor whiteColor];
         dinner_text.shadowOffset = CGSizeMake(0,1);
+        dinner_text.text = @"dinner";
         [self.contentView addSubview:dinner_text];
         
         
-        UILabel *cuisine_types_text = [[UILabel alloc]init];
+        cuisine_types_text = [[UILabel alloc]init];
         cuisine_types_text.frame = CGRectMake(155, 120, 155, 20);
         cuisine_types_text.textColor = [UIColor darkGrayColor];
 		cuisine_types_text.backgroundColor = [UIColor clearColor];
@@ -104,11 +105,10 @@
         cuisine_types_text.shadowOffset = CGSizeMake(0,1);
         cuisine_types_text.text = @"cuisine";
         [self.contentView addSubview:cuisine_types_text];
-        [cuisine_types_text release];
         
         cuisine_types = [[UILabel alloc]init];
         cuisine_types.frame = CGRectMake(140, 120, 155, 20);
-        cuisine_types.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+        cuisine_types.textColor = [UIColor blackColor];
 		cuisine_types.backgroundColor = [UIColor clearColor];
 		cuisine_types.font = [UIFont systemFontOfSize:13];
         cuisine_types.shadowColor = [UIColor whiteColor];
@@ -117,7 +117,7 @@
         
         lunch_hours = [[UILabel alloc]init];
         lunch_hours.frame = CGRectMake(140, 60, 160, 20);
-        lunch_hours.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+        lunch_hours.textColor = [UIColor blackColor];
 		lunch_hours.backgroundColor = [UIColor clearColor];
 		lunch_hours.font = [UIFont systemFontOfSize:13];
         lunch_hours.shadowColor = [UIColor whiteColor];
@@ -126,7 +126,7 @@
         
         dinner_hours = [[UILabel alloc]init];
         dinner_hours.frame = CGRectMake(140, 90, 160, 20);
-        dinner_hours.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+        dinner_hours.textColor = [UIColor blackColor];
 		dinner_hours.backgroundColor = [UIColor clearColor];
 		dinner_hours.font = [UIFont systemFontOfSize:13];
         dinner_hours.shadowColor = [UIColor whiteColor];
@@ -134,7 +134,7 @@
         [self.contentView addSubview:dinner_hours];
 
         
-        UILabel *average_meal_text = [[UILabel alloc]init];
+        average_meal_text = [[UILabel alloc]init];
         average_meal_text.frame = CGRectMake(155, 150, 155, 20);
         average_meal_text.textColor = [UIColor darkGrayColor];
 		average_meal_text.backgroundColor = [UIColor clearColor];
@@ -144,12 +144,11 @@
         average_meal_text.shadowOffset = CGSizeMake(0,1);
         average_meal_text.text = @"avg. dish price";
         [self.contentView addSubview:average_meal_text];
-        [average_meal_text release];
 
         
         average_meal = [[UILabel alloc]init];
         average_meal.frame = CGRectMake(140, 150, 155, 20);
-        average_meal.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+        average_meal.textColor = [UIColor blackColor];
 		average_meal.backgroundColor = [UIColor clearColor];
 		average_meal.font = [UIFont systemFontOfSize:14];
         average_meal.shadowColor = [UIColor whiteColor];
@@ -162,6 +161,9 @@
 
 -(void)loadRestaurant:(Restaurant *)restaurant_passed
 {
+    int y = 90;
+    CGRect oldFrame;
+    
     restaurant = [restaurant_passed retain];
     if ([restaurant.pictures count] > 0) {
         [imageView setImageWithURL:[NSURL URLWithString:[[restaurant.pictures objectAtIndex:0] objectForKey:@"160px"]]
@@ -172,15 +174,37 @@
     }
     name.text = [restaurant.name retain];
     lunch_hours.text = [restaurant.hours todaysFirstOpeningHours];
-    NSLog(@"lunch hours text: %@", lunch_hours.text);
+
     dinner_hours.text = [restaurant.hours todaysSecondOpeningHours];
     if([restaurant.hours todaysOpeningTimesCount] > 1) {
         lunch_text.text = @"lunch";
-        dinner_text.text = @"dinner";
+        dinner_hours.hidden = NO;
+        dinner_text.hidden = NO;
     } else {
         lunch_text.text = @"hours";        
-        dinner_text.text = @"-";
+        dinner_hours.hidden = YES;
+        dinner_text.hidden = YES;
+        y = y - 30;
     }
+    oldFrame = dinner_hours.frame;
+    dinner_hours.frame = CGRectMake(oldFrame.origin.x, y, oldFrame.size.width, oldFrame.size.height);
+    oldFrame = dinner_text.frame;
+    dinner_text.frame = CGRectMake(oldFrame.origin.x, y, oldFrame.size.width, oldFrame.size.height);
+
+    y = y + 30;
+    
+    oldFrame = cuisine_types.frame;
+    cuisine_types.frame = CGRectMake(oldFrame.origin.x, y, oldFrame.size.width, oldFrame.size.height);
+    oldFrame = cuisine_types_text.frame;
+    cuisine_types_text.frame = CGRectMake(oldFrame.origin.x, y, oldFrame.size.width, oldFrame.size.height);    
+    
+    y = y + 30;
+    
+    oldFrame = average_meal.frame;
+    average_meal.frame = CGRectMake(oldFrame.origin.x, y, oldFrame.size.width, oldFrame.size.height);
+    oldFrame = average_meal_text.frame;
+    average_meal_text.frame = CGRectMake(oldFrame.origin.x, y, oldFrame.size.width, oldFrame.size.height);
+    
     NSString* average_meal_price_formatted = [NSString stringWithFormat:@"%.02f", restaurant.average_meal_price];
     
     average_meal.text = [NSString stringWithFormat:@"$%@", average_meal_price_formatted];
@@ -241,6 +265,8 @@
     [average_meal release];
     [cuisine_types release];
     [restaurant release];
+    [cuisine_types_text release];
+    [average_meal_text release];
     [super dealloc];
 }
 
