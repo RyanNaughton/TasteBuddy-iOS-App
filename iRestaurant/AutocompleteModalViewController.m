@@ -14,7 +14,7 @@
 
 @implementation AutocompleteModalViewController
 
-@synthesize tableView, searchView, termField, nearField, findAutocompleteTableViewController, nearAutocompleteTableViewController, autocompleteService, searchViewController, cancelButton, whatBGBox, whereBGBox;
+@synthesize tableView, searchView, termField, nearField, findAutocompleteTableViewController, nearAutocompleteTableViewController, autocompleteService, searchViewController, cancelButton, whatBGBox, whereBGBox, lastNear;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -62,6 +62,11 @@
     UIImage *textBox = [[UIImage imageNamed:@"text-area-image.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
     whatBGBox.image = textBox;
     whereBGBox.image = textBox;
+
+    if ([nearField.text isEqualToString:@"Current Location"]) {
+        nearField.textColor = [UIColor blueColor];
+    }
+    lastNear = [nearField.text retain];
 }
 
 - (void)viewDidUnload
@@ -86,10 +91,21 @@
         autocompleteService.delegate = findAutocompleteTableViewController;
         findAutocompleteTableViewController.tableView = self.tableView;
     } else {
-        tableView.delegate = nearAutocompleteTableViewController;
-        tableView.dataSource = nearAutocompleteTableViewController;
-        autocompleteService.delegate = nearAutocompleteTableViewController;
-        nearAutocompleteTableViewController.tableView = self.tableView;
+        if ([nearField.text isEqualToString:@"Current Location"]) {
+            nearField.textColor = [UIColor blueColor];
+        } else {
+            nearField.textColor = [UIColor blackColor];
+        }
+        
+        if([lastNear isEqualToString:@"Current Location"] && [nearField.text isEqualToString:@"Current Locatio"]) {
+            nearField.text = @"";
+        } else {
+            tableView.delegate = nearAutocompleteTableViewController;
+            tableView.dataSource = nearAutocompleteTableViewController;
+            autocompleteService.delegate = nearAutocompleteTableViewController;
+            nearAutocompleteTableViewController.tableView = self.tableView;
+            lastNear = [nearField.text retain];
+        }
     }
     
     [tableView setContentOffset:CGPointMake(0, 0) animated:NO];
@@ -97,9 +113,9 @@
     //Only trigger service call when term length is long enough
     if ([((UITextField *) sender).text length] > 2) {
         if((UITextField *) sender == termField) {
-            [autocompleteService getTerms:termField.text];
+            [autocompleteService performAutoCompleteWithTerm:termField.text andPlace:nearField.text andIsNearAutoComplete:NO];
         } else {
-            [autocompleteService getPlaces:nearField.text];
+            [autocompleteService performAutoCompleteWithTerm:termField.text andPlace:nearField.text andIsNearAutoComplete:YES];
         }
     } else {
         
@@ -130,6 +146,16 @@
     searchView.center = CGPointMake(searchView.center.x, searchView.frame.size.height / 2 );
     tableView.frame = CGRectMake(0, searchView.frame.size.height, self.view.frame.size.width,  self.view.frame.size.height - (216 + searchView.frame.size.height));
 }
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (string && [string length] && [textField.text isEqualToString:@"Current Location"]) {
+        return NO;
+    }
+    
+    return YES;
+}
+
 -(void) viewDidDisappear:(BOOL)animated {
     [self autocomplete:termField];
 }

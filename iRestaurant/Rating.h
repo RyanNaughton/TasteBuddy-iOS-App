@@ -21,4 +21,6 @@
 
 -(id) initWithUserRating:(NSNumber *) userRating andAverageRating:(NSNumber *) averageRating andRatingsCount:(NSNumber *) ratingsCount;
 
+-(float)sortValue;
+
 @end

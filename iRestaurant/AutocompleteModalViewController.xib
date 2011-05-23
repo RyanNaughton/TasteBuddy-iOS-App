@@ -67,7 +67,6 @@
 						<string key="NSFrame">{{0, 75}, {320, 125}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="897790605">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -180,6 +179,7 @@
 									<int key="IBUIReturnKeyType">6</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
+								<int key="IBUIClearButtonMode">1</int>
 							</object>
 							<object class="IBUITextField" id="988399099">
 								<reference key="NSNextResponder" ref="255259606"/>
@@ -202,9 +202,11 @@
 								<bool key="IBUIAdjustsFontSizeToFit">YES</bool>
 								<float key="IBUIMinimumFontSize">17</float>
 								<object class="IBUITextInputTraits" key="IBUITextInputTraits">
+									<int key="IBUIAutocapitalizationType">1</int>
 									<int key="IBUIReturnKeyType">6</int>
 									<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								</object>
+								<int key="IBUIClearButtonMode">1</int>
 							</object>
 							<object class="IBUILabel" id="487380764">
 								<reference key="NSNextResponder" ref="255259606"/>
@@ -727,6 +729,7 @@
 							<string>autocompleteService</string>
 							<string>cancelButton</string>
 							<string>findAutocompleteTableViewController</string>
+							<string>lastNear</string>
 							<string>nearAutocompleteTableViewController</string>
 							<string>nearField</string>
 							<string>searchView</string>
@@ -741,6 +744,7 @@
 							<string>AutocompleteService</string>
 							<string>UIButton</string>
 							<string>FindAutocompleteTableViewController</string>
+							<string>NSString</string>
 							<string>NearAutocompleteTableViewController</string>
 							<string>UITextField</string>
 							<string>UIView</string>
@@ -758,6 +762,7 @@
 							<string>autocompleteService</string>
 							<string>cancelButton</string>
 							<string>findAutocompleteTableViewController</string>
+							<string>lastNear</string>
 							<string>nearAutocompleteTableViewController</string>
 							<string>nearField</string>
 							<string>searchView</string>
@@ -780,6 +785,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">findAutocompleteTableViewController</string>
 								<string key="candidateClassName">FindAutocompleteTableViewController</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">lastNear</string>
+								<string key="candidateClassName">NSString</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">nearAutocompleteTableViewController</string>

@@ -13,10 +13,11 @@
 
 @implementation AutocompleteService
 
-@synthesize delegate;
+@synthesize delegate, lastNear, nearAutoComplete;
 
 -(void) dealloc {
     [delegate release];
+    [lastNear release];
     [super dealloc];
 }
 -(id) initWithDelegate:(id <AutocompleteServiceDelegate>) serviceDelegate {
@@ -24,36 +25,23 @@
     if (self) {
         delegate = [serviceDelegate retain];
         urlString = @"http://monkey.elhideout.org/complete.json";
-
+        
     }
     return self;
 }
 
--(void) getTerms:(NSString *)term
-{
+-(void) performAutoCompleteWithTerm:(NSString *) term andPlace:(NSString *)place andIsNearAutoComplete:(bool)isNearAutoComplete {
+    lastNear = [place retain];
+    nearAutoComplete = isNearAutoComplete;
     
     double latitude = appDelegate.currentLocation.coordinate.latitude; //41.884432;
     double longitude = appDelegate.currentLocation.coordinate.longitude; //-87.643464;
-    NSString *near = @"";
-        
+    
     [jsonDictionary setObject:term forKey:@"find"];
-    [jsonDictionary setObject:near forKey:@"near"];
+    [jsonDictionary setObject:place forKey:@"near"];        
     [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
     
     [self prepareRequest];
-}
-
--(void) getPlaces:(NSString *)place
-{    
-    double latitude = appDelegate.currentLocation.coordinate.latitude; //41.884432;
-    double longitude = appDelegate.currentLocation.coordinate.longitude; //-87.643464;    
-    
-    [jsonDictionary setObject:place forKey:@"near"];
-    [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
-    
-    [self prepareRequest];
-    
-
 }
 
 -(void) performRequest {
@@ -76,7 +64,9 @@
 {
     NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
     NSMutableArray *values = [[NSMutableArray alloc]init];
-
+    if(nearAutoComplete && [@"Current Location" hasPrefix:lastNear]) {
+        [values addObject:@"Current Location"];
+    }
     for (NSArray *array in [responseDictionary objectEnumerator]) {
         for (NSString *value in array) {
             [values addObject:[value copy]]; //Retain to stop crashes

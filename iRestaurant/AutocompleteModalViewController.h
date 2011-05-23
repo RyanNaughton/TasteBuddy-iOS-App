@@ -26,6 +26,8 @@
     
     AutocompleteService *autocompleteService;
     SearchViewController *searchViewController;
+    
+    NSString *lastNear;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
@@ -41,6 +43,7 @@
 @property (nonatomic, retain) IBOutlet NearAutocompleteTableViewController *nearAutocompleteTableViewController;
 @property (nonatomic, retain) IBOutlet AutocompleteService *autocompleteService;
 @property (nonatomic, retain) IBOutlet SearchViewController *searchViewController;
+@property (nonatomic, retain) IBOutlet NSString *lastNear;
 
 -(IBAction) autocomplete:(id) sender;
 

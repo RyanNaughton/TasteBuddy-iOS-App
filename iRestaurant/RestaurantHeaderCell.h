@@ -27,6 +27,9 @@
     UILabel *dinner_text;
     UILabel *lunch_text;
     
+    UILabel *cuisine_types_text;
+    UILabel *average_meal_text;
+    
     Restaurant *restaurant;
     TakePhoto *takePhoto;
 }
@@ -45,6 +48,9 @@
 
 @property (nonatomic, retain) UILabel *dinner_text;
 @property (nonatomic, retain) UILabel *lunch_text;
+
+@property (nonatomic, retain) UILabel *cuisine_types_text;
+@property (nonatomic, retain) UILabel *average_meal_text;
 
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, retain) TakePhoto *takePhoto;

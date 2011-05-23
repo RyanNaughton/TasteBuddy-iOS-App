@@ -238,7 +238,7 @@
                                                       ascending:YES] autorelease];        
         
     } else if(buttonIndex == 1) {
-        sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"rating.average_rating"
+        sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"rating.sortValue"
                                                       ascending:NO] autorelease];  
 
     } else if(buttonIndex == 2) {
