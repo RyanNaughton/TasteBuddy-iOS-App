@@ -113,9 +113,9 @@
     //Only trigger service call when term length is long enough
     if ([((UITextField *) sender).text length] > 2) {
         if((UITextField *) sender == termField) {
-            [autocompleteService getTerms:termField.text];
+            [autocompleteService performAutoCompleteWithTerm:termField.text andPlace:nearField.text andIsNearAutoComplete:NO];
         } else {
-            [autocompleteService getPlaces:nearField.text];
+            [autocompleteService performAutoCompleteWithTerm:termField.text andPlace:nearField.text andIsNearAutoComplete:YES];
         }
     } else {
         

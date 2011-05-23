@@ -13,10 +13,11 @@
 
 @implementation AutocompleteService
 
-@synthesize delegate, lastNear;
+@synthesize delegate, lastNear, nearAutoComplete;
 
 -(void) dealloc {
     [delegate release];
+    [lastNear release];
     [super dealloc];
 }
 -(id) initWithDelegate:(id <AutocompleteServiceDelegate>) serviceDelegate {
@@ -29,34 +30,18 @@
     return self;
 }
 
--(void) getTerms:(NSString *)term
-{
-    lastNear = nil;
+-(void) performAutoCompleteWithTerm:(NSString *) term andPlace:(NSString *)place andIsNearAutoComplete:(bool)isNearAutoComplete {
+    lastNear = [place retain];
+    nearAutoComplete = isNearAutoComplete;
+    
     double latitude = appDelegate.currentLocation.coordinate.latitude; //41.884432;
     double longitude = appDelegate.currentLocation.coordinate.longitude; //-87.643464;
-        
+    
     [jsonDictionary setObject:term forKey:@"find"];
-    [jsonDictionary setObject:@"" forKey:@"near"];        
-    [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
-    
-    [self prepareRequest];
-}
-
--(void) getPlaces:(NSString *)place
-{    
-    lastNear = [place retain];
-    double latitude = appDelegate.currentLocation.coordinate.latitude; //41.884432;
-    double longitude = appDelegate.currentLocation.coordinate.longitude; //-87.643464;    
-    if ([place isEqualToString:@"Current Location"]) {
-        place = @"";
-    } 
     [jsonDictionary setObject:place forKey:@"near"];        
-    
     [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
     
     [self prepareRequest];
-    
-
 }
 
 -(void) performRequest {
@@ -79,7 +64,7 @@
 {
     NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
     NSMutableArray *values = [[NSMutableArray alloc]init];
-    if(lastNear != nil && [@"Current Location" hasPrefix:lastNear]) {
+    if(nearAutoComplete && [@"Current Location" hasPrefix:lastNear]) {
         [values addObject:@"Current Location"];
     }
     for (NSArray *array in [responseDictionary objectEnumerator]) {
