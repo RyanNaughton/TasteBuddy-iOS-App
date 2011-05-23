@@ -16,7 +16,7 @@
 		<string>icon57@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.argonavis.tastebuddy</string>
+	<string>com.secretmonkeyscience.irestaurant</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
