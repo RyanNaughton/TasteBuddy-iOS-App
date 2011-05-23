@@ -87,21 +87,21 @@
     appNameImageView.frame = CGRectMake(160, -3, 150, 44);
     appNameImageView.contentMode = UIViewContentModeRight;
     
-    restaurantsTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [restaurantsTabButton setTitle:@"Restaurants" forState:UIControlStateNormal];
-    restaurantsTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
-    restaurantsTabButton.frame =  CGRectMake(0, 4, 83, 35);
-    [restaurantsTabButton addTarget:self action:@selector(switchSearchView:) forControlEvents:UIControlEventTouchUpInside];
-    
     dishesTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [dishesTabButton setTitle:@"Dishes" forState:UIControlStateNormal];
     dishesTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
-    dishesTabButton.frame =  CGRectMake(78, 4, 83, 35);
+    dishesTabButton.frame = CGRectMake(0, 4, 83, 35); 
     [dishesTabButton addTarget:self action:@selector(switchSearchView:) forControlEvents:UIControlEventTouchUpInside];
+    
+    restaurantsTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [restaurantsTabButton setTitle:@"Restaurants" forState:UIControlStateNormal];
+    restaurantsTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
+    restaurantsTabButton.frame = CGRectMake(78, 4, 83, 35);
+    [restaurantsTabButton addTarget:self action:@selector(switchSearchView:) forControlEvents:UIControlEventTouchUpInside];
 
-    [self switchTabs:restaurantsTabButton];
+    [self switchTabs:dishesTabButton];
 
-    lastSender = restaurantsTabButton; //Set initial value for lastSender so we knew which result view we need to be in.
+    lastSender = dishesTabButton; //Set initial value for lastSender so we knew which result view we need to be in.
 
     tabView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 35)];
     [tabView addSubview:appNameImageView];
@@ -113,7 +113,7 @@
     CGPoint point = CGPointMake(1.2345, 1.2345);
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
 
-    [self switchSearchView:restaurantsTabButton]; //Show no results initially.
+    [self switchSearchView:dishesTabButton]; //Show no results initially.
 }
 
 -(void) viewDidAppear:(BOOL)animated {
