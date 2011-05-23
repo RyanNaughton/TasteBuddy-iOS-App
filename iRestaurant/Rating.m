@@ -39,5 +39,11 @@
     }
     return self;
 }
-
+-(float) sortValue {
+    if (user_rating > 0) {
+        return user_rating;
+    } else {
+        return average_rating;
+    }
+}
 @end
