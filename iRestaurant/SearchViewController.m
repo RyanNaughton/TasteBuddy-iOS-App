@@ -181,14 +181,14 @@
         tableView.dataSource = restaurantSearchResultTableViewController;
         [tableView reloadData];
         tableView.hidden = false;
-        fakeTermField.placeholder = @"     Restaurants";
+        fakeTermField.placeholder = @"      Restaurants";
     } else if (sender == dishesTabButton){
         [self switchTabs:dishesTabButton];
         tableView.delegate = dishSearchResultTableViewController;
         tableView.dataSource = dishSearchResultTableViewController;
         [tableView reloadData];
         tableView.hidden = false;
-        fakeTermField.placeholder = @"     Dishes";
+        fakeTermField.placeholder = @"      Dishes";
     } else if (sender == mapButton) {
         tableView.hidden = true;
     }
