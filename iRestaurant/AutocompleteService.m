@@ -38,7 +38,11 @@
     double longitude = appDelegate.currentLocation.coordinate.longitude; //-87.643464;
     
     [jsonDictionary setObject:term forKey:@"find"];
-    [jsonDictionary setObject:place forKey:@"near"];        
+    if([place isEqualToString:@"Current Location"]) {
+        [jsonDictionary setObject:@"" forKey:@"near"];        
+    } else {
+        [jsonDictionary setObject:place forKey:@"near"];        
+    }
     [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
     
     [self prepareRequest];

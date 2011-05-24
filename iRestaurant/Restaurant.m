@@ -63,9 +63,7 @@
 -(id) initWithDictionary:(NSDictionary *)restaurantDictionary {
     self = [super init];
     if (self) {
-       // custom init
-        NSLog(@"RDictionary %@", restaurantDictionary);
-        
+       // custom init        
         _id               = [[restaurantDictionary objectForKey:@"id"] retain];
         name              = [[restaurantDictionary objectForKey:@"name"] retain];
         rating = [[Rating alloc] initWithUserRating:[restaurantDictionary objectForKey:@"user_rating"] andAverageRating:[restaurantDictionary objectForKey:@"average_rating"] andRatingsCount:[restaurantDictionary objectForKey:@"ratings_count"]];
@@ -78,7 +76,6 @@
         postal_code       = [[restaurantDictionary objectForKey:@"postal_code"] retain];
         neighborhood      = [[restaurantDictionary objectForKey:@"neighborhood"] retain];
         if(![[restaurantDictionary objectForKey:@"location"] isKindOfClass:[NSNull class]]) {
-            NSLog(@"llat %g", location.latitude);
             location.latitude = [[[restaurantDictionary objectForKey:@"location"] objectAtIndex:0] doubleValue];
             location.longitude = [[[restaurantDictionary objectForKey:@"location"] objectAtIndex:1] doubleValue];
 

@@ -295,12 +295,57 @@
 }
 
 -(void) setUpAnnotations {
+    int annotations = 0;
+    double maxLng   = 0;
+    double maxLat   = 0;
+    double minLng   = 0;
+    double minLat   = 0;
+    
     [mapView removeAnnotations:mapView.annotations];
     for (Restaurant *restaurant in restaurantSearchResultTableViewController.restaurantsArray) {
-        RestaurantAnnotation *annotation = [[RestaurantAnnotation alloc] initWithRestaurant:restaurant];
-        [mapView addAnnotation:annotation];
-        [annotation release];
+        if(restaurant.location.longitude != 0 && restaurant.location.latitude != 0) {
+            RestaurantAnnotation *annotation = [[RestaurantAnnotation alloc] initWithRestaurant:restaurant];
+            [mapView addAnnotation:annotation];
+            [annotation release];
+            
+            if (annotations == 0) {
+                maxLat = restaurant.location.latitude;
+                minLat = restaurant.location.latitude;
+                maxLng = restaurant.location.longitude;
+                minLng = restaurant.location.longitude;
+            } else {
+                if(minLat > restaurant.location.latitude) minLat = restaurant.location.latitude;
+                if(maxLat < restaurant.location.latitude) maxLat = restaurant.location.latitude;
+                if(minLng > restaurant.location.longitude) minLng = restaurant.location.longitude;
+                if(maxLng < restaurant.location.longitude) maxLng = restaurant.location.longitude;
+
+            }
+            
+            annotations++;
+        }
     }   
+    
+    CLLocation *locSouthWest = [[CLLocation alloc] initWithLatitude:minLat longitude:minLng];
+    CLLocation *locNorthEast = [[CLLocation alloc] initWithLatitude:maxLat longitude:maxLng];
+    
+    CLLocationDistance meters = [locSouthWest distanceFromLocation:locNorthEast];
+    
+    if (annotations == 0) {
+        meters = 10000;
+        iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
+        maxLat = appDelegate.currentLocation.coordinate.latitude;
+        minLat = appDelegate.currentLocation.coordinate.latitude;
+        minLng = appDelegate.currentLocation.coordinate.longitude;
+        maxLng = appDelegate.currentLocation.coordinate.longitude;
+    } 
+    MKCoordinateRegion region = { {0.0, 0.0 }, { 0.0, 0.0 } }; 
+	region.center.latitude = (maxLat + minLat)/2;
+	region.center.longitude = (maxLng + minLng)/2;
+    region.span.latitudeDelta = meters / 111319.5;
+    region.span.longitudeDelta = 0.0;
+
+	[mapView setRegion:region animated:NO]; 
+    
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mV viewForAnnotation: (id <MKAnnotation>)annotation {
@@ -311,9 +356,6 @@
 		pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
 		if ( pinView == nil ) pinView = [[[MKPinAnnotationView alloc]
 										  initWithAnnotation:annotation reuseIdentifier:defaultPinID] autorelease];
-		
-        pinView.pinColor = MKPinAnnotationColorRed; 
-		
 		pinView.canShowCallout = YES;
 		pinView.animatesDrop = NO;
         

@@ -34,8 +34,6 @@
             NSDictionary *firstOpenHours = [[daysHours objectAtIndex:0] objectForKey:@"open"];
             NSDictionary *firstCloseHours = [[daysHours objectAtIndex:0] objectForKey:@"close"];
             
-            NSLog(@"first close hours: %@", firstCloseHours);
-            
             // add extra zero if necessary
             NSString *firstOpenHoursMinutes;
             if ([[[firstOpenHours objectForKey:@"m"] stringValue] length] == 1) { 
