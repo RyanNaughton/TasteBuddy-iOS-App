@@ -189,6 +189,7 @@
         tableView.dataSource = restaurantSearchResultTableViewController;
         [tableView reloadData];
         tableView.hidden = false;
+        mapView.hidden = true;
         fakeTermField.placeholder = @"      Restaurants";
     } else if (sender == dishesTabButton){
         [self switchTabs:dishesTabButton];
@@ -196,9 +197,11 @@
         tableView.dataSource = dishSearchResultTableViewController;
         [tableView reloadData];
         tableView.hidden = false;
+        mapView.hidden = true;
         fakeTermField.placeholder = @"      Dishes";
     } else if (sender == mapButton) {
         tableView.hidden = true;
+        mapView.hidden = false;
     }
 
     [tableView setContentOffset:CGPointMake(0, 0) animated:NO];
@@ -287,11 +290,6 @@
 
 -(void) makeWhatFirstResponder {
     [searchModalViewController.termField becomeFirstResponder];
-}
-
--(IBAction) mapButtonPressed:(id)sender {
-    mapView.hidden = !mapView.hidden;
-    tableView.hidden = !mapView.hidden;
 }
 
 -(void) setUpAnnotations {

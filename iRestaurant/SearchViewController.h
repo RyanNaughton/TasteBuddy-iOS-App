@@ -69,7 +69,6 @@
 
 
 -(IBAction) switchSearchView:(id) sender;
--(IBAction) mapButtonPressed:(id) sender;
 
 -(void) resultsLoading;
 -(void) resultsLoaded;
