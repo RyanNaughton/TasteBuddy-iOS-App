@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "TaggedObject.h"
+#import <MapKit/MapKit.h>
+
 @class Rating;
 @class Menu;
 @class Hours;
@@ -22,7 +24,7 @@
     NSString *country;
     NSString *postal_code;
     NSString *neighborhood;
-    NSString *location;
+    CLLocationCoordinate2D location;
     NSString *website_url;
     NSString *alcohol_type;
     NSNumber *credit_cards;
@@ -63,7 +65,6 @@
 @property (nonatomic, retain) NSString *country;
 @property (nonatomic, retain) NSString *postal_code;
 @property (nonatomic, retain) NSString *neighborhood;
-@property (nonatomic, retain) NSString *location;
 @property (nonatomic, retain) NSString *website_url;
 @property (nonatomic, retain) NSString *alcohol_type;
 @property (nonatomic, retain) NSNumber *credit_cards;
@@ -93,6 +94,8 @@
 @property (nonatomic, retain) Rating *rating;
 
 @property (nonatomic, retain) Hours *hours;
+@property (nonatomic, assign) CLLocationCoordinate2D location;
+
 
 -(id) initWithDictionary:(NSDictionary *)restaurantDictionary;
 

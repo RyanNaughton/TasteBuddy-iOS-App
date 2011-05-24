@@ -10,6 +10,8 @@
 		320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 320AF8492C47A4D819F7C450 /* QuartzCore.framework */; };
 		4910746D137A363C007A2A58 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4910746B137A3630007A2A58 /* WebViewController.m */; };
 		4910746E137A363C007A2A58 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4910746C137A3637007A2A58 /* WebViewController.xib */; };
+		4927C9A6138C3BE100BD4169 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4927C9A5138C3BE100BD4169 /* MapKit.framework */; };
+		4927C9AA138C5A0200BD4169 /* RestaurantAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4927C9A9138C5A0200BD4169 /* RestaurantAnnotation.m */; };
 		4929F4BA13733532003D4EE8 /* TagService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4B913733531003D4EE8 /* TagService.m */; };
 		4929F4BE1373374F003D4EE8 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4BD1373374F003D4EE8 /* Tag.m */; };
 		4929F4C213735B0E003D4EE8 /* TagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4C113735B0E003D4EE8 /* TagButton.m */; };
@@ -273,6 +275,9 @@
 		4910746A137A362D007A2A58 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		4910746B137A3630007A2A58 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		4910746C137A3637007A2A58 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		4927C9A5138C3BE100BD4169 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4927C9A8138C5A0200BD4169 /* RestaurantAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantAnnotation.h; sourceTree = "<group>"; };
+		4927C9A9138C5A0200BD4169 /* RestaurantAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantAnnotation.m; sourceTree = "<group>"; };
 		4929F4B813733531003D4EE8 /* TagService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagService.h; sourceTree = "<group>"; };
 		4929F4B913733531003D4EE8 /* TagService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagService.m; sourceTree = "<group>"; };
 		4929F4BC1373374F003D4EE8 /* Tag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tag.h; sourceTree = "<group>"; };
@@ -639,6 +644,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4927C9A6138C3BE100BD4169 /* MapKit.framework in Frameworks */,
 				320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */,
 				E85EE41E13564224004B2A10 /* CoreLocation.framework in Frameworks */,
 				E85EE40A13554967004B2A10 /* SystemConfiguration.framework in Frameworks */,
@@ -877,6 +883,7 @@
 		49BA68211354DBA30040DDB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4927C9A5138C3BE100BD4169 /* MapKit.framework */,
 				320AF8492C47A4D819F7C450 /* QuartzCore.framework */,
 				E8A6E823135547050095E157 /* libxml2.dylib */,
 				E8A03E4D1355443C0031D798 /* libz.1.2.3.dylib */,
@@ -1462,6 +1469,8 @@
 				49C41107137DB809005536D0 /* hours.m */,
 				49752FDD13843628000C28C4 /* TaggedObject.h */,
 				49752FDE13843628000C28C4 /* TaggedObject.m */,
+				4927C9A8138C5A0200BD4169 /* RestaurantAnnotation.h */,
+				4927C9A9138C5A0200BD4169 /* RestaurantAnnotation.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1812,6 +1821,7 @@
 				E81A7B47138306D10035215C /* UserAttributesService.m in Sources */,
 				49752FDF13843628000C28C4 /* TaggedObject.m in Sources */,
 				E81B8F55138479160052F240 /* CoreLocationController.m in Sources */,
+				4927C9AA138C5A0200BD4169 /* RestaurantAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

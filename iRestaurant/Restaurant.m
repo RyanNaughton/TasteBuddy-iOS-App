@@ -77,7 +77,12 @@
         country           = [[restaurantDictionary objectForKey:@"country"] retain];
         postal_code       = [[restaurantDictionary objectForKey:@"postal_code"] retain];
         neighborhood      = [[restaurantDictionary objectForKey:@"neighborhood"] retain];
-        location          = [[restaurantDictionary objectForKey:@"location"] retain];
+        if(![[restaurantDictionary objectForKey:@"location"] isKindOfClass:[NSNull class]]) {
+            NSLog(@"llat %g", location.latitude);
+            location.latitude = [[[restaurantDictionary objectForKey:@"location"] objectAtIndex:0] doubleValue];
+            location.longitude = [[[restaurantDictionary objectForKey:@"location"] objectAtIndex:1] doubleValue];
+
+        }
         website_url       = [[restaurantDictionary objectForKey:@"website_url"] retain];
         alcohol_type      = [[restaurantDictionary objectForKey:@"alcohol_type"] retain];
         if([alcohol_type isKindOfClass:[NSNull class]]) {
@@ -160,7 +165,6 @@
     [country           release];
     [postal_code       release];
     [neighborhood      release];
-    [location          release];
     [website_url       release];
     [alcohol_type      release];
     [cuisine_types     release];
