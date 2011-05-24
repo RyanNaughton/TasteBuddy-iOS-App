@@ -297,6 +297,7 @@
 }
 
 -(void) setUpAnnotations {
+    [mapView removeAnnotations:mapView.annotations];
     for (Restaurant *restaurant in restaurantSearchResultTableViewController.restaurantsArray) {
         RestaurantAnnotation *annotation = [[RestaurantAnnotation alloc] initWithRestaurant:restaurant];
         [mapView addAnnotation:annotation];
@@ -316,7 +317,7 @@
         pinView.pinColor = MKPinAnnotationColorRed; 
 		
 		pinView.canShowCallout = YES;
-		pinView.animatesDrop = YES;
+		pinView.animatesDrop = NO;
         
         UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         pinView.rightCalloutAccessoryView = infoButton;
