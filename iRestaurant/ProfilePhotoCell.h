@@ -13,12 +13,16 @@
     UIImageView *imageView;
     UILabel *restaurantLabel;
     UILabel *pictureCountLabel;
+    NSDictionary *restaurantDictionary;
 }
 
 @property (nonatomic, retain) UIImageView *imageView;
 @property (nonatomic, retain) UILabel *restaurantLabel;
 @property (nonatomic, retain) UILabel *pictureCountLabel;
+@property (nonatomic, retain) NSDictionary *restaurantDictionary;
 
--(void)setVariablesWithDictionary:(NSDictionary *)restaurantDictionary;
+-(void)setVariablesWithDictionary:(NSDictionary *)restaurantDictionary_passed;
+-(void)imageButtonPressed:(id)sender;
+-(void)restaurantButtonPressed:(id)sender;
 
 @end

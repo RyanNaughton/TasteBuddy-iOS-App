@@ -9,6 +9,8 @@
 #import "UserSettingsViewController.h"
 #import "UserSettingsService.h"
 #import "UserAttributesService.h"
+#import "iRestaurantAppDelegate.h"
+#import "ProfileTableViewController.h"
 
 @implementation UserSettingsViewController
 
@@ -24,7 +26,8 @@
 @synthesize birthdayMonthField;
 @synthesize birthdayDayField;
 @synthesize birthdayYearField;
-@synthesize uss, uas;
+@synthesize uss, uas, ptvc;
+@synthesize logoutButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -89,17 +92,19 @@
     self.navigationItem.rightBarButtonItem = updateBtn;
     [updateBtn release]; 
     
-    //[usernameField becomeFirstResponder];
-    
+    UIImage *logoutButtonImage = [[UIImage imageNamed:@"red-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
+    [logoutButton setBackgroundImage:logoutButtonImage forState:UIControlStateNormal];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     
-    scrollView.contentSize = CGSizeMake(320, 346);
+    scrollView.contentSize = CGSizeMake(320, 430);
 
     
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)keyboardDidShow:(NSNotification *)notification {
+    scrollView.contentSize = CGSizeMake(320, 380);
     scrollView.frame = CGRectMake(0, 0, 320, 200);
 }
 
@@ -178,7 +183,7 @@
                andBirthdate:birthdayString];
 }
 
--(void) settingsUpdateComplete {
+-(void) settingsUpdateComplete:(AuthenticationResponse *)authToken {
     UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"SUCCESS!" message:@"You have successfully updated your TasteBuddy profile!" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
     [alert show];
     [alert release];
@@ -220,6 +225,25 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(IBAction)logout {
+    UIAlertView *areYouSureAlert = [[UIAlertView alloc] initWithTitle:@"Logout" message:@"Are you sure?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+    [areYouSureAlert show];
+    [areYouSureAlert release];
+
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if(buttonIndex == 1) {
+        iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        [appDelegate logout];
+        
+        [self.navigationController popViewControllerAnimated:NO];
+        ptvc.dataReceived = FALSE;
+        [ptvc checkLogin];
+        [ptvc.tableView reloadData];
+    }
 }
 
 @end

@@ -65,7 +65,6 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self checkLogin];    
-    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -85,12 +84,12 @@
         self.navigationItem.rightBarButtonItem = settingsBtn;
         [settingsBtn release];
         
-        UIBarButtonItem *logoutBtn = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
-                                                                      style:UIBarButtonItemStyleBordered
-                                                                     target:self
-                                                                     action:@selector(logoutPressed:)]; 
-        self.navigationItem.leftBarButtonItem = logoutBtn;
-        [logoutBtn release]; 
+//        UIBarButtonItem *logoutBtn = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+//                                                                      style:UIBarButtonItemStyleBordered
+//                                                                     target:self
+//                                                                     action:@selector(logoutPressed:)]; 
+//        self.navigationItem.leftBarButtonItem = logoutBtn;
+//        [logoutBtn release]; 
         
     } else {
         UIBarButtonItem *loginBtn = [[UIBarButtonItem alloc] initWithTitle:@"Login"
@@ -358,28 +357,28 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section > 0) {
-        if (indexPath.row > 0) {
-            NSDictionary *dict = [picturesArray objectAtIndex:(indexPath.section - 1)];
-            NSArray *array = [dict objectForKey:@"array"];
-            
-            NSDictionary *currentRestaurantDict = [array objectAtIndex:(indexPath.row -1)];
-            NSArray *arrayOfPhotos = [currentRestaurantDict objectForKey:@"array"];
-            NSString *restaurantName = [currentRestaurantDict objectForKey:@"name"];
-            
-            NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
-            for (NSDictionary *photoDict in arrayOfPhotos) {
-                [arrayOfURLStrings addObject:[photoDict objectForKey:@"300px"]];
-            }
-            
-            PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
-            [photoViewer setupScrollView:arrayOfPhotos];
-            photoViewer.navItem.title = [NSString stringWithFormat:@"%@", restaurantName];
-            photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            [self presentModalViewController:photoViewer animated:YES];
-            [photoViewer release];
-        }
-    }
+//    if (indexPath.section > 0) {
+//        if (indexPath.row > 0) {
+//            NSDictionary *dict = [picturesArray objectAtIndex:(indexPath.section - 1)];
+//            NSArray *array = [dict objectForKey:@"array"];
+//            
+//            NSDictionary *currentRestaurantDict = [array objectAtIndex:(indexPath.row -1)];
+//            NSArray *arrayOfPhotos = [currentRestaurantDict objectForKey:@"array"];
+//            NSString *restaurantName = [currentRestaurantDict objectForKey:@"name"];
+//            
+//            NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
+//            for (NSDictionary *photoDict in arrayOfPhotos) {
+//                [arrayOfURLStrings addObject:[photoDict objectForKey:@"300px"]];
+//            }
+//            
+//            PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
+//            [photoViewer setupScrollView:arrayOfPhotos];
+//            photoViewer.navItem.title = [NSString stringWithFormat:@"%@", restaurantName];
+//            photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//            [self presentModalViewController:photoViewer animated:YES];
+//            [photoViewer release];
+//        }
+//    }
 }
 
 
@@ -400,6 +399,7 @@
 
 -(IBAction) settingsBtnPressed:(id)sender {
     UserSettingsViewController *usvc = [[UserSettingsViewController alloc]init];
+    usvc.ptvc = self;
     [self.navigationController pushViewController:usvc animated:YES];
     [usvc release];
 }

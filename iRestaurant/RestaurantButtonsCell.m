@@ -121,7 +121,7 @@
         [bookmarkButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         bookmarkButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
         bookmarkButton.frame = CGRectMake(165, 110, 145, 40);
-        [bookmarkButton setTitle:@" Bookmark" forState:UIControlStateNormal];
+        [bookmarkButton setTitle:@" Favorite" forState:UIControlStateNormal];
         [self.contentView addSubview:bookmarkButton];
         
         UIImageView *bookmarkImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"29-heart.png"]];

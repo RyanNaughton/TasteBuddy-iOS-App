@@ -123,7 +123,7 @@
         CGRect fullWidthFrame = CGRectMake(10, 110, 300, 40);
         //CGRect btmRtFrame = CGRectMake(165, 110, 145, 40);
         bookmarkButton.frame =  fullWidthFrame;
-        [bookmarkButton setTitle:@"  Bookmark" forState:UIControlStateNormal];
+        [bookmarkButton setTitle:@"Add to Favorites" forState:UIControlStateNormal];
         [self.contentView addSubview:bookmarkButton];
         
         UIImageView *bookmarkImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"29-heart.png"]];

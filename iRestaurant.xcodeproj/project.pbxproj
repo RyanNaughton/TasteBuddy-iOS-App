@@ -235,6 +235,8 @@
 		E8C794D6135D15B80033C3FB /* restaurants-tab-off.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C794D2135D15B80033C3FB /* restaurants-tab-off.png */; };
 		E8C794D7135D15B80033C3FB /* restaurants-tab-on.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C794D3135D15B80033C3FB /* restaurants-tab-on.png */; };
 		E8C794DE135D2D9A0033C3FB /* iRestaurant-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E8C794DD135D2D9A0033C3FB /* iRestaurant-logo.png */; };
+		E8CA1F39138C2C7F000D47F6 /* red-button.png in Resources */ = {isa = PBXBuildFile; fileRef = E8CA1F37138C2C7F000D47F6 /* red-button.png */; };
+		E8CA1F3A138C2C7F000D47F6 /* red-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8CA1F38138C2C7F000D47F6 /* red-button@2x.png */; };
 		E8CD38C71357BB2500FBC6FF /* RestaurantPhoneCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */; };
 		E8CD38CF1357C82600FBC6FF /* search-text-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E8CD38CD1357C82600FBC6FF /* search-text-bg.png */; };
 		E8CD38D01357C82600FBC6FF /* search-text-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8CD38CE1357C82600FBC6FF /* search-text-bg@2x.png */; };
@@ -607,6 +609,8 @@
 		E8C794D2135D15B80033C3FB /* restaurants-tab-off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "restaurants-tab-off.png"; sourceTree = "<group>"; };
 		E8C794D3135D15B80033C3FB /* restaurants-tab-on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "restaurants-tab-on.png"; sourceTree = "<group>"; };
 		E8C794DD135D2D9A0033C3FB /* iRestaurant-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iRestaurant-logo.png"; sourceTree = "<group>"; };
+		E8CA1F37138C2C7F000D47F6 /* red-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-button.png"; sourceTree = "<group>"; };
+		E8CA1F38138C2C7F000D47F6 /* red-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-button@2x.png"; sourceTree = "<group>"; };
 		E8CD38C51357BB2500FBC6FF /* RestaurantPhoneCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantPhoneCell.h; sourceTree = "<group>"; };
 		E8CD38C61357BB2500FBC6FF /* RestaurantPhoneCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantPhoneCell.m; sourceTree = "<group>"; };
 		E8CD38CD1357C82600FBC6FF /* search-text-bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search-text-bg.png"; sourceTree = "<group>"; };
@@ -1043,6 +1047,8 @@
 				E86A84521368AD7B00720FA3 /* icons */,
 				E8AA4AED1361064A00A8E37B /* top-rounding.png */,
 				E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */,
+				E8CA1F37138C2C7F000D47F6 /* red-button.png */,
+				E8CA1F38138C2C7F000D47F6 /* red-button@2x.png */,
 				E81B8F42138465660052F240 /* bar-bg.png */,
 				E8EE5B1D1381AB9600ACC2CF /* big-star-orange@2x.png */,
 				E8EE5B1E1381AB9600ACC2CF /* big-star-orange.png */,
@@ -1680,6 +1686,8 @@
 				E81B8F4813846A870052F240 /* icon57@2x.png in Resources */,
 				E81B8F4B13846F520052F240 /* default.png in Resources */,
 				E81B8F4C13846F520052F240 /* default@2x.png in Resources */,
+				E8CA1F39138C2C7F000D47F6 /* red-button.png in Resources */,
+				E8CA1F3A138C2C7F000D47F6 /* red-button@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

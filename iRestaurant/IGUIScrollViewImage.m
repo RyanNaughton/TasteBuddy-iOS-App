@@ -14,7 +14,7 @@
 
 @implementation IGUIScrollViewImage
 
-@synthesize scrollView, menuItemLabel, showMenuItemLabel, labelArray, delegate;
+@synthesize scrollView, menuItemLabel, showMenuItemLabel, dishNameLabelArray, commentLabelArray, delegate;
 
 - (int)getScrollViewWidth {
 	return ([contentArray count] * scrollWidth);
@@ -131,15 +131,18 @@
 	return [self getWithPosition:[[[NSUserDefaults standardUserDefaults] objectForKey:[NSString stringWithFormat:@"%@%@", kIGUIScrollViewImagePageIdentifier, positionIdentifier]] intValue]];
 }
 
--(void)setLabelArray:(NSArray *)labelArrayPassed {
-    labelArray = [labelArrayPassed retain];
-    [delegate setImageLabel:[labelArray objectAtIndex:0]];
+-(void)setDishNameLabelArray:(NSArray *)dishNameLabelArrayPassed andCommentLabelArray:(NSArray *)commentLabelArrayPassed {
+    dishNameLabelArray = [dishNameLabelArrayPassed retain];
+    commentLabelArray = [commentLabelArrayPassed retain];
+    [delegate setImageLabelsDishName:[dishNameLabelArray objectAtIndex:0] andComment:[commentLabelArray objectAtIndex:0]];
+    //[delegate setImageLabels:[dishNameLabelArray objectAtIndex:0]];
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)sv {
     
 	int page = sv.contentOffset.x / sv.frame.size.width;
-    [delegate setImageLabel:[labelArray objectAtIndex:page]];
+    //[delegate setImageLabels:[dishNameLabelArray objectAtIndex:page]];
+    [delegate setImageLabelsDishName:[dishNameLabelArray objectAtIndex:page] andComment:[commentLabelArray objectAtIndex:page]];
     
 	pageControl.currentPage = page;
 	if (rememberPosition) {

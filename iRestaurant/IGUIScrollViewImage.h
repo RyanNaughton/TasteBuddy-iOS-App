@@ -14,7 +14,7 @@
 #import <UIKit/UIKit.h>
 
 @protocol IGUIScrollViewImageDelegate <NSObject>
--(void) setImageLabel:(NSString *)labelString;
+-(void) setImageLabelsDishName:(NSString *)dishNameString andComment:(NSString *)commentString;
 @end
 
 @interface IGUIScrollViewImage : NSObject <UIScrollViewDelegate> {
@@ -42,7 +42,8 @@
     
     UILabel *menuItemLabel;
     BOOL showMenuItemLabel;
-    NSArray *labelArray;
+    NSArray *dishNameLabelArray;
+    NSArray *commentLabelArray;
 	
 }
 
@@ -50,9 +51,10 @@
 @property (nonatomic, retain) UIScrollView *scrollView;
 @property (nonatomic, retain) UILabel *menuItemLabel;
 @property (nonatomic, assign) BOOL showMenuItemLabel;
-@property (nonatomic, retain) NSArray *labelArray;
+@property (nonatomic, retain) NSArray *dishNameLabelArray;
+@property (nonatomic, retain) NSArray *commentLabelArray;
 
--(void)setLabelArray:(NSArray *)labelArrayPassed;
+-(void)setDishNameLabelArray:(NSArray *)dishNameLabelArrayPassed andCommentLabelArray:(NSArray *)commentLabelArrayPassed;
 
 /// returns width of the scollview
 - (int)getScrollViewWidth;
