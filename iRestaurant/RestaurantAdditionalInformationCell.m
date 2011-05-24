@@ -31,7 +31,7 @@
         titleLabel.frame = CGRectMake(10, 25, 320, 15);
         titleLabel.textColor = [UIColor blackColor];
         titleLabel.backgroundColor = [UIColor clearColor];
-        titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        titleLabel.font = [UIFont boldSystemFontOfSize:14];
         titleLabel.shadowColor = [UIColor whiteColor];
         titleLabel.shadowOffset = CGSizeMake(0,1);
         titleLabel.text = @"Additional Information";

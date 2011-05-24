@@ -29,7 +29,7 @@
         UIImage *greyButtonImage = [[UIImage imageNamed:@"darkgrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
         [websiteButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [websiteButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        websiteButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        websiteButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         websiteButton.frame = CGRectMake(10, 0, 300, 35);
         [self.contentView addSubview:websiteButton];
         self.selectionStyle = UITableViewCellEditingStyleNone;

@@ -46,7 +46,7 @@
         name.frame = CGRectMake(10, 7, 280, 20);
         name.textColor = [UIColor blackColor];
 		name.backgroundColor = [UIColor clearColor];
-		name.font = [UIFont boldSystemFontOfSize:20];
+		name.font = [UIFont boldSystemFontOfSize:17];
         name.shadowColor = [UIColor whiteColor];
         name.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:name];

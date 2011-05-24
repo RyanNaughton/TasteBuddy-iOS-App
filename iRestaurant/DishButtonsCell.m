@@ -29,7 +29,7 @@
         [callButton addTarget:dishViewController action:@selector(callButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [callButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [callButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        callButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        callButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         callButton.frame = CGRectMake(10, 10, 145, 40);
         [callButton setTitle:@"Call" forState:UIControlStateNormal];
         [self.contentView addSubview:callButton];
@@ -47,7 +47,7 @@
         [rateItButton addTarget:dishViewController action:@selector(rateItButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [rateItButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [rateItButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        rateItButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        rateItButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         rateItButton.frame = CGRectMake(165, 10, 145, 40);
         [rateItButton setTitle:@"Rate it!" forState:UIControlStateNormal];
         [self.contentView addSubview:rateItButton];
@@ -65,7 +65,7 @@
         [mapItButton addTarget:dishViewController action:@selector(mapItButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [mapItButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [mapItButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        mapItButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        mapItButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         mapItButton.frame = CGRectMake(10, 60, 145, 40);
         [mapItButton setTitle:@"Map it!" forState:UIControlStateNormal];
         [self.contentView addSubview:mapItButton];
@@ -83,7 +83,7 @@
         [photoButton addTarget:dishViewController action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [photoButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [photoButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        photoButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        photoButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         photoButton.frame = CGRectMake(165, 60, 145, 40);
         [photoButton setTitle:@"  Add Photo" forState:UIControlStateNormal];
         [self.contentView addSubview:photoButton];
@@ -119,7 +119,7 @@
         [bookmarkButton addTarget:dishViewController action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [bookmarkButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [bookmarkButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        bookmarkButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        bookmarkButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         CGRect fullWidthFrame = CGRectMake(10, 110, 300, 40);
         //CGRect btmRtFrame = CGRectMake(165, 110, 145, 40);
         bookmarkButton.frame =  fullWidthFrame;

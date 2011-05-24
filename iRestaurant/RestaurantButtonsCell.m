@@ -29,7 +29,7 @@
         [callButton addTarget:restaurantViewController action:@selector(callButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [callButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [callButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        callButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        callButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         callButton.frame = CGRectMake(10, 10, 145, 40);
         [callButton setTitle:@"Call" forState:UIControlStateNormal];
         [self.contentView addSubview:callButton];
@@ -47,7 +47,7 @@
         [rateItButton addTarget:restaurantViewController action:@selector(rateItButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [rateItButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [rateItButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        rateItButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        rateItButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         rateItButton.frame = CGRectMake(165, 10, 145, 40);
         [rateItButton setTitle:@"Rate it!" forState:UIControlStateNormal];
         [self.contentView addSubview:rateItButton];
@@ -65,7 +65,7 @@
         [mapItButton addTarget:restaurantViewController action:@selector(mapItButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [mapItButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [mapItButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        mapItButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        mapItButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         mapItButton.frame = CGRectMake(10, 60, 145, 40);
         [mapItButton setTitle:@"Map it!" forState:UIControlStateNormal];
         [self.contentView addSubview:mapItButton];
@@ -83,7 +83,7 @@
         [photoButton addTarget:restaurantViewController action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [photoButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [photoButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        photoButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        photoButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         photoButton.frame = CGRectMake(165, 60, 145, 40);
         [photoButton setTitle:@" Add Photo" forState:UIControlStateNormal];
         [self.contentView addSubview:photoButton];
@@ -101,7 +101,7 @@
         [menuButton addTarget:restaurantViewController action:@selector(menuButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [menuButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [menuButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        menuButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        menuButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         menuButton.frame = CGRectMake(10, 110, 145, 40);
         [menuButton setTitle:@"Menus" forState:UIControlStateNormal];
         [self.contentView addSubview:menuButton];
@@ -119,7 +119,7 @@
         [bookmarkButton addTarget:restaurantViewController action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [bookmarkButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [bookmarkButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        bookmarkButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
+        bookmarkButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         bookmarkButton.frame = CGRectMake(165, 110, 145, 40);
         [bookmarkButton setTitle:@" Favorite" forState:UIControlStateNormal];
         [self.contentView addSubview:bookmarkButton];

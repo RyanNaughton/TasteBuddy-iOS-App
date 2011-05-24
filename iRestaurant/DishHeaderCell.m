@@ -32,7 +32,7 @@
         name.adjustsFontSizeToFitWidth = TRUE;
         name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		name.backgroundColor = [UIColor clearColor];
-		name.font = [UIFont boldSystemFontOfSize:18];
+		name.font = [UIFont boldSystemFontOfSize:17];
         name.shadowColor = [UIColor whiteColor];
         name.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:name];

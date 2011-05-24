@@ -297,11 +297,11 @@
     
     if ((dataReceived) && (!loading)) {
     if (indexPath.section == 0) {
-        height = 130;
+        height = 105;
     } else {
         if (indexPath.row == 0) {
             // photo head
-            height = 44;
+            height = 30;
         } else {
             height = 85;
         }
