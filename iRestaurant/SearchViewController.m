@@ -230,6 +230,7 @@
     restaurantSearchResultTableViewController.isLoading = NO;
     dishSearchResultTableViewController.isLoading = NO;
     [tableView reloadData];
+    [self setUpAnnotations];
 }
 
 -(IBAction) filterPressed {
@@ -290,9 +291,6 @@
 
 -(IBAction) mapButtonPressed:(id)sender {
     mapView.hidden = !mapView.hidden;
-    if(!mapView.hidden) {
-        [self setUpAnnotations];
-    }
     tableView.hidden = !mapView.hidden;
 }
 
@@ -329,9 +327,8 @@
 }
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control { 
-	
-	if([view isKindOfClass:[RestaurantAnnotation class]]){
-        RestaurantAnnotation *ra = (RestaurantAnnotation *)view;
+	if([view.annotation isKindOfClass:[RestaurantAnnotation class]]){
+        RestaurantAnnotation *ra = (RestaurantAnnotation *)view.annotation;
         RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:ra.restaurant];
         [self.navigationController pushViewController:restaurantViewController animated:YES];
         [restaurantViewController release];
