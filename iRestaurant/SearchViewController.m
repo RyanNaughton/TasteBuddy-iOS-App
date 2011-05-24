@@ -13,6 +13,9 @@
 #import "ASIFormDataRequest.h"
 #import "AutocompleteModalViewController.h"
 #import "iRestaurantAppDelegate.h"
+#import "RestaurantAnnotation.h"
+#import "RestaurantViewController.h"
+
 
 @implementation SearchViewController
 
@@ -31,6 +34,8 @@
 @synthesize tabView;
 
 @synthesize needsToPerformDefaultSearch;
+
+@synthesize mapView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -57,6 +62,7 @@
     [dishesTabButton release];
     [restaurantsTabButton release];
     [tabView release];
+    [mapView release];
     [super dealloc];
 }
 
@@ -139,16 +145,18 @@
     [UIView beginAnimations:nil context:nil];
     if (onTab == restaurantsTabButton) {
         offTab = dishesTabButton;
-        fakeTermField.frame = CGRectMake(7, 7, 254, 31);
+        fakeTermField.frame = CGRectMake(7, 7, 207, 31);
         filterButton.alpha = 1.0;
+        mapButton.alpha = 1.0;
     } else {
         offTab = restaurantsTabButton;
         fakeTermField.frame = CGRectMake(7, 7, 306, 31);
         filterButton.alpha = 0.0;
+        mapButton.alpha = 0.0;
     }
     [UIView setAnimationDuration:0.2];
     [UIView commitAnimations];
-    
+    mapView.hidden = YES;
     [offTab setBackgroundImage:[[UIImage imageNamed:@"darkgrey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
     [offTab setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [onTab setBackgroundImage:[[UIImage imageNamed:@"grey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
@@ -222,6 +230,7 @@
     restaurantSearchResultTableViewController.isLoading = NO;
     dishSearchResultTableViewController.isLoading = NO;
     [tableView reloadData];
+    [self setUpAnnotations];
 }
 
 -(IBAction) filterPressed {
@@ -279,5 +288,56 @@
 -(void) makeWhatFirstResponder {
     [searchModalViewController.termField becomeFirstResponder];
 }
+
+-(IBAction) mapButtonPressed:(id)sender {
+    mapView.hidden = !mapView.hidden;
+    tableView.hidden = !mapView.hidden;
+}
+
+-(void) setUpAnnotations {
+    [mapView removeAnnotations:mapView.annotations];
+    for (Restaurant *restaurant in restaurantSearchResultTableViewController.restaurantsArray) {
+        RestaurantAnnotation *annotation = [[RestaurantAnnotation alloc] initWithRestaurant:restaurant];
+        [mapView addAnnotation:annotation];
+        [annotation release];
+    }   
+}
+
+-(MKAnnotationView *)mapView:(MKMapView *)mV viewForAnnotation: (id <MKAnnotation>)annotation {
+	MKPinAnnotationView *pinView = nil; 
+	if(annotation != mapView.userLocation) 
+	{
+		static NSString *defaultPinID = @"restaurantPin";
+		pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
+		if ( pinView == nil ) pinView = [[[MKPinAnnotationView alloc]
+										  initWithAnnotation:annotation reuseIdentifier:defaultPinID] autorelease];
+		
+        pinView.pinColor = MKPinAnnotationColorRed; 
+		
+		pinView.canShowCallout = YES;
+		pinView.animatesDrop = NO;
+        
+        UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        pinView.rightCalloutAccessoryView = infoButton;
+	} 
+	else {
+		[mapView.userLocation setTitle:@"You are here"];
+	}
+	return pinView;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control { 
+	if([view.annotation isKindOfClass:[RestaurantAnnotation class]]){
+        RestaurantAnnotation *ra = (RestaurantAnnotation *)view.annotation;
+        RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:ra.restaurant];
+        [self.navigationController pushViewController:restaurantViewController animated:YES];
+        [restaurantViewController release];
+
+	}
+	
+}
+
+
+
 
 @end
