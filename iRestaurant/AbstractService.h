@@ -36,4 +36,5 @@
 -(bool) isLoggedIn;
 -(void) prepareRequest;
 -(void) logInFinished;
+
 @end

@@ -89,7 +89,8 @@
 //                                                                     target:self
 //                                                                     action:@selector(logoutPressed:)]; 
 //        self.navigationItem.leftBarButtonItem = logoutBtn;
-//        [logoutBtn release]; 
+//        [logoutBtn release];
+        self.navigationItem.leftBarButtonItem = nil;
         
     } else {
         UIBarButtonItem *loginBtn = [[UIBarButtonItem alloc] initWithTitle:@"Login"
