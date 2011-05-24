@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "UserSettingsService.h"
 #import "UserAttributesService.h"
+@class ProfileTableViewController;
 
-@interface UserSettingsViewController : UIViewController <UITextFieldDelegate, UserSettingsServiceDelegate, UserAttributesServiceDelegate> {
+@interface UserSettingsViewController : UIViewController <UITextFieldDelegate, UserSettingsServiceDelegate, UserAttributesServiceDelegate, UIAlertViewDelegate> {
  	IBOutlet UIScrollView *scrollView;
     IBOutlet UITextField *usernameField;
     IBOutlet UITextField *firstNameField;
@@ -25,6 +26,8 @@
     IBOutlet UITextField *birthdayYearField;
     UserSettingsService *uss;
     UserAttributesService *uas;
+    ProfileTableViewController *ptvc;
+    IBOutlet UIButton *logoutButton;
 }
 
 @property (nonatomic, retain) IBOutlet UIScrollView *scrollView;
@@ -41,6 +44,8 @@
 @property (nonatomic, retain) IBOutlet UITextField *birthdayYearField;
 @property (nonatomic, retain) UserSettingsService *uss;
 @property (nonatomic, retain) UserAttributesService *uas;
+@property (nonatomic, retain) ProfileTableViewController *ptvc;
+@property (nonatomic, retain) IBOutlet UIButton *logoutButton;
 
 -(void)setUserWithDictionary:(NSDictionary *)dict;
 
@@ -49,5 +54,6 @@
 
 -(void) settingsUpdateComplete:(AuthenticationResponse *)authToken;
 -(void) attributesServiceComplete:(NSDictionary *)dict;
+-(IBAction)logout;
 
 @end

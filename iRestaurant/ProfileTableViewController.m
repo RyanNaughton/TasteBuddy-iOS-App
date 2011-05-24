@@ -65,7 +65,6 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self checkLogin];    
-    
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -85,12 +84,12 @@
         self.navigationItem.rightBarButtonItem = settingsBtn;
         [settingsBtn release];
         
-        UIBarButtonItem *logoutBtn = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
-                                                                      style:UIBarButtonItemStyleBordered
-                                                                     target:self
-                                                                     action:@selector(logoutPressed:)]; 
-        self.navigationItem.leftBarButtonItem = logoutBtn;
-        [logoutBtn release]; 
+//        UIBarButtonItem *logoutBtn = [[UIBarButtonItem alloc] initWithTitle:@"Logout"
+//                                                                      style:UIBarButtonItemStyleBordered
+//                                                                     target:self
+//                                                                     action:@selector(logoutPressed:)]; 
+//        self.navigationItem.leftBarButtonItem = logoutBtn;
+//        [logoutBtn release]; 
         
     } else {
         UIBarButtonItem *loginBtn = [[UIBarButtonItem alloc] initWithTitle:@"Login"
@@ -400,6 +399,7 @@
 
 -(IBAction) settingsBtnPressed:(id)sender {
     UserSettingsViewController *usvc = [[UserSettingsViewController alloc]init];
+    usvc.ptvc = self;
     [self.navigationController pushViewController:usvc animated:YES];
     [usvc release];
 }
