@@ -357,28 +357,28 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section > 0) {
-        if (indexPath.row > 0) {
-            NSDictionary *dict = [picturesArray objectAtIndex:(indexPath.section - 1)];
-            NSArray *array = [dict objectForKey:@"array"];
-            
-            NSDictionary *currentRestaurantDict = [array objectAtIndex:(indexPath.row -1)];
-            NSArray *arrayOfPhotos = [currentRestaurantDict objectForKey:@"array"];
-            NSString *restaurantName = [currentRestaurantDict objectForKey:@"name"];
-            
-            NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
-            for (NSDictionary *photoDict in arrayOfPhotos) {
-                [arrayOfURLStrings addObject:[photoDict objectForKey:@"300px"]];
-            }
-            
-            PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
-            [photoViewer setupScrollView:arrayOfPhotos];
-            photoViewer.navItem.title = [NSString stringWithFormat:@"%@", restaurantName];
-            photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-            [self presentModalViewController:photoViewer animated:YES];
-            [photoViewer release];
-        }
-    }
+//    if (indexPath.section > 0) {
+//        if (indexPath.row > 0) {
+//            NSDictionary *dict = [picturesArray objectAtIndex:(indexPath.section - 1)];
+//            NSArray *array = [dict objectForKey:@"array"];
+//            
+//            NSDictionary *currentRestaurantDict = [array objectAtIndex:(indexPath.row -1)];
+//            NSArray *arrayOfPhotos = [currentRestaurantDict objectForKey:@"array"];
+//            NSString *restaurantName = [currentRestaurantDict objectForKey:@"name"];
+//            
+//            NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
+//            for (NSDictionary *photoDict in arrayOfPhotos) {
+//                [arrayOfURLStrings addObject:[photoDict objectForKey:@"300px"]];
+//            }
+//            
+//            PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
+//            [photoViewer setupScrollView:arrayOfPhotos];
+//            photoViewer.navItem.title = [NSString stringWithFormat:@"%@", restaurantName];
+//            photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//            [self presentModalViewController:photoViewer animated:YES];
+//            [photoViewer release];
+//        }
+//    }
 }
 
 
