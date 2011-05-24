@@ -80,5 +80,6 @@
 -(void) fireSearch;
 
 -(void) setUpAnnotations;
+-(void) updateSearchTermField;
 
 @end

@@ -206,13 +206,16 @@
     //Need to scroll to top here
 }
 
--(void)searchFinished:(NSMutableArray *)restaurantsArray 
-{ 
+-(void)updateSearchTermField {
     if (![fakeTermField.text isEqualToString:@""]) {
         searchIcon.alpha = 0.0;
     } else {
         searchIcon.alpha = 0.35;
     }
+}
+
+-(void)searchFinished:(NSMutableArray *)restaurantsArray 
+{ 
     restaurantSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
     dishSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
     [self resultsLoaded];
