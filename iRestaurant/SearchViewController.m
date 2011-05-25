@@ -191,6 +191,7 @@
         tableView.hidden = false;
         mapView.hidden = true;
         fakeTermField.placeholder = @"      Restaurants";
+        [mapButton setTitle:@"Map" forState:UIControlStateNormal];
     } else if (sender == dishesTabButton){
         [self switchTabs:dishesTabButton];
         tableView.delegate = dishSearchResultTableViewController;
