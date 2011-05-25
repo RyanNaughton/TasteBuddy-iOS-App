@@ -199,9 +199,13 @@
         tableView.hidden = false;
         mapView.hidden = true;
         fakeTermField.placeholder = @"      Dishes";
-    } else if (sender == mapButton) {
+    } else if (sender == mapButton && [mapButton.titleLabel.text isEqualToString:@"Map"]) {
         tableView.hidden = true;
         mapView.hidden = false;
+        [mapButton setTitle:@"List" forState:UIControlStateNormal];
+    } else if (sender == mapButton && [mapButton.titleLabel.text isEqualToString:@"List"]) {
+        [mapButton setTitle:@"Map" forState:UIControlStateNormal];
+        [self switchSearchView:restaurantsTabButton];
     }
 
     [tableView setContentOffset:CGPointMake(0, 0) animated:NO];
