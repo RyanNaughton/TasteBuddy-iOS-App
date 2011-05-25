@@ -40,7 +40,7 @@
         tagsLabel.frame = CGRectMake(10, 25, 120, 15);
         tagsLabel.textColor = [UIColor blackColor];
         tagsLabel.backgroundColor = [UIColor clearColor];
-        tagsLabel.font = [UIFont boldSystemFontOfSize:16];
+        tagsLabel.font = [UIFont boldSystemFontOfSize:14];
         tagsLabel.shadowColor = [UIColor whiteColor];
         tagsLabel.shadowOffset = CGSizeMake(0,1);
         tagsLabel.text = @"Quick Review";
@@ -52,7 +52,7 @@
         tagsSubLabel.frame = CGRectMake(10, 45, 300, 15);
         tagsSubLabel.textColor = [UIColor darkGrayColor];
         tagsSubLabel.backgroundColor = [UIColor clearColor];
-        tagsSubLabel.font = [UIFont systemFontOfSize:14];
+        tagsSubLabel.font = [UIFont systemFontOfSize:13];
         tagsSubLabel.shadowColor = [UIColor whiteColor];
         tagsSubLabel.shadowOffset = CGSizeMake(0,1);
         tagsSubLabel.text = [NSString stringWithFormat:@"Touch adjectives that describe this %@", context];

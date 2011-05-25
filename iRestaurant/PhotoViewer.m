@@ -54,12 +54,12 @@
     svimage.delegate = self;
     [svimage setBackGroudColor:[UIColor clearColor]];
     [svimage setContentArray:imageViewArray]; 
-    [svimage setDishNameLabelArray:dishNameLabelArray andCommentLabelArray:commentLabelArray];
     [svimage setWidth:320 andHeight:320];
     [svimage enablePageControlOnBottom];  
     [viewForScrollView addSubview:[svimage getWithPosition:0]]; 
     svimage.scrollView.showsHorizontalScrollIndicator = FALSE;
     [self.view addSubview:viewForScrollView];
+    [svimage setDishNameLabelArray:dishNameLabelArray andCommentLabelArray:commentLabelArray];
     [viewForScrollView release];
 }
 

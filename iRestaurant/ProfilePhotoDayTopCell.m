@@ -26,10 +26,10 @@
         [topRounding release];
         
         dayLabel = [[UILabel alloc]init];
-        dayLabel.frame = CGRectMake(10, 18, 250, 20);
+        dayLabel.frame = CGRectMake(10, 10, 250, 20);
         dayLabel.textColor = [UIColor darkGrayColor];
         dayLabel.backgroundColor = [UIColor clearColor];
-        dayLabel.font = [UIFont systemFontOfSize:16];
+        dayLabel.font = [UIFont systemFontOfSize:14];
         dayLabel.shadowColor = [UIColor whiteColor];
         dayLabel.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:dayLabel];

@@ -89,7 +89,8 @@
 //                                                                     target:self
 //                                                                     action:@selector(logoutPressed:)]; 
 //        self.navigationItem.leftBarButtonItem = logoutBtn;
-//        [logoutBtn release]; 
+//        [logoutBtn release];
+        self.navigationItem.leftBarButtonItem = nil;
         
     } else {
         UIBarButtonItem *loginBtn = [[UIBarButtonItem alloc] initWithTitle:@"Login"
@@ -297,11 +298,11 @@
     
     if ((dataReceived) && (!loading)) {
     if (indexPath.section == 0) {
-        height = 130;
+        height = 105;
     } else {
         if (indexPath.row == 0) {
             // photo head
-            height = 44;
+            height = 30;
         } else {
             height = 85;
         }

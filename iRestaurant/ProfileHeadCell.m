@@ -23,52 +23,52 @@
         //self.backgroundColor = [UIColor clearColor];
                 
         nameLabel = [[UILabel alloc]init];
-        nameLabel.frame = CGRectMake(10, 10, 250, 25);
+        nameLabel.frame = CGRectMake(10, 9, 250, 25);
         nameLabel.textColor = [UIColor blackColor];
         nameLabel.backgroundColor = [UIColor clearColor];
-        nameLabel.font = [UIFont boldSystemFontOfSize:24];
+        nameLabel.font = [UIFont boldSystemFontOfSize:17];
         [self.contentView addSubview:nameLabel];
 
         UIImageView *reviewImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"162-receipt.png"]];
-        reviewImage.frame = CGRectMake(10, 53, 18, 18);;
+        reviewImage.frame = CGRectMake(10, 43, 18, 18);;
         reviewImage.alpha = 0.8;
         [self.contentView addSubview:reviewImage];
 
         UILabel *youveSubmitted = [[UILabel alloc]init];
-        youveSubmitted.frame = CGRectMake(35, 50, 130, 25);
+        youveSubmitted.frame = CGRectMake(35, 40, 130, 25);
         youveSubmitted.textColor = [UIColor blackColor];
         youveSubmitted.backgroundColor = [UIColor clearColor];
-        youveSubmitted.font = [UIFont systemFontOfSize:16];
+        youveSubmitted.font = [UIFont systemFontOfSize:14];
         youveSubmitted.text = @"You've submitted";
         [self.contentView addSubview:youveSubmitted];
         [youveSubmitted release];
 
         reviewsLabel = [[UILabel alloc]init];
-        reviewsLabel.frame = CGRectMake(163, 50, 250, 25);
+        reviewsLabel.frame = CGRectMake(150, 40, 250, 25);
         reviewsLabel.textColor = [UIColor blackColor];
         reviewsLabel.backgroundColor = [UIColor clearColor];
-        reviewsLabel.font = [UIFont boldSystemFontOfSize:16];
+        reviewsLabel.font = [UIFont boldSystemFontOfSize:14];
         [self.contentView addSubview:reviewsLabel];
         
         UIImageView *picturesImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"42-photos.png"]];
-        picturesImage.frame = CGRectMake(10, 93, 18, 18);
+        picturesImage.frame = CGRectMake(10, 73, 18, 18);
         picturesImage.alpha = 0.8;
         [self.contentView addSubview:picturesImage];
         
         UILabel *youveTaken = [[UILabel alloc]init];
-        youveTaken.frame = CGRectMake(35, 90, 100, 25);
+        youveTaken.frame = CGRectMake(35, 70, 100, 25);
         youveTaken.textColor = [UIColor blackColor];
         youveTaken.backgroundColor = [UIColor clearColor];
-        youveTaken.font = [UIFont systemFontOfSize:16];
+        youveTaken.font = [UIFont systemFontOfSize:14];
         youveTaken.text = @"You've taken";
         [self.contentView addSubview:youveTaken];
         [youveTaken release];
         
         picturesLabel = [[UILabel alloc]init];
-        picturesLabel.frame = CGRectMake(130, 90, 250, 25);
+        picturesLabel.frame = CGRectMake(125, 70, 250, 25);
         picturesLabel.textColor = [UIColor blackColor];
         picturesLabel.backgroundColor = [UIColor clearColor];
-        picturesLabel.font = [UIFont boldSystemFontOfSize:16];
+        picturesLabel.font = [UIFont boldSystemFontOfSize:14];
         [self.contentView addSubview:picturesLabel];
     }
     return self;

@@ -48,7 +48,7 @@
     } else if([self isLoggedIn] && authTokenOptional) {
         [self logInFinished];
     } else {
-        [self performRequest];
+            [self performRequest];
     }
 }
 
@@ -71,6 +71,13 @@
         NSLog(@"%@", @"Logging out");
         [appDelegate logout];
     }
+    
+    if (responseCode == 0) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Connection Error" message:@"We're sorry, but we could not connect to the TasteBuddy server" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    }
+    
     request = nil;
 }
 

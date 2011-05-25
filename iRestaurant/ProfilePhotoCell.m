@@ -40,7 +40,7 @@
         restaurantLabel.frame = CGRectMake(85, 10, 250, 25);
         restaurantLabel.textColor = [UIColor blackColor];
         restaurantLabel.backgroundColor = [UIColor clearColor];
-        restaurantLabel.font = [UIFont boldSystemFontOfSize:22];
+        restaurantLabel.font = [UIFont boldSystemFontOfSize:17];
         [self.contentView addSubview:restaurantLabel];
         
         UIButton *restaurantButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -52,7 +52,7 @@
         pictureCountLabel.frame = CGRectMake(85, 35, 250, 25);
         pictureCountLabel.textColor = [UIColor blackColor];
         pictureCountLabel.backgroundColor = [UIColor clearColor];
-        pictureCountLabel.font = [UIFont systemFontOfSize:16];
+        pictureCountLabel.font = [UIFont systemFontOfSize:14];
         [self.contentView addSubview:pictureCountLabel];
 
 
