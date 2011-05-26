@@ -17,14 +17,19 @@
 #import "CellUtility.h"
 #import "Comment.h"
 #import "RatingPopupViewController.h"
+#import "TagViewController.h"
 #import "Rating.h"
+#import "LoadingTagCell.h"
+#import "TagCell.h"
+#import "MoreTagsCell.h"
+#import "Tag.h"
 
 // CELLS =========
 #import "RestaurantHeaderCell.h"
 #import "RestaurantMenuCell.h"
 #import "RestaurantAddressCell.h"
 #import "RestaurantPhoneCell.h"
-#import "TagsCell.h"
+#import "QuickReviewHeaderCell.h"
 #import "RestaurantWebsiteCell.h"
 #import "RestaurantButtonsCell.h"
 #import "CommentsHeaderCell.h"
@@ -32,7 +37,7 @@
 #import "RestaurantAdditionalInformationCell.h"
 
 @implementation RestaurantViewController
-@synthesize tableArray, restaurant, tagsRowHeight, takePhoto, menuViewController;
+@synthesize tableArray, restaurant, tagsRowHeight, takePhoto, menuViewController, tagsBeingLoaded, tagService;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -46,11 +51,16 @@
 -(id)initWithRestaurant:(Restaurant *)restaurant_passed {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
+        tagsBeingLoaded = true;
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
         self.navigationController.navigationBar.translucent = YES;
         restaurant = [restaurant_passed retain];
         tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"WebsiteLink", @"AdditionalInformation", @"Tags", nil];
         tagsRowHeight = 44;
+        
+        
+        tagService =[[TagService alloc] initWithDelegate:self];
+        [tagService getTags];
     }
     return self;
 }
@@ -124,6 +134,9 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    if(animated) {
+        [self.tableView reloadData];
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -154,6 +167,12 @@
 {
     if ([@"Comments" isEqualToString:[tableArray objectAtIndex:section]]) {
         return 1 + [restaurant.comments count];
+    } else if ([@"Tags" isEqualToString:[tableArray objectAtIndex:section]]) {
+        if(tagsBeingLoaded) {
+            return 2;
+        } else {
+            return 7;
+        }
     } else {
         return 1;
     }
@@ -196,13 +215,40 @@
 		return restaurantPhoneCell;
         
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
-        TagsCell *restaurantTagsCell = (TagsCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantTagsCell"];
-		if (restaurantTagsCell == nil) {
-		    restaurantTagsCell = [[[TagsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantTagsCell" andContext:@"restaurant"] autorelease];
-		}          
-        [restaurantTagsCell loadRestaurant:restaurant];
-		return restaurantTagsCell;
-        
+        if (indexPath.row == 0) {
+            QuickReviewHeaderCell *restaurantTagsCell = (QuickReviewHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantHeaderTagsCell"];
+            if (restaurantTagsCell == nil) {
+                restaurantTagsCell = [[[QuickReviewHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantHeaderTagsCell" andContext:@"restaurant"] autorelease];
+            }          
+            [restaurantTagsCell loadRestaurant:restaurant];
+            return restaurantTagsCell;
+
+        } else if (indexPath.row == 6) {
+            MoreTagsCell *moreTagsCell = (MoreTagsCell *)[tableView dequeueReusableCellWithIdentifier:@"MoreTagsCell"];
+            if(moreTagsCell == nil) {
+                moreTagsCell = [[[MoreTagsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MoreTagsCell"] autorelease];
+            }
+            return moreTagsCell;
+            
+        } else {
+            if (tagsBeingLoaded) {
+                LoadingTagCell *loadingCell = (LoadingTagCell *)[tableView dequeueReusableCellWithIdentifier:@"TagsLoadingCell"];
+                if (loadingCell == nil) {
+                    loadingCell = [[[LoadingTagCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TagsLoadingCell"] autorelease];
+                }          
+
+                return loadingCell;
+            
+            } else {
+                TagCell *tagCell = (TagCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantTagsCell"];
+                if(tagCell == nil){
+                    tagCell = [[[TagCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantTagsCell" andDelegate:self] autorelease];
+                }
+                [tagCell loadTag:[restaurant.tags objectAtIndex:indexPath.row - 1]];
+                return tagCell;
+
+            }
+        }
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"WebsiteLink"]) {
         RestaurantWebsiteCell *restaurantWebsiteCell = (RestaurantWebsiteCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantWebsiteCell"];
 		if (restaurantWebsiteCell == nil) {
@@ -258,12 +304,16 @@
         height = 45;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
         height = 45;
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
-        height = 200;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"WebsiteLink"]) {
         height = 44;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"AdditionalInformation"]) {
         height = 115;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
+        if (indexPath.row == 0) {
+            height = 60;
+        } else {
+            height = 44;
+        }
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
         if([restaurant.comments count] > 0 && indexPath.row > 0) {
             Comment * comment = (Comment *)[restaurant.comments objectAtIndex:(indexPath.row - 1)];
@@ -327,6 +377,21 @@
     
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Menu"]) {
     
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
+        if(!tagsBeingLoaded) {
+            if(indexPath.row == 6) {
+                TagViewController *tvc = [[TagViewController alloc] initWithNibName:@"TagViewController" bundle:nil andTaggedObject:restaurant];
+                [self.navigationController pushViewController:tvc animated:YES];
+                [tvc release];
+            } else if(indexPath.row > 0){
+                TagCell *tc = (TagCell *)[tableView cellForRowAtIndexPath:indexPath];
+                if (tc.tag.isUserTag) {
+                    [tc.service deleteTagFromRestaurant:restaurant withTag:tc.tag.name];
+                } else {
+                    [tc.service tagRestaurant:restaurant withTag:tc.tag.name];
+                }
+            }
+        }
     }
 }
 
@@ -401,13 +466,6 @@
 
 -(void)rateItButtonPressed:(id)sender 
 {
-//    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-//
-//    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"cancel" destructiveButtonTitle:nil otherButtonTitles:@"★★★★★", @"★★★★", @"★★★", @"★★", @"★", nil];
-//    [actionSheet setActionSheetStyle:UIActionSheetStyleBlackTranslucent];
-//    
-//    [actionSheet showInView:appDelegate.tabBarController.view];
-//    [actionSheet release];
     
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     RatingPopupViewController *rpvc = [[RatingPopupViewController alloc]initWithCurrentRating:restaurant.rating.user_rating];
@@ -430,8 +488,19 @@
     }
 }
 
+-(void) tagsRetrieved:(NSMutableArray *)tags {
+    [restaurant addAllTags:tags];
+    tagsBeingLoaded = false;
+    [self.tableView reloadData];
+}
+
 -(void) newImageLoaded:(NSDictionary *)dict_passed {
     [restaurant.pictures addObject:dict_passed];
+    [self.tableView reloadData];
+}
+
+-(void) doneTagging:(NSMutableArray *)tagsFromUser {
+    [restaurant updateUserTags:tagsFromUser];
     [self.tableView reloadData];
 }
 

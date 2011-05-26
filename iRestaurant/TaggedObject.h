@@ -14,4 +14,7 @@
 }
 @property (nonatomic, retain) NSMutableArray *tags;
 -(NSString *) tagsText;
+-(void) addAllTags:(NSMutableArray *) tagsArray;
+-(void) updateUserTags:(NSMutableArray *) tagsArray;
+-(void) sortTags;
 @end

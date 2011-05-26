@@ -15,6 +15,16 @@
 		4929F4BA13733532003D4EE8 /* TagService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4B913733531003D4EE8 /* TagService.m */; };
 		4929F4BE1373374F003D4EE8 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4BD1373374F003D4EE8 /* Tag.m */; };
 		4929F4C213735B0E003D4EE8 /* TagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4C113735B0E003D4EE8 /* TagButton.m */; };
+		493357CD138D8F430019A7E7 /* LoadingTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 493357CC138D8F430019A7E7 /* LoadingTagCell.m */; };
+		493357D0138D9D890019A7E7 /* TagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 493357CF138D9D890019A7E7 /* TagCell.m */; };
+		493357DD138DC2D90019A7E7 /* 13-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 493357D9138DC2C00019A7E7 /* 13-plus.png */; };
+		493357DE138DC2D90019A7E7 /* 13-plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 493357DA138DC2C40019A7E7 /* 13-plus@2x.png */; };
+		493357DF138DC2D90019A7E7 /* 19-check.png in Resources */ = {isa = PBXBuildFile; fileRef = 493357DB138DC2C60019A7E7 /* 19-check.png */; };
+		493357E0138DC2D90019A7E7 /* 19-check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 493357DC138DC2CF0019A7E7 /* 19-check@2x.png */; };
+		493357E3138DC3DD0019A7E7 /* MoreTagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 493357E2138DC3DB0019A7E7 /* MoreTagsCell.m */; };
+		493357E7138DC85D0019A7E7 /* TagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493357E5138DC85B0019A7E7 /* TagViewController.m */; };
+		493357E8138DC85D0019A7E7 /* TagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493357E6138DC85C0019A7E7 /* TagViewController.xib */; };
+		493357EB138DC99C0019A7E7 /* TagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493357EA138DC99A0019A7E7 /* TagsTableViewController.m */; };
 		494D34B21365FC7B00E03CCA /* CellUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D34B11365FC7B00E03CCA /* CellUtility.m */; };
 		49520096135D11D200F0876E /* AutocompleteModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49520094135D11D200F0876E /* AutocompleteModalViewController.m */; };
 		49520097135D11D200F0876E /* AutocompleteModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49520095135D11D200F0876E /* AutocompleteModalViewController.xib */; };
@@ -91,7 +101,7 @@
 		E83A946B1365F11A00A5B706 /* red-heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E83A94691365F11A00A5B706 /* red-heart@2x.png */; };
 		E83A946F1365F15400A5B706 /* 29-heart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E83A946D1365F15400A5B706 /* 29-heart@2x.png */; };
 		E83A94701365F15400A5B706 /* 29-heart.png in Resources */ = {isa = PBXBuildFile; fileRef = E83A946E1365F15400A5B706 /* 29-heart.png */; };
-		E83A9473136608CE00A5B706 /* TagsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E83A9472136608CE00A5B706 /* TagsCell.m */; };
+		E83A9473136608CE00A5B706 /* QuickReviewHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E83A9472136608CE00A5B706 /* QuickReviewHeaderCell.m */; };
 		E83A947613660E4B00A5B706 /* RestaurantWebsiteCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E83A947513660E4A00A5B706 /* RestaurantWebsiteCell.m */; };
 		E83A94781366119900A5B706 /* SavedSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = E83A94771366119900A5B706 /* SavedSettings.plist */; };
 		E842967F137C64C200E791B2 /* UserProfileService.m in Sources */ = {isa = PBXBuildFile; fileRef = E842967E137C64C200E791B2 /* UserProfileService.m */; };
@@ -286,6 +296,21 @@
 		4929F4BD1373374F003D4EE8 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 		4929F4C013735B0E003D4EE8 /* TagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagButton.h; sourceTree = "<group>"; };
 		4929F4C113735B0E003D4EE8 /* TagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagButton.m; sourceTree = "<group>"; };
+		493357CB138D8F430019A7E7 /* LoadingTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingTagCell.h; sourceTree = "<group>"; };
+		493357CC138D8F430019A7E7 /* LoadingTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingTagCell.m; sourceTree = "<group>"; };
+		493357CE138D9D890019A7E7 /* TagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCell.h; sourceTree = "<group>"; };
+		493357CF138D9D890019A7E7 /* TagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagCell.m; sourceTree = "<group>"; };
+		493357D9138DC2C00019A7E7 /* 13-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "13-plus.png"; sourceTree = "<group>"; };
+		493357DA138DC2C40019A7E7 /* 13-plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "13-plus@2x.png"; sourceTree = "<group>"; };
+		493357DB138DC2C60019A7E7 /* 19-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-check.png"; sourceTree = "<group>"; };
+		493357DC138DC2CF0019A7E7 /* 19-check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-check@2x.png"; sourceTree = "<group>"; };
+		493357E1138DC3D90019A7E7 /* MoreTagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreTagsCell.h; sourceTree = "<group>"; };
+		493357E2138DC3DB0019A7E7 /* MoreTagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreTagsCell.m; sourceTree = "<group>"; };
+		493357E4138DC8590019A7E7 /* TagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagViewController.h; sourceTree = "<group>"; };
+		493357E5138DC85B0019A7E7 /* TagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagViewController.m; sourceTree = "<group>"; };
+		493357E6138DC85C0019A7E7 /* TagViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagViewController.xib; sourceTree = "<group>"; };
+		493357E9138DC9980019A7E7 /* TagsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsTableViewController.h; sourceTree = "<group>"; };
+		493357EA138DC99A0019A7E7 /* TagsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsTableViewController.m; sourceTree = "<group>"; };
 		494D34B01365FC7B00E03CCA /* CellUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellUtility.h; sourceTree = "<group>"; };
 		494D34B11365FC7B00E03CCA /* CellUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellUtility.m; sourceTree = "<group>"; };
 		49520093135D11D200F0876E /* AutocompleteModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteModalViewController.h; sourceTree = "<group>"; };
@@ -412,8 +437,8 @@
 		E83A94691365F11A00A5B706 /* red-heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "red-heart@2x.png"; sourceTree = "<group>"; };
 		E83A946D1365F15400A5B706 /* 29-heart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart@2x.png"; sourceTree = "<group>"; };
 		E83A946E1365F15400A5B706 /* 29-heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "29-heart.png"; sourceTree = "<group>"; };
-		E83A9471136608CE00A5B706 /* TagsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsCell.h; sourceTree = "<group>"; };
-		E83A9472136608CE00A5B706 /* TagsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsCell.m; sourceTree = "<group>"; };
+		E83A9471136608CE00A5B706 /* QuickReviewHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickReviewHeaderCell.h; sourceTree = "<group>"; };
+		E83A9472136608CE00A5B706 /* QuickReviewHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuickReviewHeaderCell.m; sourceTree = "<group>"; };
 		E83A947413660E4A00A5B706 /* RestaurantWebsiteCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantWebsiteCell.h; sourceTree = "<group>"; };
 		E83A947513660E4A00A5B706 /* RestaurantWebsiteCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantWebsiteCell.m; sourceTree = "<group>"; };
 		E83A94771366119900A5B706 /* SavedSettings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = SavedSettings.plist; sourceTree = "<group>"; };
@@ -680,6 +705,13 @@
 			children = (
 				4929F4C013735B0E003D4EE8 /* TagButton.h */,
 				4929F4C113735B0E003D4EE8 /* TagButton.m */,
+				493357CB138D8F430019A7E7 /* LoadingTagCell.h */,
+				493357CC138D8F430019A7E7 /* LoadingTagCell.m */,
+				493357CE138D9D890019A7E7 /* TagCell.h */,
+				493357CF138D9D890019A7E7 /* TagCell.m */,
+				493357E6138DC85C0019A7E7 /* TagViewController.xib */,
+				493357E1138DC3D90019A7E7 /* MoreTagsCell.h */,
+				493357E2138DC3DB0019A7E7 /* MoreTagsCell.m */,
 			);
 			name = Tag;
 			sourceTree = "<group>";
@@ -699,8 +731,8 @@
 				E8AA4AF2136107B300A8E37B /* CommentsHeaderCell.m */,
 				49BED7FB13611BA700DE8CC4 /* CommentCell.h */,
 				49BED7FC13611BA700DE8CC4 /* CommentCell.m */,
-				E83A9471136608CE00A5B706 /* TagsCell.h */,
-				E83A9472136608CE00A5B706 /* TagsCell.m */,
+				E83A9471136608CE00A5B706 /* QuickReviewHeaderCell.h */,
+				E83A9472136608CE00A5B706 /* QuickReviewHeaderCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -813,6 +845,10 @@
 				4910746A137A362D007A2A58 /* WebViewController.h */,
 				4910746B137A3630007A2A58 /* WebViewController.m */,
 				4910746C137A3637007A2A58 /* WebViewController.xib */,
+				493357E4138DC8590019A7E7 /* TagViewController.h */,
+				493357E5138DC85B0019A7E7 /* TagViewController.m */,
+				493357E9138DC9980019A7E7 /* TagsTableViewController.h */,
+				493357EA138DC99A0019A7E7 /* TagsTableViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1144,6 +1180,10 @@
 		E86A84521368AD7B00720FA3 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				493357D9138DC2C00019A7E7 /* 13-plus.png */,
+				493357DA138DC2C40019A7E7 /* 13-plus@2x.png */,
+				493357DB138DC2C60019A7E7 /* 19-check.png */,
+				493357DC138DC2CF0019A7E7 /* 19-check@2x.png */,
 				E81B8F4913846F520052F240 /* default.png */,
 				E81B8F4A13846F520052F240 /* default@2x.png */,
 				E81B8F4513846A870052F240 /* icon57.png */,
@@ -1688,6 +1728,11 @@
 				E81B8F4C13846F520052F240 /* default@2x.png in Resources */,
 				E8CA1F39138C2C7F000D47F6 /* red-button.png in Resources */,
 				E8CA1F3A138C2C7F000D47F6 /* red-button@2x.png in Resources */,
+				493357DD138DC2D90019A7E7 /* 13-plus.png in Resources */,
+				493357DE138DC2D90019A7E7 /* 13-plus@2x.png in Resources */,
+				493357DF138DC2D90019A7E7 /* 19-check.png in Resources */,
+				493357E0138DC2D90019A7E7 /* 19-check@2x.png in Resources */,
+				493357E8138DC85D0019A7E7 /* TagViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1776,7 +1821,7 @@
 				E8AA4AFF1361165800A8E37B /* IGUIScrollViewCanvas.m in Sources */,
 				E8AA4B001361165800A8E37B /* IGUIScrollViewElements.m in Sources */,
 				494D34B21365FC7B00E03CCA /* CellUtility.m in Sources */,
-				E83A9473136608CE00A5B706 /* TagsCell.m in Sources */,
+				E83A9473136608CE00A5B706 /* QuickReviewHeaderCell.m in Sources */,
 				E83A947613660E4B00A5B706 /* RestaurantWebsiteCell.m in Sources */,
 				E8BEDE6713664E2F001E5079 /* Menu.m in Sources */,
 				E8BEDE6A13665040001E5079 /* MenuCategory.m in Sources */,
@@ -1830,6 +1875,11 @@
 				49752FDF13843628000C28C4 /* TaggedObject.m in Sources */,
 				E81B8F55138479160052F240 /* CoreLocationController.m in Sources */,
 				4927C9AA138C5A0200BD4169 /* RestaurantAnnotation.m in Sources */,
+				493357CD138D8F430019A7E7 /* LoadingTagCell.m in Sources */,
+				493357D0138D9D890019A7E7 /* TagCell.m in Sources */,
+				493357E3138DC3DD0019A7E7 /* MoreTagsCell.m in Sources */,
+				493357E7138DC85D0019A7E7 /* TagViewController.m in Sources */,
+				493357EB138DC99C0019A7E7 /* TagsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

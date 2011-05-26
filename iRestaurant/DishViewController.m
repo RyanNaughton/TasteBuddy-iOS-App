@@ -23,7 +23,7 @@
 #import "DishButtonsCell.h"
 #import "RestaurantAddressCell.h"
 #import "RestaurantPhoneCell.h"
-#import "TagsCell.h"
+#import "QuickReviewHeaderCell.h"
 #import "CommentsHeaderCell.h"
 #import "CommentCell.h"
 
@@ -157,9 +157,9 @@
         //[dishButtonsCell loadRestaurant:restaurant];
 		return dishButtonsCell;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
-        TagsCell *dishTagsCell = (TagsCell *)[tableView dequeueReusableCellWithIdentifier:@"DishTagsCell"];
+        QuickReviewHeaderCell *dishTagsCell = (QuickReviewHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"DishTagsCell"];
 		if (dishTagsCell == nil) {
-		    dishTagsCell = [[[TagsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishTagsCell" andContext:@"dish"] autorelease];
+		    dishTagsCell = [[[QuickReviewHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishTagsCell" andContext:@"dish"] autorelease];
 		}          
         [dishTagsCell loadMenuItem:menu_item];
 		return dishTagsCell;
