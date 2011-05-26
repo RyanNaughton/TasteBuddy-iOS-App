@@ -67,6 +67,7 @@
 
 - (void)dealloc
 {
+    [tagService release];
     [menuViewController release];
     //[restaurant release];
     [tableArray release];

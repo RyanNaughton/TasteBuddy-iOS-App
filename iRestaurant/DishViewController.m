@@ -19,6 +19,7 @@
 #import "RatingPopupViewController.h"
 #import "RestaurantService.h"
 #import "RestaurantViewController.h"
+#import "TagViewController.h"
 
 // CELLS
 #import "DishHeaderCell.h"
@@ -28,12 +29,15 @@
 #import "QuickReviewHeaderCell.h"
 #import "CommentsHeaderCell.h"
 #import "CommentCell.h"
-
+#import "MoreTagsCell.h"
 #import "CellUtility.h"
+#import "LoadingTagCell.h"
+#import "TagCell.h"
+#import "Tag.h"
 
 @implementation DishViewController
 
-@synthesize restaurant, menu_item, tableArray, takePhoto;
+@synthesize restaurant, menu_item, tableArray, takePhoto, tagService, tagsBeingLoaded;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -53,12 +57,16 @@
         tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"Tags", nil];
         menu_item = [menu_item_passed retain];
         restaurant = [restaurant_passed retain];
+        tagsBeingLoaded = true;
+        tagService =[[TagService alloc] initWithDelegate:self];
+        [tagService getTags];
     }
     return self;
 }
 
 - (void)dealloc
 {
+    [tagService release];
     [restaurant release];
     [menu_item release];
     [tableArray release];
@@ -135,6 +143,12 @@
     // Return the number of rows in the section.
     if ([@"Comments" isEqualToString:[tableArray objectAtIndex:section]]) {
         return 1 + [menu_item.comments count];
+    } else if ([@"Tags" isEqualToString:[tableArray objectAtIndex:section]]) {
+        if(tagsBeingLoaded) {
+            return 2;
+        } else {
+            return 7;
+        }
     } else {
         return 1;        
     }
@@ -159,13 +173,40 @@
         //[dishButtonsCell loadRestaurant:restaurant];
 		return dishButtonsCell;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
-        QuickReviewHeaderCell *dishTagsCell = (QuickReviewHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"DishTagsCell"];
-		if (dishTagsCell == nil) {
-		    dishTagsCell = [[[QuickReviewHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishTagsCell" andContext:@"dish"] autorelease];
-		}          
-        [dishTagsCell loadMenuItem:menu_item];
-		return dishTagsCell;
-        
+        if (indexPath.row == 0) {
+            QuickReviewHeaderCell *restaurantTagsCell = (QuickReviewHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"DishHeaderTagsCell"];
+            if (restaurantTagsCell == nil) {
+                restaurantTagsCell = [[[QuickReviewHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishHeaderTagsCell" andContext:@"menu_item"] autorelease];
+            }          
+            [restaurantTagsCell loadRestaurant:restaurant];
+            return restaurantTagsCell;
+            
+        } else if (indexPath.row == 6) {
+            MoreTagsCell *moreTagsCell = (MoreTagsCell *)[tableView dequeueReusableCellWithIdentifier:@"MoreTagsCell"];
+            if(moreTagsCell == nil) {
+                moreTagsCell = [[[MoreTagsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MoreTagsCell"] autorelease];
+            }
+            return moreTagsCell;
+            
+        } else {
+            if (tagsBeingLoaded) {
+                LoadingTagCell *loadingCell = (LoadingTagCell *)[tableView dequeueReusableCellWithIdentifier:@"TagsLoadingCell"];
+                if (loadingCell == nil) {
+                    loadingCell = [[[LoadingTagCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"TagsLoadingCell"] autorelease];
+                }          
+                
+                return loadingCell;
+                
+            } else {
+                TagCell *tagCell = (TagCell *)[tableView dequeueReusableCellWithIdentifier:@"DishTagsCell"];
+                if(tagCell == nil){
+                    tagCell = [[[TagCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishTagsCell" andDelegate:self] autorelease];
+                }
+                [tagCell loadTag:[menu_item.tags objectAtIndex:indexPath.row - 1]];
+                return tagCell;
+                
+            }
+        }
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
         if(indexPath.row == 0) {
             CommentsHeaderCell *commentsHeaderCell = (CommentsHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"CommentsHeaderCell"];
@@ -205,9 +246,13 @@
         height = 395.0;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
         height = 160.0;
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
-        height = 200;
-    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
+    }  else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
+        if (indexPath.row == 0) {
+            height = 60;
+        } else {
+            height = 44;
+        }
+    }  else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
         if([menu_item.comments count] > 0 && indexPath.row > 0) {
             Comment * comment = (Comment *)[menu_item.comments objectAtIndex:(indexPath.row - 1)];
             height = [CellUtility cellHeightForString:comment.text withFrame:CGRectMake(10, 30, 310, 20) andBottomPadding:10.0];
@@ -269,7 +314,23 @@
     
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
     
-    } 
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
+        if(!tagsBeingLoaded) {
+            if(indexPath.row == 6) {
+                TagViewController *tvc = [[TagViewController alloc] initWithNibName:@"TagViewController" bundle:nil andTaggedObject:menu_item];
+                [self.navigationController pushViewController:tvc animated:YES];
+                [tvc release];
+            } else if(indexPath.row > 0){
+                TagCell *tc = (TagCell *)[tableView cellForRowAtIndexPath:indexPath];
+                if (tc.tag.isUserTag) {
+                    [tc.service deleteTagFromRestaurant:restaurant withTag:tc.tag.name];
+                } else {
+                    [tc.service tagRestaurant:restaurant withTag:tc.tag.name];
+                }
+            }
+        }
+    }
+
 }
 
 -(void)callButtonPressed:(id)sender
@@ -371,17 +432,16 @@
     [self.navigationController pushViewController:rvc animated:YES];
     [rvc release];
     
-    //    NSString *restaurantID = restaurant._id;
-//    RestaurantService *rs = [[RestaurantService alloc]initWithDelegate:self];
-//    [rs findRestaurantById:restaurantID];
 }
 
-//-(void)restaurantRetrieved:(Restaurant *) restuarant 
-//{
-//    RestaurantViewController *rvc = [[RestaurantViewController alloc]initWithRestaurant:restuarant];
-//    [self.navigationController pushViewController:rvc animated:YES];
-//    [rvc release];
-//}
-
+-(void) doneTagging:(NSMutableArray *)tagsFromUser {
+    [menu_item updateUserTags:tagsFromUser];
+    [self.tableView reloadData];
+}
+-(void) tagsRetrieved:(NSMutableArray *)tags {
+    [menu_item addAllTags:tags];
+    tagsBeingLoaded = false;
+    [self.tableView reloadData];
+}
 
 @end
