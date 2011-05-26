@@ -46,6 +46,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [tagsTableViewController loadTaggedObject:taggedObject];
+    
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"quickReviewLogo.png"]];
+    appNameImageView.frame = CGRectMake(0, -3, 150, 44);
+    appNameImageView.contentMode = UIViewContentModeRight;
+    self.navigationItem.titleView = appNameImageView;
+
 }
 
 - (void)viewDidUnload
