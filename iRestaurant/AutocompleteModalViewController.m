@@ -140,6 +140,16 @@
     return NO;
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    if ([textField.text length] > 0) {
+        [self autocomplete:textField];
+    }
+    
+    NSLog(@"should begin editing");
+    return YES;
+}
+
 - (void) viewDidAppear:(BOOL)animated {
     [termField becomeFirstResponder];
     [self autocomplete:termField]; //Force the appropriate TableView to kick in
