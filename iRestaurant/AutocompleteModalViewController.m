@@ -145,8 +145,6 @@
     if ([textField.text length] > 0) {
         [self autocomplete:textField];
     }
-    
-    NSLog(@"should begin editing");
     return YES;
 }
 
