@@ -158,8 +158,16 @@
     nearField.text = [values objectAtIndex:indexPath.row];
 }
 
--(void) autocompleteFinished:(NSArray *)termsArray {
-    values = termsArray;
+-(void) autocompleteFinished:(NSDictionary *)dict withLastNear:(NSString *)lastNear {
+    NSMutableArray *valuesArray = [[NSMutableArray alloc]init];
+    if([@"Current Location" hasPrefix:lastNear] || [@"current location" hasPrefix:lastNear]) {
+        [valuesArray addObject:@"Current Location"];
+    }
+        for (NSString *value in [dict objectForKey:@"neighborhoods"]) {
+            [valuesArray addObject:[value copy]]; //Retain to stop crashes
+        }
+    
+    values = [valuesArray retain];
     self.tableView.alpha = 1.0;
     self.tableView.hidden = FALSE;
     [self.tableView reloadData];

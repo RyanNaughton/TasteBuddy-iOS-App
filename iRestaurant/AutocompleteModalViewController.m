@@ -56,6 +56,8 @@
     self.tableView.alpha = 0;
     autocompleteService = [[AutocompleteService alloc] initWithDelegate: findAutocompleteTableViewController];
     
+    //findAutocompleteTableViewController.currentSearchTabTitle = self.currentSearchTabTitle;
+    
     UIImage *cancelButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
     [cancelButton setBackgroundImage:cancelButtonImage forState:UIControlStateNormal];
     
@@ -120,9 +122,9 @@
     } else {
         
         if([tableView.dataSource isKindOfClass:[NearAutocompleteTableViewController class]]) {
-            [(NearAutocompleteTableViewController *)tableView.dataSource autocompleteFinished:[[NSMutableArray alloc] init]];
+            [(NearAutocompleteTableViewController *)tableView.dataSource autocompleteFinished:[[NSDictionary alloc] init] withLastNear:@""];
         } else if([tableView.dataSource isKindOfClass:[FindAutocompleteTableViewController class]]) {
-            [(FindAutocompleteTableViewController *)tableView.dataSource autocompleteFinished:[[NSMutableArray alloc] init]];            
+            [(FindAutocompleteTableViewController *)tableView.dataSource autocompleteFinished:[[NSDictionary alloc] init] withLastNear:@""];            
         }
     }
 }

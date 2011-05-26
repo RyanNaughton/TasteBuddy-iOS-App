@@ -12,7 +12,7 @@
 @class ASIFormDataRequest;
 
 @protocol AutocompleteServiceDelegate <NSObject>
-  -(void)autocompleteFinished:(NSArray *)termsArray;
+-(void)autocompleteFinished:(NSDictionary *)dict withLastNear:(NSString *)lastNear;
 @end
 
 @interface AutocompleteService : AbstractService {

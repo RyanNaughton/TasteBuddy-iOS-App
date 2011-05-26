@@ -13,10 +13,16 @@
     NSArray *values;
     IBOutlet UITextField *findField;
     IBOutlet UITextField *nearField;
+    NSString *currentSearchTabTitle;
+    NSDictionary *autocompleteDict;
 }
 
 @property (nonatomic, retain) NSArray *values;
 @property (nonatomic, retain) IBOutlet UITextField *findField;
 @property (nonatomic, retain) IBOutlet UITextField *nearField;
+@property (nonatomic, retain) NSString *currentSearchTabTitle;
+@property (nonatomic, retain) NSDictionary *autocompleteDict;
+
+-(void) refereshTable;
 
 @end
