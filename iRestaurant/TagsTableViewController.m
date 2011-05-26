@@ -15,7 +15,10 @@
 
 @implementation TagsTableViewController
 
-@synthesize taggedObject;
+@synthesize taggedObject, filteredTags, searchBar;
+-(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.searchBar resignFirstResponder];
+}
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -45,11 +48,6 @@
 {
     [super viewDidLoad];
     taggedObject = nil;
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -99,7 +97,7 @@
     if(taggedObject == nil) {
         return 0;
     } else {
-        return [taggedObject.tags count];
+        return [filteredTags count];
     }
 }
 
@@ -111,7 +109,7 @@
     if (cell == nil) {
         cell = [[[TagCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier andDelegate:self] autorelease];
     }
-    [cell loadTag:[taggedObject.tags objectAtIndex:indexPath.row]];    
+    [cell loadTag:[filteredTags objectAtIndex:indexPath.row]];    
     return cell;
 }
 
@@ -177,11 +175,26 @@
 
 -(void) loadTaggedObject:(TaggedObject *) taggedObjectPassed {
     taggedObject = [taggedObjectPassed retain];
-    [self.tableView reloadData];
+    [self searchBar:searchBar textDidChange:searchBar.text];
 }
 
 -(void) doneTagging:(NSMutableArray *)tagsFromUser {
     [taggedObject updateUserTags:tagsFromUser];
+    filteredTags = [[NSMutableArray arrayWithArray:taggedObject.tags] retain];
+    [self searchBar:searchBar textDidChange:searchBar.text];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if([searchText length] > 0) {
+        filteredTags = [[NSMutableArray alloc] init];
+        for (Tag *tag in taggedObject.tags) {
+            if ([tag.name rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound) [filteredTags addObject:tag];
+        }
+    } else {
+        filteredTags = [[NSMutableArray arrayWithArray:taggedObject.tags] retain];
+    }
     [self.tableView reloadData];
 }
+
+
 @end
