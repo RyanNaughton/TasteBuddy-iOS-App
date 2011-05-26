@@ -7,22 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestaurantService.h"
+@class Restaurant;
+@class ProfileTableViewController;
 
-
-@interface ProfilePhotoCell : UITableViewCell {
+@interface ProfilePhotoCell : UITableViewCell <RestaurantServiceDelegate> {
     UIImageView *imageView;
     UILabel *restaurantLabel;
     UILabel *pictureCountLabel;
     NSDictionary *restaurantDictionary;
+    ProfileTableViewController *ptvc;
 }
 
 @property (nonatomic, retain) UIImageView *imageView;
 @property (nonatomic, retain) UILabel *restaurantLabel;
 @property (nonatomic, retain) UILabel *pictureCountLabel;
 @property (nonatomic, retain) NSDictionary *restaurantDictionary;
+@property (nonatomic, retain) ProfileTableViewController *ptvc;
 
 -(void)setVariablesWithDictionary:(NSDictionary *)restaurantDictionary_passed;
 -(void)imageButtonPressed:(id)sender;
 -(void)restaurantButtonPressed:(id)sender;
+-(void)restaurantRetrieved:(Restaurant *) restuarant;
 
 @end

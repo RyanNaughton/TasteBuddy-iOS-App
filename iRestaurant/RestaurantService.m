@@ -46,7 +46,7 @@
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)requestPassed {
-   [delegate restauarantRetrieved: [[Restaurant alloc] initWithDictionary:[[requestPassed responseString] JSONValue]]];
+   [delegate restaurantRetrieved: [[Restaurant alloc] initWithDictionary:[[requestPassed responseString] JSONValue]]];
     request = nil;
 }
 

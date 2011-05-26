@@ -129,7 +129,9 @@
 }
 
 -(void) doneRetrievingProfile:(NSMutableDictionary *) profile {
-        
+    
+    NSLog(@"profile: %@", profile);
+    
     username = [[NSString stringWithFormat:@"%@",[profile objectForKey:@"username"]]retain];
     reviewsCount = [[profile objectForKey:@"ratings_count"] intValue];
     picturesDictionary = [[NSDictionary alloc]initWithDictionary:[profile objectForKey:@"pictures"]];
@@ -224,7 +226,6 @@
 		}          
         [profileHeadCell setUserInfoWithName:[NSString stringWithFormat:@"%@", username] andReviews:reviewsCount andPictures:picturesCount];
 		return profileHeadCell;
-
     }
 
     if (indexPath.section > 0) {
@@ -247,6 +248,8 @@
             if (profilePhotoCell == nil) {
                 profilePhotoCell = [[[ProfilePhotoCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfilePhotoCell"] autorelease];
             }  
+            
+            profilePhotoCell.ptvc = self;
             
             NSDictionary *dict = [picturesArray objectAtIndex:(indexPath.section - 1)];
             NSArray *array = [dict objectForKey:@"array"];
