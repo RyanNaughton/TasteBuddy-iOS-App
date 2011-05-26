@@ -15,6 +15,7 @@
 #import "iRestaurantAppDelegate.h"
 #import "RestaurantAnnotation.h"
 #import "RestaurantViewController.h"
+#import "FindAutocompleteTableViewController.h"
 
 
 @implementation SearchViewController
@@ -120,6 +121,7 @@
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
 
     [self switchSearchView:dishesTabButton]; //Show no results initially.
+    
 }
 
 -(void) viewDidAppear:(BOOL)animated {
@@ -183,6 +185,16 @@
 -(IBAction) switchSearchView:(id) sender
 {
     lastSender = sender;
+    
+    NSLog(@"switch hit");
+    
+    if (lastSender == restaurantsTabButton) {
+        searchModalViewController.findAutocompleteTableViewController.currentSearchTabTitle = [@"Restaurants" retain];
+    } else {
+        searchModalViewController.findAutocompleteTableViewController.currentSearchTabTitle = [@"Dishes" retain];
+    }
+    [searchModalViewController.findAutocompleteTableViewController refereshTable];
+    
     if(sender == restaurantsTabButton) {
         [self switchTabs:restaurantsTabButton];
         tableView.delegate = restaurantSearchResultTableViewController;
@@ -283,6 +295,7 @@
     
     searchModalViewController.view.frame = CGRectMake(0, -20, 320, 366);
     searchModalViewController.view.alpha = 0.0;
+    
     [self.view addSubview:searchModalViewController.view];
     
     [UIView beginAnimations:nil context:NULL];
@@ -297,6 +310,11 @@
 }
 
 -(void) makeWhatFirstResponder {
+    if (lastSender == restaurantsTabButton) {
+        searchModalViewController.findAutocompleteTableViewController.currentSearchTabTitle = [@"Restaurants" retain];
+    } else {
+        searchModalViewController.findAutocompleteTableViewController.currentSearchTabTitle = [@"Dishes" retain];
+    }
     [searchModalViewController.termField becomeFirstResponder];
 }
 

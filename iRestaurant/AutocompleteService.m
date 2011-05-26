@@ -66,7 +66,8 @@
 
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
-    NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
+    NSMutableDictionary *responseDictionary = [[request_passed responseString] JSONValue];
+        
     NSMutableArray *values = [[NSMutableArray alloc]init];
     if(nearAutoComplete && [@"Current Location" hasPrefix:lastNear]) {
         [values addObject:@"Current Location"];
@@ -76,9 +77,8 @@
             [values addObject:[value copy]]; //Retain to stop crashes
         }
     }
-    
-    //[values autorelease];
-    [delegate autocompleteFinished:values];
+        
+    [delegate autocompleteFinished:responseDictionary withLastNear:lastNear];
     request = nil;
 }
 

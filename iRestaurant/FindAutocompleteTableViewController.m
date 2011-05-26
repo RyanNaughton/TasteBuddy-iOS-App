@@ -12,7 +12,7 @@
 @implementation FindAutocompleteTableViewController
 @synthesize values;
 @synthesize findField;
-@synthesize nearField;
+@synthesize nearField, currentSearchTabTitle, autocompleteDict;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -165,8 +165,18 @@
 
 }
 
--(void) autocompleteFinished:(NSArray *)termsArray {
-    values = termsArray;
+-(void) autocompleteFinished:(NSDictionary *)dict withLastNear:(NSString *)lastNear {
+    
+    autocompleteDict = [dict retain];
+    [self refereshTable];
+}
+
+-(void) refereshTable {
+    if ([currentSearchTabTitle isEqualToString:@"Restaurants"]) {
+        values = [[autocompleteDict objectForKey:@"restaurants"]retain];
+    } else {
+        values = [[autocompleteDict objectForKey:@"menu_items"]retain];
+    }
     self.tableView.alpha = 1.0;
     self.tableView.hidden = FALSE;
     [self.tableView reloadData];
