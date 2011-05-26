@@ -10,17 +10,22 @@
 #import "RatingService.h"
 #import "BookmarkService.h"
 #import "RatingPopupViewController.h"
+#import "TagService.h"
+#import "TaggingService.h"
 
 @class Restaurant;
 @class TakePhoto;
 @class MenuViewController;
+@class TagService;
 
-@interface RestaurantViewController : UITableViewController <UIActionSheetDelegate, RatingServiceDelegate, BookmarkServiceDelegate, RatingPopupDelegate> {
+@interface RestaurantViewController : UITableViewController <UIActionSheetDelegate, RatingServiceDelegate, BookmarkServiceDelegate, RatingPopupDelegate, TagServiceDelegate, TaggingServiceDelegate> {
     NSMutableArray *tableArray;
     Restaurant *restaurant;
     int tagsRowHeight;
     TakePhoto *takePhoto;
     MenuViewController *menuViewController;
+    bool tagsBeingLoaded;
+    TagService *tagService;
 }
 
 @property (nonatomic, retain) NSMutableArray *tableArray;
@@ -28,6 +33,8 @@
 @property (nonatomic, assign) int tagsRowHeight;
 @property (nonatomic, retain) TakePhoto *takePhoto;
 @property (nonatomic, retain) MenuViewController *menuViewController;
+@property (nonatomic, assign) bool tagsBeingLoaded;
+@property (nonatomic, assign) TagService *tagService;
 
 -(id)initWithRestaurant:(Restaurant *)restaurant_passed;
 -(void)loadMenu;

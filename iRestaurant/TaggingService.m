@@ -86,9 +86,6 @@
 
     NSString *json = [jsonDictionary JSONRepresentation];
     
-    NSLog(@"URL STRING %@", urlString);
-    NSLog(@"Request Method %@", requestMethod);    
-    
     NSURL *url = [NSURL URLWithString:urlString];
     
     request = [ASIFormDataRequest requestWithURL:url];
@@ -104,7 +101,6 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed 
 {
     NSString *responseString = [request_passed responseString];
-    NSLog(@"Response String %@", responseString);
     NSDictionary *responseDictionary = [responseString JSONValue];
     NSArray *userTagsRetrieved = [responseDictionary objectForKey:@"user_tags"];
     NSDictionary *tagsWithCount = [responseDictionary objectForKey:@"tags"];
@@ -116,6 +112,7 @@
         tag.count = [[tagsWithCount objectForKey:value] intValue];
         [tags addObject:tag];
     }
+
     request = nil;
     [delegate doneTagging:tags];
 }
