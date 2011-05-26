@@ -12,9 +12,11 @@
 #import "PhotoViewer.h"
 #import "iRestaurantAppDelegate.h"
 #import "RestaurantService.h"
+#import "RestaurantViewController.h"
+#import "ProfileTableViewController.h"
 
 @implementation ProfilePhotoCell
-@synthesize imageView, restaurantLabel, pictureCountLabel, restaurantDictionary;
+@synthesize imageView, restaurantLabel, pictureCountLabel, restaurantDictionary, ptvc;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -94,9 +96,16 @@
 }
 
 -(void)restaurantButtonPressed:(id)sender {
-//    restaurantID = 
-//    RestaurantService *rs = [[RestaurantService alloc]initWithDelegate:self];
-//    [rs findRestaurantById:restaurantID];
+    NSString *restaurantID = [[[restaurantDictionary objectForKey:@"array"] objectAtIndex:0] objectForKey:@"restaurant_id"];
+    RestaurantService *rs = [[RestaurantService alloc]initWithDelegate:self];
+    [rs findRestaurantById:restaurantID];
+}
+
+-(void)restaurantRetrieved:(Restaurant *) restuarant 
+{
+    RestaurantViewController *rvc = [[RestaurantViewController alloc]initWithRestaurant:restuarant];
+    [ptvc.navigationController pushViewController:rvc animated:YES];
+    [rvc release];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
