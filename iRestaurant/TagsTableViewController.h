@@ -10,10 +10,14 @@
 #import "TaggingService.h"
 @class TaggedObject;
 
-@interface TagsTableViewController : UITableViewController<TaggingServiceDelegate> {
+@interface TagsTableViewController : UITableViewController<TaggingServiceDelegate, UISearchBarDelegate> {
     TaggedObject *taggedObject;
+    NSMutableArray *filteredTags;
+    IBOutlet UISearchBar *searchBar;
 }
 @property (nonatomic, retain) TaggedObject *taggedObject;
+@property (nonatomic, retain) NSMutableArray *filteredTags;
+@property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
 
 -(void) loadTaggedObject:(TaggedObject *) taggedObjectPassed;
 @end
