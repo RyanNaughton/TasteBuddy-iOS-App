@@ -37,5 +37,6 @@
 -(void)bookmarkButtonPressed:(id)sender;
 -(void)startRatingServiceWithRating:(float)rating;
 -(void) newImageLoaded:(NSDictionary *)dict_passed;
+-(void)restaurantButtonPressed:(id)sender;
 
 @end

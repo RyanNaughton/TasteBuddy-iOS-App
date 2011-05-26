@@ -11,21 +11,26 @@
 #import "UIImageView+WebCache.h"
 #import "RatingView.h"
 #import "Restaurant.h"
+#import "RestaurantViewController.h"
+#import "RestaurantService.h"
+#import "DishViewController.h"
 
 #import "IGUIScrollViewImage.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation DishHeaderCell
 
-@synthesize name, price, ratingView, restaurantName, svimage, viewForScrollView, singleImageView;
+@synthesize name, price, ratingView, restaurantName, svimage, viewForScrollView, singleImageView, dvc;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andDishViewController:(DishViewController *)dvc_passed
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         // Initialization code
         self.backgroundColor = [UIColor clearColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        dvc = [dvc_passed retain];
         
         name = [[UILabel alloc]init];
         name.frame = CGRectMake(10, 7, 240, 20);
@@ -57,6 +62,11 @@
         restaurantName.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:restaurantName];
         
+        UIButton *restaurantButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [restaurantButton addTarget:dvc action:@selector(restaurantButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        restaurantButton.frame = CGRectMake(30, 30, 280, 20);
+        [self.contentView addSubview:restaurantButton];
+        
         ratingView = [[RatingView alloc] initWithStarSize:20 andLabelVisible:YES];
         ratingView.frame = CGRectMake(10, 60, 100, 20);
         [self.contentView addSubview:ratingView];
@@ -72,8 +82,6 @@
         [self.contentView addSubview:price];
         
         self.selectionStyle = UITableViewCellEditingStyleNone;   
-        
-       
     }
     return self;
 }

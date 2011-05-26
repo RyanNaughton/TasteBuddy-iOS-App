@@ -17,6 +17,8 @@
 #import "BookmarkService.h"
 #import "Rating.h"
 #import "RatingPopupViewController.h"
+#import "RestaurantService.h"
+#import "RestaurantViewController.h"
 
 // CELLS
 #import "DishHeaderCell.h"
@@ -144,7 +146,7 @@
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
         DishHeaderCell *dishHeaderCell = (DishHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"DishHeaderCell"];
 		if (dishHeaderCell == nil) {
-		    dishHeaderCell = [[[DishHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishHeaderCell"] autorelease];
+		    dishHeaderCell = [[[DishHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishHeaderCell" andDishViewController:self] autorelease];
             [dishHeaderCell loadMenuItem:menu_item andRestaurant:restaurant];
         }          
 		return dishHeaderCell;
@@ -362,5 +364,24 @@
     [dhc loadMenuItem:menu_item andRestaurant:restaurant];
     //[self.tableView reloadData];
 }
+
+-(void)restaurantButtonPressed:(id)sender {
+
+    RestaurantViewController *rvc = [[RestaurantViewController alloc]initWithRestaurant:restaurant];
+    [self.navigationController pushViewController:rvc animated:YES];
+    [rvc release];
+    
+    //    NSString *restaurantID = restaurant._id;
+//    RestaurantService *rs = [[RestaurantService alloc]initWithDelegate:self];
+//    [rs findRestaurantById:restaurantID];
+}
+
+//-(void)restaurantRetrieved:(Restaurant *) restuarant 
+//{
+//    RestaurantViewController *rvc = [[RestaurantViewController alloc]initWithRestaurant:restuarant];
+//    [self.navigationController pushViewController:rvc animated:YES];
+//    [rvc release];
+//}
+
 
 @end
