@@ -231,15 +231,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([dishesArray count] > 0) {
-        [tableView deselectRowAtIndexPath:indexPath animated:NO];
         menu_item = [dishesArray objectAtIndex:indexPath.row];
-        [[[RestaurantService alloc] initWithDelegate:self] findRestaurantById:menu_item.restaurant_id];
+        RestaurantService *rest = [[RestaurantService alloc] initWithDelegate:self];
+        [rest findRestaurantById:menu_item.restaurant_id];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
 
--(void) restauarantRetrieved:(Restaurant *)restuarant {
+-(void) restaurantRetrieved:(Restaurant *)restuarant {
     DishViewController *dishViewController = [[DishViewController alloc] initWithMenuItem:menu_item andRestaurant:restuarant];
     [favoritesViewController.navigationController pushViewController:dishViewController animated:YES];
     [dishViewController release];  

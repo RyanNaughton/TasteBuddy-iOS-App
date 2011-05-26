@@ -16,7 +16,7 @@
 -(id) initWithDelegate:(id<RestaurantServiceDelegate>)restaurantDelegate {
     self = [super init];
     if(self) {
-        delegate = restaurantDelegate;
+        delegate = [restaurantDelegate retain];
         authTokenOptional = TRUE;
     }
     return self;

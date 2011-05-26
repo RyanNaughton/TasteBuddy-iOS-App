@@ -12,7 +12,7 @@
 @class Restaurant;
 
 @protocol RestaurantServiceDelegate <NSObject>
-    -(void) restauarantRetrieved:(Restaurant *) restuarant;
+    -(void) restaurantRetrieved:(Restaurant *) restuarant;
 @end
 
 
