@@ -51,6 +51,7 @@
 @synthesize menu;
 @synthesize rating;
 @synthesize hours;
+@synthesize bookmark;
 
 -(id) init {
     self = [super init];
@@ -67,6 +68,8 @@
         _id               = [[restaurantDictionary objectForKey:@"id"] retain];
         name              = [[restaurantDictionary objectForKey:@"name"] retain];
         rating = [[Rating alloc] initWithUserRating:[restaurantDictionary objectForKey:@"user_rating"] andAverageRating:[restaurantDictionary objectForKey:@"average_rating"] andRatingsCount:[restaurantDictionary objectForKey:@"ratings_count"]];
+        
+        bookmark = [[restaurantDictionary objectForKey:@"bookmark"]boolValue];
 
         address_1         = [[restaurantDictionary objectForKey:@"address_1"] retain];
         address_2         = [[restaurantDictionary objectForKey:@"address_2"] retain];

@@ -8,6 +8,7 @@
 
 #import "RestaurantButtonsCell.h"
 #import "RestaurantViewController.h"
+#import "Restaurant.h"
 
 @implementation RestaurantButtonsCell
 @synthesize restaurantViewController;
@@ -121,7 +122,13 @@
         [bookmarkButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         bookmarkButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         bookmarkButton.frame = CGRectMake(165, 110, 145, 40);
-        [bookmarkButton setTitle:@" Favorite" forState:UIControlStateNormal];
+        
+        if (restaurantViewController.restaurant.bookmark) {
+            [bookmarkButton setTitle:@" Un-Favorite" forState:UIControlStateNormal];
+        } else {
+            [bookmarkButton setTitle:@" Favorite" forState:UIControlStateNormal];
+        }
+        
         [self.contentView addSubview:bookmarkButton];
         
         UIImageView *bookmarkImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"29-heart.png"]];
