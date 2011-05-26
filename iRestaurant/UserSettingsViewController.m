@@ -245,5 +245,11 @@
         [ptvc.tableView reloadData];
     }
 }
+-(void) settingsUpdateComplete {
+    UIAlertView *updateComplete = [[UIAlertView alloc] initWithTitle:@"Update Profile" message:@"Your TasteBuddy Profile has been Updated." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [updateComplete show];
+    [updateComplete release];
+   
+}
 
 @end
