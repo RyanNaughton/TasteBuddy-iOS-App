@@ -44,6 +44,7 @@
     NSMutableArray *comments;
     float average_meal_price;
     NSNumber *distance;
+    BOOL bookmark;
     
     NSMutableArray *menu_items;
     
@@ -84,6 +85,7 @@
 @property (nonatomic, retain) NSArray *comments;
 @property (nonatomic, assign) float average_meal_price;
 @property (nonatomic, retain) NSNumber *distance;
+@property (nonatomic, assign) BOOL bookmark;
 
 @property (nonatomic, retain) NSMutableArray *menu_items;
 

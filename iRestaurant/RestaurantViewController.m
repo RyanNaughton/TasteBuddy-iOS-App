@@ -385,6 +385,14 @@
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Bookmark Saved!" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
         [alert show];
         [alert release];
+        
+        NSLog(@"response: %@", status);
+        
+        if (restaurant.bookmark) { restaurant.bookmark = FALSE; } else { restaurant.bookmark = TRUE; }
+        
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
+        [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+        
     } else  {
         NSString *messageString = [NSString stringWithFormat:@"We're sorry, but there was an error."];
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
