@@ -365,7 +365,12 @@
 -(void)bookmarkButtonPressed:(id)sender
 {
     BookmarkService *bs = [[BookmarkService alloc]initWithDelegate:self];
-    [bs bookmarkMenuItem:menu_item]; 
+    NSLog(@"bookmark?: %i", menu_item.bookmark);
+    if (menu_item.bookmark) {
+        [bs deleteBookmarkForMenuItem:menu_item];
+    } else {
+        [bs bookmarkMenuItem:menu_item]; 
+    }
 }
 
 -(void)rateItButtonPressed:(id)sender 
@@ -401,9 +406,18 @@
 
 -(void) doneBookmarking:(NSDictionary *) status {
     
+    // toggle bookmark
+    menu_item.bookmark = !menu_item.bookmark;
+    
     if ([[status objectForKey:@"status"] isEqualToString:@"success"]) {
-        NSString *messageString = [NSString stringWithFormat:@"You have successfully bookmarked this Menu item!"];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Bookmark Saved!" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        NSString *messageString;
+        if (menu_item.bookmark) {
+            messageString = [NSString stringWithFormat:@"You have successfully bookmarked this Menu item!"];
+        } else {
+            messageString = [NSString stringWithFormat:@"You have successfully removed your bookmark."];
+        }
+        
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Success!" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
         [alert show];
         [alert release];
     } else  {
@@ -412,6 +426,8 @@
         [alert show];
         [alert release];
     }
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
+    [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
     
 }
 

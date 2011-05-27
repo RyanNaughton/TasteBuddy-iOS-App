@@ -22,10 +22,7 @@
     
     NSData *imageData = UIImagePNGRepresentation(image);
     
-    [jsonDictionary setObject:where forKey:@"where"];
-    if(what != nil) {
-        [jsonDictionary setObject:what forKey:@"what"];
-    }
+    [jsonDictionary setObject:comments forKey:@"comments"];
     [jsonDictionary setObject:imageData forKey:@"imageData"];
     
     if (restaurant_id == nil) { restaurant_id = @" "; }
@@ -43,11 +40,10 @@
         
     request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"multipart/form-data"];
-    [request setPostValue:[jsonDictionary objectForKey:@"where"] forKey:@"picture[location_description]"];
-    [request setPostValue:[jsonDictionary objectForKey:@"what"] forKey:@"picture[content_description]"];
     
     [request addData:[jsonDictionary objectForKey:@"imageData"] withFileName:@"updloadedimage.png" andContentType:@"image/png" forKey:@"picture[attachment]"];
     
+    [request setPostValue:[jsonDictionary objectForKey:@"comments"] forKey:@"picture[caption]"];
     [request setPostValue:[jsonDictionary objectForKey:@"restaurant_id"] forKey:@"picture[restaurant_id]"];
     if(![[jsonDictionary objectForKey:@"menu_item_id"] isEqualToString:@""]){
     [request setPostValue:[jsonDictionary objectForKey:@"menu_item_id"] forKey:@"picture[menu_item_id]"];
