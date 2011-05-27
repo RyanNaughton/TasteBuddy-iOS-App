@@ -17,13 +17,16 @@
 
 @interface BookmarkService : AbstractService {
      id <BookmarkServiceDelegate> delegate;
+    NSString *requestMethod;
 }
 
 @property (nonatomic, retain) id <BookmarkServiceDelegate> delegate;
+@property (nonatomic, retain) NSString *requestMethod;
 
 -(id) initWithDelegate:(id <BookmarkServiceDelegate>) restaurantDelegate;
-
 -(void) bookmarkRestaurant:(Restaurant *) restaurant;
 -(void) bookmarkMenuItem:(MenuItem *) menuItem;
+-(void) deleteBookmarkForMenuItem:(MenuItem *)menuItem;
+-(void) deleteBookmarkForRestaurant:(Restaurant *) restaurant;
 
 @end

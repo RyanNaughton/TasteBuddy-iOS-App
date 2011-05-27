@@ -13,9 +13,10 @@
 #import "JSON.h"
 
 @implementation BookmarkService
-@synthesize delegate;
+@synthesize delegate, requestMethod;
 
 - (void)dealloc {
+    [requestMethod release];
     [delegate release];
     [super dealloc];
 }
@@ -32,7 +33,14 @@
 -(void) bookmarkMenuItem:(MenuItem *)menuItem
 {
     urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/menu_items/%@/bookmark.json", menuItem._id];
-    
+    requestMethod = @"PUT";
+    [self prepareRequest];
+}
+
+-(void) deleteBookmarkForMenuItem:(MenuItem *)menuItem
+{
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/menu_items/%@/bookmark.json", menuItem._id];
+    requestMethod = @"DELETE";
     [self prepareRequest];
 }
 
@@ -40,7 +48,14 @@
 -(void) bookmarkRestaurant:(Restaurant *) restaurant
 {
     urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/bookmark.json", restaurant._id];
-    
+    requestMethod = @"PUT";
+    [self prepareRequest];
+}
+
+-(void) deleteBookmarkForRestaurant:(Restaurant *) restaurant
+{
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/bookmark.json", restaurant._id];
+    requestMethod = @"DELETE";
     [self prepareRequest];
 }
 
@@ -51,11 +66,11 @@
     }
     
     NSLog(@"url : %@", urlString); 
-    
+    NSLog(@"request method: %@", requestMethod);
     NSString *json = [jsonDictionary JSONRepresentation];
     NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
-    [request setRequestMethod: @"PUT"];
+    [request setRequestMethod: requestMethod];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
     [request setUseCookiePersistence:NO];
