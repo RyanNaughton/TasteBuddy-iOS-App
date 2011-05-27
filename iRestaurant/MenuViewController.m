@@ -40,7 +40,8 @@
 }
 
 -(void)menuReturned:(Menu *)menu {
-    [activityIndicator stopAnimating];
+    //[activityIndicator stopAnimating];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"stopLoadingIndicator" object:nil];
     tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
     menuItems = 0;
@@ -100,7 +101,7 @@
 */
 
 -(void)viewDidAppear:(BOOL)animated {
-    if (menuItems < 150) [self callMenuService];
+    if (menuItems < 150) [self.tableView reloadData]; //[self callMenuService];
 }
 
 
@@ -109,6 +110,7 @@
 {
     [super viewDidLoad];
     [self setTitle:@"Menu"];
+    [self callMenuService];
     
     UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"menuLogo.png"]];
     appNameImageView.frame = CGRectMake(160, -3, 150, 44);
@@ -121,11 +123,13 @@
 
 -(void) callMenuService {
     [menuService getMenuForRestaurant:restaurant];
-    activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    activityIndicator.frame = CGRectMake(0, 0, 25, 25);
-    activityIndicator.center = CGPointMake(self.view.center.x, (self.view.center.y - 50));
-    [self.view addSubview:activityIndicator];
-    [activityIndicator startAnimating];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"startLoadingIndicator" object:nil];
+
+//    activityIndicator = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+//    activityIndicator.frame = CGRectMake(0, 0, 25, 25);
+//    activityIndicator.center = CGPointMake(self.view.center.x, (self.view.center.y - 50));
+//    [self.view addSubview:activityIndicator];
+//    [activityIndicator startAnimating];
     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
 }
