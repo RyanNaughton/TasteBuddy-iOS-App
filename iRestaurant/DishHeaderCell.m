@@ -19,6 +19,7 @@
 
 #import "IGUIScrollViewImage.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UILabelUnderlined.h"
 
 @implementation DishHeaderCell
 
@@ -55,7 +56,7 @@
         [self.contentView addSubview:byLabel];
         [byLabel release];
 
-        restaurantName = [[UILabel alloc]init];
+        restaurantName = [[UILabelUnderlined alloc]init];
         restaurantName.frame = CGRectMake(30, 30, 280, 20);
         restaurantName.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		restaurantName.backgroundColor = [UIColor clearColor];

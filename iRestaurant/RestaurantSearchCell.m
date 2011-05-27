@@ -10,7 +10,7 @@
 #import "Restaurant.h"
 #import "UIImageView+WebCache.h"
 #import "RatingView.h"
-#import "CellUtility.h"
+#import "StringSizeUtility.h"
 
 @implementation RestaurantSearchCell
 @synthesize name, tags, addressLine1, distance, ratingView, averageDishPrice, cuisine;
@@ -87,7 +87,7 @@
     tags.text = [restaurant tagsText];
     addressLine1.text = [restaurant.address_1 retain];
     
-    CGFloat xForCuisine = [CellUtility widthOfString:name.text withFrame:name.frame andFont:name.font];
+    CGFloat xForCuisine = [StringSizeUtility widthOfString:name.text withFrame:name.frame andFont:name.font];
     cuisine.text = [restaurant.cuisine_types objectAtIndex:0];
   //  CGRect oldFrame = cuisine.frame;
  //   cuisine.frame = CGRectMake(xForCuisine + 15, oldFrame.origin.y, oldFrame.size.width, oldFrame.size.height);

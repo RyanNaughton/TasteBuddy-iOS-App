@@ -38,7 +38,7 @@
         imageButton.frame = CGRectMake(10, 10, 65, 65);
         [self.contentView addSubview:imageButton];
         
-        restaurantLabel = [[UILabel alloc]init];
+        restaurantLabel = [[UILabelUnderlined alloc]init];
         restaurantLabel.frame = CGRectMake(85, 10, 250, 25);
         restaurantLabel.textColor = [UIColor blackColor];
         restaurantLabel.backgroundColor = [UIColor clearColor];

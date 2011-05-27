@@ -166,7 +166,23 @@
 }
 
 -(void) shareOnFacebook {
-    SHKItem *item = [SHKItem image:image title:@"I just took a photo with TasteBuddy"];
+    NSMutableArray *titleForImage = [[NSMutableArray alloc] init];
+    if(whatTextField.hidden){
+        [titleForImage addObject:whereTextField.text];
+    } else {
+        if([whatTextField.text isEqualToString:@""]) {
+            [titleForImage addObject:whereTextField.text];            
+        } else {
+            [titleForImage addObject:[NSString stringWithFormat:@"%@ @ %@", whatTextField.text, whereTextField.text]];
+        }
+    }
+    if(![commentsTextField.text isEqualToString:@""]) {
+        [titleForImage addObject:[NSString stringWithFormat:@"\"%@\"", commentsTextField.text]];
+    }
+    [titleForImage addObject:@"- shared from my TasteBuddy"];
+    
+    
+    SHKItem *item = [SHKItem image:image title:[titleForImage componentsJoinedByString:@"\n"]];
     [SHKFacebook shareItem:item];
 }
 
