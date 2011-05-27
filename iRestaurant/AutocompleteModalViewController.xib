@@ -67,6 +67,7 @@
 						<string key="NSFrame">{{0, 75}, {320, 125}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<object class="NSColor" key="IBUIBackgroundColor" id="897790605">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>
@@ -187,7 +188,7 @@
 								<string key="NSFrame">{{83, 40}, {157, 31}}</string>
 								<reference key="NSSuperview" ref="255259606"/>
 								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView" ref="263684834"/>
+								<reference key="NSNextKeyView" ref="1032510596"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -269,7 +270,7 @@
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
-								<object class="NSFont" key="IBUIFont">
+								<object class="NSFont" key="IBUIFont" id="423721649">
 									<string key="NSName">Helvetica-Bold</string>
 									<double key="NSSize">14</double>
 									<int key="NSfFlags">16</int>
@@ -278,10 +279,29 @@
 								<string key="IBUINormalTitle">Cancel</string>
 								<reference key="IBUIHighlightedTitleColor" ref="897790605"/>
 								<reference key="IBUINormalTitleColor" ref="1030324206"/>
-								<object class="NSColor" key="IBUINormalTitleShadowColor">
+								<object class="NSColor" key="IBUINormalTitleShadowColor" id="950724373">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MSAxIDEAA</bytes>
 								</object>
+							</object>
+							<object class="IBUIButton" id="1032510596">
+								<reference key="NSNextResponder" ref="255259606"/>
+								<int key="NSvFlags">292</int>
+								<string key="NSFrame">{{253, 39}, {62, 30}}</string>
+								<reference key="NSSuperview" ref="255259606"/>
+								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView" ref="263684834"/>
+								<bool key="IBUIOpaque">NO</bool>
+								<float key="IBUIAlpha">0.89999997615814209</float>
+								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+								<int key="IBUIContentHorizontalAlignment">0</int>
+								<int key="IBUIContentVerticalAlignment">0</int>
+								<reference key="IBUIFont" ref="423721649"/>
+								<string key="IBUITitleShadowOffset">{0, 1}</string>
+								<string key="IBUINormalTitle">Nearby</string>
+								<reference key="IBUIHighlightedTitleColor" ref="897790605"/>
+								<reference key="IBUINormalTitleColor" ref="1030324206"/>
+								<reference key="IBUINormalTitleShadowColor" ref="950724373"/>
 							</object>
 						</object>
 						<string key="NSFrameSize">{320, 75}</string>
@@ -471,6 +491,23 @@
 					</object>
 					<int key="connectionID">44</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchOutletConnection" key="connection">
+						<string key="label">nearbyButton</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="1032510596"/>
+					</object>
+					<int key="connectionID">50</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">nearbyButtonPressed</string>
+						<reference key="source" ref="1032510596"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">51</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -518,6 +555,7 @@
 							<reference ref="49002142"/>
 							<reference ref="647656518"/>
 							<reference ref="847908544"/>
+							<reference ref="1032510596"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 						<string key="objectName">Search VIew</string>
@@ -607,6 +645,11 @@
 						<reference key="object" ref="671386207"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">48</int>
+						<reference key="object" ref="1032510596"/>
+						<reference key="parent" ref="255259606"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -634,6 +677,8 @@
 					<string>45.IBPluginDependency</string>
 					<string>46.IBPluginDependency</string>
 					<string>47.IBPluginDependency</string>
+					<string>48.IBPluginDependency</string>
+					<string>48.IBUIButtonInspectorSelectedStateConfigurationMetadataKey</string>
 					<string>9.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
@@ -660,6 +705,8 @@
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+					<real value="0.0"/>
+					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -674,7 +721,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">47</int>
+			<int key="maxID">51</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -696,9 +743,11 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>autocomplete:</string>
 							<string>cancel</string>
+							<string>nearbyButtonPressed</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -709,6 +758,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>autocomplete:</string>
 							<string>cancel</string>
+							<string>nearbyButtonPressed</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -718,6 +768,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">cancel</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">nearbyButtonPressed</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
@@ -732,6 +786,7 @@
 							<string>lastNear</string>
 							<string>nearAutocompleteTableViewController</string>
 							<string>nearField</string>
+							<string>nearbyButton</string>
 							<string>searchView</string>
 							<string>searchViewController</string>
 							<string>tableView</string>
@@ -747,6 +802,7 @@
 							<string>NSString</string>
 							<string>NearAutocompleteTableViewController</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UIView</string>
 							<string>SearchViewController</string>
 							<string>UITableView</string>
@@ -765,6 +821,7 @@
 							<string>lastNear</string>
 							<string>nearAutocompleteTableViewController</string>
 							<string>nearField</string>
+							<string>nearbyButton</string>
 							<string>searchView</string>
 							<string>searchViewController</string>
 							<string>tableView</string>
@@ -797,6 +854,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">nearField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">nearbyButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">searchView</string>
@@ -977,6 +1038,7 @@
 							<string>fakeTermField</string>
 							<string>filterButton</string>
 							<string>mapButton</string>
+							<string>mapView</string>
 							<string>restaurantSearchResultTableViewController</string>
 							<string>searchIcon</string>
 							<string>searchModalViewController</string>
@@ -989,6 +1051,7 @@
 							<string>UITextField</string>
 							<string>UIButton</string>
 							<string>UIButton</string>
+							<string>MKMapView</string>
 							<string>RestaurantSearchResultTableViewController</string>
 							<string>UIImageView</string>
 							<string>AutocompleteModalViewController</string>
@@ -1004,6 +1067,7 @@
 							<string>fakeTermField</string>
 							<string>filterButton</string>
 							<string>mapButton</string>
+							<string>mapView</string>
 							<string>restaurantSearchResultTableViewController</string>
 							<string>searchIcon</string>
 							<string>searchModalViewController</string>
@@ -1027,6 +1091,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">mapButton</string>
 								<string key="candidateClassName">UIButton</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">mapView</string>
+								<string key="candidateClassName">MKMapView</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">restaurantSearchResultTableViewController</string>

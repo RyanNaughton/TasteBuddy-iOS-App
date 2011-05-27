@@ -18,6 +18,7 @@
     IBOutlet UITextField *termField;
     IBOutlet UITextField *nearField;
     IBOutlet UIButton *cancelButton;
+    IBOutlet UIButton *nearbyButton;
     IBOutlet UIImageView *whatBGBox;
     IBOutlet UIImageView *whereBGBox;
     
@@ -31,14 +32,13 @@
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
-
 @property (nonatomic, retain) IBOutlet UIView *searchView;
 @property (nonatomic, retain) IBOutlet UITextField *termField;
 @property (nonatomic, retain) IBOutlet UITextField *nearField;
 @property (nonatomic, retain) IBOutlet UIButton *cancelButton;
+@property (nonatomic, retain) IBOutlet UIButton *nearbyButton;
 @property (nonatomic, retain) IBOutlet UIImageView *whatBGBox;
 @property (nonatomic, retain) IBOutlet UIImageView *whereBGBox;
-
 @property (nonatomic, retain) IBOutlet FindAutocompleteTableViewController *findAutocompleteTableViewController;
 @property (nonatomic, retain) IBOutlet NearAutocompleteTableViewController *nearAutocompleteTableViewController;
 @property (nonatomic, retain) IBOutlet AutocompleteService *autocompleteService;
@@ -46,8 +46,8 @@
 @property (nonatomic, retain) IBOutlet NSString *lastNear;
 
 -(IBAction) autocomplete:(id) sender;
-
 -(IBAction) cancel;
--(void)removeView;
+-(IBAction) nearbyButtonPressed;
+-(void) removeView;
 
 @end
