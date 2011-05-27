@@ -66,6 +66,12 @@
    
     if (buttonIndex == 0) 
     {
+        if ( (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]))
+        {
+            UIAlertView *noCamera = [[UIAlertView alloc] initWithTitle:@"Device Error" message:@"You iOS device doesn't have a camera." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil ];
+            [noCamera show];
+            [noCamera release];
+        } else {
         UIImagePickerController *imagePickerController = [[UIImagePickerController alloc] init];
         imagePickerController.delegate = self;
         imagePickerController.allowsEditing = YES;
@@ -75,6 +81,7 @@
         imagePickerController.sourceType = UIImagePickerControllerSourceTypeCamera;
         [appDelegate.tabBarController presentModalViewController:imagePickerController animated:YES];
         [imagePickerController release];
+        }
 
     }
     if (buttonIndex == 1) 

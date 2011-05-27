@@ -10,8 +10,8 @@
 #import "PhotoUploadService.h"
 #import "RestaurantViewController.h"
 #import "DishViewController.h"
-//#import "SHK.h"
-//#import "SHKFacebook.h"
+#import "SHK.h"
+#import "SHKFacebook.h"
 //#import "SHKTwitter.h"
 
 @implementation PhotoShareContainer
@@ -75,6 +75,9 @@
 }
 
 -(void) imageLoadingDone:(NSDictionary *)dict {
+    if (facebookSwitch.on) {
+        [self shareOnFacebook];
+    }
     if (isForRestaurant) {
         [rvc newImageLoaded:dict];
     } else {
@@ -163,8 +166,8 @@
 }
 
 -(void) shareOnFacebook {
-    //SHKItem *item = [SHKItem video:video title:@"I just used TasteBuddy for iPhone!"];
-    //[SHKFacebook shareItem:item];
+    SHKItem *item = [SHKItem image:image title:@"I just took a photo with TasteBuddy"];
+    [SHKFacebook shareItem:item];
 }
 
 -(void) shareOnTwitter {
