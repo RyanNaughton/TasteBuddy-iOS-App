@@ -14,7 +14,7 @@
 
 @implementation AutocompleteModalViewController
 
-@synthesize tableView, searchView, termField, nearField, findAutocompleteTableViewController, nearAutocompleteTableViewController, autocompleteService, searchViewController, cancelButton, whatBGBox, whereBGBox, lastNear;
+@synthesize tableView, searchView, termField, nearField, findAutocompleteTableViewController, nearAutocompleteTableViewController, autocompleteService, searchViewController, cancelButton, whatBGBox, whereBGBox, lastNear, nearbyButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,6 +32,7 @@
     [termField release];
     [nearField release];
     [cancelButton release];
+    [nearbyButton release];
     [findAutocompleteTableViewController release];
     [nearAutocompleteTableViewController release];
     [autocompleteService release];
@@ -55,11 +56,10 @@
     
     self.tableView.alpha = 0;
     autocompleteService = [[AutocompleteService alloc] initWithDelegate: findAutocompleteTableViewController];
-    
-    //findAutocompleteTableViewController.currentSearchTabTitle = self.currentSearchTabTitle;
-    
-    UIImage *cancelButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
-    [cancelButton setBackgroundImage:cancelButtonImage forState:UIControlStateNormal];
+        
+    UIImage *greyButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
+    [cancelButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
+    [nearbyButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     
     UIImage *textBox = [[UIImage imageNamed:@"text-area-image.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
     whatBGBox.image = textBox;
@@ -183,6 +183,18 @@
     tableView.alpha = 0.0;
     [UIView setAnimationDidStopSelector:@selector(removeView)];
     [UIView commitAnimations];
+}
+
+-(IBAction) nearbyButtonPressed
+{
+    termField.text = @"";
+    nearField.text = @"Current Location";
+    [searchViewController.searchService searchByTerm:termField.text andNear:nearField.text];
+    [searchViewController switchSearchView:(id) searchViewController.lastSender];
+    [searchViewController resultsLoading];
+    searchViewController.fakeTermField.text = termField.text;
+    [self cancel];
+
 }
 
 -(void)removeView {
