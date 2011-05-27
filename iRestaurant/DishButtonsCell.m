@@ -22,6 +22,7 @@
         dishViewController = dishViewController_passed;
         
         UIImage *greyButtonImage = [[UIImage imageNamed:@"darkgrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
+        UIImage *darkergreyButtonImage = [[UIImage imageNamed:@"darkergrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
         CGRect iconFrame = CGRectMake(14, 14, 12, 12);
         
         // CALL ==============
@@ -118,23 +119,24 @@
         
         UIButton *bookmarkButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [bookmarkButton addTarget:dishViewController action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [bookmarkButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [bookmarkButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         bookmarkButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
         CGRect fullWidthFrame = CGRectMake(10, 110, 300, 40);
         //CGRect btmRtFrame = CGRectMake(165, 110, 145, 40);
         bookmarkButton.frame =  fullWidthFrame;
-        
+        UIImageView *bookmarkImage;
         if (dishViewController.menu_item.bookmark) {
             [bookmarkButton setTitle:@"Remove from Favorites" forState:UIControlStateNormal];
+            [bookmarkButton setBackgroundImage:darkergreyButtonImage forState:UIControlStateNormal];
+            [bookmarkButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            bookmarkImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"20-no.png"]];
         } else {
             [bookmarkButton setTitle:@"Add to Favorites" forState:UIControlStateNormal];
+            [bookmarkButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
+            [bookmarkButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+            bookmarkImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"29-heart.png"]];
         }
-        
-        
-        [self.contentView addSubview:bookmarkButton];
-        
-        UIImageView *bookmarkImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"29-heart.png"]];
+        [self.contentView addSubview:bookmarkButton];        
         bookmarkImage.frame = iconFrame;
         bookmarkImage.contentMode = UIViewContentModeScaleAspectFill;
         bookmarkImage.alpha = 0.8;
