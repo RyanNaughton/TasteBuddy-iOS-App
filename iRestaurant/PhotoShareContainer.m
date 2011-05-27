@@ -10,9 +10,12 @@
 #import "PhotoUploadService.h"
 #import "RestaurantViewController.h"
 #import "DishViewController.h"
+//#import "SHK.h"
+//#import "SHKFacebook.h"
+//#import "SHKTwitter.h"
 
 @implementation PhotoShareContainer
-@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch, restaurant, menuItem, navItem, whereLabel, whatLabel, commentsLabel, submitButton, rvc, dvc, isForRestaurant;
+@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch, restaurant, menuItem, navItem, whereLabel, whatLabel, commentsLabel, submitButton, rvc, dvc, isForRestaurant, photoSubmitted;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,16 +56,22 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
     [self submitAction];
     return YES;
 }
 
 -(void) submitAction {
-    submitButton.enabled = FALSE;
-    cancelButton.enabled = FALSE;
-    PhotoUploadService *photoUploadService = [[PhotoUploadService alloc]init];
-    [photoUploadService uploadImage:image withWhere:whereTextField.text andWhat:whatTextField.text andComments:commentsTextField.text andFacebook:facebookSwitch.on andDelegate:self andRestaurantId:restaurant andMenuItemId:menuItem];
-
+    if (!photoSubmitted) {
+        photoSubmitted = TRUE;
+        submitButton.enabled = FALSE;
+        cancelButton.enabled = FALSE;
+        PhotoUploadService *photoUploadService = [[PhotoUploadService alloc]init];
+        [photoUploadService uploadImage:image withWhere:whereTextField.text andWhat:whatTextField.text andComments:commentsTextField.text andFacebook:facebookSwitch.on andDelegate:self andRestaurantId:restaurant andMenuItemId:menuItem];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"startLoadingIndicator" object:nil];
+    } else {
+        NSLog(@"ignore duplicate submission");
+    }
 }
 
 -(void) imageLoadingDone:(NSDictionary *)dict {
@@ -71,6 +80,7 @@
     } else {
         [dvc newImageLoaded:dict];
     }
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"stopLoadingIndicator" object:nil];
     [self dismissModalViewControllerAnimated:YES];
 }
 
@@ -150,6 +160,16 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(void) shareOnFacebook {
+    //SHKItem *item = [SHKItem video:video title:@"I just used TasteBuddy for iPhone!"];
+    //[SHKFacebook shareItem:item];
+}
+
+-(void) shareOnTwitter {
+    //SHKItem *item = [SHKItem video:video title:@"I just used TasteBuddy for iPhone!"];
+    //[SHKTwitter shareItem:item];
 }
 
 @end

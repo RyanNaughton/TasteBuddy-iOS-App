@@ -7,7 +7,6 @@
 //
 
 #import "iRestaurantAppDelegate.h"
-
 #import "Restaurant.h"
 #import "LoginViewController.h"
 #import "AuthenticationResponse.h"
@@ -17,20 +16,17 @@
 #import "ProfileTableViewController.h"
 #import "SignUpViewController.h"
 #import "CoreLocationController.h"
+#import "MBProgressHUD.h"
 
 @implementation iRestaurantAppDelegate
 
-
 @synthesize window=_window;
-
 @synthesize tabBarController;
 @synthesize savedSettingsPath;
 @synthesize clcontroller, currentLocation, currentLocationEstablished, showWelcomeBox;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
-    
+{    
     [self.window makeKeyAndVisible];
     [self.window addSubview:tabBarController.view];
 
@@ -42,8 +38,12 @@
     currentLocation = [[CLLocation alloc]initWithLatitude:41.883333 longitude:-87.62786];
     
     [self startGettingLocation];
-
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startLoadingIndicator) name:@"startLoadingIndicator" object:nil];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopLoadingIndicator) name:@"stopLoadingIndicator" object:nil];
+    [self setupHUD];
+    
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"startLoadingIndicator" object:nil];
     return YES;
 }
 
@@ -229,5 +229,28 @@
         [self.tabBarController presentModalViewController:signUpVC animated:YES];
     }
 }
+
+-(void)startLoadingIndicator {
+	[HUD show:YES];
+}
+
+-(void)stopLoadingIndicator {
+	[HUD hide:YES];
+}
+
+- (void)setupHUD {
+    HUD = [[MBProgressHUD alloc] initWithView:tabBarController.view];
+	HUD.labelText = @"Just a sec...";
+	HUD.yOffset = -50;	
+    
+    [[[UIApplication sharedApplication] keyWindow] addSubview:HUD];
+    
+    //[tabBarController.view addSubview:HUD];
+    HUD.delegate = self;
+}
+
+- (void)hudWasHidden:(MBProgressHUD *)hud {
+}
+
 
 @end

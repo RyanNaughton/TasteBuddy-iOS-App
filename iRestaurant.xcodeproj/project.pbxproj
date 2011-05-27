@@ -217,6 +217,7 @@
 		E8AA4B0413611F5500A8E37B /* 33-circle-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4B0213611F5500A8E37B /* 33-circle-plus.png */; };
 		E8AA4B07136122EC00A8E37B /* 39-circle-check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4B05136122EC00A8E37B /* 39-circle-check@2x.png */; };
 		E8AA4B08136122EC00A8E37B /* 39-circle-check.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4B06136122EC00A8E37B /* 39-circle-check.png */; };
+		E8AB9F921390059C00DBFA75 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AB9F911390059C00DBFA75 /* MBProgressHUD.m */; };
 		E8AEFC381378A90C00A8F8C1 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AEFC371378A90C00A8F8C1 /* CategoryCell.m */; };
 		E8AEFC3B1378ABD000A8F8C1 /* SubCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AEFC3A1378ABD000A8F8C1 /* SubCategoryCell.m */; };
 		E8AF71F2136127F60068DA6C /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BED7F81361110B00DE8CC4 /* Comment.m */; };
@@ -599,6 +600,8 @@
 		E8AA4B0213611F5500A8E37B /* 33-circle-plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "33-circle-plus.png"; sourceTree = "<group>"; };
 		E8AA4B05136122EC00A8E37B /* 39-circle-check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "39-circle-check@2x.png"; sourceTree = "<group>"; };
 		E8AA4B06136122EC00A8E37B /* 39-circle-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "39-circle-check.png"; sourceTree = "<group>"; };
+		E8AB9F901390059C00DBFA75 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		E8AB9F911390059C00DBFA75 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		E8AEFC361378A90C00A8F8C1 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
 		E8AEFC371378A90C00A8F8C1 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
 		E8AEFC391378ABD000A8F8C1 /* SubCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategoryCell.h; sourceTree = "<group>"; };
@@ -784,6 +787,7 @@
 		49578B5F135516AB00F8EC0B /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				E8AB9F8E1390058900DBFA75 /* MBProgressHUD */,
 				E86A8477136901D700720FA3 /* NSData + Base 64 */,
 				E80E05991360D28700894180 /* IGUILibrary */,
 				4956EB0C1358F84400D68EE9 /* SDWebImage */,
@@ -1394,6 +1398,15 @@
 			name = ASIHttpRequest;
 			sourceTree = "<group>";
 		};
+		E8AB9F8E1390058900DBFA75 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				E8AB9F901390059C00DBFA75 /* MBProgressHUD.h */,
+				E8AB9F911390059C00DBFA75 /* MBProgressHUD.m */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		E8AE703713785B7B009CB87E /* Bookmarking */ = {
 			isa = PBXGroup;
 			children = (
@@ -1888,6 +1901,7 @@
 				493357E3138DC3DD0019A7E7 /* MoreTagsCell.m in Sources */,
 				493357E7138DC85D0019A7E7 /* TagViewController.m in Sources */,
 				493357EB138DC99C0019A7E7 /* TagsTableViewController.m in Sources */,
+				E8AB9F921390059C00DBFA75 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1956,7 +1970,7 @@
 				PRODUCT_NAME = TasteBuddy;
 				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
 		};
@@ -1977,7 +1991,7 @@
 				PRODUCT_NAME = TasteBuddy;
 				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 			};
 			name = Release;
 		};

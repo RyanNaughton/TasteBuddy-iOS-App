@@ -181,6 +181,7 @@
               andPostalCode:postalCodeField.text 
                    andEmail:emailField.text 
                andBirthdate:birthdayString];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"startLoadingIndicator" object:nil];
 }
 
 -(void) settingsUpdateComplete:(AuthenticationResponse *)authToken {
@@ -246,6 +247,7 @@
     }
 }
 -(void) settingsUpdateComplete {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"stopLoadingIndicator" object:nil];
     UIAlertView *updateComplete = [[UIAlertView alloc] initWithTitle:@"Update Profile" message:@"Your TasteBuddy Profile has been Updated." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
     [updateComplete show];
     [updateComplete release];

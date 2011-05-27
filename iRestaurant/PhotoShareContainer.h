@@ -39,6 +39,7 @@
     BOOL isForRestaurant;
     RestaurantViewController *rvc;
     DishViewController *dvc;
+    BOOL photoSubmitted;
 }
 
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *cancelButton;
@@ -69,10 +70,14 @@
 @property (nonatomic, retain) RestaurantViewController *rvc;
 @property (nonatomic, retain) DishViewController *dvc;
 @property (nonatomic, assign) BOOL isForRestaurant;
+@property (nonatomic, assign) BOOL photoSubmitted;
+
 
 - (id)initWithWhere:(NSString *)where_passed andWhat:(NSString *)what_passed andImage:(UIImage *)image_passed andRestaurantId:(NSString *)restaurant_id_passed andMenuItemId:(NSString *) menu_item_id_passed;
 -(IBAction) cancelButtonPressed:(id)sender;
 -(void) submitAction;
 -(void) imageLoadingDone:(NSDictionary *)dict;
+-(void) shareOnFacebook;
+-(void) shareOnTwitter;
 
 @end

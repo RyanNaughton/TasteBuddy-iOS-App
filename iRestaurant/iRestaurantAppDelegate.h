@@ -9,16 +9,18 @@
 #import <UIKit/UIKit.h>
 #import "AbstractService.h"
 #import "CoreLocationController.h"
+#import "MBProgressHUD.h"
 
 @class AuthenticationResponse;
 
-@interface iRestaurantAppDelegate : NSObject <UIApplicationDelegate, UIAlertViewDelegate, CoreLocationControllerDelegate> {
+@interface iRestaurantAppDelegate : NSObject <UIApplicationDelegate, UIAlertViewDelegate, CoreLocationControllerDelegate, MBProgressHUDDelegate> {
     IBOutlet UITabBarController *tabBarController;
     NSString *savedSettingsPath;
     CoreLocationController *CLController;
     CLLocation *currentLocation;
     BOOL currentLocationEstablished;
     BOOL showWelcomeBox;
+    MBProgressHUD *HUD;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -32,7 +34,6 @@
 -(void)checkOrCreatePlist;
 -(id) readSavedSetting:(NSString *)key;
 -(void) setSavedSetting:(NSString *)key withValue:(id)value;
-
 -(void) login:(AbstractService *) service;
 -(bool) loggedIn;
 -(void) logout;
@@ -40,5 +41,8 @@
 -(void) displayWelcomeMessage;
 -(void) startGettingLocation;
 -(void) updateLocation;
+-(void) startLoadingIndicator;
+-(void) stopLoadingIndicator;
+-(void) setupHUD;
 
 @end
