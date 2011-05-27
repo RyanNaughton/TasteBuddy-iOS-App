@@ -16,7 +16,7 @@
 #import "SectionsMenuTableView.h"
 
 @implementation MenuViewController
-@synthesize restaurant, menuService, tableView, activityIndicator;
+@synthesize restaurant, menuService, tableView, activityIndicator, menuItems;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -43,7 +43,7 @@
     [activityIndicator stopAnimating];
     tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     
-    int menuItems = 0;
+    menuItems = 0;
     for (MenuCategory *menuCategory in menu.arrayOfCategories) {
         NSLog(@"cat name: %@ | count: %i", menuCategory.name, [menuCategory.menuSubcategories count]);
         for (MenuSubcategory *menuSubcategory in menuCategory.menuSubcategories) {
@@ -100,9 +100,7 @@
 */
 
 -(void)viewDidAppear:(BOOL)animated {
-    NSLog(@"view did appear MVC");
-    //[self.tableView reloadData];
-    [self callMenuService];
+    if (menuItems < 150) [self callMenuService];
 }
 
 
