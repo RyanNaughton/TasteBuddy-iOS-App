@@ -124,7 +124,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow:) name:UIKeyboardDidShowNotification object:nil];
     
-    scrollView.contentSize = CGSizeMake(320, 346);
+    scrollView.contentSize = CGSizeMake(320, 386);
     // Do any additional setup after loading the view from its nib.
 }
 
