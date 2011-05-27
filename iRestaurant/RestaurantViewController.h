@@ -48,7 +48,5 @@
 -(void) websiteButtonPressed:(id)sender;
 -(void) startRatingServiceWithRating:(float)rating;
 -(void) newImageLoaded:(NSDictionary *)dict_passed;
--(void) launchEmailFeedback;
--(void) reportAbuseButtonPressed;
 
 @end

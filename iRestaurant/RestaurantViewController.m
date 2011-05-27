@@ -55,10 +55,15 @@
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
         self.navigationController.navigationBar.translucent = YES;
         restaurant = [restaurant_passed retain];
-        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"WebsiteLink", @"AdditionalInformation", @"Tags", nil];
+        
+        // SETUP TABLE ARRAY --------------
+        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", nil];
+        if (![restaurant.website_url isKindOfClass:[NSNull class]]) [tableArray addObject:@"WebsiteLink"];
+        [tableArray addObject:@"AdditionalInformation"];
+        [tableArray addObject:@"Tags"];
+        //---------------------------------
+        
         tagsRowHeight = 44;
-        
-        
         tagService =[[TagService alloc] initWithDelegate:self];
         [tagService getTags];
     }
@@ -475,7 +480,6 @@
 
 -(void)rateItButtonPressed:(id)sender 
 {
-    
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     RatingPopupViewController *rpvc = [[RatingPopupViewController alloc]initWithCurrentRating:restaurant.rating.user_rating];
     rpvc.delegate = self;
