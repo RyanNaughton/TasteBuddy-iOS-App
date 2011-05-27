@@ -12,10 +12,11 @@
 @class Restaurant;
 @class IGUIScrollViewImage;
 @class DishViewController;
+@class UILabelUnderlined;
 
 @interface DishHeaderCell : UITableViewCell {
     UILabel *name;
-    UILabel *restaurantName;
+    UILabelUnderlined *restaurantName;
     UILabel *price;
     RatingView *ratingView;
     IGUIScrollViewImage *svimage;
@@ -26,7 +27,7 @@
 }
 
 @property (nonatomic, retain) UILabel *name;
-@property (nonatomic, retain) UILabel *restaurantName;
+@property (nonatomic, retain) UILabelUnderlined *restaurantName;
 @property (nonatomic, retain) UILabel *price;
 @property (nonatomic, retain) RatingView *ratingView;
 @property (nonatomic, retain) IGUIScrollViewImage *svimage;

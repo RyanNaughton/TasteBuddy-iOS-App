@@ -8,19 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "RestaurantService.h"
+#import "UILabelUnderlined.h"
 @class Restaurant;
 @class ProfileTableViewController;
 
 @interface ProfilePhotoCell : UITableViewCell <RestaurantServiceDelegate> {
     UIImageView *imageView;
-    UILabel *restaurantLabel;
+    UILabelUnderlined *restaurantLabel;
     UILabel *pictureCountLabel;
     NSDictionary *restaurantDictionary;
     ProfileTableViewController *ptvc;
 }
 
 @property (nonatomic, retain) UIImageView *imageView;
-@property (nonatomic, retain) UILabel *restaurantLabel;
+@property (nonatomic, retain) UILabelUnderlined *restaurantLabel;
 @property (nonatomic, retain) UILabel *pictureCountLabel;
 @property (nonatomic, retain) NSDictionary *restaurantDictionary;
 @property (nonatomic, retain) ProfileTableViewController *ptvc;

@@ -30,7 +30,7 @@
 #import "CommentsHeaderCell.h"
 #import "CommentCell.h"
 #import "MoreTagsCell.h"
-#import "CellUtility.h"
+#import "StringSizeUtility.h"
 #import "LoadingTagCell.h"
 #import "TagCell.h"
 #import "Tag.h"
@@ -255,7 +255,7 @@
     }  else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
         if([menu_item.comments count] > 0 && indexPath.row > 0) {
             Comment * comment = (Comment *)[menu_item.comments objectAtIndex:(indexPath.row - 1)];
-            height = [CellUtility cellHeightForString:comment.text withFrame:CGRectMake(10, 30, 310, 20) andBottomPadding:10.0];
+            height = [StringSizeUtility cellHeightForString:comment.text withFrame:CGRectMake(10, 30, 310, 20) andBottomPadding:10.0];
         } else {
             height = 50;
         }
