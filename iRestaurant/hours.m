@@ -23,11 +23,17 @@
 -(id) initWithArray:(NSArray *) hoursArray {
     self = [super init];
     if(self) {
-        
         firstOpeningHours   = [[NSMutableArray alloc] initWithCapacity:7];
         secondOpeningHours  = [[NSMutableArray alloc] initWithCapacity:7];
         openingTimesCount   = [[NSMutableArray alloc] initWithCapacity:7];
         
+        if([hoursArray isKindOfClass:[NSNull class]]) {
+            for (int i = 0; i < 7; i++) {
+                [firstOpeningHours addObject:@"Call"];
+                [secondOpeningHours addObject:@"-"];
+                [openingTimesCount addObject:[NSNumber numberWithInt:1]];
+            }
+        } else {
         for (NSArray *daysHours in hoursArray) {
             [openingTimesCount addObject:[NSNumber numberWithInt:[daysHours count]]];
 
@@ -77,7 +83,7 @@
             
             
         }
-
+        }
     }
     return self;
 }

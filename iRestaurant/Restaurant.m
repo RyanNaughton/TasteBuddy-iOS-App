@@ -103,7 +103,7 @@
         wheelchair_access = [[restaurantDictionary objectForKey:@"wheelchair_access"] retain];
         pictures          = [[restaurantDictionary objectForKey:@"pictures"] retain];
         comments          = [[NSMutableArray alloc] init];
-        
+
         hours             =  [[Hours alloc] initWithArray:[[restaurantDictionary objectForKey:@"hours"] retain]];
         
         for (NSDictionary *dict in [restaurantDictionary objectForKey:@"comments"]) {
