@@ -18,7 +18,7 @@
 @class MenuViewController;
 @class TagService;
 
-@interface RestaurantViewController : UITableViewController <UIActionSheetDelegate, RatingServiceDelegate, BookmarkServiceDelegate, RatingPopupDelegate, TagServiceDelegate, TaggingServiceDelegate> {
+@interface RestaurantViewController : UITableViewController <RatingServiceDelegate, BookmarkServiceDelegate, RatingPopupDelegate, TagServiceDelegate, TaggingServiceDelegate> {
     NSMutableArray *tableArray;
     Restaurant *restaurant;
     int tagsRowHeight;
@@ -39,14 +39,16 @@
 -(id)initWithRestaurant:(Restaurant *)restaurant_passed;
 -(void)loadMenu;
 
--(void)callButtonPressed:(id)sender;
--(void)rateItButtonPressed:(id)sender;
--(void)mapItButtonPressed:(id)sender;
--(void)photoButtonPressed:(id)sender;
--(void)menuButtonPressed:(id)sender;
--(void)bookmarkButtonPressed:(id)sender;
--(void)websiteButtonPressed:(id)sender;
--(void)startRatingServiceWithRating:(float)rating;
--(void)newImageLoaded:(NSDictionary *)dict_passed;
+-(void) callButtonPressed:(id)sender;
+-(void) rateItButtonPressed:(id)sender;
+-(void) mapItButtonPressed:(id)sender;
+-(void) photoButtonPressed:(id)sender;
+-(void) menuButtonPressed:(id)sender;
+-(void) bookmarkButtonPressed:(id)sender;
+-(void) websiteButtonPressed:(id)sender;
+-(void) startRatingServiceWithRating:(float)rating;
+-(void) newImageLoaded:(NSDictionary *)dict_passed;
+-(void) launchEmailFeedback;
+-(void) reportAbuseButtonPressed;
 
 @end

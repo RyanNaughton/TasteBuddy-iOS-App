@@ -218,6 +218,9 @@
 		E8AA4B07136122EC00A8E37B /* 39-circle-check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4B05136122EC00A8E37B /* 39-circle-check@2x.png */; };
 		E8AA4B08136122EC00A8E37B /* 39-circle-check.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AA4B06136122EC00A8E37B /* 39-circle-check.png */; };
 		E8AB9F921390059C00DBFA75 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AB9F911390059C00DBFA75 /* MBProgressHUD.m */; };
+		E8ABA079139019E600DBFA75 /* 09-chat-2.png in Resources */ = {isa = PBXBuildFile; fileRef = E8ABA077139019E600DBFA75 /* 09-chat-2.png */; };
+		E8ABA07A139019E600DBFA75 /* 09-chat-2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8ABA078139019E600DBFA75 /* 09-chat-2@2x.png */; };
+		E8ABA07C13901EC900DBFA75 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8ABA07B13901EC900DBFA75 /* MessageUI.framework */; };
 		E8AEFC381378A90C00A8F8C1 /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AEFC371378A90C00A8F8C1 /* CategoryCell.m */; };
 		E8AEFC3B1378ABD000A8F8C1 /* SubCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AEFC3A1378ABD000A8F8C1 /* SubCategoryCell.m */; };
 		E8AF71F2136127F60068DA6C /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BED7F81361110B00DE8CC4 /* Comment.m */; };
@@ -602,6 +605,9 @@
 		E8AA4B06136122EC00A8E37B /* 39-circle-check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "39-circle-check.png"; sourceTree = "<group>"; };
 		E8AB9F901390059C00DBFA75 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		E8AB9F911390059C00DBFA75 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		E8ABA077139019E600DBFA75 /* 09-chat-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "09-chat-2.png"; sourceTree = "<group>"; };
+		E8ABA078139019E600DBFA75 /* 09-chat-2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "09-chat-2@2x.png"; sourceTree = "<group>"; };
+		E8ABA07B13901EC900DBFA75 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		E8AEFC361378A90C00A8F8C1 /* CategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
 		E8AEFC371378A90C00A8F8C1 /* CategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
 		E8AEFC391378ABD000A8F8C1 /* SubCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubCategoryCell.h; sourceTree = "<group>"; };
@@ -680,6 +686,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8ABA07C13901EC900DBFA75 /* MessageUI.framework in Frameworks */,
 				4927C9A6138C3BE100BD4169 /* MapKit.framework in Frameworks */,
 				320AF8492C47A4D819F7C451 /* QuartzCore.framework in Frameworks */,
 				E85EE41E13564224004B2A10 /* CoreLocation.framework in Frameworks */,
@@ -931,6 +938,7 @@
 		49BA68211354DBA30040DDB5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E8ABA07B13901EC900DBFA75 /* MessageUI.framework */,
 				4927C9A5138C3BE100BD4169 /* MapKit.framework */,
 				320AF8492C47A4D819F7C450 /* QuartzCore.framework */,
 				E8A6E823135547050095E157 /* libxml2.dylib */,
@@ -1190,6 +1198,8 @@
 		E86A84521368AD7B00720FA3 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				E8ABA077139019E600DBFA75 /* 09-chat-2.png */,
+				E8ABA078139019E600DBFA75 /* 09-chat-2@2x.png */,
 				493357D9138DC2C00019A7E7 /* 13-plus.png */,
 				493357DA138DC2C40019A7E7 /* 13-plus@2x.png */,
 				493357DB138DC2C60019A7E7 /* 19-check.png */,
@@ -1754,6 +1764,8 @@
 				493357E8138DC85D0019A7E7 /* TagViewController.xib in Resources */,
 				E8D8ECF2138EDB34001A0D62 /* quickReviewLogo.png in Resources */,
 				E8D8ECF3138EDB34001A0D62 /* quickReviewLogo@2x.png in Resources */,
+				E8ABA079139019E600DBFA75 /* 09-chat-2.png in Resources */,
+				E8ABA07A139019E600DBFA75 /* 09-chat-2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

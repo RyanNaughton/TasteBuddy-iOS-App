@@ -10,8 +10,10 @@
 @class Restaurant;
 @class RatingView;
 @class TakePhoto;
+@class RestaurantViewController;
 
-@interface RestaurantHeaderCell : UITableViewCell {
+@interface RestaurantHeaderCell : UITableViewCell <UIActionSheetDelegate> {
+    RestaurantViewController *restaurantViewController;
     UIImageView *imageView;
     UILabel *name;
     UILabel *lunch_hours;
@@ -34,6 +36,7 @@
     TakePhoto *takePhoto;
 }
 
+@property (nonatomic, retain) RestaurantViewController *restaurantViewController;
 @property (nonatomic, retain) UIImageView *imageView;
 @property (nonatomic, retain) UILabel *name        ;
 @property (nonatomic, retain) UILabel *lunch_hours        ;
@@ -55,7 +58,7 @@
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, retain) TakePhoto *takePhoto;
 
-- (id) initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andRVC:(RestaurantViewController *)rvc;
 - (void) loadRestaurant:(Restaurant *)restaurant;
 - (void) favoriteButtonPressed:(id)sender;
 @end

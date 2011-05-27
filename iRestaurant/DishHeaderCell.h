@@ -22,6 +22,7 @@
     UIView *viewForScrollView;
     UIImageView *singleImageView;
     DishViewController *dvc;
+    MenuItem *menu_item;
 }
 
 @property (nonatomic, retain) UILabel *name;
@@ -32,6 +33,7 @@
 @property (nonatomic, retain) UIView *viewForScrollView;
 @property (nonatomic, retain) UIImageView *singleImageView;
 @property (nonatomic, retain) DishViewController *dvc;
+@property (nonatomic, retain) MenuItem *menu_item;
 
 -(void)loadMenuItem:(MenuItem *)menu_item andRestaurant:(Restaurant *)restaurant;
 -(void)cameraButtonPressed:(id)sender;

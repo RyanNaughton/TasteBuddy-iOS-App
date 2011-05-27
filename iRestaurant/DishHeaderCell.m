@@ -14,13 +14,15 @@
 #import "RestaurantViewController.h"
 #import "RestaurantService.h"
 #import "DishViewController.h"
+#import "PhotoViewer.h"
+#import "iRestaurantAppDelegate.h"
 
 #import "IGUIScrollViewImage.h"
 #import <QuartzCore/QuartzCore.h>
 
 @implementation DishHeaderCell
 
-@synthesize name, price, ratingView, restaurantName, svimage, viewForScrollView, singleImageView, dvc;
+@synthesize name, price, ratingView, restaurantName, svimage, viewForScrollView, singleImageView, dvc, menu_item;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andDishViewController:(DishViewController *)dvc_passed
 {
@@ -81,13 +83,24 @@
         price.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:price];
         
+        singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
+        singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        singleImageView.layer.borderWidth = 1;
+        [self.contentView addSubview:singleImageView];
+        
+        UIButton *imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [imageButton addTarget:self action:@selector(imageButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        imageButton.frame = CGRectMake(10, 85, 300, 300);
+        [self.contentView addSubview:imageButton];
+        
         self.selectionStyle = UITableViewCellEditingStyleNone;   
     }
     return self;
 }
 
--(void)loadMenuItem:(MenuItem *)menu_item andRestaurant:(Restaurant *)restaurant
+-(void)loadMenuItem:(MenuItem *)menu_item_passed andRestaurant:(Restaurant *)restaurant
 {
+    menu_item = menu_item_passed;
     name.text = [menu_item.name retain];
     restaurantName.text = [restaurant.name retain];
     price.text = [NSString stringWithFormat:@"$%.2f", menu_item.price];
@@ -110,41 +123,53 @@
     }
         
     if ([arrayOfURLStrings count] == 0) {
-        singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
+        //singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
         singleImageView.image = noImage;
-        singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        singleImageView.layer.borderWidth = 1;
-        [self.contentView addSubview:singleImageView];
-        
-    } else if ([arrayOfURLStrings count] == 1) {
-        singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
-        [singleImageView setImageWithURL:[NSURL URLWithString:[arrayOfURLStrings objectAtIndex:0]] placeholderImage:noImage];
-        singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        singleImageView.layer.borderWidth = 1;
-        [self.contentView addSubview:singleImageView];
+        //singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        //singleImageView.layer.borderWidth = 1;
+        //[self.contentView addSubview:singleImageView];
         
     } else {
-        
-        for (UIView *view in self.contentView.subviews) {
-            if (view == singleImageView) {
-                [singleImageView removeFromSuperview];
-            }
-        }
-        
-        viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
-        svimage = [[IGUIScrollViewImage alloc] init];  
-        [svimage setContentArray:imageViewArray]; 
-        [svimage setBackGroudColor:[UIColor clearColor]];
-        [svimage setWidth:300 andHeight:300];
-        [svimage enablePageControlOnBottom];  
-        svimage.scrollView.showsHorizontalScrollIndicator = FALSE;
-        viewForScrollView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        viewForScrollView.layer.borderWidth = 1;
-        [viewForScrollView addSubview:[svimage getWithPosition:0]];
-        [self.contentView addSubview:viewForScrollView];
+        //singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
+        [singleImageView setImageWithURL:[NSURL URLWithString:[arrayOfURLStrings objectAtIndex:0]] placeholderImage:noImage];
+        //singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+        //singleImageView.layer.borderWidth = 1;
+        //[self.contentView addSubview:singleImageView];
     }
+//    } else {
+//        
+//        for (UIView *view in self.contentView.subviews) {
+//            if (view == singleImageView) {
+//                [singleImageView removeFromSuperview];
+//            }
+//        }
+//        
+//        viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
+//        svimage = [[IGUIScrollViewImage alloc] init];  
+//        [svimage setContentArray:imageViewArray]; 
+//        [svimage setBackGroudColor:[UIColor clearColor]];
+//        [svimage setWidth:300 andHeight:300];
+//        [svimage enablePageControlOnBottom];  
+//        svimage.scrollView.showsHorizontalScrollIndicator = FALSE;
+//        viewForScrollView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//        viewForScrollView.layer.borderWidth = 1;
+//        [viewForScrollView addSubview:[svimage getWithPosition:0]];
+//        [self.contentView addSubview:viewForScrollView];
+//    }
      
     
+}
+
+-(void) imageButtonPressed:(id)sender {
+    if ([menu_item.pictures count] > 0) {
+        iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
+        [photoViewer setupScrollView:menu_item.pictures];
+        photoViewer.navItem.title = [NSString stringWithFormat:@"%@", menu_item.name];
+        photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+        [appDelegate.tabBarController presentModalViewController:photoViewer animated:YES];
+        [photoViewer release];
+    }
 }
 
 -(void)cameraButtonPressed:(id)sender {

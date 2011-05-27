@@ -185,7 +185,7 @@
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
         RestaurantHeaderCell *restaurantHeaderCell = (RestaurantHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantHeaderCell"];
 		if (restaurantHeaderCell == nil) {
-		    restaurantHeaderCell = [[[RestaurantHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantHeaderCell"] autorelease];
+		    restaurantHeaderCell = [[[RestaurantHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantHeaderCell" andRVC:self] autorelease];
 		}          
         [restaurantHeaderCell loadRestaurant:restaurant];
 		return restaurantHeaderCell;
@@ -489,13 +489,13 @@
     [rrs rateRestaurant:restaurant withRating:rating];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    float rating = 5 - buttonIndex * 1.0;
-    if(rating > 0.0f) {
-        RatingService *rrs = [[RatingService alloc] initWithDelegate:self];
-        [rrs rateRestaurant:restaurant withRating:rating];
-    }
-}
+//- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+//    float rating = 5 - buttonIndex * 1.0;
+//    if(rating > 0.0f) {
+//        RatingService *rrs = [[RatingService alloc] initWithDelegate:self];
+//        [rrs rateRestaurant:restaurant withRating:rating];
+//    }
+//}
 
 -(void) tagsRetrieved:(NSMutableArray *)tags {
     [restaurant addAllTags:tags];

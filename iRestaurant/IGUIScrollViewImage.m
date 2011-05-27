@@ -14,7 +14,7 @@
 
 @implementation IGUIScrollViewImage
 
-@synthesize scrollView, menuItemLabel, showMenuItemLabel, dishNameLabelArray, commentLabelArray, delegate;
+@synthesize scrollView, menuItemLabel, showMenuItemLabel, dishNameLabelArray, commentLabelArray, delegate, pageControl;
 
 - (int)getScrollViewWidth {
 	return ([contentArray count] * scrollWidth);

@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 #import "IGUIScrollViewImage.h"
 
-@interface PhotoViewer : UIViewController <IGUIScrollViewImageDelegate> {
+@interface PhotoViewer : UIViewController <IGUIScrollViewImageDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
     IGUIScrollViewImage *svimage;
     IBOutlet UINavigationItem *navItem;
     IBOutlet UILabel *dishNameLabel;
     IBOutlet UILabel *commentLabel;
+    NSArray *arrayOfPhotos;
 }
 
 
@@ -21,10 +24,13 @@
 @property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
 @property (nonatomic, retain) IBOutlet UILabel *dishNameLabel;
 @property (nonatomic, retain) IBOutlet UILabel *commentLabel;
+@property (nonatomic, retain) NSArray *arrayOfPhotos;
 
 -(void) setImageLabelsDishName:(NSString *)dishNameString andComment:(NSString *)commentString;
--(void)setupScrollView:(NSArray *)arrayOfPhotos;
+-(void)setupScrollView:(NSArray *)arrayOfPhotos_passed;
 -(IBAction) closeButtonPressed;
+-(IBAction) reportAbuseButtonPressed:(id)sender;
+-(void) launchEmailFeedbackForPictureAtIndex:(int)index;
 
 
 @end

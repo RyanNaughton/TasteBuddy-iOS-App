@@ -7,6 +7,7 @@
 //
 
 #import "RestaurantHeaderCell.h"
+#import "RestaurantViewController.h"
 #import "Restaurant.h"
 #import "UIImageView+WebCache.h"
 #import "RatingView.h"
@@ -17,12 +18,14 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation RestaurantHeaderCell
-@synthesize imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto, lunch_text, dinner_text, imageButton, cuisine_types_text, average_meal_text;
+@synthesize restaurantViewController, imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto, lunch_text, dinner_text, imageButton, cuisine_types_text, average_meal_text;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andRVC:(RestaurantViewController *)rvc
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
+        restaurantViewController = rvc;
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         self.backgroundColor = [UIColor whiteColor];
@@ -54,6 +57,12 @@
         ratingView = [[RatingView alloc] initWithStarSize:20 andLabelVisible:YES];
         ratingView.frame = CGRectMake(10, 30, 100, 20);
         [self.contentView addSubview:ratingView];
+        
+//        UIButton *reportAbuseButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [reportAbuseButton addTarget:self action:@selector(reportAbuseButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+//        [reportAbuseButton setImage:[UIImage imageNamed:@"09-chat-2.png"] forState:UIControlStateNormal];
+//        reportAbuseButton.frame = CGRectMake(290, 30, 22, 22);
+//        [self.contentView addSubview:reportAbuseButton];
         
         UIView *greyLine = [[UIView alloc]initWithFrame:CGRectMake(140, 85, 170, 1)];
         greyLine.backgroundColor = [UIColor lightGrayColor];
@@ -244,7 +253,18 @@
     //UIButton *favoriteButton = (UIButton *)sender;
     [favoriteButton setBackgroundImage:redHeart forState:UIControlStateNormal];
 }
+         
+-(void)reportAbuseButtonPressed {
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
+    UIActionSheet *ac = [[UIActionSheet alloc]initWithTitle:@"Report Abuse" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Flag Pictures For Review" otherButtonTitles:nil];
+    [ac showFromTabBar:appDelegate.tabBarController.tabBar];
+    [ac release];
+}         
 
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    NSLog(@"index: %i", buttonIndex);
+}
+         
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
@@ -252,6 +272,7 @@
     // Configure the view for the selected state
 }
 
+         
 - (void)dealloc
 {
     [dinner_text release];

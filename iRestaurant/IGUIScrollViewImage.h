@@ -53,6 +53,7 @@
 @property (nonatomic, assign) BOOL showMenuItemLabel;
 @property (nonatomic, retain) NSArray *dishNameLabelArray;
 @property (nonatomic, retain) NSArray *commentLabelArray;
+@property (nonatomic, retain) UIPageControl *pageControl;
 
 -(void)setDishNameLabelArray:(NSArray *)dishNameLabelArrayPassed andCommentLabelArray:(NSArray *)commentLabelArrayPassed;
 
