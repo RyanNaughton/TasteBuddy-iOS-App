@@ -385,7 +385,7 @@
 		493357E6138DC85C0019A7E7 /* TagViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TagViewController.xib; sourceTree = "<group>"; };
 		493357E9138DC9980019A7E7 /* TagsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagsTableViewController.h; sourceTree = "<group>"; };
 		493357EA138DC99A0019A7E7 /* TagsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsTableViewController.m; sourceTree = "<group>"; };
-		494D34B01365FC7B00E03CCA /* StringSizeUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; path = StringSizeUtility.h; sourceTree = "<group>"; };
+		494D34B01365FC7B00E03CCA /* StringSizeUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringSizeUtility.h; sourceTree = "<group>"; };
 		494D34B11365FC7B00E03CCA /* StringSizeUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringSizeUtility.m; sourceTree = "<group>"; };
 		49520093135D11D200F0876E /* AutocompleteModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteModalViewController.h; sourceTree = "<group>"; };
 		49520094135D11D200F0876E /* AutocompleteModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteModalViewController.m; sourceTree = "<group>"; };
@@ -2672,7 +2672,7 @@
 				PRODUCT_NAME = TasteBuddy;
 				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2699,7 +2699,7 @@
 				PRODUCT_NAME = TasteBuddy;
 				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
