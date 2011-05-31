@@ -13,6 +13,7 @@
     DealsService *ds;
     NSArray *dealsArray;
     UIImage *noImage;
+    
 }
 
 @property (nonatomic, retain) DealsService *ds;
