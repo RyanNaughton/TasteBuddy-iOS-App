@@ -68,7 +68,6 @@
         cancelButton.enabled = FALSE;
         PhotoUploadService *photoUploadService = [[PhotoUploadService alloc]init];
         [photoUploadService uploadImage:image withWhere:whereTextField.text andWhat:whatTextField.text andComments:commentsTextField.text andFacebook:facebookSwitch.on andDelegate:self andRestaurantId:restaurant andMenuItemId:menuItem];
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"startLoadingIndicator" object:nil];
     } else {
         NSLog(@"ignore duplicate submission");
     }
@@ -83,7 +82,6 @@
     } else {
         [dvc newImageLoaded:dict];
     }
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"stopLoadingIndicator" object:nil];
     [self dismissModalViewControllerAnimated:YES];
 }
 
