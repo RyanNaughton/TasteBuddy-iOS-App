@@ -11,6 +11,7 @@
 @class RestaurantSearchResultTableViewController;
 @class DishSearchResultTableViewController;
 @class AutocompleteModalViewController;
+@class SortAndFilterPreferences;
 
 @interface SearchViewController : UIViewController <SearchServiceDelegate, UITextFieldDelegate, UIScrollViewDelegate, UIActionSheetDelegate, MKMapViewDelegate> {
     SearchService *searchService;
@@ -40,6 +41,8 @@
     UIButton *lastSender;
     
     bool needsToPerformDefaultSearch;
+
+    SortAndFilterPreferences *sortAndFilterPreferences;
     
 }
 
@@ -65,8 +68,9 @@
 @property (nonatomic, retain) UIView *tabView;
 @property (nonatomic, assign) bool needsToPerformDefaultSearch;
 
-@property (nonatomic, assign) IBOutlet MKMapView *mapView;
+@property (nonatomic, retain) IBOutlet MKMapView *mapView;
 
+@property (nonatomic, assign)  SortAndFilterPreferences *sortAndFilterPreferences;
 
 -(IBAction) switchSearchView:(id) sender;
 
@@ -80,5 +84,7 @@
 
 -(void) setUpAnnotations;
 -(void) updateSearchTermField;
+
+-(void) sortAndFilterRestaurantResults;
 
 @end

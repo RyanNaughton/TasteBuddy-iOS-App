@@ -16,6 +16,7 @@
 @implementation RestaurantSearchResultTableViewController
 
 @synthesize restaurantsArray;
+@synthesize filteredArray;
 @synthesize isLoading;
 @synthesize searchViewController;
 
@@ -31,6 +32,7 @@
 - (void)dealloc
 {
     [restaurantsArray release];
+    [filteredArray release];
     [searchViewController release];
     [super dealloc];
 }
@@ -49,6 +51,7 @@
 {
     [super viewDidLoad];
     restaurantsArray = [[NSMutableArray alloc] init];
+    filteredArray = [[NSMutableArray alloc] init];
     isLoading = YES;
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -105,8 +108,8 @@
     // Return the number of rows in the section.
     if (isLoading) {
         return 1;
-    } else if ([restaurantsArray count] > 0 && !isLoading) {
-        return [restaurantsArray count];
+    } else if ([filteredArray count] > 0 && !isLoading) {
+        return [filteredArray count];
     } else {
         return 1;
     }
@@ -131,14 +134,14 @@
             [act release];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             return cell;
-        } else if ([restaurantsArray count] > 0) {
+        } else if ([filteredArray count] > 0) {
         
 		RestaurantSearchCell *restaurantSearchCell = (RestaurantSearchCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantSearchCell"];
 		if (restaurantSearchCell == nil) {
 		    restaurantSearchCell = [[[RestaurantSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantSearchCell"] autorelease];
 		}          
         
-        [restaurantSearchCell loadRestaurant:[restaurantsArray objectAtIndex:indexPath.row]];
+        [restaurantSearchCell loadRestaurant:[filteredArray objectAtIndex:indexPath.row]];
 		
 		return restaurantSearchCell;
     } else {
@@ -165,7 +168,7 @@
     if (isLoading) { 
         searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         height = 300; 
-    } else if ([restaurantsArray count] > 0) {
+    } else if ([filteredArray count] > 0) {
         height = 70;
         searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     } else {
@@ -221,9 +224,9 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
-    if([restaurantsArray count] > 0 && !isLoading){
+    if([filteredArray count] > 0 && !isLoading){
     // Navigation logic may go here. Create and push another view controller.
-    RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:[restaurantsArray objectAtIndex:indexPath.row]];
+    RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:[filteredArray objectAtIndex:indexPath.row]];
     [searchViewController.navigationController pushViewController:restaurantViewController animated:YES];
     [restaurantViewController release];
     

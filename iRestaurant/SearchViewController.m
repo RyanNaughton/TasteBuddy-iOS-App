@@ -16,6 +16,8 @@
 #import "RestaurantAnnotation.h"
 #import "RestaurantViewController.h"
 #import "FindAutocompleteTableViewController.h"
+#import "SearchSortAndFilterViewController.h"
+#import "SortAndFilterPreferences.h"
 
 
 @implementation SearchViewController
@@ -38,6 +40,9 @@
 
 @synthesize mapView;
 
+@synthesize sortAndFilterPreferences;
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -49,6 +54,7 @@
 
 - (void)dealloc
 {
+    [sortAndFilterPreferences release];
     [searchService release];
     [restaurantSearchResultTableViewController release];
     [dishSearchResultTableViewController release];
@@ -237,6 +243,7 @@
 -(void)searchFinished:(NSMutableArray *)restaurantsArray 
 { 
     restaurantSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
+    restaurantSearchResultTableViewController.filteredArray = [restaurantsArray retain];
     dishSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
     [self resultsLoaded];
 }
@@ -257,33 +264,97 @@
 }
 
 -(IBAction) filterPressed {
-    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
-    UIActionSheet *filterActionSheet = [[UIActionSheet alloc] initWithTitle:@"Sort" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Distance", @"Rating", @"Average Dish Price", nil];
-    [filterActionSheet showFromTabBar:appDelegate.tabBarController.tabBar];
-    [filterActionSheet release];
+//    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    
+    SearchSortAndFilterViewController *ssafvc = [[SearchSortAndFilterViewController alloc] initWithNibName:@"SearchSortAndFilterViewController" bundle:nil andSearchViewController:self];
+    [self presentModalViewController:ssafvc animated:YES];
+    [ssafvc release];
+//    UIActionSheet *filterActionSheet = [[UIActionSheet alloc] initWithTitle:@"Sort" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Distance", @"Rating", @"Average Dish Price", nil];
+//    [filterActionSheet showFromTabBar:appDelegate.tabBarController.tabBar];
+//    [filterActionSheet release];
 }
 
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    NSSortDescriptor *sortDescriptor;
-    if(buttonIndex == 0) {
-        sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"distance"
-                                                      ascending:YES] autorelease];        
-        
-    } else if(buttonIndex == 1) {
-        sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"rating.sortValue"
-                                                      ascending:NO] autorelease];  
-
-    } else if(buttonIndex == 2) {
-        sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"average_meal_price"
-                                                      ascending:YES] autorelease];
+-(void) sortAndFilterRestaurantResults {
+    if (sortAndFilterPreferences.sortIndex > -1) {
+        NSSortDescriptor *sortDescriptor;
+        if(sortAndFilterPreferences.sortIndex == 0) {
+            sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"distance"
+                                                          ascending:YES] autorelease];        
+            
+        } else if(sortAndFilterPreferences.sortIndex == 1) {
+            sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"rating.sortValue"
+                                                          ascending:NO] autorelease];  
+            
+        } else if(sortAndFilterPreferences.sortIndex == 2) {
+            sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"average_meal_price"
+                                                          ascending:YES] autorelease];
+        }
+        NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        NSArray *sortedArray = [restaurantSearchResultTableViewController.restaurantsArray sortedArrayUsingDescriptors:sortDescriptors];
+        restaurantSearchResultTableViewController.restaurantsArray = [NSMutableArray arrayWithArray: sortedArray];
+    } 
+    
+     if (sortAndFilterPreferences.distanceIndex > -1 || sortAndFilterPreferences.priceIndex > -1) {
+         restaurantSearchResultTableViewController.filteredArray = [[NSMutableArray alloc] init];
+     } else {
+         restaurantSearchResultTableViewController.filteredArray = [restaurantSearchResultTableViewController.restaurantsArray retain];
+     }
+    
+    if(sortAndFilterPreferences.distanceIndex > -1) {
+        float distance = 0.0;
+        if(sortAndFilterPreferences.distanceIndex == 0) {
+            distance = 0.5;
+        } else if (sortAndFilterPreferences.distanceIndex == 1){
+            distance = 1.0;
+        } else if (sortAndFilterPreferences.distanceIndex == 2){
+            distance = 5.0;
+        } else if (sortAndFilterPreferences.distanceIndex == 3){
+            distance = 10.0;
+        }
+        for(Restaurant *r in restaurantSearchResultTableViewController.restaurantsArray) {
+            if([r.distance floatValue] <= distance) [restaurantSearchResultTableViewController.filteredArray addObject:r];
+        }
     }
     
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    NSArray *sortedArray = [restaurantSearchResultTableViewController.restaurantsArray sortedArrayUsingDescriptors:sortDescriptors];
-    restaurantSearchResultTableViewController.restaurantsArray = [NSMutableArray arrayWithArray: sortedArray];
-    [tableView reloadData];
+    if(sortAndFilterPreferences.priceIndex > -1) {
+        float priceFrom = 0.0;
+        float priceTo = 0.0;
+        
+        if(sortAndFilterPreferences.priceIndex == 0) {
+            priceTo = 10.0;
+        } else if(sortAndFilterPreferences.priceIndex == 1) {
+            priceFrom = 10.0;
+            priceTo = 20.0;
+        } else if(sortAndFilterPreferences.priceIndex == 2) {
+            priceFrom = 20.0;
+            priceTo = 40.0;
+        } else if(sortAndFilterPreferences.priceIndex == 3) {
+            priceFrom = 40.0;
+            priceTo = 100000.0;
+        }
+        
+        NSMutableArray *arrayToFilter;
+        if(sortAndFilterPreferences.distanceIndex > -1) {
+            arrayToFilter = restaurantSearchResultTableViewController.filteredArray;
+        } else {
+            arrayToFilter = restaurantSearchResultTableViewController.restaurantsArray;
+        }
+        NSMutableArray *newFilteredArray = [[NSMutableArray alloc] init];
+        for(Restaurant *r in arrayToFilter) {
+            if(r.average_meal_price >= priceFrom && r.average_meal_price <= priceTo) [newFilteredArray addObject:r];
+        }
+        restaurantSearchResultTableViewController.filteredArray = newFilteredArray;
+        
+    }
+    
+    
+    if (sortAndFilterPreferences.distanceIndex > -1 || sortAndFilterPreferences.sortIndex > -1 || sortAndFilterPreferences.priceIndex > -1) {
+        [tableView reloadData];
+    }
+    
+    
 }
-
 -(IBAction) presentSearchModal {
     
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];

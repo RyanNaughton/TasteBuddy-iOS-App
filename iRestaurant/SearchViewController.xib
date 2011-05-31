@@ -151,7 +151,7 @@
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<reference key="IBUIFont" ref="744763146"/>
 								<string key="IBUITitleShadowOffset">{0, 1}</string>
-								<string key="IBUINormalTitle">Sort</string>
+								<string key="IBUINormalTitle">Filter</string>
 								<reference key="IBUIHighlightedTitleColor" ref="346297262"/>
 								<reference key="IBUINormalTitleColor" ref="131958597"/>
 								<reference key="IBUINormalTitleShadowColor" ref="346297262"/>
@@ -221,7 +221,6 @@
 						<string key="NSFrame">{{0, 43}, {320, 324}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -611,9 +610,11 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>autocomplete:</string>
 							<string>cancel</string>
+							<string>nearbyButtonPressed</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -624,6 +625,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>autocomplete:</string>
 							<string>cancel</string>
+							<string>nearbyButtonPressed</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
@@ -633,6 +635,10 @@
 							</object>
 							<object class="IBActionInfo">
 								<string key="name">cancel</string>
+								<string key="candidateClassName">id</string>
+							</object>
+							<object class="IBActionInfo">
+								<string key="name">nearbyButtonPressed</string>
 								<string key="candidateClassName">id</string>
 							</object>
 						</object>
@@ -647,6 +653,7 @@
 							<string>lastNear</string>
 							<string>nearAutocompleteTableViewController</string>
 							<string>nearField</string>
+							<string>nearbyButton</string>
 							<string>searchView</string>
 							<string>searchViewController</string>
 							<string>tableView</string>
@@ -662,6 +669,7 @@
 							<string>NSString</string>
 							<string>NearAutocompleteTableViewController</string>
 							<string>UITextField</string>
+							<string>UIButton</string>
 							<string>UIView</string>
 							<string>SearchViewController</string>
 							<string>UITableView</string>
@@ -680,6 +688,7 @@
 							<string>lastNear</string>
 							<string>nearAutocompleteTableViewController</string>
 							<string>nearField</string>
+							<string>nearbyButton</string>
 							<string>searchView</string>
 							<string>searchViewController</string>
 							<string>tableView</string>
@@ -712,6 +721,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">nearField</string>
 								<string key="candidateClassName">UITextField</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">nearbyButton</string>
+								<string key="candidateClassName">UIButton</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">searchView</string>

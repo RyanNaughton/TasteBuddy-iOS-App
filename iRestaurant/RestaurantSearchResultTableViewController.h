@@ -11,11 +11,13 @@
 
 @interface RestaurantSearchResultTableViewController : UITableViewController{
     NSMutableArray *restaurantsArray;
+    NSMutableArray *filteredArray;
     IBOutlet SearchViewController *searchViewController;
     bool isLoading;
 }
 
 @property (nonatomic, retain) NSMutableArray *restaurantsArray;
+@property (nonatomic, retain) NSMutableArray *filteredArray;
 @property (nonatomic, retain) IBOutlet SearchViewController *searchViewController;
 @property (nonatomic, assign) bool isLoading;
 

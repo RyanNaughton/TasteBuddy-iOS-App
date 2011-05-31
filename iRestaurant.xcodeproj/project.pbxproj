@@ -15,6 +15,9 @@
 		4929F4BA13733532003D4EE8 /* TagService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4B913733531003D4EE8 /* TagService.m */; };
 		4929F4BE1373374F003D4EE8 /* Tag.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4BD1373374F003D4EE8 /* Tag.m */; };
 		4929F4C213735B0E003D4EE8 /* TagButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4929F4C113735B0E003D4EE8 /* TagButton.m */; };
+		49300BDD13958DB5002B802A /* SearchSortAndFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49300BDB13958DB5002B802A /* SearchSortAndFilterViewController.m */; };
+		49300BDE13958DB5002B802A /* SearchSortAndFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49300BDC13958DB5002B802A /* SearchSortAndFilterViewController.xib */; };
+		49300BE11395A1D0002B802A /* SortAndFilterPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 49300BE01395A1D0002B802A /* SortAndFilterPreferences.m */; };
 		493357CD138D8F430019A7E7 /* LoadingTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 493357CC138D8F430019A7E7 /* LoadingTagCell.m */; };
 		493357D0138D9D890019A7E7 /* TagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 493357CF138D9D890019A7E7 /* TagCell.m */; };
 		493357DD138DC2D90019A7E7 /* 13-plus.png in Resources */ = {isa = PBXBuildFile; fileRef = 493357D9138DC2C00019A7E7 /* 13-plus.png */; };
@@ -376,6 +379,11 @@
 		4929F4BD1373374F003D4EE8 /* Tag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tag.m; sourceTree = "<group>"; };
 		4929F4C013735B0E003D4EE8 /* TagButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagButton.h; sourceTree = "<group>"; };
 		4929F4C113735B0E003D4EE8 /* TagButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagButton.m; sourceTree = "<group>"; };
+		49300BDA13958DB5002B802A /* SearchSortAndFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchSortAndFilterViewController.h; sourceTree = "<group>"; };
+		49300BDB13958DB5002B802A /* SearchSortAndFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchSortAndFilterViewController.m; sourceTree = "<group>"; };
+		49300BDC13958DB5002B802A /* SearchSortAndFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchSortAndFilterViewController.xib; sourceTree = "<group>"; };
+		49300BDF1395A1D0002B802A /* SortAndFilterPreferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortAndFilterPreferences.h; sourceTree = "<group>"; };
+		49300BE01395A1D0002B802A /* SortAndFilterPreferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortAndFilterPreferences.m; sourceTree = "<group>"; };
 		493357CB138D8F430019A7E7 /* LoadingTagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingTagCell.h; sourceTree = "<group>"; };
 		493357CC138D8F430019A7E7 /* LoadingTagCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingTagCell.m; sourceTree = "<group>"; };
 		493357CE138D9D890019A7E7 /* TagCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagCell.h; sourceTree = "<group>"; };
@@ -1091,6 +1099,7 @@
 		49578B75135519DB00F8EC0B /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				49300BDC13958DB5002B802A /* SearchSortAndFilterViewController.xib */,
 				4952008C135D113C00F0876E /* Autocomplete */,
 				498857A91358E88D00D17554 /* Cells */,
 				49578B7E13551D7200F8EC0B /* SearchViewController.xib */,
@@ -1108,6 +1117,8 @@
 				49578BCB1355E65B00F8EC0B /* RestaurantSearchResultTableViewController.m */,
 				49578BD81355F8CE00F8EC0B /* DishSearchResultTableViewController.h */,
 				49578BD91355F8CF00F8EC0B /* DishSearchResultTableViewController.m */,
+				49300BDA13958DB5002B802A /* SearchSortAndFilterViewController.h */,
+				49300BDB13958DB5002B802A /* SearchSortAndFilterViewController.m */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -2152,6 +2163,8 @@
 				49752FDE13843628000C28C4 /* TaggedObject.m */,
 				4927C9A8138C5A0200BD4169 /* RestaurantAnnotation.h */,
 				4927C9A9138C5A0200BD4169 /* RestaurantAnnotation.m */,
+				49300BDF1395A1D0002B802A /* SortAndFilterPreferences.h */,
+				49300BE01395A1D0002B802A /* SortAndFilterPreferences.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2383,6 +2396,7 @@
 				E882B55E1395619000BCE5A3 /* DealsViewController.xib in Resources */,
 				E882B56613956F9D00BCE5A3 /* dealsLogo.png in Resources */,
 				E882B56713956F9D00BCE5A3 /* dealsLogo@2x.png in Resources */,
+				49300BDE13958DB5002B802A /* SearchSortAndFilterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2594,6 +2608,8 @@
 				E882B55713955B5C00BCE5A3 /* DealsService.m in Sources */,
 				E882B55D1395619000BCE5A3 /* DealsViewController.m in Sources */,
 				E882B5631395693000BCE5A3 /* DealsCell.m in Sources */,
+				49300BDD13958DB5002B802A /* SearchSortAndFilterViewController.m in Sources */,
+				49300BE11395A1D0002B802A /* SortAndFilterPreferences.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2701,8 +2717,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2716,8 +2732,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -2729,8 +2745,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iRestaurant/iRestaurant-Prefix.pch";
@@ -2743,8 +2759,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
