@@ -11,6 +11,7 @@
 #import "DealsCell.h"
 #import "UIImageView+WebCache.h"
 #import "WebViewController.h"
+#import "iRestaurantAppDelegate.h"
 
 @implementation DealsViewController
 @synthesize ds, dealsArray, noImage;
@@ -31,11 +32,7 @@
 
 -(void) dealDataReturned:(NSDictionary *)dict
 {
-    
-    NSLog(@"deal data returned: %@", dict);
-    
     dealsArray = [[[dict objectForKey:@"response"] objectForKey:@"deals"]retain];
-    
     [self.tableView reloadData];
 }
 
@@ -105,32 +102,32 @@
 
 #pragma mark - Table view data source
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    return @"";
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
-    headerView.backgroundColor = [UIColor clearColor];
-    
-    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"orange-grad.png"]];
-    bgImageView.alpha = 0.66;
-    bgImageView.frame = headerView.frame;
-    bgImageView.contentMode = UIViewContentModeScaleToFill;
-    [headerView addSubview:bgImageView];
-    [bgImageView release];
-    
-    UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, -1, 220, 22)];
-    restaurantName.backgroundColor = [UIColor clearColor];
-    restaurantName.textColor = [[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
-    restaurantName.font = [UIFont systemFontOfSize:14];
-    restaurantName.text = @"Deals within 10 miles";
-    [headerView addSubview:restaurantName];
-    [restaurantName release];
-    return [headerView autorelease];
-    
-}
+//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+//{
+//    return @"";
+//}
+//
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
+//    headerView.backgroundColor = [UIColor clearColor];
+//    
+//    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"orange-grad.png"]];
+//    bgImageView.alpha = 0.66;
+//    bgImageView.frame = headerView.frame;
+//    bgImageView.contentMode = UIViewContentModeScaleToFill;
+//    [headerView addSubview:bgImageView];
+//    [bgImageView release];
+//    
+//    UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, -1, 220, 22)];
+//    restaurantName.backgroundColor = [UIColor clearColor];
+//    restaurantName.textColor = [[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
+//    restaurantName.font = [UIFont systemFontOfSize:14];
+//    restaurantName.text = @"Deals within 10 miles";
+//    [headerView addSubview:restaurantName];
+//    [restaurantName release];
+//    return [headerView autorelease];
+//    
+//}
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
@@ -164,8 +161,10 @@
         }
         NSURL *dealImageURL = [NSURL URLWithString:[[[dealsArray objectAtIndex:indexPath.row] objectForKey:@"images"] objectForKey:@"image_small"]];
         cell.dealLabel.text = [[dealsArray objectAtIndex:indexPath.row] objectForKey:@"yipit_title"];
+        [cell setDistanceLabelWithDictionary:[dealsArray objectAtIndex:indexPath.row]];
+        [cell setDurationLabelWithDictionary:[dealsArray objectAtIndex:indexPath.row]];
         [cell.dealImageView setImageWithURL:dealImageURL placeholderImage:noImage];
-        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        cell.accessoryView = nil;
         return cell;
     } else { 
         static NSString *CellIdentifier = @"LoadingCell";

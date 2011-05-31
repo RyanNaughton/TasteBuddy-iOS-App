@@ -12,9 +12,16 @@
 @interface DealsCell : UITableViewCell {
     UIImageView *dealImageView;
     UILabel *dealLabel;
+    UILabel *distanceLabel;
+    UILabel *durationLabel;
 }
 
 @property (nonatomic, retain) UIImageView *dealImageView;
 @property (nonatomic, retain) UILabel *dealLabel;
+@property (nonatomic, retain) UILabel *distanceLabel;
+@property (nonatomic, retain) UILabel *durationLabel;
+
+-(void) setDistanceLabelWithDictionary:(NSDictionary *)dict;
+-(void)setDurationLabelWithDictionary:(NSDictionary *)dict;
 
 @end
