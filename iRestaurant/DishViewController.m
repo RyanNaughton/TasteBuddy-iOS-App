@@ -384,10 +384,10 @@
     [rpvc animateIn];
 }
 
--(void)startRatingServiceWithRating:(float)rating 
+-(void)startRatingServiceWithRating:(float)rating andComments:(NSString *)comments
 {
     RatingService *rrs = [[RatingService alloc] initWithDelegate:self];
-    [rrs rateMenuItem:menu_item withRating:rating];
+    [rrs rateMenuItem:menu_item withRating:rating andComments:comments];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
