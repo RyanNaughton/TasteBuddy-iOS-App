@@ -30,7 +30,7 @@
         [self.contentView addSubview:dealImageView];
         
         dealLabel = [[UILabel alloc]init];
-        dealLabel.frame = CGRectMake(75, 5, 200, 45);
+        dealLabel.frame = CGRectMake(75, 5, 190, 45);
         dealLabel.numberOfLines = 3;
         dealLabel.adjustsFontSizeToFitWidth = TRUE;
         dealLabel.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
@@ -39,7 +39,7 @@
         [self.contentView addSubview:dealLabel];
         
         distanceLabel = [[UILabel alloc]init];
-        distanceLabel.frame = CGRectMake(270, 5, 75, 20);
+        distanceLabel.frame = CGRectMake(270, 0, 75, 70);
         distanceLabel.adjustsFontSizeToFitWidth = FALSE;
         distanceLabel.textColor = [UIColor darkGrayColor];
 		distanceLabel.backgroundColor = [UIColor clearColor];
