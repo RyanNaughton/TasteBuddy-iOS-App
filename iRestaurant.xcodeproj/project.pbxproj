@@ -235,6 +235,9 @@
 		E882B55713955B5C00BCE5A3 /* DealsService.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B55613955B5C00BCE5A3 /* DealsService.m */; };
 		E882B55D1395619000BCE5A3 /* DealsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B55B1395619000BCE5A3 /* DealsViewController.m */; };
 		E882B55E1395619000BCE5A3 /* DealsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E882B55C1395619000BCE5A3 /* DealsViewController.xib */; };
+		E882B5631395693000BCE5A3 /* DealsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E882B5621395693000BCE5A3 /* DealsCell.m */; };
+		E882B56613956F9D00BCE5A3 /* dealsLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E882B56413956F9D00BCE5A3 /* dealsLogo.png */; };
+		E882B56713956F9D00BCE5A3 /* dealsLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E882B56513956F9D00BCE5A3 /* dealsLogo@2x.png */; };
 		E89CB80A138055A200F74837 /* UserSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E89CB808138055A200F74837 /* UserSettingsViewController.m */; };
 		E89CB80B138055A200F74837 /* UserSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E89CB809138055A200F74837 /* UserSettingsViewController.xib */; };
 		E89CB80E13805D3100F74837 /* settingsLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E89CB80C13805D3100F74837 /* settingsLogo.png */; };
@@ -738,6 +741,10 @@
 		E882B55A1395619000BCE5A3 /* DealsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealsViewController.h; sourceTree = "<group>"; };
 		E882B55B1395619000BCE5A3 /* DealsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealsViewController.m; sourceTree = "<group>"; };
 		E882B55C1395619000BCE5A3 /* DealsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DealsViewController.xib; sourceTree = "<group>"; };
+		E882B5611395693000BCE5A3 /* DealsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DealsCell.h; sourceTree = "<group>"; };
+		E882B5621395693000BCE5A3 /* DealsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DealsCell.m; sourceTree = "<group>"; };
+		E882B56413956F9D00BCE5A3 /* dealsLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dealsLogo.png; sourceTree = "<group>"; };
+		E882B56513956F9D00BCE5A3 /* dealsLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dealsLogo@2x.png"; sourceTree = "<group>"; };
 		E89CB807138055A200F74837 /* UserSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsViewController.h; sourceTree = "<group>"; };
 		E89CB808138055A200F74837 /* UserSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsViewController.m; sourceTree = "<group>"; };
 		E89CB809138055A200F74837 /* UserSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserSettingsViewController.xib; sourceTree = "<group>"; };
@@ -1048,7 +1055,6 @@
 				4986CDE5139067360042846B /* Label */,
 				494C28F4137DFF9800F30F64 /* Shared */,
 				E8429695137CCC1B00E791B2 /* Photo Viewer */,
-				E86CC6091374D6540022FCBD /* Deals */,
 				E86CC5F01374CE2D0022FCBD /* Favorites */,
 				4929F4BF13735AE8003D4EE8 /* Tag */,
 				E859D26A13722D6400D47CEB /* Profile */,
@@ -1671,6 +1677,8 @@
 				E86A84521368AD7B00720FA3 /* icons */,
 				E8AA4AED1361064A00A8E37B /* top-rounding.png */,
 				E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */,
+				E882B56413956F9D00BCE5A3 /* dealsLogo.png */,
+				E882B56513956F9D00BCE5A3 /* dealsLogo@2x.png */,
 				E8ABA082139067A200DBFA75 /* darkergrey-button.png */,
 				E8ABA083139067A200DBFA75 /* darkergrey-button@2x.png */,
 				E8D8ECF0138EDB34001A0D62 /* quickReviewLogo.png */,
@@ -1877,13 +1885,6 @@
 			name = "Dishes TableView";
 			sourceTree = "<group>";
 		};
-		E86CC6091374D6540022FCBD /* Deals */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Deals;
-			sourceTree = "<group>";
-		};
 		E882B5591395614700BCE5A3 /* Deals */ = {
 			isa = PBXGroup;
 			children = (
@@ -1896,9 +1897,19 @@
 		E882B55F1395619F00BCE5A3 /* Deals */ = {
 			isa = PBXGroup;
 			children = (
+				E882B560139568F300BCE5A3 /* cells */,
 				E882B55C1395619000BCE5A3 /* DealsViewController.xib */,
 			);
 			name = Deals;
+			sourceTree = "<group>";
+		};
+		E882B560139568F300BCE5A3 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				E882B5611395693000BCE5A3 /* DealsCell.h */,
+				E882B5621395693000BCE5A3 /* DealsCell.m */,
+			);
+			name = cells;
 			sourceTree = "<group>";
 		};
 		E89CB8061380557D00F74837 /* Settings */ = {
@@ -2370,6 +2381,8 @@
 				E8ABA08813906AB200DBFA75 /* 20-no.png in Resources */,
 				E8ABA08913906AB200DBFA75 /* 20-no@2x.png in Resources */,
 				E882B55E1395619000BCE5A3 /* DealsViewController.xib in Resources */,
+				E882B56613956F9D00BCE5A3 /* dealsLogo.png in Resources */,
+				E882B56713956F9D00BCE5A3 /* dealsLogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2580,6 +2593,7 @@
 				4986CDE8139067520042846B /* UILabelUnderlined.m in Sources */,
 				E882B55713955B5C00BCE5A3 /* DealsService.m in Sources */,
 				E882B55D1395619000BCE5A3 /* DealsViewController.m in Sources */,
+				E882B5631395693000BCE5A3 /* DealsCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

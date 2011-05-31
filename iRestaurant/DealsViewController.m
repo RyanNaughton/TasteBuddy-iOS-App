@@ -8,9 +8,12 @@
 
 #import "DealsViewController.h"
 #import "DealsService.h"
+#import "DealsCell.h"
+#import "UIImageView+WebCache.h"
+#import "WebViewController.h"
 
 @implementation DealsViewController
-@synthesize ds, dealsArray;
+@synthesize ds, dealsArray, noImage;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -49,6 +52,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self setTitle:@"Deals"];
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"dealsLogo.png"]];
+    appNameImageView.frame = CGRectMake(0, -3, 150, 44);
+    appNameImageView.contentMode = UIViewContentModeRight;
+    self.navigationItem.titleView = appNameImageView;
+    
+    noImage = [UIImage imageNamed:@"no-image-80.png"];
     ds = [[DealsService alloc]initWithDelegate:self];
     [ds getDeals];
 
@@ -94,9 +105,40 @@
 
 #pragma mark - Table view data source
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"";
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
+    headerView.backgroundColor = [UIColor clearColor];
+    
+    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"orange-grad.png"]];
+    bgImageView.alpha = 0.66;
+    bgImageView.frame = headerView.frame;
+    bgImageView.contentMode = UIViewContentModeScaleToFill;
+    [headerView addSubview:bgImageView];
+    [bgImageView release];
+    
+    UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, -1, 220, 22)];
+    restaurantName.backgroundColor = [UIColor clearColor];
+    restaurantName.textColor = [[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
+    restaurantName.font = [UIFont systemFontOfSize:14];
+    restaurantName.text = @"Deals within 10 miles";
+    [headerView addSubview:restaurantName];
+    [restaurantName release];
+    return [headerView autorelease];
+    
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
+    return 70;
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
     return 1;
 }
@@ -113,20 +155,32 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
     if ([dealsArray count] > 0) {
-        cell.textLabel.text = [[dealsArray objectAtIndex:indexPath.row] objectForKey:@"yipit_title"];
+        static NSString *CellIdentifier = @"Cell";
+        
+        DealsCell *cell = (DealsCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[[DealsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+        NSURL *dealImageURL = [NSURL URLWithString:[[[dealsArray objectAtIndex:indexPath.row] objectForKey:@"images"] objectForKey:@"image_small"]];
+        cell.dealLabel.text = [[dealsArray objectAtIndex:indexPath.row] objectForKey:@"yipit_title"];
+        [cell.dealImageView setImageWithURL:dealImageURL placeholderImage:noImage];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        return cell;
     } else { 
-        cell.textLabel.text = @"Loading...";
+        static NSString *CellIdentifier = @"LoadingCell";
+        
+        UITableViewCell *loadingCell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (loadingCell == nil) {
+            loadingCell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+        loadingCell.textLabel.text = @"Loading...";
+        UIActivityIndicatorView *ac = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [ac startAnimating];
+        loadingCell.accessoryView = ac;
+        loadingCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return loadingCell;
     }
-    
-    return cell;
 }
 
 /*
@@ -172,14 +226,21 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    NSString *urlString = [[dealsArray objectAtIndex:indexPath.row] objectForKey:@"yipit_url"];
+    NSString *headerString = [[[dealsArray objectAtIndex:indexPath.row]objectForKey:@"business"]objectForKey:@"name"];
+    
+    if(![urlString isKindOfClass:[NSNull class]]){
+        WebViewController *wvc = [[WebViewController alloc] init];
+        wvc.urlAddress = [urlString retain];
+        [wvc setTitle:headerString];
+        [self.navigationController pushViewController:wvc animated:YES];
+        [wvc release];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Unknown Website" message:@"We're sorry, but we could not load this deal" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    }
+
 }
 
 @end

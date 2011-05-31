@@ -12,10 +12,12 @@
 @interface DealsViewController : UITableViewController <DealsServiceDelegate> {
     DealsService *ds;
     NSArray *dealsArray;
+    UIImage *noImage;
 }
 
 @property (nonatomic, retain) DealsService *ds;
 @property (nonatomic, retain) NSArray *dealsArray;
+@property (nonatomic, retain) UIImage *noImage;
 
 -(void) dealDataReturned:(NSDictionary *)dict;
 
