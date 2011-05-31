@@ -36,7 +36,6 @@
     
     // Current Location defaults to the center of Chicago: State and Washington Street:  41.883333,-87.62786
     currentLocation = [[CLLocation alloc]initWithLatitude:41.883333 longitude:-87.62786];
-    
     [self startGettingLocation];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startLoadingIndicator) name:@"startLoadingIndicator" object:nil];
