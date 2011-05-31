@@ -21,6 +21,7 @@
 @synthesize currentRating;
 @synthesize orangeStar, whiteStar;
 @synthesize delegate;
+@synthesize commentField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -63,7 +64,7 @@
 
 -(IBAction)submitButtonPressed:(id)sender 
 {
-    [delegate startRatingServiceWithRating:currentRating];
+    [delegate startRatingServiceWithRating:currentRating andComments:commentField.text];
     [self closeButtonPressed:nil];
 }
 

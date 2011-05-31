@@ -42,7 +42,7 @@
 -(void)photoButtonPressed:(id)sender;
 -(void)menuButtonPressed:(id)sender;
 -(void)bookmarkButtonPressed:(id)sender;
--(void)startRatingServiceWithRating:(float)rating;
+-(void)startRatingServiceWithRating:(float)rating andComments:(NSString *)comments;
 -(void) newImageLoaded:(NSDictionary *)dict_passed;
 -(void)restaurantButtonPressed:(id)sender;
 

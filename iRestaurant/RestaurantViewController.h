@@ -46,7 +46,7 @@
 -(void) menuButtonPressed:(id)sender;
 -(void) bookmarkButtonPressed:(id)sender;
 -(void) websiteButtonPressed:(id)sender;
--(void) startRatingServiceWithRating:(float)rating;
+-(void) startRatingServiceWithRating:(float)rating andComments:(NSString *)comments;
 -(void) newImageLoaded:(NSDictionary *)dict_passed;
 
 @end
