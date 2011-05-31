@@ -30,9 +30,9 @@
         [self.contentView addSubview:dealImageView];
         
         dealLabel = [[UILabel alloc]init];
-        dealLabel.frame = CGRectMake(75, 0, 155, 65);
+        dealLabel.frame = CGRectMake(75, 5, 200, 45);
         dealLabel.numberOfLines = 3;
-        dealLabel.adjustsFontSizeToFitWidth = FALSE;
+        dealLabel.adjustsFontSizeToFitWidth = TRUE;
         dealLabel.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		dealLabel.backgroundColor = [UIColor clearColor];
 		dealLabel.font = [UIFont boldSystemFontOfSize:14];
@@ -47,10 +47,8 @@
         [self.contentView addSubview:distanceLabel];
         
         durationLabel = [[UILabel alloc]init];
-        durationLabel.frame = CGRectMake(260, 27, 50, 40);
+        durationLabel.frame = CGRectMake(75, 50, 155, 20);
         durationLabel.adjustsFontSizeToFitWidth = FALSE;
-        durationLabel.textAlignment = UITextAlignmentRight;
-        durationLabel.numberOfLines = 2;
         durationLabel.textColor = [UIColor darkGrayColor];
 		durationLabel.backgroundColor = [UIColor clearColor];
 		durationLabel.font = [UIFont systemFontOfSize:12];
@@ -93,7 +91,7 @@
     days = abs(days);
     NSString *trailingS;
     if (days > 1) { trailingS = @"s"; } else { trailingS = @""; }
-    durationLabel.text = [NSString stringWithFormat:@"Ends:\n%i day%@", days, trailingS];
+    durationLabel.text = [NSString stringWithFormat:@"%i day%@ remaining", days, trailingS];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
