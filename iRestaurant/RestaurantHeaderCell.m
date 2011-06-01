@@ -16,6 +16,7 @@
 #import "PhotoViewer.h"
 #import "hours.h"
 #import <QuartzCore/QuartzCore.h>
+#import "UIDeviceHardware.h"
 
 @implementation RestaurantHeaderCell
 @synthesize restaurantViewController, imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto, lunch_text, dinner_text, imageButton, cuisine_types_text, average_meal_text;
@@ -175,8 +176,17 @@
     
     restaurant = [restaurant_passed retain];
     if ([restaurant.pictures count] > 0) {
-        [imageView setImageWithURL:[NSURL URLWithString:[[restaurant.pictures objectAtIndex:0] objectForKey:@"160px"]]
+        
+        UIDeviceHardware *h=[[UIDeviceHardware alloc] init];
+        if ([[h platformString] isEqualToString:@"iPhone 4"]) {
+            NSLog(@"we have an iPhone 4");
+            [imageView setImageWithURL:[NSURL URLWithString:[[restaurant.pictures objectAtIndex:0] objectForKey:@"300px"]]
+                      placeholderImage:[UIImage imageNamed:@"no-image-160.png"]];
+        } else {
+            [imageView setImageWithURL:[NSURL URLWithString:[[restaurant.pictures objectAtIndex:0] objectForKey:@"160px"]]
                   placeholderImage:[UIImage imageNamed:@"no-image-160.png"]];
+        }
+        
     } else {
         imageView.image = [UIImage imageNamed:@"no-image-160.png"];
         imageButton.userInteractionEnabled = FALSE;

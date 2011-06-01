@@ -20,6 +20,7 @@
 #import "RestaurantService.h"
 #import "RestaurantViewController.h"
 #import "TagViewController.h"
+#import "CommentService.h"
 
 // CELLS
 #import "DishHeaderCell.h"
@@ -54,14 +55,24 @@
     if (self) {
         // Custom initialization
         self.tableView.backgroundColor = [UIColor whiteColor];
-        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"Tags", nil];
         menu_item = [menu_item_passed retain];
         restaurant = [restaurant_passed retain];
+        
+        [self buildTableArray];
+    
         tagsBeingLoaded = true;
         tagService =[[TagService alloc] initWithDelegate:self];
         [tagService getTags];
     }
     return self;
+}
+
+-(void) buildTableArray {
+    tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"Tags", nil];
+    if ([menu_item.comments count] > 0) {
+        [tableArray addObject:@"Comments"];
+    }
+
 }
 
 - (void)dealloc
@@ -387,7 +398,22 @@
 -(void)startRatingServiceWithRating:(float)rating andComments:(NSString *)comments
 {
     RatingService *rrs = [[RatingService alloc] initWithDelegate:self];
-    [rrs rateMenuItem:menu_item withRating:rating andComments:comments];
+    [rrs rateMenuItem:menu_item withRating:rating];
+    
+    if ([comments length] > 0) {
+        CommentService *cs = [[CommentService alloc]initWithDelegate:self];
+        [cs commentOnMenuItem:menu_item withComment:comments];
+    }
+}
+
+-(void) doneCommenting:(NSDictionary *) status {
+    NSLog(@"done commenting: %@", status);
+    
+    Comment *comment = [[Comment alloc] initWithDictionary:status];
+    [menu_item.comments addObject:comment];
+    [comment release];
+    [self buildTableArray];
+    [self.tableView reloadData];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {

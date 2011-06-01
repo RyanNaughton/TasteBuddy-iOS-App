@@ -27,8 +27,8 @@
         user_id   = [[commentDictionary objectForKey:@"user_id"] retain];
         user_name = [[commentDictionary objectForKey:@"username"] retain];
         text      = [[commentDictionary objectForKey:@"text"] retain];
-        NSLog(@"text: %@", text);
-        NSLog(@"user_name: %@", user_name);
+        //NSLog(@"text: %@", text);
+        //NSLog(@"user_name: %@", user_name);
     }
     return self;       
 }

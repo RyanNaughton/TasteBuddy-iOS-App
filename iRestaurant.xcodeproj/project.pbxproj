@@ -319,6 +319,7 @@
 		E8AF9DB31370AF7D0092A249 /* RestaurantButtonsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AF9DB21370AF7D0092A249 /* RestaurantButtonsCell.m */; };
 		E8AF9DB61370B1FE0092A249 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AF9DB41370B1FE0092A249 /* 28-star.png */; };
 		E8AF9DB71370B1FE0092A249 /* 28-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AF9DB51370B1FE0092A249 /* 28-star@2x.png */; };
+		E8B53D2F1396DB70002D89B6 /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B53D2E1396DB70002D89B6 /* UIDeviceHardware.m */; };
 		E8BEDE6413664BB6001E5079 /* MenuService.m in Sources */ = {isa = PBXBuildFile; fileRef = 490F2C9C1358BB3200DA5C1F /* MenuService.m */; };
 		E8BEDE6713664E2F001E5079 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BEDE6613664E2F001E5079 /* Menu.m */; };
 		E8BEDE6A13665040001E5079 /* MenuCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BEDE6913665040001E5079 /* MenuCategory.m */; };
@@ -865,6 +866,8 @@
 		E8AF9DB21370AF7D0092A249 /* RestaurantButtonsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantButtonsCell.m; sourceTree = "<group>"; };
 		E8AF9DB41370B1FE0092A249 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
 		E8AF9DB51370B1FE0092A249 /* 28-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star@2x.png"; sourceTree = "<group>"; };
+		E8B53D2D1396DB70002D89B6 /* UIDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
+		E8B53D2E1396DB70002D89B6 /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
 		E8BEDE6513664E2F001E5079 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		E8BEDE6613664E2F001E5079 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		E8BEDE6813665040001E5079 /* MenuCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCategory.h; sourceTree = "<group>"; };
@@ -1061,6 +1064,7 @@
 		49578B5F135516AB00F8EC0B /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				E8B53D2B1396DB61002D89B6 /* UIDeviceHardware */,
 				4986CCF91390397D0042846B /* ShareKit */,
 				E8AB9F8E1390058900DBFA75 /* MBProgressHUD */,
 				E86A8477136901D700720FA3 /* NSData + Base 64 */,
@@ -2101,6 +2105,15 @@
 			name = Cells;
 			sourceTree = "<group>";
 		};
+		E8B53D2B1396DB61002D89B6 /* UIDeviceHardware */ = {
+			isa = PBXGroup;
+			children = (
+				E8B53D2D1396DB70002D89B6 /* UIDeviceHardware.h */,
+				E8B53D2E1396DB70002D89B6 /* UIDeviceHardware.m */,
+			);
+			name = UIDeviceHardware;
+			sourceTree = "<group>";
+		};
 		E8BEDE6B13665769001E5079 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -2664,6 +2677,7 @@
 				49300BDD13958DB5002B802A /* SearchSortAndFilterViewController.m in Sources */,
 				49300BE11395A1D0002B802A /* SortAndFilterPreferences.m in Sources */,
 				49300BFC1396BD63002B802A /* ShareButtonViewController.m in Sources */,
+				E8B53D2F1396DB70002D89B6 /* UIDeviceHardware.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
