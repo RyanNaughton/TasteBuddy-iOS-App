@@ -23,6 +23,7 @@
 #import "TagCell.h"
 #import "MoreTagsCell.h"
 #import "Tag.h"
+#import "CommentService.h"
 
 // CELLS =========
 #import "RestaurantHeaderCell.h"
@@ -497,7 +498,16 @@
 -(void)startRatingServiceWithRating:(float)rating andComments:(NSString *)comments
 {
     RatingService *rrs = [[RatingService alloc] initWithDelegate:self];
-    [rrs rateRestaurant:restaurant withRating:rating andComments:comments];
+    [rrs rateRestaurant:restaurant withRating:rating];
+    
+    if ([comments length] > 0) {
+        CommentService *cs = [[CommentService alloc]initWithDelegate:self];
+        [cs commentOnRestaurant:restaurant withComment:comments];
+    }
+}
+
+-(void) doneCommenting:(NSDictionary *) status {
+    NSLog(@"done commenting: %@", status);
 }
 
 //- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {

@@ -31,7 +31,7 @@
     return self;
 }
 
--(void) rateMenuItem:(MenuItem *) menuItem withRating:(float) rating andComments:(NSString *)comments {
+-(void) rateMenuItem:(MenuItem *) menuItem withRating:(float) rating {
     urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/menu_items/%@/rate.json", menuItem._id];
 
     [jsonDictionary setObject:[NSNumber numberWithFloat:rating] forKey:@"value"];
@@ -40,7 +40,7 @@
 
 }
 
--(void) rateRestaurant:(Restaurant *) restaurant withRating:(float) rating andComments:(NSString *)comments {
+-(void) rateRestaurant:(Restaurant *) restaurant withRating:(float) rating {
     
     urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/rate.json", restaurant._id];
 

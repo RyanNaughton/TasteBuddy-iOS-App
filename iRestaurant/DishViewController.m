@@ -20,6 +20,7 @@
 #import "RestaurantService.h"
 #import "RestaurantViewController.h"
 #import "TagViewController.h"
+#import "CommentService.h"
 
 // CELLS
 #import "DishHeaderCell.h"
@@ -386,8 +387,18 @@
 
 -(void)startRatingServiceWithRating:(float)rating andComments:(NSString *)comments
 {
+    NSLog(@"comments: %@", comments);
     RatingService *rrs = [[RatingService alloc] initWithDelegate:self];
-    [rrs rateMenuItem:menu_item withRating:rating andComments:comments];
+    [rrs rateMenuItem:menu_item withRating:rating];
+    
+    if ([comments length] > 0) {
+        CommentService *cs = [[CommentService alloc]initWithDelegate:self];
+        [cs commentOnMenuItem:menu_item withComment:comments];
+    }
+}
+
+-(void) doneCommenting:(NSDictionary *) status {
+    NSLog(@"done commenting: %@", status);
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {

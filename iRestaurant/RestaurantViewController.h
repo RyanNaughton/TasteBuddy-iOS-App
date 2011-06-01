@@ -12,13 +12,14 @@
 #import "RatingPopupViewController.h"
 #import "TagService.h"
 #import "TaggingService.h"
+#import "CommentService.h"
 
 @class Restaurant;
 @class TakePhoto;
 @class MenuViewController;
 @class TagService;
 
-@interface RestaurantViewController : UITableViewController <RatingServiceDelegate, BookmarkServiceDelegate, RatingPopupDelegate, TagServiceDelegate, TaggingServiceDelegate> {
+@interface RestaurantViewController : UITableViewController <RatingServiceDelegate, BookmarkServiceDelegate, RatingPopupDelegate, TagServiceDelegate, TaggingServiceDelegate, CommentServiceDelegate> {
     NSMutableArray *tableArray;
     Restaurant *restaurant;
     int tagsRowHeight;
@@ -48,5 +49,7 @@
 -(void) websiteButtonPressed:(id)sender;
 -(void) startRatingServiceWithRating:(float)rating andComments:(NSString *)comments;
 -(void) newImageLoaded:(NSDictionary *)dict_passed;
+-(void) doneCommenting:(NSDictionary *) status;
+
 
 @end

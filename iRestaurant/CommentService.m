@@ -32,13 +32,13 @@
 }
 
 -(void) commentOnRestaurant:(Restaurant *) restaurant withComment:(NSString *) text {
-    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/comment.json", restaurant._id]; 
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/comment.json?auth_token=%@", restaurant._id, [self authToken]]; 
     [jsonDictionary setObject:text forKey:@"text"];
     [self prepareRequest];
 }
 
 -(void) commentOnMenuItem:(MenuItem *) menuItem withComment:(NSString *) text {
-    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/menu_items/%@/comment.json", menuItem._id];
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/menu_items/%@/comment.json?auth_token=%@", menuItem._id, [self authToken]];
     [jsonDictionary setObject:text forKey:@"text"];
     [self prepareRequest];
 }
@@ -54,11 +54,18 @@
     NSURL *url = [NSURL URLWithString:urlString];
     
     request = [ASIFormDataRequest requestWithURL:url];
+    [request setRequestMethod:@"PUT"];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
     [request appendPostData:[json dataUsingEncoding:NSUTF8StringEncoding]];
     [request setDelegate:self];
     [request setUseCookiePersistence:NO];
-    [request startAsynchronous]; 
+    [request startAsynchronous];
+}
+
+- (void)requestFinished:(ASIHTTPRequest *)request_passed 
+{
+    NSDictionary *responseDictionary = [[request_passed responseString] JSONValue];
+    [delegate doneCommenting:responseDictionary];
 }
 
 @end
