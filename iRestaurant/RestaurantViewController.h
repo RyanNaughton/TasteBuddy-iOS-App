@@ -50,6 +50,7 @@
 -(void) startRatingServiceWithRating:(float)rating andComments:(NSString *)comments;
 -(void) newImageLoaded:(NSDictionary *)dict_passed;
 -(void) doneCommenting:(NSDictionary *) status;
+-(void) buildTableArray;
 
 
 @end

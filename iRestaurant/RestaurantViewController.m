@@ -57,18 +57,24 @@
         self.navigationController.navigationBar.translucent = YES;
         restaurant = [restaurant_passed retain];
         
-        // SETUP TABLE ARRAY --------------
-        tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", nil];
-        if (![restaurant.website_url isKindOfClass:[NSNull class]]) [tableArray addObject:@"WebsiteLink"];
-        [tableArray addObject:@"AdditionalInformation"];
-        [tableArray addObject:@"Tags"];
-        //---------------------------------
+        [self buildTableArray];
         
         tagsRowHeight = 44;
         tagService =[[TagService alloc] initWithDelegate:self];
         [tagService getTags];
     }
     return self;
+}
+
+-(void) buildTableArray {
+    tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", nil];
+    if (![restaurant.website_url isKindOfClass:[NSNull class]]) [tableArray addObject:@"WebsiteLink"];
+    [tableArray addObject:@"AdditionalInformation"];
+    [tableArray addObject:@"Tags"];
+    if ([restaurant.comments count] > 0) {
+        [tableArray addObject:@"Comments"];
+    }
+
 }
 
 - (void)dealloc
@@ -508,15 +514,12 @@
 
 -(void) doneCommenting:(NSDictionary *) status {
     NSLog(@"done commenting: %@", status);
+    Comment *comment = [[Comment alloc] initWithDictionary:status];
+    [restaurant.comments addObject:comment];
+    [comment release];
+    [self buildTableArray];
+    [self.tableView reloadData];
 }
-
-//- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-//    float rating = 5 - buttonIndex * 1.0;
-//    if(rating > 0.0f) {
-//        RatingService *rrs = [[RatingService alloc] initWithDelegate:self];
-//        [rrs rateRestaurant:restaurant withRating:rating];
-//    }
-//}
 
 -(void) tagsRetrieved:(NSMutableArray *)tags {
     [restaurant addAllTags:tags];

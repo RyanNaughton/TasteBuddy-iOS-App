@@ -36,7 +36,6 @@
 
 
 -(id)initWithMenuItem:(MenuItem *)menu_item_passed andRestaurant:(Restaurant *)restaurant_passed;
-
 -(void)callButtonPressed:(id)sender;
 -(void)rateItButtonPressed:(id)sender;
 -(void)mapItButtonPressed:(id)sender;
@@ -47,5 +46,6 @@
 -(void) newImageLoaded:(NSDictionary *)dict_passed;
 -(void)restaurantButtonPressed:(id)sender;
 -(void) doneCommenting:(NSDictionary *) status;
+-(void) buildTableArray;
 
 @end

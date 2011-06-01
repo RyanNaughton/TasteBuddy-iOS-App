@@ -82,7 +82,7 @@
 @property (nonatomic, retain) NSNumber *takeout;
 @property (nonatomic, retain) NSNumber *wheelchair_access;
 @property (nonatomic, retain) NSMutableArray *pictures;
-@property (nonatomic, retain) NSArray *comments;
+@property (nonatomic, retain) NSMutableArray *comments;
 @property (nonatomic, assign) float average_meal_price;
 @property (nonatomic, retain) NSNumber *distance;
 @property (nonatomic, assign) BOOL bookmark;

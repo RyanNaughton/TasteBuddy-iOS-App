@@ -65,7 +65,7 @@
 -(IBAction)submitButtonPressed:(id)sender 
 {
     [delegate startRatingServiceWithRating:currentRating andComments:commentField.text];
-    NSLog(@"comment field: %@", commentField.text);
+    commentField.text = @"";
     [self closeButtonPressed:nil];
 }
 
