@@ -50,11 +50,10 @@
         [imageViewArray addObject:imageView];
         [dishNameLabelArray addObject:[[arrayOfPhotos objectAtIndex:i] objectForKey:@"menu_item_name"]];
         
-        NSArray *commentsArrayForPic = [[arrayOfPhotos objectAtIndex:i] objectForKey:@"comments"];
-        NSLog(@"comments array: %@", commentsArrayForPic);
+        NSString *caption = [[arrayOfPhotos objectAtIndex:i] objectForKey:@"caption"];
         
-        if ([commentsArrayForPic count] > 0) {
-            [commentLabelArray addObject:[commentsArrayForPic objectAtIndex:0]];
+        if ([caption length] > 0) {
+            [commentLabelArray addObject:caption];
         } else {
             // add blank string
             [commentLabelArray addObject:@""];
