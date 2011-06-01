@@ -10,6 +10,7 @@
 #import "PhotoUploadService.h"
 @class RestaurantViewController;
 @class DishViewController;
+@class ShareButtonViewController;
 
 @interface PhotoShareContainer : UIViewController <UITextFieldDelegate, PhotoUploadServiceDelegate> {
     IBOutlet UIBarButtonItem *cancelButton;
@@ -39,7 +40,10 @@
     BOOL isForRestaurant;
     RestaurantViewController *rvc;
     DishViewController *dvc;
+    ShareButtonViewController *tab;
     BOOL photoSubmitted;
+    
+    NSString *photoPurpose;
 }
 
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *cancelButton;
@@ -69,8 +73,11 @@
 
 @property (nonatomic, retain) RestaurantViewController *rvc;
 @property (nonatomic, retain) DishViewController *dvc;
+@property (nonatomic, retain) ShareButtonViewController *tab;
 @property (nonatomic, assign) BOOL isForRestaurant;
 @property (nonatomic, assign) BOOL photoSubmitted;
+
+@property (nonatomic, retain) NSString *photoPurpose;
 
 
 - (id)initWithWhere:(NSString *)where_passed andWhat:(NSString *)what_passed andImage:(UIImage *)image_passed andRestaurantId:(NSString *)restaurant_id_passed andMenuItemId:(NSString *) menu_item_id_passed;

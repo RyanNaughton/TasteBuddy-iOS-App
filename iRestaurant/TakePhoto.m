@@ -14,7 +14,7 @@
 #import "RestaurantViewController.h"
 
 @implementation TakePhoto
-@synthesize containerView, restaurant, menuItem, rvc, dvc, isForRestaurant;
+@synthesize containerView, restaurant, menuItem, rvc, dvc, tab, photoPurpose;
 
 -(id)initWithParentViewController:(id)viewController {
     self = [super init];
@@ -23,11 +23,26 @@
     return self;
 }
 
+-(void)loadPhotoForShareTabWithView:(ShareButtonViewController *)tab_passed {
+    tab = tab_passed;
+    //restaurant = [restaurant_passed retain];
+    //menuItem.name = @"";
+    //rvc = rvc_passed;
+    //isForRestaurant = TRUE;
+    photoPurpose = @"tab";
+    UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Choose Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Picture", @"Use Photo Library", nil];
+    popupQuery.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
+    popupQuery.delegate = self;
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
+    [popupQuery showFromTabBar:appDelegate.tabBarController.tabBar];
+    [popupQuery release];
+}
+
 -(void)loadPhotoForRestaurant:(Restaurant *)restaurant_passed withView:(RestaurantViewController *)rvc_passed {
     restaurant = [restaurant_passed retain];
     menuItem.name = @"";
     rvc = rvc_passed;
-    isForRestaurant = TRUE;
+    photoPurpose = @"restaurant";
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Choose Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Picture", @"Use Photo Library", nil];
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     popupQuery.delegate = self;
@@ -40,7 +55,7 @@
     restaurant = [restaurant_passed retain];
     menuItem = [menu_item_passed retain];
     dvc = dvc_passed;
-    isForRestaurant = FALSE;
+    photoPurpose = @"dish";
     UIActionSheet *popupQuery = [[UIActionSheet alloc] initWithTitle:@"Choose Picture" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Take Picture", @"Use Photo Library", nil];
     popupQuery.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     popupQuery.delegate = self;
@@ -115,12 +130,15 @@
     
     PhotoShareContainer *photoShareContainer = [[PhotoShareContainer alloc]initWithWhere:restaurant.name andWhat:menuItem.name andImage:image andRestaurantId:restaurant._id andMenuItemId:menuItem._id]; 
     
-    if (isForRestaurant) {
+    if ([photoPurpose isEqualToString:@"restaurant"]) {
         photoShareContainer.rvc = rvc;
-    } else {
+    } else if ([photoPurpose isEqualToString:@"dish"]) {
         photoShareContainer.dvc = dvc;
+    } else if ([photoPurpose isEqualToString:@"tab"]) {
+        photoShareContainer.tab = tab;
     }
-    photoShareContainer.isForRestaurant = isForRestaurant;
+    
+    photoShareContainer.photoPurpose = photoPurpose;
     photoShareContainer.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
     photoShareContainer.modalPresentationStyle = UIModalPresentationPageSheet;
     [appDelegate.tabBarController presentModalViewController:photoShareContainer animated:YES];

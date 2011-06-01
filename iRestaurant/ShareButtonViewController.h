@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class TakePhoto;
 
 @interface ShareButtonViewController : UIViewController {
-    
+    TakePhoto *takePhoto;
 }
 
--(void) photoButtonPressed:(id) sender;
+@property (nonatomic, retain) TakePhoto *takePhoto;
 
+-(void) photoButtonPressed:(id) sender;
+- (void) newImageLoaded:(NSDictionary *)dict;
 @end

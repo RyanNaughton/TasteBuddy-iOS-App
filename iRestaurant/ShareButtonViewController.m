@@ -7,9 +7,10 @@
 //
 
 #import "ShareButtonViewController.h"
-
+#import "TakePhoto.h"
 
 @implementation ShareButtonViewController
+@synthesize takePhoto;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,6 +23,7 @@
 
 - (void)dealloc
 {
+    [takePhoto release];
     [super dealloc];
 }
 
@@ -38,6 +40,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
+    
     // Do any additional setup after loading the view from its nib.
     UIImage *greyButtonImage = [[UIImage imageNamed:@"darkgrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
     CGRect iconFrame = CGRectMake(14, 14, 12, 12);
@@ -60,6 +65,11 @@
 
 }
 
+- (void) newImageLoaded:(NSDictionary *)dict 
+{
+    NSLog(@"new image loaded: %@", dict);
+}
+
 - (void)viewDidUnload
 {
     [super viewDidUnload];
@@ -74,7 +84,7 @@
 }
 
 -(void) photoButtonPressed:(id) sender {
-    
+    [takePhoto loadPhotoForShareTabWithView:self];
 }
 
 @end

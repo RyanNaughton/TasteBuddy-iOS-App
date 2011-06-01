@@ -15,7 +15,7 @@
 //#import "SHKTwitter.h"
 
 @implementation PhotoShareContainer
-@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch, restaurant, menuItem, navItem, whereLabel, whatLabel, commentsLabel, submitButton, rvc, dvc, isForRestaurant, photoSubmitted;
+@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch, restaurant, menuItem, navItem, whereLabel, whatLabel, commentsLabel, submitButton, rvc, dvc, isForRestaurant, photoSubmitted, tab, photoPurpose;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -77,10 +77,12 @@
     if (facebookSwitch.on) {
         [self shareOnFacebook];
     }
-    if (isForRestaurant) {
+    if ([photoPurpose isEqualToString:@"restaurant"]) {
         [rvc newImageLoaded:dict];
-    } else {
+    } else if ([photoPurpose isEqualToString:@"dish"]) {
         [dvc newImageLoaded:dict];
+    } else if ([photoPurpose isEqualToString:@"tab"]) {
+        [tab newImageLoaded:dict];
     }
     [self dismissModalViewControllerAnimated:YES];
 }
