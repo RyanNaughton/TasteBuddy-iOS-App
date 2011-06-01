@@ -144,10 +144,8 @@
     } else {
         [whereTextField becomeFirstResponder];
     }
-    
     scrollView.contentSize = CGSizeMake(320, 261);
     imageView.image = image;
-
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
