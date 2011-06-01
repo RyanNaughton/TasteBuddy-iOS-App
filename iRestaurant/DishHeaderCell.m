@@ -20,6 +20,7 @@
 #import "IGUIScrollViewImage.h"
 #import <QuartzCore/QuartzCore.h>
 #import "UILabelUnderlined.h"
+#import "UIDeviceHardware.h"
 
 @implementation DishHeaderCell
 
@@ -109,7 +110,14 @@
     [ratingView loadRating:menu_item.rating];
     NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
     for (NSDictionary *pictDict in menu_item.pictures) {
-        [arrayOfURLStrings addObject:[pictDict objectForKey:@"300px"]];
+        
+        UIDeviceHardware *h=[[UIDeviceHardware alloc] init];
+        if ([[h platformString] isEqualToString:@"iPhone 4"]) {
+            NSLog(@"we have an iPhone 4");
+            [arrayOfURLStrings addObject:[pictDict objectForKey:@"640px"]];
+        } else {
+            [arrayOfURLStrings addObject:[pictDict objectForKey:@"300px"]];
+        }
     }
     
     NSLog(@"arrayOfURLStrings: %@", arrayOfURLStrings);

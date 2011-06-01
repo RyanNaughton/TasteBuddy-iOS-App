@@ -10,6 +10,7 @@
 #import "IGUIScrollViewImage.h"
 #import "UIImageView+WebCache.h"
 #import "iRestaurantAppDelegate.h"
+#import "UIDeviceHardware.h"
 
 @implementation PhotoViewer
 
@@ -35,7 +36,17 @@
     
     for (int i=0; i < [arrayOfPhotos count]; i++) {
         UIImageView *imageView = [[UIImageView alloc]init];
-        [imageView setImageWithURL:[NSURL URLWithString:[[arrayOfPhotos objectAtIndex:i] objectForKey:@"300px"]] placeholderImage:noImage];
+        
+        UIDeviceHardware *h=[[UIDeviceHardware alloc] init];
+        if ([[h platformString] isEqualToString:@"iPhone 4"]) {
+            NSLog(@"we have an iPhone 4");
+            
+            [imageView setImageWithURL:[NSURL URLWithString:[[arrayOfPhotos objectAtIndex:i] objectForKey:@"640px"]] placeholderImage:noImage];
+        } else {
+            [imageView setImageWithURL:[NSURL URLWithString:[[arrayOfPhotos objectAtIndex:i] objectForKey:@"300px"]] placeholderImage:noImage];
+        }
+        
+        
         [imageViewArray addObject:imageView];
         [dishNameLabelArray addObject:[[arrayOfPhotos objectAtIndex:i] objectForKey:@"menu_item_name"]];
         
