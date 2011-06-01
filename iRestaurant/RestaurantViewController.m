@@ -420,9 +420,10 @@
 
 -(void)mapItButtonPressed:(id)sender
 {
+    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     NSString *addressString = [NSString stringWithFormat:@"%@, %@, %@, %@, %@, %@", restaurant.address_1, restaurant.address_2, restaurant.city_town, restaurant.state_province, restaurant.postal_code, restaurant.country];
     addressString = [addressString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
-    NSString *requestString = [NSString stringWithFormat:@"http://maps.google.com/maps?q=%@&z=15", addressString];
+    NSString *requestString = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%f,%f&daddr=%@&z=15", appDelegate.currentLocation.coordinate.latitude, appDelegate.currentLocation.coordinate.longitude, addressString];
     NSRange range = NSMakeRange(0, [requestString length]);
     requestString = [requestString stringByReplacingOccurrencesOfString:@"<null>" withString:@"" options:NULL range:range];
     UIApplication *app = [UIApplication sharedApplication];
