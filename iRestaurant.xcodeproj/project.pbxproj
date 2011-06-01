@@ -320,6 +320,8 @@
 		E8AF9DB61370B1FE0092A249 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AF9DB41370B1FE0092A249 /* 28-star.png */; };
 		E8AF9DB71370B1FE0092A249 /* 28-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AF9DB51370B1FE0092A249 /* 28-star@2x.png */; };
 		E8B53D2F1396DB70002D89B6 /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B53D2E1396DB70002D89B6 /* UIDeviceHardware.m */; };
+		E8B53D371396F163002D89B6 /* favoritesLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B53D351396F163002D89B6 /* favoritesLogo.png */; };
+		E8B53D381396F163002D89B6 /* favoritesLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B53D361396F163002D89B6 /* favoritesLogo@2x.png */; };
 		E8BEDE6413664BB6001E5079 /* MenuService.m in Sources */ = {isa = PBXBuildFile; fileRef = 490F2C9C1358BB3200DA5C1F /* MenuService.m */; };
 		E8BEDE6713664E2F001E5079 /* Menu.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BEDE6613664E2F001E5079 /* Menu.m */; };
 		E8BEDE6A13665040001E5079 /* MenuCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = E8BEDE6913665040001E5079 /* MenuCategory.m */; };
@@ -868,6 +870,8 @@
 		E8AF9DB51370B1FE0092A249 /* 28-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star@2x.png"; sourceTree = "<group>"; };
 		E8B53D2D1396DB70002D89B6 /* UIDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
 		E8B53D2E1396DB70002D89B6 /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
+		E8B53D351396F163002D89B6 /* favoritesLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoritesLogo.png; sourceTree = "<group>"; };
+		E8B53D361396F163002D89B6 /* favoritesLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "favoritesLogo@2x.png"; sourceTree = "<group>"; };
 		E8BEDE6513664E2F001E5079 /* Menu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Menu.h; sourceTree = "<group>"; };
 		E8BEDE6613664E2F001E5079 /* Menu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Menu.m; sourceTree = "<group>"; };
 		E8BEDE6813665040001E5079 /* MenuCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuCategory.h; sourceTree = "<group>"; };
@@ -1735,6 +1739,8 @@
 				E86A84521368AD7B00720FA3 /* icons */,
 				E8AA4AED1361064A00A8E37B /* top-rounding.png */,
 				E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */,
+				E8B53D351396F163002D89B6 /* favoritesLogo.png */,
+				E8B53D361396F163002D89B6 /* favoritesLogo@2x.png */,
 				E882B56413956F9D00BCE5A3 /* dealsLogo.png */,
 				E882B56513956F9D00BCE5A3 /* dealsLogo@2x.png */,
 				E8ABA082139067A200DBFA75 /* darkergrey-button.png */,
@@ -2463,6 +2469,8 @@
 				49300BF71396B61D002B802A /* graystar@2x.png in Resources */,
 				49300BFD1396BD63002B802A /* ShareButtonViewController.xib in Resources */,
 				49300BFF1396BDAC002B802A /* pepperbg_final.png in Resources */,
+				E8B53D371396F163002D89B6 /* favoritesLogo.png in Resources */,
+				E8B53D381396F163002D89B6 /* favoritesLogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2802,7 +2810,7 @@
 				PRODUCT_NAME = TasteBuddy;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2829,7 +2837,7 @@
 				PRODUCT_NAME = TasteBuddy;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;

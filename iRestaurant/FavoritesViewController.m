@@ -51,7 +51,7 @@
                 
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
-        UIImageView *favoritesNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"favorites-logo.png"]];
+        UIImageView *favoritesNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"favoritesLogo.png"]];
         favoritesNameImageView.frame = CGRectMake(160, -3, 320, 44);
         favoritesNameImageView.contentMode = UIViewContentModeRight;
         self.navigationItem.titleView = favoritesNameImageView;
@@ -68,7 +68,7 @@
 }
 
 -(void)setupNavBarContent {
-    UIImageView *favoritesNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"favorites-logo.png"]];
+    UIImageView *favoritesNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"favoritesLogo.png"]];
     favoritesNameImageView.frame = CGRectMake(160, -3, 150, 44);
     favoritesNameImageView.contentMode = UIViewContentModeRight;
     
