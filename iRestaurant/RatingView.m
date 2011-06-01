@@ -65,7 +65,7 @@
     outlineStarsView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, (starSize * 5), starSize)];
     for (int i=0; i < 5; i++) {
         UIImageView *outlineStar = [[UIImageView alloc]initWithFrame:CGRectMake((i * starSize), 0, starSize, starSize)];
-        outlineStar.image = [UIImage imageNamed:@"outline_star.png"];
+        outlineStar.image = [UIImage imageNamed:@"graystar.png"];
         outlineStar.contentMode = UIViewContentModeScaleToFill;
         [outlineStarsView addSubview:outlineStar];
         [outlineStar release];
@@ -77,7 +77,7 @@
     redStarsView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, (starSize * 5), starSize)];
     for (int i=0; i < 5; i++) {
         UIImageView *outlineStar = [[UIImageView alloc]initWithFrame:CGRectMake((i * starSize), 0, starSize, starSize)];
-        outlineStar.image = [UIImage imageNamed:@"red_star.png"];
+        outlineStar.image = [UIImage imageNamed:@"redstar.png"];
         outlineStar.contentMode = UIViewContentModeScaleToFill;
         [redStarsView addSubview:outlineStar];
         [outlineStar release];
@@ -89,7 +89,7 @@
     yellowStarsView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, (starSize * 5), starSize)];
     for (int i=0; i < 5; i++) {
         UIImageView *outlineStar = [[UIImageView alloc]initWithFrame:CGRectMake((i * starSize), 0, starSize, starSize)];
-        outlineStar.image = [UIImage imageNamed:@"yellow_star.png"];
+        outlineStar.image = [UIImage imageNamed:@"yellowstar.png"];
         outlineStar.contentMode = UIViewContentModeScaleToFill;
         [yellowStarsView addSubview:outlineStar];
         [outlineStar release];
