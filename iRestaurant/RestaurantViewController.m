@@ -421,6 +421,10 @@
 -(void)mapItButtonPressed:(id)sender
 {
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+//    NSRange range1 = NSMakeRange(0, [restaurant.address_2 length]);
+//    restaurant.address_2 = [restaurant.address_2 stringByReplacingOccurrencesOfString:@"<null>" withString:@"" options:NULL range:range1];
+    
     NSString *addressString = [NSString stringWithFormat:@"%@, %@, %@, %@, %@, %@", restaurant.address_1, restaurant.address_2, restaurant.city_town, restaurant.state_province, restaurant.postal_code, restaurant.country];
     addressString = [addressString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSString *requestString = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%f,%f&daddr=%@&z=15", appDelegate.currentLocation.coordinate.latitude, appDelegate.currentLocation.coordinate.longitude, addressString];

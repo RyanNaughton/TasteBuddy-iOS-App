@@ -174,7 +174,7 @@
         iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
         PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
         [photoViewer setupScrollView:menu_item.pictures];
-        photoViewer.navItem.title = [NSString stringWithFormat:@"%@", menu_item.name];
+        photoViewer.navItem.title = restaurantName.text; //[NSString stringWithFormat:@"%@", menu_item.name];
         photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
         [appDelegate.tabBarController presentModalViewController:photoViewer animated:YES];
         [photoViewer release];

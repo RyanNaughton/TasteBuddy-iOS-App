@@ -162,6 +162,7 @@
 								<string key="NSFrame">{{112, 215}, {188, 31}}</string>
 								<reference key="NSSuperview" ref="977340915"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<bool key="IBUIOpaque">NO</bool>
 								<bool key="IBUIClipsSubviews">YES</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
@@ -264,7 +265,7 @@
 								<int key="IBUIContentMode">7</int>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-								<string key="IBUIText">Comments:</string>
+								<string key="IBUIText">Caption:</string>
 								<reference key="IBUIFont" ref="815939773"/>
 								<reference key="IBUITextColor" ref="203096223"/>
 								<nil key="IBUIHighlightedColor"/>
