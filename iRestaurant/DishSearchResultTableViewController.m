@@ -46,6 +46,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.backgroundColor = [UIColor clearColor];
     restaurantsArray = [[NSMutableArray alloc] init];
     isLoading = YES;
     // Uncomment the following line to preserve selection between presentations.

@@ -21,6 +21,7 @@
     if (self) {
         // Initialization code  
         self.selectionStyle = UITableViewCellSelectionStyleGray;
+        self.backgroundColor = [UIColor clearColor];
         
         name = [[UILabel alloc]init];
         name.frame = CGRectMake(10, 13, 210, 20);

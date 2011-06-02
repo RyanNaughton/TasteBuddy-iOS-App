@@ -50,6 +50,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.tableView.backgroundColor = [UIColor clearColor];
     restaurantsArray = [[NSMutableArray alloc] init];
     filteredArray = [[NSMutableArray alloc] init];
     isLoading = YES;

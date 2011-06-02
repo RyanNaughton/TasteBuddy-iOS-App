@@ -87,6 +87,10 @@
 {
     [super viewDidLoad];
     
+    tableView.backgroundColor = [UIColor clearColor];
+//    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"pepperbg_final.png"]];
+//    tableView.backgroundView = imageView;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fireSearch) name:@"fireSearch" object:nil];
     
     fakeTermField.frame = CGRectMake(7, 7, 254, 31);
