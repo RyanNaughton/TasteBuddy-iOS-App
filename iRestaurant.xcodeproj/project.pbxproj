@@ -2748,8 +2748,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Argo Navis Consulting, Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Argo Navis Consulting, Inc.";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -2761,8 +2761,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				PROVISIONING_PROFILE = "2456B8C1-42CB-427C-9AC1-A7559C08BBA9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2456B8C1-42CB-427C-9AC1-A7559C08BBA9";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -2771,8 +2771,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: CouchParty LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: CouchParty LLC";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Argo Navis Consulting, Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Argo Navis Consulting, Inc.";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -2782,8 +2782,8 @@
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7B04D5CC-66B8-4A1F-A336-792004D9CA91";
+				PROVISIONING_PROFILE = "2456B8C1-42CB-427C-9AC1-A7559C08BBA9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2456B8C1-42CB-427C-9AC1-A7559C08BBA9";
 				SDKROOT = iphoneos;
 			};
 			name = Release;
@@ -2793,8 +2793,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Argo Navis Consulting, Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Argo Navis Consulting, Inc.";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2808,8 +2808,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "2456B8C1-42CB-427C-9AC1-A7559C08BBA9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2456B8C1-42CB-427C-9AC1-A7559C08BBA9";
 				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -2821,8 +2821,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Argo Navis Consulting, Inc.";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Argo Navis Consulting, Inc.";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "iRestaurant/iRestaurant-Prefix.pch";
@@ -2835,8 +2835,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = TasteBuddy;
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "2456B8C1-42CB-427C-9AC1-A7559C08BBA9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2456B8C1-42CB-427C-9AC1-A7559C08BBA9";
 				SDKROOT = iphoneos4.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;

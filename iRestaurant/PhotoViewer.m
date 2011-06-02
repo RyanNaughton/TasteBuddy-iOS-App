@@ -50,13 +50,15 @@
         [imageViewArray addObject:imageView];
         [dishNameLabelArray addObject:[[arrayOfPhotos objectAtIndex:i] objectForKey:@"menu_item_name"]];
         
-        NSString *caption = [[arrayOfPhotos objectAtIndex:i] objectForKey:@"caption"];
-        
-        if ([caption length] > 0) {
-            [commentLabelArray addObject:caption];
-        } else {
-            // add blank string
+        if ([[[arrayOfPhotos objectAtIndex:i] objectForKey:@"caption"] isKindOfClass:[NSNull class]]) {
             [commentLabelArray addObject:@""];
+        } else {
+            if ([[[arrayOfPhotos objectAtIndex:i] objectForKey:@"caption"] length] > 0) {
+                NSString *caption = [NSString stringWithFormat:@"%@", [[arrayOfPhotos objectAtIndex:i] objectForKey:@"caption"]];
+                [commentLabelArray addObject:caption];
+            } else {
+                [commentLabelArray addObject:@""];
+            }
         }
     }
     
