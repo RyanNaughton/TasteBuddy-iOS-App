@@ -19,6 +19,7 @@
 @synthesize filteredArray;
 @synthesize isLoading;
 @synthesize searchViewController;
+@synthesize filterText;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -34,6 +35,7 @@
     [restaurantsArray release];
     [filteredArray release];
     [searchViewController release];
+    [filterText release];
     [super dealloc];
 }
 
@@ -54,6 +56,7 @@
     restaurantsArray = [[NSMutableArray alloc] init];
     filteredArray = [[NSMutableArray alloc] init];
     isLoading = YES;
+    filterText = @"Sort: distance";
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -114,6 +117,28 @@
     } else {
         return 1;
     }
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
+    headerView.backgroundColor = [UIColor clearColor];
+    
+    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"orange-grad.png"]];
+    bgImageView.alpha = 0.66;
+    bgImageView.frame = headerView.frame;
+    bgImageView.contentMode = UIViewContentModeScaleToFill;
+    [headerView addSubview:bgImageView];
+    [bgImageView release];
+    
+    UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, -1, 300, 22)];
+    restaurantName.backgroundColor = [UIColor clearColor];
+    restaurantName.textColor = [[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
+    restaurantName.font = [UIFont systemFontOfSize:14];
+    restaurantName.text = filterText;
+    [headerView addSubview:restaurantName];
+    [restaurantName release];
+    return [headerView autorelease];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
