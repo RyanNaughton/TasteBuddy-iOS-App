@@ -243,6 +243,7 @@
 -(void)searchFinished:(NSMutableArray *)restaurantsArray 
 { 
     restaurantSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
+    restaurantSearchResultTableViewController.filterText = @"Sort: distance";
     restaurantSearchResultTableViewController.filteredArray = [restaurantsArray retain];
     dishSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
     [self resultsLoaded];
@@ -357,7 +358,7 @@
         restaurantSearchResultTableViewController.filterText = [NSString stringWithFormat: @"Sort: %@, filter: %@", sortValue, [filterValues componentsJoinedByString:@", "]];
     } else if(![sortValue isEqualToString:@""]) {
         restaurantSearchResultTableViewController.filterText = [NSString stringWithFormat: @"Sort: %@", sortValue];
-    } else if([filterValues count] > 0) {
+    } else if([filterValues count] > 0 && [sortValue isEqualToString:@""]) {
         restaurantSearchResultTableViewController.filterText = [NSString stringWithFormat: @"Filter: %@", [filterValues componentsJoinedByString:@", "]];
     } else {
         restaurantSearchResultTableViewController.filterText = @"Sort: distance";
