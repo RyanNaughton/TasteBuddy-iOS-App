@@ -276,19 +276,24 @@
 }
 
 -(void) sortAndFilterRestaurantResults {
+    NSString *sortValue = @"";
+    NSMutableArray *filterValues = [[NSMutableArray alloc] init];
+    
     if (sortAndFilterPreferences.sortIndex > -1) {
         NSSortDescriptor *sortDescriptor;
         if(sortAndFilterPreferences.sortIndex == 0) {
             sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"distance"
                                                           ascending:YES] autorelease];        
-            
+            sortValue = @"distance";
         } else if(sortAndFilterPreferences.sortIndex == 1) {
             sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"rating.sortValue"
                                                           ascending:NO] autorelease];  
+           sortValue = @"rating";
             
         } else if(sortAndFilterPreferences.sortIndex == 2) {
             sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"average_meal_price"
                                                           ascending:YES] autorelease];
+            sortValue = @"price";
         }
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
         NSArray *sortedArray = [restaurantSearchResultTableViewController.restaurantsArray sortedArrayUsingDescriptors:sortDescriptors];
@@ -303,6 +308,7 @@
     
     if(sortAndFilterPreferences.distanceIndex > -1) {
         float distance = 0.0;
+        [filterValues addObject:@"distance"];
         if(sortAndFilterPreferences.distanceIndex == 0) {
             distance = 0.5;
         } else if (sortAndFilterPreferences.distanceIndex == 1){
@@ -320,7 +326,7 @@
     if(sortAndFilterPreferences.priceIndex > -1) {
         float priceFrom = 0.0;
         float priceTo = 0.0;
-        
+        [filterValues addObject:@"price"];
         if(sortAndFilterPreferences.priceIndex == 0) {
             priceTo = 10.0;
         } else if(sortAndFilterPreferences.priceIndex == 1) {
@@ -347,8 +353,15 @@
         restaurantSearchResultTableViewController.filteredArray = newFilteredArray;
         
     }
-    
-    
+    if(![sortValue isEqualToString:@""] && [filterValues count] > 0) {
+        restaurantSearchResultTableViewController.filterText = [NSString stringWithFormat: @"Sort: %@, filter: %@", sortValue, [filterValues componentsJoinedByString:@", "]];
+    } else if(![sortValue isEqualToString:@""]) {
+        restaurantSearchResultTableViewController.filterText = [NSString stringWithFormat: @"Sort: %@", sortValue];
+    } else if([filterValues count] > 0) {
+        restaurantSearchResultTableViewController.filterText = [NSString stringWithFormat: @"Filter: %@", [filterValues componentsJoinedByString:@", "]];
+    } else {
+        restaurantSearchResultTableViewController.filterText = @"Sort: distance";
+    }
     if (sortAndFilterPreferences.distanceIndex > -1 || sortAndFilterPreferences.sortIndex > -1 || sortAndFilterPreferences.priceIndex > -1) {
         [tableView reloadData];
     }

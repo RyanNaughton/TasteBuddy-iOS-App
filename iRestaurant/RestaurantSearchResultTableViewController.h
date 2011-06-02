@@ -13,6 +13,7 @@
     NSMutableArray *restaurantsArray;
     NSMutableArray *filteredArray;
     IBOutlet SearchViewController *searchViewController;
+    NSString *filterText;
     bool isLoading;
 }
 
@@ -20,5 +21,6 @@
 @property (nonatomic, retain) NSMutableArray *filteredArray;
 @property (nonatomic, retain) IBOutlet SearchViewController *searchViewController;
 @property (nonatomic, assign) bool isLoading;
+@property (nonatomic, retain) NSString *filterText;
 
 @end
