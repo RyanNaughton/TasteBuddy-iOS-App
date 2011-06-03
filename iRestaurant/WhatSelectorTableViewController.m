@@ -1,16 +1,17 @@
 //
-//  WhereSelectorTableViewController.m
+//  WhatSelectorTableViewController.m
 //  iRestaurant
 //
 //  Created by Josh Timonen on 6/3/11.
 //  Copyright 2011 N/A. All rights reserved.
 //
 
-#import "WhereSelectorTableViewController.h"
-#import "Restaurant.h"
+#import "WhatSelectorTableViewController.h"
+#import "Menu.h"
 
-@implementation WhereSelectorTableViewController
-@synthesize searchBar, unfilteredList, filteredList, ss, delegate;
+@implementation WhatSelectorTableViewController
+
+@synthesize searchBar, unfilteredList, filteredList, delegate, ms, restaurant;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -23,14 +24,9 @@
 
 - (void)dealloc
 {
-    [ss release];
     [unfilteredList release];
     [filteredList release];
     [super dealloc];
-}
-
--(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
-    [self.searchBar resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,31 +42,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    CGPoint point = CGPointMake(0, 0);
-    ss = [[SearchService alloc]initWithLocation:point withDelegate:self];
-    [ss searchByTerm:@""];
+    ms = [[MenuService alloc]initWithDelegate:self];
+    [ms getMenuForRestaurant:restaurant];
 
 }
 
--(void)searchFinished:(NSMutableArray *)restaurantsArray
+-(void)menuReturned:(Menu *)menu
 {
-    NSLog(@"search finished: %@", restaurantsArray);
-    unfilteredList = [restaurantsArray retain];
-    filteredList = [[NSMutableArray arrayWithArray:unfilteredList] retain];
-    [self.tableView reloadData];
+    NSLog(@"menu returned: %@", menu);
 }
 
-- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
-    if([searchText length] > 0) {
-        filteredList = [[NSMutableArray alloc] init];
-        for (Restaurant *restaurant in unfilteredList) {
-            if ([restaurant.name rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound) [filteredList addObject:restaurant];
-        }
-    } else {
-        filteredList = [[NSMutableArray arrayWithArray:unfilteredList] retain];
-    }
-    [self.tableView reloadData];
+-(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.searchBar resignFirstResponder];
 }
 
 - (void)viewDidUnload
@@ -110,19 +93,16 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int rows;
-    if ([filteredList count] > 0) 
-    {
-        rows = [filteredList count];
-    } else {
-        rows = 1;
-    }
-    return rows;
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -134,13 +114,7 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    if ([filteredList count] > 0) 
-    {
-        Restaurant *restaurant = [filteredList objectAtIndex:indexPath.row];
-        cell.textLabel.text = restaurant.name;
-    } else {
-        cell.textLabel.text = @"Loading...";
-    }
+    // Configure the cell...
     
     return cell;
 }
@@ -188,7 +162,14 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [delegate whereSelected:[filteredList objectAtIndex:indexPath.row]];
+    // Navigation logic may go here. Create and push another view controller.
+    /*
+     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     // ...
+     // Pass the selected object to the new view controller.
+     [self.navigationController pushViewController:detailViewController animated:YES];
+     [detailViewController release];
+     */
 }
 
 @end

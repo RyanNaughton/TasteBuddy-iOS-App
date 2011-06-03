@@ -322,6 +322,9 @@
 		E8B3660313995158008C3E7F /* WhereSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3660113995158008C3E7F /* WhereSelectorViewController.m */; };
 		E8B3660413995158008C3E7F /* WhereSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8B3660213995158008C3E7F /* WhereSelectorViewController.xib */; };
 		E8B36607139951E6008C3E7F /* WhereSelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B36606139951E6008C3E7F /* WhereSelectorTableViewController.m */; };
+		E8B3660C139962A6008C3E7F /* WhatSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3660A139962A6008C3E7F /* WhatSelectorViewController.m */; };
+		E8B3660D139962A6008C3E7F /* WhatSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8B3660B139962A6008C3E7F /* WhatSelectorViewController.xib */; };
+		E8B36610139962C7008C3E7F /* WhatSelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3660F139962C7008C3E7F /* WhatSelectorTableViewController.m */; };
 		E8B53D2F1396DB70002D89B6 /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B53D2E1396DB70002D89B6 /* UIDeviceHardware.m */; };
 		E8B53D371396F163002D89B6 /* favoritesLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B53D351396F163002D89B6 /* favoritesLogo.png */; };
 		E8B53D381396F163002D89B6 /* favoritesLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B53D361396F163002D89B6 /* favoritesLogo@2x.png */; };
@@ -876,6 +879,11 @@
 		E8B3660213995158008C3E7F /* WhereSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WhereSelectorViewController.xib; sourceTree = "<group>"; };
 		E8B36605139951E6008C3E7F /* WhereSelectorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhereSelectorTableViewController.h; sourceTree = "<group>"; };
 		E8B36606139951E6008C3E7F /* WhereSelectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhereSelectorTableViewController.m; sourceTree = "<group>"; };
+		E8B36609139962A6008C3E7F /* WhatSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhatSelectorViewController.h; sourceTree = "<group>"; };
+		E8B3660A139962A6008C3E7F /* WhatSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhatSelectorViewController.m; sourceTree = "<group>"; };
+		E8B3660B139962A6008C3E7F /* WhatSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WhatSelectorViewController.xib; sourceTree = "<group>"; };
+		E8B3660E139962C7008C3E7F /* WhatSelectorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhatSelectorTableViewController.h; sourceTree = "<group>"; };
+		E8B3660F139962C7008C3E7F /* WhatSelectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhatSelectorTableViewController.m; sourceTree = "<group>"; };
 		E8B53D2D1396DB70002D89B6 /* UIDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
 		E8B53D2E1396DB70002D89B6 /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
 		E8B53D351396F163002D89B6 /* favoritesLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoritesLogo.png; sourceTree = "<group>"; };
@@ -1902,6 +1910,7 @@
 		E86A845C1368BD6800720FA3 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
+				E8B366081399627B008C3E7F /* WhatSelector */,
 				E8B365F9139950DA008C3E7F /* WhereSelector */,
 				49300BF81396BD35002B802A /* ShareButton */,
 				E86A84731368F26000720FA3 /* old */,
@@ -2130,6 +2139,18 @@
 				E8B36606139951E6008C3E7F /* WhereSelectorTableViewController.m */,
 			);
 			name = WhereSelector;
+			sourceTree = "<group>";
+		};
+		E8B366081399627B008C3E7F /* WhatSelector */ = {
+			isa = PBXGroup;
+			children = (
+				E8B36609139962A6008C3E7F /* WhatSelectorViewController.h */,
+				E8B3660A139962A6008C3E7F /* WhatSelectorViewController.m */,
+				E8B3660B139962A6008C3E7F /* WhatSelectorViewController.xib */,
+				E8B3660E139962C7008C3E7F /* WhatSelectorTableViewController.h */,
+				E8B3660F139962C7008C3E7F /* WhatSelectorTableViewController.m */,
+			);
+			name = WhatSelector;
 			sourceTree = "<group>";
 		};
 		E8B53D2B1396DB61002D89B6 /* UIDeviceHardware */ = {
@@ -2493,6 +2514,7 @@
 				E8B53D371396F163002D89B6 /* favoritesLogo.png in Resources */,
 				E8B53D381396F163002D89B6 /* favoritesLogo@2x.png in Resources */,
 				E8B3660413995158008C3E7F /* WhereSelectorViewController.xib in Resources */,
+				E8B3660D139962A6008C3E7F /* WhatSelectorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2710,6 +2732,8 @@
 				E8B53D2F1396DB70002D89B6 /* UIDeviceHardware.m in Sources */,
 				E8B3660313995158008C3E7F /* WhereSelectorViewController.m in Sources */,
 				E8B36607139951E6008C3E7F /* WhereSelectorTableViewController.m in Sources */,
+				E8B3660C139962A6008C3E7F /* WhatSelectorViewController.m in Sources */,
+				E8B36610139962C7008C3E7F /* WhatSelectorTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
