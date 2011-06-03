@@ -7,9 +7,10 @@
 //
 
 #import "WhereSelectorTableViewController.h"
-
+#import "Restaurant.h"
 
 @implementation WhereSelectorTableViewController
+@synthesize searchBar, unfilteredList, filteredList, ss, delegate;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -22,7 +23,12 @@
 
 - (void)dealloc
 {
+    [filteredList release];
     [super dealloc];
+}
+
+-(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
+    [self.searchBar resignFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning
@@ -38,12 +44,31 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    CGPoint point = CGPointMake(0, 0);
+    ss = [[SearchService alloc]initWithLocation:point withDelegate:self];
+    [ss searchByTerm:@""];
 
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+-(void)searchFinished:(NSMutableArray *)restaurantsArray
+{
+    NSLog(@"search finished: %@", restaurantsArray);
+    unfilteredList = [restaurantsArray retain];
+    filteredList = [[NSMutableArray arrayWithArray:unfilteredList] retain];
+    [self.tableView reloadData];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if([searchText length] > 0) {
+        filteredList = [[NSMutableArray alloc] init];
+        for (Restaurant *restaurant in unfilteredList) {
+            if ([restaurant.name rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound) [filteredList addObject:restaurant];
+        }
+    } else {
+        filteredList = [[NSMutableArray arrayWithArray:unfilteredList] retain];
+    }
+    [self.tableView reloadData];
 }
 
 - (void)viewDidUnload
@@ -83,16 +108,19 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    int rows;
+    if ([filteredList count] > 0) 
+    {
+        rows = [filteredList count];
+    } else {
+        rows = 1;
+    }
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,7 +132,13 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
+    if ([filteredList count] > 0) 
+    {
+        Restaurant *restaurant = [filteredList objectAtIndex:indexPath.row];
+        cell.textLabel.text = restaurant.name;
+    } else {
+        cell.textLabel.text = @"Loading...";
+    }
     
     return cell;
 }
@@ -152,14 +186,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    [delegate whereSelected:[filteredList objectAtIndex:indexPath.row]];
 }
 
 @end

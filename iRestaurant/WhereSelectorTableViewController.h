@@ -7,10 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchService.h"
 
-
-@interface WhereSelectorTableViewController : UITableViewController {
-    
+@interface WhereSelectorTableViewController : UITableViewController <UISearchBarDelegate, SearchServiceDelegate> {
+    IBOutlet UISearchBar *searchBar;
+    NSMutableArray *unfilteredList;
+    NSMutableArray *filteredList;
+    SearchService *ss;
+    id delegate;
 }
+
+@property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
+@property (nonatomic, retain) NSMutableArray *unfilteredList;
+@property (nonatomic, retain) NSMutableArray *filteredList;
+@property (nonatomic, retain) SearchService *ss;
+@property (nonatomic, retain) id delegate;
+
+-(void)searchFinished:(NSMutableArray *)restaurantsArray;
 
 @end

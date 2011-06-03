@@ -13,6 +13,8 @@
 #import "SHK.h"
 #import "SHKFacebook.h"
 //#import "SHKTwitter.h"
+#import "WhereSelectorViewController.h"
+#import "Restaurant.h"
 
 @implementation PhotoShareContainer
 @synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch, restaurant, menuItem, navItem, whereLabel, whatLabel, commentsLabel, submitButton, rvc, dvc, isForRestaurant, photoSubmitted, tab, photoPurpose, temp, whereAutocompleteArray, whereButton, whatButton;
@@ -207,12 +209,21 @@
 
 -(IBAction) whereButtonPressed 
 {
-    
+    WhereSelectorViewController *whereVC = [[WhereSelectorViewController alloc]initWithNibName:@"WhereSelectorViewController" bundle:nil];
+    whereVC.delegate = self;
+    [self presentModalViewController:whereVC animated:YES];
+    [whereVC release];
 }
 
 -(IBAction) whatButtonPressed
 {
     
+}
+
+-(void) whereSelected:(Restaurant *)restaurant_passed {
+    [whereButton setTitle:[restaurant_passed.name retain] forState:UIControlStateNormal];
+    restaurant = restaurant_passed._id;
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

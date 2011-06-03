@@ -7,10 +7,10 @@
 //
 
 #import "WhereSelectorViewController.h"
-
+#import "WhereSelectorTableViewController.h"
 
 @implementation WhereSelectorViewController
-@synthesize whereSelectorTableViewController;
+@synthesize whereSelectorTableViewController, delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -45,6 +45,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    whereSelectorTableViewController.delegate = self.delegate;
     // Do any additional setup after loading the view from its nib.
 }
 

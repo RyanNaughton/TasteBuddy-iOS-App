@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "PhotoUploadService.h"
+#import "WhereSelectorViewController.h"
+
 @class RestaurantViewController;
 @class DishViewController;
 @class ShareButtonViewController;
 
-@interface PhotoShareContainer : UIViewController <UITextFieldDelegate, PhotoUploadServiceDelegate, NSXMLParserDelegate> {
+@interface PhotoShareContainer : UIViewController <UITextFieldDelegate, PhotoUploadServiceDelegate, NSXMLParserDelegate, WhereSelectorDelegate> {
     IBOutlet UIBarButtonItem *cancelButton;
     IBOutlet UIBarButtonItem *submitButton;
     IBOutlet UIImageView *imageView;
@@ -98,5 +100,7 @@
 -(void) shareOnTwitter;
 -(IBAction) whereButtonPressed;
 -(IBAction) whatButtonPressed;
+-(void) whereSelected:(Restaurant *)restaurant_passed;
+
 
 @end
