@@ -12,7 +12,7 @@
 @class DishViewController;
 @class ShareButtonViewController;
 
-@interface PhotoShareContainer : UIViewController <UITextFieldDelegate, PhotoUploadServiceDelegate> {
+@interface PhotoShareContainer : UIViewController <UITextFieldDelegate, PhotoUploadServiceDelegate, NSXMLParserDelegate> {
     IBOutlet UIBarButtonItem *cancelButton;
     IBOutlet UIBarButtonItem *submitButton;
     IBOutlet UIImageView *imageView;
@@ -44,6 +44,12 @@
     BOOL photoSubmitted;
     
     NSString *photoPurpose;
+    NSString *temp;
+    NSMutableArray *whereAutocompleteArray;
+    
+    IBOutlet UIButton *whereButton;
+    IBOutlet UIButton *whatButton;
+    
 }
 
 @property (nonatomic, retain) IBOutlet UIBarButtonItem *cancelButton;
@@ -78,7 +84,11 @@
 @property (nonatomic, assign) BOOL photoSubmitted;
 
 @property (nonatomic, retain) NSString *photoPurpose;
+@property (nonatomic, retain) NSString *temp;
+@property (nonatomic, retain) NSMutableArray *whereAutocompleteArray;
 
+@property (nonatomic, retain) IBOutlet UIButton *whereButton;
+@property (nonatomic, retain) IBOutlet UIButton *whatButton;
 
 - (id)initWithWhere:(NSString *)where_passed andWhat:(NSString *)what_passed andImage:(UIImage *)image_passed andRestaurantId:(NSString *)restaurant_id_passed andMenuItemId:(NSString *) menu_item_id_passed;
 -(IBAction) cancelButtonPressed:(id)sender;
@@ -86,5 +96,7 @@
 -(void) imageLoadingDone:(NSDictionary *)dict;
 -(void) shareOnFacebook;
 -(void) shareOnTwitter;
+-(IBAction) whereButtonPressed;
+-(IBAction) whatButtonPressed;
 
 @end

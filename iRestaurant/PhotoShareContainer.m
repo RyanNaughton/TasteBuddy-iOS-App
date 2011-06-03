@@ -15,7 +15,7 @@
 //#import "SHKTwitter.h"
 
 @implementation PhotoShareContainer
-@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch, restaurant, menuItem, navItem, whereLabel, whatLabel, commentsLabel, submitButton, rvc, dvc, isForRestaurant, photoSubmitted, tab, photoPurpose;
+@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch, restaurant, menuItem, navItem, whereLabel, whatLabel, commentsLabel, submitButton, rvc, dvc, isForRestaurant, photoSubmitted, tab, photoPurpose, temp, whereAutocompleteArray, whereButton, whatButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -67,7 +67,7 @@
         submitButton.enabled = FALSE;
         cancelButton.enabled = FALSE;
         PhotoUploadService *photoUploadService = [[PhotoUploadService alloc]init];
-        [photoUploadService uploadImage:image withWhere:whereTextField.text andWhat:whatTextField.text andComments:commentsTextField.text andFacebook:facebookSwitch.on andDelegate:self andRestaurantId:restaurant andMenuItemId:menuItem];
+        [photoUploadService uploadImage:image withWhere:whereButton.titleLabel.text andWhat:whatButton.titleLabel.text andComments:commentsTextField.text andFacebook:facebookSwitch.on andDelegate:self andRestaurantId:restaurant andMenuItemId:menuItem];
     } else {
         NSLog(@"ignore duplicate submission");
     }
@@ -89,6 +89,8 @@
 
 - (void)dealloc
 {
+    [whereButton release];
+    [whatButton release];
     [what release];
     [where release];
     [image release];
@@ -119,20 +121,18 @@
     appNameImageView.contentMode = UIViewContentModeRight;
     navItem.titleView = appNameImageView;
     
-    whereTextField.delegate = self;
-    whatTextField.delegate = self;
     commentsTextField.delegate = self;
     
-    whereTextField.text = [where retain];
-    whatTextField.text = [what retain];
+    
+    
     
     if ([where length] > 0) {
-        whereTextField.userInteractionEnabled = FALSE;
-        whereTextField.textColor = [UIColor colorWithRed:89.0/255.0 green:149.0/255.0 blue:24.0/255.0 alpha:1.0];
+        [whereButton setTitle:[where retain] forState:UIControlStateNormal];
+        whereButton.userInteractionEnabled = FALSE;
     }
     if ([what length] > 0) {
-        whatTextField.userInteractionEnabled = FALSE;
-        whatTextField.textColor = [UIColor colorWithRed:89.0/255.0 green:149.0/255.0 blue:24.0/255.0 alpha:1.0];
+        [whatButton setTitle:[what retain] forState:UIControlStateNormal];
+        whatButton.userInteractionEnabled = FALSE;
     }
     
     if (([where length] > 0) && ([what length] > 0)) {
@@ -151,6 +151,16 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+//    NSLog(@"textfield.text: %@ | replacementString: %@", textField.text, string);
+//    
+//    NSMutableArray *array =
+//    [NSMutableArray arrayWithObjects:@"Bill", @"Ben", @"Chris", @"Melissa", nil];
+//    NSPredicate *textFieldPredicate = [NSPredicate predicateWithFormat:[NSString stringWithFormat:@"SELF beginswith[c] '%@'", textField.text]];
+//    NSArray *beginsWithTextFieldString = [array filteredArrayUsingPredicate:textFieldPredicate];
+//    
+//    NSLog(@"sorted objects: %@", beginsWithTextFieldString);
+//    
     NSUInteger newLength = [textField.text length] + [string length] - range.length;
     return (newLength > 70) ? NO : YES;
 }
@@ -168,7 +178,8 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(void) shareOnFacebook {
+-(void) shareOnFacebook 
+{
     NSMutableArray *titleForImage = [[NSMutableArray alloc] init];
     if(whatTextField.hidden){
         [titleForImage addObject:whereTextField.text];
@@ -192,6 +203,16 @@
 -(void) shareOnTwitter {
     //SHKItem *item = [SHKItem video:video title:@"I just used TasteBuddy for iPhone!"];
     //[SHKTwitter shareItem:item];
+}
+
+-(IBAction) whereButtonPressed 
+{
+    
+}
+
+-(IBAction) whatButtonPressed
+{
+    
 }
 
 @end

@@ -319,6 +319,9 @@
 		E8AF9DB31370AF7D0092A249 /* RestaurantButtonsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AF9DB21370AF7D0092A249 /* RestaurantButtonsCell.m */; };
 		E8AF9DB61370B1FE0092A249 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AF9DB41370B1FE0092A249 /* 28-star.png */; };
 		E8AF9DB71370B1FE0092A249 /* 28-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AF9DB51370B1FE0092A249 /* 28-star@2x.png */; };
+		E8B3660313995158008C3E7F /* WhereSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3660113995158008C3E7F /* WhereSelectorViewController.m */; };
+		E8B3660413995158008C3E7F /* WhereSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8B3660213995158008C3E7F /* WhereSelectorViewController.xib */; };
+		E8B36607139951E6008C3E7F /* WhereSelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B36606139951E6008C3E7F /* WhereSelectorTableViewController.m */; };
 		E8B53D2F1396DB70002D89B6 /* UIDeviceHardware.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B53D2E1396DB70002D89B6 /* UIDeviceHardware.m */; };
 		E8B53D371396F163002D89B6 /* favoritesLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B53D351396F163002D89B6 /* favoritesLogo.png */; };
 		E8B53D381396F163002D89B6 /* favoritesLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B53D361396F163002D89B6 /* favoritesLogo@2x.png */; };
@@ -868,6 +871,11 @@
 		E8AF9DB21370AF7D0092A249 /* RestaurantButtonsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantButtonsCell.m; sourceTree = "<group>"; };
 		E8AF9DB41370B1FE0092A249 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
 		E8AF9DB51370B1FE0092A249 /* 28-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star@2x.png"; sourceTree = "<group>"; };
+		E8B3660013995158008C3E7F /* WhereSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhereSelectorViewController.h; sourceTree = "<group>"; };
+		E8B3660113995158008C3E7F /* WhereSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhereSelectorViewController.m; sourceTree = "<group>"; };
+		E8B3660213995158008C3E7F /* WhereSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WhereSelectorViewController.xib; sourceTree = "<group>"; };
+		E8B36605139951E6008C3E7F /* WhereSelectorTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhereSelectorTableViewController.h; sourceTree = "<group>"; };
+		E8B36606139951E6008C3E7F /* WhereSelectorTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhereSelectorTableViewController.m; sourceTree = "<group>"; };
 		E8B53D2D1396DB70002D89B6 /* UIDeviceHardware.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIDeviceHardware.h; sourceTree = "<group>"; };
 		E8B53D2E1396DB70002D89B6 /* UIDeviceHardware.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIDeviceHardware.m; sourceTree = "<group>"; };
 		E8B53D351396F163002D89B6 /* favoritesLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favoritesLogo.png; sourceTree = "<group>"; };
@@ -1894,6 +1902,7 @@
 		E86A845C1368BD6800720FA3 /* Photo */ = {
 			isa = PBXGroup;
 			children = (
+				E8B365F9139950DA008C3E7F /* WhereSelector */,
 				49300BF81396BD35002B802A /* ShareButton */,
 				E86A84731368F26000720FA3 /* old */,
 				E86A84601368C6F700720FA3 /* PhotoShareContainer.h */,
@@ -2109,6 +2118,18 @@
 				E8AEFC3A1378ABD000A8F8C1 /* SubCategoryCell.m */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		E8B365F9139950DA008C3E7F /* WhereSelector */ = {
+			isa = PBXGroup;
+			children = (
+				E8B3660013995158008C3E7F /* WhereSelectorViewController.h */,
+				E8B3660113995158008C3E7F /* WhereSelectorViewController.m */,
+				E8B3660213995158008C3E7F /* WhereSelectorViewController.xib */,
+				E8B36605139951E6008C3E7F /* WhereSelectorTableViewController.h */,
+				E8B36606139951E6008C3E7F /* WhereSelectorTableViewController.m */,
+			);
+			name = WhereSelector;
 			sourceTree = "<group>";
 		};
 		E8B53D2B1396DB61002D89B6 /* UIDeviceHardware */ = {
@@ -2471,6 +2492,7 @@
 				49300BFF1396BDAC002B802A /* pepperbg_final.png in Resources */,
 				E8B53D371396F163002D89B6 /* favoritesLogo.png in Resources */,
 				E8B53D381396F163002D89B6 /* favoritesLogo@2x.png in Resources */,
+				E8B3660413995158008C3E7F /* WhereSelectorViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2686,6 +2708,8 @@
 				49300BE11395A1D0002B802A /* SortAndFilterPreferences.m in Sources */,
 				49300BFC1396BD63002B802A /* ShareButtonViewController.m in Sources */,
 				E8B53D2F1396DB70002D89B6 /* UIDeviceHardware.m in Sources */,
+				E8B3660313995158008C3E7F /* WhereSelectorViewController.m in Sources */,
+				E8B36607139951E6008C3E7F /* WhereSelectorTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
