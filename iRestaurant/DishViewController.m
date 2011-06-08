@@ -77,7 +77,7 @@
     }
     
     [tableArray addObject:@"Buttons"];
-    [tableArray addObject:@"Tags"]; 
+    //[tableArray addObject:@"Tags"]; 
     
     if ([menu_item.comments count] > 0) {
         [tableArray addObject:@"Comments"];

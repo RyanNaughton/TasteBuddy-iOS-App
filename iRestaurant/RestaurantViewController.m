@@ -76,7 +76,7 @@
     
     if (![restaurant.website_url isKindOfClass:[NSNull class]]) [tableArray addObject:@"WebsiteLink"];
     [tableArray addObject:@"AdditionalInformation"];
-    [tableArray addObject:@"Tags"];
+    //[tableArray addObject:@"Tags"];
     if ([restaurant.comments count] > 0) {
         [tableArray addObject:@"Comments"];
     }

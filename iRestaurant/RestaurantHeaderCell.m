@@ -47,7 +47,7 @@
         [self.contentView addSubview:imageButton];
         
         name = [[UILabel alloc]init];
-        name.frame = CGRectMake(10, 7, 280, 20);
+        name.frame = CGRectMake(10, 7, 300, 20);
         name.textColor = [UIColor blackColor];
 		name.backgroundColor = [UIColor clearColor];
 		name.font = [UIFont boldSystemFontOfSize:17];
@@ -168,7 +168,7 @@
         [self.contentView addSubview:average_meal];
         
         UIButton *bookmarkButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        bookmarkButton.frame = CGRectMake(240, 10, 24, 21);
+        bookmarkButton.frame = CGRectMake(240, 30, 24, 21);
         [bookmarkButton addTarget:restaurantViewController action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         if (restaurantViewController.restaurant.bookmark) {
@@ -179,7 +179,7 @@
         [self.contentView addSubview:bookmarkButton];
         
         UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        photoButton.frame = CGRectMake(285, 10, 24, 18);
+        photoButton.frame = CGRectMake(285, 30, 24, 18);
         [photoButton addTarget:restaurantViewController action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [photoButton setImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
         [self.contentView addSubview:photoButton];
