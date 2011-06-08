@@ -26,6 +26,7 @@
     MenuItem *menu_item;
     UIButton *bookmarkButton;
     UIButton *photoButton;
+    UIButton *ratingButton;
 }
 
 @property (nonatomic, retain) UILabel *name;
@@ -39,6 +40,7 @@
 @property (nonatomic, retain) MenuItem *menu_item;
 @property (nonatomic, retain) UIButton *bookmarkButton;
 @property (nonatomic, retain) UIButton *photoButton;
+@property (nonatomic, retain) UIButton *ratingButton;
 
 -(void)loadMenuItem:(MenuItem *)menu_item andRestaurant:(Restaurant *)restaurant;
 -(void)cameraButtonPressed:(id)sender;

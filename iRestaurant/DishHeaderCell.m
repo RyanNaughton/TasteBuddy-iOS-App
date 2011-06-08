@@ -24,7 +24,7 @@
 
 @implementation DishHeaderCell
 
-@synthesize name, price, ratingView, restaurantName, svimage, viewForScrollView, singleImageView, dvc, menu_item, bookmarkButton, photoButton;
+@synthesize name, price, ratingView, restaurantName, svimage, viewForScrollView, singleImageView, dvc, menu_item, bookmarkButton, photoButton, ratingButton;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andDishViewController:(DishViewController *)dvc_passed
 {
@@ -76,7 +76,7 @@
         ratingView.frame = CGRectMake(10, 60, 100, 20);
         [self.contentView addSubview:ratingView];
         
-        UIButton *ratingButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        ratingButton = [UIButton buttonWithType:UIButtonTypeCustom];
         ratingButton.frame = CGRectMake(10, 60, 100, 20);
         [ratingButton addTarget:dvc action:@selector(rateItButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:ratingButton];
@@ -137,6 +137,7 @@
     
     name.frame = CGRectMake(10, 7, expectedLabelSize.width, expectedLabelSize.height);
     ratingView.frame = CGRectMake(10, expectedLabelSize.height + 15, ratingView.frame.size.width, ratingView.frame.size.height);
+    ratingButton.frame = CGRectMake(ratingButton.frame.origin.x, expectedLabelSize.height + 15, ratingButton.frame.size.width, ratingButton.frame.size.height);
     photoButton.frame = CGRectMake(photoButton.frame.origin.x, expectedLabelSize.height + 15, photoButton.frame.size.width, photoButton.frame.size.height);
     bookmarkButton.frame = CGRectMake(bookmarkButton.frame.origin.x, expectedLabelSize.height + 15, bookmarkButton.frame.size.width, bookmarkButton.frame.size.height);
     
