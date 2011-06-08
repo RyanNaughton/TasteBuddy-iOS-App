@@ -166,7 +166,26 @@
         average_meal.shadowColor = [UIColor whiteColor];
         average_meal.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:average_meal];
-        self.selectionStyle = UITableViewCellEditingStyleNone;
+        
+        UIButton *bookmarkButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        bookmarkButton.frame = CGRectMake(240, 10, 24, 21);
+        [bookmarkButton addTarget:restaurantViewController action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        
+        if (restaurantViewController.restaurant.bookmark) {
+            [bookmarkButton setImage:[UIImage imageNamed:@"red-heart.png"] forState:UIControlStateNormal];
+        } else {
+            [bookmarkButton setImage:[UIImage imageNamed:@"29-heart.png"] forState:UIControlStateNormal];            
+        }
+        [self.contentView addSubview:bookmarkButton];
+        
+        UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        photoButton.frame = CGRectMake(285, 10, 24, 18);
+        [photoButton addTarget:restaurantViewController action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [photoButton setImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
+        [self.contentView addSubview:photoButton];
+        
+        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }

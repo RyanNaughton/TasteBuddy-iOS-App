@@ -460,9 +460,9 @@
 
 -(void) doneRating:(Rating *) rating {
     menu_item.rating = rating;
-    [self.tableView reloadData];
-//    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
-//    [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+//    [self.tableView reloadData];
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
+    [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
 }
 
 -(void) doneBookmarking:(NSDictionary *) status {

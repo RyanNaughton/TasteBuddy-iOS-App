@@ -45,20 +45,20 @@
         
         // RATE IT ============
         
-        UIButton *rateItButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [rateItButton addTarget:restaurantViewController action:@selector(rateItButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [rateItButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
-        [rateItButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        rateItButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-        rateItButton.frame = CGRectMake(165, 10, 145, 40);
-        [rateItButton setTitle:@"Rate it!" forState:UIControlStateNormal];
-        [self.contentView addSubview:rateItButton];
-        
-        UIImageView *starImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"28-star.png"]];
-        starImage.frame = iconFrame;
-        starImage.contentMode = UIViewContentModeScaleAspectFill;
-        starImage.alpha = 0.8;
-        [rateItButton addSubview:starImage];
+//        UIButton *rateItButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [rateItButton addTarget:restaurantViewController action:@selector(rateItButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//        [rateItButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
+//        [rateItButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+//        rateItButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+//        rateItButton.frame = CGRectMake(165, 10, 145, 40);
+//        [rateItButton setTitle:@"Rate it!" forState:UIControlStateNormal];
+//        [self.contentView addSubview:rateItButton];
+//        
+//        UIImageView *starImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"28-star.png"]];
+//        starImage.frame = iconFrame;
+//        starImage.contentMode = UIViewContentModeScaleAspectFill;
+//        starImage.alpha = 0.8;
+//        [rateItButton addSubview:starImage];
         //[starImage release];
         
         // MAP IT ============
@@ -68,7 +68,7 @@
         [mapItButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [mapItButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         mapItButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-        mapItButton.frame = CGRectMake(10, 60, 145, 40);
+        mapItButton.frame = CGRectMake(165, 10, 145, 40); //CGRectMake(10, 60, 145, 40);
         [mapItButton setTitle:@"Map it!" forState:UIControlStateNormal];
         [self.contentView addSubview:mapItButton];
         
@@ -81,68 +81,69 @@
 
         // ADD PHOTO ============
         
-        UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [photoButton addTarget:restaurantViewController action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [photoButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
-        [photoButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        photoButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-        photoButton.frame = CGRectMake(165, 60, 145, 40);
-        [photoButton setTitle:@" Add Photo" forState:UIControlStateNormal];
-        [self.contentView addSubview:photoButton];
-        
-        UIImageView *cameraImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"86-camera.png"]];
-        cameraImage.frame = iconFrame;
-        cameraImage.contentMode = UIViewContentModeScaleAspectFill;
-        cameraImage.alpha = 0.8;
-        [photoButton addSubview:cameraImage];
+//        UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [photoButton addTarget:restaurantViewController action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//        [photoButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
+//        [photoButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+//        photoButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+//        photoButton.frame = CGRectMake(165, 60, 145, 40);
+//        [photoButton setTitle:@" Add Photo" forState:UIControlStateNormal];
+//        [self.contentView addSubview:photoButton];
+//        
+//        UIImageView *cameraImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"86-camera.png"]];
+//        cameraImage.frame = iconFrame;
+//        cameraImage.contentMode = UIViewContentModeScaleAspectFill;
+//        cameraImage.alpha = 0.8;
+//        [photoButton addSubview:cameraImage];
         //[addressImage release];
 
         // MENUS ============
         
-        UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [menuButton addTarget:restaurantViewController action:@selector(menuButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [menuButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
-        [menuButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-        menuButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-        menuButton.frame = CGRectMake(10, 110, 145, 40);
-        [menuButton setTitle:@"Menus" forState:UIControlStateNormal];
-        [self.contentView addSubview:menuButton];
-        
-        UIImageView *menuImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"48-fork-and-knife.png"]];
-        menuImage.frame = iconFrame;
-        menuImage.contentMode = UIViewContentModeScaleAspectFill;
-        menuImage.alpha = 0.8;
-        [menuButton addSubview:menuImage];
+//        UIButton *menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [menuButton addTarget:restaurantViewController action:@selector(menuButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//        [menuButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
+//        [menuButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+//        menuButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+//        menuButton.frame = CGRectMake(10, 60, 145, 40); //CGRectMake(10, 110, 145, 40);
+//        [menuButton setTitle:@"Menus" forState:UIControlStateNormal];
+//        [self.contentView addSubview:menuButton];
+//        
+//        UIImageView *menuImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"48-fork-and-knife.png"]];
+//        menuImage.frame = iconFrame;
+//        menuImage.contentMode = UIViewContentModeScaleAspectFill;
+//        menuImage.alpha = 0.8;
+//        [menuButton addSubview:menuImage];
         //[menuImage release];
         
         // BOOKMARK ============
         
-        UIButton *bookmarkButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [bookmarkButton addTarget:restaurantViewController action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//        UIButton *bookmarkButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [bookmarkButton addTarget:restaurantViewController action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//        
+//        bookmarkButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+//        bookmarkButton.frame = CGRectMake(165, 110, 145, 40);
+//        UIImageView *bookmarkImage;
+//        if (restaurantViewController.restaurant.bookmark) {
+//            [bookmarkButton setTitle:@" Un-Favorite" forState:UIControlStateNormal];
+//            [bookmarkButton setBackgroundImage:darkergreyButtonImage forState:UIControlStateNormal];
+//            [bookmarkButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+//            bookmarkImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"20-no.png"]];
+//        } else {
+//            [bookmarkButton setTitle:@" Favorite" forState:UIControlStateNormal];
+//            [bookmarkButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
+//            [bookmarkButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+//            bookmarkImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"29-heart.png"]];
+//        }
+//        
+//        [self.contentView addSubview:bookmarkButton];
         
-        bookmarkButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-        bookmarkButton.frame = CGRectMake(165, 110, 145, 40);
-        UIImageView *bookmarkImage;
-        if (restaurantViewController.restaurant.bookmark) {
-            [bookmarkButton setTitle:@" Un-Favorite" forState:UIControlStateNormal];
-            [bookmarkButton setBackgroundImage:darkergreyButtonImage forState:UIControlStateNormal];
-            [bookmarkButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            bookmarkImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"20-no.png"]];
-        } else {
-            [bookmarkButton setTitle:@" Favorite" forState:UIControlStateNormal];
-            [bookmarkButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
-            [bookmarkButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-            bookmarkImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"29-heart.png"]];
-        }
-        
-        [self.contentView addSubview:bookmarkButton];
-        
-        bookmarkImage.frame = iconFrame;
-        bookmarkImage.contentMode = UIViewContentModeScaleAspectFill;
-        bookmarkImage.alpha = 0.8;
-        [bookmarkButton addSubview:bookmarkImage];
+//        bookmarkImage.frame = iconFrame;
+//        bookmarkImage.contentMode = UIViewContentModeScaleAspectFill;
+//        bookmarkImage.alpha = 0.8;
+//        [bookmarkButton addSubview:bookmarkImage];
         //[menuImage release];
-        self.selectionStyle = UITableViewCellEditingStyleNone;
+        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }

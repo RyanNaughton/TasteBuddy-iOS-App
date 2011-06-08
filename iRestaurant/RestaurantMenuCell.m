@@ -13,7 +13,7 @@
 @implementation RestaurantMenuCell
 @synthesize menuButton, parentView;
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andParentView:(RestaurantViewController *)parentView_passed
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
@@ -21,6 +21,7 @@
         self.backgroundColor = [UIColor whiteColor];
         self.selectionStyle = UITableViewCellSelectionStyleNone;
         
+        parentView = parentView_passed;
         
         menuButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [menuButton addTarget:self action:@selector(menuButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
@@ -28,16 +29,17 @@
         [menuButton setBackgroundImage:menuButtonImage forState:UIControlStateNormal];
         [menuButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         menuButton.titleLabel.font = [UIFont boldSystemFontOfSize:16];
-        menuButton.frame = CGRectMake(10, 10, 300, 35);
+        menuButton.frame = CGRectMake(10, 0, 300, 35);
         [menuButton setTitle:@"Menus" forState:UIControlStateNormal];
         [self.contentView addSubview:menuButton];
         
         UIImageView *addressImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"48-fork-and-knife.png"]];
-        addressImage.frame = CGRectMake(22, 20, 15, 15);
+        addressImage.frame = CGRectMake(22, 10, 12, 12);
+        addressImage.contentMode = UIViewContentModeScaleAspectFill;
         addressImage.alpha = 0.8;
         [self.contentView addSubview:addressImage];
         [addressImage release];
-        self.selectionStyle = UITableViewCellEditingStyleNone;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }

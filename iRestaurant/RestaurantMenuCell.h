@@ -18,6 +18,7 @@
 @property (nonatomic, retain) UIButton *menuButton;
 @property (nonatomic, retain) RestaurantViewController *parentView;
 
+- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andParentView:(RestaurantViewController *)parentView_passed;
 -(void)loadRestaurant:(Restaurant *)restaurant;
 -(void)menuButtonPressed:(id)sender;
 @end

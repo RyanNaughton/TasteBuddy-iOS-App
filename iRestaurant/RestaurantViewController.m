@@ -24,6 +24,7 @@
 #import "MoreTagsCell.h"
 #import "Tag.h"
 #import "CommentService.h"
+#import "Menu.h"
 
 // CELLS =========
 #import "RestaurantHeaderCell.h"
@@ -68,6 +69,11 @@
 
 -(void) buildTableArray {
     tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", nil];
+    
+    if ([restaurant.menu_items count] > 0) {
+        [tableArray addObject:@"Menu"];
+    }
+    
     if (![restaurant.website_url isKindOfClass:[NSNull class]]) [tableArray addObject:@"WebsiteLink"];
     [tableArray addObject:@"AdditionalInformation"];
     [tableArray addObject:@"Tags"];
@@ -210,6 +216,13 @@
         //[restaurantButtonsCell loadRestaurant:restaurant];
         //restaurantButtonsCell.parentView = self;
 		return restaurantButtonsCell;
+        
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Menu"]) {
+        RestaurantMenuCell *restaurantMenuCell = (RestaurantMenuCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantMenuCell"];
+		if (restaurantMenuCell == nil) {
+		    restaurantMenuCell = [[[RestaurantMenuCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"RestaurantMenuCell" andParentView:self] autorelease];
+		}          
+		return restaurantMenuCell;
 
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
         RestaurantAddressCell *restaurantAddressCell = (RestaurantAddressCell *)[tableView dequeueReusableCellWithIdentifier:@"RestaurantAddressCell"];
@@ -311,12 +324,14 @@
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
         height = 180;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
-        height = 160;
+        height = 60;
         
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
         height = 45;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
         height = 45;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Menu"]) {
+        height = 44;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"WebsiteLink"]) {
         height = 44;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"AdditionalInformation"]) {
@@ -482,17 +497,17 @@
         restaurant.bookmark = !restaurant.bookmark;
         NSString *messageString;
         if (restaurant.bookmark) {
-            messageString = [NSString stringWithFormat:@"You have successfully bookmarked this restaurant!"];
+            messageString = [NSString stringWithFormat:@"You have added this restaurant to your favorites."];
         } else {
-            messageString = [NSString stringWithFormat:@"You have successfully removed your bookmark."];
+            messageString = [NSString stringWithFormat:@"You have removed this restaurant from your favorites."];
         }
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Success!" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
         [alert show];
         [alert release];
-                
-        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
-        [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
         
+        NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
+        [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+                
     } else  {
         NSString *messageString = [NSString stringWithFormat:@"We're sorry, but there was an error."];
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
