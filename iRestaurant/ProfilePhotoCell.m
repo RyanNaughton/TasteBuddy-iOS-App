@@ -39,7 +39,7 @@
         [self.contentView addSubview:imageButton];
         
         restaurantLabel = [[UILabelUnderlined alloc]init];
-        restaurantLabel.frame = CGRectMake(85, 10, 250, 25);
+        restaurantLabel.frame = CGRectMake(85, 10, 225, 25);
         restaurantLabel.textColor = [UIColor blackColor];
         restaurantLabel.backgroundColor = [UIColor clearColor];
         restaurantLabel.font = [UIFont boldSystemFontOfSize:17];
