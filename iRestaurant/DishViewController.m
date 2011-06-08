@@ -35,6 +35,7 @@
 #import "LoadingTagCell.h"
 #import "TagCell.h"
 #import "Tag.h"
+#import "DishRestaurantCell.h"
 
 @implementation DishViewController
 
@@ -68,7 +69,7 @@
 }
 
 -(void) buildTableArray {
-    tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", @"Tags", nil];
+    tableArray = [[NSMutableArray alloc]initWithObjects:@"Restaurant", @"Header", @"Buttons", @"Tags", nil];
     if ([menu_item.comments count] > 0) {
         [tableArray addObject:@"Comments"];
     }
@@ -168,7 +169,15 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
+    if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Restaurant"]) {
+        DishRestaurantCell *dishRestaurantCell = (DishRestaurantCell *)[tableView dequeueReusableCellWithIdentifier:@"DishRestaurantCell"];
+		if (dishRestaurantCell == nil) {
+		    dishRestaurantCell = [[[DishRestaurantCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishRestaurantCell"] autorelease];
+            dishRestaurantCell.textLabel.text = restaurant.name;
+        }          
+		return dishRestaurantCell;
+    
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
         DishHeaderCell *dishHeaderCell = (DishHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"DishHeaderCell"];
 		if (dishHeaderCell == nil) {
 		    dishHeaderCell = [[[DishHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishHeaderCell" andDishViewController:self] autorelease];
@@ -253,7 +262,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     CGFloat height;
-    if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
+    if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Restaurant"]) {
+        height = 34;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
         height = 395.0;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
         height = 160.0;
@@ -321,7 +332,9 @@
 {
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
+    if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Restaurant"]) {
+        [self restaurantButtonPressed:nil];
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
     
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Phone"]) {
     

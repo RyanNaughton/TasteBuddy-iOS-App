@@ -46,32 +46,32 @@
         name.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:name];
         
-        UILabel *byLabel = [[UILabel alloc]init];
-        byLabel.frame = CGRectMake(10, 30, 30, 20);
-        byLabel.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
-		byLabel.backgroundColor = [UIColor clearColor];
-		byLabel.font = [UIFont italicSystemFontOfSize:14];
-        byLabel.shadowColor = [UIColor whiteColor];
-        byLabel.shadowOffset = CGSizeMake(0,1);
-        byLabel.text = @"by";
-        [self.contentView addSubview:byLabel];
-        [byLabel release];
+//        UILabel *byLabel = [[UILabel alloc]init];
+//        byLabel.frame = CGRectMake(10, 30, 30, 20);
+//        byLabel.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+//		byLabel.backgroundColor = [UIColor clearColor];
+//		byLabel.font = [UIFont italicSystemFontOfSize:14];
+//        byLabel.shadowColor = [UIColor whiteColor];
+//        byLabel.shadowOffset = CGSizeMake(0,1);
+//        byLabel.text = @"by";
+//        [self.contentView addSubview:byLabel];
+//        [byLabel release];
 
-        restaurantName = [[UILabelUnderlined alloc]init];
-        restaurantName.frame = CGRectMake(30, 30, 280, 20);
-        restaurantName.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
-		restaurantName.backgroundColor = [UIColor clearColor];
-		restaurantName.font = [UIFont systemFontOfSize:15];
-        restaurantName.shadowColor = [UIColor whiteColor];
-        restaurantName.shadowOffset = CGSizeMake(0,1);
-        [self.contentView addSubview:restaurantName];
+//        restaurantName = [[UILabelUnderlined alloc]init];
+//        restaurantName.frame = CGRectMake(30, 30, 280, 20);
+//        restaurantName.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
+//		restaurantName.backgroundColor = [UIColor clearColor];
+//		restaurantName.font = [UIFont systemFontOfSize:15];
+//        restaurantName.shadowColor = [UIColor whiteColor];
+//        restaurantName.shadowOffset = CGSizeMake(0,1);
+//        [self.contentView addSubview:restaurantName];
         
-        UIButton *restaurantButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [restaurantButton addTarget:dvc action:@selector(restaurantButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        restaurantButton.frame = CGRectMake(30, 30, 280, 20);
-        [self.contentView addSubview:restaurantButton];
+//        UIButton *restaurantButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [restaurantButton addTarget:dvc action:@selector(restaurantButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//        restaurantButton.frame = CGRectMake(30, 30, 280, 20);
+//        [self.contentView addSubview:restaurantButton];
         
-        ratingView = [[RatingView alloc] initWithStarSize:20 andLabelVisible:YES];
+        ratingView = [[RatingView alloc] initWithStarSize:20 andLabelVisible:NO];
         ratingView.frame = CGRectMake(10, 60, 100, 20);
         [self.contentView addSubview:ratingView];
 

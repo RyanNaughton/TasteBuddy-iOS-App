@@ -123,11 +123,14 @@
         distance          = [[restaurantDictionary objectForKey:@"distance"] retain];
         
         menu_items        = [[NSMutableArray alloc] init];
-        for(NSDictionary *dict in [restaurantDictionary objectForKey:@"menu_items"])
-        {
-            MenuItem *menuItem = [[MenuItem alloc] initWithDictionary:dict];
-            [menu_items addObject:menuItem];
-            [menuItem release];
+        
+        if (![[restaurantDictionary objectForKey:@"menu_items"] isKindOfClass:[NSNull class]]) {
+            for(NSDictionary *dict in [restaurantDictionary objectForKey:@"menu_items"])
+            {
+                MenuItem *menuItem = [[MenuItem alloc] initWithDictionary:dict];
+                [menu_items addObject:menuItem];
+                [menuItem release];
+            }
         }
         
         tags = [[NSMutableArray alloc] init];

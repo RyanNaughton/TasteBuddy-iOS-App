@@ -272,7 +272,6 @@
 		E8A03E1D135539130031D798 /* SearchService.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A03E1C135539130031D798 /* SearchService.m */; };
 		E8A03E49135543B90031D798 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A03E48135543B90031D798 /* MobileCoreServices.framework */; };
 		E8A03E4C135543DC0031D798 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A03E4B135543DC0031D798 /* CFNetwork.framework */; };
-		E8A03E4E1355443C0031D798 /* libz.1.2.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E8A03E4D1355443C0031D798 /* libz.1.2.3.dylib */; };
 		E8A449C113591203006AA06A /* outline_star.png in Resources */ = {isa = PBXBuildFile; fileRef = E8A449BB13591203006AA06A /* outline_star.png */; };
 		E8A449C213591203006AA06A /* outline_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8A449BC13591203006AA06A /* outline_star@2x.png */; };
 		E8A449C313591203006AA06A /* yellow_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8A449BD13591203006AA06A /* yellow_star@2x.png */; };
@@ -319,6 +318,12 @@
 		E8AF9DB31370AF7D0092A249 /* RestaurantButtonsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AF9DB21370AF7D0092A249 /* RestaurantButtonsCell.m */; };
 		E8AF9DB61370B1FE0092A249 /* 28-star.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AF9DB41370B1FE0092A249 /* 28-star.png */; };
 		E8AF9DB71370B1FE0092A249 /* 28-star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8AF9DB51370B1FE0092A249 /* 28-star@2x.png */; };
+		E8B2B887139FF37000B924E3 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E8B2B886139FF37000B924E3 /* libz.1.2.5.dylib */; };
+		E8B2B88A139FF40D00B924E3 /* DishRestaurantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B2B889139FF40D00B924E3 /* DishRestaurantCell.m */; };
+		E8B2B88D139FF84100B924E3 /* disclosure-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B2B88B139FF84100B924E3 /* disclosure-arrow.png */; };
+		E8B2B88E139FF84100B924E3 /* disclosure-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B2B88C139FF84100B924E3 /* disclosure-arrow@2x.png */; };
+		E8B2B891139FFC3900B924E3 /* grey-grad.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B2B88F139FFC3900B924E3 /* grey-grad.png */; };
+		E8B2B892139FFC3900B924E3 /* grey-grad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B2B890139FFC3900B924E3 /* grey-grad@2x.png */; };
 		E8B3660313995158008C3E7F /* WhereSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3660113995158008C3E7F /* WhereSelectorViewController.m */; };
 		E8B3660413995158008C3E7F /* WhereSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8B3660213995158008C3E7F /* WhereSelectorViewController.xib */; };
 		E8B36607139951E6008C3E7F /* WhereSelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B36606139951E6008C3E7F /* WhereSelectorTableViewController.m */; };
@@ -874,6 +879,13 @@
 		E8AF9DB21370AF7D0092A249 /* RestaurantButtonsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantButtonsCell.m; sourceTree = "<group>"; };
 		E8AF9DB41370B1FE0092A249 /* 28-star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star.png"; sourceTree = "<group>"; };
 		E8AF9DB51370B1FE0092A249 /* 28-star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "28-star@2x.png"; sourceTree = "<group>"; };
+		E8B2B886139FF37000B924E3 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		E8B2B888139FF40D00B924E3 /* DishRestaurantCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishRestaurantCell.h; sourceTree = "<group>"; };
+		E8B2B889139FF40D00B924E3 /* DishRestaurantCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishRestaurantCell.m; sourceTree = "<group>"; };
+		E8B2B88B139FF84100B924E3 /* disclosure-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disclosure-arrow.png"; sourceTree = "<group>"; };
+		E8B2B88C139FF84100B924E3 /* disclosure-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disclosure-arrow@2x.png"; sourceTree = "<group>"; };
+		E8B2B88F139FFC3900B924E3 /* grey-grad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-grad.png"; sourceTree = "<group>"; };
+		E8B2B890139FFC3900B924E3 /* grey-grad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-grad@2x.png"; sourceTree = "<group>"; };
 		E8B3660013995158008C3E7F /* WhereSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhereSelectorViewController.h; sourceTree = "<group>"; };
 		E8B3660113995158008C3E7F /* WhereSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhereSelectorViewController.m; sourceTree = "<group>"; };
 		E8B3660213995158008C3E7F /* WhereSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WhereSelectorViewController.xib; sourceTree = "<group>"; };
@@ -952,6 +964,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8B2B887139FF37000B924E3 /* libz.1.2.5.dylib in Frameworks */,
 				4986CDD713903A960042846B /* Security.framework in Frameworks */,
 				E8ABA07C13901EC900DBFA75 /* MessageUI.framework in Frameworks */,
 				4927C9A6138C3BE100BD4169 /* MapKit.framework in Frameworks */,
@@ -959,7 +972,6 @@
 				E85EE41E13564224004B2A10 /* CoreLocation.framework in Frameworks */,
 				E85EE40A13554967004B2A10 /* SystemConfiguration.framework in Frameworks */,
 				E8A6E824135547050095E157 /* libxml2.dylib in Frameworks */,
-				E8A03E4E1355443C0031D798 /* libz.1.2.3.dylib in Frameworks */,
 				E8A03E4C135543DC0031D798 /* CFNetwork.framework in Frameworks */,
 				E8A03E49135543B90031D798 /* MobileCoreServices.framework in Frameworks */,
 				49BA68231354DBA40040DDB5 /* UIKit.framework in Frameworks */,
@@ -1573,6 +1585,7 @@
 		49BA68131354DBA20040DDB5 = {
 			isa = PBXGroup;
 			children = (
+				E8B2B886139FF37000B924E3 /* libz.1.2.5.dylib */,
 				49BA68281354DBA40040DDB5 /* iRestaurant */,
 				49BA68481354DBA50040DDB5 /* iRestaurantTests */,
 				49BA68211354DBA30040DDB5 /* Frameworks */,
@@ -1755,6 +1768,8 @@
 				E86A84521368AD7B00720FA3 /* icons */,
 				E8AA4AED1361064A00A8E37B /* top-rounding.png */,
 				E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */,
+				E8B2B88F139FFC3900B924E3 /* grey-grad.png */,
+				E8B2B890139FFC3900B924E3 /* grey-grad@2x.png */,
 				E8B53D351396F163002D89B6 /* favoritesLogo.png */,
 				E8B53D361396F163002D89B6 /* favoritesLogo@2x.png */,
 				E882B56413956F9D00BCE5A3 /* dealsLogo.png */,
@@ -1861,6 +1876,8 @@
 		E86A84521368AD7B00720FA3 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				E8B2B88B139FF84100B924E3 /* disclosure-arrow.png */,
+				E8B2B88C139FF84100B924E3 /* disclosure-arrow@2x.png */,
 				E8ABA08613906AB200DBFA75 /* 20-no.png */,
 				E8ABA08713906AB200DBFA75 /* 20-no@2x.png */,
 				E8ABA077139019E600DBFA75 /* 09-chat-2.png */,
@@ -2214,6 +2231,8 @@
 				E8DFF5AA1358C96E007BF40E /* DishHeaderCell.m */,
 				E8C794B9135CB6490033C3FB /* DishButtonsCell.h */,
 				E8C794BA135CB6490033C3FB /* DishButtonsCell.m */,
+				E8B2B888139FF40D00B924E3 /* DishRestaurantCell.h */,
+				E8B2B889139FF40D00B924E3 /* DishRestaurantCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -2330,6 +2349,7 @@
 		49BA68151354DBA30040DDB5 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = N/A;
 			};
 			buildConfigurationList = 49BA68181354DBA30040DDB5 /* Build configuration list for PBXProject "iRestaurant" */;
@@ -2515,6 +2535,10 @@
 				E8B53D381396F163002D89B6 /* favoritesLogo@2x.png in Resources */,
 				E8B3660413995158008C3E7F /* WhereSelectorViewController.xib in Resources */,
 				E8B3660D139962A6008C3E7F /* WhatSelectorViewController.xib in Resources */,
+				E8B2B88D139FF84100B924E3 /* disclosure-arrow.png in Resources */,
+				E8B2B88E139FF84100B924E3 /* disclosure-arrow@2x.png in Resources */,
+				E8B2B891139FFC3900B924E3 /* grey-grad.png in Resources */,
+				E8B2B892139FFC3900B924E3 /* grey-grad@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2734,6 +2758,7 @@
 				E8B36607139951E6008C3E7F /* WhereSelectorTableViewController.m in Sources */,
 				E8B3660C139962A6008C3E7F /* WhatSelectorViewController.m in Sources */,
 				E8B36610139962C7008C3E7F /* WhatSelectorTableViewController.m in Sources */,
+				E8B2B88A139FF40D00B924E3 /* DishRestaurantCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2803,6 +2828,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
@@ -2823,6 +2849,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Argo Navis Consulting, Inc.";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
@@ -2849,7 +2876,7 @@
 				GCC_PREFIX_HEADER = "iRestaurant/iRestaurant-Prefix.pch";
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = "iRestaurant/iRestaurant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-ObjC",
@@ -2858,7 +2885,7 @@
 				PRODUCT_NAME = TasteBuddy;
 				PROVISIONING_PROFILE = "2456B8C1-42CB-427C-9AC1-A7559C08BBA9";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2456B8C1-42CB-427C-9AC1-A7559C08BBA9";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -2876,7 +2903,7 @@
 				GCC_PREFIX_HEADER = "iRestaurant/iRestaurant-Prefix.pch";
 				HEADER_SEARCH_PATHS = "/usr/include/libxml2/**";
 				INFOPLIST_FILE = "iRestaurant/iRestaurant-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-ObjC",
@@ -2885,7 +2912,7 @@
 				PRODUCT_NAME = TasteBuddy;
 				PROVISIONING_PROFILE = "2456B8C1-42CB-427C-9AC1-A7559C08BBA9";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "2456B8C1-42CB-427C-9AC1-A7559C08BBA9";
-				SDKROOT = iphoneos4.3;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
