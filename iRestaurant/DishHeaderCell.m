@@ -91,7 +91,7 @@
         [self.contentView addSubview:price];
                 
         UIButton *bookmarkButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        bookmarkButton.frame = CGRectMake(250, 50, 24, 21);
+        bookmarkButton.frame = CGRectMake(240, 50, 24, 21);
         [bookmarkButton addTarget:dvc action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 
         if (dvc.menu_item.bookmark) {
