@@ -79,6 +79,10 @@
 
 -(IBAction)submitButtonPressed:(id)sender 
 {
+    if ([commentField.text isEqualToString:@"Share your thoughts! (optional)"]) {
+        commentField.text = @"";
+    }
+    
     [delegate startRatingServiceWithRating:currentRating andComments:commentField.text];
     commentField.text = @"";
     [self closeButtonPressed:nil];
