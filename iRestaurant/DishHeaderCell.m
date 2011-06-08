@@ -107,6 +107,10 @@
     restaurantName.text = [restaurant.name retain];
     price.text = [NSString stringWithFormat:@"$%.2f", menu_item.price];
     
+    if ([price.text isEqualToString:@"$0.00"]) {
+        price.text = @"";
+    }
+    
     [ratingView loadRating:menu_item.rating];
     NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
     for (NSDictionary *pictDict in menu_item.pictures) {

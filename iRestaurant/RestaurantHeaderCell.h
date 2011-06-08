@@ -34,6 +34,10 @@
     
     Restaurant *restaurant;
     TakePhoto *takePhoto;
+    
+    UIView *greyLine1;
+    UIView *greyLine2;
+    UIView *greyLine3;
 }
 
 @property (nonatomic, retain) RestaurantViewController *restaurantViewController;
@@ -57,6 +61,10 @@
 
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, retain) TakePhoto *takePhoto;
+
+@property (nonatomic, retain) UIView *greyLine1;
+@property (nonatomic, retain) UIView *greyLine2;
+@property (nonatomic, retain) UIView *greyLine3;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andRVC:(RestaurantViewController *)rvc;
 - (void) loadRestaurant:(Restaurant *)restaurant;

@@ -31,7 +31,6 @@
 		name.font = [UIFont boldSystemFontOfSize:15];
         [self.contentView addSubview:name];
         
-        
         cuisine = [[UILabel alloc]init];
         cuisine.frame = CGRectMake(10, 0, 100, 20);
         cuisine.adjustsFontSizeToFitWidth = FALSE;
@@ -99,6 +98,10 @@
         distance.text = [NSString stringWithFormat:@"%@ miles", [restaurant.distance retain]];
     }
     averageDishPrice.text = [NSString stringWithFormat:@"avg. dish: $%.2f", restaurant.average_meal_price];
+    
+    if ([averageDishPrice.text isEqualToString:@"avg. dish: $0.00"]) {
+        averageDishPrice.text = @"";
+    }
     
     // set average rating
     [ratingView loadRating:restaurant.rating];

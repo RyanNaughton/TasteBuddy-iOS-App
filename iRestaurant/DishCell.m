@@ -60,25 +60,34 @@
         [price release];
         
         int starSize = 15;
-        ratingView = [[RatingView alloc] initWithStarSize:starSize andLabelVisible:YES];
+        ratingView = [[RatingView alloc] initWithStarSize:starSize andLabelVisible:NO];
+        ratingView.contentMode = UIViewContentModeScaleAspectFit;
+        ratingView.clipsToBounds = TRUE;
         ratingView.frame = CGRectMake((310 - (starSize * 5)), 10, (starSize * 5), 20);
-        ratingView.ratingsLabel.frame = CGRectMake(0, 10, 75, 30);
-        ratingView.ratingsLabel.textAlignment = UITextAlignmentRight;
-        ratingView.ratingsLabel.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:ratingView];
-        [ratingView release];
 
+        //int starSize = 15;
+        //ratingView = [[RatingView alloc] initWithStarSize:starSize andLabelVisible:NO];
+        //ratingView.frame = CGRectMake((310 - (starSize * 5)), 10, (starSize * 5), 20);
+        //ratingView.ratingsLabel.frame = CGRectMake(0, 10, 75, 30);
+        //ratingView.ratingsLabel.textAlignment = UITextAlignmentRight;
+        //ratingView.ratingsLabel.backgroundColor = [UIColor clearColor];
+        //[self.contentView addSubview:ratingView];
+        //[ratingView release];
         
     }
     return self;
 }
 
 -(void)loadMenuItem:(MenuItem *)menuItem {
-    NSLog(@"menuItem pictures: %@", menuItem.pictures);
     UIImage *noImage = [UIImage imageNamed:@"no-image-80.png"];
     name.text = [menuItem.name retain];
     tags.text = [menuItem tagsText];
     price.text = [NSString stringWithFormat:@"$%.2f", menuItem.price];
+    
+    if ([price.text isEqualToString:@"$0.00"]) {
+        price.text = @"";
+    }
     
     if ([menuItem.pictures count] > 0) {
         [imageView setImageWithURL:[NSURL URLWithString:[[menuItem.pictures objectAtIndex:0] objectForKey:@"80px"]]
@@ -86,9 +95,7 @@
     } else {
         imageView.image = noImage;
     }
-    
     [ratingView loadRating:menuItem.rating];
-
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

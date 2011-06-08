@@ -19,7 +19,7 @@
 #import "UIDeviceHardware.h"
 
 @implementation RestaurantHeaderCell
-@synthesize restaurantViewController, imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto, lunch_text, dinner_text, imageButton, cuisine_types_text, average_meal_text;
+@synthesize restaurantViewController, imageView, name, lunch_hours, dinner_hours, average_meal, cuisine_types, ratingView, favoriteButton, greyHeart, redHeart, restaurant, takePhoto, lunch_text, dinner_text, imageButton, cuisine_types_text, average_meal_text, greyLine1, greyLine2, greyLine3;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andRVC:(RestaurantViewController *)rvc
 {
@@ -55,7 +55,7 @@
         name.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:name];
         
-        ratingView = [[RatingView alloc] initWithStarSize:20 andLabelVisible:YES];
+        ratingView = [[RatingView alloc] initWithStarSize:20 andLabelVisible:NO];
         ratingView.frame = CGRectMake(10, 30, 100, 20);
         [self.contentView addSubview:ratingView];
         
@@ -65,23 +65,20 @@
 //        reportAbuseButton.frame = CGRectMake(290, 30, 22, 22);
 //        [self.contentView addSubview:reportAbuseButton];
         
-        UIView *greyLine = [[UIView alloc]initWithFrame:CGRectMake(140, 85, 170, 1)];
-        greyLine.backgroundColor = [UIColor lightGrayColor];
-        greyLine.alpha = 0.5;
-        [self.contentView addSubview:greyLine];
-        [greyLine release];
+        greyLine1 = [[UIView alloc]initWithFrame:CGRectMake(140, 85, 170, 1)];
+        greyLine1.backgroundColor = [UIColor lightGrayColor];
+        greyLine1.alpha = 0.5;
+        [self.contentView addSubview:greyLine1];
         
-        UIView *greyLine2 = [[UIView alloc]initWithFrame:CGRectMake(140, 115, 170, 1)];
+        greyLine2 = [[UIView alloc]initWithFrame:CGRectMake(140, 115, 170, 1)];
         greyLine2.backgroundColor = [UIColor lightGrayColor];
         greyLine2.alpha = 0.5;
         [self.contentView addSubview:greyLine2];
-        [greyLine2 release];
         
-        UIView *greyLine3 = [[UIView alloc]initWithFrame:CGRectMake(140, 145, 170, 1)];
+        greyLine3 = [[UIView alloc]initWithFrame:CGRectMake(140, 145, 170, 1)];
         greyLine3.backgroundColor = [UIColor lightGrayColor];
         greyLine3.alpha = 0.5;
         [self.contentView addSubview:greyLine3];
-        [greyLine3 release];
         
         lunch_text = [[UILabel alloc]init];
         lunch_text.frame = CGRectMake(155, 60, 155, 20);
@@ -226,7 +223,13 @@
     
     NSString* average_meal_price_formatted = [NSString stringWithFormat:@"%.02f", restaurant.average_meal_price];
     
-    average_meal.text = [NSString stringWithFormat:@"$%@", average_meal_price_formatted];
+    if (![average_meal_price_formatted isEqualToString:@"0.00"]) {
+        average_meal.text = [NSString stringWithFormat:@"$%@", average_meal_price_formatted];
+    } else {
+        average_meal.text = @"";
+        average_meal_text.text = @"";
+        greyLine3.hidden = TRUE;
+    }
     
     if ([restaurant.cuisine_types count] > 1) {
   
@@ -298,6 +301,9 @@
     [restaurant release];
     [cuisine_types_text release];
     [average_meal_text release];
+    [greyLine1 release];
+    [greyLine2 release];
+    [greyLine3 release];
     [super dealloc];
 }
 
