@@ -141,6 +141,7 @@
     photoButton.frame = CGRectMake(photoButton.frame.origin.x, expectedLabelSize.height + 15, photoButton.frame.size.width, photoButton.frame.size.height);
     bookmarkButton.frame = CGRectMake(bookmarkButton.frame.origin.x, expectedLabelSize.height + 15, bookmarkButton.frame.size.width, bookmarkButton.frame.size.height);
     
+    
     restaurantName.text = [restaurant.name retain];
     price.text = [NSString stringWithFormat:@"$%.2f", menu_item.price];
     

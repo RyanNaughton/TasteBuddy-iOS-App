@@ -9,12 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "PhotoUploadService.h"
 #import "WhereSelectorViewController.h"
+#import "WhatSelectorViewController.h"
 
 @class RestaurantViewController;
 @class DishViewController;
 @class ShareButtonViewController;
 
-@interface PhotoShareContainer : UIViewController <UITextFieldDelegate, PhotoUploadServiceDelegate, NSXMLParserDelegate, WhereSelectorDelegate> {
+@interface PhotoShareContainer : UIViewController <UITextFieldDelegate, PhotoUploadServiceDelegate, NSXMLParserDelegate, WhereSelectorDelegate, WhatSelectorDelegate> {
     IBOutlet UIBarButtonItem *cancelButton;
     IBOutlet UIBarButtonItem *submitButton;
     IBOutlet UIImageView *imageView;
@@ -101,6 +102,6 @@
 -(IBAction) whereButtonPressed;
 -(IBAction) whatButtonPressed;
 -(void) whereSelected:(Restaurant *)restaurant_passed;
-
+-(void) whatSelected:(MenuItem *)menu_item_passed;
 
 @end

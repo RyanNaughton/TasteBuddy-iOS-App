@@ -14,6 +14,7 @@
 #import "SHKFacebook.h"
 //#import "SHKTwitter.h"
 #import "WhereSelectorViewController.h"
+#import "WhatSelectorViewController.h"
 #import "Restaurant.h"
 
 @implementation PhotoShareContainer
@@ -217,13 +218,20 @@
 
 -(IBAction) whatButtonPressed
 {
-    
+    WhatSelectorViewController *whatVC = [[WhatSelectorViewController alloc]initWithNibName:@"WhatSelectorViewController" bundle:nil];
+    whatVC.delegate = self;
+    [self presentedViewController:whatVC animated:YES];
+    [whatVC release];
 }
 
 -(void) whereSelected:(Restaurant *)restaurant_passed {
     [whereButton setTitle:[restaurant_passed.name retain] forState:UIControlStateNormal];
     restaurant = restaurant_passed._id;
     [self dismissModalViewControllerAnimated:YES];
+}
+
+-(void) whatSelected:(MenuItem *)menu_item_passed {
+    
 }
 
 @end
