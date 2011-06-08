@@ -220,7 +220,7 @@
 {
     WhatSelectorViewController *whatVC = [[WhatSelectorViewController alloc]initWithNibName:@"WhatSelectorViewController" bundle:nil];
     whatVC.delegate = self;
-    [self presentedViewController:whatVC animated:YES];
+    [self presentModalViewController:whatVC animated:YES];
     [whatVC release];
 }
 

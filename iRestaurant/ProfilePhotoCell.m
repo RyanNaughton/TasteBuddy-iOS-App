@@ -68,7 +68,7 @@
     NSLog(@"restaurantDict: %@", restaurantDictionary);
     
     NSArray *photoArray = [restaurantDictionary objectForKey:@"array"];
-    NSString *restaurantName = [restaurantDictionary objectForKey:@"name"];
+    NSString *restaurantName = [[photoArray objectAtIndex:0] objectForKey:@"restaurant_name"];
     NSDictionary *currentPhoto = [photoArray objectAtIndex:0];
     NSURL *url = [NSURL URLWithString:[currentPhoto objectForKey:@"300px"]];
     [imageView setImageWithURL:url]; 
@@ -80,7 +80,7 @@
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
     NSArray *arrayOfPhotos = [restaurantDictionary objectForKey:@"array"];
-    NSString *restaurantName = [restaurantDictionary objectForKey:@"name"];
+    NSString *restaurantName = [[arrayOfPhotos objectAtIndex:0] objectForKey:@"restaurant_name"];
     
     NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
     for (NSDictionary *photoDict in arrayOfPhotos) {
