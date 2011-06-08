@@ -36,6 +36,7 @@
 #import "TagCell.h"
 #import "Tag.h"
 #import "DishRestaurantCell.h"
+#import "DishImageCell.h"
 
 @implementation DishViewController
 
@@ -69,7 +70,15 @@
 }
 
 -(void) buildTableArray {
-    tableArray = [[NSMutableArray alloc]initWithObjects:@"Restaurant", @"Header", @"Buttons", @"Tags", nil];
+    tableArray = [[NSMutableArray alloc]initWithObjects:@"Restaurant", @"Header", nil];      
+    
+    if ([menu_item.pictures count] > 0) {
+        [tableArray addObject:@"Image"];
+    }
+    
+    [tableArray addObject:@"Buttons"];
+    [tableArray addObject:@"Tags"]; 
+    
     if ([menu_item.comments count] > 0) {
         [tableArray addObject:@"Comments"];
     }
@@ -184,6 +193,14 @@
             [dishHeaderCell loadMenuItem:menu_item andRestaurant:restaurant];
         }          
 		return dishHeaderCell;
+
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Image"]) {
+        DishImageCell *dishImageCell = (DishImageCell *)[tableView dequeueReusableCellWithIdentifier:@"DishImageCell"];
+		if (dishImageCell == nil) {
+		    dishImageCell = [[[DishImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishImageCell"] autorelease];
+            [dishImageCell loadMenuItem:menu_item andRestaurant:restaurant];
+        }          
+		return dishImageCell;
         
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
         DishButtonsCell *dishButtonsCell = (DishButtonsCell *)[tableView dequeueReusableCellWithIdentifier:@"DishButtonsCell"];
@@ -265,7 +282,9 @@
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Restaurant"]) {
         height = 34;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
-        height = 395.0;
+        height = 80;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Image"]) {
+        height = 320;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
         height = 160.0;
     }  else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
@@ -476,10 +495,13 @@
     NSLog(@"it made it! %@", dict_passed);
     [menu_item.pictures addObject:dict_passed];
     
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    DishHeaderCell *dhc = (DishHeaderCell *)[self.tableView cellForRowAtIndexPath:indexPath]; 
-    [dhc.viewForScrollView removeFromSuperview];
-    [dhc loadMenuItem:menu_item andRestaurant:restaurant];
+    [self buildTableArray];
+    [self.tableView reloadData];
+    
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    DishHeaderCell *dhc = (DishHeaderCell *)[self.tableView cellForRowAtIndexPath:indexPath]; 
+//    [dhc.viewForScrollView removeFromSuperview];
+//    [dhc loadMenuItem:menu_item andRestaurant:restaurant];
     //[self.tableView reloadData];
 }
 

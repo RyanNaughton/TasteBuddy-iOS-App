@@ -324,6 +324,7 @@
 		E8B2B88E139FF84100B924E3 /* disclosure-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B2B88C139FF84100B924E3 /* disclosure-arrow@2x.png */; };
 		E8B2B891139FFC3900B924E3 /* grey-grad.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B2B88F139FFC3900B924E3 /* grey-grad.png */; };
 		E8B2B892139FFC3900B924E3 /* grey-grad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E8B2B890139FFC3900B924E3 /* grey-grad@2x.png */; };
+		E8B2B89813A011FF00B924E3 /* DishImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B2B89713A011FE00B924E3 /* DishImageCell.m */; };
 		E8B3660313995158008C3E7F /* WhereSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B3660113995158008C3E7F /* WhereSelectorViewController.m */; };
 		E8B3660413995158008C3E7F /* WhereSelectorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8B3660213995158008C3E7F /* WhereSelectorViewController.xib */; };
 		E8B36607139951E6008C3E7F /* WhereSelectorTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8B36606139951E6008C3E7F /* WhereSelectorTableViewController.m */; };
@@ -886,6 +887,8 @@
 		E8B2B88C139FF84100B924E3 /* disclosure-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "disclosure-arrow@2x.png"; sourceTree = "<group>"; };
 		E8B2B88F139FFC3900B924E3 /* grey-grad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-grad.png"; sourceTree = "<group>"; };
 		E8B2B890139FFC3900B924E3 /* grey-grad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-grad@2x.png"; sourceTree = "<group>"; };
+		E8B2B89613A011FE00B924E3 /* DishImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DishImageCell.h; sourceTree = "<group>"; };
+		E8B2B89713A011FE00B924E3 /* DishImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DishImageCell.m; sourceTree = "<group>"; };
 		E8B3660013995158008C3E7F /* WhereSelectorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhereSelectorViewController.h; sourceTree = "<group>"; };
 		E8B3660113995158008C3E7F /* WhereSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhereSelectorViewController.m; sourceTree = "<group>"; };
 		E8B3660213995158008C3E7F /* WhereSelectorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WhereSelectorViewController.xib; sourceTree = "<group>"; };
@@ -2233,6 +2236,8 @@
 				E8C794BA135CB6490033C3FB /* DishButtonsCell.m */,
 				E8B2B888139FF40D00B924E3 /* DishRestaurantCell.h */,
 				E8B2B889139FF40D00B924E3 /* DishRestaurantCell.m */,
+				E8B2B89613A011FE00B924E3 /* DishImageCell.h */,
+				E8B2B89713A011FE00B924E3 /* DishImageCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -2759,6 +2764,7 @@
 				E8B3660C139962A6008C3E7F /* WhatSelectorViewController.m in Sources */,
 				E8B36610139962C7008C3E7F /* WhatSelectorTableViewController.m in Sources */,
 				E8B2B88A139FF40D00B924E3 /* DishRestaurantCell.m in Sources */,
+				E8B2B89813A011FF00B924E3 /* DishImageCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

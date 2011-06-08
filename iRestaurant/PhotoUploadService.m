@@ -46,13 +46,16 @@
     
     [request setPostValue:[jsonDictionary objectForKey:@"comments"] forKey:@"picture[caption]"];
     [request setPostValue:[jsonDictionary objectForKey:@"restaurant_id"] forKey:@"picture[restaurant_id]"];
-    if(![[jsonDictionary objectForKey:@"menu_item_id"] isEqualToString:@""]){
-    [request setPostValue:[jsonDictionary objectForKey:@"menu_item_id"] forKey:@"picture[menu_item_id]"];
+    
+    if(![[[jsonDictionary objectForKey:@"menu_item_id"]stringValue] isEqualToString:@""]){
+        [request setPostValue:[jsonDictionary objectForKey:@"menu_item_id"] forKey:@"picture[menu_item_id]"];
     }
     [request setPostValue:[jsonDictionary objectForKey:@"auth_token"] forKey:@"auth_token"];
     [request setDelegate:self];
     [request setUseCookiePersistence:NO];
     [request startAsynchronous];
+    
+    NSLog(@"menu item id: %@ | restaurant id: %@", [jsonDictionary objectForKey:@"menu_item_id"], [jsonDictionary objectForKey:@"restaurant_id"]);
 }
 
 -(void) dealloc

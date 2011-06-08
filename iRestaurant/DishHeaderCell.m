@@ -74,7 +74,12 @@
         ratingView = [[RatingView alloc] initWithStarSize:20 andLabelVisible:NO];
         ratingView.frame = CGRectMake(10, 60, 100, 20);
         [self.contentView addSubview:ratingView];
-
+        
+        UIButton *ratingButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        ratingButton.frame = CGRectMake(10, 60, 100, 20);
+        [ratingButton addTarget:dvc action:@selector(rateItButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:ratingButton];
+        
         price = [[UILabel alloc]init];
         price.frame = CGRectMake(260, 7, 50, 20);
         price.textAlignment = UITextAlignmentCenter;
@@ -85,15 +90,15 @@
         price.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:price];
         
-        singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
-        singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        singleImageView.layer.borderWidth = 1;
-        [self.contentView addSubview:singleImageView];
-        
-        UIButton *imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [imageButton addTarget:self action:@selector(imageButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        imageButton.frame = CGRectMake(10, 85, 300, 300);
-        [self.contentView addSubview:imageButton];
+//        singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
+//        singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//        singleImageView.layer.borderWidth = 1;
+//        [self.contentView addSubview:singleImageView];
+//        
+//        UIButton *imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [imageButton addTarget:self action:@selector(imageButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+//        imageButton.frame = CGRectMake(10, 85, 300, 300);
+//        [self.contentView addSubview:imageButton];
         
         self.selectionStyle = UITableViewCellEditingStyleNone;   
     }
@@ -112,78 +117,79 @@
     }
     
     [ratingView loadRating:menu_item.rating];
-    NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
-    for (NSDictionary *pictDict in menu_item.pictures) {
-        
-        UIDeviceHardware *h=[[UIDeviceHardware alloc] init];
-        if ([[h platformString] isEqualToString:@"iPhone 4"]) {
-            NSLog(@"we have an iPhone 4");
-            [arrayOfURLStrings addObject:[pictDict objectForKey:@"640px"]];
-        } else {
-            [arrayOfURLStrings addObject:[pictDict objectForKey:@"300px"]];
-        }
-    }
     
-    NSLog(@"arrayOfURLStrings: %@", arrayOfURLStrings);
-    
-    UIImage *noImage = [UIImage imageNamed:@"no-image-300.png"];
-    NSMutableArray *imageViewArray = [[NSMutableArray alloc]init];
-    
-    for (int i=0; i < [arrayOfURLStrings count]; i++) {
-        UIImageView *imageView = [[UIImageView alloc]init];
-        [imageView setImageWithURL:[NSURL URLWithString:[arrayOfURLStrings objectAtIndex:i]] placeholderImage:noImage];
-        [imageViewArray addObject:imageView];
-    }
-        
-    if ([arrayOfURLStrings count] == 0) {
-        //singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
-        singleImageView.image = noImage;
-        //singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        //singleImageView.layer.borderWidth = 1;
-        //[self.contentView addSubview:singleImageView];
-        
-    } else {
-        //singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
-        [singleImageView setImageWithURL:[NSURL URLWithString:[arrayOfURLStrings objectAtIndex:0]] placeholderImage:noImage];
-        //singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-        //singleImageView.layer.borderWidth = 1;
-        //[self.contentView addSubview:singleImageView];
-    }
-//    } else {
+//    NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
+//    for (NSDictionary *pictDict in menu_item.pictures) {
 //        
-//        for (UIView *view in self.contentView.subviews) {
-//            if (view == singleImageView) {
-//                [singleImageView removeFromSuperview];
-//            }
+//        UIDeviceHardware *h=[[UIDeviceHardware alloc] init];
+//        if ([[h platformString] isEqualToString:@"iPhone 4"]) {
+//            NSLog(@"we have an iPhone 4");
+//            [arrayOfURLStrings addObject:[pictDict objectForKey:@"640px"]];
+//        } else {
+//            [arrayOfURLStrings addObject:[pictDict objectForKey:@"300px"]];
 //        }
-//        
-//        viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
-//        svimage = [[IGUIScrollViewImage alloc] init];  
-//        [svimage setContentArray:imageViewArray]; 
-//        [svimage setBackGroudColor:[UIColor clearColor]];
-//        [svimage setWidth:300 andHeight:300];
-//        [svimage enablePageControlOnBottom];  
-//        svimage.scrollView.showsHorizontalScrollIndicator = FALSE;
-//        viewForScrollView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//        viewForScrollView.layer.borderWidth = 1;
-//        [viewForScrollView addSubview:[svimage getWithPosition:0]];
-//        [self.contentView addSubview:viewForScrollView];
 //    }
-     
+//    
+//    NSLog(@"arrayOfURLStrings: %@", arrayOfURLStrings);
+//    
+//    UIImage *noImage = [UIImage imageNamed:@"no-image-300.png"];
+//    NSMutableArray *imageViewArray = [[NSMutableArray alloc]init];
+//    
+//    for (int i=0; i < [arrayOfURLStrings count]; i++) {
+//        UIImageView *imageView = [[UIImageView alloc]init];
+//        [imageView setImageWithURL:[NSURL URLWithString:[arrayOfURLStrings objectAtIndex:i]] placeholderImage:noImage];
+//        [imageViewArray addObject:imageView];
+//    }
+//        
+//    if ([arrayOfURLStrings count] == 0) {
+//        //singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
+//        singleImageView.image = noImage;
+//        //singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//        //singleImageView.layer.borderWidth = 1;
+//        //[self.contentView addSubview:singleImageView];
+//        
+//    } else {
+//        //singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
+//        [singleImageView setImageWithURL:[NSURL URLWithString:[arrayOfURLStrings objectAtIndex:0]] placeholderImage:noImage];
+//        //singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+//        //singleImageView.layer.borderWidth = 1;
+//        //[self.contentView addSubview:singleImageView];
+//    }
+////    } else {
+////        
+////        for (UIView *view in self.contentView.subviews) {
+////            if (view == singleImageView) {
+////                [singleImageView removeFromSuperview];
+////            }
+////        }
+////        
+////        viewForScrollView = [[UIView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
+////        svimage = [[IGUIScrollViewImage alloc] init];  
+////        [svimage setContentArray:imageViewArray]; 
+////        [svimage setBackGroudColor:[UIColor clearColor]];
+////        [svimage setWidth:300 andHeight:300];
+////        [svimage enablePageControlOnBottom];  
+////        svimage.scrollView.showsHorizontalScrollIndicator = FALSE;
+////        viewForScrollView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+////        viewForScrollView.layer.borderWidth = 1;
+////        [viewForScrollView addSubview:[svimage getWithPosition:0]];
+////        [self.contentView addSubview:viewForScrollView];
+////    }
+//     
     
 }
 
--(void) imageButtonPressed:(id)sender {
-    if ([menu_item.pictures count] > 0) {
-        iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-        PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
-        [photoViewer setupScrollView:menu_item.pictures];
-        photoViewer.navItem.title = restaurantName.text; //[NSString stringWithFormat:@"%@", menu_item.name];
-        photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [appDelegate.tabBarController presentModalViewController:photoViewer animated:YES];
-        [photoViewer release];
-    }
-}
+//-(void) imageButtonPressed:(id)sender {
+//    if ([menu_item.pictures count] > 0) {
+//        iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+//        PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
+//        [photoViewer setupScrollView:menu_item.pictures];
+//        photoViewer.navItem.title = restaurantName.text; //[NSString stringWithFormat:@"%@", menu_item.name];
+//        photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+//        [appDelegate.tabBarController presentModalViewController:photoViewer animated:YES];
+//        [photoViewer release];
+//    }
+//}
 
 -(void)cameraButtonPressed:(id)sender {
     //[takePhoto loadPhotoForRestaurant:restaurant];

@@ -59,6 +59,11 @@
         ratingView.frame = CGRectMake(10, 30, 100, 20);
         [self.contentView addSubview:ratingView];
         
+        UIButton *ratingButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        ratingButton.frame = CGRectMake(10, 30, 100, 20);
+        [ratingButton addTarget:restaurantViewController action:@selector(rateItButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [self.contentView addSubview:ratingButton];
+        
 //        UIButton *reportAbuseButton = [UIButton buttonWithType:UIButtonTypeCustom];
 //        [reportAbuseButton addTarget:self action:@selector(reportAbuseButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 //        [reportAbuseButton setImage:[UIImage imageNamed:@"09-chat-2.png"] forState:UIControlStateNormal];
