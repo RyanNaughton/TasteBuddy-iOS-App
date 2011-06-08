@@ -13,7 +13,7 @@
 @end
 
 
-@interface RatingPopupViewController : UIViewController <UITextFieldDelegate> {
+@interface RatingPopupViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate> {
     id <RatingPopupDelegate> delegate;
     IBOutlet UIButton *closeButton; 
     IBOutlet UIButton *submitButton; 
@@ -22,7 +22,8 @@
     IBOutlet UIButton *star3;
     IBOutlet UIButton *star4;
     IBOutlet UIButton *star5;
-    IBOutlet UITextField *commentField;
+    IBOutlet UITextView *commentField;
+    IBOutlet UIImageView *commentBoxBG;
     NSArray *starsArray;
     int currentRating;
     UIImage *orangeStar;
@@ -36,7 +37,8 @@
 @property (nonatomic, retain) IBOutlet UIButton *star3;
 @property (nonatomic, retain) IBOutlet UIButton *star4;
 @property (nonatomic, retain) IBOutlet UIButton *star5;
-@property (nonatomic, retain) IBOutlet UITextField *commentField;
+@property (nonatomic, retain) IBOutlet UITextView *commentField;
+@property (nonatomic, retain) IBOutlet UIImageView *commentBoxBG;
 @property (nonatomic, retain) NSArray *starsArray;
 @property (nonatomic, assign) int currentRating;
 @property (nonatomic, retain) UIImage *orangeStar;

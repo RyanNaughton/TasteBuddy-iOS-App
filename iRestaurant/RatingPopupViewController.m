@@ -21,7 +21,7 @@
 @synthesize currentRating;
 @synthesize orangeStar, whiteStar;
 @synthesize delegate;
-@synthesize commentField;
+@synthesize commentField, commentBoxBG;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -46,9 +46,20 @@
     [super dealloc];
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSUInteger newLength = [textField.text length] + [string length] - range.length;
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
+    NSLog(@"should change chars");
+    NSUInteger newLength = [textView.text length] + [text length] - range.length;
     return (newLength > 140) ? NO : YES;
+}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    
+    if ([textView.text isEqualToString:@"Share your thoughts! (optional)"]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
+    
+    return YES;
 }
 
 -(IBAction)closeButtonPressed:(id)sender 
@@ -96,6 +107,10 @@
     
     starsArray = [[NSArray alloc]initWithObjects:star1, star2, star3, star4, star5, nil];
     [self updateStarImages];
+    
+    UIImage *textBox = [[UIImage imageNamed:@"text-area-image.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
+    commentBoxBG.image = textBox;
+    
 }
 
 -(void) animateIn {
