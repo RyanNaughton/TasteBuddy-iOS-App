@@ -286,7 +286,7 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Image"]) {
         height = 320;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
-        height = 160.0;
+        height = 50.0;
     }  else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         if (indexPath.row == 0) {
             height = 60;
@@ -460,8 +460,9 @@
 
 -(void) doneRating:(Rating *) rating {
     menu_item.rating = rating;
-    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:0];
-    [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+    [self.tableView reloadData];
+//    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
+//    [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
 }
 
 -(void) doneBookmarking:(NSDictionary *) status {
@@ -472,9 +473,9 @@
     if ([[status objectForKey:@"status"] isEqualToString:@"success"]) {
         NSString *messageString;
         if (menu_item.bookmark) {
-            messageString = [NSString stringWithFormat:@"You have successfully bookmarked this Menu item!"];
+            messageString = [NSString stringWithFormat:@"You have added this menu item to your favorites."];
         } else {
-            messageString = [NSString stringWithFormat:@"You have successfully removed your bookmark."];
+            messageString = [NSString stringWithFormat:@"You have removed this menu item from your favorites."];
         }
         
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Success!" message:messageString delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];

@@ -81,7 +81,7 @@
         [self.contentView addSubview:ratingButton];
         
         price = [[UILabel alloc]init];
-        price.frame = CGRectMake(260, 7, 50, 20);
+        price.frame = CGRectMake(265, 7, 50, 20);
         price.textAlignment = UITextAlignmentCenter;
         price.textColor = [UIColor darkGrayColor];
 		price.backgroundColor = [UIColor clearColor];
@@ -89,6 +89,24 @@
         price.shadowColor = [UIColor whiteColor];
         price.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:price];
+                
+        UIButton *bookmarkButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        bookmarkButton.frame = CGRectMake(250, 50, 24, 21);
+        [bookmarkButton addTarget:dvc action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+
+        if (dvc.menu_item.bookmark) {
+            [bookmarkButton setImage:[UIImage imageNamed:@"red-heart.png"] forState:UIControlStateNormal];
+        } else {
+            [bookmarkButton setImage:[UIImage imageNamed:@"29-heart.png"] forState:UIControlStateNormal];            
+        }
+        [self.contentView addSubview:bookmarkButton];
+        
+        UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        photoButton.frame = CGRectMake(285, 50, 24, 18);
+        [photoButton addTarget:dvc action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [photoButton setImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
+        [self.contentView addSubview:photoButton];
+        
         
 //        singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
 //        singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -100,7 +118,7 @@
 //        imageButton.frame = CGRectMake(10, 85, 300, 300);
 //        [self.contentView addSubview:imageButton];
         
-        self.selectionStyle = UITableViewCellEditingStyleNone;   
+        self.selectionStyle = UITableViewCellSelectionStyleNone;   
     }
     return self;
 }
