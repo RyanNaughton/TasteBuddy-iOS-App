@@ -47,7 +47,6 @@
 }
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
-    NSLog(@"should change chars");
     NSUInteger newLength = [textView.text length] + [text length] - range.length;
     return (newLength > 140) ? NO : YES;
 }

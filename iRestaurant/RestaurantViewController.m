@@ -410,12 +410,23 @@
 
 -(void)callButtonPressed:(id)sender
 {
-    NSString *phoneNumber = [restaurant.phone stringByReplacingOccurrencesOfString:@"(" withString:@""];
-    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@")" withString:@""];
-    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@"-" withString:@""];
-    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@" " withString:@""];    
-    NSString *phoneNumberString = [NSString stringWithFormat:@"tel://%@", phoneNumber];
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberString]];
+    NSString *phoneNumber = [NSString stringWithString:restaurant.phone];
+//    NSString *phoneNumber = [restaurant.phone stringByReplacingOccurrencesOfString:@"(" withString:@""];
+//    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@")" withString:@""];
+//    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@"-" withString:@""];
+//    phoneNumber = [phoneNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSMutableString *strippedPhoneNumber;
+    for (int i=0; i<[phoneNumber length]; i++) {
+        if (isdigit([phoneNumber characterAtIndex:i])) {
+            [strippedPhoneNumber appendFormat:@"%c",[phoneNumber characterAtIndex:i]];
+        }
+    }
+    
+    if (([strippedPhoneNumber length] == 10) || ([strippedPhoneNumber length] == 7)) {    
+        NSString *phoneNumberString = [NSString stringWithFormat:@"tel://%@", strippedPhoneNumber];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumberString]];
+    }
 }
 
 -(void)mapItButtonPressed:(id)sender

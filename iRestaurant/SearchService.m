@@ -35,7 +35,8 @@
 -(void)searchByTerm:(NSString *)term andNear:(NSString *)nearString
 {
     // Example of how to read from plist. Can also do: [appDelegate setSavedSetting:@"username" withValue:@"my value"];
-
+    
+    if ([nearString isEqualToString:@"Current Location"]) nearString = @"";
     
     urlString = @"http://monkey.elhideout.org/search.json";
     

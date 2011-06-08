@@ -13,7 +13,7 @@
 @end
 
 
-@interface RatingPopupViewController : UIViewController <UITextFieldDelegate, UITextViewDelegate> {
+@interface RatingPopupViewController : UIViewController <UITextViewDelegate> {
     id <RatingPopupDelegate> delegate;
     IBOutlet UIButton *closeButton; 
     IBOutlet UIButton *submitButton; 
