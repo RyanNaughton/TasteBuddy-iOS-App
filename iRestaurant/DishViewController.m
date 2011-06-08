@@ -282,7 +282,14 @@
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Restaurant"]) {
         height = 34;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
-        height = 80;
+        
+        CGSize maximumLabelSize = CGSizeMake(240,9999);
+        CGSize expectedLabelSize = [menu_item.name sizeWithFont:[UIFont boldSystemFontOfSize:17] 
+                                              constrainedToSize:maximumLabelSize 
+                                                  lineBreakMode:UILineBreakModeWordWrap];
+        int newHeight = expectedLabelSize.height + 45;
+        NSLog(@"new height: %i", newHeight);
+        height = newHeight;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Image"]) {
         height = 320;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {

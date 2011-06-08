@@ -24,7 +24,7 @@
 
 @implementation DishHeaderCell
 
-@synthesize name, price, ratingView, restaurantName, svimage, viewForScrollView, singleImageView, dvc, menu_item;
+@synthesize name, price, ratingView, restaurantName, svimage, viewForScrollView, singleImageView, dvc, menu_item, bookmarkButton, photoButton;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier andDishViewController:(DishViewController *)dvc_passed
 {
@@ -39,6 +39,7 @@
         name = [[UILabel alloc]init];
         name.frame = CGRectMake(10, 7, 240, 20);
         name.adjustsFontSizeToFitWidth = TRUE;
+        name.numberOfLines = 5;
         name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
 		name.backgroundColor = [UIColor clearColor];
 		name.font = [UIFont boldSystemFontOfSize:17];
@@ -90,7 +91,7 @@
         price.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:price];
                 
-        UIButton *bookmarkButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        bookmarkButton = [UIButton buttonWithType:UIButtonTypeCustom];
         bookmarkButton.frame = CGRectMake(240, 50, 24, 21);
         [bookmarkButton addTarget:dvc action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 
@@ -101,7 +102,7 @@
         }
         [self.contentView addSubview:bookmarkButton];
         
-        UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
         photoButton.frame = CGRectMake(285, 50, 24, 18);
         [photoButton addTarget:dvc action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [photoButton setImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
@@ -126,7 +127,19 @@
 -(void)loadMenuItem:(MenuItem *)menu_item_passed andRestaurant:(Restaurant *)restaurant
 {
     menu_item = menu_item_passed;
+    
     name.text = [menu_item.name retain];
+    
+    CGSize maximumLabelSize = CGSizeMake(name.frame.size.width,9999);
+    CGSize expectedLabelSize = [menu_item.name sizeWithFont:[UIFont boldSystemFontOfSize:17] 
+                                  constrainedToSize:maximumLabelSize 
+                                      lineBreakMode:UILineBreakModeWordWrap];
+    
+    name.frame = CGRectMake(10, 7, expectedLabelSize.width, expectedLabelSize.height);
+    ratingView.frame = CGRectMake(10, expectedLabelSize.height + 15, ratingView.frame.size.width, ratingView.frame.size.height);
+    photoButton.frame = CGRectMake(photoButton.frame.origin.x, expectedLabelSize.height + 15, photoButton.frame.size.width, photoButton.frame.size.height);
+    bookmarkButton.frame = CGRectMake(bookmarkButton.frame.origin.x, expectedLabelSize.height + 15, bookmarkButton.frame.size.width, bookmarkButton.frame.size.height);
+    
     restaurantName.text = [restaurant.name retain];
     price.text = [NSString stringWithFormat:@"$%.2f", menu_item.price];
     
