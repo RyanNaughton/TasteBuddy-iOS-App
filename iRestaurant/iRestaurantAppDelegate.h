@@ -13,7 +13,7 @@
 
 @class AuthenticationResponse;
 
-@interface iRestaurantAppDelegate : NSObject <UIApplicationDelegate, UIAlertViewDelegate, CoreLocationControllerDelegate, MBProgressHUDDelegate> {
+@interface iRestaurantAppDelegate : NSObject <UIApplicationDelegate, UIAlertViewDelegate, CoreLocationControllerDelegate, MBProgressHUDDelegate, UITabBarControllerDelegate> {
     IBOutlet UITabBarController *tabBarController;
     NSString *savedSettingsPath;
     CoreLocationController *CLController;
@@ -44,5 +44,7 @@
 -(void) startLoadingIndicator;
 -(void) stopLoadingIndicator;
 -(void) setupHUD;
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController;
 
 @end

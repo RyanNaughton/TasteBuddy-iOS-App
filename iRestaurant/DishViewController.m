@@ -60,6 +60,7 @@
         menu_item = [menu_item_passed retain];
         restaurant = [restaurant_passed retain];
         
+        tableArray = [[NSMutableArray alloc]init];
         [self buildTableArray];
     
         tagsBeingLoaded = true;
@@ -70,7 +71,11 @@
 }
 
 -(void) buildTableArray {
-    tableArray = [[NSMutableArray alloc]initWithObjects:@"Restaurant", @"Header", nil];      
+    
+    [tableArray removeAllObjects];
+    
+    [tableArray addObject:@"Restaurant"];
+    [tableArray addObject:@"Header"];
     
     if ([menu_item.pictures count] > 0) {
         [tableArray addObject:@"Image"];
@@ -502,11 +507,10 @@
 -(void) newImageLoaded:(NSDictionary *)dict_passed {
     NSLog(@"it made it! %@", dict_passed);
     [menu_item.pictures addObject:dict_passed];
-    
     [self buildTableArray];
     [self.tableView reloadData];
     
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
 //    DishHeaderCell *dhc = (DishHeaderCell *)[self.tableView cellForRowAtIndexPath:indexPath]; 
 //    [dhc.viewForScrollView removeFromSuperview];
 //    [dhc loadMenuItem:menu_item andRestaurant:restaurant];

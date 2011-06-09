@@ -27,6 +27,6 @@
 -(id) initWithDelegate:(id <MenuServiceDelegate>) menuDelegate;
 
 -(void) getMenuForRestaurant:(Restaurant *)restaurant;
-
+-(void) getMenuForRestaurantID:(NSString *)restaurant_id;
 
 @end

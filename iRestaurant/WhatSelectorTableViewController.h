@@ -17,7 +17,7 @@
     NSMutableArray *filteredList;
     id delegate;
     MenuService *ms;
-    Restaurant *restaurant;
+    NSString *restaurant_id;
 }
 
 @property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
@@ -25,8 +25,9 @@
 @property (nonatomic, retain) NSMutableArray *filteredList;
 @property (nonatomic, retain) id delegate;
 @property (nonatomic, retain) MenuService *ms;
-@property (nonatomic, retain) Restaurant *restaurant;
+@property (nonatomic, retain) NSString *restaurant_id;
 
 -(void)menuReturned:(Menu *)menu;
+-(void) callMenuService;
 
 @end

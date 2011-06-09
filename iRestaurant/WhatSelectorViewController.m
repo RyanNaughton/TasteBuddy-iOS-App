@@ -10,7 +10,7 @@
 #import "WhatSelectorTableViewController.h"
 
 @implementation WhatSelectorViewController
-@synthesize whatSelectorTableViewController, delegate, restaurant;
+@synthesize whatSelectorTableViewController, delegate, restaurant_id;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -21,19 +21,19 @@
     return self;
 }
 
-- (id)initWithRestaurant:(Restaurant *)restaurant_passed
+- (id)initWithRestaurantID:(NSString *)restaurant_id_passed
 {
     self = [super initWithNibName:@"WhatSelectorViewController" bundle:nil];
     if (self) {
         // Custom initialization
-        restaurant = [restaurant_passed retain];
+        restaurant_id = [restaurant_id_passed retain];
     }
     return self;
 }
 
 - (void)dealloc
 {
-    [restaurant release];
+    [restaurant_id release];
     [whatSelectorTableViewController release];
     [super dealloc];
 }
@@ -52,7 +52,8 @@
 {
     [super viewDidLoad];
     whatSelectorTableViewController.delegate = self.delegate;
-    whatSelectorTableViewController.restaurant = self.restaurant;
+    whatSelectorTableViewController.restaurant_id = restaurant_id;
+    [whatSelectorTableViewController callMenuService];
 }
 
 - (void)viewDidUnload
@@ -66,6 +67,11 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(IBAction)cancelButtonPressed 
+{
+    [self dismissModalViewControllerAnimated:YES];
 }
 
 @end

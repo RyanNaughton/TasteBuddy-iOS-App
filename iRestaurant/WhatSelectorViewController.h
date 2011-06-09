@@ -19,13 +19,14 @@
 @interface WhatSelectorViewController : UIViewController {
     id <WhatSelectorDelegate> delegate;
     IBOutlet WhatSelectorTableViewController *whatSelectorTableViewController;
-    Restaurant *restaurant;
+    NSString *restaurant_id;
 }
 
 @property (nonatomic, retain) id <WhatSelectorDelegate> delegate;
 @property (nonatomic, retain) IBOutlet WhatSelectorTableViewController *whatSelectorTableViewController;
-@property (nonatomic, retain) Restaurant *restaurant;
+@property (nonatomic, retain) NSString *restaurant_id;
 
+- (id)initWithRestaurantID:(NSString *)restaurant_id_passed;
 -(IBAction)cancelButtonPressed;
 
 @end

@@ -8,10 +8,14 @@
 
 #import "WhatSelectorTableViewController.h"
 #import "Menu.h"
+#import "MenuCategory.h"
+#import "MenuSubcategory.h"
+#import "MenuItem.h"
+#import "Restaurant.h"
 
 @implementation WhatSelectorTableViewController
 
-@synthesize searchBar, unfilteredList, filteredList, delegate, ms, restaurant;
+@synthesize searchBar, unfilteredList, filteredList, delegate, ms, restaurant_id;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -42,14 +46,54 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    ms = [[MenuService alloc]initWithDelegate:self];
-    [ms getMenuForRestaurant:restaurant];
+}
 
+-(void) callMenuService {
+    ms = [[MenuService alloc]initWithDelegate:self];
+    [ms getMenuForRestaurantID:restaurant_id];
+    NSLog(@"restaurant id: %@", restaurant_id);
+}
+
+-(void)searchFinished:(NSMutableArray *)restaurantsArray
+{
+    NSLog(@"search finished: %@", restaurantsArray);
+    unfilteredList = [restaurantsArray retain];
+    filteredList = [[NSMutableArray arrayWithArray:unfilteredList] retain];
+    [self.tableView reloadData];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    if([searchText length] > 0) {
+        filteredList = [[NSMutableArray alloc] init];
+        for (MenuItem *menuItem in unfilteredList) {
+            if ([menuItem.name rangeOfString:searchText options:NSCaseInsensitiveSearch].location != NSNotFound) [filteredList addObject:menuItem];
+        }
+    } else {
+        filteredList = [[NSMutableArray arrayWithArray:unfilteredList] retain];
+    }
+    [self.tableView reloadData];
 }
 
 -(void)menuReturned:(Menu *)menu
 {
     NSLog(@"menu returned: %@", menu);
+    unfilteredList = [[NSMutableArray alloc]init];
+    
+    for (MenuCategory *category in menu.arrayOfCategories) {      
+        NSLog(@"category: %@", category);
+        for (MenuSubcategory *subcategory in category.menuSubcategories) {
+            NSLog(@"subcategory: %@", subcategory);
+            for (MenuItem *menuItem in subcategory.arrayOfMenuItems) {
+                NSLog(@"menu item name: %@", menuItem.name);
+                [unfilteredList addObject:menuItem];
+            }
+        }
+    }
+    filteredList = [[NSMutableArray arrayWithArray:unfilteredList] retain];
+    NSLog(@"filtered list: %@", filteredList);
+    NSLog(@"unfiltered list: %@", unfilteredList);
+    
+    [self.tableView reloadData];
 }
 
 -(void) scrollViewWillBeginDragging:(UIScrollView *)scrollView {
@@ -93,16 +137,19 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
+    int rows;
+    if ([filteredList count] > 0) 
+    {
+        rows = [filteredList count];
+    } else {
+        rows = 1;
+    }
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -114,7 +161,13 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    // Configure the cell...
+    if ([filteredList count] > 0) 
+    {
+        MenuItem *menuItem = [filteredList objectAtIndex:indexPath.row];
+        cell.textLabel.text = menuItem.name;
+    } else {
+        cell.textLabel.text = @"Loading...";
+    }
     
     return cell;
 }
@@ -162,14 +215,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
+    [delegate whatSelected:[filteredList objectAtIndex:indexPath.row]];
 }
 
 @end

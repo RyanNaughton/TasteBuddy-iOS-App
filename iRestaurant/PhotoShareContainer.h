@@ -36,8 +36,8 @@
     
     IBOutlet UISwitch *facebookSwitch;
     
-    NSString *restaurant;
-    NSString *menuItem;
+    NSString *restaurant_id;
+    NSString *menuItem_id;
     IBOutlet UINavigationItem *navItem;
 
     BOOL isForRestaurant;
@@ -75,8 +75,8 @@
 
 @property (nonatomic, retain) IBOutlet UISwitch *facebookSwitch;
 
-@property (nonatomic, retain) NSString *restaurant;
-@property (nonatomic, retain) NSString *menuItem;
+@property (nonatomic, retain) NSString *restaurant_id;
+@property (nonatomic, retain) NSString *menuItem_id;
 
 @property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
 
@@ -103,5 +103,6 @@
 -(IBAction) whatButtonPressed;
 -(void) whereSelected:(Restaurant *)restaurant_passed;
 -(void) whatSelected:(MenuItem *)menu_item_passed;
+-(void) checkIDValues;
 
 @end

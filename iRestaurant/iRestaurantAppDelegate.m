@@ -251,5 +251,13 @@
 - (void)hudWasHidden:(MBProgressHUD *)hud {
 }
 
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController 
+{
+    NSLog(@"viewcontroller selected; %@", viewController);
+    if (tabBarController.selectedIndex == 2) {
+        [viewController viewDidAppear:YES];
+    }
+}
+
 
 @end

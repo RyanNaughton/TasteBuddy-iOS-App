@@ -16,9 +16,10 @@
 #import "WhereSelectorViewController.h"
 #import "WhatSelectorViewController.h"
 #import "Restaurant.h"
+#import "MenuItem.h"
 
 @implementation PhotoShareContainer
-@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch, restaurant, menuItem, navItem, whereLabel, whatLabel, commentsLabel, submitButton, rvc, dvc, isForRestaurant, photoSubmitted, tab, photoPurpose, temp, whereAutocompleteArray, whereButton, whatButton;
+@synthesize cancelButton, imageView, what, where, image, scrollView, whereTextField, whatTextField, commentsTextField, facebookSwitch, restaurant_id, menuItem_id, navItem, whereLabel, whatLabel, commentsLabel, submitButton, rvc, dvc, isForRestaurant, photoSubmitted, tab, photoPurpose, temp, whereAutocompleteArray, whereButton, whatButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,8 +38,8 @@
         what = what_passed;
         where = where_passed;
         image = image_passed;
-        menuItem = menu_item_id_passed;
-        restaurant = restaurant_id_passed;
+        menuItem_id = menu_item_id_passed;
+        restaurant_id = restaurant_id_passed;
            }
     return self;
 }
@@ -70,7 +71,8 @@
         submitButton.enabled = FALSE;
         cancelButton.enabled = FALSE;
         PhotoUploadService *photoUploadService = [[PhotoUploadService alloc]init];
-        [photoUploadService uploadImage:image withWhere:whereButton.titleLabel.text andWhat:whatButton.titleLabel.text andComments:commentsTextField.text andFacebook:facebookSwitch.on andDelegate:self andRestaurantId:restaurant andMenuItemId:menuItem];
+        [photoUploadService uploadImage:image withWhere:whereButton.titleLabel.text andWhat:whatButton.titleLabel.text andComments:commentsTextField.text andFacebook:facebookSwitch.on andDelegate:self andRestaurantId:restaurant_id andMenuItemId:menuItem_id];
+        NSLog(@"restaurant id: %@ | menu item id: %@ | comments: %@", restaurant_id, menuItem_id, commentsTextField.text);
     } else {
         NSLog(@"ignore duplicate submission");
     }
@@ -97,8 +99,8 @@
     [what release];
     [where release];
     [image release];
-    [menuItem release];
-    //[restaurant release];
+    [menuItem_id release];
+    [restaurant_id release];
     [super dealloc];
 }
 
@@ -116,6 +118,8 @@
 {
     [super viewDidLoad];
     
+    [self checkIDValues];
+    
     whereTextField.placeholder = @"Restaurant Name";
     whatTextField.placeholder = @"Dish Name";
     
@@ -125,9 +129,6 @@
     navItem.titleView = appNameImageView;
     
     commentsTextField.delegate = self;
-    
-    
-    
     
     if ([where length] > 0) {
         [whereButton setTitle:[where retain] forState:UIControlStateNormal];
@@ -218,7 +219,9 @@
 
 -(IBAction) whatButtonPressed
 {
-    WhatSelectorViewController *whatVC = [[WhatSelectorViewController alloc]initWithNibName:@"WhatSelectorViewController" bundle:nil];
+    menuItem_id = @""; // reset menu item string if user is resetting the restaurant.
+    NSLog(@"restaurant ID: %@", restaurant_id);
+    WhatSelectorViewController *whatVC = [[WhatSelectorViewController alloc]initWithRestaurantID:restaurant_id];
     whatVC.delegate = self;
     [self presentModalViewController:whatVC animated:YES];
     [whatVC release];
@@ -226,12 +229,28 @@
 
 -(void) whereSelected:(Restaurant *)restaurant_passed {
     [whereButton setTitle:[restaurant_passed.name retain] forState:UIControlStateNormal];
-    restaurant = restaurant_passed._id;
+    restaurant_id = [restaurant_passed._id retain];
     [self dismissModalViewControllerAnimated:YES];
+    [self checkIDValues];
 }
 
 -(void) whatSelected:(MenuItem *)menu_item_passed {
-    
+    [whatButton setTitle:[menu_item_passed.name retain] forState:UIControlStateNormal];
+    menuItem_id = [menu_item_passed._id retain];
+    [self dismissModalViewControllerAnimated:YES];
+    [self checkIDValues];
+
+}
+
+-(void) checkIDValues {
+    if ([[menuItem_id stringValue] length] == 0) {
+        
+    }
+    if ([[restaurant_id stringValue] length] == 0) {
+        whatButton.userInteractionEnabled = FALSE;
+    } else {
+        whatButton.userInteractionEnabled = TRUE;
+    }
 }
 
 @end

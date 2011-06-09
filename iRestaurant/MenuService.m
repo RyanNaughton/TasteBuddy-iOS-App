@@ -34,6 +34,14 @@
     [self prepareRequest];
 }
 
+-(void) getMenuForRestaurantID:(NSString *)restaurant_id
+{
+    urlString = [NSString stringWithFormat:@"http://monkey.elhideout.org/restaurants/%@/menu.json", restaurant_id];
+    NSLog(@"urlString: %@", urlString);
+    [urlString retain];
+    [self prepareRequest];
+}
+
 -(void) performRequest {
     if (request != nil) {
         [request cancel];

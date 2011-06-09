@@ -40,7 +40,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self setTitle:@"Share"];
+
     takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
     
     // Do any additional setup after loading the view from its nib.
@@ -68,6 +69,10 @@
 - (void) newImageLoaded:(NSDictionary *)dict 
 {
     NSLog(@"new image loaded: %@", dict);
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [self photoButtonPressed:nil];
 }
 
 - (void)viewDidUnload
