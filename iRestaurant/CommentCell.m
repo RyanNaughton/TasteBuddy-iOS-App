@@ -40,7 +40,7 @@
     user_name.backgroundColor = [UIColor clearColor];
     user_name.font = [UIFont boldSystemFontOfSize:14];
     
-    comment = commentToLoad;
+    comment = [commentToLoad retain];
     
     text.frame = CGRectMake(10, 30, 310, 20);   
     text.numberOfLines = 0;

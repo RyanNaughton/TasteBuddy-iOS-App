@@ -181,13 +181,13 @@
 -(void) shareOnFacebook 
 {
     NSMutableArray *titleForImage = [[NSMutableArray alloc] init];
-    if(whatTextField.hidden){
-        [titleForImage addObject:whereTextField.text];
+    if([whatButton.titleLabel.text isEqualToString:@"Select Dish"]){
+        [titleForImage addObject: whereButton.titleLabel.text];
     } else {
-        if([whatTextField.text isEqualToString:@""]) {
-            [titleForImage addObject:whereTextField.text];            
+        if([whatButton.titleLabel.text isEqualToString:@"Select Dish"]) {
+            [titleForImage addObject: whereButton.titleLabel.text];            
         } else {
-            [titleForImage addObject:[NSString stringWithFormat:@"%@ @ %@", whatTextField.text, whereTextField.text]];
+            [titleForImage addObject:[NSString stringWithFormat:@"%@ @ %@", whatButton.titleLabel.text, whereButton.titleLabel.text]];
         }
     }
     if(![commentsTextField.text isEqualToString:@""]) {
