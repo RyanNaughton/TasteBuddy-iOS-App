@@ -140,11 +140,15 @@
     if ([where length] > 0) {
         [whereButton setTitle:[where retain] forState:UIControlStateNormal];
         whereButton.userInteractionEnabled = FALSE;
+    } else {
+        whatButton.titleLabel.textColor = [UIColor lightGrayColor];
     }
     if ([what length] > 0) {
         [whatButton setTitle:[what retain] forState:UIControlStateNormal];
         whatButton.userInteractionEnabled = FALSE;
     }
+    
+    
     
     scrollView.contentSize = CGSizeMake(320, 261);
     imageView.image = image;
@@ -226,13 +230,14 @@
 -(void) whereSelected:(Restaurant *)restaurant_passed {
     [whereButton setTitle:[restaurant_passed.name retain] forState:UIControlStateNormal];
     restaurant_id = [restaurant_passed._id retain];
+    whatButton.titleLabel.textColor = [UIColor blackColor];
     [self dismissModalViewControllerAnimated:YES];
     [self checkIDValues];
 }
 
 -(void) whatSelected:(MenuItem *)menu_item_passed {
     [whatButton setTitle:[menu_item_passed.name retain] forState:UIControlStateNormal];
-    menuItem_id = [menu_item_passed._id retain];
+    menuItem_id = [menu_item_passed._id retain];    
     [self dismissModalViewControllerAnimated:YES];
     [self checkIDValues];
 

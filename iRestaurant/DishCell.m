@@ -51,7 +51,7 @@
         [tags release];
         
         price = [[UILabel alloc]init];
-        price.frame = CGRectMake(210, 35, 100, 35);
+        price.frame = CGRectMake(210, 20, 100, 35);
         price.textAlignment = UITextAlignmentRight;
         price.textColor = [UIColor darkGrayColor];
 		price.backgroundColor = [UIColor clearColor];

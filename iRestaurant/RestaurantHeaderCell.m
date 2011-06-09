@@ -162,7 +162,7 @@
         [self.contentView addSubview:average_meal];
         
         UIButton *bookmarkButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        bookmarkButton.frame = CGRectMake(240, 30, 24, 21);
+        bookmarkButton.frame = CGRectMake(240, 30, 24, 22);
         [bookmarkButton addTarget:restaurantViewController action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         if (restaurantViewController.restaurant.bookmark) {
@@ -173,7 +173,7 @@
         [self.contentView addSubview:bookmarkButton];
         
         UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        photoButton.frame = CGRectMake(285, 30, 24, 18);
+        photoButton.frame = CGRectMake(285, 30, 24, 22);
         [photoButton addTarget:restaurantViewController action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [photoButton setImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
         [self.contentView addSubview:photoButton];
