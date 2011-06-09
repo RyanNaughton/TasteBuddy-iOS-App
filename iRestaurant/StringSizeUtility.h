@@ -12,7 +12,7 @@
     
 }
 
-+(CGFloat) widthOfString:(NSString *)string withFrame:(CGRect)frame andFont:(UIFont *)font;
++(CGFloat) widthOfString:(NSString *)string withLabel:(UILabel *) labelPassed;
 
 +(CGFloat) cellHeightForString:(NSString *)string withFrame:(CGRect)frame andBottomPadding:(CGFloat) paddingBottom;
 

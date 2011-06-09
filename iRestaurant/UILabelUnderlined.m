@@ -19,7 +19,7 @@
     
     CGContextMoveToPoint(ctx, 0, self.bounds.size.height - 1);
 
-    CGContextAddLineToPoint(ctx, [StringSizeUtility widthOfString:self.text withFrame:self.frame andFont:self.font], self.bounds.size.height - 1);
+    CGContextAddLineToPoint(ctx, [StringSizeUtility widthOfString:self.text withLabel:self], self.bounds.size.height - 1);
     
     CGContextStrokePath(ctx);
     
