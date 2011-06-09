@@ -24,7 +24,7 @@
 @synthesize window=_window;
 @synthesize tabBarController;
 @synthesize savedSettingsPath;
-@synthesize clcontroller, currentLocation, currentLocationEstablished, showWelcomeBox;
+@synthesize clcontroller, currentLocation, currentLocationEstablished, showWelcomeBox, sbvc;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {    
@@ -43,7 +43,6 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopLoadingIndicator) name:@"stopLoadingIndicator" object:nil];
     [self setupHUD];
     
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"startLoadingIndicator" object:nil];
     return YES;
 }
 
@@ -254,11 +253,10 @@
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController 
 {
-//    if (tabBarController.selectedIndex == 2) {
-//        ShareButtonViewController *svc = (ShareButtonViewController *)viewController;
-//        [svc photoButtonPressed];
-//
-//    }
+    if (tabBarController.selectedIndex == 2) {
+        [sbvc photoButtonPressed];
+
+    }
 }
 
 

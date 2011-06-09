@@ -22,6 +22,7 @@
 @synthesize price;
 @synthesize rating;
 @synthesize bookmark;
+@synthesize foreign_name;
 
 -(id) init {
     self = [super init];
@@ -41,6 +42,7 @@
         pictures        = [[menuItemDictionary objectForKey:@"pictures"] retain];
         restaurant_id   = [[menuItemDictionary objectForKey:@"restaurant_id"] retain];
         bookmark = [[menuItemDictionary objectForKey:@"bookmark"] boolValue];
+        foreign_name = [[menuItemDictionary objectForKey:@"foreign_name"] retain];
         
         rating = [[Rating alloc] initWithUserRating:[menuItemDictionary objectForKey:@"user_rating"] andAverageRating:[menuItemDictionary objectForKey:@"average_rating"] andRatingsCount:[menuItemDictionary objectForKey:@"ratings_count"]];
         

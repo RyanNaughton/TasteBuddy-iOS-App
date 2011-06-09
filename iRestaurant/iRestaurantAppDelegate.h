@@ -12,6 +12,7 @@
 #import "MBProgressHUD.h"
 
 @class AuthenticationResponse;
+@class ShareButtonViewController;
 
 @interface iRestaurantAppDelegate : NSObject <UIApplicationDelegate, UIAlertViewDelegate, CoreLocationControllerDelegate, MBProgressHUDDelegate, UITabBarControllerDelegate> {
     IBOutlet UITabBarController *tabBarController;
@@ -21,6 +22,7 @@
     BOOL currentLocationEstablished;
     BOOL showWelcomeBox;
     MBProgressHUD *HUD;
+    IBOutlet ShareButtonViewController *sbvc;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
@@ -30,6 +32,7 @@
 @property (nonatomic, retain) CLLocation *currentLocation;
 @property (nonatomic, assign) BOOL currentLocationEstablished;
 @property (nonatomic, assign) BOOL showWelcomeBox;
+@property (nonatomic, retain) IBOutlet ShareButtonViewController *sbvc;
 
 -(void)checkOrCreatePlist;
 -(id) readSavedSetting:(NSString *)key;

@@ -127,7 +127,6 @@
 -(void)loadMenuItem:(MenuItem *)menu_item_passed andRestaurant:(Restaurant *)restaurant
 {
     menu_item = menu_item_passed;
-    
     name.text = [menu_item.name retain];
     
     CGSize maximumLabelSize = CGSizeMake(name.frame.size.width,9999);
@@ -135,11 +134,22 @@
                                   constrainedToSize:maximumLabelSize 
                                       lineBreakMode:UILineBreakModeWordWrap];
     
+    int foreignNameOffset = 0;
+    if (![menu_item_passed.foreign_name isKindOfClass:[NSNull class]]) {
+        NSLog(@"foreign name: %@", menu_item_passed.foreign_name);
+        foreignNameOffset = 15;
+        UILabel *foreignNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, expectedLabelSize.height + 8, 200, 15)];
+        foreignNameLabel.text = menu_item_passed.foreign_name;
+        foreignNameLabel.backgroundColor = [UIColor clearColor];
+        foreignNameLabel.font = [UIFont systemFontOfSize:13];
+        [self.contentView addSubview:foreignNameLabel];
+    }
+    
     name.frame = CGRectMake(10, 7, expectedLabelSize.width, expectedLabelSize.height);
-    ratingView.frame = CGRectMake(10, expectedLabelSize.height + 15, ratingView.frame.size.width, ratingView.frame.size.height);
-    ratingButton.frame = CGRectMake(ratingButton.frame.origin.x, expectedLabelSize.height + 15, ratingButton.frame.size.width, ratingButton.frame.size.height);
-    photoButton.frame = CGRectMake(photoButton.frame.origin.x, expectedLabelSize.height + 15, photoButton.frame.size.width, photoButton.frame.size.height);
-    bookmarkButton.frame = CGRectMake(bookmarkButton.frame.origin.x, expectedLabelSize.height + 15, bookmarkButton.frame.size.width, bookmarkButton.frame.size.height);
+    ratingView.frame = CGRectMake(10, expectedLabelSize.height + 15 + foreignNameOffset, ratingView.frame.size.width, ratingView.frame.size.height);
+    ratingButton.frame = CGRectMake(ratingButton.frame.origin.x, expectedLabelSize.height + 15 + foreignNameOffset, ratingButton.frame.size.width, ratingButton.frame.size.height);
+    photoButton.frame = CGRectMake(photoButton.frame.origin.x, expectedLabelSize.height + 15 + foreignNameOffset, photoButton.frame.size.width, photoButton.frame.size.height);
+    bookmarkButton.frame = CGRectMake(bookmarkButton.frame.origin.x, expectedLabelSize.height + 15 + foreignNameOffset, bookmarkButton.frame.size.width, bookmarkButton.frame.size.height);
     
     
     restaurantName.text = [restaurant.name retain];

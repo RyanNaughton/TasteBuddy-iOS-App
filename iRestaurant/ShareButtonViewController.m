@@ -47,24 +47,26 @@
     takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
     
     // Do any additional setup after loading the view from its nib.
-    UIImage *greyButtonImage = [[UIImage imageNamed:@"darkgrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
-    CGRect iconFrame = CGRectMake(14, 14, 12, 12);
+    //UIImage *greyButtonImage = [[UIImage imageNamed:@"darkgrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
+    //CGRect iconFrame = CGRectMake(14, 14, 12, 12);
     
     
-    UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [photoButton addTarget:self action:@selector(photoButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-    [photoButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
-    [photoButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
-    photoButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-    photoButton.frame = CGRectMake((320-145)/2, 180, 145, 40);
-    [photoButton setTitle:@"  Share Photo" forState:UIControlStateNormal];
-    [self.view addSubview:photoButton];
+    //UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    //[photoButton addTarget:self action:@selector(photoButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+    //[photoButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
+    //[photoButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
+    //photoButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    //photoButton.frame = CGRectMake((320-145)/2, 180, 145, 40);
+    //[photoButton setTitle:@"  Share Photo" forState:UIControlStateNormal];
+    //[self.view addSubview:photoButton];
     
-    UIImageView *cameraImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"86-camera.png"]];
-    cameraImage.frame = iconFrame;
-    cameraImage.contentMode = UIViewContentModeScaleAspectFill;
-    cameraImage.alpha = 0.8;
-    [photoButton addSubview:cameraImage];
+    //UIImageView *cameraImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"86-camera.png"]];
+    //cameraImage.frame = iconFrame;
+    //cameraImage.contentMode = UIViewContentModeScaleAspectFill;
+    //cameraImage.alpha = 0.8;
+    //[photoButton addSubview:cameraImage];
+    
+    [self photoButtonPressed];
 
 }
 
@@ -74,7 +76,9 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    
+//    if (!animated) {
+//        [self photoButtonPressed];
+//    }
 }
 
 - (void)viewDidUnload

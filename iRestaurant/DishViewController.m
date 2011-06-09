@@ -293,6 +293,9 @@
                                               constrainedToSize:maximumLabelSize 
                                                   lineBreakMode:UILineBreakModeWordWrap];
         int newHeight = expectedLabelSize.height + 45;
+        if (![menu_item.foreign_name isKindOfClass:[NSNull class]]) {
+            newHeight += 15;
+        }
         NSLog(@"new height: %i", newHeight);
         height = newHeight;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Image"]) {
