@@ -52,7 +52,7 @@
     
     [self setTitle:@"Deals"];
     UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"dealsLogo.png"]];
-    appNameImageView.frame = CGRectMake(0, -3, 150, 44);
+    appNameImageView.frame = CGRectMake(0, -3, 155, 44);
     appNameImageView.contentMode = UIViewContentModeRight;
     self.navigationItem.titleView = appNameImageView;
     

@@ -42,6 +42,11 @@
     [super viewDidLoad];
     [self setTitle:@"Share"];
 
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"share-logo.png"]];
+    appNameImageView.frame = CGRectMake(0, -3, 155, 44);
+    appNameImageView.contentMode = UIViewContentModeRight;
+    self.navigationItem.titleView = appNameImageView;
+    
     //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoButtonPressed) name:@"shareTabPressed" object:nil];
     
     takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
