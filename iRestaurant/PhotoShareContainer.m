@@ -66,6 +66,7 @@
 }
 
 -(void) submitAction {
+    if (restaurant_id != NULL) {
     if (!photoSubmitted) {
         photoSubmitted = TRUE;
         submitButton.enabled = FALSE;
@@ -75,6 +76,11 @@
         NSLog(@"restaurant id: %@ | menu item id: %@ | comments: %@", restaurant_id, menuItem_id, commentsTextField.text);
     } else {
         NSLog(@"ignore duplicate submission");
+    }
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"Please select a restaurant before submitting" delegate:self cancelButtonTitle:@"Continue" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
     }
 }
 

@@ -47,7 +47,7 @@
     [request setPostValue:[jsonDictionary objectForKey:@"comments"] forKey:@"picture[caption]"];
     [request setPostValue:[jsonDictionary objectForKey:@"restaurant_id"] forKey:@"picture[restaurant_id]"];
     
-    if(![[[jsonDictionary objectForKey:@"menu_item_id"]stringValue] isEqualToString:@""]){
+    if(![[jsonDictionary objectForKey:@"menu_item_id"] isKindOfClass:[NSNull class]]){
         [request setPostValue:[jsonDictionary objectForKey:@"menu_item_id"] forKey:@"picture[menu_item_id]"];
     }
     [request setPostValue:[jsonDictionary objectForKey:@"auth_token"] forKey:@"auth_token"];
