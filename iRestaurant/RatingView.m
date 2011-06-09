@@ -9,6 +9,7 @@
 
 #import "RatingView.h"
 #import "Rating.h"
+#import "iRestaurantAppDelegate.h"
 
 @implementation RatingView
 @synthesize outlineStarsView, redStarsView, yellowStarsView, starSize, ratingsLabel;
@@ -32,7 +33,7 @@
         starSize = starSizePassed;
         [self setupOutlineStarsView];
         
-        ratingsLabel = [[UILabel alloc]initWithFrame:CGRectMake (((starSize * 5) + 5), 2, 100, starSize)];
+        ratingsLabel = [[UILabel alloc]initWithFrame:CGRectMake(((starSize * 5) + 5), 2, 100, starSize)];
         ratingsLabel.textColor = [UIColor darkGrayColor];
         ratingsLabel.font = [UIFont systemFontOfSize:12];
         ratingsLabel.hidden = !isLabelVisible;
@@ -98,9 +99,15 @@
 }
 
 -(void)setupRatingCount:(int)howManyRatings {
-    ratingsLabel.text = [NSString stringWithFormat:@"%i ratings", howManyRatings];
+    //ratingsLabel.text = [NSString stringWithFormat:@"%i ratings", howManyRatings];
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
+    int userRatingsCount = [[appDelegate readSavedSetting:@"ratingsSubmitted"]intValue];
+    if (userRatingsCount < 5) {
+        ratingsLabel.text = @"Tap to rate!";
+    } else {
+        ratingsLabel.text = @"";
+    }
 }
-
 
 -(void) loadRating:(Rating *)rating {
     [self setupRatingCount:rating.ratings_count];

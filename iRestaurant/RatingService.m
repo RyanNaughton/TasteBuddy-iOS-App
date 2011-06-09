@@ -12,6 +12,7 @@
 #import "MenuItem.h"
 #import "Rating.h"
 #import "JSON.h"
+#import "iRestaurantAppDelegate.h"
 
 @implementation RatingService
 
@@ -75,6 +76,13 @@
     
     [delegate doneRating:rating];
     request = nil;
+    
+    int userRatingsCount = [[appDelegate readSavedSetting:@"ratingsSubmitted"]intValue];
+    NSLog(@"user ratings submitted: %i", userRatingsCount);
+    if (userRatingsCount <= 5) {
+        [appDelegate setSavedSetting:@"ratingsSubmitted" withValue:[NSNumber numberWithInt:(userRatingsCount + 1)]];
+    }
+
 }
 
 @end

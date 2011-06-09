@@ -55,20 +55,14 @@
         name.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:name];
         
-        ratingView = [[RatingView alloc] initWithStarSize:20 andLabelVisible:NO];
+        ratingView = [[RatingView alloc] initWithStarSize:20 andLabelVisible:YES];
         ratingView.frame = CGRectMake(10, 30, 100, 20);
         [self.contentView addSubview:ratingView];
         
         UIButton *ratingButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        ratingButton.frame = CGRectMake(10, 30, 100, 20);
+        ratingButton.frame = CGRectMake(10, 30, 160, 20);
         [ratingButton addTarget:restaurantViewController action:@selector(rateItButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:ratingButton];
-        
-//        UIButton *reportAbuseButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [reportAbuseButton addTarget:self action:@selector(reportAbuseButtonPressed) forControlEvents:UIControlEventTouchUpInside];
-//        [reportAbuseButton setImage:[UIImage imageNamed:@"09-chat-2.png"] forState:UIControlStateNormal];
-//        reportAbuseButton.frame = CGRectMake(290, 30, 22, 22);
-//        [self.contentView addSubview:reportAbuseButton];
         
         greyLine1 = [[UIView alloc]initWithFrame:CGRectMake(140, 85, 170, 1)];
         greyLine1.backgroundColor = [UIColor lightGrayColor];
@@ -168,7 +162,7 @@
         [self.contentView addSubview:average_meal];
         
         UIButton *bookmarkButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        bookmarkButton.frame = CGRectMake(240, 30, 24, 21);
+        bookmarkButton.frame = CGRectMake(240, 30, 24, 22);
         [bookmarkButton addTarget:restaurantViewController action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         if (restaurantViewController.restaurant.bookmark) {
@@ -179,7 +173,7 @@
         [self.contentView addSubview:bookmarkButton];
         
         UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        photoButton.frame = CGRectMake(285, 30, 24, 18);
+        photoButton.frame = CGRectMake(285, 30, 24, 22);
         [photoButton addTarget:restaurantViewController action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [photoButton setImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
         [self.contentView addSubview:photoButton];

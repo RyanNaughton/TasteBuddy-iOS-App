@@ -6,5 +6,7 @@
 	<string>monkey</string>
 	<key>password</key>
 	<string>m0nk3y</string>
+	<key>ratingsSubmitted</key>
+	<integer>0</integer>
 </dict>
 </plist>

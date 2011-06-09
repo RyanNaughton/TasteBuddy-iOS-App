@@ -71,7 +71,7 @@
         [self.contentView addSubview:averageDishPrice];
         
         int starSize = 15;
-        ratingView = [[RatingView alloc] initWithStarSize:starSize andLabelVisible:NO];
+        ratingView = [[RatingView alloc] initWithStarSize:starSize andLabelVisible:YES];
         ratingView.contentMode = UIViewContentModeScaleAspectFit;
         ratingView.clipsToBounds = TRUE;
         ratingView.frame = CGRectMake((310 - (starSize * 5)), 10, (starSize * 5), 20);

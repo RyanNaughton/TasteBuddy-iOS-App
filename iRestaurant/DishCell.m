@@ -51,7 +51,7 @@
         [tags release];
         
         price = [[UILabel alloc]init];
-        price.frame = CGRectMake(210, 35, 100, 35);
+        price.frame = CGRectMake(210, 20, 100, 35);
         price.textAlignment = UITextAlignmentRight;
         price.textColor = [UIColor darkGrayColor];
 		price.backgroundColor = [UIColor clearColor];
@@ -64,17 +64,13 @@
         ratingView.contentMode = UIViewContentModeScaleAspectFit;
         ratingView.clipsToBounds = TRUE;
         ratingView.frame = CGRectMake((310 - (starSize * 5)), 10, (starSize * 5), 20);
-        [self.contentView addSubview:ratingView];
-
-        //int starSize = 15;
-        //ratingView = [[RatingView alloc] initWithStarSize:starSize andLabelVisible:NO];
-        //ratingView.frame = CGRectMake((310 - (starSize * 5)), 10, (starSize * 5), 20);
-        //ratingView.ratingsLabel.frame = CGRectMake(0, 10, 75, 30);
-        //ratingView.ratingsLabel.textAlignment = UITextAlignmentRight;
-        //ratingView.ratingsLabel.backgroundColor = [UIColor clearColor];
-        //[self.contentView addSubview:ratingView];
-        //[ratingView release];
         
+//        ratingView.frame = CGRectMake((310 - (starSize * 5)), 10, (starSize * 5), 40);
+//        ratingView.ratingsLabel.frame = CGRectMake(0, 13, (starSize * 5), 20);
+//        ratingView.ratingsLabel.textAlignment = UITextAlignmentRight;
+//        ratingView.ratingsLabel.backgroundColor = [UIColor clearColor];
+        
+        [self.contentView addSubview:ratingView];
     }
     return self;
 }

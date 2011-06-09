@@ -47,37 +47,12 @@
         name.shadowOffset = CGSizeMake(0,1);
         [self.contentView addSubview:name];
         
-//        UILabel *byLabel = [[UILabel alloc]init];
-//        byLabel.frame = CGRectMake(10, 30, 30, 20);
-//        byLabel.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
-//		byLabel.backgroundColor = [UIColor clearColor];
-//		byLabel.font = [UIFont italicSystemFontOfSize:14];
-//        byLabel.shadowColor = [UIColor whiteColor];
-//        byLabel.shadowOffset = CGSizeMake(0,1);
-//        byLabel.text = @"by";
-//        [self.contentView addSubview:byLabel];
-//        [byLabel release];
-
-//        restaurantName = [[UILabelUnderlined alloc]init];
-//        restaurantName.frame = CGRectMake(30, 30, 280, 20);
-//        restaurantName.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
-//		restaurantName.backgroundColor = [UIColor clearColor];
-//		restaurantName.font = [UIFont systemFontOfSize:15];
-//        restaurantName.shadowColor = [UIColor whiteColor];
-//        restaurantName.shadowOffset = CGSizeMake(0,1);
-//        [self.contentView addSubview:restaurantName];
-        
-//        UIButton *restaurantButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [restaurantButton addTarget:dvc action:@selector(restaurantButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//        restaurantButton.frame = CGRectMake(30, 30, 280, 20);
-//        [self.contentView addSubview:restaurantButton];
-        
-        ratingView = [[RatingView alloc] initWithStarSize:20 andLabelVisible:NO];
+        ratingView = [[RatingView alloc] initWithStarSize:20 andLabelVisible:YES];
         ratingView.frame = CGRectMake(10, 60, 100, 20);
         [self.contentView addSubview:ratingView];
         
         ratingButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        ratingButton.frame = CGRectMake(10, 60, 100, 20);
+        ratingButton.frame = CGRectMake(10, 60, 160, 20);
         [ratingButton addTarget:dvc action:@selector(rateItButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [self.contentView addSubview:ratingButton];
         
@@ -92,7 +67,7 @@
         [self.contentView addSubview:price];
                 
         bookmarkButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        bookmarkButton.frame = CGRectMake(240, 50, 24, 21);
+        bookmarkButton.frame = CGRectMake(240, 50, 24, 22);
         [bookmarkButton addTarget:dvc action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
 
         if (dvc.menu_item.bookmark) {
@@ -103,21 +78,10 @@
         [self.contentView addSubview:bookmarkButton];
         
         photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        photoButton.frame = CGRectMake(285, 50, 24, 18);
+        photoButton.frame = CGRectMake(285, 50, 24, 22);
         [photoButton addTarget:dvc action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         [photoButton setImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
         [self.contentView addSubview:photoButton];
-        
-        
-//        singleImageView = [[UIImageView alloc]initWithFrame:CGRectMake(10, 85, 300, 300)];
-//        singleImageView.layer.borderColor = [UIColor lightGrayColor].CGColor;
-//        singleImageView.layer.borderWidth = 1;
-//        [self.contentView addSubview:singleImageView];
-//        
-//        UIButton *imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [imageButton addTarget:self action:@selector(imageButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-//        imageButton.frame = CGRectMake(10, 85, 300, 300);
-//        [self.contentView addSubview:imageButton];
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;   
     }
