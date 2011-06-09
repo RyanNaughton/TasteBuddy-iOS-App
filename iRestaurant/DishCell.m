@@ -60,14 +60,15 @@
         [price release];
         
         int starSize = 15;
-        ratingView = [[RatingView alloc] initWithStarSize:starSize andLabelVisible:YES];
+        ratingView = [[RatingView alloc] initWithStarSize:starSize andLabelVisible:NO];
         ratingView.contentMode = UIViewContentModeScaleAspectFit;
         ratingView.clipsToBounds = TRUE;
-        ratingView.frame = CGRectMake((310 - (starSize * 5)), 10, (starSize * 5), 40);
+        ratingView.frame = CGRectMake((310 - (starSize * 5)), 10, (starSize * 5), 20);
         
-        ratingView.ratingsLabel.frame = CGRectMake(0, 13, (starSize * 5), 20);
-        ratingView.ratingsLabel.textAlignment = UITextAlignmentRight;
-        ratingView.ratingsLabel.backgroundColor = [UIColor clearColor];
+//        ratingView.frame = CGRectMake((310 - (starSize * 5)), 10, (starSize * 5), 40);
+//        ratingView.ratingsLabel.frame = CGRectMake(0, 13, (starSize * 5), 20);
+//        ratingView.ratingsLabel.textAlignment = UITextAlignmentRight;
+//        ratingView.ratingsLabel.backgroundColor = [UIColor clearColor];
         
         [self.contentView addSubview:ratingView];
     }
