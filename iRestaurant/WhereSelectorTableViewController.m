@@ -8,6 +8,8 @@
 
 #import "WhereSelectorTableViewController.h"
 #import "Restaurant.h"
+#import "SearchService.h"
+#import "ASIFormDataRequest.h"
 
 @implementation WhereSelectorTableViewController
 @synthesize searchBar, unfilteredList, filteredList, ss, delegate, loading;
