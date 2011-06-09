@@ -12,6 +12,8 @@
 #import "MenuSubcategory.h"
 #import "MenuItem.h"
 #import "Restaurant.h"
+#import "MenuService.h"
+#import "ASIFormDataRequest.h"
 
 @implementation WhatSelectorTableViewController
 

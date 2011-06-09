@@ -8,6 +8,8 @@
 
 #import "WhatSelectorViewController.h"
 #import "WhatSelectorTableViewController.h"
+#import "MenuService.h"
+#import "ASIFormDataRequest.h"
 
 @implementation WhatSelectorViewController
 @synthesize whatSelectorTableViewController, delegate, restaurant_id;
@@ -71,6 +73,9 @@
 
 -(IBAction)cancelButtonPressed 
 {
+    if (whatSelectorTableViewController.ms.request != nil) {
+        [whatSelectorTableViewController.ms.request cancel];
+    }
     [self dismissModalViewControllerAnimated:YES];
 }
 

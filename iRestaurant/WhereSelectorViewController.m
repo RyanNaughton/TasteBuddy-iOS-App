@@ -8,6 +8,8 @@
 
 #import "WhereSelectorViewController.h"
 #import "WhereSelectorTableViewController.h"
+#import "SearchService.h"
+#import "ASIFormDataRequest.h"
 
 @implementation WhereSelectorViewController
 @synthesize whereSelectorTableViewController, delegate;
@@ -29,6 +31,10 @@
 
 -(IBAction)cancelButtonPressed
 {
+    if (whereSelectorTableViewController.ss.request != nil) {
+        [whereSelectorTableViewController.ss.request cancel];
+    }
+
     [self dismissModalViewControllerAnimated:YES];
 }
 
