@@ -17,6 +17,7 @@
 #import "SignUpViewController.h"
 #import "CoreLocationController.h"
 #import "MBProgressHUD.h"
+#import "ShareButtonViewController.h"
 
 @implementation iRestaurantAppDelegate
 
@@ -253,10 +254,11 @@
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController 
 {
-    NSLog(@"viewcontroller selected; %@", viewController);
-    if (tabBarController.selectedIndex == 2) {
-        [viewController viewDidAppear:YES];
-    }
+//    if (tabBarController.selectedIndex == 2) {
+//        ShareButtonViewController *svc = (ShareButtonViewController *)viewController;
+//        [svc photoButtonPressed];
+//
+//    }
 }
 
 

@@ -15,6 +15,6 @@
 
 @property (nonatomic, retain) TakePhoto *takePhoto;
 
--(void) photoButtonPressed:(id) sender;
+-(void) photoButtonPressed;
 - (void) newImageLoaded:(NSDictionary *)dict;
 @end

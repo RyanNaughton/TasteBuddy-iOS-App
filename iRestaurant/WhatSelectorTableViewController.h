@@ -18,6 +18,7 @@
     id delegate;
     MenuService *ms;
     NSString *restaurant_id;
+    BOOL loading;
 }
 
 @property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
@@ -26,6 +27,7 @@
 @property (nonatomic, retain) id delegate;
 @property (nonatomic, retain) MenuService *ms;
 @property (nonatomic, retain) NSString *restaurant_id;
+@property (nonatomic, assign) BOOL loading;
 
 -(void)menuReturned:(Menu *)menu;
 -(void) callMenuService;

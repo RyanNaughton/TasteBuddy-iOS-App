@@ -15,6 +15,7 @@
     NSMutableArray *filteredList;
     SearchService *ss;
     id delegate;
+    BOOL loading;
 }
 
 @property (nonatomic, retain) IBOutlet UISearchBar *searchBar;
@@ -22,6 +23,7 @@
 @property (nonatomic, retain) NSMutableArray *filteredList;
 @property (nonatomic, retain) SearchService *ss;
 @property (nonatomic, retain) id delegate;
+@property (nonatomic, assign) BOOL loading;
 
 -(void)searchFinished:(NSMutableArray *)restaurantsArray;
 

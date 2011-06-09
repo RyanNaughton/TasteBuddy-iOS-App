@@ -42,6 +42,8 @@
     [super viewDidLoad];
     [self setTitle:@"Share"];
 
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(photoButtonPressed) name:@"shareTabPressed" object:nil];
+    
     takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
     
     // Do any additional setup after loading the view from its nib.
@@ -50,7 +52,7 @@
     
     
     UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [photoButton addTarget:self action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+    [photoButton addTarget:self action:@selector(photoButtonPressed) forControlEvents:UIControlEventTouchUpInside];
     [photoButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     [photoButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
     photoButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
@@ -72,7 +74,7 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    [self photoButtonPressed:nil];
+    
 }
 
 - (void)viewDidUnload
@@ -88,7 +90,7 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
--(void) photoButtonPressed:(id) sender {
+-(void) photoButtonPressed {
     [takePhoto loadPhotoForShareTabWithView:self];
 }
 

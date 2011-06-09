@@ -24,7 +24,7 @@
 }
 
 -(void)loadPhotoForShareTabWithView:(ShareButtonViewController *)tab_passed {
-    tab = tab_passed;
+    tab = [tab_passed retain];
     //restaurant = [restaurant_passed retain];
     //menuItem.name = @"";
     //rvc = rvc_passed;

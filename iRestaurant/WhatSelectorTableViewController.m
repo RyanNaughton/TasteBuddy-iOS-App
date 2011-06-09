@@ -15,7 +15,7 @@
 
 @implementation WhatSelectorTableViewController
 
-@synthesize searchBar, unfilteredList, filteredList, delegate, ms, restaurant_id;
+@synthesize searchBar, unfilteredList, filteredList, delegate, ms, restaurant_id, loading;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -52,6 +52,7 @@
     ms = [[MenuService alloc]initWithDelegate:self];
     [ms getMenuForRestaurantID:restaurant_id];
     NSLog(@"restaurant id: %@", restaurant_id);
+    loading = TRUE;
 }
 
 -(void)searchFinished:(NSMutableArray *)restaurantsArray
@@ -92,7 +93,7 @@
     filteredList = [[NSMutableArray arrayWithArray:unfilteredList] retain];
     NSLog(@"filtered list: %@", filteredList);
     NSLog(@"unfiltered list: %@", unfilteredList);
-    
+    loading = FALSE;
     [self.tableView reloadData];
 }
 
@@ -166,7 +167,12 @@
         MenuItem *menuItem = [filteredList objectAtIndex:indexPath.row];
         cell.textLabel.text = menuItem.name;
     } else {
-        cell.textLabel.text = @"Loading...";
+        if (loading == TRUE) {
+            NSLog(@"loading text hit");
+            cell.textLabel.text = @"Loading...";
+        } else {
+            cell.textLabel.text = @"No Menu Items Listed";
+        }
     }
     
     return cell;
@@ -215,7 +221,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if ((!loading) && ([filteredList count])) {
     [delegate whatSelected:[filteredList objectAtIndex:indexPath.row]];
+    }
 }
 
 @end

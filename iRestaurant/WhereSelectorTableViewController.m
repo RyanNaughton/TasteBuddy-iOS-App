@@ -10,7 +10,7 @@
 #import "Restaurant.h"
 
 @implementation WhereSelectorTableViewController
-@synthesize searchBar, unfilteredList, filteredList, ss, delegate;
+@synthesize searchBar, unfilteredList, filteredList, ss, delegate, loading;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -50,6 +50,7 @@
     CGPoint point = CGPointMake(0, 0);
     ss = [[SearchService alloc]initWithLocation:point withDelegate:self];
     [ss searchByTerm:@""];
+    loading = TRUE;
 
 }
 
@@ -58,6 +59,7 @@
     NSLog(@"search finished: %@", restaurantsArray);
     unfilteredList = [restaurantsArray retain];
     filteredList = [[NSMutableArray arrayWithArray:unfilteredList] retain];
+    loading = FALSE;
     [self.tableView reloadData];
 }
 
@@ -139,7 +141,11 @@
         Restaurant *restaurant = [filteredList objectAtIndex:indexPath.row];
         cell.textLabel.text = restaurant.name;
     } else {
-        cell.textLabel.text = @"Loading...";
+        if (loading) {
+            cell.textLabel.text = @"Loading...";
+        } else {
+            cell.textLabel.text = @"No Restaurants Listed";
+        }
     }
     
     return cell;

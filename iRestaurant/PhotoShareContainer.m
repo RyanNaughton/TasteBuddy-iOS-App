@@ -120,9 +120,10 @@
     
     [self checkIDValues];
     
-    whereTextField.placeholder = @"Restaurant Name";
-    whatTextField.placeholder = @"Dish Name";
-    
+    UIImage *greyButtonImage = [[UIImage imageNamed:@"darkgrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
+    [whereButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
+    [whatButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
+        
     UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"photoDetailsLogo.png"]];
     appNameImageView.frame = CGRectMake(0, -3, 175, 44);
     appNameImageView.contentMode = UIViewContentModeRight;
@@ -139,17 +140,6 @@
         whatButton.userInteractionEnabled = FALSE;
     }
     
-    if (([where length] > 0) && ([what length] > 0)) {
-        [commentsTextField becomeFirstResponder];
-    } else if ([where length] > 0) {
-        //[whatTextField becomeFirstResponder];
-        whatTextField.hidden = TRUE;
-        whatLabel.hidden = TRUE;
-        commentsTextField.frame = whatTextField.frame;
-        commentsLabel.frame = whatLabel.frame;
-    } else {
-        [whereTextField becomeFirstResponder];
-    }
     scrollView.contentSize = CGSizeMake(320, 261);
     imageView.image = image;
 }
@@ -243,9 +233,6 @@
 }
 
 -(void) checkIDValues {
-    if ([[menuItem_id stringValue] length] == 0) {
-        
-    }
     if ([[restaurant_id stringValue] length] == 0) {
         whatButton.userInteractionEnabled = FALSE;
     } else {
