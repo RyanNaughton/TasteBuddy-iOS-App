@@ -285,7 +285,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     CGFloat height;
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Restaurant"]) {
-        height = 34;
+        height = 40;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
         
         CGSize maximumLabelSize = CGSizeMake(240,9999);

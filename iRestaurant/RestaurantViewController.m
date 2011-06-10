@@ -70,7 +70,7 @@
 -(void) buildTableArray {
     tableArray = [[NSMutableArray alloc]initWithObjects:@"Header", @"Buttons", nil];
     
-    if ([restaurant.menu_items count] > 0) {
+    if (restaurant.menu_present) {
         [tableArray addObject:@"Menu"];
     }
     
@@ -324,7 +324,7 @@
     if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
         height = 180;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
-        height = 60;
+        height = 110;
         
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Address"]) {
         height = 45;

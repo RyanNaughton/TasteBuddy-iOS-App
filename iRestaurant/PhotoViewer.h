@@ -13,18 +13,22 @@
 
 @interface PhotoViewer : UIViewController <IGUIScrollViewImageDelegate, UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
     IGUIScrollViewImage *svimage;
-    IBOutlet UINavigationItem *navItem;
     IBOutlet UILabel *dishNameLabel;
     IBOutlet UILabel *commentLabel;
     NSArray *arrayOfPhotos;
+    IBOutlet UINavigationBar *navBar;
+    IBOutlet UINavigationItem *navItem;
+    IBOutlet UIBarButtonItem *closeButton;
 }
 
 
 @property (nonatomic, retain) IGUIScrollViewImage *svimage;
-@property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
 @property (nonatomic, retain) IBOutlet UILabel *dishNameLabel;
 @property (nonatomic, retain) IBOutlet UILabel *commentLabel;
 @property (nonatomic, retain) NSArray *arrayOfPhotos;
+@property (nonatomic, retain) IBOutlet UIBarButtonItem *closeButton;
+@property (nonatomic, retain) IBOutlet UINavigationBar *navBar;
+@property (nonatomic, retain) IBOutlet UINavigationItem *navItem;
 
 -(void) setImageLabelsDishName:(NSString *)dishNameString andComment:(NSString *)commentString;
 -(void)setupScrollView:(NSArray *)arrayOfPhotos_passed;

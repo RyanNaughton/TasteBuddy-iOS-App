@@ -56,6 +56,8 @@
     
     NSDictionary *dictionaryFromJSON = [responseString JSONValue];
     
+    NSLog(@"dict from json: %@", dictionaryFromJSON);
+    
     NSMutableDictionary *profile = [NSMutableDictionary dictionaryWithDictionary:dictionaryFromJSON];
         
     [delegate doneRetrievingProfile:profile];

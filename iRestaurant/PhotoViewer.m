@@ -14,7 +14,7 @@
 
 @implementation PhotoViewer
 
-@synthesize svimage, navItem, dishNameLabel, commentLabel, arrayOfPhotos;
+@synthesize svimage, navBar, navItem, dishNameLabel, commentLabel, arrayOfPhotos, closeButton;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -162,6 +162,7 @@
 
 - (void)dealloc
 {
+    [closeButton release];
     [super dealloc];
 }
 
@@ -178,6 +179,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+//    closeButton = [[UIBarButtonItem alloc] initWithTitle:@"Close"
+//                                                                    style:UIBarButtonItemStyleBordered
+//                                                                   target:self
+//                                                                   action:@selector(closeButtonPressed:)]; 
+//    self.navigationItem.rightBarButtonItem = closeButton;
+//    [closeButton release];
+
+    
     // Do any additional setup after loading the view from its nib.
 }
 

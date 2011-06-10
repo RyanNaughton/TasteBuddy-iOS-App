@@ -32,8 +32,8 @@
         [callButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [callButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         callButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-        callButton.frame = CGRectMake(10, 10, 145, 40);
-        [callButton setTitle:@"Call" forState:UIControlStateNormal];
+        callButton.frame = CGRectMake(10, 10, 300, 40);
+        [callButton setTitle:[NSString stringWithFormat:@"Call: %@", restaurantViewController_passed.restaurant.phone] forState:UIControlStateNormal];
         [self.contentView addSubview:callButton];
         
         UIImageView *phoneImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"75-phone.png"]];
@@ -68,8 +68,8 @@
         [mapItButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [mapItButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         mapItButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-        mapItButton.frame = CGRectMake(165, 10, 145, 40); //CGRectMake(10, 60, 145, 40);
-        [mapItButton setTitle:@"Map it!" forState:UIControlStateNormal];
+        mapItButton.frame = CGRectMake(10, 60, 300, 40); //CGRectMake(10, 60, 145, 40);
+        [mapItButton setTitle:[NSString stringWithFormat:@"Map: %@", restaurantViewController_passed.restaurant.address_1] forState:UIControlStateNormal];
         [self.contentView addSubview:mapItButton];
         
         UIImageView *addressImage = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"07-map-marker.png"]];

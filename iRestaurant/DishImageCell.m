@@ -86,7 +86,7 @@
 -(void) imageButtonPressed:(id)sender {
     if ([menu_item.pictures count] > 0) {
         iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
-        PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
+        PhotoViewer *photoViewer = [[PhotoViewer alloc]initWithNibName:@"PhotoViewer" bundle:nil];            
         [photoViewer setupScrollView:menu_item.pictures];
         photoViewer.navItem.title = restaurant.name; //[NSString stringWithFormat:@"%@", menu_item.name];
         photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

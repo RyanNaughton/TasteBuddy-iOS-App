@@ -268,7 +268,7 @@
 //        [arrayOfImageURLs addObject:[pictDict objectForKey:@"300px"]];
 //    }
     
-    PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
+    PhotoViewer *photoViewer = [[PhotoViewer alloc]initWithNibName:@"PhotoViewer" bundle:nil];            
     [photoViewer setupScrollView:restaurant.pictures];
     photoViewer.navItem.title = [NSString stringWithFormat:@"%@", restaurant.name];
     photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

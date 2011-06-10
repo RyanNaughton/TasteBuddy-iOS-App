@@ -14,6 +14,7 @@
 #import "RestaurantService.h"
 #import "RestaurantViewController.h"
 #import "ProfileTableViewController.h"
+#import "Restaurant.h"
 
 @implementation ProfilePhotoCell
 @synthesize imageView, restaurantLabel, pictureCountLabel, restaurantDictionary, ptvc;
@@ -87,7 +88,7 @@
         [arrayOfURLStrings addObject:[photoDict objectForKey:@"300px"]];
     }
     
-    PhotoViewer *photoViewer = [[PhotoViewer alloc]init];            
+    PhotoViewer *photoViewer = [[PhotoViewer alloc]initWithNibName:@"PhotoViewer" bundle:nil];            
     [photoViewer setupScrollView:arrayOfPhotos];
     photoViewer.navItem.title = [NSString stringWithFormat:@"%@", restaurantName];
     photoViewer.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
@@ -103,6 +104,7 @@
 
 -(void)restaurantRetrieved:(Restaurant *) restuarant 
 {
+    NSLog(@"restaurant menu items: %@", restuarant.menu_items);
     RestaurantViewController *rvc = [[RestaurantViewController alloc]initWithRestaurant:restuarant];
     [ptvc.navigationController pushViewController:rvc animated:YES];
     [rvc release];

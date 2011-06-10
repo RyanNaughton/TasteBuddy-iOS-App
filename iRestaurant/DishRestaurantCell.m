@@ -19,7 +19,7 @@
         self.textLabel.shadowColor = [UIColor blackColor];
         self.textLabel.shadowOffset = CGSizeMake(0,1);
         self.textLabel.backgroundColor = [UIColor clearColor];
-        self.textLabel.font = [UIFont boldSystemFontOfSize:14];
+        self.textLabel.font = [UIFont boldSystemFontOfSize:17];
 
         self.contentView.backgroundColor = [UIColor clearColor];
         self.backgroundView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"grey-grad"]];
