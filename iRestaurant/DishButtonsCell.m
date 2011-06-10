@@ -33,7 +33,7 @@
         [callButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [callButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         callButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-        callButton.frame = CGRectMake(10, 5, 300, 40);
+        callButton.frame = CGRectMake(10, 15, 300, 40);
         [callButton setTitle:[NSString stringWithFormat:@"Call: %@", dishViewController_passed.restaurant.phone] forState:UIControlStateNormal];
         [self.contentView addSubview:callButton];
         
@@ -69,7 +69,7 @@
         [mapItButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [mapItButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         mapItButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-        mapItButton.frame = CGRectMake(10, 60, 300, 40); //CGRectMake(10, 60, 145, 40);
+        mapItButton.frame = CGRectMake(10, 70, 300, 40); //CGRectMake(10, 60, 145, 40);
         [mapItButton setTitle:[NSString stringWithFormat:@"Map: %@", dishViewController_passed.restaurant.address_1] forState:UIControlStateNormal];
         [self.contentView addSubview:mapItButton];
         

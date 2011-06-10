@@ -37,7 +37,7 @@
         dvc = [dvc_passed retain];
         
         name = [[UILabel alloc]init];
-        name.frame = CGRectMake(10, 7, 240, 20);
+        name.frame = CGRectMake(10, 7, 210, 20);
         name.adjustsFontSizeToFitWidth = TRUE;
         name.numberOfLines = 5;
         name.textColor = [[UIColor alloc] initWithRed:0.0 / 255 green:0.0 / 255 blue:0.0 / 255 alpha:1.0];
@@ -67,20 +67,34 @@
         [self.contentView addSubview:price];
                 
         bookmarkButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        bookmarkButton.frame = CGRectMake(240, 50, 24, 22);
         [bookmarkButton addTarget:dvc action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-
+        UIImage *greyButtonImage = [[UIImage imageNamed:@"darkgrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
+        [bookmarkButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
+        bookmarkButton.frame = CGRectMake(225, 50, 35, 35);
+        
         if (dvc.menu_item.bookmark) {
-            [bookmarkButton setImage:[UIImage imageNamed:@"red-heart.png"] forState:UIControlStateNormal];
+            UIImageView *iv = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"red-heart.png"]];
+            iv.frame = CGRectMake(5, 7, 25, 20);
+            [bookmarkButton addSubview:iv];
+            [iv release];
         } else {
-            [bookmarkButton setImage:[UIImage imageNamed:@"29-heart.png"] forState:UIControlStateNormal];            
+            UIImageView *iv = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"29-heart.png"]];
+            iv.frame = CGRectMake(5, 7, 25, 20);
+            [bookmarkButton addSubview:iv];
+            [iv release];
         }
         [self.contentView addSubview:bookmarkButton];
         
         photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        photoButton.frame = CGRectMake(285, 50, 24, 22);
+        photoButton.frame = CGRectMake(275, 50, 35, 35);
         [photoButton addTarget:dvc action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [photoButton setImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
+        [photoButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
+        
+        UIImageView *iv = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"86-camera.png"]];
+        iv.frame = CGRectMake(5, 7, 25, 20);
+        [photoButton addSubview:iv];
+        [iv release];
+        
         [self.contentView addSubview:photoButton];
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;   
@@ -112,8 +126,8 @@
     name.frame = CGRectMake(10, 7, expectedLabelSize.width, expectedLabelSize.height);
     ratingView.frame = CGRectMake(10, expectedLabelSize.height + 15 + foreignNameOffset, ratingView.frame.size.width, ratingView.frame.size.height);
     ratingButton.frame = CGRectMake(ratingButton.frame.origin.x, expectedLabelSize.height + 15 + foreignNameOffset, ratingButton.frame.size.width, ratingButton.frame.size.height);
-    photoButton.frame = CGRectMake(photoButton.frame.origin.x, expectedLabelSize.height + 15 + foreignNameOffset, photoButton.frame.size.width, photoButton.frame.size.height);
-    bookmarkButton.frame = CGRectMake(bookmarkButton.frame.origin.x, expectedLabelSize.height + 15 + foreignNameOffset, bookmarkButton.frame.size.width, bookmarkButton.frame.size.height);
+    photoButton.frame = CGRectMake(photoButton.frame.origin.x, expectedLabelSize.height + 9 + foreignNameOffset, photoButton.frame.size.width, photoButton.frame.size.height);
+    bookmarkButton.frame = CGRectMake(bookmarkButton.frame.origin.x, expectedLabelSize.height + 9 + foreignNameOffset, bookmarkButton.frame.size.width, bookmarkButton.frame.size.height);
     
     
     restaurantName.text = [restaurant.name retain];

@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
 
-@interface ProfileHeadCell : UITableViewCell {
+@interface ProfileHeadCell : UITableViewCell <UIActionSheetDelegate, MFMailComposeViewControllerDelegate> {
     UILabel *nameLabel;
     UILabel *reviewsLabel;
     UILabel *picturesLabel;
@@ -19,7 +21,8 @@
 @property (nonatomic, retain) UILabel *reviewsLabel;
 @property (nonatomic, retain) UILabel *picturesLabel;
 
--(void)setUserInfoWithName:(NSString *)name andReviews:(int)reviewsCount andPictures:(int)picturesCount;
-
+-(void) setUserInfoWithName:(NSString *)name andReviews:(int)reviewsCount andPictures:(int)picturesCount;
+-(void) feedbackButtonPressed;
+-(void) launchEmailFeedback;
 
 @end

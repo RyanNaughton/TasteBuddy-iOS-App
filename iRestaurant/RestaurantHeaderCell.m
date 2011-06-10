@@ -47,7 +47,7 @@
         [self.contentView addSubview:imageButton];
         
         name = [[UILabel alloc]init];
-        name.frame = CGRectMake(10, 7, 300, 20);
+        name.frame = CGRectMake(10, 7, 205, 20);
         name.textColor = [UIColor blackColor];
 		name.backgroundColor = [UIColor clearColor];
 		name.font = [UIFont boldSystemFontOfSize:17];
@@ -162,22 +162,35 @@
         [self.contentView addSubview:average_meal];
         
         UIButton *bookmarkButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        bookmarkButton.frame = CGRectMake(240, 30, 24, 22);
-        [bookmarkButton addTarget:restaurantViewController action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [bookmarkButton addTarget:rvc action:@selector(bookmarkButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        UIImage *greyButtonImage = [[UIImage imageNamed:@"darkgrey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
+        [bookmarkButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
+        bookmarkButton.frame = CGRectMake(225, 5, 35, 35);
         
-        if (restaurantViewController.restaurant.bookmark) {
-            [bookmarkButton setImage:[UIImage imageNamed:@"red-heart.png"] forState:UIControlStateNormal];
+        if (rvc.restaurant.bookmark) {
+            UIImageView *iv = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"red-heart.png"]];
+            iv.frame = CGRectMake(5, 7, 25, 20);
+            [bookmarkButton addSubview:iv];
+            [iv release];
         } else {
-            [bookmarkButton setImage:[UIImage imageNamed:@"29-heart.png"] forState:UIControlStateNormal];            
+            UIImageView *iv = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"29-heart.png"]];
+            iv.frame = CGRectMake(5, 7, 25, 20);
+            [bookmarkButton addSubview:iv];
+            [iv release];
         }
         [self.contentView addSubview:bookmarkButton];
         
         UIButton *photoButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        photoButton.frame = CGRectMake(285, 30, 24, 22);
-        [photoButton addTarget:restaurantViewController action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        [photoButton setImage:[UIImage imageNamed:@"86-camera.png"] forState:UIControlStateNormal];
-        [self.contentView addSubview:photoButton];
+        photoButton.frame = CGRectMake(275, 5, 35, 35);
+        [photoButton addTarget:rvc action:@selector(photoButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [photoButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         
+        UIImageView *iv = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"86-camera.png"]];
+        iv.frame = CGRectMake(5, 7, 25, 20);
+        [photoButton addSubview:iv];
+        [iv release];
+        
+        [self.contentView addSubview:photoButton];
         
         self.selectionStyle = UITableViewCellSelectionStyleNone;
     }

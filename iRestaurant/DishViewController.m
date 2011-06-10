@@ -301,7 +301,7 @@
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Image"]) {
         height = 320;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
-        height = 50.0;
+        height = 110.0;
     }  else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         if (indexPath.row == 0) {
             height = 60;
