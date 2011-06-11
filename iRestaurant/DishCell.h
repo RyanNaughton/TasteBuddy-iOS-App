@@ -17,6 +17,7 @@
     UILabel *tags        ;
     UILabel *price;
     RatingView *ratingView;
+    BOOL isFavoriteView;
 }
 
 @property (nonatomic, retain) UIImageView *imageView;
@@ -24,7 +25,10 @@
 @property (nonatomic, retain) UILabel *tags        ;
 @property (nonatomic, retain) UILabel *price;
 @property (nonatomic, retain) RatingView *ratingView;
+@property (nonatomic, assign) BOOL isFavoriteView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 -(void)loadMenuItem:(MenuItem *)menuItem;
+-(void) addRestaurantName:(NSString *)restaurantName;
+
 @end

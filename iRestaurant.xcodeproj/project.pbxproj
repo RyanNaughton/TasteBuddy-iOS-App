@@ -158,6 +158,8 @@
 		E80E05A21360EA3400894180 /* cheeseburger.png in Resources */ = {isa = PBXBuildFile; fileRef = E80E059F1360EA3300894180 /* cheeseburger.png */; };
 		E80FAC8413A1731700754423 /* share-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = E80FAC8213A1731700754423 /* share-logo.png */; };
 		E80FAC8513A1731700754423 /* share-logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E80FAC8313A1731700754423 /* share-logo@2x.png */; };
+		E818076A13A2EA22005B2BC8 /* SectionsMenuTableView2.m in Sources */ = {isa = PBXBuildFile; fileRef = E818076913A2EA22005B2BC8 /* SectionsMenuTableView2.m */; };
+		E818076D13A2EDF7005B2BC8 /* SubsectionsMenuTableView2.m in Sources */ = {isa = PBXBuildFile; fileRef = E818076C13A2EDF6005B2BC8 /* SubsectionsMenuTableView2.m */; };
 		E81A7B431383041B0035215C /* UserSettingsService.m in Sources */ = {isa = PBXBuildFile; fileRef = E81A7B421383041B0035215C /* UserSettingsService.m */; };
 		E81A7B47138306D10035215C /* UserAttributesService.m in Sources */ = {isa = PBXBuildFile; fileRef = E81A7B46138306D10035215C /* UserAttributesService.m */; };
 		E81B8F43138465660052F240 /* bar-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E81B8F42138465660052F240 /* bar-bg.png */; };
@@ -665,6 +667,10 @@
 		E80E059F1360EA3300894180 /* cheeseburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cheeseburger.png; sourceTree = "<group>"; };
 		E80FAC8213A1731700754423 /* share-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-logo.png"; sourceTree = "<group>"; };
 		E80FAC8313A1731700754423 /* share-logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share-logo@2x.png"; sourceTree = "<group>"; };
+		E818076813A2EA21005B2BC8 /* SectionsMenuTableView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionsMenuTableView2.h; sourceTree = "<group>"; };
+		E818076913A2EA22005B2BC8 /* SectionsMenuTableView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionsMenuTableView2.m; sourceTree = "<group>"; };
+		E818076B13A2EDF5005B2BC8 /* SubsectionsMenuTableView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SubsectionsMenuTableView2.h; sourceTree = "<group>"; };
+		E818076C13A2EDF6005B2BC8 /* SubsectionsMenuTableView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SubsectionsMenuTableView2.m; sourceTree = "<group>"; };
 		E81A7B411383041A0035215C /* UserSettingsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserSettingsService.h; sourceTree = "<group>"; };
 		E81A7B421383041B0035215C /* UserSettingsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserSettingsService.m; sourceTree = "<group>"; };
 		E81A7B45138306D10035215C /* UserAttributesService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserAttributesService.h; sourceTree = "<group>"; };
@@ -2213,8 +2219,12 @@
 				E8DFF5971358B7CE007BF40E /* MenuViewController_OLD.m */,
 				E8BEDE6F13665A1F001E5079 /* SimpleMenuTableView.h */,
 				E8BEDE7013665A20001E5079 /* SimpleMenuTableView.m */,
+				E818076813A2EA21005B2BC8 /* SectionsMenuTableView2.h */,
+				E818076913A2EA22005B2BC8 /* SectionsMenuTableView2.m */,
 				E8BEDE7A13666876001E5079 /* SectionsMenuTableView.h */,
 				E8BEDE7B13666876001E5079 /* SectionsMenuTableView.m */,
+				E818076B13A2EDF5005B2BC8 /* SubsectionsMenuTableView2.h */,
+				E818076C13A2EDF6005B2BC8 /* SubsectionsMenuTableView2.m */,
 				E8BEDE7D136753F8001E5079 /* SubsectionsMenuTableView.h */,
 				E8BEDE7E136753F9001E5079 /* SubsectionsMenuTableView.m */,
 				E8BEDE8013678F59001E5079 /* MenuItemsViewController.h */,
@@ -2773,6 +2783,8 @@
 				E8B36610139962C7008C3E7F /* WhatSelectorTableViewController.m in Sources */,
 				E8B2B88A139FF40D00B924E3 /* DishRestaurantCell.m in Sources */,
 				E8B2B89813A011FF00B924E3 /* DishImageCell.m in Sources */,
+				E818076A13A2EA22005B2BC8 /* SectionsMenuTableView2.m in Sources */,
+				E818076D13A2EDF7005B2BC8 /* SubsectionsMenuTableView2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

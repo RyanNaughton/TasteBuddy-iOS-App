@@ -13,7 +13,7 @@
 #import <QuartzCore/QuartzCore.h>
 
 @implementation DishCell
-@synthesize imageView, name, tags, price, ratingView;
+@synthesize imageView, name, tags, price, ratingView, isFavoriteView;
 
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -92,6 +92,17 @@
         imageView.image = noImage;
     }
     [ratingView loadRating:menuItem.rating];
+}
+
+-(void) addRestaurantName:(NSString *)restaurantName {
+    UILabel *restaurantNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(75, 35, 155, 20)];
+    restaurantNameLabel.backgroundColor = [UIColor clearColor];
+    restaurantNameLabel.textColor = [UIColor darkGrayColor];
+    restaurantNameLabel.font = [UIFont italicSystemFontOfSize:13];
+    restaurantNameLabel.text = [NSString stringWithFormat:@"at %@", restaurantName];
+    [self.contentView addSubview:restaurantNameLabel];
+    [restaurantNameLabel release];
+
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

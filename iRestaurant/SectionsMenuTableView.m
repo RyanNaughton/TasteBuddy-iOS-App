@@ -59,14 +59,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
- 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewDidUnload
@@ -175,7 +167,6 @@
     
         MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
         categoryCell.name.text = [NSString stringWithFormat:@"%@", menuCategory.name];
-        
         
         if ((sectionExpanded == indexPath.section) && (isExpanded)) {
             categoryCell.accessoryType = UITableViewCellAccessoryNone;

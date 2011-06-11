@@ -151,6 +151,7 @@
         
         MenuItem *menuItem = (MenuItem *)[dishesArray objectAtIndex:indexPath.row];
         [dishCell loadMenuItem:menuItem];
+        //[dishCell addRestaurantName:menuItem.restaurant_name
 		
 		return dishCell;
 		

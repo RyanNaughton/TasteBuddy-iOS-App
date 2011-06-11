@@ -13,7 +13,7 @@
 #import "MenuCategory.h"
 #import "MenuSubcategory.h"
 #import "SimpleMenuTableView.h"
-#import "SectionsMenuTableView.h"
+#import "SectionsMenuTableView2.h"
 #import "ASIFormDataRequest.h"
 
 @implementation MenuViewController
@@ -55,7 +55,7 @@
     }
         
     if (menuItems >= 150) {
-        SectionsMenuTableView *sectionsMenuTableView = [[SectionsMenuTableView alloc]initWithMenu:menu];
+        SectionsMenuTableView2 *sectionsMenuTableView = [[SectionsMenuTableView2 alloc]initWithMenu:menu];
         tableView.dataSource = sectionsMenuTableView;
         tableView.delegate = sectionsMenuTableView;
         sectionsMenuTableView.navController = self.navigationController;

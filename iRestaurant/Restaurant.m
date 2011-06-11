@@ -122,7 +122,12 @@
             average_meal_price = 0.0f;
         }
         
-        distance          = [[restaurantDictionary objectForKey:@"distance"] retain];
+        if ([restaurantDictionary objectForKey:@"distance"] != nil && [[restaurantDictionary objectForKey:@"distance"] isKindOfClass:[NSNumber class]])
+        {
+            distance = [[restaurantDictionary objectForKey:@"distance"] retain];
+        } else {
+            NSLog(@"distance not set");
+        }
         
         menu_items        = [[NSMutableArray alloc] init];
         
