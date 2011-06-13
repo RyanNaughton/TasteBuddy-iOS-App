@@ -12,6 +12,8 @@
 #import "SearchViewController.h"
 #import "DishCell.h"
 #import "DishViewController.h"
+#import "RatingView.h"
+#import "RestaurantViewController.h"
 
 @implementation DishSearchResultTableViewController
 
@@ -116,9 +118,14 @@
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 44;
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (!isLoading && [restaurantsArray count] > 0) {
-        UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
+        UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
         headerView.backgroundColor = [UIColor clearColor];
     
 //        UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
@@ -128,35 +135,68 @@
 //        [bgView release];
         
         UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"orange-grad.png"]];
-        bgImageView.alpha = 0.66;
+        bgImageView.alpha = 0.9;
         bgImageView.frame = headerView.frame;
         bgImageView.contentMode = UIViewContentModeScaleToFill;
         [headerView addSubview:bgImageView];
         [bgImageView release];
 
+        UILabel *restaurantCuisine = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 220, 22)];
+        restaurantCuisine.backgroundColor = [UIColor clearColor];
+        restaurantCuisine.textColor = [UIColor darkGrayColor];
+        restaurantCuisine.font = [UIFont systemFontOfSize:12];
+        restaurantCuisine.text = [[((Restaurant *)[restaurantsArray objectAtIndex:section]).cuisine_types objectAtIndex:0] retain];
+        [headerView addSubview:restaurantCuisine];
+        [restaurantCuisine release];
         
-        UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, -1, 220, 22)];
+        UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, 17, 220, 22)];
         restaurantName.backgroundColor = [UIColor clearColor];
-        restaurantName.textColor = [[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
-        restaurantName.font = [UIFont systemFontOfSize:14];
+        restaurantName.textColor = [UIColor blackColor]; //[[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
+        restaurantName.font = [UIFont systemFontOfSize:15];
         restaurantName.text = [((Restaurant *)[restaurantsArray objectAtIndex:section]).name retain];
         [headerView addSubview:restaurantName];
         [restaurantName release];
     
-        UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(240, -1, 70, 22)];
+        UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(240, 17, 70, 22)];
         distance.backgroundColor = [UIColor clearColor];
         distance.textAlignment = UITextAlignmentRight;
         distance.textColor = [[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
         distance.font = [UIFont systemFontOfSize:14];
         Restaurant *restaurant = [restaurantsArray objectAtIndex:section];
-        distance.text = [NSString stringWithFormat:@"%@ mi", [restaurant.distance retain]];
+        distance.text = [NSString stringWithFormat:@"%@ miles", [restaurant.distance retain]];
         [headerView addSubview:distance];
         [distance release];
+        
+        RatingView *ratingView = [[RatingView alloc] initWithStarSize:18 andLabelVisible:NO];
+        ratingView.frame = CGRectMake(220, 2, 50, 20);
+        [ratingView loadRating:restaurant.rating];
+        [headerView addSubview:ratingView];
+        
+        UIButton *invisibleButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        invisibleButton.tag = section;
+        invisibleButton.frame = headerView.frame;
+        [invisibleButton addTarget:self action:@selector(headerButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
+        [headerView addSubview:invisibleButton];
+        
+        
+        
         return [headerView autorelease];
     } else {
         return nil;
     }
 
+}
+
+-(void) headerButtonPressed:(id)sender {
+    UIButton *button = (UIButton *)sender;
+    NSLog(@"header button pressed: %i", button.tag);
+    
+    if ([restaurantsArray count] > 0) {
+        Restaurant *restaurant = (Restaurant *)[restaurantsArray objectAtIndex:button.tag];
+        RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:restaurant];
+        [searchViewController.navigationController pushViewController:restaurantViewController animated:YES];
+        [restaurantViewController release];
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

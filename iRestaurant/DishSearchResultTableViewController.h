@@ -18,4 +18,6 @@
 @property (nonatomic, retain) NSMutableArray *restaurantsArray;
 @property (nonatomic, assign) bool isLoading;
 
+-(void) headerButtonPressed:(id)sender;
+
 @end

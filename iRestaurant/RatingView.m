@@ -35,6 +35,7 @@
         
         ratingsLabel = [[UILabel alloc]initWithFrame:CGRectMake(((starSize * 5) + 5), 2, 100, starSize)];
         ratingsLabel.textColor = [UIColor darkGrayColor];
+        ratingsLabel.backgroundColor = [UIColor clearColor];
         ratingsLabel.font = [UIFont systemFontOfSize:12];
         ratingsLabel.hidden = !isLabelVisible;
         [self addSubview:ratingsLabel];
