@@ -143,18 +143,23 @@
             return cell;
         }
     } else if ([dishesArray count] > 0) {
-        
-		DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"FavoriteDishCell"];
-		if (dishCell == nil) {
-		    dishCell = [[[DishCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FavoriteDishCell"] autorelease];
-		}          
-        
         MenuItem *menuItem = (MenuItem *)[dishesArray objectAtIndex:indexPath.row];
-        [dishCell loadMenuItem:menuItem];
-        //[dishCell addRestaurantName:menuItem.restaurant_name
-		
-		return dishCell;
-		
+        
+        if ([menuItem.pictures count] > 0) {        
+            DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"FavoriteDishCell"];
+            if (dishCell == nil) {
+                dishCell = [[[DishCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FavoriteDishCell"] autorelease];
+            }
+            [dishCell loadMenuItem:menuItem];		
+            return dishCell;
+        } else {
+            DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"FavoriteDishCellShort"];
+            if (dishCell == nil) {
+                dishCell = [[[DishCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FavoriteDishCellShort"] autorelease];
+            }
+            [dishCell loadMenuItem:menuItem];		
+            return dishCell;
+        }
 	} else {
 		
 		static NSString *CellIdentifier = @"Placeholder Menu Cell";
@@ -179,8 +184,13 @@
         favoritesViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         height = 300; 
     } else if ([dishesArray count] > 0) {
+        MenuItem *menuItem = (MenuItem *)[dishesArray objectAtIndex:indexPath.row];
+        if ([menuItem.pictures count] > 0) {
+            height = 70;
+        } else {
+            height = 48;
+        }
         favoritesViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-        height = 70;
     } else {
         favoritesViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         height = 50;

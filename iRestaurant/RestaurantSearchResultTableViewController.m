@@ -124,7 +124,7 @@
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
     headerView.backgroundColor = [UIColor clearColor];
     
-    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"orange-grad.png"]];
+    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"grey-grad"]];
     bgImageView.alpha = 0.66;
     bgImageView.frame = headerView.frame;
     bgImageView.contentMode = UIViewContentModeScaleToFill;
@@ -133,9 +133,11 @@
     
     UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, -1, 300, 22)];
     restaurantName.backgroundColor = [UIColor clearColor];
-    restaurantName.textColor = [[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
+    restaurantName.textColor = [UIColor whiteColor];
     restaurantName.font = [UIFont systemFontOfSize:14];
     restaurantName.text = filterText;
+    restaurantName.shadowColor = [UIColor blackColor];
+    restaurantName.shadowOffset = CGSizeMake(0,1);
     [headerView addSubview:restaurantName];
     [restaurantName release];
     return [headerView autorelease];
@@ -195,7 +197,7 @@
         searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         height = 300; 
     } else if ([filteredArray count] > 0) {
-        height = 70;
+        height = 52;
         searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     } else {
         height = 50;

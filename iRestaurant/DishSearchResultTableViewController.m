@@ -120,12 +120,12 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 44;
+    return 37;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (!isLoading && [restaurantsArray count] > 0) {
-        UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 44)];
+        UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 37)];
         headerView.backgroundColor = [UIColor clearColor];
     
 //        UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
@@ -134,41 +134,48 @@
 //        [headerView addSubview:bgView];
 //        [bgView release];
         
-        UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"orange-grad.png"]];
-        bgImageView.alpha = 0.9;
+        UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"grey-grad"]];
+        bgImageView.alpha = 0.95;
         bgImageView.frame = headerView.frame;
         bgImageView.contentMode = UIViewContentModeScaleToFill;
         [headerView addSubview:bgImageView];
         [bgImageView release];
 
-        UILabel *restaurantCuisine = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, 220, 22)];
+        UILabel *restaurantCuisine = [[UILabel alloc]initWithFrame:CGRectMake(10, -1, 220, 22)];
         restaurantCuisine.backgroundColor = [UIColor clearColor];
-        restaurantCuisine.textColor = [UIColor darkGrayColor];
-        restaurantCuisine.font = [UIFont systemFontOfSize:12];
+        restaurantCuisine.textColor = [[UIColor alloc]initWithRed:255.0/255.0 green:255/255.0 blue:255.0/255.0 alpha:0.9];
+        restaurantCuisine.font = [UIFont systemFontOfSize:10];
         restaurantCuisine.text = [[((Restaurant *)[restaurantsArray objectAtIndex:section]).cuisine_types objectAtIndex:0] retain];
+        restaurantCuisine.shadowColor = [UIColor blackColor];
+        restaurantCuisine.shadowOffset = CGSizeMake(0,1);
         [headerView addSubview:restaurantCuisine];
         [restaurantCuisine release];
         
-        UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, 17, 220, 22)];
+        UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, 12, 220, 22)];
         restaurantName.backgroundColor = [UIColor clearColor];
-        restaurantName.textColor = [UIColor blackColor]; //[[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
+        restaurantName.textColor = [UIColor whiteColor]; //[[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
         restaurantName.font = [UIFont systemFontOfSize:15];
         restaurantName.text = [((Restaurant *)[restaurantsArray objectAtIndex:section]).name retain];
+        restaurantName.shadowColor = [UIColor blackColor];
+        restaurantName.shadowOffset = CGSizeMake(0,1);
         [headerView addSubview:restaurantName];
         [restaurantName release];
     
-        UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(240, 17, 70, 22)];
+        UILabel *distance = [[UILabel alloc]initWithFrame:CGRectMake(240, 13, 70, 22)];
         distance.backgroundColor = [UIColor clearColor];
         distance.textAlignment = UITextAlignmentRight;
-        distance.textColor = [[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
-        distance.font = [UIFont systemFontOfSize:14];
+        distance.textColor = [UIColor whiteColor]; //[[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
+        distance.font = [UIFont systemFontOfSize:12];
         Restaurant *restaurant = [restaurantsArray objectAtIndex:section];
         distance.text = [NSString stringWithFormat:@"%@ miles", [restaurant.distance retain]];
+        distance.shadowColor = [UIColor blackColor];
+        distance.shadowOffset = CGSizeMake(0,1);
         [headerView addSubview:distance];
         [distance release];
         
-        RatingView *ratingView = [[RatingView alloc] initWithStarSize:18 andLabelVisible:NO];
-        ratingView.frame = CGRectMake(220, 2, 50, 20);
+        int starSize = 15;
+        RatingView *ratingView = [[RatingView alloc] initWithStarSize:15 andLabelVisible:NO];
+        ratingView.frame = CGRectMake((310 - (starSize * 5)), 2, (starSize * 5), 20); //CGRectMake(235, 2, 50, 20);
         [ratingView loadRating:restaurant.rating];
         [headerView addSubview:ratingView];
         
@@ -219,16 +226,23 @@
         return cell;
     } else if ([restaurantsArray count] > 0) {
         
-		DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"DishCell"];
-		if (dishCell == nil) {
-		    dishCell = [[[DishCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishCell"] autorelease];
-		}          
-        
         MenuItem *menuItem = (MenuItem *)[((Restaurant *)[restaurantsArray objectAtIndex:indexPath.section]).menu_items objectAtIndex:indexPath.row];
-        [dishCell loadMenuItem:menuItem];
-		
-		return dishCell;
-		
+        
+        if ([menuItem.pictures count] > 0) {
+            DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"DishCell"];        
+            if (dishCell == nil) {
+                dishCell = [[[DishCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishCell"] autorelease];
+            }          
+            [dishCell loadMenuItem:menuItem];
+            return dishCell;
+        } else {
+            DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"DishCellShort"];        
+            if (dishCell == nil) {
+                dishCell = [[[DishCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishCellShort"] autorelease];
+            }          
+            [dishCell loadMenuItem:menuItem];
+            return dishCell;
+        }
 	} else {
 		
 		static NSString *CellIdentifier = @"Placeholder Menu Cell";
@@ -253,7 +267,12 @@
         searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         height = 300; 
     } else if ([restaurantsArray count] > 0) {
-        height = 70;
+        MenuItem *menuItem = (MenuItem *)[((Restaurant *)[restaurantsArray objectAtIndex:indexPath.section]).menu_items objectAtIndex:indexPath.row];
+        if ([menuItem.pictures count] > 0) {
+            height = 70;
+        } else {
+            height = 48;
+        }
         searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     } else {
         height = 50;

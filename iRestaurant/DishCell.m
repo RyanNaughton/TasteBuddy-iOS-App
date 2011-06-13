@@ -51,7 +51,7 @@
         [tags release];
         
         price = [[UILabel alloc]init];
-        price.frame = CGRectMake(210, 20, 100, 35);
+        price.frame = CGRectMake(210, 16, 100, 35);
         price.textAlignment = UITextAlignmentRight;
         price.textColor = [UIColor darkGrayColor];
 		price.backgroundColor = [UIColor clearColor];
@@ -63,7 +63,7 @@
         ratingView = [[RatingView alloc] initWithStarSize:starSize andLabelVisible:NO];
         ratingView.contentMode = UIViewContentModeScaleAspectFit;
         ratingView.clipsToBounds = TRUE;
-        ratingView.frame = CGRectMake((310 - (starSize * 5)), 10, (starSize * 5), 20);
+        ratingView.frame = CGRectMake((310 - (starSize * 5)), 7, (starSize * 5), 20);
         
 //        ratingView.frame = CGRectMake((310 - (starSize * 5)), 10, (starSize * 5), 40);
 //        ratingView.ratingsLabel.frame = CGRectMake(0, 13, (starSize * 5), 20);
@@ -89,6 +89,7 @@
         [imageView setImageWithURL:[NSURL URLWithString:[[menuItem.pictures objectAtIndex:0] objectForKey:@"80px"]]
               placeholderImage:noImage];
     } else {
+        imageView.frame = CGRectMake(2, 2, 65, 43);
         imageView.image = noImage;
     }
     [ratingView loadRating:menuItem.rating];

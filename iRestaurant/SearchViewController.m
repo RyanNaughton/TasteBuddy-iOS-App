@@ -212,7 +212,7 @@
         [tableView reloadData];
         tableView.hidden = false;
         mapView.hidden = true;
-        fakeTermField.placeholder = @"      Restaurants";
+        fakeTermField.placeholder = @"      dishes, restaurants, cuisines";
         [mapButton setTitle:@"Map" forState:UIControlStateNormal];
     } else if (sender == dishesTabButton){
         [self switchTabs:dishesTabButton];
@@ -221,7 +221,7 @@
         [tableView reloadData];
         tableView.hidden = false;
         mapView.hidden = true;
-        fakeTermField.placeholder = @"      Dishes";
+        fakeTermField.placeholder = @"      dishes, restaurants, cuisines";
     } else if (sender == mapButton && [mapButton.titleLabel.text isEqualToString:@"Map"]) {
         tableView.hidden = true;
         mapView.hidden = false;

@@ -84,7 +84,7 @@
 -(void)loadRestaurant:(Restaurant *)restaurant 
 {
     name.text = [restaurant.name retain];
-    tags.text = [restaurant tagsText];
+    //tags.text = [restaurant tagsText];
     addressLine1.text = [restaurant.address_1 retain];
     
   //  CGFloat xForCuisine = [StringSizeUtility widthOfString:name.text withLabel:name];
