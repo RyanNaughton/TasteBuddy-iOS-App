@@ -132,6 +132,9 @@
     
     NSLog(@"profile: %@", profile);
     
+    NSLog(@"profile class: %@", [profile class]);
+    NSLog(@"pictures class: %@", [[profile objectForKey:@"pictures"] class]);
+    
     username = [[NSString stringWithFormat:@"%@",[profile objectForKey:@"username"]]retain];
     reviewsCount = [[profile objectForKey:@"ratings_count"] intValue];
     picturesDictionary = [[NSDictionary alloc]initWithDictionary:[profile objectForKey:@"pictures"]];

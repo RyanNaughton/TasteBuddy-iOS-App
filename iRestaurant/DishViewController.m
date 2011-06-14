@@ -195,16 +195,16 @@
         DishHeaderCell *dishHeaderCell = (DishHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"DishHeaderCell"];
 		if (dishHeaderCell == nil) {
 		    dishHeaderCell = [[[DishHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishHeaderCell" andDishViewController:self] autorelease];
-            [dishHeaderCell loadMenuItem:menu_item andRestaurant:restaurant];
         }          
+        [dishHeaderCell loadMenuItem:menu_item andRestaurant:restaurant];
 		return dishHeaderCell;
 
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Image"]) {
         DishImageCell *dishImageCell = (DishImageCell *)[tableView dequeueReusableCellWithIdentifier:@"DishImageCell"];
 		if (dishImageCell == nil) {
 		    dishImageCell = [[[DishImageCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DishImageCell"] autorelease];
-            [dishImageCell loadMenuItem:menu_item andRestaurant:restaurant];
         }          
+        [dishImageCell loadMenuItem:menu_item andRestaurant:restaurant];
 		return dishImageCell;
         
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Buttons"]) {
@@ -463,6 +463,8 @@
     [comment release];
     [self buildTableArray];
     [self.tableView reloadData];
+    NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
+    [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
 }
 
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -476,8 +478,10 @@
 -(void) doneRating:(Rating *) rating {
     menu_item.rating = rating;
 //    [self.tableView reloadData];
+    [self.tableView reloadData];
     NSIndexSet *indexSet = [NSIndexSet indexSetWithIndex:1];
     [self.tableView reloadSections:indexSet withRowAnimation:UITableViewRowAnimationNone];
+    
 }
 
 -(void) doneBookmarking:(NSDictionary *) status {

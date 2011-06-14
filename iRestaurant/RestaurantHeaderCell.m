@@ -148,7 +148,7 @@
 		average_meal_text.font = [UIFont systemFontOfSize:12];
         average_meal_text.shadowColor = [UIColor whiteColor];
         average_meal_text.shadowOffset = CGSizeMake(0,1);
-        average_meal_text.text = @"avg. dish price";
+        average_meal_text.text = @"Avg Entree:";
         [self.contentView addSubview:average_meal_text];
 
         
@@ -274,12 +274,6 @@
 -(void) imageButtonPressed:(id)sender {
 
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-    
-//    NSLog(@"pictures data: %@", restaurant.pictures);
-//    NSMutableArray *arrayOfImageURLs = [[NSMutableArray alloc]init];
-//    for (NSDictionary *pictDict in restaurant.pictures) {
-//        [arrayOfImageURLs addObject:[pictDict objectForKey:@"300px"]];
-//    }
     
     PhotoViewer *photoViewer = [[PhotoViewer alloc]initWithNibName:@"PhotoViewer" bundle:nil];            
     [photoViewer setupScrollView:restaurant.pictures];

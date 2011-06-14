@@ -21,6 +21,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "UILabelUnderlined.h"
 #import "UIDeviceHardware.h"
+#import "Rating.h"
 
 @implementation DishHeaderCell
 
@@ -114,7 +115,6 @@
     
     int foreignNameOffset = 0;
     if (![menu_item_passed.foreign_name isKindOfClass:[NSNull class]]) {
-        NSLog(@"foreign name: %@", menu_item_passed.foreign_name);
         foreignNameOffset = 15;
         UILabel *foreignNameLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, expectedLabelSize.height + 8, 200, 15)];
         foreignNameLabel.text = menu_item_passed.foreign_name;
@@ -136,7 +136,7 @@
     if ([price.text isEqualToString:@"$0.00"]) {
         price.text = @"";
     }
-    
+    NSLog(@"rating is: %f", menu_item.rating.user_rating);
     [ratingView loadRating:menu_item.rating];
     
 //    NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
