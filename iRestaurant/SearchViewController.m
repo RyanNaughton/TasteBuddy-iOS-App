@@ -154,20 +154,11 @@
 {
     
     UIButton *offTab;
-    [UIView beginAnimations:nil context:nil];
     if (onTab == restaurantsTabButton) {
         offTab = dishesTabButton;
-        fakeTermField.frame = CGRectMake(7, 7, 207, 31);
-        filterButton.alpha = 1.0;
-        mapButton.alpha = 1.0;
     } else {
         offTab = restaurantsTabButton;
-        fakeTermField.frame = CGRectMake(7, 7, 306, 31);
-        filterButton.alpha = 0.0;
-        mapButton.alpha = 0.0;
     }
-    [UIView setAnimationDuration:0.2];
-    [UIView commitAnimations];
     mapView.hidden = YES;
     [offTab setBackgroundImage:[[UIImage imageNamed:@"darkgrey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
     [offTab setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

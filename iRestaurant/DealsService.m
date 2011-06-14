@@ -37,7 +37,7 @@
     
     //NSString *json = [jsonDictionary JSONRepresentation];
     
-    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     NSString *urlString = [NSString stringWithFormat:@"http://api.yipit.com/v1/deals/?lat=%f&lon=%f&radius=%i&tag=restaurants&key=%@", appDelegate.currentLocation.coordinate.latitude, appDelegate.currentLocation.coordinate.longitude, 10, @"mg2ry7FuB3eRxUQR&"];
     NSLog(@"urlString: %@", urlString);
