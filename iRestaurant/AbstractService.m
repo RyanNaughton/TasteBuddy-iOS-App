@@ -22,7 +22,7 @@
     if(self) {
         authTokenRequired = NO;
         authTokenOptional = NO;
-        appDelegate = [[UIApplication sharedApplication] delegate];
+        appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
         jsonDictionary = [[NSMutableDictionary alloc] init];
     }
     

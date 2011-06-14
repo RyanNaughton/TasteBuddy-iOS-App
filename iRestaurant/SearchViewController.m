@@ -375,7 +375,7 @@
 }
 -(IBAction) presentSearchModal {
     
-    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
     [appDelegate updateLocation];
     
     [fakeTermField resignFirstResponder];

@@ -46,6 +46,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    sortControl.selectedSegmentIndex = svc.sortAndFilterPreferences.sortIndex;
+    priceControl.selectedSegmentIndex = svc.sortAndFilterPreferences.priceIndex;
+    distanceControl.selectedSegmentIndex = svc.sortAndFilterPreferences.distanceIndex;
 }
 
 - (void)viewDidUnload
