@@ -144,7 +144,7 @@
         UILabel *restaurantCuisine = [[UILabel alloc]initWithFrame:CGRectMake(10, -1, 220, 22)];
         restaurantCuisine.backgroundColor = [UIColor clearColor];
         restaurantCuisine.textColor = [[UIColor alloc]initWithRed:255.0/255.0 green:255/255.0 blue:255.0/255.0 alpha:0.9];
-        restaurantCuisine.font = [UIFont systemFontOfSize:10];
+        restaurantCuisine.font = [UIFont systemFontOfSize:11];
         restaurantCuisine.text = [[((Restaurant *)[restaurantsArray objectAtIndex:section]).cuisine_types objectAtIndex:0] retain];
         restaurantCuisine.shadowColor = [UIColor blackColor];
         restaurantCuisine.shadowOffset = CGSizeMake(0,1);

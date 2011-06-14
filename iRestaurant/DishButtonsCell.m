@@ -33,7 +33,7 @@
         [callButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
         [callButton setTitleColor:[UIColor darkGrayColor] forState:UIControlStateNormal];
         callButton.titleLabel.font = [UIFont boldSystemFontOfSize:14];
-        callButton.frame = CGRectMake(10, 15, 300, 40);
+        callButton.frame = CGRectMake(10, 20, 300, 40);
         [callButton setTitle:[NSString stringWithFormat:@"Call: %@", dishViewController_passed.restaurant.phone] forState:UIControlStateNormal];
         [self.contentView addSubview:callButton];
         
