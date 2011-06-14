@@ -288,7 +288,7 @@
         height = 40;
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Header"]) {
         
-        CGSize maximumLabelSize = CGSizeMake(240,9999);
+        CGSize maximumLabelSize = CGSizeMake(210,9999);
         CGSize expectedLabelSize = [menu_item.name sizeWithFont:[UIFont boldSystemFontOfSize:17] 
                                               constrainedToSize:maximumLabelSize 
                                                   lineBreakMode:UILineBreakModeWordWrap];

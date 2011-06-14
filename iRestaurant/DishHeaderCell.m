@@ -58,8 +58,8 @@
         [self.contentView addSubview:ratingButton];
         
         price = [[UILabel alloc]init];
-        price.frame = CGRectMake(265, 7, 50, 20);
-        price.textAlignment = UITextAlignmentCenter;
+        price.frame = CGRectMake(260, 7, 50, 20);
+        price.textAlignment = UITextAlignmentRight;
         price.textColor = [UIColor darkGrayColor];
 		price.backgroundColor = [UIColor clearColor];
 		price.font = [UIFont systemFontOfSize:16];
