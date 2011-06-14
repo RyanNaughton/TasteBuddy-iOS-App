@@ -166,7 +166,7 @@
 							<object class="IBUITextField" id="686765744">
 								<reference key="NSNextResponder" ref="242412485"/>
 								<int key="NSvFlags">292</int>
-								<string key="NSFrame">{{7, 7}, {10, 31}}</string>
+								<string key="NSFrame">{{7, 7}, {208, 31}}</string>
 								<reference key="NSSuperview" ref="242412485"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="824823755"/>
@@ -234,7 +234,6 @@
 						<string key="NSFrame">{{0, 43}, {320, 324}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<reference key="IBUIBackgroundColor" ref="338244481"/>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
@@ -444,8 +443,8 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="255669294"/>
-							<reference ref="242412485"/>
 							<reference ref="692185291"/>
+							<reference ref="242412485"/>
 						</object>
 						<reference key="parent" ref="0"/>
 					</object>

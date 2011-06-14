@@ -88,14 +88,9 @@
     [super viewDidLoad];
     
     tableView.backgroundColor = [UIColor clearColor];
-//    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"pepperbg_final.png"]];
-//    tableView.backgroundView = imageView;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fireSearch) name:@"fireSearch" object:nil];
     
-    fakeTermField.frame = CGRectMake(7, 7, 254, 31);
-
-    //needsToPerformDefaultSearch = YES;
     UIImage *greyButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
     [mapButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     [filterButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
@@ -277,6 +272,7 @@
     
     if (sortAndFilterPreferences.sortIndex > -1) {
         NSSortDescriptor *sortDescriptor;
+        NSSortDescriptor *sortForMenuItemsDescriptor;
         if(sortAndFilterPreferences.sortIndex == 0) {
             sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"distance"
                                                           ascending:YES] autorelease];        
@@ -286,14 +282,31 @@
                                                           ascending:NO] autorelease];  
            sortValue = @"rating";
             
+            sortForMenuItemsDescriptor = sortDescriptor;
+            
         } else if(sortAndFilterPreferences.sortIndex == 2) {
             sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"average_meal_price"
                                                           ascending:YES] autorelease];
             sortValue = @"price";
+            
+            sortForMenuItemsDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"price"
+                                                                      ascending:YES] autorelease];
         }
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
+        
+
         NSArray *sortedArray = [restaurantSearchResultTableViewController.restaurantsArray sortedArrayUsingDescriptors:sortDescriptors];
         restaurantSearchResultTableViewController.restaurantsArray = [NSMutableArray arrayWithArray: sortedArray];
+
+        dishSearchResultTableViewController.restaurantsArray = restaurantSearchResultTableViewController.restaurantsArray;
+
+        if(sortAndFilterPreferences.sortIndex > 0) {
+            NSArray *sortForMenuItemsDescriptors = [NSArray arrayWithObject:sortForMenuItemsDescriptor];
+            for (Restaurant *r in dishSearchResultTableViewController.restaurantsArray) {
+                NSArray *sortedMenuItemsArray =  [r.menu_items sortedArrayUsingDescriptors:sortForMenuItemsDescriptors];
+                r.menu_items = [NSMutableArray arrayWithArray:sortedMenuItemsArray];
+            }
+        }
     } 
     
      if (sortAndFilterPreferences.distanceIndex > -1 || sortAndFilterPreferences.priceIndex > -1) {
