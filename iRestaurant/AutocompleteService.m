@@ -77,7 +77,9 @@
             [values addObject:[value copy]]; //Retain to stop crashes
         }
     }
-        
+    
+    NSLog(@"autocomplete dict: %@", responseDictionary);
+    
     [delegate autocompleteFinished:responseDictionary withLastNear:lastNear];
     request = nil;
 }
