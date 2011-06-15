@@ -88,9 +88,14 @@
     [super viewDidLoad];
     
     tableView.backgroundColor = [UIColor clearColor];
+    //    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"pepperbg_final.png"]];
+    //    tableView.backgroundView = imageView;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fireSearch) name:@"fireSearch" object:nil];
     
+    fakeTermField.frame = CGRectMake(7, 7, 254, 31);
+    
+    //needsToPerformDefaultSearch = YES;
     UIImage *greyButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
     [mapButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     [filterButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
@@ -110,11 +115,11 @@
     restaurantsTabButton.titleLabel.font = [UIFont systemFontOfSize:13];
     restaurantsTabButton.frame = CGRectMake(78, 4, 83, 35);
     [restaurantsTabButton addTarget:self action:@selector(switchSearchView:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     [self switchTabs:dishesTabButton];
-
+    
     lastSender = dishesTabButton; //Set initial value for lastSender so we knew which result view we need to be in.
-
+    
     tabView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 35)];
     [tabView addSubview:appNameImageView];
     [tabView addSubview:dishesTabButton];
@@ -124,7 +129,7 @@
     // Do any additional setup after loading the view from its nib.    
     CGPoint point = CGPointMake(1.2345, 1.2345);
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
-
+    
     [self switchSearchView:dishesTabButton]; //Show no results initially.
     
 }
@@ -149,11 +154,20 @@
 {
     
     UIButton *offTab;
+    [UIView beginAnimations:nil context:nil];
     if (onTab == restaurantsTabButton) {
         offTab = dishesTabButton;
+        fakeTermField.frame = CGRectMake(7, 7, 207, 31);
+        filterButton.alpha = 1.0;
+        mapButton.alpha = 1.0;
     } else {
         offTab = restaurantsTabButton;
+        fakeTermField.frame = CGRectMake(7, 7, 306, 31);
+        filterButton.alpha = 0.0;
+        mapButton.alpha = 0.0;
     }
+    [UIView setAnimationDuration:0.2];
+    [UIView commitAnimations];
     mapView.hidden = YES;
     [offTab setBackgroundImage:[[UIImage imageNamed:@"darkgrey-tab.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:0.0] forState:UIControlStateNormal];
     [offTab setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -216,9 +230,9 @@
         [mapButton setTitle:@"Map" forState:UIControlStateNormal];
         [self switchSearchView:restaurantsTabButton];
     }
-
+    
     [tableView setContentOffset:CGPointMake(0, 0) animated:NO];
-
+    
     //Need to scroll to top here
 }
 
@@ -233,7 +247,7 @@
 -(void)searchFinished:(NSMutableArray *)restaurantsArray 
 { 
     restaurantSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
-    restaurantSearchResultTableViewController.filterText = @"";
+    restaurantSearchResultTableViewController.filterText = @"Sort: distance";
     restaurantSearchResultTableViewController.filteredArray = [restaurantsArray retain];
     dishSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
     [self resultsLoaded];
@@ -255,15 +269,15 @@
 }
 
 -(IBAction) filterPressed {
-//    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
+    //    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     
     SearchSortAndFilterViewController *ssafvc = [[SearchSortAndFilterViewController alloc] initWithNibName:@"SearchSortAndFilterViewController" bundle:nil andSearchViewController:self];
     [self presentModalViewController:ssafvc animated:YES];
     [ssafvc release];
-//    UIActionSheet *filterActionSheet = [[UIActionSheet alloc] initWithTitle:@"Sort" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Distance", @"Rating", @"Average Dish Price", nil];
-//    [filterActionSheet showFromTabBar:appDelegate.tabBarController.tabBar];
-//    [filterActionSheet release];
+    //    UIActionSheet *filterActionSheet = [[UIActionSheet alloc] initWithTitle:@"Sort" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"Distance", @"Rating", @"Average Dish Price", nil];
+    //    [filterActionSheet showFromTabBar:appDelegate.tabBarController.tabBar];
+    //    [filterActionSheet release];
 }
 
 -(void) sortAndFilterRestaurantResults {
@@ -272,7 +286,6 @@
     
     if (sortAndFilterPreferences.sortIndex > -1) {
         NSSortDescriptor *sortDescriptor;
-        NSSortDescriptor *sortForMenuItemsDescriptor;
         if(sortAndFilterPreferences.sortIndex == 0) {
             sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"distance"
                                                           ascending:YES] autorelease];        
@@ -280,40 +293,23 @@
         } else if(sortAndFilterPreferences.sortIndex == 1) {
             sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"rating.sortValue"
                                                           ascending:NO] autorelease];  
-           sortValue = @"rating";
-            
-            sortForMenuItemsDescriptor = sortDescriptor;
+            sortValue = @"rating";
             
         } else if(sortAndFilterPreferences.sortIndex == 2) {
             sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"average_meal_price"
                                                           ascending:YES] autorelease];
             sortValue = @"price";
-            
-            sortForMenuItemsDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"price"
-                                                                      ascending:YES] autorelease];
         }
         NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-        
-
         NSArray *sortedArray = [restaurantSearchResultTableViewController.restaurantsArray sortedArrayUsingDescriptors:sortDescriptors];
         restaurantSearchResultTableViewController.restaurantsArray = [NSMutableArray arrayWithArray: sortedArray];
-
-        dishSearchResultTableViewController.restaurantsArray = restaurantSearchResultTableViewController.restaurantsArray;
-
-        if(sortAndFilterPreferences.sortIndex > 0) {
-            NSArray *sortForMenuItemsDescriptors = [NSArray arrayWithObject:sortForMenuItemsDescriptor];
-            for (Restaurant *r in dishSearchResultTableViewController.restaurantsArray) {
-                NSArray *sortedMenuItemsArray =  [r.menu_items sortedArrayUsingDescriptors:sortForMenuItemsDescriptors];
-                r.menu_items = [NSMutableArray arrayWithArray:sortedMenuItemsArray];
-            }
-        }
     } 
     
-     if (sortAndFilterPreferences.distanceIndex > -1 || sortAndFilterPreferences.priceIndex > -1) {
-         restaurantSearchResultTableViewController.filteredArray = [[NSMutableArray alloc] init];
-     } else {
-         restaurantSearchResultTableViewController.filteredArray = [restaurantSearchResultTableViewController.restaurantsArray retain];
-     }
+    if (sortAndFilterPreferences.distanceIndex > -1 || sortAndFilterPreferences.priceIndex > -1) {
+        restaurantSearchResultTableViewController.filteredArray = [[NSMutableArray alloc] init];
+    } else {
+        restaurantSearchResultTableViewController.filteredArray = [restaurantSearchResultTableViewController.restaurantsArray retain];
+    }
     
     if(sortAndFilterPreferences.distanceIndex > -1) {
         float distance = 0.0;
@@ -369,7 +365,7 @@
     } else if([filterValues count] > 0 && [sortValue isEqualToString:@""]) {
         restaurantSearchResultTableViewController.filterText = [NSString stringWithFormat: @"Filter: %@", [filterValues componentsJoinedByString:@", "]];
     } else {
-        restaurantSearchResultTableViewController.filterText = @"";
+        restaurantSearchResultTableViewController.filterText = @"Sort: distance";
     }
     if (sortAndFilterPreferences.distanceIndex > -1 || sortAndFilterPreferences.sortIndex > -1 || sortAndFilterPreferences.priceIndex > -1) {
         [tableView reloadData];
@@ -435,7 +431,7 @@
                 if(maxLat < restaurant.location.latitude) maxLat = restaurant.location.latitude;
                 if(minLng > restaurant.location.longitude) minLng = restaurant.location.longitude;
                 if(maxLng < restaurant.location.longitude) maxLng = restaurant.location.longitude;
-
+                
             }
             
             annotations++;
@@ -460,7 +456,7 @@
 	region.center.longitude = (maxLng + minLng)/2;
     region.span.latitudeDelta = meters / 111319.5;
     region.span.longitudeDelta = 0.0;
-
+    
 	[mapView setRegion:region animated:NO]; 
     
 }
@@ -491,12 +487,9 @@
         RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:ra.restaurant];
         [self.navigationController pushViewController:restaurantViewController animated:YES];
         [restaurantViewController release];
-
+        
 	}
 	
 }
-
-
-
 
 @end
