@@ -238,6 +238,8 @@
 		E85EE44C1357AA0D004B2A10 /* grey-button-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE44B1357AA0D004B2A10 /* grey-button-bg@2x.png */; };
 		E85EE44F1357AAE5004B2A10 /* RestaurantAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E85EE44E1357AAE5004B2A10 /* RestaurantAddressCell.m */; };
 		E86107D313A94E6C00A575E0 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = E86107D213A94E6C00A575E0 /* NSDate+Helper.m */; };
+		E86107D613A956C700A575E0 /* festivalsLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = E86107D413A956C700A575E0 /* festivalsLogo.png */; };
+		E86107D713A956C700A575E0 /* festivalsLogo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E86107D513A956C700A575E0 /* festivalsLogo@2x.png */; };
 		E86A844F1368AD7200720FA3 /* 86-camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E86A844D1368AD7200720FA3 /* 86-camera@2x.png */; };
 		E86A84501368AD7200720FA3 /* 86-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = E86A844E1368AD7200720FA3 /* 86-camera.png */; };
 		E86A845B1368BA1400720FA3 /* TakePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A845A1368BA1400720FA3 /* TakePhoto.m */; };
@@ -781,6 +783,8 @@
 		E85EE44E1357AAE5004B2A10 /* RestaurantAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantAddressCell.m; sourceTree = "<group>"; };
 		E86107D113A94E6C00A575E0 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
 		E86107D213A94E6C00A575E0 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
+		E86107D413A956C700A575E0 /* festivalsLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = festivalsLogo.png; sourceTree = "<group>"; };
+		E86107D513A956C700A575E0 /* festivalsLogo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "festivalsLogo@2x.png"; sourceTree = "<group>"; };
 		E86A844D1368AD7200720FA3 /* 86-camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "86-camera@2x.png"; sourceTree = "<group>"; };
 		E86A844E1368AD7200720FA3 /* 86-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "86-camera.png"; sourceTree = "<group>"; };
 		E86A84591368BA1400720FA3 /* TakePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhoto.h; sourceTree = "<group>"; };
@@ -1824,6 +1828,8 @@
 				E86A84521368AD7B00720FA3 /* icons */,
 				E8AA4AED1361064A00A8E37B /* top-rounding.png */,
 				E8AA4AEE1361064A00A8E37B /* top-rounding@2x.png */,
+				E86107D413A956C700A575E0 /* festivalsLogo.png */,
+				E86107D513A956C700A575E0 /* festivalsLogo@2x.png */,
 				E89845A313A6D35C00A8C51E /* no-image-short.png */,
 				E89845A413A6D35C00A8C51E /* no-image-short@2x.png */,
 				E80FAC8213A1731700754423 /* share-logo.png */,
@@ -2623,6 +2629,8 @@
 				E89845A513A6D35C00A8C51E /* no-image-short.png in Resources */,
 				E89845A613A6D35C00A8C51E /* no-image-short@2x.png in Resources */,
 				49821D3113A90B82006C1617 /* FestivalsViewController.xib in Resources */,
+				E86107D613A956C700A575E0 /* festivalsLogo.png in Resources */,
+				E86107D713A956C700A575E0 /* festivalsLogo@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
