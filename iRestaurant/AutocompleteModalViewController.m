@@ -56,7 +56,12 @@
     
     self.tableView.alpha = 0;
     autocompleteService = [[AutocompleteService alloc] initWithDelegate: findAutocompleteTableViewController];
-        
+    
+    if(isFestivalSearch) {
+        autocompleteService.isFestivalSearch = isFestivalSearch;
+        autocompleteService.festivalId = festivalId;
+    } 
+    
     UIImage *greyButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
     [cancelButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     [nearbyButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];

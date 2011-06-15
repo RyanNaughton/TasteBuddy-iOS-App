@@ -69,7 +69,7 @@
     }
 
     NSString *json = [jsonDictionary JSONRepresentation];
-    NSLog(@"json: %@", json);
+    NSLog(@"search json: %@", json);
     NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
@@ -89,7 +89,6 @@
         
     NSString *responseString = [request_passed responseString];
     NSArray *arrayOfDictionaries = [responseString JSONValue];
-    NSLog(@"search response: %@", arrayOfDictionaries);
     NSMutableArray *resultsForDelegate = [[NSMutableArray alloc]init];
     
     for (NSDictionary *dict in arrayOfDictionaries) {

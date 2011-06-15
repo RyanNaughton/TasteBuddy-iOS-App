@@ -10,11 +10,12 @@
 #import "ASIFormDataRequest.h"
 #import "JSON.h"
 #import "iRestaurantAppDelegate.h"
-#import "AutocompleteModalViewController.h"
 
 @implementation AutocompleteService
 
 @synthesize delegate, lastNear, nearAutoComplete;
+
+@synthesize festivalId, isFestivalSearch;
 
 -(void) dealloc {
     [delegate release];
@@ -47,11 +48,8 @@
     [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
     
     //Adding festival_id if it's present
-    if([delegate isKindOfClass:[AutocompleteModalViewController class]]) {
-        AutocompleteModalViewController *controller = (AutocompleteModalViewController *)delegate;
-        if(controller.isFestivalSearch){
-            [jsonDictionary setObject:[NSNumber numberWithInt:controller.festivalId] forKey:@"festival_id"];
-        }
+    if(isFestivalSearch) {
+       [jsonDictionary setObject:[NSNumber numberWithInt:festivalId] forKey:@"festival_id"];
     }
     [self prepareRequest];
 }
@@ -63,6 +61,7 @@
     }
     
     NSString *json = [jsonDictionary JSONRepresentation];
+    NSLog(@"auto complete json: %@", json);
     NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
@@ -85,9 +84,7 @@
             [values addObject:[value copy]]; //Retain to stop crashes
         }
     }
-    
-    NSLog(@"autocomplete dict: %@", responseDictionary);
-    
+        
     [delegate autocompleteFinished:responseDictionary withLastNear:lastNear];
     request = nil;
 }

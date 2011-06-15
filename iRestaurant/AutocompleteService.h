@@ -19,11 +19,15 @@
     id <AutocompleteServiceDelegate> delegate;  
     NSString *lastNear;
     bool nearAutoComplete;
+    bool isFestivalSearch;
+    int festivalId;
 }
 
 @property (nonatomic, retain) id <AutocompleteServiceDelegate> delegate;
 @property (nonatomic, retain) NSString *lastNear;
 @property (nonatomic, assign) bool nearAutoComplete;
+@property (nonatomic, assign) bool isFestivalSearch;
+@property (nonatomic, assign) int festivalId;
 
 -(id) initWithDelegate:(id <AutocompleteServiceDelegate>) serviceDelegate;
 -(void) performAutoCompleteWithTerm:(NSString *) term andPlace:(NSString *)place andIsNearAutoComplete:(bool)isNearAutoComplete;
