@@ -42,12 +42,24 @@
 
 @synthesize sortAndFilterPreferences;
 
+@synthesize  isFestivalSearch, festivalId;
+
+- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andFestivalId:(int)festivalIdPassed {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+        self.festivalId = festivalIdPassed;
+        self.isFestivalSearch = true;
+    }
+    return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.isFestivalSearch = false;
     }
     return self;
 }
@@ -126,6 +138,11 @@
     
     // Do any additional setup after loading the view from its nib.    
     CGPoint point = CGPointMake(1.2345, 1.2345);
+    
+    searchModalViewController.isFestivalSearch = isFestivalSearch;
+    
+    if(isFestivalSearch) searchModalViewController.festivalId = festivalId;
+
     searchService = [[SearchService alloc]initWithLocation:point withDelegate:self];
     
     [self switchSearchView:dishesTabButton]; //Show no results initially.

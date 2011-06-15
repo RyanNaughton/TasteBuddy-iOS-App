@@ -10,7 +10,7 @@
 #import "ASIFormDataRequest.h"
 #import "Restaurant.h"
 #import "JSON.h"
-
+#import "SearchViewController.h"
 #import "iRestaurantAppDelegate.h"
 
 @implementation SearchService
@@ -48,6 +48,15 @@
     [jsonDictionary setObject:term forKey:@"find"];
     [jsonDictionary setObject:nearString forKey:@"near"];
     [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
+    
+    
+    //Adding festival_id if it's present
+    if([delegate isKindOfClass:[SearchViewController class]]) {
+        SearchViewController *controller = (SearchViewController *)delegate;
+        if(controller.isFestivalSearch){
+            [jsonDictionary setObject:[NSNumber numberWithInt:controller.festivalId] forKey:@"festival_id"];
+        }
+    }
     
     [self prepareRequest];
 

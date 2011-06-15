@@ -44,6 +44,10 @@
 
     SortAndFilterPreferences *sortAndFilterPreferences;
     
+    bool isFestivalSearch;
+    
+    int festivalId;
+    
 }
 
 @property (nonatomic, retain) SearchService *searchService;
@@ -70,7 +74,13 @@
 
 @property (nonatomic, retain) IBOutlet MKMapView *mapView;
 
-@property (nonatomic, assign)  SortAndFilterPreferences *sortAndFilterPreferences;
+@property (nonatomic, retain)  SortAndFilterPreferences *sortAndFilterPreferences;
+
+@property (nonatomic, assign) bool isFestivalSearch;
+@property (nonatomic, assign) int festivalId;
+
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andFestivalId:(int) festivalIdPassed;
 
 -(IBAction) switchSearchView:(id) sender;
 

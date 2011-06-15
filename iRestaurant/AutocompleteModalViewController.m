@@ -14,7 +14,7 @@
 
 @implementation AutocompleteModalViewController
 
-@synthesize tableView, searchView, termField, nearField, findAutocompleteTableViewController, nearAutocompleteTableViewController, autocompleteService, searchViewController, cancelButton, whatBGBox, whereBGBox, lastNear, nearbyButton;
+@synthesize tableView, searchView, termField, nearField, findAutocompleteTableViewController, nearAutocompleteTableViewController, autocompleteService, searchViewController, cancelButton, whatBGBox, whereBGBox, lastNear, nearbyButton, festivalId, isFestivalSearch;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

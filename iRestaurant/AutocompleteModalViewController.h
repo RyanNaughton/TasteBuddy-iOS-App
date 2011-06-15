@@ -29,6 +29,8 @@
     SearchViewController *searchViewController;
     
     NSString *lastNear;
+    bool isFestivalSearch;
+    int festivalId;
 }
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
@@ -44,6 +46,8 @@
 @property (nonatomic, retain) IBOutlet AutocompleteService *autocompleteService;
 @property (nonatomic, retain) IBOutlet SearchViewController *searchViewController;
 @property (nonatomic, retain) IBOutlet NSString *lastNear;
+@property (nonatomic, assign) int festivalId;
+@property (nonatomic, assign) bool isFestivalSearch;
 
 -(IBAction) autocomplete:(id) sender;
 -(IBAction) cancel;

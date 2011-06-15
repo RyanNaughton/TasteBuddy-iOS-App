@@ -10,6 +10,7 @@
 #import "ASIFormDataRequest.h"
 #import "JSON.h"
 #import "iRestaurantAppDelegate.h"
+#import "AutocompleteModalViewController.h"
 
 @implementation AutocompleteService
 
@@ -45,6 +46,13 @@
     }
     [jsonDictionary setObject:[NSArray arrayWithObjects:[NSNumber numberWithDouble: latitude], [NSNumber numberWithDouble: longitude], nil] forKey:@"coordinates"];
     
+    //Adding festival_id if it's present
+    if([delegate isKindOfClass:[AutocompleteModalViewController class]]) {
+        AutocompleteModalViewController *controller = (AutocompleteModalViewController *)delegate;
+        if(controller.isFestivalSearch){
+            [jsonDictionary setObject:[NSNumber numberWithInt:controller.festivalId] forKey:@"festival_id"];
+        }
+    }
     [self prepareRequest];
 }
 
