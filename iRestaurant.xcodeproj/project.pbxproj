@@ -38,6 +38,7 @@
 		493357E8138DC85D0019A7E7 /* TagViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 493357E6138DC85C0019A7E7 /* TagViewController.xib */; };
 		493357EB138DC99C0019A7E7 /* TagsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 493357EA138DC99A0019A7E7 /* TagsTableViewController.m */; };
 		494D34B21365FC7B00E03CCA /* StringSizeUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D34B11365FC7B00E03CCA /* StringSizeUtility.m */; };
+		494D4A6713A910CE005E472E /* FestivalsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D4A6513A910CE005E472E /* FestivalsTableViewController.m */; };
 		49520096135D11D200F0876E /* AutocompleteModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49520094135D11D200F0876E /* AutocompleteModalViewController.m */; };
 		49520097135D11D200F0876E /* AutocompleteModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49520095135D11D200F0876E /* AutocompleteModalViewController.xib */; };
 		4956EB1B1358F85800D68EE9 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4956EB0D1358F85800D68EE9 /* LICENSE */; };
@@ -59,6 +60,10 @@
 		4964AEA9137220340060C65A /* TaggingService.m in Sources */ = {isa = PBXBuildFile; fileRef = 4964AEA8137220340060C65A /* TaggingService.m */; };
 		49752FDF13843628000C28C4 /* TaggedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 49752FDE13843628000C28C4 /* TaggedObject.m */; };
 		497C258F1381B23B0011F307 /* CommentService.m in Sources */ = {isa = PBXBuildFile; fileRef = 497C258E1381B23B0011F307 /* CommentService.m */; };
+		49821D2713A8FD33006C1617 /* FestivalsService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49821D2613A8FD33006C1617 /* FestivalsService.m */; };
+		49821D2B13A8FF95006C1617 /* Festival.m in Sources */ = {isa = PBXBuildFile; fileRef = 49821D2A13A8FF95006C1617 /* Festival.m */; };
+		49821D3013A90B82006C1617 /* FestivalsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49821D2E13A90B82006C1617 /* FestivalsViewController.m */; };
+		49821D3113A90B82006C1617 /* FestivalsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49821D2F13A90B82006C1617 /* FestivalsViewController.xib */; };
 		4986CD971390397D0042846B /* SHKOAuthSharer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4986CCFD1390397D0042846B /* SHKOAuthSharer.m */; };
 		4986CD981390397D0042846B /* SHKSharer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4986CCFF1390397D0042846B /* SHKSharer.m */; };
 		4986CD991390397D0042846B /* UIWebView+SHK.m in Sources */ = {isa = PBXBuildFile; fileRef = 4986CD021390397D0042846B /* UIWebView+SHK.m */; };
@@ -441,6 +446,8 @@
 		493357EA138DC99A0019A7E7 /* TagsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TagsTableViewController.m; sourceTree = "<group>"; };
 		494D34B01365FC7B00E03CCA /* StringSizeUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringSizeUtility.h; sourceTree = "<group>"; };
 		494D34B11365FC7B00E03CCA /* StringSizeUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringSizeUtility.m; sourceTree = "<group>"; };
+		494D4A6413A910CE005E472E /* FestivalsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalsTableViewController.h; sourceTree = "<group>"; };
+		494D4A6513A910CE005E472E /* FestivalsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalsTableViewController.m; sourceTree = "<group>"; };
 		49520093135D11D200F0876E /* AutocompleteModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AutocompleteModalViewController.h; sourceTree = "<group>"; };
 		49520094135D11D200F0876E /* AutocompleteModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AutocompleteModalViewController.m; sourceTree = "<group>"; };
 		49520095135D11D200F0876E /* AutocompleteModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AutocompleteModalViewController.xib; sourceTree = "<group>"; };
@@ -484,6 +491,13 @@
 		49752FDE13843628000C28C4 /* TaggedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TaggedObject.m; sourceTree = "<group>"; };
 		497C258D1381B23B0011F307 /* CommentService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentService.h; sourceTree = "<group>"; };
 		497C258E1381B23B0011F307 /* CommentService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentService.m; sourceTree = "<group>"; };
+		49821D2513A8FD33006C1617 /* FestivalsService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalsService.h; sourceTree = "<group>"; };
+		49821D2613A8FD33006C1617 /* FestivalsService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalsService.m; sourceTree = "<group>"; };
+		49821D2913A8FF95006C1617 /* Festival.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Festival.h; sourceTree = "<group>"; };
+		49821D2A13A8FF95006C1617 /* Festival.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Festival.m; sourceTree = "<group>"; };
+		49821D2D13A90B82006C1617 /* FestivalsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FestivalsViewController.h; sourceTree = "<group>"; };
+		49821D2E13A90B82006C1617 /* FestivalsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FestivalsViewController.m; sourceTree = "<group>"; };
+		49821D2F13A90B82006C1617 /* FestivalsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FestivalsViewController.xib; sourceTree = "<group>"; };
 		4986CCFC1390397D0042846B /* SHKOAuthSharer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKOAuthSharer.h; sourceTree = "<group>"; };
 		4986CCFD1390397D0042846B /* SHKOAuthSharer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHKOAuthSharer.m; sourceTree = "<group>"; };
 		4986CCFE1390397D0042846B /* SHKSharer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHKSharer.h; sourceTree = "<group>"; };
@@ -1154,6 +1168,7 @@
 		49578B731355183500F8EC0B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				49821D3213A90BD4006C1617 /* Festivals */,
 				E882B55F1395619F00BCE5A3 /* Deals */,
 				4986CDE5139067360042846B /* Label */,
 				494C28F4137DFF9800F30F64 /* Shared */,
@@ -1172,6 +1187,7 @@
 		49578B741355184500F8EC0B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				49821D2C13A90B06006C1617 /* Festivals */,
 				E882B5591395614700BCE5A3 /* Deals */,
 				E89CB81D1380633100F74837 /* Favorites */,
 				49EE9AF61368D7F400528C91 /* User */,
@@ -1216,6 +1232,25 @@
 				49300BDB13958DB5002B802A /* SearchSortAndFilterViewController.m */,
 			);
 			name = Search;
+			sourceTree = "<group>";
+		};
+		49821D2C13A90B06006C1617 /* Festivals */ = {
+			isa = PBXGroup;
+			children = (
+				49821D2D13A90B82006C1617 /* FestivalsViewController.h */,
+				49821D2E13A90B82006C1617 /* FestivalsViewController.m */,
+				494D4A6413A910CE005E472E /* FestivalsTableViewController.h */,
+				494D4A6513A910CE005E472E /* FestivalsTableViewController.m */,
+			);
+			name = Festivals;
+			sourceTree = "<group>";
+		};
+		49821D3213A90BD4006C1617 /* Festivals */ = {
+			isa = PBXGroup;
+			children = (
+				49821D2F13A90B82006C1617 /* FestivalsViewController.xib */,
+			);
+			name = Festivals;
 			sourceTree = "<group>";
 		};
 		4986CCF91390397D0042846B /* ShareKit */ = {
@@ -2101,6 +2136,8 @@
 				49ABCCF3137C6B2B0006218B /* RestaurantService.m */,
 				497C258D1381B23B0011F307 /* CommentService.h */,
 				497C258E1381B23B0011F307 /* CommentService.m */,
+				49821D2513A8FD33006C1617 /* FestivalsService.h */,
+				49821D2613A8FD33006C1617 /* FestivalsService.m */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -2317,6 +2354,8 @@
 				4927C9A9138C5A0200BD4169 /* RestaurantAnnotation.m */,
 				49300BDF1395A1D0002B802A /* SortAndFilterPreferences.h */,
 				49300BE01395A1D0002B802A /* SortAndFilterPreferences.m */,
+				49821D2913A8FF95006C1617 /* Festival.h */,
+				49821D2A13A8FF95006C1617 /* Festival.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2570,6 +2609,7 @@
 				E80FAC8513A1731700754423 /* share-logo@2x.png in Resources */,
 				E89845A513A6D35C00A8C51E /* no-image-short.png in Resources */,
 				E89845A613A6D35C00A8C51E /* no-image-short@2x.png in Resources */,
+				49821D3113A90B82006C1617 /* FestivalsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2793,6 +2833,10 @@
 				E8B2B89813A011FF00B924E3 /* DishImageCell.m in Sources */,
 				E818076A13A2EA22005B2BC8 /* SectionsMenuTableView2.m in Sources */,
 				E818076D13A2EDF7005B2BC8 /* SubsectionsMenuTableView2.m in Sources */,
+				49821D2713A8FD33006C1617 /* FestivalsService.m in Sources */,
+				49821D2B13A8FF95006C1617 /* Festival.m in Sources */,
+				49821D3013A90B82006C1617 /* FestivalsViewController.m in Sources */,
+				494D4A6713A910CE005E472E /* FestivalsTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

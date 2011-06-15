@@ -253,10 +253,9 @@
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController 
 {
-    if (tabBarController.selectedIndex == 2) {
-        [sbvc photoButtonPressed];
-
-    }
+    //if (tabBarController.selectedIndex == 2) {
+    //    [sbvc photoButtonPressed];
+    //}
 }
 
 
