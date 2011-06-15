@@ -98,7 +98,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.navigationItem.hidesBackButton = YES;
+
     tableView.backgroundColor = [UIColor clearColor];
     //    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"pepperbg_final.png"]];
     //    tableView.backgroundView = imageView;
@@ -155,6 +156,7 @@
         [self resultsLoading];
         [searchService searchByTerm:@""];
     }
+    
     [self.tableView reloadData];
 }
 
