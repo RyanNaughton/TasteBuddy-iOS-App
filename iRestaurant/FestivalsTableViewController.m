@@ -128,7 +128,7 @@
         if (cell == nil) {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         }
-    
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         // Configure the cell...
         Festival *festival = [festivals objectAtIndex:indexPath.row];
         cell.textLabel.text = festival.name;
