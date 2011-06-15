@@ -237,6 +237,7 @@
 		E85EE44A1357A811004B2A10 /* grey-button-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE4491357A810004B2A10 /* grey-button-bg.png */; };
 		E85EE44C1357AA0D004B2A10 /* grey-button-bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E85EE44B1357AA0D004B2A10 /* grey-button-bg@2x.png */; };
 		E85EE44F1357AAE5004B2A10 /* RestaurantAddressCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E85EE44E1357AAE5004B2A10 /* RestaurantAddressCell.m */; };
+		E86107D313A94E6C00A575E0 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = E86107D213A94E6C00A575E0 /* NSDate+Helper.m */; };
 		E86A844F1368AD7200720FA3 /* 86-camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E86A844D1368AD7200720FA3 /* 86-camera@2x.png */; };
 		E86A84501368AD7200720FA3 /* 86-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = E86A844E1368AD7200720FA3 /* 86-camera.png */; };
 		E86A845B1368BA1400720FA3 /* TakePhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = E86A845A1368BA1400720FA3 /* TakePhoto.m */; };
@@ -778,6 +779,8 @@
 		E85EE44B1357AA0D004B2A10 /* grey-button-bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grey-button-bg@2x.png"; sourceTree = "<group>"; };
 		E85EE44D1357AAE4004B2A10 /* RestaurantAddressCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestaurantAddressCell.h; sourceTree = "<group>"; };
 		E85EE44E1357AAE5004B2A10 /* RestaurantAddressCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestaurantAddressCell.m; sourceTree = "<group>"; };
+		E86107D113A94E6C00A575E0 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		E86107D213A94E6C00A575E0 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		E86A844D1368AD7200720FA3 /* 86-camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "86-camera@2x.png"; sourceTree = "<group>"; };
 		E86A844E1368AD7200720FA3 /* 86-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "86-camera.png"; sourceTree = "<group>"; };
 		E86A84591368BA1400720FA3 /* TakePhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TakePhoto.h; sourceTree = "<group>"; };
@@ -1127,6 +1130,7 @@
 		49578B5F135516AB00F8EC0B /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				E86107CF13A94E6000A575E0 /* NSDate Helper */,
 				E8B53D2B1396DB61002D89B6 /* UIDeviceHardware */,
 				4986CCF91390397D0042846B /* ShareKit */,
 				E8AB9F8E1390058900DBFA75 /* MBProgressHUD */,
@@ -1927,6 +1931,15 @@
 				49A3939A138086360059FA6D /* RestaurantAdditionalInformationCell.m */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		E86107CF13A94E6000A575E0 /* NSDate Helper */ = {
+			isa = PBXGroup;
+			children = (
+				E86107D113A94E6C00A575E0 /* NSDate+Helper.h */,
+				E86107D213A94E6C00A575E0 /* NSDate+Helper.m */,
+			);
+			name = "NSDate Helper";
 			sourceTree = "<group>";
 		};
 		E86A84521368AD7B00720FA3 /* icons */ = {
@@ -2837,6 +2850,7 @@
 				49821D2B13A8FF95006C1617 /* Festival.m in Sources */,
 				49821D3013A90B82006C1617 /* FestivalsViewController.m in Sources */,
 				494D4A6713A910CE005E472E /* FestivalsTableViewController.m in Sources */,
+				E86107D313A94E6C00A575E0 /* NSDate+Helper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

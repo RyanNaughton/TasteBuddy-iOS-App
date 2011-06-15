@@ -132,7 +132,8 @@
         
     username = [[NSString stringWithFormat:@"%@",[profile objectForKey:@"username"]]retain];
     reviewsCount = [[profile objectForKey:@"ratings_count"] intValue];    
-    picturesArray = [[NSMutableArray alloc]initWithArray:[profile objectForKey:@"user_gallery"]];
+    NSMutableArray *unsortedPicturesArray = [[NSMutableArray alloc]initWithArray:[profile objectForKey:@"user_gallery"]];
+    picturesArray = [[NSMutableArray alloc]init];
     picturesCount = 0;
     
     for (NSDictionary *dict in picturesArray) {
@@ -142,6 +143,12 @@
             picturesCount += [pictures count];
         }
     }
+    
+    NSEnumerator *enumerator = [unsortedPicturesArray reverseObjectEnumerator];
+    for (id element in enumerator) {
+        [picturesArray addObject:element];
+    }
+    [unsortedPicturesArray release];
     
     dataReceived = TRUE;
     loading = FALSE;

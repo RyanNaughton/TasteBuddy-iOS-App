@@ -7,7 +7,7 @@
 //
 
 #import "ProfilePhotoDayTopCell.h"
-
+#import "NSDate+Helper.h"
 
 @implementation ProfilePhotoDayTopCell
 @synthesize dayLabel;
@@ -40,7 +40,12 @@
 }
 
 -(void)setDate:(NSString *)date {
-    dayLabel.text = [NSString stringWithFormat:@"%@", date];
+    
+    NSDateFormatter *inputDateFormatter = [[NSDateFormatter alloc] init];
+	[inputDateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *dateObject = [inputDateFormatter dateFromString:date];
+    
+    dayLabel.text = [NSDate stringForDisplayFromDate:dateObject];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
