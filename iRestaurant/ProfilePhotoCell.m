@@ -65,10 +65,8 @@
 
 -(void)setVariablesWithDictionary:(NSDictionary *)restaurantDictionary_passed {
     restaurantDictionary = restaurantDictionary_passed;
-    
-    NSLog(@"restaurantDict: %@", restaurantDictionary);
-    
-    NSArray *photoArray = [restaurantDictionary objectForKey:@"array"];
+        
+    NSArray *photoArray = [restaurantDictionary objectForKey:@"pictures"];
     NSString *restaurantName = [[photoArray objectAtIndex:0] objectForKey:@"restaurant_name"];
     NSDictionary *currentPhoto = [photoArray objectAtIndex:0];
     NSURL *url = [NSURL URLWithString:[currentPhoto objectForKey:@"300px"]];
@@ -80,7 +78,7 @@
 -(void)imageButtonPressed:(id)sender {
     iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
     
-    NSArray *arrayOfPhotos = [restaurantDictionary objectForKey:@"array"];
+    NSArray *arrayOfPhotos = [restaurantDictionary objectForKey:@"pictures"];
     NSString *restaurantName = [[arrayOfPhotos objectAtIndex:0] objectForKey:@"restaurant_name"];
     
     NSMutableArray *arrayOfURLStrings = [[NSMutableArray alloc]init];
@@ -97,14 +95,13 @@
 }
 
 -(void)restaurantButtonPressed:(id)sender {
-    NSString *restaurantID = [[[restaurantDictionary objectForKey:@"array"] objectAtIndex:0] objectForKey:@"restaurant_id"];
+    NSString *restaurantID = [[[restaurantDictionary objectForKey:@"pictures"] objectAtIndex:0] objectForKey:@"restaurant_id"];
     RestaurantService *rs = [[RestaurantService alloc]initWithDelegate:self];
     [rs findRestaurantById:restaurantID];
 }
 
 -(void)restaurantRetrieved:(Restaurant *) restuarant 
 {
-    NSLog(@"restaurant menu items: %@", restuarant.menu_items);
     RestaurantViewController *rvc = [[RestaurantViewController alloc]initWithRestaurant:restuarant];
     [ptvc.navigationController pushViewController:rvc animated:YES];
     [rvc release];

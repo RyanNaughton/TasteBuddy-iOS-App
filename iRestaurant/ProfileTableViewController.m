@@ -129,39 +129,19 @@
 }
 
 -(void) doneRetrievingProfile:(NSMutableDictionary *) profile {
-    
-    NSLog(@"profile: %@", profile);
-    
-    NSLog(@"profile class: %@", [profile class]);
-    NSLog(@"pictures class: %@", [[profile objectForKey:@"pictures"] class]);
-    
+        
     username = [[NSString stringWithFormat:@"%@",[profile objectForKey:@"username"]]retain];
-    reviewsCount = [[profile objectForKey:@"ratings_count"] intValue];
-    picturesDictionary = [[NSDictionary alloc]initWithDictionary:[profile objectForKey:@"pictures"]];
-    
-    picturesArray = [[NSMutableArray alloc]init];
+    reviewsCount = [[profile objectForKey:@"ratings_count"] intValue];    
+    picturesArray = [[NSMutableArray alloc]initWithArray:[profile objectForKey:@"user_gallery"]];
     picturesCount = 0;
     
-    for (id key in picturesDictionary) {
-        NSDictionary *dictOfDates = [picturesDictionary objectForKey:key];
-        NSMutableArray *datesArray = [[NSMutableArray alloc]init];
-        
-        for (id key2 in dictOfDates) {
-            NSArray *arrayOfImagesForRestaurant = [dictOfDates objectForKey:key2];
-            picturesCount = [arrayOfImagesForRestaurant count] + picturesCount;
-            NSDictionary *restaurantDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:arrayOfImagesForRestaurant, @"array", key2, @"name", nil];
-            [datesArray addObject:restaurantDictionary];            
+    for (NSDictionary *dict in picturesArray) {
+        NSArray *picturesByRestaurant = [dict objectForKey:@"pictures_by_restaurant"];
+        for (NSDictionary *dict2 in picturesByRestaurant) {
+            NSArray *pictures = [dict2 objectForKey:@"pictures"];
+            picturesCount += [pictures count];
         }
-        
-       
-                        
-        NSDictionary *dateDictionary = [[NSDictionary alloc]initWithObjectsAndKeys:datesArray, @"array", key, @"date", nil];
-        
-        [picturesArray addObject:dateDictionary];
     }
-    
-    NSSortDescriptor *aSortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"date" ascending:NO];
-    [picturesArray sortUsingDescriptors:[NSArray arrayWithObject:aSortDescriptor]];
     
     dataReceived = TRUE;
     loading = FALSE;
@@ -205,7 +185,7 @@
             rowsInSection = 1;
         } else {
             NSDictionary *dict = [picturesArray objectAtIndex:(section - 1)];
-            NSArray *array = [dict objectForKey:@"array"];            
+            NSArray *array = [dict objectForKey:@"pictures_by_restaurant"];            
             rowsInSection = [array count] + 1;
         }
     } else {
@@ -220,9 +200,6 @@
     if (dataReceived) {
         
     if (indexPath.section == 0) {
-        // Andrew Jackson
-        // You've submitted 8 reviews
-        // You've taken 18 pictures
         ProfileHeadCell *profileHeadCell = (ProfileHeadCell *)[tableView dequeueReusableCellWithIdentifier:@"ProfileHeadCell"];
 		if (profileHeadCell == nil) {
 		    profileHeadCell = [[[ProfileHeadCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ProfileHeadCell"] autorelease];
@@ -255,9 +232,12 @@
             profilePhotoCell.ptvc = self;
             
             NSDictionary *dict = [picturesArray objectAtIndex:(indexPath.section - 1)];
-            NSArray *array = [dict objectForKey:@"array"];
+            NSArray *array = [dict objectForKey:@"pictures_by_restaurant"];
             
             NSDictionary *currentRestaurantDict = [array objectAtIndex:(indexPath.row -1)];
+            
+            NSLog(@"current restaurant: %@" , currentRestaurantDict);
+            
             [profilePhotoCell setVariablesWithDictionary:currentRestaurantDict];
             return profilePhotoCell;
         }
