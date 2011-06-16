@@ -60,6 +60,8 @@
         menu_item = [menu_item_passed retain];
         restaurant = [restaurant_passed retain];
         
+        NSLog(@"is favorite? %i", menu_item.bookmark);
+        
         tableArray = [[NSMutableArray alloc]init];
         [self buildTableArray];
     

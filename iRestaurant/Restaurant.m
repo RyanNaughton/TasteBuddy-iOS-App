@@ -71,6 +71,10 @@
         rating = [[Rating alloc] initWithUserRating:[restaurantDictionary objectForKey:@"user_rating"] andAverageRating:[restaurantDictionary objectForKey:@"average_rating"] andRatingsCount:[restaurantDictionary objectForKey:@"ratings_count"]];
         
         bookmark = [[restaurantDictionary objectForKey:@"bookmark"]boolValue];
+        
+        NSLog(@"bookmark? %i", [[restaurantDictionary objectForKey:@"bookmark"]boolValue]);
+        NSLog(@"restaurant dict: %@", restaurantDictionary);
+        
         menu_present = [[restaurantDictionary objectForKey:@"menu_present"]boolValue];
 
         address_1         = [[restaurantDictionary objectForKey:@"address_1"] retain];

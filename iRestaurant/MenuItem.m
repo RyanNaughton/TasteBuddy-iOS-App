@@ -44,6 +44,7 @@
         bookmark = [[menuItemDictionary objectForKey:@"bookmark"] boolValue];
         
         //NSLog(@"bookmark value is: %@", [menuItemDictionary objectForKey:@"bookmark"]);
+        //NSLog(@"menu item dictionary: %@", menuItemDictionary);
         
         foreign_name = [[menuItemDictionary objectForKey:@"foreign_name"] retain];
         
