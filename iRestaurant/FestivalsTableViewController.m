@@ -89,23 +89,55 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [festivals count];
+    if (festivals == NULL) {
+        return 1;
+    } else if([festivals count] > 0) {
+        return [festivals count];        
+    } else {
+        return 1;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"FestivalCell";
+    UITableViewCell *cell;
+    if (festivals == NULL) {
+        static NSString *CellIdentifier = @"LoadingFestivalsCell";
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+        
+        cell.textLabel.text = @"Loading...";
+
+    } else if([festivals count] == 0) {
+        static NSString *CellIdentifier = @"NoFestivalsCell";
+        
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+
+        cell.textLabel.text = @"No upcoming festivals";
+        
+    } else {
+        static NSString *CellIdentifier = @"FestivalCell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        // Configure the cell...
+        Festival *festival = [festivals objectAtIndex:indexPath.row];
+        cell.textLabel.text = festival.name;
     }
-    
-    // Configure the cell...
-    Festival *festival = [festivals objectAtIndex:indexPath.row];
-    cell.textLabel.text = festival.name;
-    
     return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"I want to check out...";
 }
 
 /*
@@ -152,12 +184,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    
-    Festival *festival = [festivals objectAtIndex:indexPath.row];
-    SearchViewController *svc = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil andFestivalId:[festival._id intValue]
+    if(festivals != NULL && [festivals count] > 0) {
+        Festival *festival = [festivals objectAtIndex:indexPath.row];
+        SearchViewController *svc = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil andFestivalId:[festival._id intValue]
 ];
-    [festivalsViewController.navigationController pushViewController:svc animated:YES];
-    [svc release];
+        [festivalsViewController.navigationController pushViewController:svc animated:YES];
+        [svc release];
+    }
 }
 
 @end

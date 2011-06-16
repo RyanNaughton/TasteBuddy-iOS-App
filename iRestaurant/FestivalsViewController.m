@@ -34,6 +34,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [self setTitle:@"Festivals"];
+    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"festivalsLogo.png"]];
+    appNameImageView.frame = CGRectMake(-10, -3, 150, 44);
+    appNameImageView.contentMode = UIViewContentModeRight;
+    self.navigationItem.titleView = appNameImageView;
+
+    
     service = [[FestivalsService alloc] initWithDelegate:self];
     [service getFestivals];
     // Do any additional setup after loading the view from its nib.
