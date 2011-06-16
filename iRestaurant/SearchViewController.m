@@ -18,7 +18,7 @@
 #import "FindAutocompleteTableViewController.h"
 #import "SearchSortAndFilterViewController.h"
 #import "SortAndFilterPreferences.h"
-
+#import "FestivalsViewController.h"
 
 @implementation SearchViewController
 
@@ -103,10 +103,11 @@
     tableView.backgroundColor = [UIColor clearColor];
     //    UIImageView *imageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"pepperbg_final.png"]];
     //    tableView.backgroundView = imageView;
+    if(!isFestivalSearch) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fireSearch) name:@"fireSearch" object:nil];
+    }
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fireSearch) name:@"fireSearch" object:nil];
-    
-    //needsToPerformDefaultSearch = YES;
+    needsToPerformDefaultSearch = YES;
     UIImage *greyButtonImage = [[UIImage imageNamed:@"grey-button.png"] stretchableImageWithLeftCapWidth:10.0 topCapHeight:10.0];
     [mapButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     [filterButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
@@ -148,16 +149,15 @@
     
     [self switchSearchView:dishesTabButton]; //Show no results initially.
     
-}
-
--(void) viewDidAppear:(BOOL)animated {
-    if(needsToPerformDefaultSearch) {
+    //Trigger search for perfoming default search when festival loads
+    if(needsToPerformDefaultSearch && isFestivalSearch) {
         needsToPerformDefaultSearch = NO;
         [self resultsLoading];
         [searchService searchByTerm:@""];
     }
     
     [self.tableView reloadData];
+    
 }
 
 -(void)fireSearch {
@@ -203,9 +203,7 @@
 -(IBAction) switchSearchView:(id) sender
 {
     lastSender = sender;
-    
-    NSLog(@"switch hit");
-    
+        
     if (lastSender == restaurantsTabButton) {
         searchModalViewController.findAutocompleteTableViewController.currentSearchTabTitle = [@"Restaurants" retain];
     } else {

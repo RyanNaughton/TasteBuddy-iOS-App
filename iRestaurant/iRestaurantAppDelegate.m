@@ -203,7 +203,6 @@
     
 }
 -(void) updateAuthentication:(AuthenticationResponse *) authResponse {
-    NSLog(@"Auth Token %@", authResponse.authentication_token);
     [self setSavedSetting:@"authentication_token" withValue:authResponse.authentication_token];
 }
 

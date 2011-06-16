@@ -33,8 +33,6 @@
     double latitude = appDelegate.currentLocation.coordinate.latitude; //41.884432;
     double longitude = appDelegate.currentLocation.coordinate.longitude; //-87.643464;
     
-    NSLog(@"url %@",[NSString stringWithFormat:@"http://monkey.elhideout.org/festivals.json?latitude=%g&longitude=%g", latitude, longitude]);
-    
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/festivals.json?latitude=%g&longitude=%g", latitude, longitude]];
     
     request = [ASIHTTPRequest requestWithURL:url];
@@ -47,8 +45,6 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed 
 {
     NSString *responseString = [request_passed responseString];
-    #warning Waiting for API to return distance
-    NSLog(@"JSON %@", responseString);
     NSArray *festicalsRetrieved = [responseString JSONValue];
     NSMutableArray *festivals = [[NSMutableArray alloc] initWithCapacity:[festicalsRetrieved count]];
     for (NSDictionary *dict in festicalsRetrieved) {

@@ -43,9 +43,6 @@
         restaurant_id   = [[menuItemDictionary objectForKey:@"restaurant_id"] retain];
         bookmark = [[menuItemDictionary objectForKey:@"bookmark"] boolValue];
         
-        //NSLog(@"bookmark value is: %@", [menuItemDictionary objectForKey:@"bookmark"]);
-        //NSLog(@"menu item dictionary: %@", menuItemDictionary);
-        
         foreign_name = [[menuItemDictionary objectForKey:@"foreign_name"] retain];
         
         rating = [[Rating alloc] initWithUserRating:[menuItemDictionary objectForKey:@"user_rating"] andAverageRating:[menuItemDictionary objectForKey:@"average_rating"] andRatingsCount:[menuItemDictionary objectForKey:@"ratings_count"]];
