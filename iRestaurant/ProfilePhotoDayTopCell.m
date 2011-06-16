@@ -44,8 +44,12 @@
     NSDateFormatter *inputDateFormatter = [[NSDateFormatter alloc] init];
 	[inputDateFormatter setDateFormat:@"yyyy-MM-dd"];
     NSDate *dateObject = [inputDateFormatter dateFromString:date];
+    NSLocale *currentLocale = [NSLocale currentLocale]; //LocaleIdentifier:@"en_US"];
+    NSString *convertedDateString = [dateObject descriptionWithLocale:currentLocale];
     
-    dayLabel.text = [NSDate stringForDisplayFromDate:dateObject];
+    NSArray *dateArray = [convertedDateString componentsSeparatedByString:@" "];
+    
+    dayLabel.text = [NSString stringWithFormat:@"%@ %@ %@ %@", [dateArray objectAtIndex:0], [dateArray objectAtIndex:1], [dateArray objectAtIndex:2], [dateArray objectAtIndex:3]];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
