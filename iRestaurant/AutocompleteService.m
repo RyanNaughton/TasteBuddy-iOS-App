@@ -74,7 +74,9 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
     NSMutableDictionary *responseDictionary = [[request_passed responseString] JSONValue];
-        
+     
+    NSLog(@"response dict: %@", responseDictionary);
+    
     NSMutableArray *values = [[NSMutableArray alloc]init];
     if(nearAutoComplete && [@"Current Location" hasPrefix:lastNear]) {
         [values addObject:@"Current Location"];

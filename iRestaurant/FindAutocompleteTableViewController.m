@@ -172,11 +172,11 @@
 }
 
 -(void) refereshTable {
-    if ([currentSearchTabTitle isEqualToString:@"Restaurants"]) {
-        values = [[autocompleteDict objectForKey:@"restaurants"]retain];
-    } else {
-        values = [[autocompleteDict objectForKey:@"menu_items"]retain];
-    }
+    values = [[NSMutableArray alloc]init];
+    [values addObjectsFromArray:[autocompleteDict objectForKey:@"cuisine_types"]];
+    [values addObjectsFromArray:[autocompleteDict objectForKey:@"restaurants"]];
+    [values addObjectsFromArray:[autocompleteDict objectForKey:@"menu_items"]];
+    
     self.tableView.alpha = 1.0;
     self.tableView.hidden = FALSE;
     [self.tableView reloadData];

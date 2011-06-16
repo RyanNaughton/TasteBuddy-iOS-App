@@ -10,14 +10,14 @@
 #import "AutocompleteService.h"
 
 @interface FindAutocompleteTableViewController : UITableViewController <AutocompleteServiceDelegate> {
-    NSArray *values;
+    NSMutableArray *values;
     IBOutlet UITextField *findField;
     IBOutlet UITextField *nearField;
     NSString *currentSearchTabTitle;
     NSDictionary *autocompleteDict;
 }
 
-@property (nonatomic, retain) NSArray *values;
+@property (nonatomic, retain) NSMutableArray *values;
 @property (nonatomic, retain) IBOutlet UITextField *findField;
 @property (nonatomic, retain) IBOutlet UITextField *nearField;
 @property (nonatomic, retain) NSString *currentSearchTabTitle;
