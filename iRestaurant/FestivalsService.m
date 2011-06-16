@@ -33,7 +33,9 @@
     double latitude = appDelegate.currentLocation.coordinate.latitude; //41.884432;
     double longitude = appDelegate.currentLocation.coordinate.longitude; //-87.643464;
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/festivals.json?coordinates=[%g,%g]", latitude, longitude]];
+    NSLog(@"url %@",[NSString stringWithFormat:@"http://monkey.elhideout.org/festivals.json?latitude=%g&longitude=%g", latitude, longitude]);
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://monkey.elhideout.org/festivals.json?latitude=%g&longitude=%g", latitude, longitude]];
     
     request = [ASIHTTPRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];

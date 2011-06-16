@@ -10,6 +10,7 @@
 #import "Festival.h"
 #import "SearchViewController.h"
 #import "FestivalsViewController.h"
+#import "FestivalCell.h"
 
 @implementation FestivalsTableViewController
 
@@ -120,18 +121,19 @@
         }
 
         cell.textLabel.text = @"No upcoming festivals";
-        
+
     } else {
         static NSString *CellIdentifier = @"FestivalCell";
     
-        cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        cell = (FestivalCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+            cell = [[[FestivalCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
         }
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         // Configure the cell...
         Festival *festival = [festivals objectAtIndex:indexPath.row];
-        cell.textLabel.text = festival.name;
+        FestivalCell *fc = (FestivalCell *)cell;
+        [fc loadFestival:festival];
     }
     return cell;
 }
@@ -178,6 +180,13 @@
     return YES;
 }
 */
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if(festivals != NULL && [festivals count] > 0) {
+        return 70.0f; 
+    } else {
+        return 44.0f;
+    }
+}
 
 #pragma mark - Table view delegate
 

@@ -22,6 +22,7 @@
     NSString *end_date;
     NSNumber *latitude;
     NSNumber *longitude;
+    float distance;
 }
 
 @property (nonatomic, retain) NSNumber *_id;
@@ -36,7 +37,9 @@
 @property (nonatomic, retain) NSString *end_date;
 @property (nonatomic, retain) NSNumber *latitude;
 @property (nonatomic, retain) NSNumber *longitude;
+@property (nonatomic, assign) float distance;
 
 -(id) initWithDictionary:(NSDictionary *)festivalsDictionary;
+-(NSString *) dates;
 
 @end

@@ -22,6 +22,7 @@
 @synthesize end_date;
 @synthesize latitude;
 @synthesize longitude;
+@synthesize distance;
 
 -(id) initWithDictionary:(NSDictionary *)festivalsDictionary {
     self = [super init];
@@ -38,8 +39,28 @@
         end_date            = [[festivalsDictionary objectForKey:@"end_date"] retain];
         latitude            = [[festivalsDictionary objectForKey:@"latitude"] retain];
         longitude           = [[festivalsDictionary objectForKey:@"longitude"] retain];
+        if([[festivalsDictionary objectForKey:@"distance"] isKindOfClass:[NSNull class]]){
+            distance = -1.0f;
+        } else {
+            distance = [[festivalsDictionary objectForKey:@"distance"] floatValue];
+        }
     }
     return self;
+}
+
+-(NSString *) dates {
+    NSDateFormatter *inputDateFormatter = [[NSDateFormatter alloc] init];
+	[inputDateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *startDate = [inputDateFormatter dateFromString:start_date];
+    NSDate *finishDate = [inputDateFormatter dateFromString:end_date];
+    NSLocale *currentLocale = [NSLocale currentLocale];
+    NSString *convertedStartDateString = [startDate descriptionWithLocale:currentLocale];
+    NSString *convertedFinishDateString = [finishDate descriptionWithLocale:currentLocale];
+    
+    NSArray *dateStartArray = [convertedStartDateString componentsSeparatedByString:@" "];
+    NSArray *dateFinishArray = [convertedFinishDateString componentsSeparatedByString:@" "];
+
+    return [[NSString stringWithFormat:@"%@ %@ - %@ %@", [dateStartArray objectAtIndex:1], [dateStartArray objectAtIndex:2], [dateFinishArray objectAtIndex:1], [dateFinishArray objectAtIndex:2]]stringByReplacingOccurrencesOfString:@"," withString:@""];
 }
 
 -(void) dealloc {
