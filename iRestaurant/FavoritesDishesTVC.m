@@ -306,9 +306,15 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([dishesArray count] > 0) {
-        menu_item = [dishesArray objectAtIndex:indexPath.row];
+        NSDictionary *dict = [dishesArray objectAtIndex:indexPath.section];
+        NSArray *arrayOfMenuItems = [dict objectForKey:@"menu_items"];
+        NSDictionary *menuItemDict = [arrayOfMenuItems objectAtIndex:indexPath.row];
+        MenuItem *menuItem_at_row = [[MenuItem alloc]initWithDictionary:menuItemDict];
+
+        menu_item = [menuItem_at_row retain];
+        
         RestaurantService *rest = [[RestaurantService alloc] initWithDelegate:self];
-        [rest findRestaurantById:menu_item.restaurant_id];
+        [rest findRestaurantById:menuItem_at_row.restaurant_id];
     }
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
