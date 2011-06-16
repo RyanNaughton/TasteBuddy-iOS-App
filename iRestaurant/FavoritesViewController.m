@@ -194,8 +194,14 @@
 }
 
 -(void) doneRetrievingBookmarks:(NSMutableDictionary *) bookmarks {
+      
+    NSLog(@"we have bookmarks: %@", bookmarks);
+    
     favoritesRestaurantsTVC.restaurantsArray = [bookmarks objectForKey:@"restaurants"];
-    favoritesDishesTVC.dishesArray = [bookmarks objectForKey:@"menu_items"];
+    
+    NSLog(@"restaurants array: %@", [bookmarks objectForKey:@"restaurants"]);
+    
+    favoritesDishesTVC.dishesArray = [bookmarks objectForKey:@"menu_items_by_restaurant"];
     favoritesDishesTVC.isLoading = NO;
     favoritesRestaurantsTVC.isLoading = NO;
     

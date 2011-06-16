@@ -97,19 +97,73 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    NSLog(@"dishes array is: %@", dishesArray);
+    return [dishesArray count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
+    
     if([dishesArray count] > 0 && !isLoading)
     {
-        return [dishesArray count];
+        NSDictionary *dict = [dishesArray objectAtIndex:section];
+        NSArray *arrayOfMenuItems = [dict objectForKey:@"menu_items"];
+        return [arrayOfMenuItems count];
     } else {        
         return 1;
     }
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView;
+    
+    if([dishesArray count] > 0 && !isLoading)
+    {
+        
+    NSDictionary *dict = [dishesArray objectAtIndex:section];
+    NSString *restaurantNameString = [dict objectForKey:@"restaurant_name"];
+        headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
+        headerView.backgroundColor = [UIColor clearColor];
+        
+        UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"grey-grad"]];
+        bgImageView.alpha = 0.66;
+        bgImageView.frame = headerView.frame;
+        bgImageView.contentMode = UIViewContentModeScaleToFill;
+        [headerView addSubview:bgImageView];
+        [bgImageView release];
+        
+        UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, -1, 300, 22)];
+        restaurantName.backgroundColor = [UIColor clearColor];
+        restaurantName.textColor = [UIColor whiteColor];
+        restaurantName.font = [UIFont systemFontOfSize:14];
+        restaurantName.text = restaurantNameString;
+        restaurantName.shadowColor = [UIColor blackColor];
+        restaurantName.shadowOffset = CGSizeMake(0,1);
+        [headerView addSubview:restaurantName];
+        [restaurantName release];
+    } else {
+        headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
+    }
+    
+    return [headerView autorelease];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    int height;
+    
+    if([dishesArray count] > 0 && !isLoading)
+    {
+        height = 22;
+    } else {
+        height = 0;
+    }
+    
+    return height;
+}
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -143,7 +197,14 @@
             return cell;
         }
     } else if ([dishesArray count] > 0) {
-        MenuItem *menuItem = (MenuItem *)[dishesArray objectAtIndex:indexPath.row];
+        //MenuItem *menuItem = (MenuItem *)[dishesArray objectAtIndex:indexPath.row];
+        NSDictionary *dict = [dishesArray objectAtIndex:indexPath.section];
+        NSArray *arrayOfMenuItems = [dict objectForKey:@"menu_items"];
+        NSDictionary *menuItemDict = [arrayOfMenuItems objectAtIndex:indexPath.row];
+        MenuItem *menuItem = [[MenuItem alloc]initWithDictionary:menuItemDict];
+        
+        NSLog(@"menu item dict in cell: %@", menuItemDict);
+        NSLog(@"menu item name: %@", menuItem.name);
         
         if ([menuItem.pictures count] > 0) {        
             DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"FavoriteDishCell"];
@@ -184,7 +245,10 @@
         favoritesViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         height = 300; 
     } else if ([dishesArray count] > 0) {
-        MenuItem *menuItem = (MenuItem *)[dishesArray objectAtIndex:indexPath.row];
+        NSDictionary *dict = [dishesArray objectAtIndex:indexPath.section];
+        NSArray *arrayOfMenuItems = [dict objectForKey:@"menu_items"];
+        NSDictionary *menuItemDict = [arrayOfMenuItems objectAtIndex:indexPath.row];
+        MenuItem *menuItem = [[MenuItem alloc]initWithDictionary:menuItemDict];
         if ([menuItem.pictures count] > 0) {
             height = 70;
         } else {

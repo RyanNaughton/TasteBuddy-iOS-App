@@ -149,7 +149,10 @@
 		    restaurantSearchCell = [[[RestaurantSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FavoritesRestaurantSearchCell"] autorelease];
 		}          
         
-        [restaurantSearchCell loadRestaurant:[restaurantsArray objectAtIndex:indexPath.row]];
+        NSDictionary *restaurantDict = [restaurantsArray objectAtIndex:indexPath.row];
+        Restaurant *restaurant = [[Restaurant alloc]initWithDictionary:restaurantDict];
+        
+        [restaurantSearchCell loadRestaurant:restaurant];
 		
 		return restaurantSearchCell;
     } else {
@@ -233,8 +236,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if([restaurantsArray count] > 0 && !isLoading){
-        // Navigation logic may go here. Create and push another view controller.
-        RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:[restaurantsArray objectAtIndex:indexPath.row]];
+        
+        NSDictionary *restaurantDict = [restaurantsArray objectAtIndex:indexPath.row];
+        Restaurant *restaurant = [[Restaurant alloc]initWithDictionary:restaurantDict];
+        
+        RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:restaurant];
         [favoritesViewController.navigationController pushViewController:restaurantViewController animated:YES];
         [restaurantViewController release];
         

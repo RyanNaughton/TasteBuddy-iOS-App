@@ -58,31 +58,37 @@
     NSString *responseString = [requestPassed responseString]; 
     NSDictionary *dictionaryFromJSON = [responseString JSONValue];
     
-    NSMutableDictionary *bookmarksToReturn = [[NSMutableDictionary alloc] init];
-
-    [bookmarksToReturn setObject:[[NSMutableArray alloc] init] forKey:@"restaurants"];
-    [bookmarksToReturn setObject:[[NSMutableArray alloc] init] forKey:@"menu_items"];    
-
-    //Get Restaurants
-    NSArray *restaurants = [dictionaryFromJSON objectForKey:@"restaurants"];
-    if (restaurants != nil) {
-        for (NSDictionary *dictionarForConstructor in restaurants) {
-            Restaurant *restaurant =  [[Restaurant alloc] initWithDictionary:dictionarForConstructor];
-            [[bookmarksToReturn objectForKey:@"restaurants"] addObject:restaurant];
-            [restaurant release];
-        }
-    }
-    //Get MenuItems
-    NSArray *menuItems = [dictionaryFromJSON objectForKey:@"menu_items"];
-    if (menuItems != nil) {
-        for (NSDictionary *dictionarForConstructor in menuItems) {
-            MenuItem *menu_item =  [[MenuItem alloc] initWithDictionary:dictionarForConstructor];
-            [[bookmarksToReturn objectForKey:@"menu_items"] addObject:menu_item];
-            [menu_item release];
-        }
-    }
+    NSLog(@"dict from JSON, %@", dictionaryFromJSON);
     
+    NSMutableDictionary *bookmarksToReturn = [[NSMutableDictionary alloc] initWithDictionary:dictionaryFromJSON];
+
     [delegate doneRetrievingBookmarks:bookmarksToReturn];
+    
+    //[bookmarksToReturn setObject:[[NSMutableArray alloc] init] forKey:@"restaurants"];
+    //[bookmarksToReturn setObject:[[NSMutableArray alloc] init] forKey:@"menu_items"];    
+
+//    //Get Restaurants
+//    NSArray *restaurants = [dictionaryFromJSON objectForKey:@"restaurants"];
+//    if (restaurants != nil) {
+//        for (NSDictionary *dictionarForConstructor in restaurants) {
+//            Restaurant *restaurant =  [[Restaurant alloc] initWithDictionary:dictionarForConstructor];
+//            [[bookmarksToReturn objectForKey:@"restaurants"] addObject:restaurant];
+//            [restaurant release];
+//            [delegate doneRetrievingBookmarks:bookmarksToReturn];
+//        }
+//    }
+    //Get MenuItems
+//    NSArray *menuItems = [dictionaryFromJSON objectForKey:@"menu_items_by_restaurant"];
+    
+//    if (menuItems != nil) {
+//        for (NSDictionary *dictionarForConstructor in menuItems) {
+//            MenuItem *menu_item =  [[MenuItem alloc] initWithDictionary:dictionarForConstructor];
+//            [[bookmarksToReturn objectForKey:@"menu_items"] addObject:menu_item];
+//            [menu_item release];
+//        }
+//    }
+//    
+    
     request = nil;
 }
 @end
