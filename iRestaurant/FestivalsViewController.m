@@ -46,6 +46,11 @@
     [service getFestivals];
     // Do any additional setup after loading the view from its nib.
 }
+- (void)viewDidAppear:(BOOL)animated {
+    if (festivalsTableViewController.festivals == NULL || [festivalsTableViewController.festivals count] == 0) {
+        [service getFestivals];
+    }
+}
 
 - (void)viewDidUnload
 {

@@ -19,6 +19,8 @@
 #import "SearchSortAndFilterViewController.h"
 #import "SortAndFilterPreferences.h"
 #import "FestivalsViewController.h"
+#import "Festival.h"
+#import "UIImageView+WebCache.h"
 
 @implementation SearchViewController
 
@@ -42,13 +44,14 @@
 
 @synthesize sortAndFilterPreferences;
 
-@synthesize  isFestivalSearch, festivalId;
+@synthesize  isFestivalSearch, festivalId, festival;
 
-- (id) initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andFestivalId:(int)festivalIdPassed {
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andFestival:(Festival *) festivalPassed {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.festivalId = festivalIdPassed;
+        self.festival = festivalPassed;
+        self.festivalId = [festival._id intValue];
         self.isFestivalSearch = true;
     }
     return self;
@@ -82,6 +85,9 @@
     [restaurantsTabButton release];
     [tabView release];
     [mapView release];
+    if(festival) {
+        [festival release];
+    }
     [super dealloc];
 }
 
@@ -112,7 +118,14 @@
     [mapButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     [filterButton setBackgroundImage:greyButtonImage forState:UIControlStateNormal];
     
-    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
+    UIImageView *appNameImageView;
+    if(isFestivalSearch) {
+        self.navigationController.navigationBar.tintColor = festival.color;
+        appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
+    } else {
+        appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
+    }
+
     appNameImageView.frame = CGRectMake(160, -3, 150, 44);
     appNameImageView.contentMode = UIViewContentModeRight;
     

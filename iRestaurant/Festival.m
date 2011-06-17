@@ -24,9 +24,11 @@
 @synthesize longitude;
 @synthesize distance;
 
+
 -(id) initWithDictionary:(NSDictionary *)festivalsDictionary {
     self = [super init];
     if (self) {
+        NSLog(@"Festivals Log: %@", festivalsDictionary);
         _id                 = [[festivalsDictionary objectForKey:@"id"] retain];
         name                = [[festivalsDictionary objectForKey:@"name"] retain];
         address_description = [[festivalsDictionary objectForKey:@"address_description"] retain];
@@ -39,6 +41,7 @@
         end_date            = [[festivalsDictionary objectForKey:@"end_date"] retain];
         latitude            = [[festivalsDictionary objectForKey:@"latitude"] retain];
         longitude           = [[festivalsDictionary objectForKey:@"longitude"] retain];
+        
         if([[festivalsDictionary objectForKey:@"distance"] isKindOfClass:[NSNull class]]){
             distance = -1.0f;
         } else {
@@ -47,7 +50,9 @@
     }
     return self;
 }
-
+-(UIColor *) color {
+    return [UIColor colorWithRed:12/255.0 green:105/255.0 blue:149/255.0 alpha:1.0];
+}
 -(NSString *) dates {
     NSDateFormatter *inputDateFormatter = [[NSDateFormatter alloc] init];
 	[inputDateFormatter setDateFormat:@"yyyy-MM-dd"];
