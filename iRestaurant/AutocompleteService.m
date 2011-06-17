@@ -61,7 +61,6 @@
     }
     
     NSString *json = [jsonDictionary JSONRepresentation];
-    NSLog(@"auto complete json: %@", json);
     NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
@@ -74,8 +73,6 @@
 - (void)requestFinished:(ASIHTTPRequest *)request_passed
 {
     NSMutableDictionary *responseDictionary = [[request_passed responseString] JSONValue];
-     
-    NSLog(@"response dict: %@", responseDictionary);
     
     NSMutableArray *values = [[NSMutableArray alloc]init];
     if(nearAutoComplete && [@"Current Location" hasPrefix:lastNear]) {

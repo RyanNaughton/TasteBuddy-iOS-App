@@ -69,7 +69,6 @@
     }
 
     NSString *json = [jsonDictionary JSONRepresentation];
-    NSLog(@"search json: %@", json);
     NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];
     [request addRequestHeader:@"Content-Type" value:@"application/json"];
