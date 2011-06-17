@@ -57,7 +57,7 @@
     for (NSDictionary *pictDict in menu_item.pictures) {
         
         UIDeviceHardware *h=[[UIDeviceHardware alloc] init];
-        if ([[h platformString] isEqualToString:@"iPhone 4"]) {
+        if ([[h platformString] isEqualToString:@"iPhone 4"] || [[h platformString] isEqualToString:@"iPod Touch 4G"]) {
             NSLog(@"we have an iPhone 4");
             [arrayOfURLStrings addObject:[pictDict objectForKey:@"640px"]];
         } else {
