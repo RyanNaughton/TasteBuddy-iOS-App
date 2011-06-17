@@ -23,6 +23,8 @@
     NSNumber *latitude;
     NSNumber *longitude;
     float distance;
+    NSDictionary *header_color;
+    NSDictionary *logo;
 }
 
 @property (nonatomic, retain) NSNumber *_id;
@@ -38,9 +40,11 @@
 @property (nonatomic, retain) NSNumber *latitude;
 @property (nonatomic, retain) NSNumber *longitude;
 @property (nonatomic, assign) float distance;
-
+@property (nonatomic, assign) NSDictionary *header_color;
+@property (nonatomic, assign) NSDictionary *logo;
 
 -(id) initWithDictionary:(NSDictionary *)festivalsDictionary;
 -(NSString *) dates;
 -(UIColor *) color;
+-(NSString *) urlForDevice;
 @end
