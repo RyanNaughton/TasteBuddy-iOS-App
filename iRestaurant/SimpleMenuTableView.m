@@ -108,7 +108,15 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
-	return 70;
+    int height;
+    MenuItem *menuItem = (MenuItem *)[[[simpleMenuItemArray objectAtIndex:indexPath.section] objectForKey:@"items"]objectAtIndex:indexPath.row];
+    
+    if ([menuItem.pictures count] > 0) {
+        height = 70;
+    } else {
+        height = 48;
+    }
+    return height;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -138,7 +146,7 @@
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
     headerView.backgroundColor = [UIColor clearColor];
     
-    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"orange-grad.png"]];
+    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"grey-grad.png"]];
     bgImageView.alpha = 0.66;
     bgImageView.frame = headerView.frame;
     bgImageView.contentMode = UIViewContentModeScaleToFill;
@@ -147,8 +155,10 @@
         
     UILabel *restaurantName = [[UILabel alloc]initWithFrame:CGRectMake(10, -1, 220, 22)];
     restaurantName.backgroundColor = [UIColor clearColor];
-    restaurantName.textColor = [[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
+    restaurantName.textColor = [UIColor whiteColor];
     restaurantName.font = [UIFont systemFontOfSize:14];
+    restaurantName.shadowColor = [UIColor blackColor];
+    restaurantName.shadowOffset = CGSizeMake(0,1);
     restaurantName.text = [NSString stringWithFormat:@"%@", [[simpleMenuItemArray objectAtIndex:section] objectForKey:@"name"]];
     [headerView addSubview:restaurantName];
     [restaurantName release];
