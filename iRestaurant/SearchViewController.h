@@ -12,6 +12,7 @@
 @class DishSearchResultTableViewController;
 @class AutocompleteModalViewController;
 @class SortAndFilterPreferences;
+@class Festival;
 
 @interface SearchViewController : UIViewController <SearchServiceDelegate, UITextFieldDelegate, UIScrollViewDelegate, UIActionSheetDelegate, MKMapViewDelegate> {
     SearchService *searchService;
@@ -48,6 +49,8 @@
     
     int festivalId;
     
+    Festival *festival;
+    
 }
 
 @property (nonatomic, retain) SearchService *searchService;
@@ -78,9 +81,10 @@
 
 @property (nonatomic, assign) bool isFestivalSearch;
 @property (nonatomic, assign) int festivalId;
+@property (nonatomic, retain) Festival *festival;
 
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andFestivalId:(int) festivalIdPassed;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil andFestival:(Festival *) festivalPassed;
 
 -(IBAction) switchSearchView:(id) sender;
 

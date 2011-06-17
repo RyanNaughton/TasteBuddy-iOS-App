@@ -195,8 +195,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if(festivals != NULL && [festivals count] > 0) {
         Festival *festival = [festivals objectAtIndex:indexPath.row];
-        SearchViewController *svc = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil andFestivalId:[festival._id intValue]
-];
+        SearchViewController *svc = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:nil andFestival:festival];
         [festivalsViewController.navigationController pushViewController:svc animated:YES];
         [svc release];
     }

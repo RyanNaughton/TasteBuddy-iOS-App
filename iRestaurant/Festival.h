@@ -39,7 +39,8 @@
 @property (nonatomic, retain) NSNumber *longitude;
 @property (nonatomic, assign) float distance;
 
+
 -(id) initWithDictionary:(NSDictionary *)festivalsDictionary;
 -(NSString *) dates;
-
+-(UIColor *) color;
 @end

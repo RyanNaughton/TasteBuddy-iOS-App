@@ -25,10 +25,9 @@
     [jsonDictionary setObject:comments forKey:@"comments"];
     [jsonDictionary setObject:imageData forKey:@"imageData"];
     
-    if (restaurant_id == nil) { restaurant_id = @" "; }
+
     [jsonDictionary setObject:restaurant_id forKey:@"restaurant_id"];
     
-    if (menu_item_id == nil) { menu_item_id = @" "; }
     [jsonDictionary setObject:menu_item_id forKey:@"menu_item_id"];
     
     
