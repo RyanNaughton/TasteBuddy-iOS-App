@@ -252,6 +252,7 @@
 
 -(void)searchFinished:(NSMutableArray *)restaurantsArray 
 { 
+    NSLog(@"search finished; %@", restaurantsArray);
     restaurantSearchResultTableViewController.restaurantsArray = [restaurantsArray retain];
     restaurantSearchResultTableViewController.filterText = @"Sort: distance";
     restaurantSearchResultTableViewController.filteredArray = [restaurantsArray retain];
