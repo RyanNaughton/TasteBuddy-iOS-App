@@ -121,7 +121,6 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *headerView;
-    NSLog(@"filter text length: %i", [filterText length]);
     if ([filterText length] != 0) {
         headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
         headerView.backgroundColor = [UIColor clearColor];

@@ -10,6 +10,7 @@
 #import "MenuService.h"    
 @class Restaurant;
 @class Menu;
+@class Festival;
 
 @interface MenuViewController : UIViewController <MenuServiceDelegate> {
     Restaurant *restaurant;
@@ -17,15 +18,17 @@
     IBOutlet UITableView *tableView;
     UIActivityIndicatorView *activityIndicator;
     int menuItems;
+    Festival *festival;
 }
 
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, retain) MenuService *menuService;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, retain) Festival *festival;
 @property (nonatomic, assign) int menuItems;
 
-- (id) initWithRestaurant:(Restaurant *)restaurant_passed;
+- (id) initWithRestaurant:(Restaurant *)restaurant_passed andFestival:(Festival *)festival_passed;
 - (void) menuReturned:(Menu *)menu;
 - (void) callMenuService;
 

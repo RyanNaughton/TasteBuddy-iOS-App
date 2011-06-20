@@ -62,9 +62,7 @@
         self.tableView.backgroundColor = [UIColor whiteColor];
         menu_item = [menu_item_passed retain];
         restaurant = [restaurant_passed retain];
-        NSLog(@"FP %@", festival_passed);
         if(festival_passed) {
-            NSLog(@"FP %@", festival_passed);
             festival = [festival_passed retain];
         }
         NSLog(@"is favorite? %i", menu_item.bookmark);
@@ -145,16 +143,20 @@
 {
     UIImageView *appNameImageView;
     if(festival) {
-        NSLog(@"F %@", festival);
         self.navigationController.navigationBar.tintColor = festival.color;
         appNameImageView = [[UIImageView alloc] init];
         [appNameImageView setImageWithURL:[NSURL URLWithString:festival.urlForDevice]];
+        appNameImageView.frame = CGRectMake(110, 0, 150, 44);
+        appNameImageView.contentMode = UIViewContentModeScaleAspectFit;
+        UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, -3, 320, 44)];
+        [titleView addSubview:appNameImageView];
+        self.navigationItem.titleView = titleView;
     } else {
         appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
+        appNameImageView.frame = CGRectMake(0, -3, 320, 44);
+        appNameImageView.contentMode = UIViewContentModeRight;
+        self.navigationItem.titleView = appNameImageView;
     }
-    appNameImageView.frame = CGRectMake(0, -3, 320, 44);
-    appNameImageView.contentMode = UIViewContentModeRight;
-    self.navigationItem.titleView = appNameImageView;
 
     [super viewDidAppear:animated];
 }
@@ -455,7 +457,7 @@
 
 -(void)rateItButtonPressed:(id)sender 
 {
-    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];    
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];    
     RatingPopupViewController *rpvc = [[RatingPopupViewController alloc]initWithCurrentRating:restaurant.rating.user_rating];
     rpvc.delegate = self;
     rpvc.view.alpha = 0.0;
@@ -545,7 +547,7 @@
 
 -(void)restaurantButtonPressed:(id)sender {
 
-    RestaurantViewController *rvc = [[RestaurantViewController alloc]initWithRestaurant:restaurant];
+    RestaurantViewController *rvc = [[RestaurantViewController alloc]initWithRestaurant:restaurant andFestival:festival];
     [self.navigationController pushViewController:rvc animated:YES];
     [rvc release];
     

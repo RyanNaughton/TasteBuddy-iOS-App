@@ -125,7 +125,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    menuViewController = [[MenuViewController alloc]initWithRestaurant:restaurant];
+    menuViewController = [[MenuViewController alloc]initWithRestaurant:restaurant andFestival:festival];
     takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
 
     UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
@@ -156,24 +156,28 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
+{    
     UIImageView *appNameImageView;
     if(festival) {
         self.navigationController.navigationBar.tintColor = festival.color;
         appNameImageView = [[UIImageView alloc] init];
         [appNameImageView setImageWithURL:[NSURL URLWithString:festival.urlForDevice]];
+        appNameImageView.frame = CGRectMake(110, 0, 150, 44);
+        appNameImageView.contentMode = UIViewContentModeScaleAspectFit;
+        UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, -3, 320, 44)];
+        [titleView addSubview:appNameImageView];
+        self.navigationItem.titleView = titleView;
     } else {
         appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
+        appNameImageView.frame = CGRectMake(0, -3, 320, 44);
+        appNameImageView.contentMode = UIViewContentModeRight;
+        self.navigationItem.titleView = appNameImageView;
     }
-    appNameImageView.frame = CGRectMake(0, -3, 320, 44);
-    appNameImageView.contentMode = UIViewContentModeRight;
-    self.navigationItem.titleView = appNameImageView;
     
     if(animated) {
         [self.tableView reloadData];
     }
+    [super viewDidAppear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -464,7 +468,7 @@
 
 -(void)mapItButtonPressed:(id)sender
 {
-    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
     
 //    NSRange range1 = NSMakeRange(0, [restaurant.address_2 length]);
 //    restaurant.address_2 = [restaurant.address_2 stringByReplacingOccurrencesOfString:@"<null>" withString:@"" options:NULL range:range1];
@@ -542,7 +546,7 @@
 
 -(void)rateItButtonPressed:(id)sender 
 {
-    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
     RatingPopupViewController *rpvc = [[RatingPopupViewController alloc]initWithCurrentRating:restaurant.rating.user_rating];
     rpvc.delegate = self;
     rpvc.view.alpha = 0.0;

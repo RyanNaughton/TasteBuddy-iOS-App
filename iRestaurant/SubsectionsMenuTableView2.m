@@ -16,13 +16,14 @@
 
 @implementation SubsectionsMenuTableView2
 
-@synthesize menuCategory, simpleMenuItemArray, navController, restaurant;
+@synthesize menuCategory, simpleMenuItemArray, navController, restaurant, festival;
 
 
--(id)initWithMenuCategory:(MenuCategory *)menu_category_passed {
+-(id)initWithMenuCategory:(MenuCategory *)menu_category_passed andFestival:(Festival *) festival_passed {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         menuCategory = [menu_category_passed retain];
+        if (festival_passed) festival = [festival_passed retain];
         }
     return self;
 }
@@ -190,7 +191,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     MenuSubcategory *menuSubcategory = (MenuSubcategory *)[menuCategory.menuSubcategories objectAtIndex:indexPath.section];
     MenuItem *menuItem = (MenuItem *)[menuSubcategory.arrayOfMenuItems objectAtIndex:indexPath.row];
-    DishViewController *dishViewController = [[DishViewController alloc]initWithMenuItem:menuItem andRestaurant:restaurant];
+    DishViewController *dishViewController = [[DishViewController alloc]initWithMenuItem:menuItem andRestaurant:restaurant andFestival:festival];
     [self.navigationController pushViewController:dishViewController animated:YES];
     [dishViewController release];
 }

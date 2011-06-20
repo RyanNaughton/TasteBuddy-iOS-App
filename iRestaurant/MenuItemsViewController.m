@@ -16,7 +16,7 @@
 #import "Restaurant.h"
 
 @implementation MenuItemsViewController
-@synthesize menu, menuSection, menuSubsection, restaurant;
+@synthesize menu, menuSection, menuSubsection, restaurant, festival;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,19 +27,23 @@
     return self;
 }
 
--(id)initWithMenu:(Menu *)menu_passed andSection:(int)section andSubsection:(int)subSection andRestaurant:(Restaurant *)restaurant_passed {
+-(id)initWithMenu:(Menu *)menu_passed andSection:(int)section andSubsection:(int)subSection andRestaurant:(Restaurant *)restaurant_passed andFestival:(Festival *) festival_passed {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         menu = [menu_passed retain];
         menuSection = section;
         menuSubsection = subSection;
         restaurant = [restaurant_passed retain];
+        if(festival_passed) {
+            festival = [festival_passed retain];
+        }
     }
     return self;
 }
 
 - (void)dealloc
 {
+    [festival release];
     [restaurant release];
     [menu release];
     [super dealloc];
@@ -196,7 +200,7 @@
     MenuSubcategory *menuSubcategory = [menuCategory.menuSubcategories objectAtIndex:menuSubsection];
     MenuItem *menuItem = [menuSubcategory.arrayOfMenuItems objectAtIndex:indexPath.row];
     
-    DishViewController *dishViewController = [[DishViewController alloc]initWithMenuItem:menuItem andRestaurant:restaurant];
+    DishViewController *dishViewController = [[DishViewController alloc]initWithMenuItem:menuItem andRestaurant:restaurant andFestival:festival];
     [self.navigationController pushViewController:dishViewController animated:YES];
     [dishViewController release];
 }

@@ -10,7 +10,7 @@
 @class Menu;
 @class Restaurant;
 @class MenuViewController;
-
+@class Festival;
 @interface SectionsMenuTableView2 : UITableViewController {
     Menu *menu;
     UINavigationController *navController;
@@ -18,6 +18,7 @@
     int sectionExpanded;
     BOOL isExpanded;
     MenuViewController *parentVC;
+    Festival *festival;
 }
 
 @property (nonatomic, retain) Menu *menu;
@@ -26,7 +27,7 @@
 @property (nonatomic, assign) int sectionExpanded;
 @property (nonatomic, assign) BOOL isExpanded;
 @property (nonatomic, retain) MenuViewController *parentVC;
-
--(id)initWithMenu:(Menu *)menu_passed;
+@property (nonatomic, retain) Festival *festival;
+-(id)initWithMenu:(Menu *)menu_passed andFestival:(Festival*) festival_passed;
 
 @end

@@ -17,7 +17,7 @@
 #import "ASIFormDataRequest.h"
 
 @implementation MenuViewController
-@synthesize restaurant, menuService, tableView, activityIndicator, menuItems;
+@synthesize restaurant, menuService, tableView, activityIndicator, menuItems, festival;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,14 +28,16 @@
     return self;
 }
 
-- (id)initWithRestaurant:(Restaurant *)restaurant_passed 
+- (id)initWithRestaurant:(Restaurant *)restaurant_passed  andFestival:(Festival *)festival_passed
 {
     self = [super initWithNibName:@"MenuViewController" bundle:nil];
     if (self) {
         // Custom initialization
         restaurant = [restaurant_passed retain];
         menuService = [[MenuService alloc]initWithDelegate:self];
-        
+        if (festival_passed) {
+            festival = [festival_passed retain];
+        }
     }
     return self;
 }
@@ -65,7 +67,7 @@
         //[sectionsMenuTableView release];
         
     } else {
-        SimpleMenuTableView *simpleMenuTableView = [[SimpleMenuTableView alloc]initWithMenu:menu];
+        SimpleMenuTableView *simpleMenuTableView = [[SimpleMenuTableView alloc]initWithMenu:menu andFestival:festival];
         tableView.dataSource = simpleMenuTableView;
         tableView.delegate = simpleMenuTableView;
         simpleMenuTableView.restaurant = restaurant;
@@ -81,6 +83,7 @@
     //[restaurant release];
     //[menuService release];
     //[tableView release];
+    [festival release];
     [super dealloc];
 }
 

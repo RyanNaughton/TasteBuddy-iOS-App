@@ -22,13 +22,16 @@
 
 @implementation SectionsMenuTableView2
 
-@synthesize menu, navController, restaurant, sectionExpanded, parentVC, isExpanded;
+@synthesize menu, navController, restaurant, sectionExpanded, parentVC, isExpanded, festival;
 
 
--(id)initWithMenu:(Menu *)menu_passed {
+-(id)initWithMenu:(Menu *)menu_passed andFestival:(Festival*) festival_passed {
     self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         menu = [menu_passed retain];
+        if (festival_passed) {
+            festival = [festival_passed retain];
+        }
     }
     return self;
 }
@@ -237,7 +240,7 @@
         // sub row for expanded view
         //MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
         //MenuSubcategory *menuSubcategory = (MenuSubcategory *)[menuCategory.menuSubcategories objectAtIndex:(indexPath.row - 1)];
-        MenuItemsViewController *mivc = [[MenuItemsViewController alloc]initWithMenu:menu andSection:indexPath.section andSubsection:(indexPath.row -1) andRestaurant:restaurant];
+        MenuItemsViewController *mivc = [[MenuItemsViewController alloc]initWithMenu:menu andSection:indexPath.section andSubsection:(indexPath.row -1) andRestaurant:restaurant andFestival:festival];
         [navController pushViewController:mivc animated:YES];
         [mivc release];
 
@@ -245,7 +248,7 @@
         // header row for non-expanded view
         MenuCategory *mc = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.row];
         [parentVC.tableView deselectRowAtIndexPath:indexPath animated:YES];
-        SubsectionsMenuTableView2 *ss = [[SubsectionsMenuTableView2 alloc]initWithMenuCategory:mc];
+        SubsectionsMenuTableView2 *ss = [[SubsectionsMenuTableView2 alloc]initWithMenuCategory:mc andFestival:festival];
         [ss setTitle:mc.name];
         ss.restaurant = [restaurant retain];
         [navController pushViewController:ss animated:YES];

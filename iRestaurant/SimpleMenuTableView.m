@@ -15,7 +15,7 @@
 #import "DishViewController.h"
 
 @implementation SimpleMenuTableView
-@synthesize menu, simpleMenuItemArray, navController, restaurant;
+@synthesize menu, simpleMenuItemArray, navController, restaurant, festival;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -26,7 +26,7 @@
     return self;
 }
 
--(id)initWithMenu:(Menu *)menu_passed {
+-(id)initWithMenu:(Menu *)menu_passed andFestival:(Festival *)festival_passed {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         // Custom initialization
@@ -49,6 +49,9 @@
             }
             [simpleMenuItemArray addObject:categoryDictionary];
         }
+        if (festival_passed) {
+            festival = [festival_passed retain];
+        }
     }
     return self;
 }
@@ -56,6 +59,7 @@
 - (void)dealloc
 {
     [menu release];
+    [festival release];
     [super dealloc];
 }
 
@@ -224,7 +228,7 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     MenuItem *menuItem = (MenuItem *)[[[simpleMenuItemArray objectAtIndex:indexPath.section] objectForKey:@"items"]objectAtIndex:indexPath.row];
-    DishViewController *dishViewController = [[DishViewController alloc]initWithMenuItem:menuItem andRestaurant:restaurant];
+    DishViewController *dishViewController = [[DishViewController alloc]initWithMenuItem:menuItem andRestaurant:restaurant andFestival:festival];
     [navController pushViewController:dishViewController animated:YES];
     [dishViewController release];
 }
