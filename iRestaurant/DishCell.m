@@ -88,6 +88,7 @@
     if ([menuItem.pictures count] > 0) {
         [imageView setImageWithURL:[NSURL URLWithString:[[menuItem.pictures objectAtIndex:0] objectForKey:@"80px"]]
               placeholderImage:noImage];
+        imageView.frame = CGRectMake(2, 2, 65, 65);
     } else {
         imageView.frame = CGRectMake(2, 2, 65, 43);
         imageView.image = noImage;
