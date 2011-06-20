@@ -10,7 +10,7 @@
 #import "FavoritesDishesTVC.h"
 #import "FavoritesRestaurantsTVC.h"
 #import "iRestaurantAppDelegate.h"
-
+#import "Restaurant.h"
 @implementation FavoritesViewController
 @synthesize restaurantsTabButton, dishesTabButton, tabView, lastSender;
 @synthesize favoritesDishesTVC, favoritesRestaurantsTVC, tableView;
@@ -125,7 +125,6 @@
 -(void) viewDidAppear:(BOOL)animated {
     
     NSLog(@"favorites view did appear");
-    [self.tableView reloadData];
 
     if(![ubs isLoggedIn]) {
         [self checkLogin];
@@ -140,6 +139,8 @@
         favoritesRestaurantsTVC.isLoading = YES;
         [ubs getUserBookmarks];
     }
+    
+    [self.tableView reloadData];
 }
 
 -(void) setActiveTab:(UIButton *) activeTab 
@@ -193,14 +194,17 @@
 }
 
 -(void) doneRetrievingBookmarks:(NSMutableDictionary *) bookmarks {
-      
-    NSLog(@"we have bookmarks: %@", bookmarks);
+    favoritesRestaurantsTVC.restaurantsArray = [[NSMutableArray alloc] init];
     
-    favoritesRestaurantsTVC.restaurantsArray = [bookmarks objectForKey:@"restaurants"];
+    for (NSDictionary *dict in [bookmarks objectForKey:@"restaurants"]) {
+        [favoritesRestaurantsTVC.restaurantsArray addObject:[[Restaurant alloc] initWithDictionary:dict]];
+    }
     
-    NSLog(@"restaurants array: %@", [bookmarks objectForKey:@"restaurants"]);
-    
-    favoritesDishesTVC.dishesArray = [bookmarks objectForKey:@"menu_items_by_restaurant"];
+    favoritesDishesTVC.dishesArray = [[NSMutableArray alloc] init];
+    for (NSDictionary *dict in [bookmarks objectForKey:@"menu_items_by_restaurant"]) {
+        [favoritesDishesTVC.dishesArray addObject:[[Restaurant alloc] initWithDictionary:dict]];
+    }
+
     favoritesDishesTVC.isLoading = NO;
     favoritesRestaurantsTVC.isLoading = NO;
     
