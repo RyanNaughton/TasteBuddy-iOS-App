@@ -22,6 +22,6 @@
 @property (nonatomic, assign) int menuSection;
 @property (nonatomic, assign) int menuSubsection;
 
--(id)initWithMenu:(Menu *)menu_passed andSection:(int)section andSubsection:(int)subSection;
+-(id)initWithMenu:(Menu *)menu_passed andSection:(int)section andSubsection:(int)subSection andRestaurant:(Restaurant *)restaurant_passed;
 
 @end

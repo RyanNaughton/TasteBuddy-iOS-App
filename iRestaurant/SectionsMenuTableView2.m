@@ -18,6 +18,7 @@
 
 #import "CategoryCell.h"
 #import "SubCategoryCell.h"
+#import "MenuItem.h"
 
 @implementation SectionsMenuTableView2
 
@@ -41,9 +42,18 @@
     return self;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 44;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
+    int height;
+    NSLog(@"height hit");
+    MenuCategory *menuCategory = [menu.arrayOfCategories objectAtIndex:indexPath.section];
+    MenuSubcategory *menuSubcategory = [menuCategory.menuSubcategories objectAtIndex:indexPath.row];
+    MenuItem *menuItem = [menuSubcategory.arrayOfMenuItems objectAtIndex:indexPath.row];
+    if ([menuItem.pictures count] > 0) {
+        height = 70;
+    } else {
+        height = 48;
+    }
+    return height;
 }
 
 - (void)didReceiveMemoryWarning
@@ -104,37 +114,70 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [menu.arrayOfCategories count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [menu.arrayOfCategories count];
+    int rows;
+    MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:section];
+    int menuItemsCount = 0;
+    for (MenuSubcategory *menuSubcategory in menuCategory.menuSubcategories) {
+        menuItemsCount = menuItemsCount + [menuSubcategory.arrayOfMenuItems count];
+    }
+    if (menuItemsCount > 100) {
+        rows = [menuCategory.menuSubcategories count] + 1;
+    } else {
+        rows = 1;
+    }
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"CategoryCell";
-    
-    CategoryCell *categoryCell = (CategoryCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (categoryCell == nil) {
-        categoryCell = [[[CategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-    MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.row];
-    categoryCell.name.text = [NSString stringWithFormat:@"%@", menuCategory.name];
-    
+    MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
     int menuItemsCount = 0;
     for (MenuSubcategory *menuSubcategory in menuCategory.menuSubcategories) {
         menuItemsCount = menuItemsCount + [menuSubcategory.arrayOfMenuItems count];
-        NSLog(@"subcat name: %@ | count: %i", menuSubcategory.name, [menuSubcategory.arrayOfMenuItems count]);
-        NSLog(@"menu items count: %i", menuItemsCount);
     }
-    
-    categoryCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    categoryCell.count.text = [NSString stringWithFormat:@"(%i)", menuItemsCount];
-    
-    return categoryCell;
+    if ((menuItemsCount > 100) && (indexPath.row == 0)) {
+        // header row for expanded view
+        MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
+        static NSString *CellIdentifier = @"CategoryCellExpandedView";
+        CategoryCell *categoryCell = (CategoryCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (categoryCell == nil) {
+            categoryCell = [[[CategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+        categoryCell.accessoryType = UITableViewCellAccessoryNone;
+        categoryCell.count.text = [NSString stringWithFormat:@"(%i)", menuItemsCount];
+        categoryCell.name.text = menuCategory.name;
+        return categoryCell;
+    } else if ((menuItemsCount > 100) && (indexPath.row > 0)) {
+        // sub row for expanded view
+        MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
+        MenuSubcategory *menuSubcategory = (MenuSubcategory *)[menuCategory.menuSubcategories objectAtIndex:(indexPath.row - 1)];
+        static NSString *CellIdentifier = @"SubCategoryCell";
+        SubCategoryCell *subCategoryCell = (SubCategoryCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (subCategoryCell == nil) {
+            subCategoryCell = [[[SubCategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+        subCategoryCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        subCategoryCell.count.text = [NSString stringWithFormat:@"(%i)", [menuSubcategory.arrayOfMenuItems count]];
+        subCategoryCell.name.text = menuSubcategory.name;
+        return subCategoryCell;
+    } else {
+        // header row for non-expanded view
+        MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
+        static NSString *CellIdentifier = @"CategoryCell";
+        CategoryCell *categoryCell = (CategoryCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (categoryCell == nil) {
+            categoryCell = [[[CategoryCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        }
+        categoryCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        categoryCell.count.text = [NSString stringWithFormat:@"(%i)", menuItemsCount];
+        categoryCell.name.text = menuCategory.name;
+        return categoryCell;
+    }    
 }
 
 /*
@@ -180,13 +223,34 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MenuCategory *mc = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.row];
-    [parentVC.tableView deselectRowAtIndexPath:indexPath animated:YES];
-    SubsectionsMenuTableView2 *ss = [[SubsectionsMenuTableView2 alloc]initWithMenuCategory:mc];
-    [ss setTitle:mc.name];
-    ss.restaurant = [restaurant retain];
-    [navController pushViewController:ss animated:YES];
-    [ss release];
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
+    int menuItemsCount = 0;
+    for (MenuSubcategory *menuSubcategory in menuCategory.menuSubcategories) {
+        menuItemsCount = menuItemsCount + [menuSubcategory.arrayOfMenuItems count];
+    }
+    
+    if ((menuItemsCount > 100) && (indexPath.row == 0)) {
+       // header row for expanded view 
+        
+    } else if ((menuItemsCount > 100) && (indexPath.row > 0)) {
+        // sub row for expanded view
+        //MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
+        //MenuSubcategory *menuSubcategory = (MenuSubcategory *)[menuCategory.menuSubcategories objectAtIndex:(indexPath.row - 1)];
+        MenuItemsViewController *mivc = [[MenuItemsViewController alloc]initWithMenu:menu andSection:indexPath.section andSubsection:(indexPath.row -1) andRestaurant:restaurant];
+        [navController pushViewController:mivc animated:YES];
+        [mivc release];
+
+    } else {
+        // header row for non-expanded view
+        MenuCategory *mc = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.row];
+        [parentVC.tableView deselectRowAtIndexPath:indexPath animated:YES];
+        SubsectionsMenuTableView2 *ss = [[SubsectionsMenuTableView2 alloc]initWithMenuCategory:mc];
+        [ss setTitle:mc.name];
+        ss.restaurant = [restaurant retain];
+        [navController pushViewController:ss animated:YES];
+        [ss release];
+    }    
 }
 
 @end

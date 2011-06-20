@@ -134,7 +134,7 @@
 //        [headerView addSubview:bgView];
 //        [bgView release];
         
-        UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"grey-grad"]];
+        UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"grey-grad.png"]];
         bgImageView.alpha = 0.95;
         bgImageView.frame = headerView.frame;
         bgImageView.contentMode = UIViewContentModeScaleToFill;
@@ -279,15 +279,6 @@
         searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return height;
-
-    
-//    int height;
-//    if ([restaurantsArray count] > 0) {
-//            height = 70;
-//    } else {
-//        height = 44;
-//    }
-//    return height;
 }
 
 /*

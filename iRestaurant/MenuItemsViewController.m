@@ -27,12 +27,13 @@
     return self;
 }
 
--(id)initWithMenu:(Menu *)menu_passed andSection:(int)section andSubsection:(int)subSection {
+-(id)initWithMenu:(Menu *)menu_passed andSection:(int)section andSubsection:(int)subSection andRestaurant:(Restaurant *)restaurant_passed {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         menu = [menu_passed retain];
         menuSection = section;
         menuSubsection = subSection;
+        restaurant = [restaurant_passed retain];
     }
     return self;
 }
@@ -136,7 +137,16 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
-    return 70;
+    int height;
+    MenuCategory *menuCategory = [menu.arrayOfCategories objectAtIndex:menuSection];
+    MenuSubcategory *menuSubcategory = [menuCategory.menuSubcategories objectAtIndex:menuSubsection];
+    MenuItem *menuItem = [menuSubcategory.arrayOfMenuItems objectAtIndex:indexPath.row];
+    if ([menuItem.pictures count] > 0) {
+        height = 70;
+    } else {
+        height = 48;
+    }
+    return height;
 }
 
 /*
