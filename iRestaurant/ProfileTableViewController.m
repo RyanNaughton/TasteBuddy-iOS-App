@@ -136,10 +136,11 @@
     picturesArray = [[NSMutableArray alloc]init];
     picturesCount = 0;
     
-    for (NSDictionary *dict in picturesArray) {
+    for (NSDictionary *dict in unsortedPicturesArray) {
         NSArray *picturesByRestaurant = [dict objectForKey:@"pictures_by_restaurant"];
         for (NSDictionary *dict2 in picturesByRestaurant) {
             NSArray *pictures = [dict2 objectForKey:@"pictures"];
+            
             picturesCount += [pictures count];
         }
     }

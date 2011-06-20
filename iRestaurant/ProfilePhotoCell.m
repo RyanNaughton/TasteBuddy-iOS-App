@@ -76,7 +76,7 @@
 }
 
 -(void)imageButtonPressed:(id)sender {
-    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     NSArray *arrayOfPhotos = [restaurantDictionary objectForKey:@"pictures"];
     NSString *restaurantName = [[arrayOfPhotos objectAtIndex:0] objectForKey:@"restaurant_name"];
@@ -102,7 +102,7 @@
 
 -(void)restaurantRetrieved:(Restaurant *) restuarant 
 {
-    RestaurantViewController *rvc = [[RestaurantViewController alloc]initWithRestaurant:restuarant];
+    RestaurantViewController *rvc = [[RestaurantViewController alloc]initWithRestaurant:restuarant andFestival:nil];
     [ptvc.navigationController pushViewController:rvc animated:YES];
     [rvc release];
 }

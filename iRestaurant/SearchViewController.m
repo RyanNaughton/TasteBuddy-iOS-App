@@ -502,6 +502,7 @@
 		pinView.canShowCallout = YES;
 		pinView.animatesDrop = NO;
         
+        
         UIButton *infoButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
         pinView.rightCalloutAccessoryView = infoButton;
 	} 
