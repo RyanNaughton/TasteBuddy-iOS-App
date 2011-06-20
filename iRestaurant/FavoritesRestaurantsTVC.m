@@ -114,7 +114,7 @@
 {
     
 	if (isLoading) {
-        iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
         if ([appDelegate loggedIn]) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoadingCell"];
             if (cell == nil) {
@@ -149,10 +149,7 @@
 		    restaurantSearchCell = [[[RestaurantSearchCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FavoritesRestaurantSearchCell"] autorelease];
 		}          
         
-        NSDictionary *restaurantDict = [restaurantsArray objectAtIndex:indexPath.row];
-        Restaurant *restaurant = [[Restaurant alloc]initWithDictionary:restaurantDict];
-        
-        [restaurantSearchCell loadRestaurant:restaurant];
+        [restaurantSearchCell loadRestaurant:[restaurantsArray objectAtIndex:indexPath.row]];
 		
 		return restaurantSearchCell;
     } else {
@@ -242,11 +239,7 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     
     if([restaurantsArray count] > 0 && !isLoading){
-        
-        NSDictionary *restaurantDict = [restaurantsArray objectAtIndex:indexPath.row];
-        Restaurant *restaurant = [[Restaurant alloc]initWithDictionary:restaurantDict];
-        
-        RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:restaurant andFestival:nil];
+        RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:[restaurantsArray objectAtIndex:indexPath.row] andFestival:nil];
         [favoritesViewController.navigationController pushViewController:restaurantViewController animated:YES];
         [restaurantViewController release];
         

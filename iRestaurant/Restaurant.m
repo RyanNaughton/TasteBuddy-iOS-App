@@ -65,9 +65,14 @@
 -(id) initWithDictionary:(NSDictionary *)restaurantDictionary {
     self = [super init];
     if (self) {
-       // custom init        
+       // custom init    
         _id               = [[restaurantDictionary objectForKey:@"id"] retain];
         name              = [[restaurantDictionary objectForKey:@"name"] retain];
+        //For Favorites
+        if ([restaurantDictionary objectForKey:@"restaurant_name"] != NULL && ![[restaurantDictionary objectForKey:@"restaurant_name"] isKindOfClass:[NSNull class]]) {
+            _id              = [[restaurantDictionary objectForKey:@"restaurant_id"] retain]; 
+            name              = [[restaurantDictionary objectForKey:@"restaurant_name"] retain];            
+        }
         rating = [[Rating alloc] initWithUserRating:[restaurantDictionary objectForKey:@"user_rating"] andAverageRating:[restaurantDictionary objectForKey:@"average_rating"] andRatingsCount:[restaurantDictionary objectForKey:@"ratings_count"]];
         
         bookmark = [[restaurantDictionary objectForKey:@"bookmark"]boolValue];

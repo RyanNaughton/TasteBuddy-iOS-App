@@ -13,6 +13,8 @@
 #import "DishViewController.h"
 #import "RestaurantService.h"
 #import "iRestaurantAppDelegate.h"
+#import "Restaurant.h"
+
 
 @implementation FavoritesDishesTVC
 
@@ -106,9 +108,8 @@
     
     if([dishesArray count] > 0 && !isLoading)
     {
-        NSDictionary *dict = [dishesArray objectAtIndex:section];
-        NSArray *arrayOfMenuItems = [dict objectForKey:@"menu_items"];
-        return [arrayOfMenuItems count];
+        Restaurant *restaurant = (Restaurant *)[dishesArray objectAtIndex:section];
+        return [restaurant.menu_items count];
     } else {        
         return 1;
     }
@@ -120,8 +121,9 @@
     if([dishesArray count] > 0 && !isLoading)
     {
         
-    NSDictionary *dict = [dishesArray objectAtIndex:section];
-    NSString *restaurantNameString = [dict objectForKey:@"restaurant_name"];
+        Restaurant *restaurant = (Restaurant *)[dishesArray objectAtIndex:section];
+        NSLog(@"restaurant %@", [restaurant.name retain]);
+
         headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
         headerView.backgroundColor = [UIColor clearColor];
         
@@ -136,7 +138,7 @@
         restaurantName.backgroundColor = [UIColor clearColor];
         restaurantName.textColor = [UIColor whiteColor];
         restaurantName.font = [UIFont systemFontOfSize:14];
-        restaurantName.text = restaurantNameString;
+        restaurantName.text = [restaurant.name retain];
         restaurantName.shadowColor = [UIColor blackColor];
         restaurantName.shadowOffset = CGSizeMake(0,1);
         [headerView addSubview:restaurantName];
@@ -167,7 +169,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (isLoading) {
-        iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+        iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
         if ([appDelegate loggedIn]) {
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"LoadingCell"];
             if (cell == nil) {
@@ -196,11 +198,9 @@
             return cell;
         }
     } else if ([dishesArray count] > 0) {
-        //MenuItem *menuItem = (MenuItem *)[dishesArray objectAtIndex:indexPath.row];
-        NSDictionary *dict = [dishesArray objectAtIndex:indexPath.section];
-        NSArray *arrayOfMenuItems = [dict objectForKey:@"menu_items"];
-        NSDictionary *menuItemDict = [arrayOfMenuItems objectAtIndex:indexPath.row];
-        MenuItem *menuItem = [[MenuItem alloc]initWithDictionary:menuItemDict];
+        Restaurant *restaurant = (Restaurant *)[dishesArray objectAtIndex:indexPath.section];
+
+        MenuItem *menuItem = [restaurant.menu_items objectAtIndex:indexPath.row];
         
         if ([menuItem.pictures count] > 0) {        
             DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"FavoriteDishCell"];
@@ -241,10 +241,9 @@
         favoritesViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         height = 300; 
     } else if ([dishesArray count] > 0) {
-        NSDictionary *dict = [dishesArray objectAtIndex:indexPath.section];
-        NSArray *arrayOfMenuItems = [dict objectForKey:@"menu_items"];
-        NSDictionary *menuItemDict = [arrayOfMenuItems objectAtIndex:indexPath.row];
-        MenuItem *menuItem = [[MenuItem alloc]initWithDictionary:menuItemDict];
+        Restaurant *restaurant = (Restaurant *)[dishesArray objectAtIndex:indexPath.section];
+        MenuItem *menuItem = [restaurant.menu_items objectAtIndex:indexPath.row];
+        
         if ([menuItem.pictures count] > 0) {
             height = 70;
         } else {
@@ -302,10 +301,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([dishesArray count] > 0) {
-        NSDictionary *dict = [dishesArray objectAtIndex:indexPath.section];
-        NSArray *arrayOfMenuItems = [dict objectForKey:@"menu_items"];
-        NSDictionary *menuItemDict = [arrayOfMenuItems objectAtIndex:indexPath.row];
-        MenuItem *menuItem_at_row = [[MenuItem alloc]initWithDictionary:menuItemDict];
+        
+        Restaurant *restaurant = (Restaurant *)[dishesArray objectAtIndex:indexPath.section];
+        
+        MenuItem *menuItem_at_row = [restaurant.menu_items objectAtIndex:indexPath.row];
 
         menu_item = [menuItem_at_row retain];
         
