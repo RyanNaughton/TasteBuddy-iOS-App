@@ -124,7 +124,9 @@
 
 -(void) viewDidAppear:(BOOL)animated {
     
-    NSLog(@"view did appear");
+    NSLog(@"favorites view did appear");
+    [self.tableView reloadData];
+
     if(![ubs isLoggedIn]) {
         [self checkLogin];
         [self setActiveTab:lastSender];
@@ -138,7 +140,6 @@
         favoritesRestaurantsTVC.isLoading = YES;
         [ubs getUserBookmarks];
     }
-    [self.favoritesDishesTVC.tableView reloadData];
 }
 
 -(void) setActiveTab:(UIButton *) activeTab 
