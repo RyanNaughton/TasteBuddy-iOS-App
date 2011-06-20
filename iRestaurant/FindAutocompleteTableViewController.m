@@ -173,6 +173,7 @@
 
 -(void) refereshTable {
     values = [[NSMutableArray alloc]init];
+    [values removeAllObjects];
     [values addObjectsFromArray:[autocompleteDict objectForKey:@"cuisine_types"]];
     [values addObjectsFromArray:[autocompleteDict objectForKey:@"restaurants"]];
     [values addObjectsFromArray:[autocompleteDict objectForKey:@"menu_items"]];
