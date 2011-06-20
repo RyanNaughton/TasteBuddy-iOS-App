@@ -24,4 +24,9 @@
     }
     return self;
 }
+-(void) reset {
+    sortIndex = -1;
+    sortIndex = -1;
+    distanceIndex = -1;    
+}
 @end

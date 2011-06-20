@@ -27,7 +27,6 @@
 
 -(void)setupScrollView:(NSArray *)arrayOfPhotos_passed {
     arrayOfPhotos = [arrayOfPhotos_passed retain];
-    NSLog(@"array of photos: %@", arrayOfPhotos);
     //self.view.backgroundColor = [UIColor blackColor];
     UIImage *noImage = [UIImage imageNamed:@"no-image-300.png"];
     NSMutableArray *imageViewArray = [[NSMutableArray alloc]init];

@@ -2943,7 +2943,7 @@
 				PRODUCT_NAME = TasteBuddy;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos5.0;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -2965,7 +2965,7 @@
 				PRODUCT_NAME = TasteBuddy;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
-				SDKROOT = iphoneos5.0;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

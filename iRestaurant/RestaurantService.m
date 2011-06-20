@@ -46,9 +46,6 @@
 }
 
 - (void)requestFinished:(ASIHTTPRequest *)requestPassed {
-    
-    NSLog(@"restaurant: %@", [[requestPassed responseString] JSONValue]);
-    
    [delegate restaurantRetrieved: [[Restaurant alloc] initWithDictionary:[[requestPassed responseString] JSONValue]]];
     request = nil;
 }

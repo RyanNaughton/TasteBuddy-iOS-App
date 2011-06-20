@@ -10,7 +10,7 @@
 #import "FindAutocompleteTableViewController.h"
 #import "NearAutocompleteTableViewController.h"
 #import "SearchViewController.h"
-
+#import "SortAndFilterPreferences.h"
 
 @implementation AutocompleteModalViewController
 
@@ -139,6 +139,7 @@
     [searchViewController.searchService searchByTerm:termField.text andNear:nearField.text];
     [searchViewController switchSearchView:(id) searchViewController.lastSender];
     [searchViewController resultsLoading];
+    [searchViewController.sortAndFilterPreferences reset];
     searchViewController.fakeTermField.text = termField.text;
     //[self dismissModalViewControllerAnimated:YES];
     [self cancel];

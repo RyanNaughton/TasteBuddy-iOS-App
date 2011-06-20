@@ -127,7 +127,7 @@
         {
             distance = [[restaurantDictionary objectForKey:@"distance"] retain];
         } else {
-            NSLog(@"distance not set");
+            //NSLog(@"distance not set");
         }
         
         menu_items        = [[NSMutableArray alloc] init];

@@ -65,8 +65,6 @@
         request = nil;
     }
     
-    NSLog(@"url : %@", urlString); 
-    NSLog(@"request method: %@", requestMethod);
     NSString *json = [jsonDictionary JSONRepresentation];
     NSURL *url = [NSURL URLWithString:urlString];
     request = [ASIFormDataRequest requestWithURL:url];

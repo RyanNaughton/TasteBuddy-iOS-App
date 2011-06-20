@@ -30,7 +30,6 @@
 -(id) initWithDictionary:(NSDictionary *)festivalsDictionary {
     self = [super init];
     if (self) {
-        NSLog(@"Festivals Log: %@", festivalsDictionary);
         _id                 = [[festivalsDictionary objectForKey:@"id"] retain];
         name                = [[festivalsDictionary objectForKey:@"name"] retain];
         address_description = [[festivalsDictionary objectForKey:@"address_description"] retain];

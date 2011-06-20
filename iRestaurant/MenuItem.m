@@ -37,9 +37,7 @@
     self = [super init];
     if (self) {
         // custom init
-        
-        NSLog(@"menu item dict: %@", menuItemDictionary);
-        
+                
         _id             = [[menuItemDictionary objectForKey:@"id"] retain];
         name            = [[menuItemDictionary objectForKey:@"name"] retain];
         photo_urls      = [[menuItemDictionary objectForKey:@"photo_urls"] retain];

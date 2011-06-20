@@ -40,7 +40,6 @@
     iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     NSString *urlString = [NSString stringWithFormat:@"http://api.yipit.com/v1/deals/?lat=%f&lon=%f&radius=%i&tag=restaurants&key=%@", appDelegate.currentLocation.coordinate.latitude, appDelegate.currentLocation.coordinate.longitude, 10, @"mg2ry7FuB3eRxUQR&"];
-    NSLog(@"urlString: %@", urlString);
     NSURL *url = [NSURL URLWithString:urlString];
     
     request = [ASIFormDataRequest requestWithURL:url];
@@ -61,7 +60,6 @@
 
 -(void)requestFailed:(ASIHTTPRequest *)requestPassed {
     int responseCode = [requestPassed responseStatusCode];
-    NSLog(@"Error Code  %i :\n\nResponse: %@", responseCode, [requestPassed responseString]);
     
     if (responseCode != 0) {
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Connection Error" message:@"We're sorry, but we could not connect to the Deals server" delegate:self cancelButtonTitle:@"Close" otherButtonTitles:nil];

@@ -17,4 +17,6 @@
 @property (nonatomic, assign) int sortIndex;
 @property (nonatomic, assign) int priceIndex;
 @property (nonatomic, assign) int distanceIndex;
+
+-(void) reset;
 @end

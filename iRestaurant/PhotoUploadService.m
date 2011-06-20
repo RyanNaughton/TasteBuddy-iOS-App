@@ -69,7 +69,6 @@
     NSString *responseString = [request_passed responseString];
     NSDictionary *dict = [responseString JSONValue];
     // need to setup a delegate protocol..
-    NSLog(@"response dict: %@", dict);
     [delegate imageLoadingDone:dict];
     request = nil;
 }
