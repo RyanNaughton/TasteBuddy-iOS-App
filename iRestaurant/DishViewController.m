@@ -40,6 +40,8 @@
 #import "Tag.h"
 #import "DishRestaurantCell.h"
 #import "DishImageCell.h"
+#import "DescriptionHeaderCell.h"
+#import "DescriptionCell.h"
 
 @implementation DishViewController
 
@@ -89,6 +91,9 @@
     }
     
     [tableArray addObject:@"Buttons"];
+    if(menu_item.description == NULL || ![menu_item.description isKindOfClass:[NSNull class]]){
+        [tableArray addObject:@"Description"];
+    }
     //[tableArray addObject:@"Tags"]; 
     
     if ([menu_item.comments count] > 0) {
@@ -196,6 +201,8 @@
         } else {
             return 7;
         }
+    }else if ([@"Description" isEqualToString:[tableArray objectAtIndex:section]]) {
+        return 2;
     } else {
         return 1;        
     }
@@ -235,6 +242,23 @@
 		}          
         //[dishButtonsCell loadRestaurant:restaurant];
 		return dishButtonsCell;
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Description"]) {
+        if (indexPath.row == 0) {
+            DescriptionHeaderCell *descriptionHeaderCell = (DescriptionHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"DescriptionHeaderCell"];
+            if(descriptionHeaderCell == nil) {
+               descriptionHeaderCell = [[[DescriptionHeaderCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DescriptionHeaderCell"] autorelease]; 
+            }
+            return descriptionHeaderCell;
+        } else {
+            DescriptionCell * descriptionCell = (DescriptionCell* )[tableView dequeueReusableCellWithIdentifier:@"DescriptionCell"];
+            if(descriptionCell == nil){
+                descriptionCell = [[[DescriptionCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"DescriptionCell"] autorelease]; 
+ 
+            }
+            [descriptionCell loadDescription:menu_item.description];
+            return descriptionCell;
+
+        }
     } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Tags"]) {
         if (indexPath.row == 0) {
             QuickReviewHeaderCell *restaurantTagsCell = (QuickReviewHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"DishHeaderTagsCell"];
@@ -329,7 +353,13 @@
         } else {
             height = 44;
         }
-    }  else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Description"]) {
+        if(indexPath.row > 0) {
+            height = [StringSizeUtility cellHeightForString:menu_item.description withFrame:CGRectMake(10, 0, 310, 20) andBottomPadding:10.0];
+        } else {
+            height = 50;
+        }
+    } else if ([[tableArray objectAtIndex:indexPath.section] isEqualToString:@"Comments"]) {
         if([menu_item.comments count] > 0 && indexPath.row > 0) {
             Comment * comment = (Comment *)[menu_item.comments objectAtIndex:(indexPath.row - 1)];
             height = [StringSizeUtility cellHeightForString:comment.text withFrame:CGRectMake(10, 30, 310, 20) andBottomPadding:10.0];

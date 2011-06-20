@@ -14,6 +14,7 @@
 @interface MenuItem : TaggedObject {
     NSString *_id;
     NSString *name;
+    NSString *description;
     NSArray *photo_urls;
     NSMutableArray *comments;
     NSMutableArray *pictures;
@@ -37,6 +38,7 @@
 @property (nonatomic, retain) Rating *rating;
 @property (nonatomic, assign) BOOL bookmark;
 @property (nonatomic, retain) NSString *foreign_name;
+@property (nonatomic, retain) NSString *description;
 
 -(id) initWithDictionary:(NSDictionary *)menuItemDictionary;
 

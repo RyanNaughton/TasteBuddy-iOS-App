@@ -31,7 +31,7 @@
         [self.contentView addSubview:commentsLabel];
         [commentsLabel release];
         
-        self.selectionStyle = UITableViewCellEditingStyleNone;
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     return self;
 }

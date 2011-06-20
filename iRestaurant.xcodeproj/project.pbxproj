@@ -152,6 +152,8 @@
 		49BA68521354DBA50040DDB5 /* iRestaurantTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BA68511354DBA50040DDB5 /* iRestaurantTests.m */; };
 		49BED7FD13611BA700DE8CC4 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BED7FC13611BA700DE8CC4 /* CommentCell.m */; };
 		49C41108137DB809005536D0 /* hours.m in Sources */ = {isa = PBXBuildFile; fileRef = 49C41107137DB809005536D0 /* hours.m */; };
+		49E0ADC013AF9D2C00C1B3C5 /* DescriptionHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E0ADBF13AF9D2B00C1B3C5 /* DescriptionHeaderCell.m */; };
+		49E0ADC313AFA06C00C1B3C5 /* DescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E0ADC213AFA06B00C1B3C5 /* DescriptionCell.m */; };
 		49EA6E7E1374D0F3003D8703 /* AbstractService.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EA6E7D1374D0F3003D8703 /* AbstractService.m */; };
 		49EE9A7A136799CF00528C91 /* JSONBuiltModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE9A79136799CF00528C91 /* JSONBuiltModel.m */; };
 		49EE9AF41368D7E100528C91 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EE9AF21368D7E100528C91 /* LoginViewController.m */; };
@@ -671,6 +673,10 @@
 		49BED7FC13611BA700DE8CC4 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		49C41106137DB808005536D0 /* hours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hours.h; sourceTree = "<group>"; };
 		49C41107137DB809005536D0 /* hours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = hours.m; sourceTree = "<group>"; };
+		49E0ADBE13AF9D2B00C1B3C5 /* DescriptionHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionHeaderCell.h; sourceTree = "<group>"; };
+		49E0ADBF13AF9D2B00C1B3C5 /* DescriptionHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionHeaderCell.m; sourceTree = "<group>"; };
+		49E0ADC113AFA06900C1B3C5 /* DescriptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionCell.h; sourceTree = "<group>"; };
+		49E0ADC213AFA06B00C1B3C5 /* DescriptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionCell.m; sourceTree = "<group>"; };
 		49EA6E7C1374D0F3003D8703 /* AbstractService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractService.h; sourceTree = "<group>"; };
 		49EA6E7D1374D0F3003D8703 /* AbstractService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractService.m; sourceTree = "<group>"; };
 		49EE9A78136799CF00528C91 /* JSONBuiltModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONBuiltModel.h; sourceTree = "<group>"; };
@@ -1090,6 +1096,10 @@
 				49BED7FC13611BA700DE8CC4 /* CommentCell.m */,
 				E83A9471136608CE00A5B706 /* QuickReviewHeaderCell.h */,
 				E83A9472136608CE00A5B706 /* QuickReviewHeaderCell.m */,
+				49E0ADBE13AF9D2B00C1B3C5 /* DescriptionHeaderCell.h */,
+				49E0ADBF13AF9D2B00C1B3C5 /* DescriptionHeaderCell.m */,
+				49E0ADC113AFA06900C1B3C5 /* DescriptionCell.h */,
+				49E0ADC213AFA06B00C1B3C5 /* DescriptionCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -2865,6 +2875,8 @@
 				494D4A6713A910CE005E472E /* FestivalsTableViewController.m in Sources */,
 				E86107D313A94E6C00A575E0 /* NSDate+Helper.m in Sources */,
 				4958979013AA97BD00DF5D70 /* FestivalCell.m in Sources */,
+				49E0ADC013AF9D2C00C1B3C5 /* DescriptionHeaderCell.m in Sources */,
+				49E0ADC313AFA06C00C1B3C5 /* DescriptionCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

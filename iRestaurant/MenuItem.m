@@ -24,6 +24,7 @@
 @synthesize rating;
 @synthesize bookmark;
 @synthesize foreign_name;
+@synthesize description;
 
 -(id) init {
     self = [super init];
@@ -37,19 +38,17 @@
     self = [super init];
     if (self) {
         // custom init
-                
         _id             = [[menuItemDictionary objectForKey:@"id"] retain];
         name            = [[menuItemDictionary objectForKey:@"name"] retain];
         photo_urls      = [[menuItemDictionary objectForKey:@"photo_urls"] retain];
         pictures        = [[menuItemDictionary objectForKey:@"pictures"] retain];
         restaurant_id   = [[menuItemDictionary objectForKey:@"restaurant_id"] retain];
-        bookmark = [[menuItemDictionary objectForKey:@"bookmark"] boolValue];
+        bookmark        = [[menuItemDictionary objectForKey:@"bookmark"] boolValue];
+        description     = [[menuItemDictionary objectForKey:@"description"] retain];
         
         foreign_name = [[menuItemDictionary objectForKey:@"foreign_name"] retain];
         
         rating = [[Rating alloc] initWithUserRating:[menuItemDictionary objectForKey:@"user_rating"] andAverageRating:[menuItemDictionary objectForKey:@"average_rating"] andRatingsCount:[menuItemDictionary objectForKey:@"ratings_count"]];
-        
-
         
         NSNumber *priceFromDictionary = [[menuItemDictionary objectForKey:@"price"] retain];
         
@@ -99,6 +98,7 @@
     [comments       release];
     [pictures       release];
     [restaurant_id  release];
+    [description    release];
     [super          dealloc];
 }
 
