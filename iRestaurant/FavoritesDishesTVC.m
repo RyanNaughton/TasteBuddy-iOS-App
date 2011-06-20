@@ -97,7 +97,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    NSLog(@"dishes array is: %@", dishesArray);
     return [dishesArray count];
 }
 
@@ -202,9 +201,6 @@
         NSArray *arrayOfMenuItems = [dict objectForKey:@"menu_items"];
         NSDictionary *menuItemDict = [arrayOfMenuItems objectAtIndex:indexPath.row];
         MenuItem *menuItem = [[MenuItem alloc]initWithDictionary:menuItemDict];
-        
-        NSLog(@"menu item dict in cell: %@", menuItemDict);
-        NSLog(@"menu item name: %@", menuItem.name);
         
         if ([menuItem.pictures count] > 0) {        
             DishCell *dishCell = (DishCell *)[tableView dequeueReusableCellWithIdentifier:@"FavoriteDishCell"];

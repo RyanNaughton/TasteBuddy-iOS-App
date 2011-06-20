@@ -100,6 +100,10 @@
 }
 
 #pragma mark - View lifecycle
+-(void) viewDidAppear:(BOOL)animated {
+    [self.tableView reloadData];
+    [super viewDidAppear:animated];
+}
 
 - (void)viewDidLoad
 {

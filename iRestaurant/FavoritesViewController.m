@@ -39,7 +39,7 @@
 }
 
 -(void) checkLogin {
-    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
     if ([appDelegate loggedIn]) {
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
         
@@ -124,13 +124,14 @@
 
 -(void) viewDidAppear:(BOOL)animated {
     
-    NSLog(@"view did appear");
+    NSLog(@"favorites view did appear");
+    [self.tableView reloadData];
+
     if(![ubs isLoggedIn]) {
         [self checkLogin];
         [self setActiveTab:lastSender];
-        favoritesRestaurantsTVC.restaurantsArray = [[NSArray alloc] init];
-        favoritesDishesTVC.dishesArray = [[NSArray alloc] init];
-        [tableView reloadData];
+        favoritesRestaurantsTVC.restaurantsArray = [[NSMutableArray alloc] init];
+        favoritesDishesTVC.dishesArray = [[NSMutableArray alloc] init];
     } else {
         [self setActiveTab:lastSender];
     }
@@ -138,9 +139,7 @@
         favoritesDishesTVC.isLoading = YES;
         favoritesRestaurantsTVC.isLoading = YES;
         [ubs getUserBookmarks];
-        [self.tableView reloadData];
     }
-    [self.tableView reloadData];
 }
 
 -(void) setActiveTab:(UIButton *) activeTab 
