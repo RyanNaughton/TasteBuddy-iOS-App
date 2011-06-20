@@ -215,7 +215,12 @@
         searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         height = 300; 
     } else if ([filteredArray count] > 0) {
-        height = 52;
+        Restaurant *restaurant = [filteredArray objectAtIndex:indexPath.row];
+        if (restaurant.average_meal_price != 0) {
+            height = 67;
+        } else {
+            height = 52;    
+        }
         searchViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     } else {
         height = 50;

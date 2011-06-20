@@ -93,15 +93,23 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
-	return 70;
+    int height;
+    MenuSubcategory *menuSubcategory = (MenuSubcategory *)[menuCategory.menuSubcategories objectAtIndex:indexPath.section];
+    MenuItem *menuItem = (MenuItem *)[menuSubcategory.arrayOfMenuItems objectAtIndex:indexPath.row];
+    if ([menuItem.pictures count] > 0) {
+        height = 70;
+    } else {
+        height = 48;
+    }
+    return height;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, 320, 22)];
     headerView.backgroundColor = [UIColor clearColor];
     
-    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"orange-grad.png"]];
-    bgImageView.alpha = 0.66;
+    UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"grey-grad.png"]];
+    bgImageView.alpha = 95;
     bgImageView.frame = headerView.frame;
     bgImageView.contentMode = UIViewContentModeScaleToFill;
     [headerView addSubview:bgImageView];
@@ -109,7 +117,9 @@
     
     UILabel *subcategoryName = [[UILabel alloc]initWithFrame:CGRectMake(10, -1, 220, 22)];
     subcategoryName.backgroundColor = [UIColor clearColor];
-    subcategoryName.textColor = [[UIColor alloc]initWithRed:83.0/255.0 green:55.0/255.0 blue:2.0/255.0 alpha:1.0];
+    subcategoryName.textColor = [UIColor whiteColor];
+    subcategoryName.shadowColor = [UIColor blackColor];
+    subcategoryName.shadowOffset = CGSizeMake(0,1);
     subcategoryName.font = [UIFont systemFontOfSize:14];
     MenuSubcategory *menuSubcategory = (MenuSubcategory *)[menuCategory.menuSubcategories objectAtIndex:section];
     subcategoryName.text = [NSString stringWithFormat:@"%@", menuSubcategory.name];

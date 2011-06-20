@@ -148,7 +148,7 @@
 		average_meal_text.font = [UIFont systemFontOfSize:12];
         average_meal_text.shadowColor = [UIColor whiteColor];
         average_meal_text.shadowOffset = CGSizeMake(0,1);
-        average_meal_text.text = @"Avg Entree:";
+        average_meal_text.text = @"Avg Entree";
         [self.contentView addSubview:average_meal_text];
 
         
