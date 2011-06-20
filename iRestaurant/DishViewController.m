@@ -21,6 +21,8 @@
 #import "RestaurantViewController.h"
 #import "TagViewController.h"
 #import "CommentService.h"
+#import "Festival.h"
+#import "UIImageView+WebCache.h"
 
 // CELLS
 #import "DishHeaderCell.h"
@@ -40,7 +42,7 @@
 
 @implementation DishViewController
 
-@synthesize restaurant, menu_item, tableArray, takePhoto, tagService, tagsBeingLoaded;
+@synthesize restaurant, menu_item, tableArray, takePhoto, tagService, tagsBeingLoaded, festival;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -51,7 +53,7 @@
     return self;
 }
 
--(id)initWithMenuItem:(MenuItem *)menu_item_passed andRestaurant:(Restaurant *)restaurant_passed 
+-(id)initWithMenuItem:(MenuItem *)menu_item_passed andRestaurant:(Restaurant *)restaurant_passed andFestival:(Festival *) festival_passed
 {    
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
@@ -59,7 +61,9 @@
         self.tableView.backgroundColor = [UIColor whiteColor];
         menu_item = [menu_item_passed retain];
         restaurant = [restaurant_passed retain];
-        
+        if(festival) {
+            festival = [festival_passed retain];
+        }
         NSLog(@"is favorite? %i", menu_item.bookmark);
         
         tableArray = [[NSMutableArray alloc]init];
@@ -94,6 +98,7 @@
 
 - (void)dealloc
 {
+    [festival release];
     [tagService release];
     [restaurant release];
     [menu_item release];
@@ -118,9 +123,18 @@
     
     takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
     
-    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
-    appNameImageView.frame = CGRectMake(0, -3, 320, 44);
-    appNameImageView.contentMode = UIViewContentModeRight;
+    UIImageView *appNameImageView;
+    if(festival) {
+        self.navigationController.navigationBar.tintColor = festival.color;
+        appNameImageView = [[UIImageView alloc] init];
+        [appNameImageView setImageWithURL:[NSURL URLWithString:festival.urlForDevice]];
+        appNameImageView.frame = CGRectMake(160, -3, 145, 44);
+    } else {
+        appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
+        appNameImageView.frame = CGRectMake(160, -3, 150, 44);
+    }
+    
+    appNameImageView.contentMode = UIViewContentModeScaleAspectFit;
     self.navigationItem.titleView = appNameImageView;
     self.tableView.separatorColor = [UIColor clearColor];
 }

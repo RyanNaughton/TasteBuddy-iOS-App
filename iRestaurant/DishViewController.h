@@ -17,6 +17,7 @@
 @class Restaurant;
 @class MenuItem;
 @class TakePhoto;
+@class Festival;
 
 @interface DishViewController : UITableViewController <UIActionSheetDelegate, RatingServiceDelegate, BookmarkServiceDelegate, RatingPopupDelegate, TaggingServiceDelegate, TagServiceDelegate, CommentServiceDelegate> {
     Restaurant *restaurant;
@@ -25,17 +26,19 @@
     TakePhoto *takePhoto;
     TagService *tagService;
     bool tagsBeingLoaded;
+    Festival *festival;
 }
 
 @property (nonatomic, retain) Restaurant *restaurant;
 @property (nonatomic, retain) MenuItem *menu_item;
+@property (nonatomic, retain) Festival *festival;
 @property (nonatomic, retain) NSMutableArray *tableArray;
 @property (nonatomic, retain) TakePhoto *takePhoto;
 @property (nonatomic, retain) TagService *tagService;
 @property (nonatomic, assign) bool tagsBeingLoaded;
 
 
--(id)initWithMenuItem:(MenuItem *)menu_item_passed andRestaurant:(Restaurant *)restaurant_passed;
+-(id)initWithMenuItem:(MenuItem *)menu_item_passed andRestaurant:(Restaurant *)restaurant_passed andFestival:(Festival *) festival_passed;
 -(void)callButtonPressed:(id)sender;
 -(void)rateItButtonPressed:(id)sender;
 -(void)mapItButtonPressed:(id)sender;

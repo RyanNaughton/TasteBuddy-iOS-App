@@ -336,7 +336,7 @@
     if ([restaurantsArray count] > 0) {
         [tableView deselectRowAtIndexPath:indexPath animated:NO];
         Restaurant *restaurant = (Restaurant *)[restaurantsArray objectAtIndex:indexPath.section];
-        DishViewController *dishViewController = [[DishViewController alloc] initWithMenuItem:[restaurant.menu_items objectAtIndex:indexPath.row] andRestaurant:restaurant];
+        DishViewController *dishViewController = [[DishViewController alloc] initWithMenuItem:[restaurant.menu_items objectAtIndex:indexPath.row] andRestaurant:restaurant andFestival:searchViewController.festival];
         [searchViewController.navigationController pushViewController:dishViewController animated:YES];
         [dishViewController release];  
     }
