@@ -128,11 +128,6 @@
     menuViewController = [[MenuViewController alloc]initWithRestaurant:restaurant andFestival:festival];
     takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
 
-    UIImageView *appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
-    appNameImageView.frame = CGRectMake(0, -3, 320, 44);
-    appNameImageView.contentMode = UIViewContentModeRight;
-    self.navigationItem.titleView = appNameImageView;
-    
     self.tableView.separatorColor = [UIColor clearColor];
 }
 
