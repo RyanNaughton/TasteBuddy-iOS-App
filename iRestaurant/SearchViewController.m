@@ -169,7 +169,7 @@
         [self resultsLoading];
         [searchService searchByTerm:@""];
     }
-    
+    if(isFestivalSearch) fakeTermField.placeholder = @"      search festival selections";
     [self.tableView reloadData];
     
 }
@@ -233,7 +233,11 @@
         [tableView reloadData];
         tableView.hidden = false;
         mapView.hidden = true;
-        fakeTermField.placeholder = @"      dishes, restaurants, cuisines";
+        if(isFestivalSearch) {
+            fakeTermField.placeholder = @"      search festival selections";   
+        } else {
+            fakeTermField.placeholder = @"      dishes, restaurants, cuisines";            
+        }
         [mapButton setTitle:@"Map" forState:UIControlStateNormal];
     } else if (sender == dishesTabButton){
         [self switchTabs:dishesTabButton];
@@ -242,7 +246,11 @@
         [tableView reloadData];
         tableView.hidden = false;
         mapView.hidden = true;
-        fakeTermField.placeholder = @"      dishes, restaurants, cuisines";
+        if(isFestivalSearch) {
+            fakeTermField.placeholder = @"      search festival selections";   
+        } else {
+            fakeTermField.placeholder = @"      dishes, restaurants, cuisines";            
+        }
     } else if (sender == mapButton && [mapButton.titleLabel.text isEqualToString:@"Map"]) {
         tableView.hidden = true;
         mapView.hidden = false;
