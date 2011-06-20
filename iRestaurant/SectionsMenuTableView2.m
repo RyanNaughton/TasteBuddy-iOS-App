@@ -273,7 +273,7 @@
 
     } else {
         // header row for non-expanded view
-        MenuCategory *mc = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.row];
+        MenuCategory *mc = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
         [parentVC.tableView deselectRowAtIndexPath:indexPath animated:YES];
         SubsectionsMenuTableView2 *ss = [[SubsectionsMenuTableView2 alloc]initWithMenuCategory:mc andFestival:festival];
         [ss setTitle:mc.name];

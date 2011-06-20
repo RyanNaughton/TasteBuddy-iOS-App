@@ -28,8 +28,9 @@
 
     [jsonDictionary setObject:restaurant_id forKey:@"restaurant_id"];
     
-    [jsonDictionary setObject:menu_item_id forKey:@"menu_item_id"];
-    
+    if (menu_item_id) {
+        [jsonDictionary setObject:menu_item_id forKey:@"menu_item_id"];
+    }
     
     [self prepareRequest];
 }

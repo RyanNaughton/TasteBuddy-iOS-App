@@ -97,9 +97,9 @@
         distance.hidden = NO;
         distance.text = [NSString stringWithFormat:@"%@ miles", [restaurant.distance retain]];
     }
-    averageDishPrice.text = [NSString stringWithFormat:@"avg. dish: $%.2f", restaurant.average_meal_price];
+    averageDishPrice.text = [NSString stringWithFormat:@"avg entree $%.2f", restaurant.average_meal_price];
     
-    if ([averageDishPrice.text isEqualToString:@"avg. dish: $0.00"]) {
+    if ([averageDishPrice.text isEqualToString:@"avg entree $0.00"]) {
         averageDishPrice.text = @"";
     }
     
