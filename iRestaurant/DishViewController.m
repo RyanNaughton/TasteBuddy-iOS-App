@@ -62,7 +62,9 @@
         self.tableView.backgroundColor = [UIColor whiteColor];
         menu_item = [menu_item_passed retain];
         restaurant = [restaurant_passed retain];
-        if(festival) {
+        NSLog(@"FP %@", festival_passed);
+        if(festival_passed) {
+            NSLog(@"FP %@", festival_passed);
             festival = [festival_passed retain];
         }
         NSLog(@"is favorite? %i", menu_item.bookmark);
@@ -124,19 +126,6 @@
     
     takePhoto = [[TakePhoto alloc]initWithParentViewController:self];
     
-    UIImageView *appNameImageView;
-    if(festival) {
-        self.navigationController.navigationBar.tintColor = festival.color;
-        appNameImageView = [[UIImageView alloc] init];
-        [appNameImageView setImageWithURL:[NSURL URLWithString:festival.urlForDevice]];
-        appNameImageView.frame = CGRectMake(160, -3, 145, 44);
-    } else {
-        appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
-        appNameImageView.frame = CGRectMake(160, -3, 150, 44);
-    }
-    
-    appNameImageView.contentMode = UIViewContentModeScaleAspectFit;
-    self.navigationItem.titleView = appNameImageView;
     self.tableView.separatorColor = [UIColor clearColor];
 }
 
@@ -154,6 +143,19 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    UIImageView *appNameImageView;
+    if(festival) {
+        NSLog(@"F %@", festival);
+        self.navigationController.navigationBar.tintColor = festival.color;
+        appNameImageView = [[UIImageView alloc] init];
+        [appNameImageView setImageWithURL:[NSURL URLWithString:festival.urlForDevice]];
+    } else {
+        appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
+    }
+    appNameImageView.frame = CGRectMake(0, -3, 320, 44);
+    appNameImageView.contentMode = UIViewContentModeRight;
+    self.navigationItem.titleView = appNameImageView;
+
     [super viewDidAppear:animated];
 }
 
@@ -420,7 +422,7 @@
 
 -(void)mapItButtonPressed:(id)sender
 {
-    iRestaurantAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSString *addressString = [NSString stringWithFormat:@"%@, %@, %@, %@, %@, %@", restaurant.address_1, restaurant.address_2, restaurant.city_town, restaurant.state_province, restaurant.postal_code, restaurant.country];
     addressString = [addressString stringByReplacingOccurrencesOfString:@" " withString:@"+"];
     NSString *requestString = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%f,%f&daddr=%@&z=15", appDelegate.currentLocation.coordinate.latitude, appDelegate.currentLocation.coordinate.longitude, addressString];

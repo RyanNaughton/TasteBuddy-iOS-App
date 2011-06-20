@@ -200,7 +200,7 @@
     
     if ([restaurantsArray count] > 0) {
         Restaurant *restaurant = (Restaurant *)[restaurantsArray objectAtIndex:button.tag];
-        RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:restaurant];
+        RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:restaurant andFestival:searchViewController.festival];
         [searchViewController.navigationController pushViewController:restaurantViewController animated:YES];
         [restaurantViewController release];
     }

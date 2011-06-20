@@ -73,7 +73,7 @@
 
 -(NSString *) urlForDevice {
     UIDeviceHardware *h=[[UIDeviceHardware alloc] init];
-    if ([[h platformString] isEqualToString:@"iPhone 4"] || [[h platformString] isEqualToString:@"iPod Touch 4G"]) {
+    if ([[h platformString] isEqualToString:@"iPhone 4"] || [[h platformString] isEqualToString:@"iPod Touch 4G"] || [[h platformString] isEqualToString:@"Simulator"]) {
         NSLog(@"we have an iPhone 4");
         return [logo objectForKey:@"standard_resolution"];
     } else {

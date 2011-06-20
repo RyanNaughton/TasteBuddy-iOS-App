@@ -240,7 +240,7 @@
         NSDictionary *restaurantDict = [restaurantsArray objectAtIndex:indexPath.row];
         Restaurant *restaurant = [[Restaurant alloc]initWithDictionary:restaurantDict];
         
-        RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:restaurant];
+        RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:restaurant andFestival:nil];
         [favoritesViewController.navigationController pushViewController:restaurantViewController animated:YES];
         [restaurantViewController release];
         

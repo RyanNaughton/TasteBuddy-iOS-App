@@ -25,6 +25,8 @@
 #import "Tag.h"
 #import "CommentService.h"
 #import "Menu.h"
+#import "Festival.h"
+#import "UIImageView+WebCache.h"
 
 // CELLS =========
 #import "RestaurantHeaderCell.h"
@@ -39,7 +41,7 @@
 #import "RestaurantAdditionalInformationCell.h"
 
 @implementation RestaurantViewController
-@synthesize tableArray, restaurant, tagsRowHeight, takePhoto, menuViewController, tagsBeingLoaded, tagService;
+@synthesize tableArray, restaurant, tagsRowHeight, takePhoto, menuViewController, tagsBeingLoaded, tagService, festival;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -50,14 +52,16 @@
     return self;
 }
 
--(id)initWithRestaurant:(Restaurant *)restaurant_passed {
+-(id)initWithRestaurant:(Restaurant *)restaurant_passed andFestival:(Festival *)festival_passed {
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
         tagsBeingLoaded = true;
         self.navigationController.navigationBar.tintColor = [UIColor blackColor];
         self.navigationController.navigationBar.translucent = YES;
         restaurant = [restaurant_passed retain];
-        
+        if (festival_passed) {
+            festival = [festival_passed retain];
+        }
         [self buildTableArray];
         
         tagsRowHeight = 44;
@@ -90,6 +94,7 @@
     //[restaurant release];
     [tableArray release];
     [takePhoto release];
+    [festival release];
     [super dealloc];
 }
 
@@ -153,6 +158,19 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    
+    UIImageView *appNameImageView;
+    if(festival) {
+        self.navigationController.navigationBar.tintColor = festival.color;
+        appNameImageView = [[UIImageView alloc] init];
+        [appNameImageView setImageWithURL:[NSURL URLWithString:festival.urlForDevice]];
+    } else {
+        appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
+    }
+    appNameImageView.frame = CGRectMake(0, -3, 320, 44);
+    appNameImageView.contentMode = UIViewContentModeRight;
+    self.navigationItem.titleView = appNameImageView;
+    
     if(animated) {
         [self.tableView reloadData];
     }

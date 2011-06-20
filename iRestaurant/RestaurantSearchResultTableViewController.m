@@ -273,7 +273,7 @@
     
     if([filteredArray count] > 0 && !isLoading){
     // Navigation logic may go here. Create and push another view controller.
-    RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:[filteredArray objectAtIndex:indexPath.row]];
+    RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:[filteredArray objectAtIndex:indexPath.row] andFestival:searchViewController.festival];
     [searchViewController.navigationController pushViewController:restaurantViewController animated:YES];
     [restaurantViewController release];
     

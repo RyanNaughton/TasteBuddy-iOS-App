@@ -321,7 +321,7 @@
 }
 
 -(void) restaurantRetrieved:(Restaurant *)restuarant {
-    DishViewController *dishViewController = [[DishViewController alloc] initWithMenuItem:menu_item andRestaurant:restuarant];
+    DishViewController *dishViewController = [[DishViewController alloc] initWithMenuItem:menu_item andRestaurant:restuarant andFestival:nil];
     [favoritesViewController.navigationController pushViewController:dishViewController animated:YES];
     [dishViewController release];  
 }

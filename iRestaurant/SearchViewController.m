@@ -123,12 +123,11 @@
         self.navigationController.navigationBar.tintColor = festival.color;
         appNameImageView = [[UIImageView alloc] init];
         [appNameImageView setImageWithURL:[NSURL URLWithString:festival.urlForDevice]];
-        appNameImageView.frame = CGRectMake(160, -3, 145, 44);
     } else {
         appNameImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"tasteBuddyLogo.png"]];
-        appNameImageView.frame = CGRectMake(160, -3, 150, 44);
     }
 
+    appNameImageView.frame = CGRectMake(160, -3, 150, 44);
     appNameImageView.contentMode = UIViewContentModeScaleAspectFit;
     
     dishesTabButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -176,7 +175,7 @@
 }
 
 -(void)fireSearch {
-    sortAndFilterPreferences.reset;
+    [sortAndFilterPreferences reset];
     needsToPerformDefaultSearch = NO;
     [self resultsLoading];
     [searchService searchByTerm:@""];
