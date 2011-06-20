@@ -85,15 +85,21 @@
 }
 
 -(void) imageLoadingDone:(NSDictionary *)dict {
-    if (facebookSwitch.on) {
-        [self shareOnFacebook];
-    }
-    if ([photoPurpose isEqualToString:@"restaurant"]) {
-        [rvc newImageLoaded:dict];
-    } else if ([photoPurpose isEqualToString:@"dish"]) {
-        [dvc newImageLoaded:dict];
-    } else if ([photoPurpose isEqualToString:@"tab"]) {
-        [tab newImageLoaded:dict];
+    if (dict == NULL) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Error" message:@"There has been an error whilst uploading your photo. Please try again." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        [alert release];
+    } else {
+      if (facebookSwitch.on) {
+          [self shareOnFacebook];
+      }
+      if ([photoPurpose isEqualToString:@"restaurant"]) {
+          [rvc newImageLoaded:dict];
+      } else if ([photoPurpose isEqualToString:@"dish"]) {
+          [dvc newImageLoaded:dict];
+      } else if ([photoPurpose isEqualToString:@"tab"]) {
+          [tab newImageLoaded:dict];
+      }
     }
     [self dismissModalViewControllerAnimated:YES];
 }
