@@ -29,5 +29,6 @@
 @property (nonatomic, retain) MenuViewController *parentVC;
 @property (nonatomic, retain) Festival *festival;
 -(id)initWithMenu:(Menu *)menu_passed andFestival:(Festival*) festival_passed;
+-(id)initWithMenu:(Menu *)menu_passed;
 
 @end

@@ -57,14 +57,13 @@
     }
         
     if (menuItems >= 150) {
-        SectionsMenuTableView2 *sectionsMenuTableView = [[SectionsMenuTableView2 alloc]initWithMenu:menu];
+        SectionsMenuTableView2 *sectionsMenuTableView = [[SectionsMenuTableView2 alloc]initWithMenu:menu andFestival:festival];
         tableView.dataSource = sectionsMenuTableView;
         tableView.delegate = sectionsMenuTableView;
         sectionsMenuTableView.navController = self.navigationController;
         sectionsMenuTableView.restaurant = restaurant;
         sectionsMenuTableView.parentVC = self;
         [tableView reloadData];
-        //[sectionsMenuTableView release];
         
     } else {
         SimpleMenuTableView *simpleMenuTableView = [[SimpleMenuTableView alloc]initWithMenu:menu andFestival:festival];
@@ -74,7 +73,6 @@
         //simpleMenuTableView.parentView = self;
         simpleMenuTableView.navController = self.navigationController;
         [tableView reloadData];
-        //[simpleMenuTableView release];
     }
 }
 

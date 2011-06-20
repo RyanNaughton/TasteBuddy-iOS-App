@@ -140,17 +140,12 @@
 {
     // Return the number of rows in the section.   
     int rows;
-    
     if ((section == sectionExpanded) && (isExpanded)) {
-        
          MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:section];
         rows = [menuCategory.menuSubcategories count] + 1;
-        
-        //rows = 2;
     } else {
         rows = 1;
     }
-    
     return rows;
 }
 

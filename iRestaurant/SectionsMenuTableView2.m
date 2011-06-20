@@ -36,6 +36,15 @@
     return self;
 }
 
+-(id)initWithMenu:(Menu *)menu_passed {
+    self = [super initWithStyle:UITableViewStyleGrouped];
+    if (self) {
+        menu = [menu_passed retain];
+        festival = nil;
+    }
+    return self;
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -47,14 +56,10 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath  {  
     int height;
-    NSLog(@"height hit");
-    MenuCategory *menuCategory = [menu.arrayOfCategories objectAtIndex:indexPath.section];
-    MenuSubcategory *menuSubcategory = [menuCategory.menuSubcategories objectAtIndex:indexPath.row];
-    MenuItem *menuItem = [menuSubcategory.arrayOfMenuItems objectAtIndex:indexPath.row];
-    if ([menuItem.pictures count] > 0) {
-        height = 70;
+    if (indexPath.row == 0) {
+        height = 44;
     } else {
-        height = 48;
+        height = 35;
     }
     return height;
 }
@@ -129,7 +134,12 @@
         menuItemsCount = menuItemsCount + [menuSubcategory.arrayOfMenuItems count];
     }
     if (menuItemsCount > 100) {
-        rows = [menuCategory.menuSubcategories count] + 1;
+        if ((section == sectionExpanded) && (isExpanded)) {
+            MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:section];
+            rows = [menuCategory.menuSubcategories count] + 1;
+        } else {
+            rows = 1;
+        }
     } else {
         rows = 1;
     }
@@ -235,11 +245,28 @@
     
     if ((menuItemsCount > 100) && (indexPath.row == 0)) {
        // header row for expanded view 
+        if (!isExpanded) {
+            // expand section, when no others are expanded
+            isExpanded = TRUE;
+            sectionExpanded = indexPath.section;    
+            NSIndexSet *section = [NSIndexSet indexSetWithIndex:indexPath.section];
+            [parentVC.tableView reloadSections:section withRowAnimation:UITableViewRowAnimationFade];
+        } else if (isExpanded && (indexPath.section != sectionExpanded)) {
+            // collapse one, expand another
+            isExpanded = TRUE;
+            sectionExpanded = indexPath.section;
+            NSIndexSet *allSections = [NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, [menu.arrayOfCategories count])];
+            [parentVC.tableView reloadSections:allSections withRowAnimation:UITableViewRowAnimationNone];
+        } else {
+            // Collapse header
+            isExpanded = FALSE;
+            sectionExpanded = indexPath.section;
+            NSIndexSet *section = [NSIndexSet indexSetWithIndex:indexPath.section];
+            [parentVC.tableView reloadSections:section withRowAnimation:UITableViewRowAnimationFade];
+        }
         
     } else if ((menuItemsCount > 100) && (indexPath.row > 0)) {
         // sub row for expanded view
-        //MenuCategory *menuCategory = (MenuCategory *)[menu.arrayOfCategories objectAtIndex:indexPath.section];
-        //MenuSubcategory *menuSubcategory = (MenuSubcategory *)[menuCategory.menuSubcategories objectAtIndex:(indexPath.row - 1)];
         MenuItemsViewController *mivc = [[MenuItemsViewController alloc]initWithMenu:menu andSection:indexPath.section andSubsection:(indexPath.row -1) andRestaurant:restaurant andFestival:festival];
         [navController pushViewController:mivc animated:YES];
         [mivc release];
