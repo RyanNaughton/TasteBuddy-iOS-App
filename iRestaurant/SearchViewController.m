@@ -514,7 +514,7 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control { 
 	if([view.annotation isKindOfClass:[RestaurantAnnotation class]]){
         RestaurantAnnotation *ra = (RestaurantAnnotation *)view.annotation;
-        RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:ra.restaurant];
+        RestaurantViewController *restaurantViewController = [[RestaurantViewController alloc] initWithRestaurant:ra.restaurant andFestival:festival];
         [self.navigationController pushViewController:restaurantViewController animated:YES];
         [restaurantViewController release];
         
