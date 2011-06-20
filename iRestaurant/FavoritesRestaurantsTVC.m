@@ -182,7 +182,7 @@
     } else if ([restaurantsArray count] > 0) {
         NSDictionary *restaurantDict = [restaurantsArray objectAtIndex:indexPath.row];
         Restaurant *restaurant = [[Restaurant alloc]initWithDictionary:restaurantDict];
-        if (restaurant.average_meal_price == 0) {
+        if (restaurant.average_meal_price != 0) {
             height = 70;
         } else {
             height = 52;    
