@@ -151,7 +151,7 @@
     headerView.backgroundColor = [UIColor clearColor];
     
     UIImageView *bgImageView = [[UIImageView alloc]initWithImage:[UIImage imageNamed:@"grey-grad.png"]];
-    bgImageView.alpha = 0.66;
+    bgImageView.alpha = 0.95;
     bgImageView.frame = headerView.frame;
     bgImageView.contentMode = UIViewContentModeScaleToFill;
     [headerView addSubview:bgImageView];

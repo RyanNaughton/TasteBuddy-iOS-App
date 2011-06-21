@@ -80,7 +80,7 @@
     name.text = [menuItem.name retain];
     
     if (menuItem.ticket_price) {
-        price.text = [NSString stringWithFormat:@"%f tix", menuItem.ticket_price];
+        price.text = [NSString stringWithFormat:@"%.1f tix", menuItem.ticket_price];
     } else {
         price.text = [NSString stringWithFormat:@"$%.2f", menuItem.price];
         

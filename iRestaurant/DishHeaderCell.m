@@ -131,11 +131,24 @@
     
     
     restaurantName.text = [restaurant.name retain];
-    price.text = [NSString stringWithFormat:@"$%.2f", menu_item.price];
     
-    if ([price.text isEqualToString:@"$0.00"]) {
-        price.text = @"";
+    if (menu_item_passed.ticket_price) {
+        price.text = [NSString stringWithFormat:@"%.1f tix", menu_item_passed.ticket_price];
+    } else {
+        price.text = [NSString stringWithFormat:@"$%.2f", menu_item_passed.price];
+        
+        if ([price.text isEqualToString:@"$0.00"]) {
+            price.text = @"";
+        }
+        
     }
+
+    
+//    price.text = [NSString stringWithFormat:@"$%.2f", menu_item.price];
+//    
+//    if ([price.text isEqualToString:@"$0.00"]) {
+//        price.text = @"";
+//    }
     NSLog(@"rating is: %f", menu_item.rating.user_rating);
     [ratingView loadRating:menu_item.rating];
     
