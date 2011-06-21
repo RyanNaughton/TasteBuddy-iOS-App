@@ -105,8 +105,14 @@
     int userRatingsCount = [[appDelegate readSavedSetting:@"ratingsSubmitted"]intValue];
     if (userRatingsCount < 5) {
         NSString *ratingString;
+        NSMutableString *ratingCountString;
         if (rating.ratings_count > 0) {
-            ratingString = [NSString stringWithFormat:@"(%i) ", rating.ratings_count];
+            ratingCountString = [NSMutableString stringWithFormat:@"%i", rating.ratings_count];
+            if (rating.ratings_count > 1000) {
+                NSRange thousands = NSMakeRange(([ratingCountString length] - 3), 3);
+                [ratingCountString replaceCharactersInRange:thousands withString:@"k"];
+            }
+            ratingString = [NSString stringWithFormat:@"(%@) ", ratingCountString];
         } else {
             ratingString = @"";
         }

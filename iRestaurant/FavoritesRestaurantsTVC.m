@@ -177,8 +177,7 @@
         favoritesViewController.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         height = 300; 
     } else if ([restaurantsArray count] > 0) {
-        NSDictionary *restaurantDict = [restaurantsArray objectAtIndex:indexPath.row];
-        Restaurant *restaurant = [[Restaurant alloc]initWithDictionary:restaurantDict];
+        Restaurant *restaurant = [restaurantsArray objectAtIndex:indexPath.row];
         if (restaurant.average_meal_price != 0) {
             height = 70;
         } else {

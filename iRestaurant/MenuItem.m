@@ -47,7 +47,9 @@
         bookmark        = [[menuItemDictionary objectForKey:@"bookmark"] boolValue];
         description     = [[menuItemDictionary objectForKey:@"description"] retain];
         
+        if (![[menuItemDictionary objectForKey:@"ticket_price"] isKindOfClass:[NSNull class]]) {
         ticket_price    = [[menuItemDictionary objectForKey:@"ticket_price"] floatValue];
+        }
         
         foreign_name = [[menuItemDictionary objectForKey:@"foreign_name"] retain];
         
