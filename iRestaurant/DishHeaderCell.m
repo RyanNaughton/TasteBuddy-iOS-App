@@ -140,7 +140,6 @@
         if ([price.text isEqualToString:@"$0.00"]) {
             price.text = @"";
         }
-        
     }
 
     
