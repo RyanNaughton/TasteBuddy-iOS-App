@@ -28,10 +28,9 @@
 -(void) setupOutlineStarsView;
 -(void) setupRedStarsView;
 -(void) setupYellowStarsView;
--(void) setupRatingCount:(int)howManyRatings;
 -(void) setRating:(float)rating;
 
-
+-(void) setupRatingCount:(Rating *)rating;
 -(void) loadRating:(Rating *)rating;
 
 @end

@@ -78,13 +78,18 @@
 -(void)loadMenuItem:(MenuItem *)menuItem {
     UIImage *noImage = [UIImage imageNamed:@"no-image-short.png"];
     name.text = [menuItem.name retain];
-    //tags.text = [menuItem tagsText];
-    price.text = [NSString stringWithFormat:@"$%.2f", menuItem.price];
     
-    if ([price.text isEqualToString:@"$0.00"]) {
-        price.text = @"";
+    if (menuItem.ticket_price) {
+        price.text = [NSString stringWithFormat:@"%f tix", menuItem.ticket_price];
+    } else {
+        price.text = [NSString stringWithFormat:@"$%.2f", menuItem.price];
+        
+        if ([price.text isEqualToString:@"$0.00"]) {
+            price.text = @"";
+        }
+
     }
-    
+        
     if ([menuItem.pictures count] > 0) {
         [imageView setImageWithURL:[NSURL URLWithString:[[menuItem.pictures objectAtIndex:0] objectForKey:@"80px"]]
               placeholderImage:noImage];

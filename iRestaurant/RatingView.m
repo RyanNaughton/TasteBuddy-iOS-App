@@ -33,7 +33,7 @@
         starSize = starSizePassed;
         [self setupOutlineStarsView];
         
-        ratingsLabel = [[UILabel alloc]initWithFrame:CGRectMake(((starSize * 5) + 5), 2, 100, starSize)];
+        ratingsLabel = [[UILabel alloc]initWithFrame:CGRectMake(((starSize * 5) + 5), 0, 100, starSize)];
         ratingsLabel.textColor = [UIColor darkGrayColor];
         ratingsLabel.backgroundColor = [UIColor clearColor];
         ratingsLabel.font = [UIFont systemFontOfSize:12];
@@ -99,19 +99,25 @@
     [self addSubview:yellowStarsView];
 }
 
--(void)setupRatingCount:(int)howManyRatings {
+-(void)setupRatingCount:(Rating *)rating {
     //ratingsLabel.text = [NSString stringWithFormat:@"%i ratings", howManyRatings];
     iRestaurantAppDelegate *appDelegate = (iRestaurantAppDelegate *)[[UIApplication sharedApplication] delegate];
     int userRatingsCount = [[appDelegate readSavedSetting:@"ratingsSubmitted"]intValue];
     if (userRatingsCount < 5) {
-        ratingsLabel.text = @"Tap to rate!";
+        NSString *ratingString;
+        if (rating.ratings_count > 0) {
+            ratingString = [NSString stringWithFormat:@"(%i) ", rating.ratings_count];
+        } else {
+            ratingString = @"";
+        }
+        ratingsLabel.text = [NSString stringWithFormat:@"%@Tap to rate!", ratingString];
     } else {
         ratingsLabel.text = @"";
     }
 }
 
 -(void) loadRating:(Rating *)rating {
-    [self setupRatingCount:rating.ratings_count];
+    [self setupRatingCount:rating];
     [self setRating:rating.average_rating * 20];
     if (rating.user_rating > 0) {
         [self setUserRating:rating.user_rating * 20];        

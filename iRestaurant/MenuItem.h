@@ -24,6 +24,7 @@
     Rating *rating;
     BOOL bookmark;
     NSString *foreign_name;
+    float ticket_price;
     
 }
 
@@ -39,6 +40,7 @@
 @property (nonatomic, assign) BOOL bookmark;
 @property (nonatomic, retain) NSString *foreign_name;
 @property (nonatomic, retain) NSString *description;
+@property (nonatomic, assign) float ticket_price;
 
 -(id) initWithDictionary:(NSDictionary *)menuItemDictionary;
 

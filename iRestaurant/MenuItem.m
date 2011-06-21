@@ -25,6 +25,7 @@
 @synthesize bookmark;
 @synthesize foreign_name;
 @synthesize description;
+@synthesize ticket_price;
 
 -(id) init {
     self = [super init];
@@ -45,6 +46,8 @@
         restaurant_id   = [[menuItemDictionary objectForKey:@"restaurant_id"] retain];
         bookmark        = [[menuItemDictionary objectForKey:@"bookmark"] boolValue];
         description     = [[menuItemDictionary objectForKey:@"description"] retain];
+        
+        ticket_price    = [[menuItemDictionary objectForKey:@"ticket_price"] floatValue];
         
         foreign_name = [[menuItemDictionary objectForKey:@"foreign_name"] retain];
         
